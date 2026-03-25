@@ -22,7 +22,7 @@
    - 5.1 [Business Overview](#51-business-overview)
    - 5.2 [Encounter Summary for Clinical Staff](#52-encounter-summary-for-clinical-staff)
    - 5.3 [Claims and Billing Summary for Clearinghouse Submission](#53-claims-and-billing-summary-for-clearinghouse-submission)
-6. [Laura Jennings — Prior Authorization, Root Canal Therapy, and Crown](#6-laura-jennings)
+6. [Laura Jennings — predetermination, Root Canal Therapy, and Crown](#6-laura-jennings)
    - 6.1 [Business Overview](#61-business-overview)
    - 6.2 [Encounter Summary for Clinical Staff](#62-encounter-summary-for-clinical-staff)
    - 6.3 [Claims and Billing Summary for Clearinghouse Submission](#63-claims-and-billing-summary-for-clearinghouse-submission)
@@ -32,9 +32,9 @@
 
 ## 1. Executive Summary
 
-This document describes three synthetic but clinically realistic patient scenarios created for use at the Oral Health Interoperability Alliance (OHIA) Connectathon. Each scenario is pre-loaded into an Onyx OnyxOS FHIR server and used to test whether patient-facing and provider-centric applications can correctly retrieve dental claims, encounter data, and prior authorization information using open FHIR standards — without proprietary interfaces, custom integrations, or phone calls to an insurance company.
+This document describes three synthetic but clinically realistic patient scenarios created for use at the Oral Health Interoperability Alliance (OHIA) Connectathon. Each scenario is pre-loaded into an Onyx OnyxOS FHIR server and used to test whether patient-facing and provider-centric applications can correctly retrieve dental claims, encounter data, and predetermination information using open FHIR standards — without proprietary interfaces, custom integrations, or phone calls to an insurance company.
 
-All three patients receive care at the same Kentucky dental practice from the same dental provider. Each carries a different commercial dental PPO through a different payer, and each scenario exercises a distinct and progressively complex set of administrative and clinical workflows. Together they represent the full arc of dental administrative complexity — from a straightforward preventive visit through a multi-month prior authorization and treatment sequence.
+All three patients receive care at the same Kentucky dental practice from the same dental provider. Each carries a different commercial dental PPO through a different payer, and each scenario exercises a distinct and progressively complex set of administrative and clinical workflows. Together they represent the full arc of dental administrative complexity — from a straightforward preventive visit through a multi-month predetermination and treatment sequence.
 
 **Emily Watkins** is the baseline scenario. She receives routine preventive care at no cost to her, followed by a simple filling that requires applying a deductible and coinsurance. Her story tests whether a patient-facing app can retrieve two dental claims, display the correct out-of-pocket amounts, distinguish between preventive services (exempt from deductible) and basic restorative services (subject to it). These are the foundational capabilities any dental patient app must get right before it is useful to anyone.
 
@@ -42,7 +42,7 @@ All three patients receive care at the same Kentucky dental practice from the sa
 
 **Laura Jennings** is the most complex scenario in the dataset. She presents as an emergency patient, is diagnosed with irreversible pulpitis on tooth #3, and requires root canal therapy followed by a porcelain crown. Her plan requires predetermination before treatment can proceed. The authorization workflow spans three FHIR implementation guides — CARIN Blue Button for claims access, Da Vinci Prior Authorization Support for the authorization exchange, and Da Vinci Documentation Templates and Rules for the clinical evidence submitted in support of the request. Her story runs from June through July 2026 across three encounters, six FHIR resource bundles, and three different benefit tier rates. One of her approved procedures carries a conditional authorization that requires clinical documentation to release — testing whether apps can parse and surface that condition to the patient before their appointment.
 
-**The question these scenarios answer:** Can a patient open an app and see their dental claims history, understand what they owe and why, track a prior authorization from submission through approval, and confirm that the authorization number carried through to their treatment claims — all without calling their insurance company? And can a dental practice system query that same data at the population level, retrieve clinical documentation, and trace the full prior authorization chain across FHIR namespaces?
+**The question these scenarios answer:** Can a patient open an app and see their dental claims history, understand what they owe and why, track a predetermination from submission through approval, and confirm that the authorization number carried through to their treatment claims — all without calling their insurance company? And can a dental practice system query that same data at the population level, retrieve clinical documentation, and trace the full predetermination chain across FHIR namespaces?
 
 
 
@@ -91,7 +91,7 @@ All nine FHIR bundles in this dataset are pre-loaded into the Onyx OnyxOS FHIR s
 |---|---|---|
 | CARIN Blue Button® with Oral Profile | /carin-bb/fhir/ | All patient-facing EOBs and claims access |
 | Da Vinci Prior Authorization Support (PAS) | /davinci-pas/fhir/ | Prior authorization request and ClaimResponse |
-| Da Vinci Documentation Templates and Rules (DTR) | /davinci-dtr/fhir/ | Clinical documentation supporting prior authorization |
+| Da Vinci Documentation Templates and Rules (DTR) | /davinci-dtr/fhir/ | Clinical documentation supporting predetermination |
 | US Core | Shared | Patient demographics, Condition, Organization |
 
 ### Test Account Credentials
@@ -183,7 +183,7 @@ Emily's total out-of-pocket expense for the year — covering two visits, one cl
 | Practice address | 517 Legion Dr, Harrodsburg, KY 40330 |
 | Date of service | March 12, 2026 |
 | Place of service | Office (11) |
-| Prior authorization | Not required |
+| predetermination | Not required |
 
 **Service Lines:**
 
@@ -225,7 +225,7 @@ Emily's total out-of-pocket expense for the year — covering two visits, one cl
 | Practice address | 517 Legion Dr, Harrodsburg, KY 40330 |
 | Date of service | May 22, 2026 |
 | Place of service | Office (11) |
-| Prior authorization | Not required |
+| predetermination | Not required |
 | Related claim | Claim 1 of 2 above — decay first noted at March 12, 2026 visit |
 
 **Service Lines:**
@@ -327,7 +327,7 @@ Extraction performed under local anesthesia. Uncomplicated forceps removal of to
 | Practice address | 517 Legion Dr, Harrodsburg, KY 40330 |
 | Date of service | April 8, 2026 |
 | Place of service | Office (11) |
-| Prior authorization | Not required |
+| predetermination | Not required |
 | Visit notes | Same-day emergency appointment. New patient. Three-day history of severe lower right pain, swelling, and cold sensitivity. |
 
 **Service Lines:**
@@ -358,7 +358,7 @@ Extraction performed under local anesthesia. Uncomplicated forceps removal of to
 
 ---
 
-## 6. Laura Jennings — Prior Authorization, Root Canal Therapy, and Crown
+## 6. Laura Jennings — predetermination, Root Canal Therapy, and Crown
 
 ### 6.1 Business Overview
 
@@ -366,7 +366,7 @@ Laura Jennings calls Harrodsburg Family Dentistry reporting worsening pain in he
 
 Dr. Philip Barsotti examines Laura, takes X-rays, and determines that tooth #3 — the upper right first molar — has irreversible pulpitis. The nerve inside the tooth is dying, which is the source of her pain. Root canal therapy is the appropriate treatment to save the tooth, followed by a porcelain crown to protect what remains of the tooth structure afterward. Because Laura is in significant pain, Dr. Barsotti provides emergency palliative treatment at this first visit to relieve her discomfort while the practice prepares the necessary paperwork.
 
-Laura's plan through Anthem Blue Cross and Blue Shield of Kentucky requires prior authorization before root canal therapy and crown procedures can be performed. The practice submits an authorization request to Anthem with supporting X-rays and a clinical narrative, and Anthem approves the root canal and crown within a week. The core buildup — a foundation placed inside the tooth to support the crown if insufficient natural tooth structure remains — is conditionally approved pending confirmation at the time of the crown preparation appointment.
+Laura's plan through Anthem Blue Cross and Blue Shield of Kentucky requires predetermination before root canal therapy and crown procedures can be performed. The practice submits an authorization request to Anthem with supporting X-rays and a clinical narrative, and Anthem approves the root canal and crown within a week. The core buildup — a foundation placed inside the tooth to support the crown if insufficient natural tooth structure remains — is conditionally approved pending confirmation at the time of the crown preparation appointment.
 
 The root canal is completed two weeks after the initial visit. The following month, Dr. Barsotti prepares the tooth for the crown, confirms that the buildup is clinically necessary, documents this in a narrative submitted with the claim, and seats the final crown at the same appointment. The conditional authorization is satisfied. All three treatment services are processed by Anthem under the original authorization number.
 
@@ -404,13 +404,13 @@ Laura's total out-of-pocket cost for the year across all three dental visits is 
 
 Radiographic and clinical findings: Existing composite restoration on tooth #3, mesio-occlusal-distal extent. Significant carious lesion involving mesial and occlusal surfaces beneath existing restoration. Periapical radiolucency at root apex consistent with early pulpal necrosis. Tooth #3 non-responsive to cold reversal following prolonged cold testing. Diagnosis: irreversible pulpitis with early periapical periodontitis (ICD-10-CM: K04.01). Root canal therapy indicated. Full-coverage crown required post-endodontic treatment to protect remaining tooth structure and restore occlusal function.
 
-Palliative emergency treatment provided to relieve acute pain and stabilize the tooth. Prior authorization for D3330 (molar root canal therapy), D2740 (porcelain/ceramic crown), and D2393 (core buildup, conditional) to be submitted to Anthem BCBS Kentucky.
+Palliative emergency treatment provided to relieve acute pain and stabilize the tooth. predetermination for D3330 (molar root canal therapy), D2740 (porcelain/ceramic crown), and D2393 (core buildup, conditional) to be submitted to Anthem BCBS Kentucky.
 
 **Outcome:** Pain relieved at appointment. Root canal therapy appointment to be scheduled upon receipt of authorization approval.
 
 ---
 
-#### Prior Authorization
+#### predetermination
 **Submitted:** June 4, 2026
 **Approved:** June 10, 2026
 **Authorization Number:** ANT-PREAUTH-2026-JNG001
@@ -442,7 +442,7 @@ Supporting documentation submitted: periapical radiographs from June 3 visit (D0
 |---|---|---|
 | D3330 | Endodontic therapy, molar tooth (excluding final restoration) | #3 |
 
-**Clinical Findings:** Patient presents for scheduled root canal therapy on tooth #3 (upper right first molar). Prior authorization confirmed — ANT-PREAUTH-2026-JNG001. Local anesthesia administered. Rubber dam isolation. Access preparation through existing restoration. All canals negotiated. Working length established radiographically. Canal preparation using rotary files. Irrigation with sodium hypochlorite and EDTA. Canals dried and obturated with gutta-percha and sealer using warm vertical compaction. Post-obturation radiograph confirms acceptable obturation within 0–2 mm of radiographic apex in all canals. Coronal seal placed. Temporary restoration placed. Patient tolerated procedure well. No complications.
+**Clinical Findings:** Patient presents for scheduled root canal therapy on tooth #3 (upper right first molar). predetermination confirmed — ANT-PREAUTH-2026-JNG001. Local anesthesia administered. Rubber dam isolation. Access preparation through existing restoration. All canals negotiated. Working length established radiographically. Canal preparation using rotary files. Irrigation with sodium hypochlorite and EDTA. Canals dried and obturated with gutta-percha and sealer using warm vertical compaction. Post-obturation radiograph confirms acceptable obturation within 0–2 mm of radiographic apex in all canals. Coronal seal placed. Temporary restoration placed. Patient tolerated procedure well. No complications.
 
 **Outcome:** Root canal therapy complete on tooth #3. Post-operative instructions provided. Crown preparation to be scheduled in four to six weeks.
 
@@ -487,8 +487,8 @@ Conditional authorization requirement satisfied: clinical narrative documenting 
 | Practice address | 517 Legion Dr, Harrodsburg, KY 40330 |
 | Date of service | June 3, 2026 |
 | Place of service | Office (11) |
-| Prior authorization | Not required for these services |
-| Visit notes | Same-day emergency appointment. New patient, new enrollee. One-week history of increasing upper right jaw pain. Periapical radiographs taken. Root canal and crown treatment plan established. Prior authorization to follow. |
+| predetermination | Not required for these services |
+| Visit notes | Same-day emergency appointment. New patient, new enrollee. One-week history of increasing upper right jaw pain. Periapical radiographs taken. Root canal and crown treatment plan established. predetermination to follow. |
 
 **Service Lines:**
 
@@ -535,7 +535,7 @@ Conditional authorization requirement satisfied: clinical narrative documenting 
 | Practice address | 517 Legion Dr, Harrodsburg, KY 40330 |
 | Date of service | June 17, 2026 |
 | Place of service | Office (11) |
-| **Prior authorization** | **Required — ANT-PREAUTH-2026-JNG001** |
+| **predetermination** | **Required — ANT-PREAUTH-2026-JNG001** |
 | Related claim | Claim 1 of 3 — initial emergency visit June 3, 2026 |
 
 **Service Lines:**
@@ -558,7 +558,7 @@ Conditional authorization requirement satisfied: clinical narrative documenting 
 | **Patient responsibility** | **$195.00** |
 | Payment type | Partial |
 
-> **Clearinghouse note:** Authorization number ANT-PREAUTH-2026-JNG001 must appear in the prior authorization reference field on this claim. Anthem will not process without it. The allowed amount of $975.00 was established at predetermination — do not expect a different allowed amount on adjudication. Post-obturation periapical radiograph should be retained in the patient record to support the crown claim to follow.
+> **Clearinghouse note:** Authorization number ANT-PREAUTH-2026-JNG001 must appear in the predetermination reference field on this claim. Anthem will not process without it. The allowed amount of $975.00 was established at predetermination — do not expect a different allowed amount on adjudication. Post-obturation periapical radiograph should be retained in the patient record to support the crown claim to follow.
 
 ---
 
@@ -580,7 +580,7 @@ Conditional authorization requirement satisfied: clinical narrative documenting 
 | Practice address | 517 Legion Dr, Harrodsburg, KY 40330 |
 | Date of service | July 15, 2026 |
 | Place of service | Office (11) |
-| **Prior authorization** | **Required — ANT-PREAUTH-2026-JNG001** |
+| **predetermination** | **Required — ANT-PREAUTH-2026-JNG001** |
 | Related claim | Claim 2 of 3 — root canal June 17, 2026 |
 | Crown seat date | July 15, 2026 |
 
@@ -630,7 +630,7 @@ Conditional authorization requirement satisfied: clinical narrative documenting 
 | jason_morales_encounter1_fhir_bundle.json | Jason Morales | CARIN BB Oral | Encounter 1 claim and EOB — emergency exam and extraction |
 | laura_jennings_b1_initial_visit.json | Laura Jennings | CARIN BB Oral | Encounter 1 claim and EOB — emergency exam |
 | laura_jennings_b2_dtr.json | Laura Jennings | Da Vinci DTR | Questionnaire, QuestionnaireResponse, Condition K04.01, DocumentReference |
-| laura_jennings_b3_pas_request.json | Laura Jennings | Da Vinci PAS | Prior authorization Claim (use: preauthorization) |
+| laura_jennings_b3_pas_request.json | Laura Jennings | Da Vinci PAS | predetermination Claim (use: preauthorization) |
 | laura_jennings_b4_pas_response.json | Laura Jennings | Da Vinci PAS | ClaimResponse with preAuthRef ANT-PREAUTH-2026-JNG001 |
 | laura_jennings_b5_rct.json | Laura Jennings | CARIN BB Oral | Encounter 2 claim and EOB — root canal therapy |
 | laura_jennings_b6_crown.json | Laura Jennings | CARIN BB Oral | Encounter 3 claim and EOB — crown and buildup |
