@@ -1,0 +1,51 @@
+{
+  "resourceType": "Bundle",
+  "id": "site2-harrodsburg-schedules",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:schedule-barsotti-hrb",
+      "resource": {
+        "resourceType": "Schedule",
+        "id": "schedule-barsotti-hrb",
+        "active": true,
+        "actor": [
+          {
+            "reference": "urn:uuid:practitioner-barsotti-hrb",
+            "display": "Dr. Philip Barsotti"
+          },
+          {
+            "reference": "urn:uuid:location-harrodsburg-main",
+            "display": "Harrodsburg Family Dentistry - Main Office"
+          }
+        ],
+        "planningHorizon": {
+          "start": "2026-06-01",
+          "end": "2026-08-31"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:schedule-patel",
+      "resource": {
+        "resourceType": "Schedule",
+        "id": "schedule-patel",
+        "active": true,
+        "actor": [
+          {
+            "reference": "urn:uuid:practitioner-patel",
+            "display": "Dr. Amir Patel"
+          },
+          {
+            "reference": "urn:uuid:location-harrodsburg-main",
+            "display": "Harrodsburg Family Dentistry - Main Office"
+          }
+        ],
+        "planningHorizon": {
+          "start": "2026-06-01",
+          "end": "2026-08-31"
+        }
+      }
+    }
+  ]
+}

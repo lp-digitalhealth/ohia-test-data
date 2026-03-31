@@ -32,7 +32,7 @@
                 }
               ]
             },
-            "system": "https://www.deltadentalky.com/memberid",
+            "system": "https://www.deltadentalky.com/member-id",
             "value": "WTK4592031"
           }
         ],
@@ -175,10 +175,10 @@
     },
 
     {
-      "fullUrl": "urn:uuid:practitioner-philip-barsotti",
+      "fullUrl": "urn:uuid:practitioner-barsotti",
       "resource": {
         "resourceType": "Practitioner",
-        "id": "practitioner-philip-barsotti",
+        "id": "practitioner-barsotti",
         "meta": {
           "profile": [
             "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
@@ -258,7 +258,7 @@
         "resourceType": "PractitionerRole",
         "id": "practitioner-role-barsotti",
         "practitioner": {
-          "reference": "urn:uuid:practitioner-philip-barsotti"
+          "reference": "urn:uuid:practitioner-barsotti"
         },
         "organization": {
           "reference": "urn:uuid:org-harrodsburg-family-dentistry"
@@ -404,7 +404,7 @@
           {
             "sequence": 1,
             "provider": {
-              "reference": "urn:uuid:practitioner-philip-barsotti"
+              "reference": "urn:uuid:practitioner-barsotti"
             },
             "role": {
               "coding": [
@@ -561,7 +561,7 @@
           {
             "sequence": 1,
             "provider": {
-              "reference": "urn:uuid:practitioner-philip-barsotti"
+              "reference": "urn:uuid:practitioner-barsotti"
             },
             "role": {
               "coding": [

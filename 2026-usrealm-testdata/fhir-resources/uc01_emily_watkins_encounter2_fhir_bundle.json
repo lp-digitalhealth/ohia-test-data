@@ -81,7 +81,7 @@
                 }
               ]
             },
-            "system": "http://hl7.org/fhir/sid/us-npi",
+            "system": "https://www.deltadentalky.com",
             "value": "38217"
           }
         ],
@@ -180,12 +180,12 @@
               "coding": [
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
-                  "code": "MD",
-                  "display": "Medical License Number"
+                  "code": "SL",
+                  "display": "State license"
                 }
               ]
             },
-            "system": "https://ky.gov/dental-license",
+            "system": "https://ky.gov/dental/license",
             "value": "10615"
           }
         ],
