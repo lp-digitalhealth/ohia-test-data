@@ -1,0 +1,337 @@
+{
+  "resourceType": "Bundle",
+  "id": "laura-jennings-pas-response-bundle-cpt",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/profile-pas-response-bundle"
+    ],
+    "lastUpdated": "2026-06-10T14:00:00Z"
+  },
+  "type": "collection",
+  "timestamp": "2026-06-10T14:00:00Z",
+
+  "_comment_scope": "Bundle 4 of 6 for Laura Jennings. Da Vinci PAS IG — payer ClaimResponse to the $submit request (Bundle 3). Issued by Anthem BCBS Kentucky on June 10, 2026. Contains the preAuthRef 'ANT-PREAUTH-2026-JNG001' which must be carried in Claim.insurance[].preAuthRef in Bundles 5 and 6 (treatment claims). D3330 and D2740 approved. D2393 approved with condition — clinical documentation confirming insufficient tooth structure required at crown appointment.",
+
+  "entry": [
+
+    {
+      "fullUrl": "urn:uuid:claimresponse-laura-jennings-preauth",
+      "resource": {
+        "resourceType": "ClaimResponse",
+        "id": "claimresponse-laura-jennings-preauth",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/profile-claimresponse"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBIdentifierType",
+                  "code": "claimnumber",
+                  "display": "Claim Number"
+                }
+              ]
+            },
+            "system": "https://www.anthem.com/dental/preauth",
+            "value": "ANT-PREAUTH-2026-JNG001"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            { "system": "http://terminology.hl7.org/CodeSystem/claim-type", "code": "oral", "display": "Oral" }
+          ]
+        },
+        "use": "preauthorization",
+        "patient": {
+          "reference": "urn:uuid:patient-laura-jennings",
+          "display": "Laura Jennings"
+        },
+        "created": "2026-06-10",
+        "insurer": {
+          "reference": "urn:uuid:org-anthem-bcbs-ky",
+          "display": "Anthem Blue Cross and Blue Shield of Kentucky"
+        },
+        "requestor": {
+          "reference": "urn:uuid:org-harrodsburg-family-dentistry",
+          "display": "Harrodsburg Family Dentistry"
+        },
+        "request": {
+          "reference": "urn:uuid:claim-laura-jennings-preauth",
+          "display": "Prior authorization request submitted 2026-06-04"
+        },
+        "outcome": "complete",
+        "disposition": "Prior authorization approved for D3330 and D2740. D2393 approved with condition — clinical documentation required at time of crown preparation appointment.",
+        "preAuthRef": "ANT-PREAUTH-2026-JNG001",
+        "preAuthPeriod": {
+          "start": "2026-06-10",
+          "end": "2026-12-31",
+          "_comment": "Authorization valid through end of plan year 2026. Services must be rendered within this window or re-authorization required."
+        },
+        "item": [
+          {
+            "itemSequence": 1,
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-reviewAction",
+                "extension": [
+                  {
+                    "url": "number",
+                    "valueString": "ANT-PREAUTH-2026-JNG001-LINE1"
+                  },
+                  {
+                    "url": "code",
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "system": "https://codesystem.x12.org/005010/306",
+                          "code": "A1",
+                          "display": "Certified in total"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-itemPreAuthIssueDate",
+                "valueDate": "2026-06-10"
+              },
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-itemAuthorizedDate",
+                "valuePeriod": {
+                  "start": "2026-06-10",
+                  "end": "2026-12-31"
+                }
+              },
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-itemTraceNumber",
+                "valueIdentifier": {
+                  "system": "https://harrodsburgfamilydentistry.com/preauth-trace",
+                  "value": "HFD-TRACE-2026-001"
+                }
+              }
+            ],
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    { "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "submitted", "display": "Submitted Amount" }
+                  ]
+                },
+                "amount": { "value": 1150.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    { "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "eligible", "display": "Allowed Amount" }
+                  ]
+                },
+                "amount": { "value": 975.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    { "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "benefit", "display": "Estimated Plan Payment" }
+                  ]
+                },
+                "_comment": "80% of $975 allowed = $780.00 estimated plan payment. Actual EOB adjudication at time of claim submission.",
+                "amount": { "value": 780.00, "currency": "USD" }
+              }
+            ],
+            "note": [
+              {
+                "number": 1,
+                "type": "display",
+                "text": "41899 (Unlisted procedure - endodontic) — APPROVED. Allowed amount: $975.00. Plan covers 80% (Basic service) after deductible. Estimated member responsibility: $195.00. Deductible status at time of claim submission will determine final member liability."
+              }
+            ]
+          },
+          {
+            "itemSequence": 2,
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-reviewAction",
+                "extension": [
+                  {
+                    "url": "number",
+                    "valueString": "ANT-PREAUTH-2026-JNG001-LINE2"
+                  },
+                  {
+                    "url": "code",
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "system": "https://codesystem.x12.org/005010/306",
+                          "code": "A1",
+                          "display": "Certified in total"
+                        }
+                      ]
+                    }
+                  }
+                ]
+              },
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-itemPreAuthIssueDate",
+                "valueDate": "2026-06-10"
+              },
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-itemAuthorizedDate",
+                "valuePeriod": {
+                  "start": "2026-06-10",
+                  "end": "2026-12-31"
+                }
+              },
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-itemTraceNumber",
+                "valueIdentifier": {
+                  "system": "https://harrodsburgfamilydentistry.com/preauth-trace",
+                  "value": "HFD-TRACE-2026-002"
+                }
+              }
+            ],
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    { "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "submitted" }
+                  ]
+                },
+                "amount": { "value": 1350.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    { "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "eligible", "display": "Allowed Amount" }
+                  ]
+                },
+                "amount": { "value": 1050.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    { "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "benefit", "display": "Estimated Plan Payment" }
+                  ]
+                },
+                "_comment": "50% of $1,050 allowed = $525.00 estimated plan payment",
+                "amount": { "value": 525.00, "currency": "USD" }
+              }
+            ],
+            "note": [
+              {
+                "number": 1,
+                "type": "display",
+                "text": "41899 (Unlisted procedure - crown restoration) — APPROVED. Allowed amount: $1,050.00. Plan covers 50% (Major service) after deductible. Estimated member responsibility: $525.00. Crown must be submitted on the seat/delivery date, not the preparation date."
+              }
+            ]
+          },
+          {
+            "itemSequence": 3,
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-reviewAction",
+                "extension": [
+                  {
+                    "url": "number",
+                    "valueString": "ANT-PREAUTH-2026-JNG001-LINE3"
+                  },
+                  {
+                    "url": "code",
+                    "valueCodeableConcept": {
+                      "coding": [
+                        {
+                          "system": "https://codesystem.x12.org/005010/306",
+                          "code": "A3",
+                          "display": "Certified - partial"
+                        }
+                      ]
+                    },
+                    "_comment": "A3 = Approved with condition. D2393 is conditionally authorized — clinical documentation confirming insufficient tooth structure must be submitted with the crown claim."
+                  }
+                ]
+              },
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-itemPreAuthIssueDate",
+                "valueDate": "2026-06-10"
+              },
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-itemAuthorizedDate",
+                "valuePeriod": {
+                  "start": "2026-06-10",
+                  "end": "2026-12-31"
+                }
+              },
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-itemTraceNumber",
+                "valueIdentifier": {
+                  "system": "https://harrodsburgfamilydentistry.com/preauth-trace",
+                  "value": "HFD-TRACE-2026-003"
+                }
+              }
+            ],
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    { "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "submitted" }
+                  ]
+                },
+                "amount": { "value": 250.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    { "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "eligible", "display": "Allowed Amount" }
+                  ]
+                },
+                "amount": { "value": 200.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    { "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "benefit", "display": "Estimated Plan Payment" }
+                  ]
+                },
+                "_comment": "80% of $200 allowed = $160.00 estimated plan payment — IF condition is met",
+                "amount": { "value": 160.00, "currency": "USD" }
+              }
+            ],
+            "note": [
+              {
+                "number": 1,
+                "type": "display",
+                "text": "41899 (Unlisted procedure - core buildup) — APPROVED WITH CONDITION. Allowed amount: $200.00. Plan covers 80% (Basic service). Authorization is contingent on clinical documentation confirming insufficient tooth structure for crown retention at the time of crown preparation. Submit a narrative note with the crown claim stating remaining tooth structure measurements and clinical necessity. Claim will be denied without this documentation. Do not bill core buildup on the same date as root canal therapy — payer will deny as inclusive."
+              }
+            ]
+          }
+        ],
+        "processNote": [
+          {
+            "number": 1,
+            "type": "display",
+            "text": "Authorization Number: ANT-PREAUTH-2026-JNG001. Valid: 2026-06-10 through 2026-12-31. This authorization number must appear in the preAuthRef field of all claims submitted for 41899 (endodontic), 41899 (crown restoration), and 41899 (core buildup) for member JNG5027741 on Tooth #3."
+          },
+          {
+            "number": 2,
+            "type": "display",
+            "text": "Estimated member liability: endodontic $195.00 + crown restoration $525.00 + core buildup $40.00 (if condition met) = $760.00. Actual amounts will be determined at time of adjudication based on deductible status. Annual deductible of $50.00 was met at initial visit (2026-06-03). No deductible will apply to treatment claims."
+          },
+          {
+            "number": 3,
+            "type": "display",
+            "text": "Billing sequence requirement: endodontic procedure must be billed on a separate date from crown restoration. Core buildup must be billed on the same date as crown restoration (crown preparation/delivery), NOT on the date of endodontic procedure (root canal). Failure to follow this sequence will result in claim denial."
+          },
+          {
+            "number": 4,
+            "type": "display",
+            "text": "Crown frequency limitation: Patient's plan allows one crown per tooth per 5-year period. No prior crown on Tooth #3 on record. Frequency limitation satisfied."
+          }
+        ]
+      }
+    }
+
+  ]
+}

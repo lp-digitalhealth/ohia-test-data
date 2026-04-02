@@ -1,0 +1,259 @@
+{
+  "resourceType": "Bundle",
+  "id": "site2-harrodsburg-encounters",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:encounter-laura-enc1",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-laura-enc1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "99201",
+                "display": "Office or other outpatient visit, new patient"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:patient-laura-jennings",
+          "display": "Laura Jennings"
+        },
+        "participant": [
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "PPRF",
+                    "display": "primary performer"
+                  }
+                ]
+              }
+            ],
+            "individual": {
+              "reference": "urn:uuid:practitioner-barsotti-hrb",
+              "display": "Dr. Philip Barsotti"
+            }
+          }
+        ],
+        "period": {
+          "start": "2026-06-03T09:00:00-05:00",
+          "end": "2026-06-03T10:00:00-05:00"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "K04.01",
+                "display": "Irreversible pulpitis"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "reference": "urn:uuid:location-harrodsburg-operatory1",
+              "display": "Operatory 1"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "urn:uuid:org-harrodsburg-family-dentistry",
+          "display": "Harrodsburg Family Dentistry"
+        },
+        "appointment": [
+          {
+            "reference": "urn:uuid:appointment-laura-enc1"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:encounter-laura-enc2",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-laura-enc2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "41899",
+                "display": "Unlisted procedure, dentoalveolar structures"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:patient-laura-jennings",
+          "display": "Laura Jennings"
+        },
+        "participant": [
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "PPRF",
+                    "display": "primary performer"
+                  }
+                ]
+              }
+            ],
+            "individual": {
+              "reference": "urn:uuid:practitioner-patel",
+              "display": "Dr. Amir Patel"
+            }
+          }
+        ],
+        "period": {
+          "start": "2026-06-17T09:00:00-05:00",
+          "end": "2026-06-17T10:30:00-05:00"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "K04.01",
+                "display": "Irreversible pulpitis"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "reference": "urn:uuid:location-harrodsburg-operatory1",
+              "display": "Operatory 1"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "urn:uuid:org-harrodsburg-family-dentistry",
+          "display": "Harrodsburg Family Dentistry"
+        },
+        "appointment": [
+          {
+            "reference": "urn:uuid:appointment-laura-enc2"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:encounter-laura-enc3",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-laura-enc3",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ama-assn.org/go/cpt",
+                "code": "41899",
+                "display": "Unlisted procedure, dentoalveolar structures"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "urn:uuid:patient-laura-jennings",
+          "display": "Laura Jennings"
+        },
+        "participant": [
+          {
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/v3-ParticipationType",
+                    "code": "PPRF",
+                    "display": "primary performer"
+                  }
+                ]
+              }
+            ],
+            "individual": {
+              "reference": "urn:uuid:practitioner-barsotti-hrb",
+              "display": "Dr. Philip Barsotti"
+            }
+          }
+        ],
+        "period": {
+          "start": "2026-07-15T09:00:00-05:00",
+          "end": "2026-07-15T11:00:00-05:00"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "K04.01",
+                "display": "Irreversible pulpitis"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "reference": "urn:uuid:location-harrodsburg-operatory1",
+              "display": "Operatory 1"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "urn:uuid:org-harrodsburg-family-dentistry",
+          "display": "Harrodsburg Family Dentistry"
+        },
+        "appointment": [
+          {
+            "reference": "urn:uuid:appointment-laura-enc3"
+          }
+        ]
+      }
+    }
+  ]
+}

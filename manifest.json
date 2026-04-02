@@ -1,0 +1,46 @@
+{
+  "schemaVersion": "1.0",
+  "sites": {
+    "site-a": {
+      "name": "Lexington Family Dental",
+      "importProfile": "fhir-r4-import-cdt",
+      "codingSystem": "CDT",
+      "files": [
+        "2026-usrealm-testdata/uc01-emily_watkins_encounter1_fhir_bundle.json",
+        "2026-usrealm-testdata/uc01_emily_watkins_encounter2_fhir_bundle.json",
+        "2026-usrealm-testdata/uc02-jason_morales_encounter1_fhir_bundle.json",
+        "2026-usrealm-testdata/augmented/site1-lexington-practitioners.json",
+        "2026-usrealm-testdata/augmented/site1-lexington-practitioner-roles.json",
+        "2026-usrealm-testdata/augmented/site1-lexington-locations.json",
+        "2026-usrealm-testdata/augmented/site1-lexington-schedules.json",
+        "2026-usrealm-testdata/augmented/site1-lexington-slots.json",
+        "2026-usrealm-testdata/augmented/site1-lexington-encounters.json",
+        "2026-usrealm-testdata/augmented/site1-lexington-procedures.json",
+        "2026-usrealm-testdata/augmented/site1-lexington-appointments.json",
+        "2026-usrealm-testdata/augmented/site1-lexington-conditions.json"
+      ]
+    },
+    "site-b": {
+      "name": "Harrodsburg Family Dentistry",
+      "importProfile": "fhir-r4-import-cpt",
+      "codingSystem": "CPT",
+      "files": [
+        "2026-usrealm-testdata/cpt-coded/uc03_laura_jennings_b1_initial_visit_cpt.json",
+        "2026-usrealm-testdata/cpt-coded/uc03_laura_jennings_b2_dtr.json",
+        "2026-usrealm-testdata/cpt-coded/uc03_laura_jennings_b3_pas_request_cpt.json",
+        "2026-usrealm-testdata/cpt-coded/uc03_laura_jennings_b4_pas_response_cpt.json",
+        "2026-usrealm-testdata/cpt-coded/uc03_laura_jennings_b5_rct_cpt.json",
+        "2026-usrealm-testdata/cpt-coded/uc03-laura_jennings_b6_crown_cpt.json",
+        "2026-usrealm-testdata/augmented/site2-harrodsburg-practitioners.json",
+        "2026-usrealm-testdata/augmented/site2-harrodsburg-practitioner-roles.json",
+        "2026-usrealm-testdata/augmented/site2-harrodsburg-locations.json",
+        "2026-usrealm-testdata/augmented/site2-harrodsburg-schedules.json",
+        "2026-usrealm-testdata/augmented/site2-harrodsburg-slots.json",
+        "2026-usrealm-testdata/augmented/site2-harrodsburg-encounters.json",
+        "2026-usrealm-testdata/augmented/site2-harrodsburg-procedures.json",
+        "2026-usrealm-testdata/augmented/site2-harrodsburg-appointments.json",
+        "2026-usrealm-testdata/augmented/site2-harrodsburg-conditions.json"
+      ]
+    }
+  }
+}

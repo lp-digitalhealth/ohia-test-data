@@ -1,0 +1,79 @@
+{
+  "resourceType": "Bundle",
+  "id": "site2-harrodsburg-locations",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:location-harrodsburg-main",
+      "resource": {
+        "resourceType": "Location",
+        "id": "location-harrodsburg-main",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "status": "active",
+        "name": "Harrodsburg Family Dentistry - Main Office",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "DENT",
+                "display": "Dental office"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(859) 734-2234",
+            "use": "work"
+          }
+        ],
+        "address": {
+          "use": "work",
+          "type": "physical",
+          "line": ["517 Legion Dr"],
+          "city": "Harrodsburg",
+          "state": "KY",
+          "postalCode": "40330",
+          "country": "US"
+        },
+        "managingOrganization": {
+          "reference": "urn:uuid:org-harrodsburg-family-dentistry",
+          "display": "Harrodsburg Family Dentistry"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:location-harrodsburg-operatory1",
+      "resource": {
+        "resourceType": "Location",
+        "id": "location-harrodsburg-operatory1",
+        "status": "active",
+        "name": "Operatory 1",
+        "mode": "instance",
+        "physicalType": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
+              "code": "ro",
+              "display": "Room"
+            }
+          ]
+        },
+        "partOf": {
+          "reference": "urn:uuid:location-harrodsburg-main",
+          "display": "Harrodsburg Family Dentistry - Main Office"
+        },
+        "managingOrganization": {
+          "reference": "urn:uuid:org-harrodsburg-family-dentistry",
+          "display": "Harrodsburg Family Dentistry"
+        }
+      }
+    }
+  ]
+}

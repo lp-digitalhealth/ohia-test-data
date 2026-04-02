@@ -1,0 +1,199 @@
+{
+  "resourceType": "Bundle",
+  "id": "site1-lexington-practitioners",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:org-lexington-family-dental",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-lexington-family-dental",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NPI",
+                  "display": "National provider identifier"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1357924680"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "Lexington Family Dental",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(859) 555-0147",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "line": ["123 Main St"],
+            "city": "Lexington",
+            "state": "KY",
+            "postalCode": "40507",
+            "country": "US"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:practitioner-chen",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "practitioner-chen",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NPI",
+                  "display": "National provider identifier"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1234567890"
+          },
+          {
+            "use": "secondary",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "SL",
+                  "display": "State license"
+                }
+              ]
+            },
+            "system": "https://ky.gov/dental/license",
+            "value": "20891"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Chen",
+            "given": ["Sarah"],
+            "suffix": ["DDS"]
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://nucc.org/provider-taxonomy",
+                  "code": "1223G0001X",
+                  "display": "Dentist - General Practice"
+                }
+              ]
+            },
+            "issuer": {
+              "display": "University of Louisville School of Dentistry"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:practitioner-barsotti-lex",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "practitioner-barsotti-lex",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NPI",
+                  "display": "National provider identifier"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1568030203"
+          },
+          {
+            "use": "secondary",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "SL",
+                  "display": "State license"
+                }
+              ]
+            },
+            "system": "https://ky.gov/dental/license",
+            "value": "10615"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Barsotti",
+            "given": ["Philip"],
+            "suffix": ["DMD"]
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://nucc.org/provider-taxonomy",
+                  "code": "1223G0001X",
+                  "display": "Dentist - General Practice"
+                }
+              ]
+            },
+            "issuer": {
+              "display": "University of Kentucky College of Dentistry"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
