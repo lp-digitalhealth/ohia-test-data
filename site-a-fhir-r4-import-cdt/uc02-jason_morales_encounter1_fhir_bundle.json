@@ -1,0 +1,1375 @@
+{
+  "resourceType": "Bundle",
+  "id": "jason-morales-emergency-dental-bundle",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Oral"
+    ],
+    "lastUpdated": "2026-04-22T00:00:00Z"
+  },
+  "type": "collection",
+  "timestamp": "2026-04-22T00:00:00Z",
+
+  "_comment_scope": "New patient Jason Morales — new Patient, Coverage, and payer Organization resources. Practice Organization, Practitioner, and PractitionerRole are shared with emily-watkins bundles (NPI 1245734763 / 1568030203) and may be skipped if already loaded.",
+
+  "entry": [
+
+    {
+      "fullUrl": "urn:uuid:patient-jason-morales",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-jason-morales",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MB",
+                  "display": "Member Number"
+                }
+              ]
+            },
+            "system": "https://www.cigna.com/dental/member-id",
+            "value": "MRL8421137"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Morales",
+            "given": ["Jason"]
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1986-09-18",
+        "address": [
+          {
+            "use": "home",
+            "state": "KY",
+            "country": "US"
+          }
+        ]
+      }
+    },
+
+    {
+      "fullUrl": "urn:uuid:org-cigna-dental-ky",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-cigna-dental-ky",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "XV",
+                  "display": "Health Plan Identifier"
+                }
+              ]
+            },
+            "system": "https://www.cigna.com/edi-payer-id",
+            "value": "62308"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "ins",
+                "display": "Insurance Company"
+              }
+            ]
+          }
+        ],
+        "name": "Cigna Dental Health of Kentucky, Inc.",
+        "address": [
+          {
+            "state": "KY",
+            "country": "US"
+          }
+        ]
+      }
+    },
+
+    {
+      "fullUrl": "urn:uuid:org-harrodsburg-family-dentistry",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-harrodsburg-family-dentistry",
+        "_comment": "SHARED RESOURCE — skip if already loaded from emily-watkins bundles",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NPI",
+                  "display": "National provider identifier"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1245734763"
+          }
+        ],
+        "active": true,
+        "name": "Harrodsburg Family Dentistry",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(859) 734-7709",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "line": ["517 Legion Dr"],
+            "city": "Harrodsburg",
+            "state": "KY",
+            "postalCode": "40330",
+            "country": "US"
+          }
+        ]
+      }
+    },
+
+    {
+      "fullUrl": "urn:uuid:practitioner-barsotti",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "practitioner-barsotti",
+        "_comment": "SHARED RESOURCE — skip if already loaded from emily-watkins bundles",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NPI",
+                  "display": "National provider identifier"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1568030203"
+          },
+          {
+            "use": "secondary",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MD",
+                  "display": "Medical License Number"
+                }
+              ]
+            },
+            "system": "https://ky.gov/dental-license",
+            "value": "10615"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Barsotti",
+            "given": ["Philip", "Burke"],
+            "suffix": ["DMD"]
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://nucc.org/provider-taxonomy",
+                  "code": "1223G0001X",
+                  "display": "Dentist - General Practice"
+                }
+              ]
+            },
+            "issuer": {
+              "display": "Kentucky State Board of Dentistry"
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "fullUrl": "urn:uuid:practitioner-role-barsotti",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "practitioner-role-barsotti",
+        "_comment": "SHARED RESOURCE — skip if already loaded from emily-watkins bundles",
+        "practitioner": {
+          "reference": "urn:uuid:practitioner-barsotti",
+          "display": "Dr. Philip Barsotti, DMD"
+        },
+        "organization": {
+          "reference": "urn:uuid:org-harrodsburg-family-dentistry",
+          "display": "Harrodsburg Family Dentistry"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223G0001X",
+                "display": "Dentist - General Practice"
+              }
+            ]
+          }
+        ]
+      }
+    },
+
+    {
+      "fullUrl": "urn:uuid:coverage-jason-morales",
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "coverage-jason-morales",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Coverage"
+          ]
+        },
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "DENTAL",
+              "display": "Dental Care"
+            }
+          ]
+        },
+        "subscriber": {
+          "reference": "urn:uuid:patient-jason-morales",
+          "display": "Jason Morales"
+        },
+        "subscriberId": "MRL8421137",
+        "beneficiary": {
+          "reference": "urn:uuid:patient-jason-morales",
+          "display": "Jason Morales"
+        },
+        "relationship": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+              "code": "self",
+              "display": "Self"
+            }
+          ]
+        },
+        "period": {
+          "start": "2026-01-01",
+          "end": "2026-12-31"
+        },
+        "payor": [
+          {
+            "reference": "urn:uuid:org-cigna-dental-ky",
+            "display": "Cigna Dental Health of Kentucky, Inc."
+          }
+        ],
+        "class": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "group",
+                  "display": "Group"
+                }
+              ]
+            },
+            "value": "ORM-2026-001",
+            "name": "Ohio River Manufacturing"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "plan",
+                  "display": "Plan"
+                }
+              ]
+            },
+            "value": "CIGNA-DPPO-2026",
+            "name": "Cigna Dental PPO"
+          }
+        ],
+        "network": "Cigna Total DPPO",
+        "costToBeneficiary": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-copay-type",
+                  "code": "deductible",
+                  "display": "Deductible"
+                }
+              ]
+            },
+            "valueMoney": {
+              "value": 50.00,
+              "currency": "USD"
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "fullUrl": "urn:uuid:claim-jason-morales-enc1",
+      "resource": {
+        "resourceType": "Claim",
+        "id": "claim-jason-morales-enc1",
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "oral",
+              "display": "Oral"
+            }
+          ]
+        },
+        "use": "claim",
+        "patient": {
+          "reference": "urn:uuid:patient-jason-morales",
+          "display": "Jason Morales"
+        },
+        "billablePeriod": {
+          "start": "2026-04-08",
+          "end": "2026-04-08"
+        },
+        "created": "2026-04-09",
+        "insurer": {
+          "reference": "urn:uuid:org-cigna-dental-ky",
+          "display": "Cigna Dental Health of Kentucky, Inc."
+        },
+        "provider": {
+          "reference": "urn:uuid:org-harrodsburg-family-dentistry",
+          "display": "Harrodsburg Family Dentistry"
+        },
+        "priority": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/processpriority",
+              "code": "normal"
+            }
+          ]
+        },
+        "insurance": [
+          {
+            "sequence": 1,
+            "focal": true,
+            "coverage": {
+              "reference": "urn:uuid:coverage-jason-morales"
+            }
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ada.org/cdt",
+                  "code": "D0140",
+                  "display": "Limited oral evaluation - problem focused"
+                }
+              ]
+            },
+            "servicedDate": "2026-04-08",
+            "locationCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes",
+                  "code": "11",
+                  "display": "Office"
+                }
+              ]
+            },
+            "quantity": { "value": 1 },
+            "unitPrice": { "value": 85.00, "currency": "USD" },
+            "net": { "value": 85.00, "currency": "USD" }
+          },
+          {
+            "sequence": 2,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ada.org/cdt",
+                  "code": "D0220",
+                  "display": "Periapical - first radiographic image"
+                }
+              ]
+            },
+            "servicedDate": "2026-04-08",
+            "locationCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes",
+                  "code": "11",
+                  "display": "Office"
+                }
+              ]
+            },
+            "bodySite": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+                  "code": "30",
+                  "display": "Tooth 30 - Lower Right First Molar"
+                }
+              ]
+            },
+            "quantity": { "value": 1 },
+            "unitPrice": { "value": 35.00, "currency": "USD" },
+            "net": { "value": 35.00, "currency": "USD" }
+          },
+          {
+            "sequence": 3,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ada.org/cdt",
+                  "code": "D0230",
+                  "display": "Periapical - each additional radiographic image"
+                }
+              ]
+            },
+            "servicedDate": "2026-04-08",
+            "locationCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes",
+                  "code": "11",
+                  "display": "Office"
+                }
+              ]
+            },
+            "quantity": { "value": 1 },
+            "unitPrice": { "value": 30.00, "currency": "USD" },
+            "net": { "value": 30.00, "currency": "USD" }
+          },
+          {
+            "sequence": 4,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ada.org/cdt",
+                  "code": "D7140",
+                  "display": "Extraction, erupted tooth or exposed root (simple)"
+                }
+              ]
+            },
+            "servicedDate": "2026-04-08",
+            "locationCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes",
+                  "code": "11",
+                  "display": "Office"
+                }
+              ]
+            },
+            "bodySite": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+                  "code": "30",
+                  "display": "Tooth 30 - Lower Right First Molar"
+                }
+              ]
+            },
+            "quantity": { "value": 1 },
+            "unitPrice": { "value": 185.00, "currency": "USD" },
+            "net": { "value": 185.00, "currency": "USD" }
+          }
+        ],
+        "total": { "value": 335.00, "currency": "USD" }
+      }
+    },
+
+    {
+      "fullUrl": "urn:uuid:eob-jason-morales-enc1",
+      "resource": {
+        "resourceType": "ExplanationOfBenefit",
+        "id": "eob-jason-morales-enc1",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Oral"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBIdentifierType",
+                  "code": "claimnumber",
+                  "display": "Claim Number"
+                }
+              ]
+            },
+            "system": "https://www.cigna.com/dental/claims",
+            "value": "CIGNA-2026-040801"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "oral",
+              "display": "Oral"
+            }
+          ]
+        },
+        "use": "claim",
+        "patient": {
+          "reference": "urn:uuid:patient-jason-morales",
+          "display": "Jason Morales"
+        },
+        "billablePeriod": {
+          "start": "2026-04-08",
+          "end": "2026-04-08"
+        },
+        "created": "2026-04-22",
+        "insurer": {
+          "reference": "urn:uuid:org-cigna-dental-ky",
+          "display": "Cigna Dental Health of Kentucky, Inc."
+        },
+        "provider": {
+          "reference": "urn:uuid:org-harrodsburg-family-dentistry",
+          "display": "Harrodsburg Family Dentistry"
+        },
+        "outcome": "complete",
+        "careTeam": [
+          {
+            "sequence": 1,
+            "provider": {
+              "reference": "urn:uuid:practitioner-barsotti",
+              "display": "Dr. Philip Barsotti, DMD"
+            },
+            "responsible": true,
+            "role": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole",
+                  "code": "rendering",
+                  "display": "Rendering provider"
+                }
+              ]
+            },
+            "qualification": {
+              "coding": [
+                {
+                  "system": "http://nucc.org/provider-taxonomy",
+                  "code": "1223G0001X",
+                  "display": "Dentist - General Practice"
+                }
+              ]
+            }
+          },
+          {
+            "sequence": 2,
+            "provider": {
+              "reference": "urn:uuid:org-harrodsburg-family-dentistry",
+              "display": "Harrodsburg Family Dentistry"
+            },
+            "role": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole",
+                  "code": "performing",
+                  "display": "Performing provider"
+                }
+              ]
+            }
+          }
+        ],
+        "supportingInfo": [
+          {
+            "sequence": 1,
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBSupportingInfoType",
+                  "code": "clmrecvddate",
+                  "display": "Claim Received Date"
+                }
+              ]
+            },
+            "timingDate": "2026-04-09"
+          },
+          {
+            "sequence": 2,
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBSupportingInfoType",
+                  "code": "innetwork",
+                  "display": "In Network Indicator"
+                }
+              ]
+            },
+            "valueBoolean": true
+          },
+          {
+            "sequence": 3,
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBSupportingInfoType",
+                  "code": "typeofbill",
+                  "display": "Type of Bill"
+                }
+              ]
+            },
+            "valueString": "emergency-new-patient",
+            "_comment": "Emergency same-day appointment. Patient reported 3 days of severe pain, swelling, and cold sensitivity in lower right jaw prior to visit."
+          },
+          {
+            "sequence": 4,
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBSupportingInfoType",
+                  "code": "patientaccountnumber",
+                  "display": "Patient Account Number"
+                }
+              ]
+            },
+            "valueString": "MRL8421137-ENC1",
+            "_comment": "New patient — first visit to Harrodsburg Family Dentistry. Annual deductible $50.00 not yet met. Full deductible applied to first line (D0140)."
+          }
+        ],
+        "insurance": [
+          {
+            "focal": true,
+            "coverage": {
+              "reference": "urn:uuid:coverage-jason-morales"
+            }
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ada.org/cdt",
+                  "code": "D0140",
+                  "display": "Limited oral evaluation - problem focused"
+                }
+              ]
+            },
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimDentalCategoryCS",
+                  "code": "F2",
+                  "display": "Class II (Basic)"
+                }
+              ]
+            },
+            "servicedDate": "2026-04-08",
+            "locationCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes",
+                  "code": "11",
+                  "display": "Office"
+                }
+              ]
+            },
+            "quantity": { "value": 1 },
+            "unitPrice": { "value": 85.00, "currency": "USD" },
+            "net": { "value": 85.00, "currency": "USD" },
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudicationDiscriminator",
+                      "code": "benefitPaymentStatus"
+                    }
+                  ]
+                },
+                "reason": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBPayerAdjudicationStatus",
+                      "code": "innetwork"
+                    }
+                  ]
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "submitted",
+                      "display": "Submitted Amount"
+                    }
+                  ]
+                },
+                "amount": { "value": 85.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "noncovered",
+                      "display": "Noncovered (Contractual Adjustment)"
+                    }
+                  ]
+                },
+                "_comment": "PPO write-off: $85 submitted minus $75 allowed",
+                "amount": { "value": 10.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "eligible",
+                      "display": "Eligible Amount"
+                    }
+                  ]
+                },
+                "amount": { "value": 75.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "deductible",
+                      "display": "Deductible"
+                    }
+                  ]
+                },
+                "_comment": "Full $50.00 annual individual deductible applied to first line. Deductible now met for plan year 2026.",
+                "amount": { "value": 50.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "benefit",
+                      "display": "Benefit Amount"
+                    }
+                  ]
+                },
+                "_comment": "80% of ($75 eligible - $50 deductible) = 80% of $25 = $20.00",
+                "amount": { "value": 20.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "copay",
+                      "display": "Coinsurance"
+                    }
+                  ]
+                },
+                "_comment": "20% patient coinsurance of post-deductible eligible: 20% of $25 = $5.00",
+                "amount": { "value": 5.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "memberliability",
+                      "display": "Member Liability"
+                    }
+                  ]
+                },
+                "_comment": "Member liability on this line: $50.00 deductible + $5.00 coinsurance = $55.00",
+                "amount": { "value": 55.00, "currency": "USD" }
+              }
+            ]
+          },
+          {
+            "sequence": 2,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ada.org/cdt",
+                  "code": "D0220",
+                  "display": "Periapical - first radiographic image"
+                }
+              ]
+            },
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimDentalCategoryCS",
+                  "code": "F2",
+                  "display": "Class II (Basic)"
+                }
+              ]
+            },
+            "servicedDate": "2026-04-08",
+            "locationCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes",
+                  "code": "11",
+                  "display": "Office"
+                }
+              ]
+            },
+            "bodySite": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+                  "code": "30",
+                  "display": "Tooth 30 - Lower Right First Molar"
+                }
+              ]
+            },
+            "quantity": { "value": 1 },
+            "unitPrice": { "value": 35.00, "currency": "USD" },
+            "net": { "value": 35.00, "currency": "USD" },
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudicationDiscriminator",
+                      "code": "benefitPaymentStatus"
+                    }
+                  ]
+                },
+                "reason": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBPayerAdjudicationStatus",
+                      "code": "innetwork"
+                    }
+                  ]
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "submitted"
+                    }
+                  ]
+                },
+                "amount": { "value": 35.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "noncovered"
+                    }
+                  ]
+                },
+                "_comment": "PPO write-off: $35 submitted minus $30 allowed",
+                "amount": { "value": 5.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "eligible"
+                    }
+                  ]
+                },
+                "amount": { "value": 30.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "deductible"
+                    }
+                  ]
+                },
+                "_comment": "Deductible fully met on line 1. No deductible applied here.",
+                "amount": { "value": 0.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "benefit"
+                    }
+                  ]
+                },
+                "_comment": "80% of $30.00 = $24.00",
+                "amount": { "value": 24.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "copay"
+                    }
+                  ]
+                },
+                "_comment": "20% coinsurance of $30 = $6.00",
+                "amount": { "value": 6.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "memberliability"
+                    }
+                  ]
+                },
+                "amount": { "value": 6.00, "currency": "USD" }
+              }
+            ]
+          },
+          {
+            "sequence": 3,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ada.org/cdt",
+                  "code": "D0230",
+                  "display": "Periapical - each additional radiographic image"
+                }
+              ]
+            },
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimDentalCategoryCS",
+                  "code": "F2",
+                  "display": "Class II (Basic)"
+                }
+              ]
+            },
+            "servicedDate": "2026-04-08",
+            "locationCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes",
+                  "code": "11",
+                  "display": "Office"
+                }
+              ]
+            },
+            "quantity": { "value": 1 },
+            "unitPrice": { "value": 30.00, "currency": "USD" },
+            "net": { "value": 30.00, "currency": "USD" },
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudicationDiscriminator",
+                      "code": "benefitPaymentStatus"
+                    }
+                  ]
+                },
+                "reason": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBPayerAdjudicationStatus",
+                      "code": "innetwork"
+                    }
+                  ]
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "submitted"
+                    }
+                  ]
+                },
+                "amount": { "value": 30.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "noncovered"
+                    }
+                  ]
+                },
+                "_comment": "PPO write-off: $30 submitted minus $25 allowed",
+                "amount": { "value": 5.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "eligible"
+                    }
+                  ]
+                },
+                "amount": { "value": 25.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "deductible"
+                    }
+                  ]
+                },
+                "_comment": "Deductible met. No deductible applied.",
+                "amount": { "value": 0.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "benefit"
+                    }
+                  ]
+                },
+                "_comment": "80% of $25.00 = $20.00",
+                "amount": { "value": 20.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "copay"
+                    }
+                  ]
+                },
+                "_comment": "20% coinsurance of $25 = $5.00",
+                "amount": { "value": 5.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "memberliability"
+                    }
+                  ]
+                },
+                "amount": { "value": 5.00, "currency": "USD" }
+              }
+            ]
+          },
+          {
+            "sequence": 4,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ada.org/cdt",
+                  "code": "D7140",
+                  "display": "Extraction, erupted tooth or exposed root (simple)"
+                }
+              ]
+            },
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimDentalCategoryCS",
+                  "code": "F3",
+                  "display": "Class III (Major/Oral Surgery)"
+                }
+              ]
+            },
+            "servicedDate": "2026-04-08",
+            "locationCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes",
+                  "code": "11",
+                  "display": "Office"
+                }
+              ]
+            },
+            "bodySite": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+                  "code": "30",
+                  "display": "Tooth 30 - Lower Right First Molar"
+                }
+              ]
+            },
+            "quantity": { "value": 1 },
+            "unitPrice": { "value": 185.00, "currency": "USD" },
+            "net": { "value": 185.00, "currency": "USD" },
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudicationDiscriminator",
+                      "code": "benefitPaymentStatus"
+                    }
+                  ]
+                },
+                "reason": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBPayerAdjudicationStatus",
+                      "code": "innetwork"
+                    }
+                  ]
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "submitted"
+                    }
+                  ]
+                },
+                "amount": { "value": 185.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "noncovered"
+                    }
+                  ]
+                },
+                "_comment": "PPO write-off: $185 submitted minus $160 allowed",
+                "amount": { "value": 25.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "eligible"
+                    }
+                  ]
+                },
+                "amount": { "value": 160.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "deductible"
+                    }
+                  ]
+                },
+                "_comment": "Deductible met on line 1. No deductible applied to extraction.",
+                "amount": { "value": 0.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "benefit"
+                    }
+                  ]
+                },
+                "_comment": "D7140 covered at 70% (oral surgery/extraction benefit tier). 70% of $160.00 = $112.00",
+                "amount": { "value": 112.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "copay"
+                    }
+                  ]
+                },
+                "_comment": "30% patient coinsurance of $160 = $48.00",
+                "amount": { "value": 48.00, "currency": "USD" }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "memberliability"
+                    }
+                  ]
+                },
+                "amount": { "value": 48.00, "currency": "USD" }
+              }
+            ]
+          }
+        ],
+        "total": [
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "submitted",
+                  "display": "Total Submitted"
+                }
+              ]
+            },
+            "amount": { "value": 335.00, "currency": "USD" }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                  "code": "noncovered",
+                  "display": "Total Contractual Adjustment (Write-Off)"
+                }
+              ]
+            },
+            "amount": { "value": 45.00, "currency": "USD" }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "eligible",
+                  "display": "Total Eligible / Allowed"
+                }
+              ]
+            },
+            "amount": { "value": 290.00, "currency": "USD" }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "deductible",
+                  "display": "Total Deductible Applied"
+                }
+              ]
+            },
+            "amount": { "value": 50.00, "currency": "USD" }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "benefit",
+                  "display": "Total Plan Paid"
+                }
+              ]
+            },
+            "amount": { "value": 176.00, "currency": "USD" }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                  "code": "memberliability",
+                  "display": "Total Member Liability"
+                }
+              ]
+            },
+            "amount": { "value": 114.00, "currency": "USD" }
+          }
+        ],
+        "payment": {
+          "type": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ex-paymenttype",
+                "code": "partial",
+                "display": "Partial"
+              }
+            ]
+          },
+          "date": "2026-04-22",
+          "amount": { "value": 176.00, "currency": "USD" }
+        },
+        "processNote": [
+          {
+            "number": 1,
+            "type": "display",
+            "text": "D0140, D0220, and D0230 processed as Class II Basic services, covered at 80% in-network after deductible."
+          },
+          {
+            "number": 2,
+            "type": "display",
+            "text": "D7140 processed as oral surgery/extraction benefit, covered at 70% in-network after deductible."
+          },
+          {
+            "number": 3,
+            "type": "display",
+            "text": "Annual individual deductible of $50.00 applied in full to line 1 (D0140). Deductible now fully met for plan year 2026. Remaining deductible balance: $0.00."
+          },
+          {
+            "number": 4,
+            "type": "display",
+            "text": "Contractual adjustment (write-off) of $45.00 applied across all lines. Provider may not balance-bill patient for this amount."
+          },
+          {
+            "number": 5,
+            "type": "display",
+            "text": "Tooth 30 extracted due to non-restorable subgingival fracture. Clinical finding documented at time of emergency same-day examination."
+          }
+        ]
+      }
+    }
+
+  ]
+}

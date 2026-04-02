@@ -1,0 +1,344 @@
+{
+  "resourceType": "Bundle",
+  "id": "site1-lexington-procedures",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:procedure-emily-enc1-d0120",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-emily-enc1-d0120",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D0120",
+              "display": "Periodic oral evaluation - established patient"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-emily-watkins",
+          "display": "Emily Watkins"
+        },
+        "encounter": {
+          "reference": "urn:uuid:encounter-emily-enc1"
+        },
+        "performedDateTime": "2026-03-12",
+        "performer": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-chen",
+              "display": "Dr. Sarah Chen, DDS"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:procedure-emily-enc1-d0274",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-emily-enc1-d0274",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D0274",
+              "display": "Bitewing radiographic image - four images"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-emily-watkins",
+          "display": "Emily Watkins"
+        },
+        "encounter": {
+          "reference": "urn:uuid:encounter-emily-enc1"
+        },
+        "performedDateTime": "2026-03-12",
+        "performer": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-chen",
+              "display": "Dr. Sarah Chen, DDS"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:procedure-emily-enc1-d1110",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-emily-enc1-d1110",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D1110",
+              "display": "Prophylaxis - adult"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-emily-watkins",
+          "display": "Emily Watkins"
+        },
+        "encounter": {
+          "reference": "urn:uuid:encounter-emily-enc1"
+        },
+        "performedDateTime": "2026-03-12",
+        "performer": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-chen",
+              "display": "Dr. Sarah Chen, DDS"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:procedure-emily-enc2-d2391",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-emily-enc2-d2391",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D2391",
+              "display": "Resin-based composite, one surface, posterior"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-emily-watkins",
+          "display": "Emily Watkins"
+        },
+        "encounter": {
+          "reference": "urn:uuid:encounter-emily-enc2"
+        },
+        "performedDateTime": "2026-05-22",
+        "performer": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-chen",
+              "display": "Dr. Sarah Chen, DDS"
+            }
+          }
+        ],
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+                "code": "13",
+                "display": "Tooth 13 - Upper Left Second Premolar"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:procedure-jason-enc1-d0140",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-jason-enc1-d0140",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D0140",
+              "display": "Limited oral evaluation - problem focused"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-jason-morales",
+          "display": "Jason Morales"
+        },
+        "encounter": {
+          "reference": "urn:uuid:encounter-jason-enc1"
+        },
+        "performedDateTime": "2026-04-08",
+        "performer": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-chen",
+              "display": "Dr. Sarah Chen, DDS"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:procedure-jason-enc1-d0220",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-jason-enc1-d0220",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D0220",
+              "display": "Periapical - first radiographic image"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-jason-morales",
+          "display": "Jason Morales"
+        },
+        "encounter": {
+          "reference": "urn:uuid:encounter-jason-enc1"
+        },
+        "performedDateTime": "2026-04-08",
+        "performer": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-chen",
+              "display": "Dr. Sarah Chen, DDS"
+            }
+          }
+        ],
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+                "code": "30",
+                "display": "Tooth 30 - Lower Right First Molar"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:procedure-jason-enc1-d0230",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-jason-enc1-d0230",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D0230",
+              "display": "Periapical - each additional radiographic image"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-jason-morales",
+          "display": "Jason Morales"
+        },
+        "encounter": {
+          "reference": "urn:uuid:encounter-jason-enc1"
+        },
+        "performedDateTime": "2026-04-08",
+        "performer": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-chen",
+              "display": "Dr. Sarah Chen, DDS"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:procedure-jason-enc1-d7140",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-jason-enc1-d7140",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D7140",
+              "display": "Extraction, erupted tooth or exposed root"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-jason-morales",
+          "display": "Jason Morales"
+        },
+        "encounter": {
+          "reference": "urn:uuid:encounter-jason-enc1"
+        },
+        "performedDateTime": "2026-04-08",
+        "performer": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-chen",
+              "display": "Dr. Sarah Chen, DDS"
+            }
+          }
+        ],
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+                "code": "30",
+                "display": "Tooth 30 - Lower Right First Molar"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
