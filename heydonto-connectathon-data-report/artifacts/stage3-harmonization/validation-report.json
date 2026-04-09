@@ -1,0 +1,18 @@
+{
+  "session_id": "8273ecb7-b80f-4b5c-ab3b-8cad66059404",
+  "profile_id": "fhir-r4-harmonization",
+  "attempt_id": "918921df-210b-413a-b308-137219c37808",
+  "generated_at": "2026-04-09T11:03:39.054972+00:00",
+  "status": "SUCCESS",
+  "input_errors": {},
+  "output_errors": {},
+  "input_warnings": {},
+  "output_warnings": {},
+  "warnings": [],
+  "summary": {
+    "input_error_count": 0,
+    "output_error_count": 0,
+    "input_warning_count": 0,
+    "output_warning_count": 0
+  }
+}

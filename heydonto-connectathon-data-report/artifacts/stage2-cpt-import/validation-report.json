@@ -1,0 +1,18 @@
+{
+  "session_id": "3c60ad32-db3c-4af8-935c-7f691f87f1f4",
+  "profile_id": "fhir-r4-import-cpt",
+  "attempt_id": "60ca00cf-1bc6-4fdf-a54b-46a5bbb85df2",
+  "generated_at": "2026-04-09T08:38:05.312245+00:00",
+  "status": "SUCCESS",
+  "input_errors": {},
+  "output_errors": {},
+  "input_warnings": {},
+  "output_warnings": {},
+  "warnings": [],
+  "summary": {
+    "input_error_count": 0,
+    "output_error_count": 0,
+    "input_warning_count": 0,
+    "output_warning_count": 0
+  }
+}

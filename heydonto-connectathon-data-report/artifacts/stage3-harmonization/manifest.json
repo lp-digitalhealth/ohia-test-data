@@ -1,0 +1,15 @@
+{
+  "session_id": "8273ecb7-b80f-4b5c-ab3b-8cad66059404",
+  "profile_id": "fhir-r4-harmonization",
+  "attempt_id": "8d4b0adc-7559-4c9c-ae92-786f96765a88",
+  "outputs": {
+    "fhir_bundle|core": {
+      "path": "interactive-mapping/runs/8273ecb7-b80f-4b5c-ab3b-8cad66059404/outputs/8d4b0adc-7559-4c9c-ae92-786f96765a88/fhir_bundle|core.json",
+      "format": "json",
+      "size_bytes": 159443
+    }
+  },
+  "audit_trail_path": null,
+  "audit_coverage_report_path": "interactive-mapping/runs/8273ecb7-b80f-4b5c-ab3b-8cad66059404/validate/918921df-210b-413a-b308-137219c37808/audit-coverage-report.json",
+  "generated_at": "2026-04-09T11:03:52.176376+00:00"
+}
