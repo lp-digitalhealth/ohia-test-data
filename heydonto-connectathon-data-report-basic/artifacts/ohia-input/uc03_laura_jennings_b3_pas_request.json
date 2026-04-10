@@ -1,0 +1,461 @@
+{
+  "resourceType": "Bundle",
+  "id": "laura-jennings-pas-request-bundle",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/profile-pas-request-bundle"
+    ],
+    "lastUpdated": "2026-06-04T08:00:00Z"
+  },
+  "type": "collection",
+  "timestamp": "2026-06-04T08:00:00Z",
+
+  "_comment_scope": "Bundle 3 of 6 for Laura Jennings. Da Vinci PAS (Prior Authorization Support) IG. This bundle represents the $submit operation payload sent from Harrodsburg Family Dentistry to Anthem BCBS Kentucky requesting prior authorization for D3330, D2740, and D2393. In a live PAS implementation this would be POSTed to: POST [base]/Claim/$submit. References clinical documentation from Bundle 2 (DTR). PAS IG: http://hl7.org/fhir/us/davinci-pas",
+
+  "_comment_pas_operation": "Production deployment note: The $submit operation wraps this Bundle. The Claim resource with use='preauthorization' is the focal resource. The payer returns a ClaimResponse synchronously or asynchronously (see Bundle 4). Dental-specific note: PAS for dental was tested at the January 2026 HL7 Connectathon. CRD (Coverage Requirements Discovery via CDS Hooks) and DTR (Documentation Templates and Rules) are architecturally upstream of this submission but are not yet implemented in dental PMS systems as of mid-2026.",
+
+  "entry": [
+
+    {
+      "fullUrl": "urn:uuid:claim-laura-jennings-preauth",
+      "resource": {
+        "resourceType": "Claim",
+        "id": "claim-laura-jennings-preauth",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/profile-claim"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-levelOfServiceCode",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://codesystem.x12.org/005010/1338",
+                  "code": "U",
+                  "display": "Urgent"
+                }
+              ]
+            },
+            "_comment": "Urgent designation reflects active pain and clinical urgency for RCT. Non-urgent for crown (staged treatment)."
+          }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "oral",
+              "display": "Oral"
+            }
+          ]
+        },
+        "use": "preauthorization",
+        "patient": {
+          "reference": "urn:uuid:patient-laura-jennings",
+          "display": "Laura Jennings"
+        },
+        "created": "2026-06-04",
+        "insurer": {
+          "reference": "urn:uuid:org-anthem-bcbs-ky",
+          "display": "Anthem Blue Cross and Blue Shield of Kentucky"
+        },
+        "provider": {
+          "reference": "urn:uuid:org-harrodsburg-family-dentistry",
+          "display": "Harrodsburg Family Dentistry"
+        },
+        "priority": {
+          "coding": [
+            { "system": "http://terminology.hl7.org/CodeSystem/processpriority", "code": "normal" }
+          ]
+        },
+        "supportingInfo": [
+          {
+            "sequence": 1,
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/davinci-pas/CodeSystem/PASSupportingInfoType",
+                  "code": "patientEvent",
+                  "display": "Patient Event"
+                }
+              ]
+            },
+            "timingPeriod": {
+              "start": "2026-06-03",
+              "_comment": "Initial visit date — emergency exam, diagnosis, palliative treatment"
+            }
+          },
+          {
+            "sequence": 2,
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/davinci-pas/CodeSystem/PASSupportingInfoType",
+                  "code": "additionalInformation",
+                  "display": "Additional Information"
+                }
+              ]
+            },
+            "valueReference": {
+              "reference": "urn:uuid:questionnaire-response-laura-jennings",
+              "display": "Completed DTR QuestionnaireResponse — clinical narrative and documentation"
+            }
+          },
+          {
+            "sequence": 3,
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/davinci-pas/CodeSystem/PASSupportingInfoType",
+                  "code": "additionalInformation",
+                  "display": "Additional Information"
+                }
+              ]
+            },
+            "valueReference": {
+              "reference": "urn:uuid:documentreference-periapical-xray",
+              "display": "Periapical radiographs — Tooth #3 — June 3, 2026"
+            }
+          },
+          {
+            "sequence": 4,
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/davinci-pas/CodeSystem/PASSupportingInfoType",
+                  "code": "additionalInformation"
+                }
+              ]
+            },
+            "valueReference": {
+              "reference": "urn:uuid:condition-irreversible-pulpitis",
+              "display": "Diagnosis: Irreversible pulpitis K04.01 — Tooth #3"
+            }
+          }
+        ],
+        "diagnosis": [
+          {
+            "sequence": 1,
+            "diagnosisCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                  "code": "K04.01",
+                  "display": "Irreversible pulpitis"
+                }
+              ]
+            },
+            "type": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/ex-diagnosistype",
+                    "code": "principal",
+                    "display": "Principal Diagnosis"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "insurance": [
+          {
+            "sequence": 1,
+            "focal": true,
+            "coverage": {
+              "reference": "urn:uuid:coverage-laura-jennings",
+              "display": "Anthem Dental PPO — Laura Jennings"
+            }
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-itemPreAuthIssueDate",
+                "valueDate": "2026-06-04"
+              },
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-authorizationRequired",
+                "valueBoolean": true
+              },
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-itemTraceNumber",
+                "valueIdentifier": {
+                  "system": "https://harrodsburgfamilydentistry.com/preauth-trace",
+                  "value": "HFD-TRACE-2026-001"
+                }
+              }
+            ],
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ada.org/cdt",
+                  "code": "D3330",
+                  "display": "Root canal therapy, molar (excluding final restoration)"
+                }
+              ]
+            },
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimDentalCategoryCS",
+                  "code": "F2",
+                  "display": "Class II (Basic)"
+                }
+              ]
+            },
+            "servicedDate": "2026-06-17",
+            "_comment_servicedDate": "Anticipated date of service — estimated RCT appointment",
+            "locationCodeableConcept": {
+              "coding": [
+                { "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes", "code": "11", "display": "Office" }
+              ]
+            },
+            "bodySite": {
+              "coding": [
+                { "system": "http://terminology.hl7.org/CodeSystem/ex-tooth", "code": "3", "display": "Tooth 3 - Upper Right First Molar" }
+              ]
+            },
+            "quantity": { "value": 1 },
+            "unitPrice": { "value": 1150.00, "currency": "USD" },
+            "net": { "value": 1150.00, "currency": "USD" }
+          },
+          {
+            "sequence": 2,
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-itemPreAuthIssueDate",
+                "valueDate": "2026-06-04"
+              },
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-authorizationRequired",
+                "valueBoolean": true
+              },
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-itemTraceNumber",
+                "valueIdentifier": {
+                  "system": "https://harrodsburgfamilydentistry.com/preauth-trace",
+                  "value": "HFD-TRACE-2026-002"
+                }
+              }
+            ],
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ada.org/cdt",
+                  "code": "D2740",
+                  "display": "Crown - porcelain/ceramic substrate"
+                }
+              ]
+            },
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimDentalCategoryCS",
+                  "code": "F4",
+                  "display": "Class IV (Major)"
+                }
+              ]
+            },
+            "servicedDate": "2026-07-15",
+            "_comment_servicedDate": "Anticipated date of service — estimated crown delivery appointment",
+            "locationCodeableConcept": {
+              "coding": [
+                { "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes", "code": "11", "display": "Office" }
+              ]
+            },
+            "bodySite": {
+              "coding": [
+                { "system": "http://terminology.hl7.org/CodeSystem/ex-tooth", "code": "3", "display": "Tooth 3 - Upper Right First Molar" }
+              ]
+            },
+            "quantity": { "value": 1 },
+            "unitPrice": { "value": 1350.00, "currency": "USD" },
+            "net": { "value": 1350.00, "currency": "USD" }
+          },
+          {
+            "sequence": 3,
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-itemPreAuthIssueDate",
+                "valueDate": "2026-06-04"
+              },
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-authorizationRequired",
+                "valueBoolean": true
+              },
+              {
+                "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-itemTraceNumber",
+                "valueIdentifier": {
+                  "system": "https://harrodsburgfamilydentistry.com/preauth-trace",
+                  "value": "HFD-TRACE-2026-003"
+                }
+              }
+            ],
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ada.org/cdt",
+                  "code": "D2393",
+                  "display": "Resin-based composite - three or more surfaces, primary or permanent; posterior"
+                }
+              ]
+            },
+            "_comment_D2393_note": "Requested as conditionally required. Clinical necessity for core buildup (D2393) to be confirmed at time of crown preparation. Insufficient tooth structure anticipated given extent of decay and prior restoration, but final determination requires crown prep assessment. See QuestionnaireResponse for supporting justification.",
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimDentalCategoryCS",
+                  "code": "F2",
+                  "display": "Class II (Basic)"
+                }
+              ]
+            },
+            "servicedDate": "2026-07-15",
+            "locationCodeableConcept": {
+              "coding": [
+                { "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes", "code": "11", "display": "Office" }
+              ]
+            },
+            "bodySite": {
+              "coding": [
+                { "system": "http://terminology.hl7.org/CodeSystem/ex-tooth", "code": "3", "display": "Tooth 3 - Upper Right First Molar" }
+              ]
+            },
+            "quantity": { "value": 1 },
+            "unitPrice": { "value": 250.00, "currency": "USD" },
+            "net": { "value": 250.00, "currency": "USD" }
+          }
+        ],
+        "total": { "value": 2750.00, "currency": "USD" }
+      }
+    },
+
+    {
+      "fullUrl": "urn:uuid:patient-laura-jennings",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-laura-jennings",
+        "_comment": "Included for PAS bundle completeness — same resource as Bundle 1",
+        "identifier": [
+          {
+            "use": "official",
+            "type": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/v2-0203", "code": "MB" }] },
+            "system": "https://www.anthem.com/dental/member-id",
+            "value": "JNG5027741"
+          }
+        ],
+        "name": [{ "use": "official", "family": "Jennings", "given": ["Laura"] }],
+        "gender": "female",
+        "birthDate": "1989-01-14"
+      }
+    },
+
+    {
+      "fullUrl": "urn:uuid:coverage-laura-jennings",
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "coverage-laura-jennings",
+        "_comment": "Included for PAS bundle completeness — same resource as Bundle 1",
+        "status": "active",
+        "type": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode", "code": "DENTAL" }] },
+        "subscriber": { "reference": "urn:uuid:patient-laura-jennings" },
+        "subscriberId": "JNG5027741",
+        "beneficiary": { "reference": "urn:uuid:patient-laura-jennings" },
+        "relationship": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship", "code": "self" }] },
+        "period": { "start": "2026-01-01", "end": "2026-12-31" },
+        "payor": [{ "reference": "urn:uuid:org-anthem-bcbs-ky" }],
+        "class": [
+          { "type": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/coverage-class", "code": "group" }] }, "value": "ORL-2026-001", "name": "Ohio River Logistics" },
+          { "type": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/coverage-class", "code": "plan" }] }, "value": "ANT-DPPO-2026", "name": "Anthem Dental PPO" }
+        ]
+      }
+    },
+
+    {
+      "fullUrl": "urn:uuid:condition-irreversible-pulpitis",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-irreversible-pulpitis",
+        "_comment": "Carried from Bundle 2 (DTR) — same resource, included here for PAS bundle self-containment",
+        "clinicalStatus": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/condition-clinical", "code": "active" }] },
+        "verificationStatus": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status", "code": "confirmed" }] },
+        "code": {
+          "coding": [{ "system": "http://hl7.org/fhir/sid/icd-10-cm", "code": "K04.01", "display": "Irreversible pulpitis" }],
+          "text": "Irreversible pulpitis — Tooth #3 (Upper Right First Molar)"
+        },
+        "bodySite": [{ "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/ex-tooth", "code": "3" }] }],
+        "subject": { "reference": "urn:uuid:patient-laura-jennings" },
+        "onsetDateTime": "2026-06-03",
+        "recordedDate": "2026-06-03",
+        "asserter": { "reference": "urn:uuid:practitioner-barsotti" }
+      }
+    },
+
+    {
+      "fullUrl": "urn:uuid:documentreference-periapical-xray",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentreference-periapical-xray",
+        "_comment": "Carried from Bundle 2 (DTR) — periapical radiograph reference",
+        "status": "current",
+        "type": { "coding": [{ "system": "http://loinc.org", "code": "24774-1", "display": "Dental X-ray periapical" }] },
+        "subject": { "reference": "urn:uuid:patient-laura-jennings" },
+        "date": "2026-06-03T09:30:00Z",
+        "author": [{ "reference": "urn:uuid:practitioner-barsotti" }],
+        "content": [
+          {
+            "attachment": {
+              "contentType": "image/jpeg",
+              "url": "urn:attachment:laura-jennings-pa-xray-tooth3-20260603",
+              "title": "Periapical X-Ray Tooth #3 — 2026-06-03",
+              "creation": "2026-06-03"
+            }
+          }
+        ]
+      }
+    },
+
+    {
+      "fullUrl": "urn:uuid:questionnaire-response-laura-jennings",
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "questionnaire-response-laura-jennings",
+        "_comment": "Carried from Bundle 2 (DTR) — completed prior auth documentation template. In production this would be auto-populated from the EHR/PMS via DTR SMART app and submitted as part of the PAS $submit payload.",
+        "questionnaire": "http://anthem.com/fhir/questionnaire/dental-prior-auth-endo-crown",
+        "status": "completed",
+        "subject": { "reference": "urn:uuid:patient-laura-jennings" },
+        "authored": "2026-06-03T17:00:00Z",
+        "author": { "reference": "urn:uuid:practitioner-barsotti" },
+        "item": [
+          { "linkId": "patient-info", "item": [
+            { "linkId": "patient-name", "answer": [{ "valueString": "Laura Jennings" }] },
+            { "linkId": "patient-dob", "answer": [{ "valueDate": "1989-01-14" }] },
+            { "linkId": "member-id", "answer": [{ "valueString": "JNG5027741" }] }
+          ]},
+          { "linkId": "diagnosis", "item": [
+            { "linkId": "icd10-code", "answer": [{ "valueString": "K04.01" }] },
+            { "linkId": "tooth-number", "answer": [{ "valueInteger": 3 }] },
+            { "linkId": "clinical-narrative", "answer": [{ "valueString": "Irreversible pulpitis confirmed Tooth #3. Periapical changes on radiograph. D9110 palliative treatment provided 2026-06-03. RCT (D3330) clinically necessary. Crown (D2740) required post-RCT. Core buildup (D2393) conditionally required pending crown prep assessment." }] },
+            { "linkId": "pulp-vitality", "answer": [{ "valueCoding": { "code": "irreversible-pulpitis", "display": "Irreversible pulpitis" } }] }
+          ]},
+          { "linkId": "radiographic-evidence", "item": [
+            { "linkId": "xray-attached", "answer": [{ "valueBoolean": true }] },
+            { "linkId": "xray-findings", "answer": [{ "valueString": "Periapical radiolucency at apex of Tooth #3. Significant carious lesion mesial and occlusal. Existing restoration noted. No root resorption." }] }
+          ]},
+          { "linkId": "requested-services", "item": [
+            { "linkId": "rct-requested", "answer": [{ "valueBoolean": true }] },
+            { "linkId": "crown-requested", "answer": [{ "valueBoolean": true }] },
+            { "linkId": "buildup-requested", "answer": [{ "valueBoolean": true }] },
+            { "linkId": "buildup-justification", "answer": [{ "valueString": "Significant decay and existing restoration compromise coronal structure. Insufficient retention anticipated without buildup. Final determination at crown prep." }] }
+          ]}
+        ]
+      }
+    }
+
+  ]
+}
