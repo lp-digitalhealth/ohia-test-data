@@ -1,0 +1,18 @@
+{
+  "session_id": "b8fd9dfe-8a6d-4b5d-98cb-71076ba548e5",
+  "profile_id": "edi-837-dental-export",
+  "attempt_id": "38c064a3-5689-4c9a-afeb-db8d6d2aef08",
+  "generated_at": "2026-04-09T11:04:57.664180+00:00",
+  "status": "SUCCESS",
+  "input_errors": {},
+  "output_errors": {},
+  "input_warnings": {},
+  "output_warnings": {},
+  "warnings": [],
+  "summary": {
+    "input_error_count": 0,
+    "output_error_count": 0,
+    "input_warning_count": 0,
+    "output_warning_count": 0
+  }
+}

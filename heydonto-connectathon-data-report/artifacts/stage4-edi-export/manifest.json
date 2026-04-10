@@ -1,0 +1,15 @@
+{
+  "session_id": "b8fd9dfe-8a6d-4b5d-98cb-71076ba548e5",
+  "profile_id": "edi-837-dental-export",
+  "attempt_id": "05e6b2dc-b36f-4a65-af88-5604466bd872",
+  "outputs": {
+    "edi_837|core": {
+      "path": "interactive-mapping/runs/b8fd9dfe-8a6d-4b5d-98cb-71076ba548e5/outputs/05e6b2dc-b36f-4a65-af88-5604466bd872/edi_837|core.edi",
+      "format": "edi",
+      "size_bytes": 2949
+    }
+  },
+  "audit_trail_path": null,
+  "audit_coverage_report_path": "interactive-mapping/runs/b8fd9dfe-8a6d-4b5d-98cb-71076ba548e5/validate/38c064a3-5689-4c9a-afeb-db8d6d2aef08/audit-coverage-report.json",
+  "generated_at": "2026-04-09T11:05:09.678164+00:00"
+}

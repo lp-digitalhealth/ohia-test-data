@@ -1,0 +1,974 @@
+{
+  "resourceType": "Bundle",
+  "id": "emily-watkins-restoration-bundle",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Oral"
+    ],
+    "lastUpdated": "2026-06-05T00:00:00Z"
+  },
+  "type": "collection",
+  "timestamp": "2026-06-05T00:00:00Z",
+  "_comment_reused_resources": "Patient, Organizations, Practitioner, PractitionerRole, and Coverage are unchanged from Bundle emily-watkins-dental-claim-bundle. They are included here for standalone loading. If already loaded, skip entries 1-6 and POST only the Claim and ExplanationOfBenefit.",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:patient-emily-watkins",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-emily-watkins",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MB",
+                  "display": "Member Number"
+                }
+              ]
+            },
+            "system": "https://www.deltadentalky.com/member-id",
+            "value": "WTK4592031"
+          }
+        ],
+        "name": [
+          {
+            "use": "official",
+            "family": "Watkins",
+            "given": [
+              "Emily"
+            ]
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1994-03-02",
+        "address": [
+          {
+            "use": "home",
+            "state": "KY",
+            "country": "US"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:org-delta-dental-ky",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-delta-dental-ky",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "XV",
+                  "display": "Health Plan Identifier"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "38217"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "ins",
+                "display": "Insurance Company"
+              }
+            ]
+          }
+        ],
+        "name": "Delta Dental of Kentucky"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:org-harrodsburg-family-dentistry",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-harrodsburg-family-dentistry",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NPI",
+                  "display": "National provider identifier"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1245734763"
+          }
+        ],
+        "active": true,
+        "name": "Harrodsburg Family Dentistry",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(859) 734-7709",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "517 Legion Dr"
+            ],
+            "city": "Harrodsburg",
+            "state": "KY",
+            "postalCode": "40330",
+            "country": "US"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:practitioner-barsotti",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "practitioner-barsotti",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "identifier": [
+          {
+            "use": "official",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "NPI",
+                  "display": "National provider identifier"
+                }
+              ]
+            },
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1568030203"
+          },
+          {
+            "use": "secondary",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MD",
+                  "display": "Medical License Number"
+                }
+              ]
+            },
+            "system": "https://ky.gov/dental-license",
+            "value": "10615"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Barsotti",
+            "given": [
+              "Philip",
+              "Burke"
+            ],
+            "suffix": [
+              "DMD"
+            ]
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://nucc.org/provider-taxonomy",
+                  "code": "1223G0001X",
+                  "display": "Dentist - General Practice"
+                }
+              ]
+            },
+            "issuer": {
+              "display": "Kentucky State Board of Dentistry"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:practitioner-role-barsotti",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "practitioner-role-barsotti",
+        "practitioner": {
+          "reference": "urn:uuid:practitioner-barsotti",
+          "display": "Dr. Philip Barsotti, DMD"
+        },
+        "organization": {
+          "reference": "urn:uuid:org-harrodsburg-family-dentistry",
+          "display": "Harrodsburg Family Dentistry"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223G0001X",
+                "display": "Dentist - General Practice"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:coverage-emily-watkins",
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "coverage-emily-watkins",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Coverage"
+          ]
+        },
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "DENTAL",
+              "display": "Dental Care"
+            }
+          ]
+        },
+        "subscriber": {
+          "reference": "urn:uuid:patient-emily-watkins"
+        },
+        "subscriberId": "WTK4592031",
+        "beneficiary": {
+          "reference": "urn:uuid:patient-emily-watkins"
+        },
+        "relationship": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+              "code": "self",
+              "display": "Self"
+            }
+          ]
+        },
+        "period": {
+          "start": "2026-01-01",
+          "end": "2026-12-31"
+        },
+        "payor": [
+          {
+            "reference": "urn:uuid:org-delta-dental-ky",
+            "display": "Delta Dental of Kentucky"
+          }
+        ],
+        "class": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "group",
+                  "display": "Group"
+                }
+              ]
+            },
+            "value": "KYRHC-2026-001",
+            "name": "KY River Health Cooperative"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "plan",
+                  "display": "Plan"
+                }
+              ]
+            },
+            "value": "DDKY-PPO-2026",
+            "name": "Delta Dental PPO"
+          }
+        ],
+        "network": "Delta Dental PPO",
+        "costToBeneficiary": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-copay-type",
+                  "code": "deductible",
+                  "display": "Deductible"
+                }
+              ]
+            },
+            "valueMoney": {
+              "value": 50.0,
+              "currency": "USD"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:claim-emily-watkins-enc2",
+      "resource": {
+        "resourceType": "Claim",
+        "id": "claim-emily-watkins-enc2",
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "oral",
+              "display": "Oral"
+            }
+          ]
+        },
+        "use": "claim",
+        "patient": {
+          "reference": "urn:uuid:patient-emily-watkins",
+          "display": "Emily Watkins"
+        },
+        "billablePeriod": {
+          "start": "2026-05-22",
+          "end": "2026-05-22"
+        },
+        "created": "2026-05-23",
+        "insurer": {
+          "reference": "urn:uuid:org-delta-dental-ky",
+          "display": "Delta Dental of Kentucky"
+        },
+        "provider": {
+          "reference": "urn:uuid:org-harrodsburg-family-dentistry",
+          "display": "Harrodsburg Family Dentistry"
+        },
+        "priority": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/processpriority",
+              "code": "normal"
+            }
+          ]
+        },
+        "related": [
+          {
+            "claim": {
+              "reference": "urn:uuid:claim-emily-watkins-20260312"
+            },
+            "relationship": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/ex-relatedclaimrelationship",
+                  "code": "associated",
+                  "display": "Associated Claim"
+                }
+              ]
+            },
+            "_comment": "References Encounter 1 preventive claim. Tooth #13 decay was first observed on DOS 2026-03-12."
+          }
+        ],
+        "insurance": [
+          {
+            "sequence": 1,
+            "focal": true,
+            "coverage": {
+              "reference": "urn:uuid:coverage-emily-watkins"
+            }
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "informationSequence": [
+              1,
+              2
+            ],
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ada.org/cdt",
+                  "code": "D2391",
+                  "display": "Resin-based composite, one surface, posterior"
+                }
+              ]
+            },
+            "modifier": [
+              {
+                "coding": [
+                  {
+                    "system": "http://www.ada.org/cdt",
+                    "code": "primary",
+                    "display": "Primary tooth surface"
+                  }
+                ]
+              }
+            ],
+            "servicedDate": "2026-05-22",
+            "locationCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes",
+                  "code": "11",
+                  "display": "Office"
+                }
+              ]
+            },
+            "bodySite": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+                  "code": "13",
+                  "display": "Tooth 13 - Upper Left Second Premolar"
+                }
+              ]
+            },
+            "subSite": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/FDI-surface",
+                    "code": "O",
+                    "display": "Occlusal"
+                  }
+                ]
+              }
+            ],
+            "quantity": {
+              "value": 1
+            },
+            "unitPrice": {
+              "value": 180.0,
+              "currency": "USD"
+            },
+            "net": {
+              "value": 180.0,
+              "currency": "USD"
+            }
+          }
+        ],
+        "total": {
+          "value": 180.0,
+          "currency": "USD"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eob-emily-watkins-enc2",
+      "resource": {
+        "resourceType": "ExplanationOfBenefit",
+        "id": "eob-emily-watkins-enc2",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Oral"
+          ]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBIdentifierType",
+                  "code": "claimnumber",
+                  "display": "Claim Number"
+                }
+              ]
+            },
+            "system": "https://www.deltadentalky.com/claims",
+            "value": "DDKY-2026-052201"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "oral",
+              "display": "Oral"
+            }
+          ]
+        },
+        "use": "claim",
+        "patient": {
+          "reference": "urn:uuid:patient-emily-watkins",
+          "display": "Emily Watkins"
+        },
+        "billablePeriod": {
+          "start": "2026-05-22",
+          "end": "2026-05-22"
+        },
+        "created": "2026-06-05",
+        "insurer": {
+          "reference": "urn:uuid:org-delta-dental-ky",
+          "display": "Delta Dental of Kentucky"
+        },
+        "provider": {
+          "reference": "urn:uuid:org-harrodsburg-family-dentistry",
+          "display": "Harrodsburg Family Dentistry"
+        },
+        "related": [
+          {
+            "reference": {
+              "reference": "urn:uuid:eob-emily-watkins"
+            },
+            "relationship": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/ex-relatedclaimrelationship",
+                  "code": "associated",
+                  "display": "Associated Claim"
+                }
+              ]
+            }
+          }
+        ],
+        "outcome": "complete",
+        "careTeam": [
+          {
+            "sequence": 1,
+            "provider": {
+              "reference": "urn:uuid:practitioner-barsotti",
+              "display": "Dr. Philip Barsotti, DMD"
+            },
+            "responsible": true,
+            "role": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole",
+                  "code": "rendering",
+                  "display": "Rendering provider"
+                }
+              ]
+            },
+            "qualification": {
+              "coding": [
+                {
+                  "system": "http://nucc.org/provider-taxonomy",
+                  "code": "1223G0001X",
+                  "display": "Dentist - General Practice"
+                }
+              ]
+            }
+          },
+          {
+            "sequence": 2,
+            "provider": {
+              "reference": "urn:uuid:org-harrodsburg-family-dentistry",
+              "display": "Harrodsburg Family Dentistry"
+            },
+            "role": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole",
+                  "code": "performing",
+                  "display": "Performing provider"
+                }
+              ]
+            }
+          }
+        ],
+        "supportingInfo": [
+          {
+            "sequence": 1,
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBSupportingInfoType",
+                  "code": "clmrecvddate",
+                  "display": "Claim Received Date"
+                }
+              ]
+            },
+            "timingDate": "2026-05-23"
+          },
+          {
+            "sequence": 2,
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBSupportingInfoType",
+                  "code": "innetwork",
+                  "display": "In Network Indicator"
+                }
+              ]
+            },
+            "valueBoolean": true
+          },
+          {
+            "sequence": 3,
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBSupportingInfoType",
+                  "code": "patientaccountnumber",
+                  "display": "Patient Account Number"
+                }
+              ]
+            },
+            "valueString": "WTK4592031-ENC2",
+            "_comment": "Deductible status: Individual annual deductible $50.00 \u2014 NOT yet met prior to this claim. Full deductible applied to this claim."
+          }
+        ],
+        "insurance": [
+          {
+            "focal": true,
+            "coverage": {
+              "reference": "urn:uuid:coverage-emily-watkins"
+            }
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ada.org/cdt",
+                  "code": "D2391",
+                  "display": "Resin-based composite, one surface, posterior"
+                }
+              ]
+            },
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimDentalCategoryCS",
+                  "code": "F2",
+                  "display": "Class II (Basic Restorative)"
+                }
+              ]
+            },
+            "servicedDate": "2026-05-22",
+            "locationCodeableConcept": {
+              "coding": [
+                {
+                  "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes",
+                  "code": "11",
+                  "display": "Office"
+                }
+              ]
+            },
+            "bodySite": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/ex-tooth",
+                  "code": "13",
+                  "display": "Tooth 13 - Upper Left Second Premolar"
+                }
+              ]
+            },
+            "subSite": [
+              {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/FDI-surface",
+                    "code": "O",
+                    "display": "Occlusal"
+                  }
+                ]
+              }
+            ],
+            "quantity": {
+              "value": 1
+            },
+            "unitPrice": {
+              "value": 180.0,
+              "currency": "USD"
+            },
+            "net": {
+              "value": 180.0,
+              "currency": "USD"
+            },
+            "adjudication": [
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudicationDiscriminator",
+                      "code": "benefitPaymentStatus",
+                      "display": "Benefit Payment Status"
+                    }
+                  ]
+                },
+                "reason": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBPayerAdjudicationStatus",
+                      "code": "innetwork",
+                      "display": "In Network"
+                    }
+                  ]
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "submitted",
+                      "display": "Submitted Amount"
+                    }
+                  ]
+                },
+                "amount": {
+                  "value": 180.0,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "noncovered",
+                      "display": "Noncovered"
+                    }
+                  ]
+                },
+                "_comment": "PPO contractual adjustment / write-off: submitted $180.00 minus allowed $160.00",
+                "amount": {
+                  "value": 20.0,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "eligible",
+                      "display": "Eligible Amount"
+                    }
+                  ]
+                },
+                "_comment": "PPO allowed / eligible amount",
+                "amount": {
+                  "value": 160.0,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "deductible",
+                      "display": "Deductible"
+                    }
+                  ]
+                },
+                "_comment": "Full individual annual deductible of $50.00 applied \u2014 not previously met in plan year 2026",
+                "amount": {
+                  "value": 50.0,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "benefit",
+                      "display": "Benefit Amount"
+                    }
+                  ]
+                },
+                "_comment": "Plan pays 80% of (eligible $160.00 minus deductible $50.00) = 80% of $110.00 = $88.00",
+                "amount": {
+                  "value": 88.0,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                      "code": "copay",
+                      "display": "Copay"
+                    }
+                  ]
+                },
+                "_comment": "Patient coinsurance: 20% of $110.00 after deductible = $22.00",
+                "amount": {
+                  "value": 22.0,
+                  "currency": "USD"
+                }
+              },
+              {
+                "category": {
+                  "coding": [
+                    {
+                      "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                      "code": "memberliability",
+                      "display": "Member Liability"
+                    }
+                  ]
+                },
+                "_comment": "Total member liability: $50.00 deductible + $22.00 coinsurance = $72.00",
+                "amount": {
+                  "value": 72.0,
+                  "currency": "USD"
+                }
+              }
+            ]
+          }
+        ],
+        "total": [
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "submitted",
+                  "display": "Submitted Amount"
+                }
+              ]
+            },
+            "amount": {
+              "value": 180.0,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                  "code": "noncovered",
+                  "display": "Noncovered (Contractual Adjustment)"
+                }
+              ]
+            },
+            "amount": {
+              "value": 20.0,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "eligible",
+                  "display": "Eligible Amount"
+                }
+              ]
+            },
+            "amount": {
+              "value": 160.0,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "deductible",
+                  "display": "Deductible Applied"
+                }
+              ]
+            },
+            "amount": {
+              "value": 50.0,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                  "code": "benefit",
+                  "display": "Benefit Amount (Plan Paid)"
+                }
+              ]
+            },
+            "amount": {
+              "value": 88.0,
+              "currency": "USD"
+            }
+          },
+          {
+            "category": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                  "code": "memberliability",
+                  "display": "Total Member Liability"
+                }
+              ]
+            },
+            "amount": {
+              "value": 72.0,
+              "currency": "USD"
+            }
+          }
+        ],
+        "payment": {
+          "type": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ex-paymenttype",
+                "code": "partial",
+                "display": "Partial"
+              }
+            ]
+          },
+          "date": "2026-06-05",
+          "amount": {
+            "value": 88.0,
+            "currency": "USD"
+          }
+        },
+        "processNote": [
+          {
+            "number": 1,
+            "type": "display",
+            "text": "Service D2391 processed as Class II Basic Restorative, covered at 80% in-network after deductible."
+          },
+          {
+            "number": 2,
+            "type": "display",
+            "text": "Annual individual deductible of $50.00 applied. Deductible is now fully met for plan year 2026. Remaining deductible balance: $0.00."
+          },
+          {
+            "number": 3,
+            "type": "display",
+            "text": "Contractual adjustment (write-off) of $20.00 applied. Provider may not balance-bill patient for this amount."
+          }
+        ]
+      }
+    }
+  ]
+}
