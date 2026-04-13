@@ -1,0 +1,333 @@
+{
+  "resourceType": "Bundle",
+  "id": "site2-harrodsburg-procedures",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:procedure-laura-enc1-99201",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-laura-enc1-99201",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "99201",
+              "display": "Office or other outpatient visit, new patient"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-laura-jennings",
+          "display": "Laura Jennings"
+        },
+        "encounter": {
+          "reference": "urn:uuid:encounter-laura-enc1"
+        },
+        "performedDateTime": "2026-06-03",
+        "performer": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-barsotti",
+              "display": "Dr. Philip Barsotti"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:procedure-laura-enc1-70300",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-laura-enc1-70300",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "70300",
+              "display": "Dental X-ray, periapical, first image"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-laura-jennings",
+          "display": "Laura Jennings"
+        },
+        "encounter": {
+          "reference": "urn:uuid:encounter-laura-enc1"
+        },
+        "performedDateTime": "2026-06-03",
+        "performer": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-barsotti",
+              "display": "Dr. Philip Barsotti"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:procedure-laura-enc1-70310",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-laura-enc1-70310",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "70310",
+              "display": "Dental X-ray, periapical, each additional image"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-laura-jennings",
+          "display": "Laura Jennings"
+        },
+        "encounter": {
+          "reference": "urn:uuid:encounter-laura-enc1"
+        },
+        "performedDateTime": "2026-06-03",
+        "performer": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-barsotti",
+              "display": "Dr. Philip Barsotti"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:procedure-laura-enc1-99212",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-laura-enc1-99212",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "99212",
+              "display": "Office or other outpatient visit, established patient"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-laura-jennings",
+          "display": "Laura Jennings"
+        },
+        "encounter": {
+          "reference": "urn:uuid:encounter-laura-enc1"
+        },
+        "performedDateTime": "2026-06-03",
+        "performer": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-barsotti",
+              "display": "Dr. Philip Barsotti"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:procedure-laura-enc2-41899-endo",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-laura-enc2-41899-endo",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "category": {
+          "coding": [
+            {
+              "code": "endo",
+              "display": "Endodontic procedure"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "41899",
+              "display": "Unlisted procedure, dentoalveolar structures"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-laura-jennings",
+          "display": "Laura Jennings"
+        },
+        "encounter": {
+          "reference": "urn:uuid:encounter-laura-enc2"
+        },
+        "performedDateTime": "2026-06-17",
+        "performer": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-patel",
+              "display": "Dr. Amir Patel"
+            }
+          }
+        ],
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "K04.01",
+                "display": "Tooth 3"
+              }
+            ],
+            "text": "Tooth 3"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:procedure-laura-enc3-41899-crown",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-laura-enc3-41899-crown",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "category": {
+          "coding": [
+            {
+              "code": "crown",
+              "display": "Crown restoration"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "41899",
+              "display": "Unlisted procedure, dentoalveolar structures"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-laura-jennings",
+          "display": "Laura Jennings"
+        },
+        "encounter": {
+          "reference": "urn:uuid:encounter-laura-enc3"
+        },
+        "performedDateTime": "2026-07-15",
+        "performer": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-barsotti",
+              "display": "Dr. Philip Barsotti"
+            }
+          }
+        ],
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "K04.01",
+                "display": "Tooth 3"
+              }
+            ],
+            "text": "Tooth 3"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:procedure-laura-enc3-41899-buildup",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-laura-enc3-41899-buildup",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "category": {
+          "coding": [
+            {
+              "code": "buildup",
+              "display": "Core buildup"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "41899",
+              "display": "Unlisted procedure, dentoalveolar structures"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "urn:uuid:patient-laura-jennings",
+          "display": "Laura Jennings"
+        },
+        "encounter": {
+          "reference": "urn:uuid:encounter-laura-enc3"
+        },
+        "performedDateTime": "2026-07-15",
+        "performer": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-barsotti",
+              "display": "Dr. Philip Barsotti"
+            }
+          }
+        ],
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "K04.01",
+                "display": "Tooth 3"
+              }
+            ],
+            "text": "Tooth 3"
+          }
+        ]
+      }
+    }
+  ]
+}

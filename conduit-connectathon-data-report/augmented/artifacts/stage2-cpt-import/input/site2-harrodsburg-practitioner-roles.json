@@ -1,0 +1,94 @@
+{
+  "resourceType": "Bundle",
+  "id": "site2-harrodsburg-practitioner-roles",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:practitionerrole-barsotti-hrb",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "practitionerrole-barsotti-hrb",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:practitioner-barsotti",
+          "display": "Dr. Philip Barsotti"
+        },
+        "organization": {
+          "reference": "urn:uuid:org-harrodsburg-family-dentistry",
+          "display": "Harrodsburg Family Dentistry"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223G0001X",
+                "display": "Dentist - General Practice"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:location-harrodsburg-main",
+            "display": "Harrodsburg Family Dentistry - Main Office"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:practitionerrole-patel",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "practitionerrole-patel",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:practitioner-patel",
+          "display": "Dr. Amir Patel"
+        },
+        "organization": {
+          "reference": "urn:uuid:org-harrodsburg-family-dentistry",
+          "display": "Harrodsburg Family Dentistry"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223E0200X",
+                "display": "Dentist - Endodontics"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223E0200X",
+                "display": "Endodontics"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "reference": "urn:uuid:location-harrodsburg-main",
+            "display": "Harrodsburg Family Dentistry - Main Office"
+          }
+        ]
+      }
+    }
+  ]
+}
