@@ -1,6 +1,6 @@
 ## UC01-Emily Watkins — Routine Preventive Care and Single-Surface Restoration
 
-### 4.1 Business Overview
+### 1.1 Business Overview
 
 Emily Watkins schedules her semiannual preventive dental visit at Harrodsburg Family Dentistry. Dr. Philip Barsotti completes her routine examination, professional cleaning, and bitewing X-rays. Emily is covered under a Delta Dental PPO plan through her employer, KY River Health Cooperative. The office confirms she is active on the plan and that preventive services are covered at 100% with no deductible. The claim is submitted, processed without issue, and Emily receives an Explanation of Benefits showing no out-of-pocket cost.
 
@@ -20,7 +20,7 @@ Emily's total out-of-pocket expense for the year — covering two visits, one cl
 
 ---
 
-### 4.2 Encounter Summary for Clinical Staff
+### 1.2 Encounter Summary for Clinical Staff
 
 #### Encounter 1 — Routine Preventive Visit
 **Date of Service:** March 12, 2026
@@ -56,7 +56,7 @@ Emily's total out-of-pocket expense for the year — covering two visits, one cl
 
 ---
 
-### 4.3 Claims and Billing Summary for Clearinghouse Submission
+### 1.3 Claims and Billing Summary for Clearinghouse Submission
 
 #### Claim 1 of 2 — Routine Preventive Visit
 
