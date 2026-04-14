@@ -1,5 +1,7 @@
 # OHIA Connectathon — Dental Interoperability Test Dataset
 ## Patient Use Cases: Clinical Scenarios, Encounter Summaries, and Claims Data
+**Jason Morales** is a new patient in acute pain who presents for a same-day emergency exam and leaves with an extraction. His single visit generates four procedure lines across two different benefit tier rates — basic services at 80% and oral surgery at 70% — with a deductible that exhausts on the first line. His extraction of tooth #30 introduces the dental-specific data element central to the CARIN Blue Button Oral Profile: the ability to record and retrieve a tooth number in a machine-readable field. His scenario tests whether a patient-facing app can display that correctly, and whether a provider app can search across all patients for claims involving a specific tooth.
+
 ### Provider and Practice Identifiers
 
 | Entity | Name | Identifier | Verified Against |
