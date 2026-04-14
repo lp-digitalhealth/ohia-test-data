@@ -94,4 +94,5 @@ Extraction performed under local anesthesia. Uncomplicated forceps removal of to
 > **Clearinghouse note — new patient:** Jason has no prior claims history with this practice or this payer for plan year 2026. His $50 annual individual deductible had not previously been applied. After this claim processes, his deductible balance is $0 for the remainder of plan year 2026.
 
 ---
+*This document is prepared in support of the OHIA Connectathon. All patient names, member IDs, employer groups, plan identifiers, and authorization numbers are synthetic test data with no real-world counterparts. Provider NPIs and payer EDI IDs are real, publicly available identifiers used here solely in a synthetic test context. OHIA Facilitator: Mark Marciante, Leavitt Partners. Provided for use only as part of OHIA or Connectathon events.*
 
