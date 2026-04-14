@@ -1,40 +1,8 @@
-# OHIA Connectathon — Dental Interoperability Test Dataset
-## Patient Use Cases: Clinical Scenarios, Encounter Summaries, and Claims Data
-**Jason Morales** is a new patient in acute pain who presents for a same-day emergency exam and leaves with an extraction. His single visit generates four procedure lines across two different benefit tier rates — basic services at 80% and oral surgery at 70% — with a deductible that exhausts on the first line. His extraction of tooth #30 introduces the dental-specific data element central to the CARIN Blue Button Oral Profile: the ability to record and retrieve a tooth number in a machine-readable field. His scenario tests whether a patient-facing app can display that correctly, and whether a provider app can search across all patients for claims involving a specific tooth.
+# OHIA Connectathon — Dental Interoperability Test Dataset-Use Case #2
 
-### Provider and Practice Identifiers
+## 2. Jason Morales — Emergency New-Patient Visit with Extraction
 
-| Entity | Name | Identifier | Verified Against |
-|---|---|---|---|
-| Rendering provider | Philip Barsotti, DMD | NPI 1568030203 | NPPES Registry |
-| Practice organization | Harrodsburg Family Dentistry | NPI 1245734763 | NPPES Registry |
-| KY Dental License | Philip Barsotti, DMD | License 10615 | NPPES Registry |
-| NUCC taxonomy | General Dentist | 1223G0001X | NUCC |
-| Practice address | 517 Legion Dr, Harrodsburg, KY 40330 | | NPPES Registry |
-| Practice phone | (859) 734-7709 | | NPPES Registry |
-
-### Payer Identifiers
-
-| Patient | Payer | EDI Payer ID | Verified Against |
-|---|---|---|---|
-| Emily Watkins | Delta Dental of Kentucky | 38217 | NEA / Patterson payer lists |
-| Jason Morales | Cigna Dental Health of Kentucky, Inc. | 62308 | Cigna provider documentation |
-| Laura Jennings | Anthem Blue Cross and Blue Shield of Kentucky | 026033 | NEA / Patterson payer lists |
-
-### Test Account Credentials
-
-| Patient | Test Username | Member ID |
-|---|---|---|
-
-| Jason Morales |MRL8421137 |
-
-Passwords are distributed via the OHIA coordination channel and are not published in this document.
-
----
-
-## 1. Jason Morales — Emergency New-Patient Visit with Extraction
-
-### 1.1 Business Overview
+### 2.1 Business Overview
 
 Jason Morales calls Harrodsburg Family Dentistry seeking an emergency appointment. He has been in severe pain for three days — lower right jaw, swelling, and difficulty chewing. The office schedules him same-day as a new patient.
 
@@ -54,7 +22,7 @@ Jason is covered through a Cigna Dental PPO at his employer, Ohio River Manufact
 
 ---
 
-### 1.2 Encounter Summary for Clinical Staff
+### 2.2 Encounter Summary for Clinical Staff
 
 #### Encounter 1 — Emergency Examination and Extraction
 **Date of Service:** April 8, 2026
@@ -77,7 +45,7 @@ Extraction performed under local anesthesia. Uncomplicated forceps removal of to
 
 ---
 
-### 1.3 Claims and Billing Summary for Clearinghouse Submission
+### 2.3 Claims and Billing Summary for Clearinghouse Submission
 
 #### Claim 1 of 1 — Emergency Examination and Extraction
 
