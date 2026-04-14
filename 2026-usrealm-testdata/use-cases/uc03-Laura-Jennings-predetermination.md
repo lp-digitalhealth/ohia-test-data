@@ -51,7 +51,7 @@ Palliative emergency treatment provided to relieve acute pain and stabilize the 
 
 ---
 
-#### predetermination
+#### Predetermination
 **Submitted:** June 4, 2026
 **Approved:** June 10, 2026
 **Authorization Number:** ANT-PREAUTH-2026-JNG001
