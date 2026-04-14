@@ -156,4 +156,4 @@ Emily's total out-of-pocket expense for the year — covering two visits, one cl
 | **Year total** | | **$400.00** | **$20.00** | **$380.00** | **$308.00** | **$72.00** |
 
 ---
-*This document is prepared in support of the OHIA Connectathon and the January 2027 HL7 dental FHIR implementation guide ballot. All patient names, member IDs, employer groups, plan identifiers, and authorization numbers are synthetic test data with no real-world counterparts. Provider NPIs and payer EDI IDs are real, publicly available identifiers used here solely in a synthetic test context. OHIA Facilitator: Mark Marciante, Leavitt Partners.*
+*This document is prepared in support of the OHIA Connectathon. All patient names, member IDs, employer groups, plan identifiers, and authorization numbers are synthetic test data with no real-world counterparts. Provider NPIs and payer EDI IDs are real, publicly available identifiers used here solely in a synthetic test context. OHIA Facilitator: Mark Marciante, Leavitt Partners. Provided for use only as part of OHIA or Connectathon events.*
