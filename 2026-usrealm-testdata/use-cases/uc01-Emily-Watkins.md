@@ -1,3 +1,5 @@
+
+# OHIA Connectathon — Dental Interoperability Test Dataset-Use Case #1
 ## UC01-Emily Watkins — Routine Preventive Care and Single-Surface Restoration
 
 ### 1.1 Business Overview
