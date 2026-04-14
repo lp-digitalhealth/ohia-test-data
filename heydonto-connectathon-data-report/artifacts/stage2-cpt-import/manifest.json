@@ -1,0 +1,15 @@
+{
+  "session_id": "3c60ad32-db3c-4af8-935c-7f691f87f1f4",
+  "profile_id": "fhir-r4-import-cpt",
+  "attempt_id": "de47b7c4-728f-4f20-a8ed-80612222fb5d",
+  "outputs": {
+    "fhir_bundle|core": {
+      "path": "interactive-mapping/runs/3c60ad32-db3c-4af8-935c-7f691f87f1f4/outputs/de47b7c4-728f-4f20-a8ed-80612222fb5d/fhir_bundle|core.json",
+      "format": "json",
+      "size_bytes": 88812
+    }
+  },
+  "audit_trail_path": null,
+  "audit_coverage_report_path": "interactive-mapping/runs/3c60ad32-db3c-4af8-935c-7f691f87f1f4/validate/60ca00cf-1bc6-4fdf-a54b-46a5bbb85df2/audit-coverage-report.json",
+  "generated_at": "2026-04-09T08:38:21.183164+00:00"
+}

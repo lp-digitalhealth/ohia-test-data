@@ -1,0 +1,350 @@
+{
+  "resourceType": "Bundle",
+  "id": "laura-jennings-crown-bundle",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Oral"
+    ],
+    "lastUpdated": "2026-07-29T00:00:00Z"
+  },
+  "type": "collection",
+  "timestamp": "2026-07-29T00:00:00Z",
+
+  "_comment_scope": "Bundle 6 of 6 for Laura Jennings. CARIN BB Oral Profile. Crown preparation and delivery (D2740) with core buildup (D2393) on Tooth #3. DOS July 15, 2026. Both services reference preAuthRef ANT-PREAUTH-2026-JNG001. D2393 conditional approval satisfied — clinical narrative confirming insufficient tooth structure included in supportingInfo. Deductible $0 (fully met). D2393 billed on same date as D2740 per clinical best practice and payer requirement — NOT on RCT date.",
+
+  "entry": [
+
+    {
+      "fullUrl": "urn:uuid:claim-laura-jennings-crown",
+      "resource": {
+        "resourceType": "Claim",
+        "id": "claim-laura-jennings-crown",
+        "status": "active",
+        "type": {
+          "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/claim-type", "code": "oral", "display": "Oral" }]
+        },
+        "use": "claim",
+        "patient": { "reference": "urn:uuid:patient-laura-jennings", "display": "Laura Jennings" },
+        "billablePeriod": { "start": "2026-07-15", "end": "2026-07-15" },
+        "created": "2026-07-16",
+        "insurer": { "reference": "urn:uuid:org-anthem-bcbs-ky" },
+        "provider": { "reference": "urn:uuid:org-harrodsburg-family-dentistry" },
+        "priority": {
+          "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/processpriority", "code": "normal" }]
+        },
+        "related": [
+          {
+            "claim": { "reference": "urn:uuid:claim-laura-jennings-rct" },
+            "relationship": {
+              "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/ex-relatedclaimrelationship", "code": "associated", "display": "Associated Claim" }]
+            },
+            "_comment": "Associated with RCT claim (Bundle 5, DOS 2026-06-17). Same tooth, same authorization. Crown restores endodontically treated Tooth #3."
+          }
+        ],
+        "insurance": [
+          {
+            "sequence": 1,
+            "focal": true,
+            "coverage": { "reference": "urn:uuid:coverage-laura-jennings" },
+            "preAuthRef": ["ANT-PREAUTH-2026-JNG001"],
+            "_comment": "Authorization covers D2740 (approved) and D2393 (conditionally approved). Same preAuthRef as RCT claim."
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "productOrService": {
+              "coding": [{ "system": "http://www.ada.org/cdt", "code": "D2393", "display": "Resin-based composite - three or more surfaces, primary or permanent; posterior" }]
+            },
+            "servicedDate": "2026-07-15",
+            "locationCodeableConcept": {
+              "coding": [{ "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes", "code": "11" }]
+            },
+            "bodySite": {
+              "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/ex-tooth", "code": "3", "display": "Tooth 3 - Upper Right First Molar" }]
+            },
+            "subSite": [
+              { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/FDI-surface", "code": "MO", "display": "Mesio-Occlusal" }] },
+              { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/FDI-surface", "code": "D", "display": "Distal" }] }
+            ],
+            "quantity": { "value": 1 },
+            "unitPrice": { "value": 250.00, "currency": "USD" },
+            "net": { "value": 250.00, "currency": "USD" }
+          },
+          {
+            "sequence": 2,
+            "productOrService": {
+              "coding": [{ "system": "http://www.ada.org/cdt", "code": "D2740", "display": "Crown - porcelain/ceramic substrate" }]
+            },
+            "servicedDate": "2026-07-15",
+            "locationCodeableConcept": {
+              "coding": [{ "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes", "code": "11" }]
+            },
+            "bodySite": {
+              "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/ex-tooth", "code": "3", "display": "Tooth 3 - Upper Right First Molar" }]
+            },
+            "quantity": { "value": 1 },
+            "unitPrice": { "value": 1350.00, "currency": "USD" },
+            "net": { "value": 1350.00, "currency": "USD" }
+          }
+        ],
+        "total": { "value": 1600.00, "currency": "USD" }
+      }
+    },
+
+    {
+      "fullUrl": "urn:uuid:eob-laura-jennings-crown",
+      "resource": {
+        "resourceType": "ExplanationOfBenefit",
+        "id": "eob-laura-jennings-crown",
+        "meta": {
+          "profile": ["http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Oral"]
+        },
+        "identifier": [
+          {
+            "type": {
+              "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBIdentifierType", "code": "claimnumber" }]
+            },
+            "system": "https://www.anthem.com/dental/claims",
+            "value": "ANT-2026-071501"
+          }
+        ],
+        "status": "active",
+        "type": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/claim-type", "code": "oral" }] },
+        "use": "claim",
+        "patient": { "reference": "urn:uuid:patient-laura-jennings", "display": "Laura Jennings" },
+        "billablePeriod": { "start": "2026-07-15", "end": "2026-07-15" },
+        "created": "2026-07-29",
+        "insurer": { "reference": "urn:uuid:org-anthem-bcbs-ky" },
+        "provider": { "reference": "urn:uuid:org-harrodsburg-family-dentistry" },
+        "related": [
+          {
+            "reference": { "reference": "urn:uuid:eob-laura-jennings-rct" },
+            "relationship": {
+              "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/ex-relatedclaimrelationship", "code": "associated" }]
+            },
+            "_comment": "Associated with RCT EOB (Bundle 5). Same tooth, same auth chain."
+          },
+          {
+            "reference": { "reference": "urn:uuid:eob-laura-jennings-enc1" },
+            "relationship": {
+              "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/ex-relatedclaimrelationship", "code": "associated" }]
+            },
+            "_comment": "Associated with initial emergency visit EOB (Bundle 1) — origin of diagnosis chain."
+          }
+        ],
+        "outcome": "complete",
+        "careTeam": [
+          {
+            "sequence": 1,
+            "provider": { "reference": "urn:uuid:practitioner-barsotti", "display": "Dr. Philip Barsotti, DMD" },
+            "responsible": true,
+            "role": { "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole", "code": "rendering" }] },
+            "qualification": { "coding": [{ "system": "http://nucc.org/provider-taxonomy", "code": "1223G0001X" }] }
+          },
+          {
+            "sequence": 2,
+            "provider": { "reference": "urn:uuid:org-harrodsburg-family-dentistry" },
+            "role": { "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole", "code": "performing" }] }
+          }
+        ],
+        "supportingInfo": [
+          {
+            "sequence": 1,
+            "category": { "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBSupportingInfoType", "code": "clmrecvddate" }] },
+            "timingDate": "2026-07-16"
+          },
+          {
+            "sequence": 2,
+            "category": { "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBSupportingInfoType", "code": "innetwork" }] },
+            "valueBoolean": true
+          },
+          {
+            "sequence": 3,
+            "category": { "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBSupportingInfoType", "code": "patientaccountnumber" }] },
+            "valueString": "JNG5027741-ENC3"
+          },
+          {
+            "sequence": 4,
+            "category": {
+              "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBSupportingInfoType", "code": "additionalInformation" }]
+            },
+            "valueString": "D2393 CONDITIONAL APPROVAL SATISFIED: Clinical examination at crown preparation (2026-07-15) confirmed less than 40% remaining coronal tooth structure on Tooth #3 following endodontic access and caries excavation. Core buildup with resin composite placed to restore adequate retention form for crown. Clinical narrative: 'Endodontically treated 2026-06-17. Estimated 35% coronal structure remaining. Buildup required for crown retention.' Post-obturation periapical on file confirms successful obturation. Authorization ANT-PREAUTH-2026-JNG001 line 3 condition satisfied.",
+            "_comment": "This supportingInfo entry fulfills the D2393 conditional approval requirement from PAS ClaimResponse (Bundle 4, processNote #1 on item 3). Without this documentation the D2393 line would be denied."
+          },
+          {
+            "sequence": 5,
+            "category": {
+              "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBSupportingInfoType", "code": "additionalInformation" }]
+            },
+            "valueString": "Crown seat date: 2026-07-15. Crown type: Porcelain/ceramic (all-ceramic). Lab case reference: HFD-LAB-2026-0715-003. No prior crown on Tooth #3 on record. Plan frequency limitation (1 crown per tooth per 5 years) satisfied."
+          }
+        ],
+        "insurance": [
+          {
+            "focal": true,
+            "coverage": { "reference": "urn:uuid:coverage-laura-jennings" },
+            "preAuthRef": ["ANT-PREAUTH-2026-JNG001"]
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "productOrService": {
+              "coding": [{ "system": "http://www.ada.org/cdt", "code": "D2393", "display": "Resin-based composite - three or more surfaces, primary or permanent; posterior" }]
+            },
+            "category": {
+              "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimDentalCategoryCS", "code": "F2", "display": "Class II (Basic)" }]
+            },
+            "servicedDate": "2026-07-15",
+            "locationCodeableConcept": {
+              "coding": [{ "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes", "code": "11" }]
+            },
+            "bodySite": {
+              "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/ex-tooth", "code": "3", "display": "Tooth 3 - Upper Right First Molar" }]
+            },
+            "subSite": [
+              { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/FDI-surface", "code": "MO", "display": "Mesio-Occlusal" }] },
+              { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/FDI-surface", "code": "D", "display": "Distal" }] }
+            ],
+            "quantity": { "value": 1 },
+            "unitPrice": { "value": 250.00, "currency": "USD" },
+            "net": { "value": 250.00, "currency": "USD" },
+            "adjudication": [
+              {
+                "category": { "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudicationDiscriminator", "code": "benefitPaymentStatus" }] },
+                "reason": { "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBPayerAdjudicationStatus", "code": "innetwork" }] }
+              },
+              {
+                "category": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "submitted" }] },
+                "amount": { "value": 250.00, "currency": "USD" }
+              },
+              {
+                "category": { "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication", "code": "noncovered" }] },
+                "_comment": "PPO write-off: $250 submitted minus $200 allowed",
+                "amount": { "value": 50.00, "currency": "USD" }
+              },
+              {
+                "category": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "eligible" }] },
+                "_comment": "Allowed per preauth ANT-PREAUTH-2026-JNG001 line 3",
+                "amount": { "value": 200.00, "currency": "USD" }
+              },
+              {
+                "category": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "deductible" }] },
+                "_comment": "Deductible met 2026-06-03. $0.",
+                "amount": { "value": 0.00, "currency": "USD" }
+              },
+              {
+                "category": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "benefit" }] },
+                "_comment": "80% of $200 = $160.00. Conditional approval satisfied.",
+                "amount": { "value": 160.00, "currency": "USD" }
+              },
+              {
+                "category": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "copay" }] },
+                "_comment": "20% coinsurance of $200 = $40.00",
+                "amount": { "value": 40.00, "currency": "USD" }
+              },
+              {
+                "category": { "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication", "code": "memberliability" }] },
+                "amount": { "value": 40.00, "currency": "USD" }
+              }
+            ]
+          },
+          {
+            "sequence": 2,
+            "productOrService": {
+              "coding": [{ "system": "http://www.ada.org/cdt", "code": "D2740", "display": "Crown - porcelain/ceramic substrate" }]
+            },
+            "category": {
+              "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimDentalCategoryCS", "code": "F4", "display": "Class IV (Major)" }]
+            },
+            "servicedDate": "2026-07-15",
+            "locationCodeableConcept": {
+              "coding": [{ "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes", "code": "11" }]
+            },
+            "bodySite": {
+              "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/ex-tooth", "code": "3", "display": "Tooth 3 - Upper Right First Molar" }]
+            },
+            "quantity": { "value": 1 },
+            "unitPrice": { "value": 1350.00, "currency": "USD" },
+            "net": { "value": 1350.00, "currency": "USD" },
+            "adjudication": [
+              {
+                "category": { "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudicationDiscriminator", "code": "benefitPaymentStatus" }] },
+                "reason": { "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBPayerAdjudicationStatus", "code": "innetwork" }] }
+              },
+              {
+                "category": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "submitted" }] },
+                "amount": { "value": 1350.00, "currency": "USD" }
+              },
+              {
+                "category": { "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication", "code": "noncovered" }] },
+                "_comment": "PPO write-off: $1,350 submitted minus $1,050 allowed",
+                "amount": { "value": 300.00, "currency": "USD" }
+              },
+              {
+                "category": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "eligible" }] },
+                "_comment": "Allowed per preauth ANT-PREAUTH-2026-JNG001 line 2",
+                "amount": { "value": 1050.00, "currency": "USD" }
+              },
+              {
+                "category": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "deductible" }] },
+                "amount": { "value": 0.00, "currency": "USD" }
+              },
+              {
+                "category": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "benefit" }] },
+                "_comment": "50% of $1,050 = $525.00 (Major service tier)",
+                "amount": { "value": 525.00, "currency": "USD" }
+              },
+              {
+                "category": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "copay" }] },
+                "_comment": "50% patient coinsurance of $1,050 = $525.00",
+                "amount": { "value": 525.00, "currency": "USD" }
+              },
+              {
+                "category": { "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication", "code": "memberliability" }] },
+                "amount": { "value": 525.00, "currency": "USD" }
+              }
+            ]
+          }
+        ],
+        "total": [
+          { "category": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "submitted" }] }, "amount": { "value": 1600.00, "currency": "USD" } },
+          { "category": { "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication", "code": "noncovered" }] }, "amount": { "value": 350.00, "currency": "USD" } },
+          { "category": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "eligible" }] }, "amount": { "value": 1250.00, "currency": "USD" } },
+          { "category": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "deductible" }] }, "amount": { "value": 0.00, "currency": "USD" } },
+          { "category": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/adjudication", "code": "benefit" }] }, "amount": { "value": 685.00, "currency": "USD" } },
+          { "category": { "coding": [{ "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication", "code": "memberliability" }] }, "amount": { "value": 565.00, "currency": "USD" } }
+        ],
+        "payment": {
+          "type": { "coding": [{ "system": "http://terminology.hl7.org/CodeSystem/ex-paymenttype", "code": "partial" }] },
+          "date": "2026-07-29",
+          "amount": { "value": 685.00, "currency": "USD" }
+        },
+        "processNote": [
+          {
+            "number": 1,
+            "type": "display",
+            "text": "D2393 (Resin buildup) processed as Class II Basic, covered at 80%. Conditional authorization under ANT-PREAUTH-2026-JNG001 satisfied — clinical documentation confirming insufficient tooth structure accepted. Allowed $200.00."
+          },
+          {
+            "number": 2,
+            "type": "display",
+            "text": "D2740 (Crown, porcelain/ceramic) processed as Class IV Major service, covered at 50%. Allowed $1,050.00 per predetermination ANT-PREAUTH-2026-JNG001. Crown frequency limitation confirmed — no prior crown on Tooth #3."
+          },
+          {
+            "number": 3,
+            "type": "display",
+            "text": "Annual deductible of $50.00 fully met at initial visit (2026-06-03). No deductible applied to this claim."
+          },
+          {
+            "number": 4,
+            "type": "display",
+            "text": "Total plan paid this claim: $685.00 ($160 for D2393 + $525 for D2740). Total member liability this claim: $565.00 ($40 for D2393 + $525 for D2740)."
+          }
+        ]
+      }
+    }
+
+  ]
+}
