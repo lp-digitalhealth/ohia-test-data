@@ -6,7 +6,7 @@ This repository contains synthetic test data for the Oral Health Interoperabilit
 **OHIA Facilitator:** Mark Marciante, Leavitt Partners (an HMA Company)
 
 > **⚠️ CDT Code Usage Notice**
-> All CDT procedure codes in this repository are used solely for OHIA Connectathon testing and interoperability demonstration purposes. Any use outside of OHIA or Connectathon events requires prior written approval from OHIA leadership. Contact [Mark Marciante](mailto:mmarciante@leavittpartners.com) before any other use.
+> All CDT procedure codes in this repository are used with permission from the American Dental Association and are used solely for OHIA Connectathon testing and interoperability demonstration purposes. Any use outside of OHIA testing or HL7 Connectathon events requires prior written approval from ADA and OHIA leadership. Contact [Mark Marciante](mailto:mmarciante@leavittpartners.com) before any use.
 
 ---
 
