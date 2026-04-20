@@ -14,7 +14,7 @@
 1. [Executive Summary](#1-executive-summary)
 2. [How to Use This Document](#2-how-to-use-this-document)
 3. [Dataset Infrastructure](#3-dataset-infrastructure)
-4. [Emily Watkins — Routine Preventive Care and Single-Surface Restoration](#4-emily-watkins)
+4. [Emily Watkins — Routine Preventive Care and Single-Surface Restoration](#4-emily-watkins) [uc01-Emily-Watkins.md](../use-cases/uc01-Emily-Watkins.md)
    - 4.1 [Business Overview](#41-business-overview)
    - 4.2 [Encounter Summary for Clinical Staff](#42-encounter-summary-for-clinical-staff)
    - 4.3 [Claims and Billing Summary for Clearinghouse Submission](#43-claims-and-billing-summary-for-clearinghouse-submission)
