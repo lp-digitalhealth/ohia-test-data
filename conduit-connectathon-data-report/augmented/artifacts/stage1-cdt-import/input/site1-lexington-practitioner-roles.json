@@ -1,0 +1,80 @@
+{
+  "resourceType": "Bundle",
+  "id": "site1-lexington-practitioner-roles",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:practitionerrole-chen",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "practitionerrole-chen",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:practitioner-chen",
+          "display": "Dr. Sarah Chen, DDS"
+        },
+        "organization": {
+          "reference": "urn:uuid:org-lexington-family-dental",
+          "display": "Lexington Family Dental"
+        },
+        "location": [
+          {
+            "reference": "urn:uuid:location-lexington-main",
+            "display": "Lexington Family Dental - Main Office"
+          }
+        ],
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223G0001X",
+                "display": "Dentist - General Practice"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:practitionerrole-barsotti-lex",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "practitionerrole-barsotti-lex",
+        "active": true,
+        "practitioner": {
+          "reference": "urn:uuid:practitioner-barsotti",
+          "display": "Dr. Philip Barsotti, DMD"
+        },
+        "organization": {
+          "reference": "urn:uuid:org-lexington-family-dental",
+          "display": "Lexington Family Dental"
+        },
+        "location": [
+          {
+            "reference": "urn:uuid:location-lexington-main",
+            "display": "Lexington Family Dental - Main Office"
+          }
+        ],
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223G0001X",
+                "display": "Dentist - General Practice"
+              }
+            ]
+          }
+        ],
+        "availableTime": [
+          {
+            "daysOfWeek": ["mon", "wed"],
+            "availableStartTime": "08:00:00",
+            "availableEndTime": "17:00:00"
+          }
+        ]
+      }
+    }
+  ]
+}

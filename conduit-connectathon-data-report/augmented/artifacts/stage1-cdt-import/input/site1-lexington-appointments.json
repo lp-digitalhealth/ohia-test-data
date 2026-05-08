@@ -1,0 +1,127 @@
+{
+  "resourceType": "Bundle",
+  "id": "site1-lexington-appointments",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:appointment-emily-enc1",
+      "resource": {
+        "resourceType": "Appointment",
+        "id": "appointment-emily-enc1",
+        "status": "fulfilled",
+        "serviceType": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ada.org/cdt",
+                "code": "D0120",
+                "display": "Periodic oral evaluation - established patient"
+              }
+            ]
+          }
+        ],
+        "start": "2026-03-12T09:00:00-05:00",
+        "end": "2026-03-12T10:00:00-05:00",
+        "minutesDuration": 60,
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-chen",
+              "display": "Dr. Sarah Chen, DDS"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "reference": "urn:uuid:patient-emily-watkins",
+              "display": "Emily Watkins"
+            },
+            "required": "required",
+            "status": "accepted"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:appointment-emily-enc2",
+      "resource": {
+        "resourceType": "Appointment",
+        "id": "appointment-emily-enc2",
+        "status": "fulfilled",
+        "serviceType": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ada.org/cdt",
+                "code": "D2391",
+                "display": "Resin-based composite, one surface, posterior"
+              }
+            ]
+          }
+        ],
+        "start": "2026-05-22T10:00:00-05:00",
+        "end": "2026-05-22T11:00:00-05:00",
+        "minutesDuration": 60,
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-chen",
+              "display": "Dr. Sarah Chen, DDS"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "reference": "urn:uuid:patient-emily-watkins",
+              "display": "Emily Watkins"
+            },
+            "required": "required",
+            "status": "accepted"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:appointment-jason-enc1",
+      "resource": {
+        "resourceType": "Appointment",
+        "id": "appointment-jason-enc1",
+        "status": "fulfilled",
+        "serviceType": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ada.org/cdt",
+                "code": "D0140",
+                "display": "Limited oral evaluation - problem focused"
+              }
+            ]
+          }
+        ],
+        "start": "2026-04-08T09:00:00-05:00",
+        "end": "2026-04-08T10:30:00-05:00",
+        "minutesDuration": 90,
+        "participant": [
+          {
+            "actor": {
+              "reference": "urn:uuid:practitioner-chen",
+              "display": "Dr. Sarah Chen, DDS"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "reference": "urn:uuid:patient-jason-morales",
+              "display": "Jason Morales"
+            },
+            "required": "required",
+            "status": "accepted"
+          }
+        ]
+      }
+    }
+  ]
+}
