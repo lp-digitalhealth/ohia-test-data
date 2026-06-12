@@ -1,7 +1,7 @@
 CMS Connectathon: Dental Interoperability Test Dataset
 ======================================================
 
-Timothy Jones: Pediatric periodontitis due to poorly managed Type 1diabetes.
+Timothy Jones: Pediatric Periodontitis due to poorly managed Type 1 Diabetes.
 ----------------------------------------------------------------------------
 
 ### Section I: Business Overview
