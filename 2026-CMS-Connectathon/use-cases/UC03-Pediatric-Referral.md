@@ -61,7 +61,7 @@ Dr. Smith notes:
 
 Dr. Smith documents **acute gingivitis, plaque-induced** (`ICD-10: K05.00`) and is concerned that without dental intervention it will rapidly progress to periodontitis — a risk substantially elevated by Timothy's poorly controlled Type 1 diabetes, which impairs immune response and periodontal tissue healing. Dr. Smith asks whether Timothy has a dental home. His parents confirm he has never seen a dental provider.
 
-Dr. Smith recommends that Timothy follow up with a **pediatric dental provider** and provides a structured referral. Timothy's parents contact **Benecare**, the dental administrative services organization (ASO) for Connecticut Medicaid and CHIP, to identify a participating pediatric dental provider within 20 miles who is accepting new patients enrolled in Husky B. They identify **Dr. David Watson, DDS**, a pediatric dental provider accepting Husky B, and schedule an appointment — which is available **three months** after the well-child visit.
+Dr. Smith recommends that Timothy follow up with a **pediatric dental provider** and provides a structured referral. Timothy's parents contact **Benecare**, which handles referral coordination and network directory services for Connecticut Medicaid dental, to identify a participating pediatric dental provider within 20 miles who is accepting new patients enrolled in Husky B. The dental benefit itself is administered through **Connecticut Dental Health Partnership** under the **Connecticut Medicaid MCO** (specific MCO to be confirmed against current Husky B enrollment data). They identify **Dr. David Watson, DDS**, a pediatric dental provider accepting Husky B, and schedule an appointment — which is available **three months** after the well-child visit.
 
 **The records gap:** Timothy's grandparents accompany him to the dental appointment. They have limited knowledge of Timothy's medical history beyond knowing he has Type 1 diabetes and his pediatrician is Dr. Smith. Without structured record exchange, Dr. Watson would begin the encounter with no clinical context — no diabetes management status, no medication list, no glycemic history, no record of the gingivitis finding from the well-child visit.
 
@@ -92,7 +92,7 @@ Timothy's patient record — accessible through the Husky B patient application 
 |---|---|---|
 | **Well-child exam with oral health assessment:** Dr. Smith conducts a pediatric oral health assessment and documents gingivitis, tobacco smoke exposure, and diabetes. | US Core / ODE (Under Development) | `Encounter` (well-child, POS 11); `Condition` (K05.00, Z77.22, E10.9); `Observation` (oral health assessment findings — tooth loss, gingivitis, pain); `Flag` (Type 1 diabetes — elevated periodontal risk). |
 | **Referral created:** Dr. Smith creates a structured dental referral to a pediatric dental provider. | US Core / ODE (Under Development) | `ServiceRequest` (referral, priority: routine); `DocumentReference` wrapping oral health assessment findings; `Flag` (diabetes, elevated periodontal risk). |
-| **Provider directory query:** Timothy's parents contact Benecare to identify a Husky B–participating pediatric dental provider accepting new patients within 20 miles. | Da Vinci PDex / Plan-Net IG | `PractitionerRole` and `HealthcareService` queried from Benecare provider directory to confirm network participation, accepting status, and proximity. |
+| **Provider directory query:** Timothy's parents contact Benecare (referral coordination and network directory) to identify a Husky B–participating pediatric dental provider accepting new patients within 20 miles. | Da Vinci PDex / Plan-Net IG | `PractitionerRole` and `HealthcareService` queried from Connecticut Dental Health Partnership / Benecare provider directory to confirm network participation, accepting status, and proximity. |
 | **Patient notification — referral sent:** Timothy's patient application (or guardian proxy application) receives notification that the referral has been created. | FHIR Subscriptions Backport IG | Subscription event triggered on `ServiceRequest` creation. |
 | **Medical records transmitted to dental provider — via Connie:** New Haven Pediatric Care Center transmits Timothy's medical records to Dr. Watson's practice prior to the dental encounter, routed through Connie (Connecticut HIE). | Da Vinci CDex / US Core / Connie HIE | `Bundle` (patient summary): `Patient`, `Condition` (E10.9, K05.00, Z77.22), `MedicationRequest` (insulin lispro), `Device` (CGM, insulin pump), `CareTeam` (pediatrician, endocrinologist, dietitian), `Observation` (oral health findings); transmitted via CDex provider-to-provider push, routed through Connie FHIR endpoint. |
 | **Medical records received at dental practice:** Dr. Watson reviews Timothy's full medical context — diabetes status, medications, CGM device, care team, oral health findings — before the encounter begins. | US Core / ODE (Under Development) | `Bundle` received via interim FHIR server at pediatric dental practice; surfaced in dental provider workflow prior to appointment. |
@@ -185,7 +185,7 @@ The core interoperability problem this use case addresses: a pediatric dental pr
 
 8. **`MedicationAdministration` for in-office dental treatment** — Local delivery of chlorhexidine is an in-office dental medication administration that must be communicated to both the pediatrician and the endocrinologist (antibiotic stewardship context; clinical coordination). This use case tests whether `MedicationAdministration` resources from a dental encounter can be transmitted in a CDex summary push to medical providers.
 
-9. **Benecare Plan-Net provider directory** — The provider directory query to identify a Husky B–participating pediatric dental provider accepting new patients within 20 miles tests Plan-Net `PractitionerRole` and `HealthcareService` in a Connecticut CHIP / Medicaid ASO context — a coverage context not previously exercised in OHIA Connectathon use cases.
+9. **Connecticut Dental Health Partnership / Benecare Plan-Net provider directory** — The provider directory query to identify a Husky B–participating pediatric dental provider accepting new patients within 20 miles tests Plan-Net `PractitionerRole` and `HealthcareService` in a Connecticut CHIP / Medicaid context — a coverage context not previously exercised in OHIA Connectathon use cases. Benecare provides the network directory and referral coordination layer; Connecticut Dental Health Partnership is the dental plan administrator and claims adjudicator under the MCO contract.
 
 10. **ODE IG validation for pediatric periodontitis** — This use case exercises ODE profiles in a pediatric context: mixed dentition (primary and permanent teeth simultaneously present), tooth development observations, and periodontal findings in a patient population not typically associated with periodontitis — validating that ODE's oral health profiles can represent the full clinical range of dental findings, including those driven by systemic disease in young patients.
 
@@ -193,17 +193,19 @@ The core interoperability problem this use case addresses: a pediatric dental pr
 
 ## Section IV: EDI Transactions
 
-Timothy's dental services are covered under **Husky B** (Connecticut CHIP), administered through Connecticut Medicaid. Dental benefits are managed by **Benecare** as the dental administrative services organization. All dental services are billed to Benecare via 837D using Connecticut Medicaid fee schedule rates.
+Timothy's dental services are covered under **Husky B** (Connecticut CHIP). The benefit structure in this use case reflects a three-tier administration model: Connecticut DSS (state Medicaid program sponsor) → **Connecticut Medicaid MCO** (managed care organization — specific MCO to be confirmed against current Husky B enrollment data) → **Connecticut Dental Health Partnership** (dental plan administrator) → **Benecare** (referral coordination and network directory services). Claims are submitted to and adjudicated by Connecticut Dental Health Partnership under the MCO contract, not by Benecare directly. Connecticut Medicaid fee schedule rates apply.
 
 ### EDI Transactions in Scope
 
 | X12 Transaction | Trigger | Scope Note |
 |---|---|---|
-| **270 / 271** — Eligibility & Benefit Inquiry / Response | New Haven Pediatric Care Center verifies Timothy's Husky B dental eligibility at referral creation; Dr. Watson's practice verifies at check-in | Queries Benecare dental benefit; confirms active Husky B enrollment, covered pediatric dental services, and annual benefit limits |
-| **837D** — Dental Claim (Pediatric Dental Practice) | Dr. Watson's practice bills Benecare for all dental services rendered | CDT D0150 (comprehensive oral evaluation); D4341 ×2 (scaling and root planing, two quadrants); D4381 (local delivery of chlorhexidine); D1330 (oral hygiene instructions); POS 11; Dr. Watson as rendering provider; Timothy's Husky B Medicaid ID on claim |
-| **835** — Remittance Advice | Benecare adjudicates and pays the claim | Connecticut Medicaid / Husky B fee schedule rates; claim adjustment reason codes; any benefit limitation denials surfaced as named test findings |
+| **270 / 271** — Eligibility & Benefit Inquiry / Response | New Haven Pediatric Care Center verifies Timothy's Husky B dental eligibility at referral creation; Dr. Watson's practice verifies at check-in | Queries Connecticut Dental Health Partnership dental benefit via MCO; confirms active Husky B enrollment, covered pediatric dental services, and annual benefit limits |
+| **837D** — Dental Claim (Pediatric Dental Practice) | Dr. Watson's practice submits claim to Connecticut Dental Health Partnership (via MCO) for all dental services rendered | CDT D0150 (comprehensive oral evaluation); D4341 ×2 (scaling and root planing, two quadrants); D4381 (local delivery of chlorhexidine); D1330 (oral hygiene instructions); POS 11; Dr. Watson as rendering provider; Timothy's Husky B Medicaid ID on claim |
+| **835** — Remittance Advice | Connecticut Dental Health Partnership adjudicates and returns remittance | Connecticut Medicaid / Husky B fee schedule rates; claim adjustment reason codes; any benefit limitation denials surfaced as named test findings |
 
 > **Note on 278:** No prior authorization is required for the procedures in this encounter under Husky B pediatric dental benefit design. The X12 278 transaction is not in scope for this use case. If D4341 (scaling and root planing) requires PA under the applicable Husky B benefit year — benefit design varies — this use case flags that as an open test finding.
+
+> **Benecare role clarification:** Benecare provides referral coordination and network directory services within the Connecticut Medicaid dental ecosystem. Benecare is not the claims payer and does not adjudicate 837D claims. The Plan-Net provider directory query in this use case is directed at the Connecticut Dental Health Partnership / Benecare network directory; the 837D claim is routed to Connecticut Dental Health Partnership.
 
 > **Medical billing note:** No medical benefit claim is in scope for this use case. All services are billed under the dental benefit. The pediatric oral health assessment performed by Dr. Smith at the well-child visit is billed under the medical benefit (CPT 99461 or equivalent well-child code with oral health component) by New Haven Pediatric Care Center; that transaction is out of scope for this dental Connectathon use case.
 
@@ -270,17 +272,21 @@ Timothy's dental services are covered under **Husky B** (Connecticut CHIP), admi
 | FHIR Element | Value | System / Note |
 |---|---|---|
 | **Program** | Husky B — Connecticut CHIP | Connecticut Children's Health Insurance Program |
-| **Payer / Administrator** | Benecare (Dental ASO) | Dental administrative services organization for CT Medicaid |
+| **State Program Sponsor** | Connecticut DSS | Department of Social Services — state Medicaid authority |
+| **MCO** | Connecticut Medicaid MCO (Synthetic) | Managed care organization — confirm against current Husky B enrollment data |
+| **Dental Plan Administrator** | Connecticut Dental Health Partnership | Dental benefit plan administrator under MCO contract |
+| **Referral Coordination / Network Directory** | Benecare | Referral coordination and network directory services; not the claims payer |
 | **Medicaid ID** | CT-MCD-HB-0082341 | Connecticut CHIP beneficiary ID |
 | **Coverage Period** | 2026-01-01 – 2026-12-31 | Enrollment year |
 | **Status** | Active | Coverage confirmed |
-| **Dental Network** | Benecare Connecticut Pediatric Network | In-network dental providers |
+| **Dental Network** | Connecticut Dental Health Partnership / Benecare provider network | In-network dental providers |
 | **Annual Dental Maximum** | Per Connecticut Medicaid fee schedule | Confirm current Husky B benefit year |
 | **Preventive / Diagnostic** | Covered | D0150, D1330 |
-| **Periodontal Treatment** | Covered with medical necessity documentation | D4341 — unusual for pediatric; medical necessity required |
+| **Periodontal Treatment** | Covered with medical necessity documentation | D4341 — unusual for pediatric patient; medical necessity required |
 | **Antimicrobial Agents** | Uncertain | D4381 — named open test finding |
-| **Benecare Payer EDI ID** | CT-BENECARE-EDI | HIPAA X12 claims routing |
-| **Benecare FHIR Endpoint** | `https://benecare.example.org/fhir/r4` | Synthetic FHIR API |
+| **Claims Payer EDI ID** | CT-CDHP-EDI | Connecticut Dental Health Partnership — HIPAA X12 claims routing (synthetic) |
+| **Claims Payer FHIR Endpoint** | `https://ctdentalpartnership.example.org/fhir/r4` | Synthetic FHIR API — Connecticut Dental Health Partnership |
+| **Benecare FHIR Endpoint** | `https://benecare.example.org/fhir/r4` | Synthetic FHIR API — provider directory / referral coordination only |
 
 ---
 
@@ -312,7 +318,7 @@ Timothy's dental services are covered under **Husky B** (Connecticut CHIP), admi
 | **Practice Management System** | Dental PMS with interim FHIR server | Architecture pattern |
 | **FHIR Endpoint** | `https://pedsdental.example.org/fhir/r4` | Interim FHIR server |
 | **NPI Taxonomy Code** | 1223P0221X | Pediatric dentist |
-| **Husky B Participation** | Active — Connecticut CHIP / Benecare network | Confirmed via Plan-Net query |
+| **Husky B Participation** | Active — Connecticut Dental Health Partnership / Benecare network | Confirmed via Plan-Net query |
 | **Panel Status** | Accepting new patients | Confirmed via Plan-Net `HealthcareService` query |
 
 #### Connie (Connecticut Health Information Exchange)
@@ -326,15 +332,35 @@ Timothy's dental services are covered under **Husky B** (Connecticut CHIP), admi
 | **FHIR Endpoint** | `https://conniect.org/fhir/r4` | Connie FHIR routing endpoint (synthetic) |
 | **OHIA Role** | Named OHIA member organization | Sector: State HIE |
 
-#### Benecare (Dental ASO — Connecticut Medicaid)
+#### Connecticut Dental Health Partnership
 
 | FHIR Element | Value | System / Note |
 |---|---|---|
-| **Organization Name** | Benecare — Connecticut Dental ASO (Synthetic) | Test data label |
-| **Type** | Dental Administrative Services Organization | ASO type |
-| **Program** | Connecticut Medicaid / Husky B | Programs administered |
-| **Payer EDI ID** | CT-BENECARE-EDI | X12 claims routing |
-| **FHIR Endpoint** | `https://benecare.example.org/fhir/r4` | Synthetic FHIR API |
+| **Organization Name** | Connecticut Dental Health Partnership | Dental plan administrator |
+| **Type** | Dental Plan Administrator | Organization type |
+| **Program** | Connecticut Medicaid / Husky B — dental benefit | Program administered |
+| **Role in Use Case** | Dental plan administrator; claims adjudicator; 837D recipient | Claims submitted to Connecticut Dental Health Partnership via MCO contract |
+| **Claims EDI ID** | CT-CDHP-EDI | X12 claims routing (synthetic) |
+| **FHIR Endpoint** | `https://ctdentalpartnership.example.org/fhir/r4` | Synthetic FHIR API |
+
+#### Benecare
+
+| FHIR Element | Value | System / Note |
+|---|---|---|
+| **Organization Name** | Benecare | Referral coordination and network directory services |
+| **Type** | Dental Referral Coordination / Network Directory | Organization type |
+| **Program** | Connecticut Medicaid / Husky B | Programs supported |
+| **Role in Use Case** | Provider directory queries (Plan-Net); referral coordination; network identification | Not the claims payer; does not adjudicate 837D claims |
+| **FHIR Endpoint** | `https://benecare.example.org/fhir/r4` | Synthetic FHIR API — provider directory only |
+
+#### Connecticut Medicaid MCO (Synthetic)
+
+| FHIR Element | Value | System / Note |
+|---|---|---|
+| **Organization Name** | Connecticut Medicaid MCO (Synthetic) | Managed care organization — specific MCO to be confirmed against current Husky B enrollment data |
+| **Type** | Medicaid Managed Care Organization | Organization type |
+| **Program** | Connecticut HUSKY B | Medicaid managed care program |
+| **Role in Use Case** | MCO contract holder; intermediary between DSS and Connecticut Dental Health Partnership | Claims flow: dental practice → Connecticut Dental Health Partnership under MCO contract |
 
 #### Pediatric Endocrinology Practice
 
@@ -375,7 +401,7 @@ Timothy's dental services are covered under **Husky B** (Connecticut CHIP), admi
 | **License Number** | CT-DDS-052917 | Connecticut dental license (synthetic) |
 | **Specialty Code (Taxonomy)** | 1223P0221X | Pediatric dentist |
 | **Organization** | Pediatric Dental Practice — New Haven | Employment |
-| **Husky B Participation** | Active — Benecare network | Confirmed via Plan-Net |
+| **Husky B Participation** | Active — Connecticut Dental Health Partnership / Benecare network | Confirmed via Plan-Net |
 | **Place of Service** | 11 — Office | In-office setting |
 | **Role in Use Case** | Receiving dental provider; sender of bidirectional encounter summaries | Dental evaluation, PRA, treatment; transmits summaries to pediatrician and endocrinologist |
 
@@ -566,7 +592,7 @@ Timothy's dental services are covered under **Husky B** (Connecticut CHIP), admi
 | **Encounter summary transmitted to Dr. Smith — via Connie** | 2026-05-28 | Dr. Watson | CDex → Connie → Epic FHIR (Yale New Haven Health) |
 | **Encounter summary transmitted to endocrinologist — via Connie** | 2026-05-28 | Dr. Watson | CDex → Connie → Endocrinology FHIR endpoint |
 | **Guardian proxy application updated — encounter complete** | 2026-05-28 | Patient application | FHIR Subscription event |
-| **837D submitted to Benecare** | 2026-05-29 | Dental practice billing | D0150, D4341 ×2, D4381, D1330 → Benecare EDI |
+| **837D submitted to Connecticut Dental Health Partnership** | 2026-05-29 | Dental practice billing | D0150, D4341 ×2, D4381, D1330 → Connecticut Dental Health Partnership EDI (via MCO) |
 
 #### Key Timeline Constraints
 
