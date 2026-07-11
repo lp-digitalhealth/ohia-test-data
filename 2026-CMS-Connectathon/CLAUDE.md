@@ -1,6 +1,6 @@
 # CLAUDE.md — OHIA CMS Connectathon Test Data
 
-**Doc version:** 1.0
+**Doc version:** 1.5
 **Last updated:** 2026-07-11 (by: claude.ai chat)
 **Repo:** `lp-digitalhealth/ohia-test-data`, folder `2026-CMS-Connectathon/`
 
@@ -123,10 +123,25 @@ This project is deliberately worked in **two modes**, and each session should kn
 
 ---
 
+## 7b. IG conformance matrix (cross-use-case, by encounter)
+
+`companion-guides/stakeholder-matrix.md` — restructured (v1.2) from an earlier stakeholder-first design into an **encounter-first** conformance matrix: rows are Use Case + Encounter, columns are Implementation Guides (CRD, DTR, SMART App Launch, IHE 360X, ODE, CARIN Blue Button, Provider Access API) with a responsible-party sub-header, cells are R (required) / NR (not required) / U (unknown), last column is a plain-language description. This is more testable at the Connectathon than a per-use-case stakeholder table, since testing happens encounter-by-encounter and not every encounter exercises every IG.
+
+Key facts this surfaced for UC01:
+- **Provider Access API** (CARIN BB-based, provider-facing, out-of-band) is confirmed NOT required at Encounter #1 — needed at a later encounter, not yet pinned down which one (candidate: Encounter #6, unconfirmed).
+- **"Stub" is a first-class, cross-cutting concept** — Patient App needs stubs for EHR/PMS/Payer; EHR and Dental Tech providers are sometimes the same vendor building an EHR *stub*. The companion guide still needs a dedicated Stub Specifications section (not yet built).
+- A separate **stakeholder-to-IG responsibility reference table** (who's primarily responsible for each IG, independent of any encounter) lives below the main matrix in the same file.
+
+## 7c. Companion guide (Encounter #1 complete)
+
+`companion-guides/UC01-companion-guide.md` — built for Encounter #1. Contains: Business Overview (plain language, for Business Users), a pointer to the IG matrix, a Stub Specifications section (per role: EHR, Bridge/PMS, Payer, Patient App — the two missing pieces flagged in v1.1/1.2 are now filled), and step-by-step prep instructions per stakeholder type. Not prescriptive about internal implementation. Encounters #2–7 will extend this same file once designed.
+
+---
+
 ## 8. Not yet built
 
 - Encounters #2–7 (FHIR resources, HL7v2 samples, clinician writeups) for UC01 — **design work needed first, not just execution**
-- Full companion guide with step-by-step prep instructions (only the readiness checklist exists, Encounter #1 only)
+- Full companion guide for Encounters #2–7 (Encounter #1 is complete — see Section 7c)
 - Encounter-level test scripts (human-readable + ideally FHIR `TestScript`)
 - 360X response transactions: accept (PCC-56), interim note (PCC-59), outcome/clearance (PCC-57), optional cancel (PCC-58) / no-show (PCC-61)
 - UC02–UC05 entirely (currently placeholder/synthetic organizations and practitioners in the source use-case docs; need the same real-entity research UC01 received)
@@ -142,5 +157,20 @@ This project is deliberately worked in **two modes**, and each session should kn
 
 *Append-only. Newest entry at the top. Every session (chat or Code) adds one entry before finishing.*
 
-### 2026-07-11 — claude.ai chat
+### 2026-07-11 — claude.ai chat (v1.5)
+Added two more tooling sections to `UC01-companion-guide.md`: Section 7 (FHIR services — HAPI FHIR/OnyxOS server setup, loading mechanics, profile validation via the official HL7 FHIR Validator CLI and Inferno, CDS Hooks testing via plain HTTP) and Section 8 (Patient-facing app credentials — SMART App Launch registration, client ID/secret, redirect URIs, scopes, sandbox vs. production credential handling, and a caution against committing real secrets to the repo). Renumbered the troubleshooting section to 8 (fixed a numbering gap in the same edit — sections now run 0-8 sequentially). No FHIR/HL7v2 resource changes this session — companion guide content only.
+
+### 2026-07-11 — claude.ai chat (v1.4)
+Verified all file references in `UC01-companion-guide.md` actually resolve on disk — found and fixed a real gap: `CLAUDE.md`, `stakeholder-matrix.md`, and `UC01-companion-guide.md` had been built as standalone downloads only, never placed into the local repo tree alongside the rest of the library. Copied all three into their correct locations and re-verified (16/16 file references now resolve; all JSON still valid; bundle resource count still 34). Also added a new Section 6 to the companion guide: HL7v2 tooling requirements (parsing libraries, MLLP/interface engines like Mirth Connect, the bridge's own internal parser, and lightweight validators for spot-checking) — this was previously discussed in chat but not captured in the guide itself.
+
+### 2026-07-11 — claude.ai chat (v1.3)
+Built `companion-guides/UC01-companion-guide.md` for Encounter #1: Business Overview, Stub Specifications (per role), step-by-step prep per stakeholder type (Payer/Dental Tech/EHR/Patient App), loading order, and a pointer to existing QA notes for troubleshooting. This completes Encounter #1's companion-guide work — the two gaps flagged in v1.1/1.2 (Business Overview, Stub Specs) are now filled. No FHIR/HL7v2 resource changes this session.
+
+### 2026-07-11 — claude.ai chat (v1.2)
+Restructured `companion-guides/stakeholder-matrix.md` from a stakeholder-first (provides/consumes/depends-on) design to an encounter-first IG conformance matrix, per user direction: rows = Use Case + Encounter, columns = IG (with responsible-party sub-header), cells = R/NR/U, last column = description. Kept the stakeholder-to-IG responsibility mapping as a secondary reference table in the same file. UC01 Encounter #1 fully filled in (R across CRD/DTR/SMART/360X/ODE, NR for CARIN BB/Provider Access API); Encounters #2-7 and UC02-05 marked U/not-yet-reviewed. No FHIR/HL7v2 resource changes this session.
+
+### 2026-07-11 — claude.ai chat (v1.1)
+Encounter #1 companion-guide work: identified that the readiness checklist alone doesn't serve all 5 stakeholder types (esp. non-technical business users, and the "stub" concept cutting across all 4 technical roles). Designed and built `companion-guides/stakeholder-matrix.md` — global provides/consumes/depends-on table across all stakeholders and all use cases, UC01 fully detailed, UC02-05 stubbed. Surfaced Provider Access API (CARIN BB-based, provider-facing, out-of-band) as a 4th payer capability. Still needed before the companion guide is complete: Business Overview section, Stub Specifications section. No FHIR/HL7v2 resource changes this session.
+
+### 2026-07-11 — claude.ai chat (v1.0)
 Restructured the standalone continuity doc into this repo-resident `CLAUDE.md`, added the mode-split protocol (Section 7a) and this Session Log. No new project content built this session — this was a tooling/workflow session. Confirmed (via a Claude Code test, reported by user) that GitHub project-sync into claude.ai chat is not working reliably — chat cannot see this repo's files directly as of this writing. Established convention: user pastes this file's contents into new chat sessions to resume design work.
