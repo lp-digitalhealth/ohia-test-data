@@ -1,0 +1,70 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "questionnaire-ibx-imrt-pa-dtr",
+  "url": "http://ibx.com/fhir/Questionnaire/imrt-pa-dtr",
+  "identifier": [
+    {
+      "system": "http://ibx.com/fhir/coverage-rules",
+      "value": "IBX-DTR-IMRT-001"
+    }
+  ],
+  "version": "1.0.0",
+  "name": "IBXImrtPriorAuthDTR",
+  "title": "IBX IMRT Prior Authorization — Documentation Requirements",
+  "status": "active",
+  "experimental": false,
+  "publisher": "Independence Blue Cross, Inc",
+  "description": "Da Vinci DTR questionnaire completed by the ordering provider (or auto-populated via CQL/SDC pre-population) to satisfy IBX's IMRT prior authorization documentation requirements. Referenced by PlanDefinition/plandef-ibx-imrt-pa-rule.",
+  "subjectType": ["Patient"],
+  "item": [
+    {
+      "linkId": "1",
+      "text": "Diagnosis requiring IMRT",
+      "type": "string",
+      "required": true
+    },
+    {
+      "linkId": "2",
+      "text": "Treatment site",
+      "type": "string",
+      "required": true
+    },
+    {
+      "linkId": "3",
+      "text": "Planned total dose (Gy) and fractionation schedule",
+      "type": "string",
+      "required": true
+    },
+    {
+      "linkId": "4",
+      "text": "Has a pre-treatment dental clearance been completed?",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "linkId": "5",
+      "text": "If dental clearance is pending, planned/actual radiation start date",
+      "type": "date",
+      "required": false,
+      "enableWhen": [
+        {
+          "question": "4",
+          "operator": "=",
+          "answerBoolean": false
+        }
+      ]
+    },
+    {
+      "linkId": "6",
+      "text": "Rendering facility name and NPI",
+      "type": "string",
+      "required": true
+    },
+    {
+      "linkId": "7",
+      "text": "Ordering physician name and NPI",
+      "type": "string",
+      "required": true
+    }
+  ]
+}

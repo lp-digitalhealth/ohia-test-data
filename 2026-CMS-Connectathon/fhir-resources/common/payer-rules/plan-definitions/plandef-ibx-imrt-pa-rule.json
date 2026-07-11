@@ -1,0 +1,54 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "plandef-ibx-imrt-pa-rule",
+  "url": "http://ibx.com/fhir/PlanDefinition/imrt-pa-rule",
+  "identifier": [
+    {
+      "system": "http://ibx.com/fhir/coverage-rules",
+      "value": "IBX-CRD-IMRT-001"
+    }
+  ],
+  "version": "1.0.0",
+  "name": "IBXImrtPriorAuthorizationRule",
+  "title": "IBX Coverage Requirement: IMRT Prior Authorization",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "code": "eca-rule",
+        "display": "ECA Rule"
+      }
+    ]
+  },
+  "status": "active",
+  "experimental": false,
+  "publisher": "Independence Blue Cross, Inc",
+  "description": "Da Vinci CRD coverage requirement rule fired at order-sign for Intensity-Modulated Radiation Therapy (IMRT). Determines whether prior authorization is required for a given member/plan combination and returns a card directing the ordering system to launch DTR for questionnaire completion.",
+  "purpose": "Supports real-time coverage requirements discovery at the point of order entry per the Da Vinci CRD Implementation Guide, so FCCC's ordering system is informed of the IMRT prior authorization requirement before the order is placed.",
+  "action": [
+    {
+      "title": "IMRT requires prior authorization",
+      "description": "If the ordered service is IMRT (CPT 77301, 77338) and the member's plan is IBX Personal Choice 65 PPO (or another IBX Medicare Advantage product), prior authorization is required before the service may proceed.",
+      "trigger": [
+        {
+          "type": "named-event",
+          "name": "order-sign"
+        }
+      ],
+      "condition": [
+        {
+          "kind": "applicability",
+          "expression": {
+            "language": "text/cql",
+            "expression": "IMRTOrderRequiresPriorAuth",
+            "reference": "Library/lib-ibx-imrt-pa-logic"
+          }
+        }
+      ],
+      "definitionCanonical": "Questionnaire/questionnaire-ibx-imrt-pa-dtr"
+    }
+  ],
+  "library": [
+    "Library/lib-ibx-imrt-pa-logic"
+  ]
+}

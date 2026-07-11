@@ -1,0 +1,51 @@
+{
+  "resourceType": "Library",
+  "id": "lib-ibx-imrt-pa-logic",
+  "url": "http://ibx.com/fhir/Library/imrt-pa-logic",
+  "identifier": [
+    {
+      "system": "http://ibx.com/fhir/coverage-rules",
+      "value": "IBX-CRD-IMRT-LOGIC-001"
+    }
+  ],
+  "version": "1.0.0",
+  "name": "IBXImrtPriorAuthLogic",
+  "title": "IBX IMRT Prior Authorization CQL Logic",
+  "status": "active",
+  "experimental": false,
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "logic-library",
+        "display": "Logic Library"
+      }
+    ]
+  },
+  "publisher": "Independence Blue Cross, Inc",
+  "description": "CQL logic evaluating whether an IMRT order (CPT 77301, 77338) placed for a member covered under an IBX Medicare Advantage product requires prior authorization. Referenced by PlanDefinition/plandef-ibx-imrt-pa-rule for CRD evaluation at order-sign.",
+  "content": [
+    {
+      "contentType": "text/cql",
+      "title": "IMRTOrderRequiresPriorAuth.cql",
+      "url": "https://fhir.ibx.com/cql/IMRTOrderRequiresPriorAuth.cql"
+    }
+  ],
+  "dataRequirement": [
+    {
+      "type": "ServiceRequest",
+      "codeFilter": [
+        {
+          "path": "code",
+          "code": [
+            { "system": "http://www.ama-assn.org/go/cpt", "code": "77301" },
+            { "system": "http://www.ama-assn.org/go/cpt", "code": "77338" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Coverage"
+    }
+  ]
+}

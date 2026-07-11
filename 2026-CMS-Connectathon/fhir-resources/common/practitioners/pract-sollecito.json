@@ -1,0 +1,61 @@
+{
+  "resourceType": "Practitioner",
+  "id": "pract-sollecito",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"]
+  },
+  "identifier": [
+    { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1568472035" },
+    { "system": "http://www.pa.gov/fhir/dental-license", "value": "PA-DDS-045738" }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Sollecito",
+      "given": ["Thomas", "Paul"],
+      "suffix": ["DMD", "MMSc"]
+    }
+  ],
+  "telecom": [
+    { "system": "phone", "value": "(215) 898-4615", "use": "work" },
+    { "system": "email", "value": "tsollecito@dental.upenn.edu", "use": "work" }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "line": ["240 South 40th Street"],
+      "city": "Philadelphia",
+      "state": "PA",
+      "postalCode": "19104",
+      "country": "US"
+    }
+  ],
+  "gender": "male",
+  "qualification": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+            "code": "DDS",
+            "display": "Doctor of Dental Surgery"
+          }
+        ],
+        "text": "DMD (Doctor of Medical Dentistry)"
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://nucc.org/provider-taxonomy",
+            "code": "125Q00000X",
+            "display": "Oral Medicine"
+          }
+        ],
+        "text": "Professor and Chair, Department of Oral Medicine; Oral Oncology Specialist; Diplomate, American Board of Oral Medicine (1993); Diplomate, American Board of Special Care Dentistry (2005); Faculty, University of Pennsylvania School of Dental Medicine"
+      }
+    }
+  ]
+}

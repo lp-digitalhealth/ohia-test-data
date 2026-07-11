@@ -1,0 +1,59 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "servicerequest-imrt-order",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest"]
+  },
+  "status": "active",
+  "intent": "order",
+  "priority": "urgent",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "108290001",
+          "display": "Radiation oncology AND/OR radiotherapy"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      { "system": "http://www.ama-assn.org/go/cpt", "code": "77301", "display": "IMRT plan" },
+      { "system": "http://www.ama-assn.org/go/cpt", "code": "77338", "display": "IMRT device(s), design and construction" }
+    ],
+    "text": "Intensity-Modulated Radiation Therapy (IMRT), head & neck"
+  },
+  "subject": {
+    "reference": "Patient/patient-john-smith",
+    "display": "John Smith"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-imrt-order",
+    "display": "Oncology visit — IMRT order & CRD trigger, 2026-07-06"
+  },
+  "occurrenceDateTime": "2026-08-10",
+  "authoredOn": "2026-07-06",
+  "requester": {
+    "reference": "Practitioner/pract-galloway",
+    "display": "Dr. Thomas Galloway"
+  },
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-john-smith-tongue-cancer",
+      "display": "Stage IV squamous cell carcinoma, lateral border of tongue"
+    }
+  ],
+  "insurance": [
+    {
+      "reference": "Coverage/coverage-john-smith",
+      "display": "John Smith's IBX Personal Choice 65 PPO coverage"
+    }
+  ],
+  "note": [
+    {
+      "text": "Originally planned start date 2026-08-10; subject to revision pending dental clearance per pre-radiation osteoradionecrosis-risk protocol. See ServiceRequest/servicerequest-dental-referral."
+    }
+  ]
+}

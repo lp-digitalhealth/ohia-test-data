@@ -1,0 +1,39 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "role-galloway",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"]
+  },
+  "active": true,
+  "practitioner": { "reference": "Practitioner/pract-galloway", "display": "Thomas Mark Galloway, MD" },
+  "organization": { "reference": "Organization/org-fccc", "display": "Fox Chase Cancer Center" },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "2070AM0800X",
+          "display": "Radiation Oncology"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "419815003",
+          "display": "Radiation oncology"
+        }
+      ],
+      "text": "Service Chief, Head & Neck Radiation Oncology"
+    }
+  ],
+  "location": [
+    { "reference": "Location/loc-fccc-radonc", "display": "FCCC Head & Neck Radiation Oncology" }
+  ],
+  "telecom": [
+    { "system": "phone", "value": "(215) 728-6900", "extension": "2847", "use": "work" }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "resourceType": "InsurancePlan",
+  "id": "insplan-ibx-pc65ppo",
+  "identifier": [
+    { "system": "http://cms.gov/cmsid", "value": "H3909" }
+  ],
+  "status": "active",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+          "code": "medicare",
+          "display": "Medicare"
+        }
+      ],
+      "text": "Medicare Advantage PPO"
+    }
+  ],
+  "name": "Personal Choice 65 PPO",
+  "period": {
+    "start": "2026-01-01",
+    "end": "2026-12-31"
+  },
+  "ownedBy": { "reference": "Organization/org-ibx", "display": "Independence Blue Cross, Inc" },
+  "administeredBy": { "reference": "Organization/org-ibx", "display": "Independence Blue Cross, Inc" },
+  "network": [
+    { "display": "Preferred Provider Network" }
+  ],
+  "coverage": [
+    {
+      "type": {
+        "coding": [
+          { "system": "http://terminology.hl7.org/CodeSystem/coverage-class", "code": "medical", "display": "Medical" }
+        ]
+      },
+      "benefit": [
+        {
+          "type": { "text": "IMRT (Intensity-Modulated Radiation Therapy)" },
+          "requirement": "Prior authorization required before service delivery"
+        },
+        {
+          "type": { "text": "Surgical Extraction (CDT D7210)" },
+          "requirement": "No PA required; covered as medically necessary at medical rate"
+        },
+        {
+          "type": { "text": "Implant Placement (CDT D6010)" },
+          "requirement": "No PA required; covered as medically necessary at medical rate"
+        },
+        {
+          "type": { "text": "Diagnostic Imaging" },
+          "requirement": "No PA required; $0 copay for preventive/diagnostic"
+        }
+      ]
+    }
+  ],
+  "plan": [
+    {
+      "type": { "text": "PPO" },
+      "generalCost": [
+        {
+          "type": { "text": "Individual Medical Deductible" },
+          "cost": { "value": 250, "currency": "USD" },
+          "comment": "Waived for preventive/diagnostic services"
+        },
+        {
+          "type": { "text": "Out-of-Pocket Maximum" },
+          "cost": { "value": 6700, "currency": "USD" },
+          "comment": "Individual; federally capped for Medicare Advantage"
+        }
+      ],
+      "specificCost": [
+        {
+          "category": { "text": "Specialist Visit" },
+          "benefit": [
+            {
+              "type": { "text": "Copay" },
+              "cost": [
+                { "type": { "text": "In-network" }, "value": { "value": 50, "unit": "USD" } }
+              ]
+            }
+          ]
+        },
+        {
+          "category": { "text": "Imaging" },
+          "benefit": [
+            {
+              "type": { "text": "Copay" },
+              "cost": [
+                { "type": { "text": "Preventive/diagnostic" }, "value": { "value": 0, "unit": "USD" } }
+              ]
+            }
+          ]
+        },
+        {
+          "category": { "text": "Surgical Services" },
+          "benefit": [
+            {
+              "type": { "text": "Coinsurance" },
+              "cost": [
+                { "type": { "text": "After deductible" }, "value": { "value": 20, "unit": "%" } }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

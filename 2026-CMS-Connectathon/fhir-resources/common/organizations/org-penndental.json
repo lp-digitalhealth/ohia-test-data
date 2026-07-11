@@ -1,0 +1,52 @@
+{
+  "resourceType": "Organization",
+  "id": "org-penndental",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"]
+  },
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "1205234382"
+    },
+    {
+      "system": "http://www.dental.upenn.edu/fhir/state-license",
+      "value": "PA-DS038838"
+    }
+  ],
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "prov",
+          "display": "Healthcare Provider"
+        }
+      ]
+    }
+  ],
+  "name": "Penn Dental Medicine",
+  "alias": ["Penn Dental Family Practice", "PDFP", "Penn Dental"],
+  "partOf": {
+    "display": "University of Pennsylvania Health System"
+  },
+  "telecom": [
+    { "system": "phone", "value": "(215) 898-4615", "use": "work" },
+    { "system": "phone", "value": "(215) 898-8965", "use": "work", "rank": 2 },
+    { "system": "url", "value": "https://fhir-interim.dental.upenn.edu/r4", "use": "work" }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "line": ["240 South 40th Street"],
+      "city": "Philadelphia",
+      "state": "PA",
+      "postalCode": "19104",
+      "country": "US"
+    }
+  ],
+  "endpoint": [
+    { "reference": "Endpoint/endpoint-penndental", "display": "Penn Dental Medicine Interim FHIR Server" }
+  ]
+}

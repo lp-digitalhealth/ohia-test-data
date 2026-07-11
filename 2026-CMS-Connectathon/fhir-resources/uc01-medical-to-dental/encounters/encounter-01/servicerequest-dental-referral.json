@@ -1,0 +1,103 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "servicerequest-dental-referral",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-medical-to-dental-referral"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC01-001"
+    }
+  ],
+  "status": "active",
+  "intent": "order",
+  "priority": "urgent",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "103696004",
+          "display": "Patient referral to specialist"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ama-assn.org/go/cpt",
+        "code": "99242",
+        "display": "Office/outpatient consultation"
+      }
+    ],
+    "text": "Pre-radiation dental clearance evaluation"
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "C02.1",
+          "display": "Malignant neoplasm of border of tongue"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "Z01.818",
+          "display": "Encounter for other preprocedural examination"
+        }
+      ]
+    }
+  ],
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-john-smith-tongue-cancer",
+      "display": "Stage IV squamous cell carcinoma, lateral border of tongue"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-john-smith",
+    "display": "John Smith"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-imrt-order",
+    "display": "Oncology visit — IMRT order & CRD trigger, 2026-07-06"
+  },
+  "occurrenceDateTime": "2026-07-23",
+  "authoredOn": "2026-07-06",
+  "requester": {
+    "reference": "PractitionerRole/role-galloway",
+    "display": "Dr. Thomas Galloway — Radiation Oncology, Fox Chase Cancer Center"
+  },
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-sollecito",
+      "display": "Dr. Thomas Sollecito — Oral Medicine, Penn Dental Medicine"
+    }
+  ],
+  "supportingInfo": [
+    {
+      "reference": "List/list-john-smith-medications",
+      "display": "John Smith's medication list (ODEMedicationList)"
+    },
+    {
+      "reference": "AllergyIntolerance/allergyintolerance-john-smith-penicillin",
+      "display": "Penicillin allergy"
+    },
+    {
+      "reference": "ServiceRequest/servicerequest-imrt-order",
+      "display": "IMRT order requiring dental clearance"
+    }
+  ],
+  "note": [
+    {
+      "text": "Comprehensive dental evaluation, imaging, and clearance assessment prior to head & neck IMRT. Provide site-specific dosimetric dental contouring (DDC) data for tooth #30 to determine extraction vs. preservation strategy. Clearance must be returned within 21 days of this referral (by 2026-07-27) per osteoradionecrosis risk mitigation protocol. Supporting imaging to follow via a separate DocumentReference/$submit-attachment push per ODE medical-to-dental convention (this direction does not support pull)."
+    }
+  ]
+}
+

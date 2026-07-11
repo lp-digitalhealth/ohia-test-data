@@ -1,0 +1,71 @@
+{
+  "resourceType": "Condition",
+  "id": "condition-john-smith-tongue-cancer",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-encounter-diagnosis"]
+  },
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active",
+        "display": "Active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed",
+        "display": "Confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "code": "C02.1",
+        "display": "Malignant neoplasm of border of tongue"
+      }
+    ],
+    "text": "Stage IV squamous cell carcinoma, lateral border of the tongue"
+  },
+  "bodySite": [
+    {
+      "text": "Lateral border of tongue"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-john-smith",
+    "display": "John Smith"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-imrt-order",
+    "display": "Oncology visit — IMRT order & CRD trigger, 2026-07-06"
+  },
+  "recordedDate": "2026-07-06",
+  "recorder": {
+    "reference": "Practitioner/pract-galloway",
+    "display": "Dr. Thomas Galloway"
+  },
+  "stage": [
+    {
+      "summary": {
+        "text": "Stage IV"
+      }
+    }
+  ]
+}

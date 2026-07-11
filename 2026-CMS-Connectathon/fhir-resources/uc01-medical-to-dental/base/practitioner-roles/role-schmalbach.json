@@ -1,0 +1,39 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "role-schmalbach",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"]
+  },
+  "active": true,
+  "practitioner": { "reference": "Practitioner/pract-schmalbach", "display": "Cecelia Marie Schmalbach, MD, FACS" },
+  "organization": { "reference": "Organization/org-fccc", "display": "Fox Chase Cancer Center" },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "2092S0080X",
+          "display": "Head and Neck Surgery"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "419321007",
+          "display": "Surgical oncology"
+        }
+      ],
+      "text": "Chair, Department of Surgical Oncology"
+    }
+  ],
+  "location": [
+    { "reference": "Location/loc-fccc-radonc", "display": "Fox Chase Cancer Center" }
+  ],
+  "telecom": [
+    { "system": "phone", "value": "(215) 728-6900", "extension": "2951", "use": "work" }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "resourceType": "List",
+  "id": "list-john-smith-medications",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-medication-list"]
+  },
+  "status": "current",
+  "mode": "snapshot",
+  "title": "Medication List",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "10160-0",
+        "display": "History of Medication use Narrative"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-john-smith",
+    "display": "John Smith"
+  },
+  "date": "2026-07-06",
+  "entry": [
+    { "item": { "reference": "MedicationRequest/medrequest-john-smith-lisinopril" } },
+    { "item": { "reference": "MedicationRequest/medrequest-john-smith-atorvastatin" } },
+    { "item": { "reference": "MedicationRequest/medrequest-john-smith-oxycodone-apap" } }
+  ]
+}

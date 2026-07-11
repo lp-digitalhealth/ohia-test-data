@@ -1,0 +1,83 @@
+{
+  "resourceType": "Task",
+  "id": "task-360x-dental-referral",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC01-001"
+    }
+  ],
+  "status": "requested",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+        "code": "received",
+        "display": "Received"
+      }
+    ]
+  },
+  "intent": "order",
+  "priority": "urgent",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-dental-referral",
+    "display": "Referral: Pre-radiation dental clearance evaluation"
+  },
+  "for": {
+    "reference": "Patient/patient-john-smith",
+    "display": "John Smith"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-imrt-order",
+    "display": "Oncology visit — IMRT order & CRD trigger, 2026-07-06"
+  },
+  "authoredOn": "2026-07-06T10:30:00-04:00",
+  "requester": {
+    "reference": "Organization/org-fccc",
+    "display": "Fox Chase Cancer Center"
+  },
+  "owner": {
+    "reference": "Organization/org-penndental",
+    "display": "Penn Dental Medicine"
+  },
+  "input": [
+    {
+      "type": { "text": "Referral supporting resource — diagnosis" },
+      "valueReference": {
+        "reference": "Condition/condition-john-smith-tongue-cancer",
+        "display": "Stage IV squamous cell carcinoma, lateral border of tongue"
+      }
+    },
+    {
+      "type": { "text": "Referral supporting resource — medication list" },
+      "valueReference": {
+        "reference": "List/list-john-smith-medications",
+        "display": "John Smith's medication list"
+      }
+    },
+    {
+      "type": { "text": "Referral supporting resource — allergy" },
+      "valueReference": {
+        "reference": "AllergyIntolerance/allergyintolerance-john-smith-penicillin",
+        "display": "Penicillin allergy"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Per the ODE/360X adapter pattern (lp-digitalhealth/ode-360x-adapter): this Task is the single source of truth for referral state, produced by the 360X bridge from an incoming IHE PCC-55 transaction. Status transitions follow requested -> accepted -> in-progress -> completed, each mirrored outbound by the bridge as a 360X transaction (PCC-56/57/58/59). Expected: accepted upon Penn Dental's scheduling confirmation (2026-07-07), in-progress at the dental exam (2026-07-23), completed when structured dental clearance is transmitted back to FCCC (2026-07-31)."
+    }
+  ]
+}
+

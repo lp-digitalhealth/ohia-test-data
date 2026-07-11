@@ -1,0 +1,101 @@
+{
+  "resourceType": "Consent",
+  "id": "consent-john-smith-hie",
+  "status": "active",
+  "scope": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+        "code": "patient-privacy",
+        "display": "Privacy Consent"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "59284-0",
+          "display": "Patient Consent"
+        }
+      ]
+    }
+  ],
+  "patient": {
+    "reference": "Patient/patient-john-smith",
+    "display": "John Smith"
+  },
+  "dateTime": "2026-01-15",
+  "organization": [
+    {
+      "reference": "Organization/org-fccc",
+      "display": "Fox Chase Cancer Center"
+    }
+  ],
+  "policyRule": {
+    "text": "Authorization for treatment, payment, and healthcare operations (TPO) data exchange under HIPAA; patient has authorized bidirectional clinical data sharing between Fox Chase Cancer Center, Penn Dental Medicine, and Independence Blue Cross specifically to coordinate pre-radiation dental clearance and support prior authorization for IMRT treatment"
+  },
+  "provision": {
+    "type": "permit",
+    "period": {
+      "start": "2026-01-15",
+      "end": "2027-01-15"
+    },
+    "actor": [
+      {
+        "role": {
+          "text": "Sending/referring provider"
+        },
+        "reference": {
+          "reference": "Organization/org-fccc",
+          "display": "Fox Chase Cancer Center"
+        }
+      },
+      {
+        "role": {
+          "text": "Receiving/referral provider"
+        },
+        "reference": {
+          "reference": "Organization/org-penndental",
+          "display": "Penn Dental Medicine"
+        }
+      },
+      {
+        "role": {
+          "text": "Payer — prior authorization and claims support"
+        },
+        "reference": {
+          "reference": "Organization/org-ibx",
+          "display": "Independence Blue Cross, Inc"
+        }
+      }
+    ],
+    "purpose": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "TREAT",
+        "display": "treatment"
+      },
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HPAYMT",
+        "display": "healthcare payment"
+      }
+    ],
+    "class": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/resource-types",
+        "code": "DocumentReference"
+      },
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/resource-types",
+        "code": "ClinicalImpression"
+      },
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/resource-types",
+        "code": "Observation"
+      }
+    ]
+  }
+}
