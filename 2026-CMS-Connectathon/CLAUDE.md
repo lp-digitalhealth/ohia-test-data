@@ -157,6 +157,12 @@ Key facts this surfaced for UC01:
 
 *Append-only. Newest entry at the top. Every session (chat or Code) adds one entry before finishing.*
 
+### 2026-07-11 — Claude Code / Cursor Agent (v1.7)
+Reordered sections in `companion-guides/UC01-companion-guide.md` so stakeholder-specific prep comes first. Swapped the positions of the former Section 3 (step-by-step preparation) and Section 1.5 (Resource Index), then renumbered cleanly: Section 2 is now step-by-step prep (sub-sections 2a–2d), Section 3 is Stub Specifications, Section 4 is the Resource Index, Sections 5–9 are the tooling/reference sections. Updated all internal cross-references accordingly ("see Section 2" → "see Section 3", "load order in Section 4" → "Section 5", etc.). No FHIR JSON, HL7v2 resource, or other project files changed.
+
+### 2026-07-11 — Claude Code / Cursor Agent (v1.6)
+Made `companion-guides/UC01-companion-guide.md` navigable to the actual test resource files. Four changes in one pass: (1) added Section 1.5 — a full Resource Index table listing all 40 test data files (39 FHIR JSON + 1 HL7v2 + 1 CDS Hooks config + QA notes), organized by tier (Registry / Base / Encounter #1 / HL7v2), each as a relative markdown link with resource type and one-line purpose; (2) added per-stakeholder quick-reference tables at the top of Sections 3a–3d showing only the files relevant to that role; (3) converted all bare file path strings throughout Sections 2, 3, 5, and 8 to relative markdown links (display text = filename only, keeping prose readable); (4) replaced the Section 4 loading-order code block with a linked table (directory, key files, note per tier) with a prominent `encounter-01-bundle.json` shortcut call-out. No FHIR JSON, HL7v2 resource, or other project files changed this session.
+
 ### 2026-07-11 — claude.ai chat (v1.5)
 Added two more tooling sections to `UC01-companion-guide.md`: Section 7 (FHIR services — HAPI FHIR/OnyxOS server setup, loading mechanics, profile validation via the official HL7 FHIR Validator CLI and Inferno, CDS Hooks testing via plain HTTP) and Section 8 (Patient-facing app credentials — SMART App Launch registration, client ID/secret, redirect URIs, scopes, sandbox vs. production credential handling, and a caution against committing real secrets to the repo). Renumbered the troubleshooting section to 8 (fixed a numbering gap in the same edit — sections now run 0-8 sequentially). No FHIR/HL7v2 resource changes this session — companion guide content only.
 
