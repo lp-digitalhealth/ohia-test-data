@@ -1,0 +1,393 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "_comment": "Interaction 2 DELTA bundle — 5 resources. Load this if you already have Interaction 1 loaded (Path A). If you are starting fresh with no prior data loaded, use interaction-02-bundle.json instead (39 resources, Path B). Both paths produce identical server state.",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:Encounter-encounter-02-dental-exam",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-02-dental-exam",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "308335008",
+                "display": "Patient encounter procedure"
+              }
+            ],
+            "text": "Comprehensive dental evaluation and radiographic examination — pre-radiation clearance"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-john-smith",
+          "display": "John Smith"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "Practitioner/pract-sollecito",
+              "display": "Dr. Thomas Sollecito"
+            }
+          }
+        ],
+        "period": {
+          "start": "2026-07-23T14:00:00-04:00",
+          "end": "2026-07-23T15:30:00-04:00"
+        },
+        "reasonCode": [
+          {
+            "text": "Pre-radiation dental clearance evaluation per referral from Fox Chase Cancer Center"
+          }
+        ],
+        "diagnosis": [
+          {
+            "condition": {
+              "reference": "Condition/condition-john-smith-tongue-cancer",
+              "display": "Stage IV squamous cell carcinoma, lateral border of tongue"
+            },
+            "use": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/diagnosis-role",
+                  "code": "billing",
+                  "display": "Billing"
+                }
+              ]
+            }
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/servicerequest-dental-referral",
+            "display": "Referral: Pre-radiation dental clearance evaluation"
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-penndental",
+          "display": "Penn Dental Medicine"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/loc-penndental",
+              "display": "Penn Dental Medicine"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/encounter-02-dental-exam"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DiagnosticReport-diagnosticreport-periapical",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "diagnosticreport-periapical",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "RAD",
+                "display": "Radiology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D0220",
+              "display": "Intraoral - periapical first radiographic image"
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "62443-7",
+              "display": "Single view Teeth Document XR"
+            }
+          ],
+          "text": "Periapical radiograph"
+        },
+        "subject": {
+          "reference": "Patient/patient-john-smith",
+          "display": "John Smith"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-02-dental-exam",
+          "display": "Dental exam & radiographs, 2026-07-23"
+        },
+        "effectiveDateTime": "2026-07-23",
+        "issued": "2026-07-23T15:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/pract-sollecito",
+            "display": "Dr. Thomas Sollecito"
+          }
+        ],
+        "conclusion": "Periapical views of teeth #4, #17, and #30 confirm findings consistent with the panoramic survey: tooth #4 shows a periapical lesion appropriate for standard extraction; tooth #17 is impacted; tooth #30 is structurally sound but sits within the planned high-dose radiation field."
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DiagnosticReport/diagnosticreport-periapical"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DiagnosticReport-diagnosticreport-panoramic",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "diagnosticreport-panoramic",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "RAD",
+                "display": "Radiology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D0330",
+              "display": "Panoramic radiographic image"
+            },
+            {
+              "system": "http://loinc.org",
+              "code": "24828-6",
+              "display": "Panoramic XR"
+            }
+          ],
+          "text": "Panoramic radiograph"
+        },
+        "subject": {
+          "reference": "Patient/patient-john-smith",
+          "display": "John Smith"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-02-dental-exam",
+          "display": "Dental exam & radiographs, 2026-07-23"
+        },
+        "effectiveDateTime": "2026-07-23",
+        "issued": "2026-07-23T15:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/pract-sollecito",
+            "display": "Dr. Thomas Sollecito"
+          }
+        ],
+        "conclusion": "Full-arch survey identifies three teeth requiring attention prior to head & neck IMRT: tooth #4 (periapical pathology, standard extraction indicated), tooth #17 (impacted, extraction indicated), tooth #30 (structurally sound but located within the planned high-dose radiation field — dose data requested from FCCC Medical Physics to determine extraction vs. preservation)."
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DiagnosticReport/diagnosticreport-panoramic"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-tooth30-radiation-dose",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-tooth30-radiation-dose",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Site-specific radiation dose at tooth #30 (dosimetric dental contouring / DDC) — NO ESTABLISHED LOINC CODE. This is a named ODE IG test objective/gap: radiation dose data transmitted from a radiation planning system to a dental EHR has no established LOINC code as of this writing."
+        },
+        "subject": {
+          "reference": "Patient/patient-john-smith",
+          "display": "John Smith"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-02-dental-exam",
+          "display": "Dental exam & radiographs, 2026-07-23"
+        },
+        "effectiveDateTime": "2026-07-25",
+        "issued": "2026-07-25T11:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/pract-lin",
+            "display": "Teh Lin, MS, FACMP — Medical Physicist, FCCC"
+          }
+        ],
+        "valueQuantity": {
+          "value": 52,
+          "unit": "Gy",
+          "system": "http://unitsofmeasure.org",
+          "code": "Gy"
+        },
+        "bodySite": {
+          "text": "Tooth #30 (FDI/universal numbering per US dental convention)"
+        },
+        "interpretation": [
+          {
+            "text": "Exceeds the 45 Gy safe healing threshold for pre-radiation dental extraction — informs Dr. Sollecito's decision to extract and immediately place an implant rather than delay extraction until after radiation."
+          }
+        ],
+        "note": [
+          {
+            "text": "This value was obtained via an informal inter-provider information request: Dr. Sollecito asked Dr. Teh Lin (FCCC Medical Physics) on 2026-07-23 for site-specific dose data at tooth #30, extracted from the IMRT treatment plan already ordered in Interaction 1. Per project design decision, this request/response exchange is modeled as a note (this one), not as a formal ServiceRequest or CommunicationRequest/Communication — see fhir-resources/uc01-medical-to-dental/interactions/README.md for the full reasoning (a confirmed, legitimate instance of the base Clinical Order Workflows IG's 'Requesting additional information' pattern, which is not carried into the 360X-scoped crosswalk this project's referral pathway otherwise follows). Data transmitted 2026-07-25, two days after the request — this transmission date is not modeled as its own clinical encounter (see use case Appendix Section 0)."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-tooth30-radiation-dose"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Task-task-360x-dental-referral",
+      "resource": {
+        "resourceType": "Task",
+        "id": "task-360x-dental-referral",
+        "meta": {
+          "profile": [
+            "https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC01-001"
+          }
+        ],
+        "status": "in-progress",
+        "businessStatus": {
+          "coding": [
+            {
+              "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+              "code": "interim-results",
+              "display": "Interim Results"
+            }
+          ]
+        },
+        "intent": "order",
+        "priority": "urgent",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/CodeSystem/task-code",
+              "code": "fulfill"
+            }
+          ]
+        },
+        "focus": {
+          "reference": "ServiceRequest/servicerequest-dental-referral",
+          "display": "Referral: Pre-radiation dental clearance evaluation"
+        },
+        "for": {
+          "reference": "Patient/patient-john-smith",
+          "display": "John Smith"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-imrt-order",
+          "display": "Oncology visit — IMRT order & CRD trigger, 2026-07-06"
+        },
+        "authoredOn": "2026-07-06T10:30:00-04:00",
+        "lastModified": "2026-07-23T15:30:00-04:00",
+        "requester": {
+          "reference": "Organization/org-fccc",
+          "display": "Fox Chase Cancer Center"
+        },
+        "owner": {
+          "reference": "Organization/org-penndental",
+          "display": "Penn Dental Medicine"
+        },
+        "input": [
+          {
+            "type": { "text": "Referral supporting resource — diagnosis" },
+            "valueReference": {
+              "reference": "Condition/condition-john-smith-tongue-cancer",
+              "display": "Stage IV squamous cell carcinoma, lateral border of tongue"
+            }
+          },
+          {
+            "type": { "text": "Referral supporting resource — medication list" },
+            "valueReference": {
+              "reference": "List/list-john-smith-medications",
+              "display": "John Smith's medication list"
+            }
+          },
+          {
+            "type": { "text": "Referral supporting resource — allergy" },
+            "valueReference": {
+              "reference": "AllergyIntolerance/allergyintolerance-john-smith-penicillin",
+              "display": "Penicillin allergy"
+            }
+          }
+        ],
+        "output": [
+          {
+            "type": { "text": "Interim consultation note — dental exam findings" },
+            "valueReference": {
+              "reference": "Encounter/encounter-02-dental-exam",
+              "display": "Dental exam & radiographs, 2026-07-23"
+            }
+          },
+          {
+            "type": { "text": "Interim result — periapical radiograph" },
+            "valueReference": {
+              "reference": "DiagnosticReport/diagnosticreport-periapical",
+              "display": "Periapical radiograph — teeth #4, #17, #30 (2026-07-23)"
+            }
+          },
+          {
+            "type": { "text": "Interim result — panoramic radiograph" },
+            "valueReference": {
+              "reference": "DiagnosticReport/diagnosticreport-panoramic",
+              "display": "Panoramic radiograph — pre-radiation dental survey (2026-07-23)"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Per the ODE/360X adapter pattern (lp-digitalhealth/ode-360x-adapter): this Task has been updated from 'requested'/'received' (Interaction 1) to 'in-progress'/'interim-results' following Penn Dental's dental exam on 2026-07-23. This update was generated by Penn Dental's PMS and transmitted outbound through the bridge as an IHE PCC-59 (Interim Consultation Note) back to FCCC's EHR — the first reverse-direction (PMS → bridge → EHR) transaction in this use case. PCC-59 HL7v2 artifact not yet built; flagged as a gap in interactions/README.md. Exam findings: teeth #4 and #17 are confirmed for extraction; tooth #30 requires DDC dose data from FCCC Medical Physics (Teh Lin, FACMP) before the treatment plan for that tooth can be finalized. The DDC inquiry was placed on 2026-07-23; response (52 Gy, exceeding 45 Gy osteoradionecrosis-risk threshold) was received on 2026-07-25. The dose data is recorded in Observation/observation-tooth30-radiation-dose, which is not included in Task.output because it was not produced by this 360X transaction — it arrived separately via the COW IG 'Requesting additional information' pattern. Final clearance will close this loop as a PCC-57 transaction (see Interaction 3 or later)."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Task/task-360x-dental-referral"
+      }
+    }
+  ]
+}
