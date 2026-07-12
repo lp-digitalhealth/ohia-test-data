@@ -115,7 +115,7 @@ This use case exercises a **multi-system, multi-organization clinical workflow**
 | `Procedure` | US Core / ODE | Dental procedures performed — extractions ×3 (`D7210`), implant placement (`D6010`); also IMRT delivery procedure at FCCC |
 | `ClinicalImpression` | ODE | Dr. Sollecito's structured dental clearance attestation — the structured data equivalent of the dental clearance form |
 | `Appointment` / `AppointmentResponse` | US Core | Dental appointment scheduling for John at Penn Dental; surfaced in patient app via FHIR Subscriptions |
-| `Communication` / `CommunicationRequest` | US Core / ODE | DDC data request from Penn Dental to FCCC; DDC response; IMRT delay request and authorization between providers |
+| `Communication` / `CommunicationRequest` | US Core / ODE | IMRT delay request and authorization between providers (later encounter). **Correction:** the DDC data request/response between Dr. Sollecito and Dr. Lin is *not* modeled as `Communication`/`CommunicationRequest` — see Encounter #2 appendix; it's an informal inter-provider note, not a formal resource, since it's a request for existing information (not an order) between practitioners already in an established referral relationship. |
 | `Task` | Da Vinci DTR / CDex | Tracks the open dental clearance documentation requirement as an actionable item; closed when structured clearance is returned |
 | `Questionnaire` / `QuestionnaireResponse` | Da Vinci DTR | Payer's dental clearance documentation requirements and completed provider responses pre-populated from EHR data |
 | `Claim` (PA) | Da Vinci PAS | Prior authorization request submitted to health plan after DTR documentation package is complete |
@@ -454,22 +454,19 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 | **Occurrence DateTime** | 2026-07-23 | Appointment/exam date |
 | **Description** | Comprehensive dental evaluation, imaging, and clearance assessment prior to head & neck IMRT. Provide site-specific dosimetric dental contouring (DDC) data for tooth #30 to determine extraction vs. preservation strategy. |  Detailed instructions |
 
-#### ServiceRequest (Dosimetric Dental Contouring Request)
+#### Dosimetric Dental Contouring (DDC) Information Request — modeled as a note, not a formal order
 
-| FHIR Element | Value | Notes |
+**Correction:** this was originally modeled as a `ServiceRequest`. That's clinically wrong — Dr. Sollecito isn't ordering FCCC to *perform* a service; he's asking a colleague to share information (dose data) that already exists as a byproduct of the IMRT plan Dr. Galloway ordered in Encounter #1. This is an informal inter-provider information request between two practitioners already in an established clinical relationship (via the open referral from Encounter #1) — it does not warrant a formal order resource, a new 360X transaction, or a directional ODE referral profile. It's captured as a **note/annotation** on the relevant Encounter #2 resources, not as a standalone `ServiceRequest` or `CommunicationRequest`.
+
+| Element | Value | Notes |
 |---|---|---|
-| **Status** | Completed | Request fulfilled |
-| **Intent** | Order | Clinical order |
-| **Category** | Diagnostic / Planning | Type of service |
-| **Priority** | Urgent | Time-sensitive |
-| **Code** | Dosimetric dental contouring (DDC) | DICOM planning data extraction |
-| **Subject** | John Smith | Patient reference |
-| **Requester** | Dr. Thomas Sollecito (Penn Dental) | Ordering provider |
-| **Performer** | Dr. Teh Lin (FCCC Medical Physics) | Performing provider |
-| **Ordered Date** | 2026-07-23 | Request date |
-| **Occurrence DateTime** | 2026-07-25 | Data transmission date |
+| **Nature** | Informal information request (note), not a formal order | Requester and performer already in an established referral relationship |
+| **From** | Dr. Thomas Sollecito (Penn Dental) | Requesting clinician |
+| **To** | Dr. Teh Lin (FCCC Medical Physics) | Has access to the IMRT dose planning data |
+| **Requested** | 2026-07-23 | During the dental exam encounter |
+| **Fulfilled** | 2026-07-25 | Data transmission date — not its own encounter (see Appendix Section 0) |
 | **Body Site** | Tooth #30 (FDI notation) | Specific tooth location |
-| **Description** | Extract site-specific radiation dose (Gray) at tooth #30 location from IMRT treatment plan to inform dental extraction vs. preservation decision. Safe threshold: < 45 Gy; Plan dose: 52 Gy. | Clinical context |
+| **Content** | Site-specific radiation dose (Gray) at tooth #30, extracted from the IMRT treatment plan, to inform dental extraction vs. preservation decision. Safe threshold: < 45 Gy; Plan dose: 52 Gy. | The resulting dose value is still captured formally as an `Observation` — only the *request/response mechanism* is downgraded to a note, not the resulting clinical data itself. |
 
 #### Procedure (Tooth Extractions & Implant Placement)
 

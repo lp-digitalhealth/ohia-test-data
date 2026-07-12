@@ -1,0 +1,16 @@
+{
+  "_comment": "NOT A FHIR RESOURCE. This is the CDS Hooks discovery document IBX's system exposes at {endpoint-ibx address}/cds-services, per the CDS Hooks specification. An EHR (e.g., FCCC's Oracle Health/Cerner) queries this endpoint to discover available CDS services before firing the order-sign hook. Included here because it's a required piece of configuration for Encounter #1 to actually execute, even though it isn't itself a loadable FHIR resource.",
+  "services": [
+    {
+      "hook": "order-sign",
+      "title": "IBX IMRT Prior Authorization Coverage Check",
+      "description": "Evaluates whether an IMRT order requires prior authorization under the patient's IBX coverage, per PlanDefinition/plandef-ibx-imrt-pa-rule. Returns a card directing the ordering system to launch DTR (Questionnaire/questionnaire-ibx-imrt-pa-dtr) if prior authorization is required.",
+      "id": "ibx-imrt-pa-check",
+      "prefetch": {
+        "patient": "Patient/{{context.patientId}}",
+        "coverage": "Coverage?patient={{context.patientId}}&status=active",
+        "draftOrders": "{{context.draftOrders}}"
+      }
+    }
+  ]
+}
