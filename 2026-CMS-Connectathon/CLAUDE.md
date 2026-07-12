@@ -1,7 +1,7 @@
 # CLAUDE.md — OHIA CMS Connectathon Test Data
 
-**Doc version:** 2.3
-**Last updated:** 2026-07-11 (by: claude.ai chat)
+**Doc version:** 2.4
+**Last updated:** 2026-07-12 (by: Claude Code)
 **Repo:** `lp-digitalhealth/ohia-test-data`, folder `2026-CMS-Connectathon/`
 
 > This file is the single source of truth for this project's decisions, structure, and state. It lives in the repo, not in any one chat. Whoever works on this project next — claude.ai chat or Claude Code — reads this file first, and updates it (including the Session Log at the bottom) before finishing a session.
@@ -196,6 +196,22 @@ Key facts this surfaced for UC01:
 ## Session Log
 
 *Append-only. Newest entry at the top. Every session (chat or Code) adds one entry before finishing.*
+
+### 2026-07-12 — Claude Code (v2.4)
+**Interaction 2 fully built.** All artifacts created per the revised plan (interaction 2 as standalone, two loading paths). New files:
+
+- `fhir-resources/uc01-medical-to-dental/interactions/interaction-02/task-360x-dental-referral-interim.json` — Task update: `in-progress` / `interim-results`, `Task.output` referencing the exam Encounter + 2 DiagnosticReports, `Task.note` documenting the PCC-59 reverse-direction bridge transaction.
+- `fhir-resources/uc01-medical-to-dental/interactions/interaction-02/interaction-02-delta-bundle.json` — **Path A bundle**: 5 new resources only (delta), for firms continuing from Interaction 1.
+- `fhir-resources/uc01-medical-to-dental/interactions/interaction-02/interaction-02-bundle.json` — **updated** from 38 to **39 resources** (Path B full bundle, self-contained starting point).
+- `use-cases/UC01-medical-to-dental-tongue-cancer/encounters/encounter-02-dental-exam.md` — clinical narrative: what happens at the exam, why the DDC matters, what three things this interaction tests (reverse-direction bridge, LOINC gap, Task state machine).
+- `companion-guides/UC01-interaction-02-companion-guide.md` — new standalone companion guide for Interaction 2 only; self-contained; mirrors the Interaction 1 guide's structure. Sections: Business Overview, two-path loading table (Path A delta / Path B full), step-by-step prep per stakeholder (Dental Tech / EHR / Patient App / Payer note-of-no-action), Resource Index, cross-references + known gaps table.
+
+Updated: `fhir-resources/uc01-medical-to-dental/interactions/README.md` — Interaction 2 section rewritten with two-path model, new files listed, PCC-59 HL7v2 gap flagged explicitly.
+
+**Design decisions locked in this session:**
+- Two bundles (delta + full) is the canonical dual-path pattern for this project going forward — same `PUT` semantics, identical server state, no conditional logic needed on the server side.
+- Task update uses same `id` (`task-360x-dental-referral`) with PUT semantics — overwrites Interaction 1 state when loaded; consistent with how real server-side state progression works.
+- `companion-guides/UC01-companion-guide.md` (Interaction 1) was **not modified** — Interaction 2 is a separate guide file, not an extension of the Interaction 1 guide.
 
 ### 2026-07-11 — claude.ai chat (v2.3)
 User ran the proposed `openapi.yaml` (Section 5a's ODE interface fix) through their FSH validation pipeline — it failed. User supplied a corrected version. Diffed it against ours: the only substantive difference is removal of a fabricated `note` property from the `ODEEncounter` schema (FHIR R4 `Encounter` has genuinely no `note` element — independently verified against HL7's own R4 spec before adopting the fix, not just trusted). Adopted the corrected file as canonical for the ODE interface deliverable. **Also fixed the same bug in our actual test data**: `fhir-resources/uc01-medical-to-dental/interactions/interaction-02/encounter-02-dental-exam.json` had the identical fabricated `Encounter.note` element. Removed it — no content lost, since the Observation resource in the same interaction already independently carries the full explanation. Interaction 2 bundle rebuilt (still 38 resources). Updated Section 6 (verification discipline) with the concrete lesson: our own JSON-structural validation cannot catch a plausible-but-nonexistent FHIR element, since fabricated-but-well-formed JSON still parses fine — real FHIR/FSH validation is a strictly stronger check and should be preferred when available. Also noted that the same modeling error tends to appear in both a spec and the resources built against it, so both need checking when one is found.
