@@ -1,0 +1,7 @@
+MSH|^~\&|FCCC_ONC_EHR|FCCC|PENNDENTAL_INTERIM|PENNDENTAL|20260706103000-0400||OMG^O19^OMG_O19|UC01-ENC01-MSG001|T|2.5.1|||AL|NE|USA
+PID|1||JS-2026-4582^^^FCCC^MR~H1234567800^^^CMS^MB||Smith^John||19621114|M|||1847 Spruce Street^Apt 3B^Philadelphia^PA^19103^USA||(215)555-0147
+AL1|1|DA|7980^Penicillin G^RXNORM|MO|Urticaria
+ORC|NW|REF-2026-UC01-001^FCCC^urn:ohia:referral-id|||||||20260706103000-0400|||1568374920^Galloway^Thomas^^^^MD^^^L|||20260727
+OBR|1|REF-2026-UC01-001^FCCC^urn:ohia:referral-id||99242^Office/outpatient consultation^C4|U|20260706103000-0400|||||||Comprehensive dental evaluation, imaging, and clearance assessment prior to head and neck IMRT. Provide site-specific dosimetric dental contouring (DDC) data for tooth #30 to determine extraction vs. preservation strategy.|||1568374920^Galloway^Thomas^^^^MD^^^L|||||||||||||||C02.1^Malignant neoplasm of border of tongue^I10CM|||||||||||||99242^Office/outpatient consultation^C4
+DG1|1||C02.1^Malignant neoplasm of border of tongue^I10CM||20260706|F
+NTE|1||Clearance must be returned within 21 days of this referral (by 2026-07-27) per osteoradionecrosis risk mitigation protocol. Receiving clinician (Dr. Sollecito, Penn Dental) is not represented in a discrete OMG^O19 field per the crosswalk's segment table -- noted here as a workaround; see QA notes. Supporting imaging to follow via a separate push per ODE medical-to-dental convention (this direction does not support pull).
