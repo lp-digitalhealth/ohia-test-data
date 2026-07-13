@@ -47,7 +47,7 @@
       "sequence": 1,
       "provider": {
         "reference": "PractitionerRole/role-galloway",
-        "display": "Dr. Thomas Galloway — Radiation Oncology, Fox Chase Cancer Center"
+        "display": "Dr. Marcus Whitfield — Radiation Oncology, Fox Chase Cancer Center"
       },
       "responsible": true,
       "role": {
@@ -119,7 +119,7 @@
   ],
   "note": [
     {
-      "text": "This PA request is for the IMRT/radiation service itself (the same service flagged as requiring prior authorization back in Interaction 1's order-sign CRD evaluation) — NOT a claim for Dr. Sollecito's dental procedures. The dental clearance is included here only as supporting evidence that the prerequisite condition (dental clearance) has been satisfied. Uses Da Vinci PAS, which replaces the legacy X12 278 transaction entirely with FHIR Claim/ClaimResponse — the 278 is out of scope for this use case."
+      "text": "This PA request is for the IMRT/radiation service itself (the same service flagged as requiring prior authorization back in Interaction 1's order-sign CRD evaluation) — NOT a claim for Dr. Bellweather's dental procedures. The dental clearance is included here only as supporting evidence that the prerequisite condition (dental clearance) has been satisfied. Uses Da Vinci PAS, which replaces the legacy X12 278 transaction entirely with FHIR Claim/ClaimResponse — the 278 is out of scope for this use case."
     }
   ]
 }

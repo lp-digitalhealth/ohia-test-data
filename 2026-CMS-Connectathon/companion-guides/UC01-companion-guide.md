@@ -12,10 +12,10 @@ This guide is intentionally **not prescriptive about internal implementation** �
 
 John Smith is a 63-year-old FCCC oncology patient about to start radiation therapy for tongue cancer. Before radiation can begin, he needs a dental clearance — radiation to the head and neck carries a real risk of bone damage if dental problems aren't addressed first.
 
-**Encounter #1 is the moment his oncologist, Dr. Galloway, places the radiation order.** The instant that happens, two things fire automatically:
+**Encounter #1 is the moment his oncologist, Dr. Whitfield, places the radiation order.** The instant that happens, two things fire automatically:
 
 1. **The system checks his insurance** and discovers his radiation treatment requires prior authorization — and that prior authorization requires a documented dental clearance first.
-2. **A referral is sent** to Dr. Sollecito at Penn Dental Medicine, starting a clock: he has under three weeks to evaluate John and clear him before the treatment date already on the calendar.
+2. **A referral is sent** to Dr. Bellweather at Penn Dental Medicine, starting a clock: he has under three weeks to evaluate John and clear him before the treatment date already on the calendar.
 
 Everything technical in the rest of this guide exists to make those two things happen correctly, automatically, and traceably — no faxes, no phone tag, no lost referrals.
 
@@ -140,10 +140,10 @@ Every file needed for Encounter #1 is listed here. Load order: Registry → Base
 | org-fccc.json | Organization | Fox Chase Cancer Center |
 | org-ibx.json | Organization | Independence Blue Cross (payer) |
 | org-penndental.json | Organization | Penn Dental Medicine (receiving dental practice) |
-| pract-galloway.json | Practitioner | Dr. Galloway — referring oncologist at FCCC |
-| pract-lin.json | Practitioner | Dr. Lin — FCCC radiation oncology |
-| pract-schmalbach.json | Practitioner | Dr. Schmalbach — FCCC |
-| pract-sollecito.json | Practitioner | Dr. Sollecito — receiving dentist at Penn Dental |
+| pract-galloway.json | Practitioner | Dr. Whitfield — referring oncologist at FCCC |
+| pract-lin.json | Practitioner | Dr. Nandakumar — FCCC radiation oncology |
+| pract-schmalbach.json | Practitioner | Dr. Osei — FCCC |
+| pract-sollecito.json | Practitioner | Dr. Bellweather — receiving dentist at Penn Dental |
 | loc-fccc-radonc.json | Location | FCCC Radiation Oncology |
 | loc-penndental.json | Location | Penn Dental Medicine |
 | endpoint-fccc.json | Endpoint | FCCC FHIR server endpoint |
@@ -161,10 +161,10 @@ Every file needed for Encounter #1 is listed here. Load order: Registry → Base
 | patient-john-smith.json | Patient | John Smith — UC01 patient |
 | coverage-john-smith.json | Coverage | John's IBX PC65 PPO coverage |
 | consent-john-smith-hie.json | Consent | John's HIE data-sharing consent |
-| role-galloway.json | PractitionerRole | Dr. Galloway's role at FCCC Radiation Oncology |
-| role-lin.json | PractitionerRole | Dr. Lin's role at FCCC |
-| role-schmalbach.json | PractitionerRole | Dr. Schmalbach's role at FCCC |
-| role-sollecito.json | PractitionerRole | Dr. Sollecito's role at Penn Dental |
+| role-galloway.json | PractitionerRole | Dr. Whitfield's role at FCCC Radiation Oncology |
+| role-lin.json | PractitionerRole | Dr. Nandakumar's role at FCCC |
+| role-schmalbach.json | PractitionerRole | Dr. Osei's role at FCCC |
+| role-sollecito.json | PractitionerRole | Dr. Bellweather's role at Penn Dental |
 | subscription-john-smith-referral-status.json | Subscription | John's patient app subscription to referral status changes (Backport IG) — spans the whole use case, not one interaction; retroactively added, see `CLAUDE.md` |
 
 ### Interaction 1 — `fhir-resources/uc01-medical-to-dental/interactions/interaction-01/` — load third
@@ -175,7 +175,7 @@ Every file needed for Encounter #1 is listed here. Load order: Registry → Base
 | encounter-01-imrt-order.json | Encounter | The oncology visit on 2026-07-06 |
 | condition-john-smith-tongue-cancer.json | Condition | Tongue cancer diagnosis (ICD-10-CM C02.1) |
 | servicerequest-imrt-order.json | ServiceRequest | IMRT radiation therapy order — fires CRD at `order-sign` |
-| servicerequest-dental-referral.json | ServiceRequest (ODEMedicalToDentalReferral) | Dental clearance referral to Dr. Sollecito at Penn Dental |
+| servicerequest-dental-referral.json | ServiceRequest (ODEMedicalToDentalReferral) | Dental clearance referral to Dr. Bellweather at Penn Dental |
 | task-360x-dental-referral.json | Task (ODEReferralTask) | 360X referral tracking task; `businessStatus: received` on intake |
 | provenance-dental-referral.json | Provenance | Authorship/transmitter record for the referral bundle |
 | allergyintolerance-john-smith-penicillin.json | AllergyIntolerance | Penicillin allergy (RxNorm 7980) — in referral `supportingInfo` |
@@ -288,7 +288,7 @@ Unlike the Payer, EHR, and Dental Tech tracks — whose actions genuinely differ
 |---|---|---|
 | Interaction 1 (2026-07-06) | "Referral sent to Penn Dental" | `Task.status: requested`, `businessStatus: received` |
 | Between 1 and 2 (2026-07-07, not its own interaction) | "Appointment scheduled" | `Task.status: accepted`→`in-progress`, `owner` set (not yet built as its own artifact — see Interaction 2's gap note) |
-| Interaction 2 (2026-07-23) | "Dr. Sollecito is reviewing your case" | `Task.status: in-progress` |
+| Interaction 2 (2026-07-23) | "Dr. Bellweather is reviewing your case" | `Task.status: in-progress` |
 | Interaction 2, DDC inquiry / extension request | **Nothing new should display.** These are provider-to-provider notes, not patient-visible events — confirm your app correctly does *not* surface every backend note as a patient notification. | N/A — no Task status change from these specifically |
 | Interaction 3 (2026-07-31) | "Clearance sent to your cancer care team" | `Task.status: completed`, `businessStatus: outcome-final` |
 | Interaction 4 (2026-08-03) | "Prior authorization approved" | Confirmed: `ExplanationOfBenefit/eob-imrt-priorauth-ppa.json` (Da Vinci PDex PPA profile, `use: preauthorization`), delivered via CARIN Blue Button — **not** the same referral `Task`/Subscription as every other row above. If your app only listens to the referral Subscription, it will miss this milestone; confirm you also query or subscribe to PA-status data separately. |
@@ -311,7 +311,7 @@ This section comes in **two parts**, because a firm might approach Interaction 2
 
 You already have everything loaded (registry, base, Interaction 1's 34 resources). What's new for Interaction 2:
 
-1. **Accept the referral.** The existing `Task/task-360x-dental-referral` is updated (same `id`, new version — `task-360x-dental-referral-interim.json`): `status` → `in-progress`, `businessStatus` → `in-progress`, and — for the first time — `Task.owner` is set to the accepting party (Dr. Sollecito's `PractitionerRole`). Per the crosswalk, this is the correct point for `owner` to first appear — not at intake (Interaction 1).
+1. **Accept the referral.** The existing `Task/task-360x-dental-referral` is updated (same `id`, new version — `task-360x-dental-referral-interim.json`): `status` → `in-progress`, `businessStatus` → `in-progress`, and — for the first time — `Task.owner` is set to the accepting party (Dr. Bellweather's `PractitionerRole`). Per the crosswalk, this is the correct point for `owner` to first appear — not at intake (Interaction 1).
 2. **The exam happens.** The same Task update reflects the exam occurring (2026-07-23) — `Task.output` references the exam `Encounter` and both `DiagnosticReport`s.
 3. **Load the exam content.** `encounter-02-dental-exam.json`, the two `DiagnosticReport`s, and the dose `Observation`.
 3. **Capture the two information requests as notes** — the DDC dose inquiry (reflected in the `Observation`'s `.note`) and the treatment-extension request (still not yet built as a discrete resource — see gap note below). Neither is a new order or referral resource; both are the COW "Requesting additional information" pattern.
@@ -367,7 +367,7 @@ Same as Interaction 1's guidance (Section 9 above) — check the interactions RE
 
 1. **Load the clinical outcome resources**: 3 `Procedure`s (extractions #4, #17; extraction+implant #30 — CDT-coded D7210/D6010, confirmed real codes), a coded disposition `Observation` (text-only — see terminology caution below), and the `ClinicalImpression` (the clearance attestation, also text-only for its assessment code).
 2. **Load the `DocumentReference`** representing the C-CDA Consultation Note component of the PCC-57 transaction (LOINC `11488-4`, verified).
-3. **Load the final Task snapshot** (`task-360x-dental-referral-completed.json`) — same `id` as the Task from Interaction 1, but now `status: completed`, `businessStatus: outcome-final`, `owner` set (Dr. Sollecito's `PractitionerRole` — populated here for the first time in a built resource, since the PCC-56 accept step itself isn't separately modeled), and `output` populated with all of the above.
+3. **Load the final Task snapshot** (`task-360x-dental-referral-completed.json`) — same `id` as the Task from Interaction 1, but now `status: completed`, `businessStatus: outcome-final`, `owner` set (Dr. Bellweather's `PractitionerRole` — populated here for the first time in a built resource, since the PCC-56 accept step itself isn't separately modeled), and `output` populated with all of the above.
 4. **Load the final ServiceRequest snapshot** (`servicerequest-dental-referral-completed.json`) — same `id`, `status: completed`.
 
 ### Part B — If you're starting fresh at Interaction 3
@@ -412,7 +412,7 @@ Same as Interaction 1 (Section 9) — plus, for terminology specifically, see th
 
 ### Part A — If you're continuing directly from Interaction 3
 
-1. **Load the PA request.** `Claim/claim-imrt-priorauth.json` — `use: preauthorization`, for the IMRT/radiation service specifically (CPT 77301/77338, the same planning codes as Interaction 1's original order — **not** a claim for Dr. Sollecito's dental procedures). `supportingInfo` references the dental clearance `ClinicalImpression` and the DTR `Questionnaire` as evidence the prerequisite is satisfied.
+1. **Load the PA request.** `Claim/claim-imrt-priorauth.json` — `use: preauthorization`, for the IMRT/radiation service specifically (CPT 77301/77338, the same planning codes as Interaction 1's original order — **not** a claim for Dr. Bellweather's dental procedures). `supportingInfo` references the dental clearance `ClinicalImpression` and the DTR `Questionnaire` as evidence the prerequisite is satisfied.
 2. **Load the approval.** `ClaimResponse/claimresponse-imrt-priorauth.json` — `outcome: complete`, `disposition: Approved`, `preAuthRef`/`preAuthPeriod` populated. No line-item adjudication is included — the header-level fields alone convey the decision, since this is non-financial.
 3. **Load the patient-facing record.** `ExplanationOfBenefit/eob-imrt-priorauth-ppa.json` — PDex PPA profile, delivered to John's app via the same milestone-notification pattern as every prior interaction, but sourced from IBX's payer-side systems directly rather than the referral `Task`.
 
@@ -426,7 +426,7 @@ See the consolidated "Patient-Facing App Companion Guide" section above — its 
 
 ### ⚠️ Scope caution — what this interaction does NOT include
 
-This is a **prior authorization** decision only. It is not a bill and does not authorize or reference Dr. Sollecito's dental procedures as a billable service — those are supporting evidence, not the subject of the request. The actual **reimbursement** billing (837P for FCCC's IMRT delivery, 837P for Dr. Sollecito's medically-billed dental procedures, 835 remittance for both) is explicitly out of scope for this use case as built — mentioned in the source use case document only as real-world context. That reimbursement step is where this project's separately-designed claims-sharing profile (`ODEOralProfessionalEOB`, drafted as a proposed ODE interface extension) would eventually apply — future work, not this interaction.
+This is a **prior authorization** decision only. It is not a bill and does not authorize or reference Dr. Bellweather's dental procedures as a billable service — those are supporting evidence, not the subject of the request. The actual **reimbursement** billing (837P for FCCC's IMRT delivery, 837P for Dr. Bellweather's medically-billed dental procedures, 835 remittance for both) is explicitly out of scope for this use case as built — mentioned in the source use case document only as real-world context. That reimbursement step is where this project's separately-designed claims-sharing profile (`ODEOralProfessionalEOB`, drafted as a proposed ODE interface extension) would eventually apply — future work, not this interaction.
 
 ### Resource Index
 

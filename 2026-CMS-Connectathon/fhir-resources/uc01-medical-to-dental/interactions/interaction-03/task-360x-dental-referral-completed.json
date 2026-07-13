@@ -50,7 +50,7 @@
   },
   "owner": {
     "reference": "PractitionerRole/role-sollecito",
-    "display": "Dr. Thomas Sollecito — Oral Medicine, Penn Dental Medicine"
+    "display": "Dr. Andrew Bellweather — Oral Medicine, Penn Dental Medicine"
   },
   "input": [
     {
@@ -139,7 +139,7 @@
   ],
   "note": [
     {
-      "text": "Task snapshot as of Interaction 3 (2026-07-31, 16:30) — the PCC-57 Referral Outcome transaction. status=completed and businessStatus=outcome-final per the ode-360x-adapter crosswalk's transaction table. Task.owner is now set (Dr. Sollecito's PractitionerRole) — populated at PCC-56 accept (2026-07-07, not yet modeled as its own artifact) and carried forward here; see the Interaction 1 version of this Task for the intake-state snapshot where owner is correctly absent. Task.output populated per the crosswalk's PCC-57 row: ClinicalImpression, Procedure (x3), a coded disposition Observation, and DocumentReference. This Task, across its lifecycle, absorbs both the referral relationship AND the payer's dental-clearance documentation requirement -- confirmed as a single-Task design per base COW's own guidance (see Interaction 1's Task note for full reasoning)."
+      "text": "Task snapshot as of Interaction 3 (2026-07-31, 16:30) — the PCC-57 Referral Outcome transaction. status=completed and businessStatus=outcome-final per the ode-360x-adapter crosswalk's transaction table. Task.owner is now set (Dr. Bellweather's PractitionerRole) — populated at PCC-56 accept (2026-07-07, not yet modeled as its own artifact) and carried forward here; see the Interaction 1 version of this Task for the intake-state snapshot where owner is correctly absent. Task.output populated per the crosswalk's PCC-57 row: ClinicalImpression, Procedure (x3), a coded disposition Observation, and DocumentReference. This Task, across its lifecycle, absorbs both the referral relationship AND the payer's dental-clearance documentation requirement -- confirmed as a single-Task design per base COW's own guidance (see Interaction 1's Task note for full reasoning)."
     }
   ]
 }

@@ -5,21 +5,21 @@
     "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"]
   },
   "identifier": [
-    { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1568472035" },
-    { "system": "http://www.pa.gov/fhir/dental-license", "value": "PA-DDS-045738" }
+    { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1000000047" },
+    { "system": "http://www.pa.gov/fhir/dental-license", "value": "PA-DDS-000123" }
   ],
   "active": true,
   "name": [
     {
       "use": "official",
-      "family": "Sollecito",
+      "family": "Bellweather",
       "given": ["Thomas", "Paul"],
       "suffix": ["DMD", "MMSc"]
     }
   ],
   "telecom": [
     { "system": "phone", "value": "(215) 898-4615", "use": "work" },
-    { "system": "email", "value": "tsollecito@dental.upenn.edu", "use": "work" }
+    { "system": "email", "value": "andrew.bellweather@example-dental.edu", "use": "work" }
   ],
   "address": [
     {
@@ -54,7 +54,7 @@
             "display": "Oral Medicine"
           }
         ],
-        "text": "Professor and Chair, Department of Oral Medicine; Oral Oncology Specialist; Diplomate, American Board of Oral Medicine (1993); Diplomate, American Board of Special Care Dentistry (2005); Faculty, University of Pennsylvania School of Dental Medicine"
+        "text": "Chair, Department of Oral Medicine; Oral Oncology Specialist; Diplomate, American Board of Oral Medicine; Diplomate, American Board of Special Care Dentistry"
       }
     }
   ]

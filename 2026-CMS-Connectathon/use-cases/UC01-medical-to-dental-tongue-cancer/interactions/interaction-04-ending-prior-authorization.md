@@ -4,9 +4,9 @@
 
 ## What happens
 
-FCCC's billing office now has everything it needs: the completed documentation questionnaire from DTR, and — critically — Dr. Sollecito's dental clearance, which arrived at the end of Interaction 3. They package all of this into a formal prior authorization request and submit it to IBX on 2026-08-01.
+FCCC's billing office now has everything it needs: the completed documentation questionnaire from DTR, and — critically — Dr. Bellweather's dental clearance, which arrived at the end of Interaction 3. They package all of this into a formal prior authorization request and submit it to IBX on 2026-08-01.
 
-**Important distinction:** this request is for the radiation treatment itself — the same IMRT service that was flagged back in Interaction 1 as needing prior authorization. It is not a request for Dr. Sollecito's dental work. The dental clearance is *evidence attached to* the radiation request, proving the prerequisite condition has been satisfied — not something being separately authorized here.
+**Important distinction:** this request is for the radiation treatment itself — the same IMRT service that was flagged back in Interaction 1 as needing prior authorization. It is not a request for Dr. Bellweather's dental work. The dental clearance is *evidence attached to* the radiation request, proving the prerequisite condition has been satisfied — not something being separately authorized here.
 
 Two days later, on 2026-08-03, IBX approves the request. The response includes a formal authorization number and the specific approved details. Structured data, not a phone call or a letter — sent directly back into FCCC's system.
 
@@ -22,4 +22,4 @@ This interaction tests whether a full electronic prior authorization cycle — r
 
 ## What's still open — for a future iteration, not this one
 
-Getting the radiation authorized isn't the end of the money story. Dr. Sollecito's own procedures still need to be billed to IBX for reimbursement — a separate, later billing event using the medical-payer crosswalk codes documented in this use case's appendix, and the claims-sharing package this project has separately designed for exactly that purpose. That reimbursement claim isn't part of this interaction, and isn't yet built.
+Getting the radiation authorized isn't the end of the money story. Dr. Bellweather's own procedures still need to be billed to IBX for reimbursement — a separate, later billing event using the medical-payer crosswalk codes documented in this use case's appendix, and the claims-sharing package this project has separately designed for exactly that purpose. That reimbursement claim isn't part of this interaction, and isn't yet built.

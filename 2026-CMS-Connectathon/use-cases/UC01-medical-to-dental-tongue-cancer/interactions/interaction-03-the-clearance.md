@@ -4,11 +4,11 @@
 
 ## What happens
 
-By 2026-07-31, John has had all three problem teeth addressed: #4 and #17 extracted, and #30 — the tooth sitting in the high-dose radiation field — extracted with an implant placed immediately, based on the dose data Dr. Sollecito got back from Dr. Lin earlier in the process.
+By 2026-07-31, John has had all three problem teeth addressed: #4 and #17 extracted, and #30 — the tooth sitting in the high-dose radiation field — extracted with an implant placed immediately, based on the dose data Dr. Bellweather got back from Dr. Nandakumar earlier in the process.
 
-Dr. Sollecito examines John one more time to confirm everything is healing as expected. Satisfied, he formally documents his conclusion: **John is cleared for radiation.** His written assessment says, in effect: three teeth removed, one immediately replaced with an implant because of the radiation dose it would have received, the rest of his teeth are fine to proceed, no reason to hold off on treatment — plus his aftercare instructions: give it 14 days to heal, and get follow-up dental imaging at 6, 12, and 24 months out.
+Dr. Bellweather examines John one more time to confirm everything is healing as expected. Satisfied, he formally documents his conclusion: **John is cleared for radiation.** His written assessment says, in effect: three teeth removed, one immediately replaced with an implant because of the radiation dose it would have received, the rest of his teeth are fine to proceed, no reason to hold off on treatment — plus his aftercare instructions: give it 14 days to heal, and get follow-up dental imaging at 6, 12, and 24 months out.
 
-Thirty minutes later, that clearance goes to FCCC. Not as a phone call, not as a fax, not as a PDF — as structured data his system sends directly into Dr. Galloway's. This is the moment the entire dental detour that started with Interaction 1's referral comes to a close: the thing FCCC was waiting on to move forward with radiation now exists, in a form Dr. Galloway's system can actually read and act on rather than a human having to retype it.
+Thirty minutes later, that clearance goes to FCCC. Not as a phone call, not as a fax, not as a PDF — as structured data his system sends directly into Dr. Whitfield's. This is the moment the entire dental detour that started with Interaction 1's referral comes to a close: the thing FCCC was waiting on to move forward with radiation now exists, in a form Dr. Whitfield's system can actually read and act on rather than a human having to retype it.
 
 ## What John Sees (patient-facing)
 
@@ -18,7 +18,7 @@ This is the last milestone this particular referral-status Subscription tracks �
 
 **Two things close out at this same moment, from two different angles**, even though from John's perspective it's just "the dentist sent his clearance to the cancer center" — and even though both are tracked by the same underlying record, not two separate ones:
 
-1. **The referral itself is now finished.** Dr. Sollecito did what was asked of him back in Interaction 1 and has reported back — the loop that opened when Dr. Galloway sent the referral is now closed.
+1. **The referral itself is now finished.** Dr. Bellweather did what was asked of him back in Interaction 1 and has reported back — the loop that opened when Dr. Whitfield sent the referral is now closed.
 2. **The payer's specific paperwork requirement is now satisfied.** Back at Interaction 1, IBX's system flagged that a dental clearance had to be documented before it would approve the radiation. That open requirement is now checked off, at the same moment as the referral closing.
 
 ## Why this matters for testing
@@ -27,7 +27,7 @@ This interaction tests whether structured clinical data — not a PDF, not a pho
 
 ## Technical mechanics (for firms building against this interaction)
 
-This corresponds to the IHE 360X **PCC-57 (Referral Outcome)** transaction — the wire-level message is `OMG^O19` accompanied by a C-CDA Consultation Note. On the FHIR side: the referral's `Task` (the same one opened in Interaction 1, now in its final version) transitions to `status: completed`, `businessStatus: outcome-final`, and gains an `owner` (Dr. Sollecito's `PractitionerRole`) reflecting who ultimately accepted and fulfilled the referral. `Task.output` gains references to the `ClinicalImpression` (the clearance attestation), three `Procedure` resources (the extractions and implant), a coded disposition `Observation`, and a `DocumentReference` representing the C-CDA document. The referral's `ServiceRequest` also moves to `status: completed`.
+This corresponds to the IHE 360X **PCC-57 (Referral Outcome)** transaction — the wire-level message is `OMG^O19` accompanied by a C-CDA Consultation Note. On the FHIR side: the referral's `Task` (the same one opened in Interaction 1, now in its final version) transitions to `status: completed`, `businessStatus: outcome-final`, and gains an `owner` (Dr. Bellweather's `PractitionerRole`) reflecting who ultimately accepted and fulfilled the referral. `Task.output` gains references to the `ClinicalImpression` (the clearance attestation), three `Procedure` resources (the extractions and implant), a coded disposition `Observation`, and a `DocumentReference` representing the C-CDA document. The referral's `ServiceRequest` also moves to `status: completed`.
 
 ## What happens right after, but belongs to a different interaction
 

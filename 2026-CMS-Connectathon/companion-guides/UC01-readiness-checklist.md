@@ -17,7 +17,7 @@ This encounter has **two distinct technical pathways that must not be conflated*
 - [ ] **DTR** (Da Vinci Documentation Templates and Rules) — hosting/serving `Questionnaire/questionnaire-ibx-imrt-pa-dtr` for the ordering system to launch and complete
 
 **EHR (FCCC) must support:**
-- [ ] **CDS Hooks client** — firing the `order-sign` hook at the moment Dr. Galloway signs the IMRT order, and rendering the returned card
+- [ ] **CDS Hooks client** — firing the `order-sign` hook at the moment Dr. Whitfield signs the IMRT order, and rendering the returned card
 - [ ] **SMART App Launch** — launching the DTR SMART app in-context (patient, encounter, order) so the questionnaire can be completed/pre-populated without re-entering data
 
 This pathway is **entirely FHIR-based** on both ends. No 360X, no HL7v2, no C-CDA involved here.
@@ -35,7 +35,7 @@ This pathway is **entirely FHIR-based** on both ends. No 360X, no HL7v2, no C-CD
 
 **PMS (Penn Dental, via its interim FHIR server) must support:**
 - [ ] Receiving and storing the ODE-conformant FHIR Bundle delivered by the bridge
-- [ ] Reading `Task.input` for the referral package and `Task.businessStatus` to drive Dr. Sollecito's worklist
+- [ ] Reading `Task.input` for the referral package and `Task.businessStatus` to drive Dr. Bellweather's worklist
 - [ ] **Does NOT need to speak 360X/HL7v2/C-CDA directly** — that's the bridge's job; the PMS only ever sees FHIR
 
 This pathway has **no FHIR dependency on FCCC's side** and **no HL7v2/C-CDA dependency on Penn Dental's side** — the bridge is the only system that has to speak both.

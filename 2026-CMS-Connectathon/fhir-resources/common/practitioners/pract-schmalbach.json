@@ -5,21 +5,21 @@
     "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"]
   },
   "identifier": [
-    { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1558294816" },
-    { "system": "http://www.pa.gov/fhir/medical-license", "value": "PA-MD-067829" }
+    { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1000000034" },
+    { "system": "http://www.pa.gov/fhir/medical-license", "value": "PA-MD-000114" }
   ],
   "active": true,
   "name": [
     {
       "use": "official",
-      "family": "Schmalbach",
+      "family": "Osei",
       "given": ["Cecelia", "Marie"],
       "suffix": ["MD", "FACS"]
     }
   ],
   "telecom": [
     { "system": "phone", "value": "(215) 728-6900", "extension": "2951", "use": "work" },
-    { "system": "email", "value": "cecelia.schmalbach@foxchasecancercenter.org", "use": "work" }
+    { "system": "email", "value": "renata.osei@example-cancercenter.org", "use": "work" }
   ],
   "address": [
     {
@@ -53,7 +53,7 @@
             "display": "Head and Neck Surgery"
           }
         ],
-        "text": "Chair, Department of Surgical Oncology; board certified by the American Board of Surgery (ABS); Fellow, American College of Surgeons (FACS)"
+        "text": "Attending surgeon, Surgical Oncology; board certified by the American Board of Surgery (ABS); Fellow, American College of Surgeons (FACS)"
       }
     }
   ]

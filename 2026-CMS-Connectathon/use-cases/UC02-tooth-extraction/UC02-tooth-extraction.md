@@ -38,7 +38,7 @@ Both use cases are set in **Texas**. Both exercise the dental-to-dental referral
 
 ## Section I: Business Overview
 
-**Frank Castle** is a 53-year-old male (DOB: 03/17/1972) enrolled in **Texas Medicaid**. He receives routine dental care at a general dental practice in Texas. Frank has a history of root canal treatment on tooth #30 (lower right first molar) and presents with increasing pain, swelling, and discomfort while chewing on the lower right side.
+**Frank Castle** is a 53-year-old male (DOB: 03/17/1972) enrolled in **Texas Medicaid**. Texas Medicaid's adult dental benefit is limited to services that are medically necessary to control bleeding, relieve pain, and eliminate acute infection — it does not cover routine dental care for adults. Frank has a history of root canal treatment on tooth #30 (lower right first molar) and presents to a general dental practice in Texas with increasing pain, swelling, and discomfort while chewing on the lower right side. **His presentation is symptomatic and medically necessary, but stable — not an acute, can't-wait dental emergency** (no uncontrolled bleeding, airway compromise, or acute facial cellulitis requiring same-day intervention). This distinction matters: Texas Medicaid exempts genuinely acute emergencies from prospective prior authorization, routing them instead to retrospective review after treatment. Frank's condition, being stable enough to tolerate a standard multi-day authorization cycle, is appropriately processed through prospective PA — the workflow this use case exercises.
 
 **Dr. Mary Parker, DDS**, the treating general dental provider, performs a **limited oral evaluation** (`D0140`) and obtains **periapical radiographs** (`D0220`). The examination reveals:
 
@@ -46,13 +46,13 @@ Both use cases are set in **Texas**. Both exercise the dental-to-dental referral
 - Periapical radiolucency on radiograph
 - Vertical root fracture extending below the cemento-enamel junction
 
-Based on these findings, Dr. Parker determines that tooth #30 is **non-restorable** and that **surgical extraction is medically necessary** to relieve pain and control infection (`ICD-10: K04.7` — periapical abscess without sinus; `K08.89` — other specified disorder of teeth).
+Based on these findings, Dr. Parker determines that tooth #30 is **non-restorable** and that **surgical extraction is medically necessary** to relieve pain and control infection (`ICD-10: K04.7` — periapical abscess without sinus; `K08.89` — other specified disorder of teeth). **This is the basis for Medicaid coverage**: pain and infection relief for a non-restorable tooth falls within Texas Medicaid's covered adult emergency dental category, independent of the acuity question above — a service can be within the covered emergency-dental category while still being stable enough to go through standard prospective PA rather than retrospective-only review.
 
 Dr. Parker's team performs **real-time Medicaid eligibility verification** via a FHIR `Coverage` query, confirms the oral surgeon participates in Texas Medicaid, reviews applicable exclusions and benefit limitations, and prepares a **prior authorization request** for the surgical extraction. Because this is a Texas Medicaid case, prior authorization is required before the surgical consultation can proceed.
 
 Dr. Parker's practice submits the prior authorization request to the Texas Medicaid dental plan using **Da Vinci PAS** — transmitting a FHIR `Claim` (PA request) with supporting clinical documentation including the diagnosis, radiographic findings, and treatment recommendation. The `ClaimResponse` is returned with the PA approval, including the PA number and approved service details.
 
-With prior authorization approved, Dr. Parker electronically transmits the **structured referral** to **Dr. Alex Maxil, DDS, MD**, an oral and maxillofacial surgeon participating in Texas Medicaid. The referral package — transmitted via CDex provider-to-provider push — includes the `ServiceRequest`, periapical radiographs, periodontal charting, intraoral images, confirmed diagnosis, and treatment recommendation. Frank is notified through his **patient-facing application** that the referral has been sent and prior authorization approved.
+With prior authorization approved, Dr. Parker electronically transmits the **structured referral** to **Dr. Alex Maxil, DDS, MD**, an oral and maxillofacial surgeon at **Austin Oral Surgery** (a USOSM partner practice) participating in Texas Medicaid. The referral package — transmitted via CDex provider-to-provider push — includes the `ServiceRequest`, periapical radiographs, periodontal charting, intraoral images, confirmed diagnosis, and treatment recommendation. Frank is notified through his **patient-facing application** that the referral has been sent and prior authorization approved.
 
 At the **surgical consultation**, Dr. Maxil reviews Frank's records, confirms the diagnosis, reviews his medical history and current medications for surgical risk, and has his staff confirm that Medicaid coverage remains active and review benefits used to date. Frank and Dr. Maxil discuss the risks and benefits of extraction. Frank elects to proceed.
 
@@ -206,7 +206,7 @@ Frank's dental benefit is administered through **Texas Medicaid**. All dental se
 | **Date of Birth** | 1972-03-17 | Age: 53 |
 | **Sex** | Male | `http://hl7.org/fhir/ValueSet/administrative-gender` |
 | **General Dental Practice MRN** | `GDENT-TX-2026-0047` | System: `https://generaldental.example.org/fhir/mrn` |
-| **Oral Surgery Practice MRN** | `ORALSURG-TX-2026-0031` | System: `https://oralsurgery.example.org/fhir/mrn` |
+| **Oral Surgery Practice MRN** | `ORALSURG-TX-2026-0031` | System: `https://austinoralsurgery.example.org/fhir/mrn` |
 | **Texas Medicaid ID** | `TX-MCD-0091847` | System: `http://texas.medicaid.gov/beneficiary` |
 | **Telecom (Phone)** | (512) 555-0147 | Use: Mobile |
 | **Telecom (Email)** | frank.castle@example.com | Use: Home |
@@ -246,16 +246,17 @@ Frank's dental benefit is administered through **Texas Medicaid**. All dental se
 | **NPI Taxonomy Code** | 1223G0001X | General dentist |
 | **Medicaid Participation** | Active — Texas Medicaid dental | Confirmed |
 
-#### Oral Surgery Practice (Texas)
+#### Austin Oral Surgery (Central Austin location)
 
 | FHIR Element | Value | System / Note |
 |---|---|---|
-| **Organization NPI** | 1578293148 | `http://hl7.org/fhir/sid/us-npi` |
-| **Organization Name** | Oral Surgery Practice — Texas (Synthetic) | Test data label — to be filled with actual organization |
+| **Organization NPI** | 1578293148 | `http://hl7.org/fhir/sid/us-npi` — synthetic, not the real practice's actual NPI |
+| **Organization Name** | Austin Oral Surgery | Real organization — a founding USOSM (U.S. Oral Surgery Management) partner practice, 12+ locations across Central Texas since 2017. Used here as the real organizational entity, per the same pattern as UC01's real institutions; the treating surgeon (Dr. Alex Maxil) is fictional, not modeled on any specific real surgeon at this practice. |
 | **Type** | Oral and Maxillofacial Surgery Practice | Organization type |
+| **Location Used in This Case** | Central Austin office, 711 W. 38th Street, Suite A-1, Austin, TX | Real, publicly-published address |
 | **Care Setting** | Place of Service 11 — Office | In-office |
 | **Practice Management System** | Dental PMS with interim FHIR server | Architecture pattern |
-| **FHIR Endpoint** | `https://oralsurgery.example.org/fhir/r4` | Interim FHIR server |
+| **FHIR Endpoint** | `https://austinoralsurgery.example.org/fhir/r4` | Synthetic interim FHIR server — not a real endpoint |
 | **NPI Taxonomy Code** | 1223X0400X | Oral and maxillofacial surgeon |
 | **Medicaid Participation** | Active — Texas Medicaid dental | Confirmed via Plan-Net query before referral created |
 
@@ -294,7 +295,7 @@ Frank's dental benefit is administered through **Texas Medicaid**. All dental se
 | **Qualification** | DDS, MD — Dual degree oral and maxillofacial surgeon | Dental and medical degrees |
 | **License Number** | TX-DDS-052841; TX-MD-091023 | Texas dental and medical licenses (synthetic) |
 | **Specialty Code (Taxonomy)** | 1223X0400X | Oral and maxillofacial surgery |
-| **Organization** | Oral Surgery Practice — Texas | Employment |
+| **Organization** | Austin Oral Surgery — Central Austin office | Employment. Real organization (USOSM partner practice); Dr. Maxil himself is fictional, not modeled on a specific real surgeon there. |
 | **Medicaid Participation** | Active — Texas Medicaid dental | Confirmed via Plan-Net |
 | **Place of Service** | 11 — Office | In-office |
 | **Role in Use Case** | Receiving surgical provider; sender of post-operative summary | Surgical consultation; extraction; transmits summary to Dr. Parker |
@@ -328,6 +329,7 @@ Frank's dental benefit is administered through **Texas Medicaid**. All dental se
 | **Disposition** | Approved — D7210, tooth #30, Dr. Alex Maxil (oral surgeon) | Approved service details |
 | **PA Number** | TX-MCD-PA-2026-047291 | PA reference number — carried into ServiceRequest and 837D |
 | **Validity Period** | 2026-07-14 – 2026-10-14 | 90-day authorization window |
+| **Payment Guarantee Caveat** | PA approval confirms medical necessity and coverage eligibility at time of review — it is **not a guarantee of payment**. Final reimbursement still depends on Frank's Medicaid eligibility on the actual date of service and a clean, complete claim submission at billing. This is standard Texas Medicaid PA language, not specific to this case. | Named test consideration, not a defect |
 | **Insurer** | Texas Medicaid Dental Plan | Payer reference |
 
 #### ServiceRequest (Referral — General Dental Practice to Oral Surgery Practice)
@@ -449,7 +451,7 @@ Frank's dental benefit is administered through **Texas Medicaid**. All dental se
 
 Because Frank has commercial coverage with implant benefits, Dr. Parker discusses two treatment options: (1) extraction alone, with future implant placement at a separate appointment after healing; (2) surgical extraction with **immediate implant placement** at the same surgical visit. Dr. Parker's team performs **real-time benefit verification** via a FHIR `Coverage` query, confirming Frank's dental plan benefits including implant coverage, any applicable waiting periods, annual maximum remaining, and any exclusions. No prior authorization is required for the procedures under this commercial plan design.
 
-Dr. Parker transmits the **structured referral** to **Dr. Alex Maxil, DDS, MD**, an oral and maxillofacial surgeon in the commercial PPO network. The referral package — transmitted via CDex provider-to-provider push — includes the `ServiceRequest`, periapical radiographs, periodontal charting, intraoral images, confirmed diagnosis, and both treatment options for Dr. Maxil's review. Frank is notified through his **patient-facing application** that the referral has been sent and his appointment is confirmed.
+Dr. Parker transmits the **structured referral** to **Dr. Alex Maxil, DDS, MD**, an oral and maxillofacial surgeon at **Austin Oral Surgery** (a USOSM partner practice) in the commercial PPO network. The referral package — transmitted via CDex provider-to-provider push — includes the `ServiceRequest`, periapical radiographs, periodontal charting, intraoral images, confirmed diagnosis, and both treatment options for Dr. Maxil's review. Frank is notified through his **patient-facing application** that the referral has been sent and his appointment is confirmed.
 
 At the **surgical consultation**, Dr. Maxil reviews Frank's records, confirms the diagnosis, reviews his medical history and medications for surgical risk, and discusses both options including immediate implant placement, possible bone grafting needs, costs, and informed consent. Frank elects to proceed with **surgical extraction with immediate implant placement**.
 
@@ -596,7 +598,7 @@ Frank's dental benefit is a **commercial dental PPO**. All services are billed v
 | **Date of Birth** | 1972-03-17 | Age: 53 |
 | **Sex** | Male | `http://hl7.org/fhir/ValueSet/administrative-gender` |
 | **General Dental Practice MRN** | `GDENT-TX-2026-0047` | System: `https://generaldental.example.org/fhir/mrn` |
-| **Oral Surgery Practice MRN** | `ORALSURG-TX-2026-0031` | System: `https://oralsurgery.example.org/fhir/mrn` |
+| **Oral Surgery Practice MRN** | `ORALSURG-TX-2026-0031` | System: `https://austinoralsurgery.example.org/fhir/mrn` |
 | **Commercial Member ID** | `COMM-TX-00819472` | System: commercial payer member ID |
 | **Group Number** | 582047 | Employer group |
 | **Telecom (Phone)** | (512) 555-0147 | Use: Mobile |
