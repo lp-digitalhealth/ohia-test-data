@@ -1,0 +1,125 @@
+{
+  "resourceType": "Claim",
+  "id": "claim-imrt-priorauth",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/davinci-pas/StructureDefinition/profile-claim"]
+  },
+  "identifier": [
+    {
+      "system": "http://ibx.com/pa-request-id",
+      "value": "PA-2026-UC01-001"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+        "code": "professional",
+        "display": "Professional"
+      }
+    ]
+  },
+  "use": "preauthorization",
+  "patient": {
+    "reference": "Patient/patient-john-smith",
+    "display": "John Smith"
+  },
+  "created": "2026-08-01T09:00:00-04:00",
+  "insurer": {
+    "reference": "Organization/org-ibx",
+    "display": "Independence Blue Cross, Inc"
+  },
+  "provider": {
+    "reference": "Organization/org-fccc",
+    "display": "Fox Chase Cancer Center"
+  },
+  "priority": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/processpriority",
+        "code": "normal"
+      }
+    ]
+  },
+  "careTeam": [
+    {
+      "sequence": 1,
+      "provider": {
+        "reference": "PractitionerRole/role-galloway",
+        "display": "Dr. Thomas Galloway — Radiation Oncology, Fox Chase Cancer Center"
+      },
+      "responsible": true,
+      "role": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole",
+            "code": "rendering",
+            "display": "Rendering provider"
+          }
+        ]
+      }
+    }
+  ],
+  "diagnosis": [
+    {
+      "sequence": 1,
+      "diagnosisReference": {
+        "reference": "Condition/condition-john-smith-tongue-cancer",
+        "display": "Stage IV squamous cell carcinoma, lateral border of tongue"
+      }
+    }
+  ],
+  "insurance": [
+    {
+      "sequence": 1,
+      "focal": true,
+      "coverage": {
+        "reference": "Coverage/coverage-john-smith",
+        "display": "John Smith's IBX Personal Choice 65 PPO coverage"
+      }
+    }
+  ],
+  "item": [
+    {
+      "sequence": 1,
+      "productOrService": {
+        "coding": [
+          { "system": "http://www.ama-assn.org/go/cpt", "code": "77301", "display": "IMRT plan" },
+          { "system": "http://www.ama-assn.org/go/cpt", "code": "77338", "display": "IMRT device(s), design and construction" }
+        ],
+        "text": "Intensity-Modulated Radiation Therapy (IMRT), head & neck — same planning codes as the original order (Interaction 1), not the eventual delivery/billing codes (77385/77386/77387)"
+      },
+      "servicedPeriod": {
+        "start": "2026-08-24"
+      }
+    }
+  ],
+  "supportingInfo": [
+    {
+      "sequence": 1,
+      "category": {
+        "text": "Dental clearance documentation, transmitted as a CDex unsolicited attachment"
+      },
+      "valueReference": {
+        "reference": "ClinicalImpression/clinicalimpression-dental-clearance",
+        "display": "Dental clearance for head & neck IMRT"
+      }
+    },
+    {
+      "sequence": 2,
+      "category": {
+        "text": "DTR-completed documentation requirement"
+      },
+      "valueReference": {
+        "reference": "Questionnaire/questionnaire-ibx-imrt-pa-dtr",
+        "display": "IBX IMRT Prior Authorization — Documentation Requirements"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "This PA request is for the IMRT/radiation service itself (the same service flagged as requiring prior authorization back in Interaction 1's order-sign CRD evaluation) — NOT a claim for Dr. Sollecito's dental procedures. The dental clearance is included here only as supporting evidence that the prerequisite condition (dental clearance) has been satisfied. Uses Da Vinci PAS, which replaces the legacy X12 278 transaction entirely with FHIR Claim/ClaimResponse — the 278 is out of scope for this use case."
+    }
+  ]
+}

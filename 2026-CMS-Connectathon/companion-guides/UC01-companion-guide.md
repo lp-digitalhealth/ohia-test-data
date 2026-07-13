@@ -63,11 +63,11 @@ Two pathways, no shared FHIR dependency between them:
 | servicerequest-dental-referral.json | Expected bridge output: `ODEMedicalToDentalReferral` ServiceRequest |
 | task-360x-dental-referral.json | Expected bridge output: `ODEReferralTask` with `businessStatus: received` |
 | provenance-dental-referral.json | Expected bridge output: Provenance (required in bundle — easy to miss) |
-| encounter-01-bundle.json | Full expected output bundle — validate your bridge's FHIR translation against this |
+| interaction-01-bundle.json | Full expected output bundle — validate your bridge's FHIR translation against this |
 
 1. Stand up (or configure) the `ode-360x-adapter` bridge, or your own equivalent implementing the same `FhirBackend`/`IheCodec`/`IheOutboundTransport` port contracts.
 2. Confirm your bridge can ingest an `OMG^O19` message matching OMG_O19-dental-referral-request.hl7 — read OMG_O19-dental-referral-request-QA-notes.md first, since it documents exact field placement (referral ID in `ORC-2`/`OBR-2`, no `IN1` segment, etc.).
-3. Confirm your bridge translates that message into a FHIR bundle matching the referral-related resources in encounter-01-bundle.json — directional `ServiceRequest` (profile `ode-medical-to-dental-referral`), `ODEReferralTask` (`businessStatus: received` on intake), `Condition`, medication `List`/`AllergyIntolerance`, `Provenance`.
+3. Confirm your bridge translates that message into a FHIR bundle matching the referral-related resources in interaction-01-bundle.json — directional `ServiceRequest` (profile `ode-medical-to-dental-referral`), `ODEReferralTask` (`businessStatus: received` on intake), `Condition`, medication `List`/`AllergyIntolerance`, `Provenance`.
 4. Load the resulting bundle onto your PMS-side FHIR server (or the server your PMS reads from).
 5. As you do this, note any real-world PMS constraints that don't fit the ODE IG's current shape — this feedback loop is part of your role per the stakeholder matrix, not just executing the spec as given.
 
@@ -89,6 +89,8 @@ Two pathways, no shared FHIR dependency between them:
 5. If you're standing up a stub rather than a real EHR, see Section 3 below for the minimum bar.
 
 ### 2d. Patient-Facing App Providers
+
+**See also:** the consolidated "Patient-Facing App Companion Guide" section below (after Interaction 1, before Interaction 2) — it covers the full milestone-by-milestone picture across all interactions, not just this one.
 
 **Files for this role:**
 
@@ -114,7 +116,7 @@ If you don't have a live partner system to test against, here's the minimum your
 
 **Bridge/PMS stub** (if you're testing the EHR or Patient App without a real bridge/PMS):
 - Must accept the `OMG^O19` message and respond with at least a positive ACK
-- Must be able to serve back a FHIR bundle resembling encounter-01-bundle.json's referral-related resources (`ServiceRequest`, `Task`, `Condition`, medication `List`, `AllergyIntolerance`, `Provenance`) so downstream systems have something real to query
+- Must be able to serve back a FHIR bundle resembling interaction-01-bundle.json's referral-related resources (`ServiceRequest`, `Task`, `Condition`, medication `List`, `AllergyIntolerance`, `Provenance`) so downstream systems have something real to query
 - Task `businessStatus` should be settable to `received` at minimum, to test the Patient App's status display
 
 **Payer stub** (if you're testing the EHR, bridge, or Patient App without a real payer):
@@ -129,7 +131,7 @@ If you don't have a live partner system to test against, here's the minimum your
 
 ## 4. Resource Index — all test data files for Encounter #1
 
-Every file needed for Encounter #1 is listed here. Load order: Registry → Base → Encounter #1, or use the encounter-01-bundle.json shortcut to load all three tiers at once.
+Every file needed for Encounter #1 is listed here. Load order: Registry → Base → Encounter #1, or use the interaction-01-bundle.json shortcut to load all three tiers at once.
 
 ### Registry — `fhir-resources/common/` — load first; shared across use cases
 
@@ -163,12 +165,13 @@ Every file needed for Encounter #1 is listed here. Load order: Registry → Base
 | role-lin.json | PractitionerRole | Dr. Lin's role at FCCC |
 | role-schmalbach.json | PractitionerRole | Dr. Schmalbach's role at FCCC |
 | role-sollecito.json | PractitionerRole | Dr. Sollecito's role at Penn Dental |
+| subscription-john-smith-referral-status.json | Subscription | John's patient app subscription to referral status changes (Backport IG) — spans the whole use case, not one interaction; retroactively added, see `CLAUDE.md` |
 
-### Encounter #1 — `fhir-resources/uc01-medical-to-dental/encounters/encounter-01/` — load third
+### Interaction 1 — `fhir-resources/uc01-medical-to-dental/interactions/interaction-01/` — load third
 
 | File | Type | Purpose |
 |---|---|---|
-| encounter-01-bundle.json | Transaction bundle | **Shortcut: all 34 resources (all three tiers) in one `POST`** |
+| interaction-01-bundle.json | Transaction bundle | **Shortcut: all 34 resources (all three tiers) in one `POST`** |
 | encounter-01-imrt-order.json | Encounter | The oncology visit on 2026-07-06 |
 | condition-john-smith-tongue-cancer.json | Condition | Tongue cancer diagnosis (ICD-10-CM C02.1) |
 | servicerequest-imrt-order.json | ServiceRequest | IMRT radiation therapy order — fires CRD at `order-sign` |
@@ -182,7 +185,7 @@ Every file needed for Encounter #1 is listed here. Load order: Registry → Base
 | medrequest-john-smith-oxycodone-apap.json | MedicationRequest | Oxycodone/acetaminophen |
 | cds-hooks-discovery-ibx.json | CDS Hooks config *(not a FHIR resource)* | IBX payer's `order-sign` CDS service discovery document |
 
-### HL7v2 — `hl7v2/uc01-medical-to-dental/encounter-01/`
+### HL7v2 — `hl7v2/uc01-medical-to-dental/interaction-01/`
 
 | File | Type | Purpose |
 |---|---|---|
@@ -199,9 +202,9 @@ Registry → base → encounter-specific, since later tiers reference earlier on
 |---|---|---|---|
 | 1 | fhir-resources/common/ | Organizations, Practitioners, Locations, Endpoints, InsurancePlan, payer-rules (PlanDefinition, Library, Questionnaire) | Shared across use cases — load once |
 | 2 | fhir-resources/uc01-medical-to-dental/base/ | Patient, Coverage, Consent, PractitionerRole ×4 | UC01-specific; referenced by all 7 encounters |
-| 3 | fhir-resources/uc01-medical-to-dental/encounters/encounter-01/ | Encounter, Condition, ServiceRequests, Task, Provenance, meds, allergy | Encounter-specific |
+| 3 | fhir-resources/uc01-medical-to-dental/interactions/interaction-01/ | Encounter, Condition, ServiceRequests, Task, Provenance, meds, allergy | Encounter-specific |
 
-**Shortcut:** `POST` encounter-01-bundle.json to `[base]/` — it pre-bundles all 34 resources from all three tiers in the correct order.
+**Shortcut:** `POST` interaction-01-bundle.json to `[base]/` — it pre-bundles all 34 resources from all three tiers in the correct order.
 
 ---
 
@@ -231,7 +234,7 @@ Unlike the `.hl7` files, the `.json` FHIR resources in `fhir-resources/` aren't 
 - Any FHIR R4-conformant server works in principle — the resources here don't depend on server-specific features.
 
 **To load the resources:**
-- Each file is a standalone resource with a fixed `id` — load with `PUT [base]/{ResourceType}/{id}` per the load order in Section 5, or load encounter-01-bundle.json as a single `POST` transaction to `[base]/`.
+- Each file is a standalone resource with a fixed `id` — load with `PUT [base]/{ResourceType}/{id}` per the load order in Section 5, or load interaction-01-bundle.json as a single `POST` transaction to `[base]/`.
 - Any HTTP client works for this — `curl`, Postman, Insomnia. No FHIR-specific tool required just to load data.
 
 **To validate conformance** (not just "does it load," but "does it actually match the declared profile"):
@@ -265,4 +268,175 @@ Patient-facing apps are the one stakeholder type in this use case that requires 
 
 ## 9. What to do if something doesn't match
 
-If a resource in `fhir-resources/` or the HL7v2 message doesn't match what your system expects, check `fhir-resources/uc01-medical-to-dental/encounters/README.md` and `OMG_O19-dental-referral-request-QA-notes.md` first — several corrections were already made during this project (wrong SNOMED/NUCC/HL7 codes, a wrong message type, a wrong CDS Hooks trigger name) and are documented there. If it's a genuinely new discrepancy, that's useful Connectathon feedback — flag it rather than silently working around it.
+If a resource in `fhir-resources/` or the HL7v2 message doesn't match what your system expects, check `fhir-resources/uc01-medical-to-dental/interactions/README.md` and `OMG_O19-dental-referral-request-QA-notes.md` first — several corrections were already made during this project (wrong SNOMED/NUCC/HL7 codes, a wrong message type, a wrong CDS Hooks trigger name) and are documented there. If it's a genuinely new discrepancy, that's useful Connectathon feedback — flag it rather than silently working around it.
+
+---
+
+## Patient-Facing App Companion Guide (spans all interactions)
+
+Unlike the Payer, EHR, and Dental Tech tracks — whose actions genuinely differ interaction by interaction — the patient-facing app does fundamentally the **same thing** throughout: subscribe once, then receive and display milestone notifications as the referral progresses. This section is consolidated in one place for that reason, rather than repeated (and previously, only partially repeated) across each interaction's section.
+
+### What to build
+
+1. **A `Subscription`** to the referral's status changes — matching the shape of `subscription-john-smith-referral-status.json` (`fhir-resources/uc01-medical-to-dental/base/subscriptions/`). This is built once, early (conceptually alongside Interaction 1, since the app should be subscribed before the referral even starts generating status changes), not re-created per interaction.
+2. **A notification handler** that receives `SubscriptionStatus` payloads (per the HL7 FHIR Subscriptions R4 Backport IG this project follows) and translates the underlying `Task.status`/`businessStatus` values into plain-language milestones for John — he should never see raw FHIR codes.
+3. **Standard Patient Access API support** (SMART App Launch + US Core) to pull John's actual clinical data from FCCC — this is a separate capability from the Subscription/notification piece, and is covered in Section 8 below (credentials/OAuth setup), not repeated here.
+
+### Milestone-by-milestone: what the app should show, and what's actually driving it
+
+| When | What John sees | What's actually happening (Task field) |
+|---|---|---|
+| Interaction 1 (2026-07-06) | "Referral sent to Penn Dental" | `Task.status: requested`, `businessStatus: received` |
+| Between 1 and 2 (2026-07-07, not its own interaction) | "Appointment scheduled" | `Task.status: accepted`→`in-progress`, `owner` set (not yet built as its own artifact — see Interaction 2's gap note) |
+| Interaction 2 (2026-07-23) | "Dr. Sollecito is reviewing your case" | `Task.status: in-progress` |
+| Interaction 2, DDC inquiry / extension request | **Nothing new should display.** These are provider-to-provider notes, not patient-visible events — confirm your app correctly does *not* surface every backend note as a patient notification. | N/A — no Task status change from these specifically |
+| Interaction 3 (2026-07-31) | "Clearance sent to your cancer care team" | `Task.status: completed`, `businessStatus: outcome-final` |
+| Interaction 4 (2026-08-03) | "Prior authorization approved" | Confirmed: `ExplanationOfBenefit/eob-imrt-priorauth-ppa.json` (Da Vinci PDex PPA profile, `use: preauthorization`), delivered via CARIN Blue Button — **not** the same referral `Task`/Subscription as every other row above. If your app only listens to the referral Subscription, it will miss this milestone; confirm you also query or subscribe to PA-status data separately. |
+
+**The one thing worth testing deliberately:** whether your app can tell the difference between a Task change that should generate a patient-visible notification (every row above except the DDC/extension row) and backend activity that shouldn't (that row). Getting this wrong in either direction — missing a real milestone, or spamming John with internal provider chatter — is a real failure mode this use case is designed to surface.
+
+### Credentials and stubs
+
+See Section 8 (FHIR services / Patient-facing app credentials, below) for OAuth/SMART registration, and the Stub Specifications (Section 3) for the minimal bar if you're testing without a live upstream system — a Patient App stub only needs to display a referral status string; it doesn't need working OAuth for that minimal bar.
+
+---
+
+## Interaction 2: Dental Exam & Requests for Additional Information
+
+**Status:** built (FHIR resources), including the Task update that was previously flagged as a gap. No HL7v2/wire-level artifact for this interaction by design — this interaction is pure FHIR-side Task/note activity, not a new 360X transaction.
+
+This section comes in **two parts**, because a firm might approach Interaction 2 in either of two ways: continuing straight on from Interaction 1 (most firms), or picking up here directly without having executed Interaction 1 themselves (e.g., a firm testing only the dental-side exam/finding-request pathway).
+
+### Part A — If you're continuing directly from Interaction 1
+
+You already have everything loaded (registry, base, Interaction 1's 34 resources). What's new for Interaction 2:
+
+1. **Accept the referral.** The existing `Task/task-360x-dental-referral` is updated (same `id`, new version — `task-360x-dental-referral-interim.json`): `status` → `in-progress`, `businessStatus` → `in-progress`, and — for the first time — `Task.owner` is set to the accepting party (Dr. Sollecito's `PractitionerRole`). Per the crosswalk, this is the correct point for `owner` to first appear — not at intake (Interaction 1).
+2. **The exam happens.** The same Task update reflects the exam occurring (2026-07-23) — `Task.output` references the exam `Encounter` and both `DiagnosticReport`s.
+3. **Load the exam content.** `encounter-02-dental-exam.json`, the two `DiagnosticReport`s, and the dose `Observation`.
+3. **Capture the two information requests as notes** — the DDC dose inquiry (reflected in the `Observation`'s `.note`) and the treatment-extension request (still not yet built as a discrete resource — see gap note below). Neither is a new order or referral resource; both are the COW "Requesting additional information" pattern.
+4. **No new HL7v2 message.** Nothing here crosses the wire as a new 360X transaction — the Task update is a FHIR-side state change the bridge would reflect internally, not a fresh PCC-55-style message.
+
+### Part B — If you're starting fresh at Interaction 2 (didn't execute Interaction 1 yourself)
+
+You need Interaction 1's output loaded as **prerequisite state**, not as something you're testing — the exam only makes sense if a referral already exists and has been sent.
+
+1. Load the full registry (`fhir-resources/common/`) and base tier (`fhir-resources/uc01-medical-to-dental/base/`), exactly as Interaction 1 requires.
+2. Load Interaction 1's resources as-is (`fhir-resources/uc01-medical-to-dental/interactions/interaction-01/`, or the `interaction-01-bundle.json` shortcut) — treat this as a fixture, not a test target. You are not validating Interaction 1's referral-sending behavior; you're just establishing that a referral exists and was received.
+3. From there, follow Part A above.
+4. If you want to skip building/loading Interaction 1 entirely and just need *a* referral + Task to hang the exam content off of, the `interaction-02-bundle.json` shortcut already includes everything from both Interaction 1 and Interaction 2 pre-bundled — load that single file instead of assembling it yourself.
+
+### Patient-Facing App
+
+See the consolidated "Patient-Facing App Companion Guide" section above (spans all interactions) — no interaction-specific patient-app work here beyond what's already covered there.
+
+### Which IGs apply
+
+Same core set as Interaction 1 (IHE 360X for the underlying referral state; ODE for the FHIR resources) — no CRD/DTR activity in this interaction (that was Interaction 1 only), and no CARIN Blue Button/Provider Access API yet.
+
+### Resource Index (files, not hyperlinked — see file paths below)
+
+| File | Type | Purpose |
+|---|---|---|
+| `interactions/interaction-02/encounter-02-dental-exam.json` | Encounter | The dental exam visit |
+| `interactions/interaction-02/diagnosticreport-periapical.json` | DiagnosticReport | CDT D0220 / LOINC 62443-7 |
+| `interactions/interaction-02/diagnosticreport-panoramic.json` | DiagnosticReport | CDT D0330 / LOINC 24828-6 |
+| `interactions/interaction-02/observation-tooth30-radiation-dose.json` | Observation | 52 Gy dose at tooth #30; carries the DDC-request note; LOINC-gap resource |
+| `interactions/interaction-02/task-360x-dental-referral-interim.json` | Task (updated version) | `businessStatus` → `in-progress`, `Task.owner` set, `Task.output` populated — fills a previously-flagged gap |
+| `interactions/interaction-02/interaction-02-bundle.json` | Transaction bundle | Shortcut: all 40 resources (Interaction 1 + Interaction 2) in one `POST` |
+| `interactions/interaction-02/interaction-02-delta-bundle.json` | Transaction bundle | Lightweight alternative: just this interaction's own 5 new/updated resources |
+| *(not yet built)* | — | Treatment-extension request note + updated `ServiceRequest.occurrenceDateTime` on the IMRT order — **gap, needs building** (this is the later, early-August moment described in the interaction writeup) |
+
+### Stub Specifications
+
+No new stub requirements beyond Interaction 1's — a Bridge/PMS stub for this interaction additionally needs to accept a Task status update (not just initial creation) and be able to attach `Observation`/`DiagnosticReport` content to an existing referral context.
+
+### What to do if something doesn't match
+
+Same as Interaction 1's guidance (Section 9 above) — check the interactions README and any QA notes first; if it's new, that's real feedback, not a mistake to quietly work around.
+
+---
+
+## Interaction 3: The Clearance
+
+**Status:** built (FHIR resources), rigorous QA performed. Corresponds to clinical Encounter #6 (2026-07-31).
+
+**Wire-level transaction:** IHE 360X **PCC-57 (Referral Outcome)** — `OMG^O19` + C-CDA Consultation Note.
+
+### Part A — If you're continuing directly from Interaction 2
+
+1. **Load the clinical outcome resources**: 3 `Procedure`s (extractions #4, #17; extraction+implant #30 — CDT-coded D7210/D6010, confirmed real codes), a coded disposition `Observation` (text-only — see terminology caution below), and the `ClinicalImpression` (the clearance attestation, also text-only for its assessment code).
+2. **Load the `DocumentReference`** representing the C-CDA Consultation Note component of the PCC-57 transaction (LOINC `11488-4`, verified).
+3. **Load the final Task snapshot** (`task-360x-dental-referral-completed.json`) — same `id` as the Task from Interaction 1, but now `status: completed`, `businessStatus: outcome-final`, `owner` set (Dr. Sollecito's `PractitionerRole` — populated here for the first time in a built resource, since the PCC-56 accept step itself isn't separately modeled), and `output` populated with all of the above.
+4. **Load the final ServiceRequest snapshot** (`servicerequest-dental-referral-completed.json`) — same `id`, `status: completed`.
+
+### Part B — If you're starting fresh at Interaction 3
+
+You need Interactions 1 and 2's output loaded as prerequisite state (the referral must exist and the exam/dose-finding must already have happened for the clearance to make sense). Either:
+- Load registry + base + Interaction 1 + Interaction 2 first, then follow Part A, or
+- Use the `interaction-03-bundle.json` shortcut, which pre-bundles all 46 resources (registry + base + all three interactions) in correct temporal order — the two Task/ServiceRequest versions are both included, sequentially, so the final `PUT` correctly represents the completed state.
+
+### Patient-Facing App
+
+See the consolidated "Patient-Facing App Companion Guide" section (before Interaction 2, spans all interactions) — this interaction corresponds to the "Clearance sent to your cancer care team" milestone row in that section's table.
+
+### ⚠️ Terminology caution — read before using this interaction's codes elsewhere
+
+During QA, the use case's own "SNOMED CT Clinical Codes" reference table was found to contain at least one confirmed-invalid code (wrong format) and several more that couldn't be verified via general web search. **All SNOMED codes originally planned for this interaction's `Procedure`, `Observation`, and `ClinicalImpression` resources are represented as text-only (no `coding`) in the actual built files**, pending verification against a real SNOMED terminology browser. Do not assume these concepts have no valid code — only that we haven't confirmed one. See the use case doc's Section 6 for the full caution and which specific codes are affected.
+
+### Resource Index
+
+| File | Type | Purpose |
+|---|---|---|
+| `interactions/interaction-03/procedure-extraction-tooth4.json` | Procedure | CDT D7210 |
+| `interactions/interaction-03/procedure-extraction-tooth17.json` | Procedure | CDT D7210 |
+| `interactions/interaction-03/procedure-extraction-implant-tooth30.json` | Procedure | CDT D7210 + D6010 |
+| `interactions/interaction-03/observation-dental-clearance-disposition.json` | Observation | Text-only disposition code |
+| `interactions/interaction-03/clinicalimpression-dental-clearance.json` | ClinicalImpression | The clearance attestation |
+| `interactions/interaction-03/documentreference-dental-clearance-note.json` | DocumentReference | C-CDA Consultation Note wrapper, LOINC 11488-4 |
+| `interactions/interaction-03/servicerequest-dental-referral-completed.json` | ServiceRequest (snapshot) | Same id as Interaction 1's, `status: completed` |
+| `interactions/interaction-03/task-360x-dental-referral-completed.json` | Task (snapshot) | Same id as Interaction 1's, final version |
+| `interactions/interaction-03/interaction-03-bundle.json` | Transaction bundle | Shortcut: all 46 resources, correct temporal order |
+
+### What to do if something doesn't match
+
+Same as Interaction 1 (Section 9) — plus, for terminology specifically, see the caution above rather than assuming the text-only codes are a mistake.
+
+---
+
+## Interaction 4: Ending the Prior Authorization
+
+**Status:** built (FHIR resources). Corresponds to the PA submission/approval cycle, 2026-08-01 through 2026-08-03 — not tied to a single clinical encounter, since this is billing-office activity, not a patient visit.
+
+**Standards used:** Da Vinci PAS (`Claim`/`ClaimResponse`, `use: preauthorization`) for the request/response cycle itself; Da Vinci CDex for the dental clearance attachment; Da Vinci PDex PPA profile + CARIN Blue Button for the patient-facing delivery. **PAS replaces X12 278 entirely** — 278 is not exercised anywhere in this use case.
+
+### Part A — If you're continuing directly from Interaction 3
+
+1. **Load the PA request.** `Claim/claim-imrt-priorauth.json` — `use: preauthorization`, for the IMRT/radiation service specifically (CPT 77301/77338, the same planning codes as Interaction 1's original order — **not** a claim for Dr. Sollecito's dental procedures). `supportingInfo` references the dental clearance `ClinicalImpression` and the DTR `Questionnaire` as evidence the prerequisite is satisfied.
+2. **Load the approval.** `ClaimResponse/claimresponse-imrt-priorauth.json` — `outcome: complete`, `disposition: Approved`, `preAuthRef`/`preAuthPeriod` populated. No line-item adjudication is included — the header-level fields alone convey the decision, since this is non-financial.
+3. **Load the patient-facing record.** `ExplanationOfBenefit/eob-imrt-priorauth-ppa.json` — PDex PPA profile, delivered to John's app via the same milestone-notification pattern as every prior interaction, but sourced from IBX's payer-side systems directly rather than the referral `Task`.
+
+### Part B — If you're starting fresh at Interaction 4
+
+You need the referral (Interaction 1) and the completed clearance (Interaction 3) loaded as prerequisite state — this PA request only makes sense if a dental clearance already exists to attach as evidence. Either load Interactions 1 and 3 individually first, or use the `interaction-04-bundle.json` shortcut, which pre-bundles all 50 resources (registry + base + all four interactions) in correct temporal order.
+
+### Patient-Facing App
+
+See the consolidated "Patient-Facing App Companion Guide" section above — its milestone table has been updated to reflect this interaction as built, not speculative. This interaction is the one exception to that section's general pattern: every prior milestone came from the referral `Task`'s `Subscription`; this one — *"Prior authorization approved"* — comes from IBX's payer system directly via PDex PPA, not from the same Task-based Subscription. If your app only listens to the referral Subscription, it will miss this milestone entirely; confirm your app also queries or subscribes to PA-status data separately.
+
+### ⚠️ Scope caution — what this interaction does NOT include
+
+This is a **prior authorization** decision only. It is not a bill and does not authorize or reference Dr. Sollecito's dental procedures as a billable service — those are supporting evidence, not the subject of the request. The actual **reimbursement** billing (837P for FCCC's IMRT delivery, 837P for Dr. Sollecito's medically-billed dental procedures, 835 remittance for both) is explicitly out of scope for this use case as built — mentioned in the source use case document only as real-world context. That reimbursement step is where this project's separately-designed claims-sharing profile (`ODEOralProfessionalEOB`, drafted as a proposed ODE interface extension) would eventually apply — future work, not this interaction.
+
+### Resource Index
+
+| File | Type | Purpose |
+|---|---|---|
+| `interactions/interaction-04/claim-imrt-priorauth.json` | Claim (PAS) | PA request for IMRT — CPT 77301/77338, dental clearance as supporting evidence |
+| `interactions/interaction-04/claimresponse-imrt-priorauth.json` | ClaimResponse (PAS) | IBX's approval — `preAuthRef`, `preAuthPeriod` |
+| `interactions/interaction-04/eob-imrt-priorauth-ppa.json` | ExplanationOfBenefit (PDex PPA) | Patient-facing PA status, delivered via CARIN Blue Button |
+| `interactions/interaction-04/interaction-04-bundle.json` | Transaction bundle | Shortcut: all 50 resources (registry + base + all four interactions), correct temporal order |
+
+### What to do if something doesn't match
+
+Same as Interaction 1 (Section 9). One thing specific to this interaction: if your system expects an X12 278 anywhere in this flow, that's a mismatch with this use case's design, not a bug in the resources — 278 is explicitly out of scope, replaced entirely by PAS's `Claim`/`ClaimResponse`.

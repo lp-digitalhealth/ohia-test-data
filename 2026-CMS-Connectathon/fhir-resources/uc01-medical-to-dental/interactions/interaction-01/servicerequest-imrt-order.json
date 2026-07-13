@@ -36,8 +36,8 @@
   "occurrenceDateTime": "2026-08-10",
   "authoredOn": "2026-07-06",
   "requester": {
-    "reference": "Practitioner/pract-galloway",
-    "display": "Dr. Thomas Galloway"
+    "reference": "PractitionerRole/role-galloway",
+    "display": "Dr. Thomas Galloway — Radiation Oncology, Fox Chase Cancer Center"
   },
   "reasonReference": [
     {

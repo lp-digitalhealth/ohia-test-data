@@ -1,0 +1,69 @@
+{
+  "resourceType": "ClinicalImpression",
+  "id": "clinicalimpression-dental-clearance",
+  "status": "completed",
+  "code": {
+    "text": "Dental clearance for head & neck IMRT — NO VERIFIED CODE (see observation-dental-clearance-disposition.json for terminology note)"
+  },
+  "subject": {
+    "reference": "Patient/patient-john-smith",
+    "display": "John Smith"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-02-dental-exam",
+    "display": "Dental exam & radiographs, 2026-07-23"
+  },
+  "date": "2026-07-31T16:00:00-04:00",
+  "assessor": {
+    "reference": "Practitioner/pract-sollecito",
+    "display": "Dr. Thomas Sollecito, DMD, MMSc — Oral Medicine"
+  },
+  "problem": [
+    {
+      "reference": "Condition/condition-john-smith-tongue-cancer",
+      "display": "Stage IV squamous cell carcinoma, lateral border of tongue"
+    }
+  ],
+  "investigation": [
+    {
+      "code": {
+        "text": "Pre-radiation dental risk assessment and treatment"
+      },
+      "item": [
+        {
+          "reference": "Procedure/procedure-extraction-tooth4",
+          "display": "Extraction, tooth #4"
+        },
+        {
+          "reference": "Procedure/procedure-extraction-tooth17",
+          "display": "Extraction, tooth #17"
+        },
+        {
+          "reference": "Procedure/procedure-extraction-implant-tooth30",
+          "display": "Extraction + immediate implant, tooth #30"
+        },
+        {
+          "reference": "Observation/observation-tooth30-radiation-dose",
+          "display": "Site-specific radiation dose at tooth #30 (52 Gy)"
+        }
+      ]
+    }
+  ],
+  "finding": [
+    {
+      "itemReference": {
+        "reference": "Observation/observation-dental-clearance-disposition",
+        "display": "Cleared for head & neck IMRT — no contraindications"
+      }
+    }
+  ],
+  "summary": "DENTAL CLEARANCE APPROVED for head & neck IMRT. Patient evaluated and treated for pre-radiation dental risk. Three teeth (#4, #17, #30) extracted. Tooth #30: immediate implant placed due to DDC-identified high-dose site (52 Gy > 45 Gy threshold). Remaining dentition assessed as suitable for radiation support therapy. Patient counseled on osteoradionecrosis risk, hygiene protocols, and follow-up imaging. No contraindications to IMRT initiation.",
+  "protocol": [
+    "https://oralhealthalliance.net/fhir/protocol/pre-radiation-dental-clearance"
+  ],
+  "note": [
+    {
+      "text": "Recommendations: (1) Clearance transmitted to FCCC Radiation Oncology; (2) Recommend 14-day healing window for extractions; (3) Dental follow-up imaging at 6, 12, and 24 months post-IMRT."
+    }
+  ]
+}

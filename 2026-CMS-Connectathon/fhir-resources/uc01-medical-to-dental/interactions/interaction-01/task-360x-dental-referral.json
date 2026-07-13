@@ -47,10 +47,6 @@
     "reference": "Organization/org-fccc",
     "display": "Fox Chase Cancer Center"
   },
-  "owner": {
-    "reference": "Organization/org-penndental",
-    "display": "Penn Dental Medicine"
-  },
   "input": [
     {
       "type": { "text": "Referral supporting resource — diagnosis" },
@@ -76,7 +72,7 @@
   ],
   "note": [
     {
-      "text": "Per the ODE/360X adapter pattern (lp-digitalhealth/ode-360x-adapter): this Task is the single source of truth for referral state, produced by the 360X bridge from an incoming IHE PCC-55 transaction. Status transitions follow requested -> accepted -> in-progress -> completed, each mirrored outbound by the bridge as a 360X transaction (PCC-56/57/58/59). Expected: accepted upon Penn Dental's scheduling confirmation (2026-07-07), in-progress at the dental exam (2026-07-23), completed when structured dental clearance is transmitted back to FCCC (2026-07-31)."
+      "text": "Per the ODE/360X adapter pattern (lp-digitalhealth/ode-360x-adapter): this Task is the single source of truth for referral state, produced by the 360X bridge from an incoming IHE PCC-55 transaction. Status transitions follow requested -> accepted -> in-progress -> completed, each mirrored outbound by the bridge as a 360X transaction (PCC-56/57/58/59). Expected: accepted upon Penn Dental's scheduling confirmation (2026-07-07), in-progress at the dental exam (2026-07-23), completed when structured dental clearance is transmitted back to FCCC (2026-07-31). This SAME Task also absorbs the payer's dental-clearance documentation requirement (opened conceptually at DTR launch, Interaction 1) -- it is NOT tracked via a second Task resource. Per base COW's own guidance (fhir-cow-ig), one Coordination Task per Request is the preferred pattern, with Task.output absorbing all fulfillment artifacts (the eventual ClinicalImpression clearance included) and businessStatus progressing to reflect documentation status alongside referral status. 'Multiple Coordination Tasks per Request' is explicitly out of scope for the 360X-adopted COW subset this project follows. NOTE: Task.owner is intentionally NOT set at this stage -- per the crosswalk's segment table, Task.owner represents the accepting provider's identity, populated at PCC-56 accept, not at PCC-55 intake. The PCC-56 acceptance step (2026-07-07, Penn Dental's scheduling confirmation) is not yet modeled as its own artifact in this project; when it is, Task.owner should be set to the accepting PractitionerRole/Organization at that point, not here."
     }
   ]
 }

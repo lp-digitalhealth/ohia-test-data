@@ -1,0 +1,56 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "documentreference-dental-clearance-note",
+  "status": "current",
+  "docStatus": "final",
+  "type": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "11488-4",
+        "display": "Consultation note"
+      }
+    ]
+  },
+  "category": [
+    {
+      "text": "Dental clearance transmission"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-john-smith",
+    "display": "John Smith"
+  },
+  "date": "2026-07-31T16:30:00-04:00",
+  "author": [
+    {
+      "reference": "Practitioner/pract-sollecito",
+      "display": "Dr. Thomas Sollecito"
+    }
+  ],
+  "custodian": {
+    "reference": "Organization/org-penndental",
+    "display": "Penn Dental Medicine"
+  },
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/hl7-v2",
+        "title": "PCC-57 Referral Outcome — OMG^O19 + C-CDA Consultation Note"
+      }
+    }
+  ],
+  "context": {
+    "related": [
+      {
+        "reference": "ClinicalImpression/clinicalimpression-dental-clearance",
+        "display": "Dental clearance attestation"
+      }
+    ]
+  },
+  "note": [
+    {
+      "text": "Represents the C-CDA Consultation Note component of the PCC-57 (Referral Outcome) 360X transaction that transmits John's dental clearance from Penn Dental to FCCC. Per the ode-360x-adapter crosswalk, PCC-57 travels as OMG^O19 + an accompanying C-CDA document; this DocumentReference is the FHIR-side representation of that document, listed as part of Task.output alongside ClinicalImpression, Procedure, and the disposition Observation."
+    }
+  ]
+}

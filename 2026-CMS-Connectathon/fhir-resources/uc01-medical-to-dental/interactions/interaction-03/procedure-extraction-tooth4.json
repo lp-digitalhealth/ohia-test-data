@@ -1,0 +1,51 @@
+{
+  "resourceType": "Procedure",
+  "id": "procedure-extraction-tooth4",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"]
+  },
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D7210",
+        "display": "Extraction, erupted tooth requiring removal of bone and/or sectioning of tooth"
+      }
+    ],
+    "text": "Surgical extraction of tooth #4"
+  },
+  "subject": {
+    "reference": "Patient/patient-john-smith",
+    "display": "John Smith"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-02-dental-exam",
+    "display": "Dental exam & radiographs, 2026-07-23"
+  },
+  "performedDateTime": "2026-07-27",
+  "performer": [
+    {
+      "actor": {
+        "reference": "Practitioner/pract-sollecito",
+        "display": "Dr. Thomas Sollecito"
+      }
+    }
+  ],
+  "bodySite": [
+    {
+      "text": "Tooth #4"
+    }
+  ],
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-john-smith-tongue-cancer",
+      "display": "Stage IV squamous cell carcinoma, lateral border of tongue"
+    }
+  ],
+  "note": [
+    {
+      "text": "Pre-radiation extraction per dental clearance protocol; periapical pathology identified on 2026-07-23 exam."
+    }
+  ]
+}
