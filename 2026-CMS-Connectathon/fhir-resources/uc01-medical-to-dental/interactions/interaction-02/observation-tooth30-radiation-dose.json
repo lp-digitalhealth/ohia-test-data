@@ -29,7 +29,7 @@
   "performer": [
     {
       "reference": "Practitioner/pract-lin",
-      "display": "Teh Lin, MS, FACMP — Medical Physicist, FCCC"
+      "display": "Priya Nandakumar, MS, FACMP — Medical Physicist, FCCC"
     }
   ],
   "valueQuantity": {
@@ -43,12 +43,12 @@
   },
   "interpretation": [
     {
-      "text": "Exceeds the 45 Gy safe healing threshold for pre-radiation dental extraction — informs Dr. Sollecito's decision to extract and immediately place an implant rather than delay extraction until after radiation."
+      "text": "Exceeds the 45 Gy safe healing threshold for pre-radiation dental extraction — informs Dr. Bellweather's decision to extract and immediately place an implant rather than delay extraction until after radiation."
     }
   ],
   "note": [
     {
-      "text": "This value was obtained via an informal inter-provider information request: Dr. Sollecito asked Dr. Teh Lin (FCCC Medical Physics) on 2026-07-23 for site-specific dose data at tooth #30, extracted from the IMRT treatment plan already ordered in Interaction 1. Per project design decision, this request/response exchange is modeled as a note (this one), not as a formal ServiceRequest or CommunicationRequest/Communication — see fhir-resources/uc01-medical-to-dental/interactions/README.md for the full reasoning (a confirmed, legitimate instance of the base Clinical Order Workflows IG's 'Requesting additional information' pattern, which is not carried into the 360X-scoped crosswalk this project's referral pathway otherwise follows). Data transmitted 2026-07-25, two days after the request — this transmission date is not modeled as its own clinical encounter (see use case Appendix Section 0)."
+      "text": "This value was obtained via an informal inter-provider information request: Dr. Bellweather asked Dr. Priya Nandakumar (FCCC Medical Physics) on 2026-07-23 for site-specific dose data at tooth #30, extracted from the IMRT treatment plan already ordered in Interaction 1. Per project design decision, this request/response exchange is modeled as a note (this one), not as a formal ServiceRequest or CommunicationRequest/Communication — see fhir-resources/uc01-medical-to-dental/interactions/README.md for the full reasoning (a confirmed, legitimate instance of the base Clinical Order Workflows IG's 'Requesting additional information' pattern, which is not carried into the 360X-scoped crosswalk this project's referral pathway otherwise follows). Data transmitted 2026-07-25, two days after the request — this transmission date is not modeled as its own clinical encounter (see use case Appendix Section 0)."
     }
   ]
 }

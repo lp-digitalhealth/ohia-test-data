@@ -25,25 +25,25 @@
 
 ## Section I: Business Overview
 
-John Smith is a 63-year-old male (DOB: 11/14/1962) diagnosed with **Stage IV squamous cell carcinoma of the lateral border of the tongue** (`ICD-10: C02.1`). His care at **Fox Chase Cancer Center (FCCC)** is led by a multidisciplinary team including **Dr. Cecelia Schmalbach**, Chair of Surgical Oncology, and **Dr. Thomas Galloway**, Service Chief of Head and Neck Radiation Oncology.
+John Smith is a 63-year-old male (DOB: 11/14/1962) diagnosed with **Stage IV squamous cell carcinoma of the lateral border of the tongue** (`ICD-10: C02.1`). His care at **Fox Chase Cancer Center (FCCC)** is led by a multidisciplinary team including **Dr. Renata Osei**, Chair of Surgical Oncology, and **Dr. Marcus Whitfield**, Service Chief of Head and Neck Radiation Oncology.
 
-The integrated treatment plan developed by the team calls for a course of **intensity-modulated radiation therapy (IMRT)** overseen by Dr. Galloway — delivered five days a week over six to seven weeks — followed by possible surgical resection performed by Dr. Schmalbach.
+The integrated treatment plan developed by the team calls for a course of **intensity-modulated radiation therapy (IMRT)** overseen by Dr. Whitfield — delivered five days a week over six to seven weeks — followed by possible surgical resection performed by Dr. Osei.
 
-Dr. Galloway's back office used their **Oracle Health (Cerner) EHR** to check John's **Independence Blue Cross (IBX) Medicare Advantage plan** (Personal Choice 65 PPO, CMS Plan H3909; Member ID: `H1234567800`). The system indicated that a **prior authorization was required for the IMRT** and launched a documentation tool flagging a **dental clearance as a mandatory prerequisite**. This policy is essential to mitigate the risk of **osteoradionecrosis** caused by high-dose radiation to the jaw.
+Dr. Whitfield's back office used their **Oracle Health (Cerner) EHR** to check John's **Independence Blue Cross (IBX) Medicare Advantage plan** (Personal Choice 65 PPO, CMS Plan H3909; Member ID: `H1234567800`). The system indicated that a **prior authorization was required for the IMRT** and launched a documentation tool flagging a **dental clearance as a mandatory prerequisite**. This policy is essential to mitigate the risk of **osteoradionecrosis** caused by high-dose radiation to the jaw.
 
-Dr. Galloway refers John to **Dr. Thomas Sollecito at Penn Dental Family Practice**, a specialist in oral oncology. The referral and John's oncology records are transmitted directly into Dr. Sollecito's **Eaglesoft** system. John is notified via his **patient app**, which shows a unified view of his FCCC and Penn Dental records. **The clock is tight: Dr. Sollecito has fewer than 21 days to evaluate John and return a clearance to FCCC.**
+Dr. Whitfield refers John to **Dr. Andrew Bellweather at Penn Dental Family Practice**, a specialist in oral oncology. The referral and John's oncology records are transmitted directly into Dr. Bellweather's **Eaglesoft** system. John is notified via his **patient app**, which shows a unified view of his FCCC and Penn Dental records. **The clock is tight: Dr. Bellweather has fewer than 21 days to evaluate John and return a clearance to FCCC.**
 
-Dr. Sollecito sees John **15 days before** the planned radiation start. After a thorough examination and radiographs (`D0220` periapical, `D0330` panoramic), he finds three teeth requiring extraction: **tooth #4** (standard extraction), **an impacted wisdom tooth (#17)**, and a more complicated situation on **tooth #30**. Dr. Sollecito cannot finalize the treatment plan for #30 without knowing the specific radiation dosage for that site. John monitors this information request in real time through his app.
+Dr. Bellweather sees John **15 days before** the planned radiation start. After a thorough examination and radiographs (`D0220` periapical, `D0330` panoramic), he finds three teeth requiring extraction: **tooth #4** (standard extraction), **an impacted wisdom tooth (#17)**, and a more complicated situation on **tooth #30**. Dr. Bellweather cannot finalize the treatment plan for #30 without knowing the specific radiation dosage for that site. John monitors this information request in real time through his app.
 
-Dr. Sollecito requests the radiation dose data from Dr. Galloway's team. The request is routed to **Dr. Teh Lin, a Medical Physicist at FCCC**, who extracts the specific **Dosimetric Dental Contouring (DDC)** data from the radiation planning system. Two days later, FCCC transmits the planned dose for the tooth #30 site: **52 Gray (Gy)**. Because this **exceeds the safe healing threshold of 45 Gy**, Dr. Sollecito elects to:
+Dr. Bellweather requests the radiation dose data from Dr. Whitfield's team. The request is routed to **Dr. Priya Nandakumar, a Medical Physicist at FCCC**, who extracts the specific **Dosimetric Dental Contouring (DDC)** data from the radiation planning system. Two days later, FCCC transmits the planned dose for the tooth #30 site: **52 Gray (Gy)**. Because this **exceeds the safe healing threshold of 45 Gy**, Dr. Bellweather elects to:
 
 - Extract tooth #30 (`D7210` — extraction requiring bone removal)
 - Place a dental implant (`D6010` — surgical placement of implant body) immediately to maintain vertical bone support
-- Request a **14-day delay** to the planned radiation start date to allow for extraction healing and implant osseointegration — agreed to by Dr. Galloway
+- Request a **14-day delay** to the planned radiation start date to allow for extraction healing and implant osseointegration — agreed to by Dr. Whitfield
 
-Once the extractions are complete, Dr. Sollecito sends the **dental clearance** back to FCCC as **structured clinical data**. John's app updates to show the clearance is received and the prior authorization is approved. Dr. Galloway's office submits the final authorization to IBX, and John begins treatment on the revised start date **14 days later than originally planned**.
+Once the extractions are complete, Dr. Bellweather sends the **dental clearance** back to FCCC as **structured clinical data**. John's app updates to show the clearance is received and the prior authorization is approved. Dr. Whitfield's office submits the final authorization to IBX, and John begins treatment on the revised start date **14 days later than originally planned**.
 
-Separately, Dr. Sollecito's own practice still needs to be paid for the extractions and implant it performed. Because John has no standalone dental plan — only IBX's medical coverage — this billing has to travel through the medical benefit, under the same CMS "inextricably linked" exception that made the dental clearance a covered prerequisite in the first place. **This use case does not model the actual claim submission.** Instead, it defines a single, standardized, interoperable data package — assembled from the clinical trail already established across the referral, the dosimetric findings, and the clearance itself — that any dental practice management system can hand off for automatic conversion into whatever format a given payer or CMS requires. The goal is not to solve billing for this one claim, but to establish an interoperable shape the industry can converge on, so that translating dental-as-medical billing into any payer's required format becomes a mechanical, automated step rather than manual, payer-specific work.
+Separately, Dr. Bellweather's own practice still needs to be paid for the extractions and implant it performed. Because John has no standalone dental plan — only IBX's medical coverage — this billing has to travel through the medical benefit, under the same CMS "inextricably linked" exception that made the dental clearance a covered prerequisite in the first place. **This use case does not model the actual claim submission.** Instead, it defines a single, standardized, interoperable data package — assembled from the clinical trail already established across the referral, the dosimetric findings, and the clearance itself — that any dental practice management system can hand off for automatic conversion into whatever format a given payer or CMS requires. The goal is not to solve billing for this one claim, but to establish an interoperable shape the industry can converge on, so that translating dental-as-medical billing into any payer's required format becomes a mechanical, automated step rather than manual, payer-specific work.
 
 ---
 
@@ -53,17 +53,17 @@ The table below maps each key business event in John's care journey to the under
 
 | What Happens (Business Language) | Implementation Guide / Standard | Key Transaction |
 |---|---|---|
-| **Check Insurance Coverage:** Dr. Galloway's office checks John's IBX plan for IMRT coverage and rules. | Da Vinci Coverage Requirements Discovery (CRD) | CDS Hook (`order-sign`) triggered in Cerner; returns coverage requirements. |
+| **Check Insurance Coverage:** Dr. Whitfield's office checks John's IBX plan for IMRT coverage and rules. | Da Vinci Coverage Requirements Discovery (CRD) | CDS Hook (`order-sign`) triggered in Cerner; returns coverage requirements. |
 | **Identify Documentation Needs:** EHR flags that a dental clearance is required before IMRT can be authorized. | Da Vinci Documentation Templates and Rules (DTR) | Questionnaire retrieved and pre-populated to surface the clearance requirement. |
-| **Refer to Specialist:** Dr. Galloway sends the referral and oncology records to Dr. Sollecito. | US Core / ODE (Under Development) | `ServiceRequest` (referral) and `DocumentReference` (records) sent to Penn Dental. |
+| **Refer to Specialist:** Dr. Whitfield sends the referral and oncology records to Dr. Bellweather. | US Core / ODE (Under Development) | `ServiceRequest` (referral) and `DocumentReference` (records) sent to Penn Dental. |
 | **Patient Notification:** John receives notification that his referral was sent and received. | FHIR Subscriptions Backport IG | Subscription event triggered on `ServiceRequest` creation. |
 | **Consolidated Patient View:** John views his FCCC and Penn Dental records in a single app. | US Core / SMART App Launch | US Core Patient Access API for provider clinical records from FCCC and Penn Dental; SMART App Launch as the authorization framework. |
-| **Request Radiation Data:** Dr. Sollecito requests the radiation dose (Gy) at the tooth #30 site. | US Core / ODE (Under Development) | `CommunicationRequest` sent from Penn Dental to the FCCC Medical Physicist. |
-| **Send Dosimetry Data:** Dr. Teh Lin sends the 52 Gray dose map for tooth #30. | US Core / ODE (Under Development) | `Observation` (radiation dose) wrapped in a `DiagnosticReport` sent to Dr. Sollecito. |
-| **Request Treatment Delay:** Dr. Sollecito asks Dr. Galloway to push the radiation start date back. | US Core / ODE (Under Development) | **Correction:** not a formal `Communication` resource — modeled as an informal inter-provider note, the same mechanism as the DDC dose request (see Interaction 2 appendix). The resulting revised start date is captured formally via updates to `ServiceRequest`/`CarePlan`. |
-| **Document Procedures:** Dr. Sollecito records extractions (#4, #17, #30) and implant placement. | US Core / ODE (Under Development) | `Procedure` resources (CDT codes) + `Observation` (`bodySite`: tooth numbering). |
-| **Submit Dental Clearance:** Dr. Sollecito sends the final "Orally Fit" attestation to FCCC. | ODE (Under Development) / CDex | `ClinicalImpression` (attestation) pushed from Penn Dental to FCCC via CDex provider-to-provider structured data exchange; closes out via the **same referral Task** established at Interaction 1 (see below — not a second Task). |
-| **Submit Prior Auth:** Dr. Galloway's office submits the final IMRT request with dental data attached. | Da Vinci PAS / CDex | `Claim` (PA) submitted to IBX via PAS; dental clearance bundle transmitted to IBX as a CDex unsolicited attachment via the `$submit-attachment` operation, referenced in `Claim.supportingInfo`. |
+| **Request Radiation Data:** Dr. Bellweather requests the radiation dose (Gy) at the tooth #30 site. | US Core / ODE (Under Development) | `CommunicationRequest` sent from Penn Dental to the FCCC Medical Physicist. |
+| **Send Dosimetry Data:** Dr. Priya Nandakumar sends the 52 Gray dose map for tooth #30. | US Core / ODE (Under Development) | `Observation` (radiation dose) wrapped in a `DiagnosticReport` sent to Dr. Bellweather. |
+| **Request Treatment Delay:** Dr. Bellweather asks Dr. Whitfield to push the radiation start date back. | US Core / ODE (Under Development) | **Correction:** not a formal `Communication` resource — modeled as an informal inter-provider note, the same mechanism as the DDC dose request (see Interaction 2 appendix). The resulting revised start date is captured formally via updates to `ServiceRequest`/`CarePlan`. |
+| **Document Procedures:** Dr. Bellweather records extractions (#4, #17, #30) and implant placement. | US Core / ODE (Under Development) | `Procedure` resources (CDT codes) + `Observation` (`bodySite`: tooth numbering). |
+| **Submit Dental Clearance:** Dr. Bellweather sends the final "Orally Fit" attestation to FCCC. | ODE (Under Development) / CDex | `ClinicalImpression` (attestation) pushed from Penn Dental to FCCC via CDex provider-to-provider structured data exchange; closes out via the **same referral Task** established at Interaction 1 (see below — not a second Task). |
+| **Submit Prior Auth:** Dr. Whitfield's office submits the final IMRT request with dental data attached. | Da Vinci PAS / CDex | `Claim` (PA) submitted to IBX via PAS; dental clearance bundle transmitted to IBX as a CDex unsolicited attachment via the `$submit-attachment` operation, referenced in `Claim.supportingInfo`. |
 | **Final Approval:** IBX approves the treatment; John's app shows "Approved." | Da Vinci PAS / Da Vinci PDex (PPA Profile) / CARIN Blue Button | `ClaimResponse` returned via PAS; `ExplanationOfBenefit` (`use = preauthorization`) made available to John via PDex PPA Profile within one business day of PA decision; patient-facing app developer implements CARIN Blue Button as the patient access API framework to query IBX's endpoint. |
 
 ---
@@ -84,7 +84,7 @@ This use case exercises a **multi-system, multi-organization clinical workflow**
 | **Da Vinci Coverage Requirements Discovery (CRD)** | Fired at IMRT order entry; returns PA requirement and dental clearance prerequisite in real time without a portal |
 | **Da Vinci Documentation Templates and Rules (DTR)** | Retrieves payer questionnaire, pre-populates EHR data, and surfaces dental clearance as an open documentation requirement |
 | **Da Vinci Prior Authorization Support (PAS)** | Submits the completed PA request to the health plan after structured dental clearance is received and the DTR documentation package is complete |
-| **Da Vinci Clinical Data Exchange (CDex)** | Three roles in this use case: (1) **Task-based workflow** — tracks the open dental clearance documentation requirement as a Task, opened at DTR launch and closed when the structured clearance is returned by Dr. Sollecito; (2) **Provider-to-provider data push** — governs structured exchange of the clearance from Penn Dental to FCCC; (3) **Unsolicited attachment to payer** — the `$submit-attachment` operation transmits the dental clearance bundle to IBX in support of the PAS prior authorization submission |
+| **Da Vinci Clinical Data Exchange (CDex)** | Three roles in this use case: (1) **Task-based workflow** — tracks the open dental clearance documentation requirement as a Task, opened at DTR launch and closed when the structured clearance is returned by Dr. Bellweather; (2) **Provider-to-provider data push** — governs structured exchange of the clearance from Penn Dental to FCCC; (3) **Unsolicited attachment to payer** — the `$submit-attachment` operation transmits the dental clearance bundle to IBX in support of the PAS prior authorization submission |
 | **Da Vinci Payer Data Exchange (PDex)** | Enables John's patient app to access payer-held clinical and coverage data from IBX; the PDex Prior Authorization (PPA) profile delivers the `ExplanationOfBenefit` (`use = preauthorization`) to John's app within one business day of the PA decision |
 | **CARIN Blue Button (CARIN BB)** | Defines the patient access API framework that John's patient-facing app implements to query IBX's endpoint; within the PA approval scope of this use case, this is the mechanism through which the PDex PPA profile (`ExplanationOfBenefit` with `use = preauthorization`) is surfaced to John |
 | **SMART App Launch IG** | Authorization framework enabling John's patient app to securely connect to FCCC, Penn Dental's interim FHIR server, and the health plan without separate logins |
@@ -100,8 +100,8 @@ This use case exercises a **multi-system, multi-organization clinical workflow**
 | `Patient` | US Core | Cross-organizational patient identity matching between FCCC EHR, Eaglesoft interim FHIR server, and health plan |
 | `Coverage` | US Core / CRD | John's insurance plan information — member ID, group, payer — passed to the CRD server at order entry to evaluate coverage requirements; also surfaced in patient app via PDex |
 | `InsurancePlan` | Da Vinci PDex | Health plan product and benefit structure referenced by the Coverage resource |
-| `Practitioner` | US Core / CRD | Dr. Galloway (ordering provider) and Dr. Sollecito (rendering provider) identity and credentials |
-| `PractitionerRole` | US Core / CRD | Role context for Dr. Galloway (radiation oncology at FCCC) and Dr. Sollecito (dentist, private practice) — required by CRD for coverage evaluation |
+| `Practitioner` | US Core / CRD | Dr. Whitfield (ordering provider) and Dr. Bellweather (rendering provider) identity and credentials |
+| `PractitionerRole` | US Core / CRD | Role context for Dr. Whitfield (radiation oncology at FCCC) and Dr. Bellweather (dentist, private practice) — required by CRD for coverage evaluation |
 | `Organization` | US Core / CRD | FCCC (ordering organization), Penn Dental (rendering organization), and IBX (payer organization) |
 | `Location` | US Core / CRD | Physical location of FCCC radiation oncology department and Penn Dental — required by CRD for place-of-service coverage rules |
 | `Encounter` | US Core | Each clinical encounter — oncology visits and dental visits — providing context for all procedures and observations |
@@ -113,14 +113,14 @@ This use case exercises a **multi-system, multi-organization clinical workflow**
 | `DiagnosticReport` | US Core / ODE | DDC report wrapping the radiation dose observation from FCCC physics team |
 | `ImagingStudy` | US Core | Dental radiographic images — periapical and panoramic X-rays — referenced in clinical findings and clearance |
 | `Procedure` | US Core / ODE | Dental procedures performed — extractions ×3 (`D7210`), implant placement (`D6010`); also IMRT delivery procedure at FCCC |
-| `ClinicalImpression` | ODE | Dr. Sollecito's structured dental clearance attestation — the structured data equivalent of the dental clearance form |
+| `ClinicalImpression` | ODE | Dr. Bellweather's structured dental clearance attestation — the structured data equivalent of the dental clearance form |
 | `Appointment` / `AppointmentResponse` | US Core | Dental appointment scheduling for John at Penn Dental; surfaced in patient app via FHIR Subscriptions |
-| `Communication` / `CommunicationRequest` | US Core / ODE | IMRT delay request and authorization between providers (later encounter). **Correction:** the DDC data request/response between Dr. Sollecito and Dr. Lin is *not* modeled as `Communication`/`CommunicationRequest` — see Encounter #2 appendix; it's an informal inter-provider note, not a formal resource, since it's a request for existing information (not an order) between practitioners already in an established referral relationship. |
+| `Communication` / `CommunicationRequest` | US Core / ODE | IMRT delay request and authorization between providers (later encounter). **Correction:** the DDC data request/response between Dr. Bellweather and Dr. Nandakumar is *not* modeled as `Communication`/`CommunicationRequest` — see Encounter #2 appendix; it's an informal inter-provider note, not a formal resource, since it's a request for existing information (not an order) between practitioners already in an established referral relationship. |
 | `Task` | Da Vinci DTR / CDex / IHE 360X | **Correction:** a single Task tracks both the referral relationship AND the payer's dental-clearance documentation requirement together — not two separate Task resources. Per base COW's own guidance, one Coordination Task per Request is the preferred pattern, with `Task.output` absorbing all fulfillment artifacts (the `ClinicalImpression` clearance included) and `businessStatus` progressing to reflect documentation status. "Multiple Coordination Tasks per Request" is explicitly out of scope for the 360X-adopted COW subset this project follows (see `ode-360x-adapter` crosswalk). |
 | `Questionnaire` / `QuestionnaireResponse` | Da Vinci DTR | Payer's dental clearance documentation requirements and completed provider responses pre-populated from EHR data |
 | `Claim` (PA) | Da Vinci PAS | Prior authorization request submitted to health plan after DTR documentation package is complete |
 | `ClaimResponse` | Da Vinci PAS | Health plan PA approval response — includes PA number and approved service details |
-| `ExplanationOfBenefit` | CARIN Blue Button | Two distinct uses, not to be conflated: (1) `use: preauthorization` — John's app displays the PA decision (PDex PPA profile); (2) **new**, `use: claim` — a non-financial, oral-optimized profile (`ODEOralProfessionalEOB`, derived from C4BB Professional/NonClinician Basis) representing the interoperable claims-ready bundle for Dr. Sollecito's dental procedures billed to IBX's medical benefit. See the new subsection below this table for detail. |
+| `ExplanationOfBenefit` | CARIN Blue Button | Two distinct uses, not to be conflated: (1) `use: preauthorization` — John's app displays the PA decision (PDex PPA profile); (2) **new**, `use: claim` — a non-financial, oral-optimized profile (`ODEOralProfessionalEOB`, derived from C4BB Professional/NonClinician Basis) representing the interoperable claims-ready bundle for Dr. Bellweather's dental procedures billed to IBX's medical benefit. See the new subsection below this table for detail. |
 | `Subscription` / `SubscriptionStatus` | FHIR Subscriptions Backport IG | Event notifications pushed to John's patient app at each key workflow milestone — referral sent, appointment scheduled, DDC received, clearance transmitted, PA approved |
 | `Bundle` | FHIR Core | Transaction and document bundles wrapping multi-resource exchanges — referral packet, DDC report, PA submission, and dental clearance return |
 | `AuditEvent` | US Core | Logging of cross-organizational data access events for compliance and provenance tracking |
@@ -139,7 +139,7 @@ This use case surfaces a real gap in existing FHIR IGs: **there is no single Exp
 
 **Deliberately non-financial in this iteration**: `status: draft`, `outcome: queued`, no `unitPrice`/`net`/`total`/`adjudication`. This is not an oversight — the profile is structured so pricing and adjudication can be layered onto the identical shape in a future Connectathon without redesigning anything, matching CARIN BB's own convention for its "Basis" profiles.
 
-**Dual-purpose by design, not by accident:** this use case (UC01) exercises the profile in its medical-payer direction — Dr. Sollecito's dental procedures, billed to IBX's medical benefit under the CMS "inextricably linked" exception, with the CPT crosswalk populated. UC02 (dental-to-dental) is expected to exercise the same profile's dental-payer direction — CDT-only, no crosswalk needed, submitted to an actual dental plan. One profile, both directions, proving the shape generalizes rather than being use-case-specific.
+**Dual-purpose by design, not by accident:** this use case (UC01) exercises the profile in its medical-payer direction — Dr. Bellweather's dental procedures, billed to IBX's medical benefit under the CMS "inextricably linked" exception, with the CPT crosswalk populated. UC02 (dental-to-dental) is expected to exercise the same profile's dental-payer direction — CDT-only, no crosswalk needed, submitted to an actual dental plan. One profile, both directions, proving the shape generalizes rather than being use-case-specific.
 
 **Explicit scope boundary:** this profile defines the interoperable *package*, not a claim submission. Converting the package into any specific payer's required format — CDT-with-modifier, CPT-crosswalked, CMS-1500 fields, an 837D or 837P — is downstream work performed by the receiving PMS or a clearinghouse, not something this use case's resources produce or perform. The goal is industry consensus on one interoperable shape upstream of that conversion, not a solved claim for this one patient.
 
@@ -169,7 +169,7 @@ This use case surfaces a real gap in existing FHIR IGs: **there is no single Exp
 
 ## Section IV: EDI Transactions
 
-Because John's IBX plan is a **Medicare Advantage medical benefit**, all services in this use case — including Dr. Sollecito's dental examination, radiographs, extractions, and implant placement — are billed as **medically necessary** under the medical benefit. No dental benefit claim (837D) is in scope. Dr. Sollecito bills as a specialty provider on a professional medical claim.
+Because John's IBX plan is a **Medicare Advantage medical benefit**, all services in this use case — including Dr. Bellweather's dental examination, radiographs, extractions, and implant placement — are billed as **medically necessary** under the medical benefit. No dental benefit claim (837D) is in scope. Dr. Bellweather bills as a specialty provider on a professional medical claim.
 
 This use case is built on a FHIR-native prior authorization workflow using **Da Vinci PAS**, which replaces the legacy X12 278 transaction with FHIR `Claim` and `ClaimResponse` resources. The X12 278 is therefore not in scope.
 
@@ -177,11 +177,11 @@ This use case is built on a FHIR-native prior authorization workflow using **Da 
 
 | X12 Transaction | Trigger | Scope Note |
 |---|---|---|
-| **270 / 271** — Eligibility & Benefit Inquiry / Response | Dr. Galloway's office checks John's IBX medical benefit at IMRT order entry | Queries medical benefit; service type codes for radiation oncology and medically necessary oral surgery |
+| **270 / 271** — Eligibility & Benefit Inquiry / Response | Dr. Whitfield's office checks John's IBX medical benefit at IMRT order entry | Queries medical benefit; service type codes for radiation oncology and medically necessary oral surgery |
 | **837P** — Professional Medical Claim (FCCC) | FCCC bills for IMRT planning and delivery | CPT codes 77385/77386 (IMRT delivery) + 77387 (IGRT); Place of Service 22 (outpatient hospital) |
-| **837P** — Professional Medical Claim (Penn Dental) | Dr. Sollecito bills for exam, radiographs, extractions, and implant as medically necessary | CDT codes billed on medical claim; see crosswalk note below |
+| **837P** — Professional Medical Claim (Penn Dental) | Dr. Bellweather bills for exam, radiographs, extractions, and implant as medically necessary | CDT codes billed on medical claim; see crosswalk note below |
 | **835** — Remittance Advice | IBX adjudicates and pays both claims | Claim adjustment reason codes; patient responsibility |
-| **FHIR-native clearance transmission (CDex)** | Dental clearance documentation transmitted from Dr. Sollecito to FCCC and to IBX in support of the PA submission | No 275 claim attachment transaction; clearance is transmitted as FHIR resources — `ClinicalImpression`, `DocumentReference`, or a purpose-built ODE resource — via CDex provider-to-provider data push (Penn Dental → FCCC) and CDex `$submit-attachment` operation (FCCC → IBX). Resource type and `Claim.supportingInfo` reference structure are open design questions for the ODE IG. |
+| **FHIR-native clearance transmission (CDex)** | Dental clearance documentation transmitted from Dr. Bellweather to FCCC and to IBX in support of the PA submission | No 275 claim attachment transaction; clearance is transmitted as FHIR resources — `ClinicalImpression`, `DocumentReference`, or a purpose-built ODE resource — via CDex provider-to-provider data push (Penn Dental → FCCC) and CDex `$submit-attachment` operation (FCCC → IBX). Resource type and `Claim.supportingInfo` reference structure are open design questions for the ODE IG. |
 
 > **Note on 278:** Da Vinci PAS uses FHIR `Claim` and `ClaimResponse` resources for prior authorization. The X12 278 request and response are **not** exercised in this use case.
 
@@ -189,7 +189,7 @@ This use case is built on a FHIR-native prior authorization workflow using **Da 
 
 ### CDT-to-CPT Crosswalk for Medical Billing
 
-When Dr. Sollecito bills Penn Dental's procedures on an 837P medical claim, the claim may require CPT codes in place of — or alongside — CDT codes. The mapping below reflects the best available cross-coding guidance; confidence levels are noted explicitly.
+When Dr. Bellweather bills Penn Dental's procedures on an 837P medical claim, the claim may require CPT codes in place of — or alongside — CDT codes. The mapping below reflects the best available cross-coding guidance; confidence levels are noted explicitly.
 
 > ⚠️ **Implementation note:** Multiple billing authorities note that many medical payers will accept CDT codes directly on medical claims when medical necessity is established and documented. Whether IBX requires CPT crosscodes or will accept CDT codes on the 837P is an **open question** this use case should surface as a named test finding. The crosswalk below is provided for reference, not as a definitive billing requirement.
 
@@ -210,10 +210,10 @@ LOINC codes appear in `Observation.code`, `DiagnosticReport.code`, and `Document
 
 | LOINC Code | Description | FHIR Resource | Use in This Case |
 |---|---|---|---|
-| `62443-7` | Single view Teeth Document XR | `DiagnosticReport`, `ImagingStudy` | D0220 periapical radiograph — Dr. Sollecito's exam |
-| `24828-6` | XR tomography Mandible Panoramic | `DiagnosticReport`, `ImagingStudy` | D0330 panoramic radiograph — Dr. Sollecito's exam |
+| `62443-7` | Single view Teeth Document XR | `DiagnosticReport`, `ImagingStudy` | D0220 periapical radiograph — Dr. Bellweather's exam |
+| `24828-6` | XR tomography Mandible Panoramic | `DiagnosticReport`, `ImagingStudy` | D0330 panoramic radiograph — Dr. Bellweather's exam |
 | `46386-9` | XR Teeth Bitewing Views | `DiagnosticReport` | Supplemental radiographic reference if bitewings taken |
-| *(No LOINC code established)* | Site-specific radiation dose (Gy) at tooth site | `Observation` | 52 Gy DDC data from Dr. Teh Lin — **gap surfaced by this use case; a named ODE IG test objective** |
+| *(No LOINC code established)* | Site-specific radiation dose (Gy) at tooth site | `Observation` | 52 Gy DDC data from Dr. Priya Nandakumar — **gap surfaced by this use case; a named ODE IG test objective** |
 
 > **LOINC gap:** The site-specific dosimetric dental contouring (DDC) observation — radiation dose in Gray at a specific tooth site — has no established LOINC code. This use case is designed to surface that gap as an action item for the ODE IG development process and the PIE Work Group.
 
@@ -239,7 +239,7 @@ The narrative timeline (Section 7) implies the following distinct patient-facing
 
 **Resolution of two borderline timeline entries, decided for testability:**
 
-- **2026-07-25 ("Treatment Plan Finalized")** is **not** a separate encounter. This is chart/data review — Dr. Sollecito finalizing the treatment plan from the DDC data received from FCCC — with no patient visit required.
+- **2026-07-25 ("Treatment Plan Finalized")** is **not** a separate encounter. This is chart/data review — Dr. Bellweather finalizing the treatment plan from the DDC data received from FCCC — with no patient visit required.
 - **2026-07-31 ("Dental Clearance Documented")** **is** its own encounter, distinct from the 2026-07-29 extraction/implant visit. Clinically, clearance for high-dose radiation requires a physical post-operative exam confirming healing is on track before clearance is granted — this cannot be paperwork alone from the prior visit.
 
 Any `Encounter` resources built for this use case must match this 7-encounter enumeration exactly.
@@ -377,67 +377,67 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 
 ### 4. Practitioner Resource Data
 
-#### Dr. Thomas Galloway — Radiation Oncology
+#### Dr. Marcus Whitfield — Radiation Oncology
 
 | FHIR Element | Value | System/Note |
 |---|---|---|
-| **NPI** | 1568374920 | System: `http://hl7.org/fhir/sid/us-npi` |
-| **Full Name** | Thomas Mark Galloway, MD | Given: Thomas; Middle: Mark; Family: Galloway |
+| **NPI** | 1000000021 | System: `http://hl7.org/fhir/sid/us-npi` |
+| **Full Name** | Thomas Mark Whitfield, MD | Given: Thomas; Middle: Mark; Family: Whitfield |
 | **Title** | Service Chief, Head & Neck Radiation Oncology | Official title |
 | **Gender** | Male | `http://hl7.org/fhir/ValueSet/administrative-gender` |
 | **Qualification License** | MD (Medical Doctor) | License type |
-| **License Number** | PA-MD-089456 | Pennsylvania medical license |
+| **License Number** | PA-MD-000101 | Pennsylvania medical license |
 | **Specialty Code (Taxonomy)** | 2070AM0800X | Radiation Oncology; Primary taxonomy |
 | **Organization** | Fox Chase Cancer Center | Employment at FCCC |
 | **Telecom (Phone)** | (215) 728-6900 ext 2847 | FCCC main line + extension |
-| **Telecom (Email)** | thomas.galloway@foxchasecancercenter.org | Professional email |
+| **Telecom (Email)** | marcus.whitfield@example-cancercenter.org | Professional email |
 | **Address** | 333 Cottman Avenue, Philadelphia, PA 19111 | FCCC address |
 | **Board Certification** | American Board of Radiology (ABR) | Radiation Oncology certification |
 
-#### Dr. Cecelia Schmalbach — Surgical Oncology
+#### Dr. Renata Osei — Surgical Oncology
 
 | FHIR Element | Value | System/Note |
 |---|---|---|
-| **NPI** | 1558294816 | System: `http://hl7.org/fhir/sid/us-npi` |
-| **Full Name** | Cecelia Marie Schmalbach, MD, FACS | Given: Cecelia; Middle: Marie; Suffix: FACS |
+| **NPI** | 1000000034 | System: `http://hl7.org/fhir/sid/us-npi` |
+| **Full Name** | Cecelia Marie Osei, MD, FACS | Given: Cecelia; Middle: Marie; Suffix: FACS |
 | **Title** | Chair, Department of Surgical Oncology | Official title |
 | **Gender** | Female | `http://hl7.org/fhir/ValueSet/administrative-gender` |
 | **Qualification License** | MD (Medical Doctor) | License type |
-| **License Number** | PA-MD-067829 | Pennsylvania medical license |
+| **License Number** | PA-MD-000114 | Pennsylvania medical license |
 | **Specialty Code (Taxonomy)** | 2092S0080X | Head and Neck Surgery; Primary taxonomy |
 | **Sub-specialty** | Surgical Oncology | Secondary focus |
 | **Organization** | Fox Chase Cancer Center | Employment at FCCC |
 | **Telecom (Phone)** | (215) 728-6900 ext 2951 | FCCC main + extension |
-| **Telecom (Email)** | cecelia.schmalbach@foxchasecancercenter.org | Professional email |
+| **Telecom (Email)** | renata.osei@example-cancercenter.org | Professional email |
 | **Address** | 333 Cottman Avenue, Philadelphia, PA 19111 | FCCC address |
 | **Board Certification** | American Board of Surgery (ABS) | General Surgery & Surgical Oncology |
 | **Fellow Status** | FACS (Fellow, American College of Surgeons) | Senior credential |
 
-#### Dr. Thomas Sollecito — Oral Oncology / Dental Clearance
+#### Dr. Andrew Bellweather — Oral Oncology / Dental Clearance
 
 | FHIR Element | Value | System/Note |
 |---|---|---|
-| **NPI** | 1568472035 | System: `http://hl7.org/fhir/sid/us-npi` |
-| **Full Name** | Thomas Paul Sollecito, DMD, MMSc | Given: Thomas; Middle: Paul; Suffix: MMSc |
+| **NPI** | 1000000047 | System: `http://hl7.org/fhir/sid/us-npi` |
+| **Full Name** | Thomas Paul Bellweather, DMD, MMSc | Given: Thomas; Middle: Paul; Suffix: MMSc |
 | **Title** | Professor and Chair, Department of Oral Medicine; Oral Oncology Specialist | Academic & clinical title — confirmed current per Penn Dental Medicine |
 | **Gender** | Male | `http://hl7.org/fhir/ValueSet/administrative-gender` |
 | **Qualification License** | DMD (Doctor of Medical Dentistry) | Dental degree |
-| **License Number** | PA-DDS-045738 | Pennsylvania dental license |
+| **License Number** | PA-DDS-000123 | Pennsylvania dental license |
 | **Specialty Code (Taxonomy)** | 125Q00000X | Oral Medicine; Primary taxonomy (NUCC) |
 | **Sub-specialty** | Oral Oncology; Oral Medicine | Clinical focus |
 | **Organization** | Penn Dental Family Practice (PDFP) / University of Pennsylvania | Affiliation |
 | **Telecom (Phone)** | (215) 898-4615 | Penn Dental main line |
-| **Telecom (Email)** | tsollecito@dental.upenn.edu | University email |
+| **Telecom (Email)** | andrew.bellweather@example-dental.edu | University email |
 | **Address** | 240 South 40th Street, Philadelphia, PA 19104 | Robert Schattner Center, Penn Dental |
 | **Board Certification** | American Board of Oral Medicine (Diplomate, 1993); American Board of Special Care Dentistry (Diplomate, 2005) | Specialty certification — confirmed per Penn faculty record |
 | **Academic Appointment** | University of Pennsylvania School of Dental Medicine | Faculty rank: Professor and Chair, Department of Oral Medicine |
 
-#### Dr. Teh Lin — Medical Physicist
+#### Dr. Priya Nandakumar — Medical Physicist
 
 | FHIR Element | Value | System/Note |
 |---|---|---|
-| **NPI** | 1598374562 | System: `http://hl7.org/fhir/sid/us-npi` |
-| **Full Name** | Teh Lin, MS, FACMP | Given: Teh; Family: Lin |
+| **NPI** | 1000000050 | System: `http://hl7.org/fhir/sid/us-npi` |
+| **Full Name** | Priya Nandakumar, MS, FACMP | Given: Teh; Family: Nandakumar |
 | **Title** | Medical Physicist, Head & Neck Radiation Oncology | Professional title |
 | **Gender** | Not specified | — |
 | **Qualification** | MS (Master of Science) | Physics degree |
@@ -445,7 +445,7 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 | **Certification** | FACMP (Fellow, American College of Medical Physics) | Professional credential |
 | **Organization** | Fox Chase Cancer Center | Employment at FCCC |
 | **Telecom (Phone)** | (215) 728-6900 ext 2865 | FCCC physics department |
-| **Telecom (Email)** | teh.lin@foxchasecancercenter.org | Professional email |
+| **Telecom (Email)** | priya.nandakumar@example-cancercenter.org | Professional email |
 | **Address** | 333 Cottman Avenue, Philadelphia, PA 19111 | FCCC address |
 | **Role in Use Case** | Dosimetric Dental Contouring (DDC) data provider | Extracts site-specific radiation dose |
 
@@ -463,8 +463,8 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 | **Priority** | Urgent | High priority due to timeline |
 | **Code** | Dental consultation for pre-radiation clearance | Referral reason |
 | **Subject** | John Smith | Patient reference |
-| **Requester** | Dr. Thomas Galloway (FCCC) | Ordering provider |
-| **Performer** | Dr. Thomas Sollecito (Penn Dental) | Receiving provider |
+| **Requester** | Dr. Marcus Whitfield (FCCC) | Ordering provider |
+| **Performer** | Dr. Andrew Bellweather (Penn Dental) | Receiving provider |
 | **Reason Code** | Pre-operative dental clearance | Clinical justification |
 | **Reason Reference** | Condition: Stage IV SCC C02.1 | Linked diagnosis |
 | **Ordered Date** | 2026-07-06 | Order placement date |
@@ -473,13 +473,13 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 
 #### Dosimetric Dental Contouring (DDC) Information Request — modeled as a note, not a formal order
 
-**Correction:** this was originally modeled as a `ServiceRequest`. That's clinically wrong — Dr. Sollecito isn't ordering FCCC to *perform* a service; he's asking a colleague to share information (dose data) that already exists as a byproduct of the IMRT plan Dr. Galloway ordered in Encounter #1. This is an informal inter-provider information request between two practitioners already in an established clinical relationship (via the open referral from Encounter #1) — it does not warrant a formal order resource, a new 360X transaction, or a directional ODE referral profile. It's captured as a **note/annotation** on the relevant Encounter #2 resources, not as a standalone `ServiceRequest` or `CommunicationRequest`.
+**Correction:** this was originally modeled as a `ServiceRequest`. That's clinically wrong — Dr. Bellweather isn't ordering FCCC to *perform* a service; he's asking a colleague to share information (dose data) that already exists as a byproduct of the IMRT plan Dr. Whitfield ordered in Encounter #1. This is an informal inter-provider information request between two practitioners already in an established clinical relationship (via the open referral from Encounter #1) — it does not warrant a formal order resource, a new 360X transaction, or a directional ODE referral profile. It's captured as a **note/annotation** on the relevant Encounter #2 resources, not as a standalone `ServiceRequest` or `CommunicationRequest`.
 
 | Element | Value | Notes |
 |---|---|---|
 | **Nature** | Informal information request (note), not a formal order | Requester and performer already in an established referral relationship |
-| **From** | Dr. Thomas Sollecito (Penn Dental) | Requesting clinician |
-| **To** | Dr. Teh Lin (FCCC Medical Physics) | Has access to the IMRT dose planning data |
+| **From** | Dr. Andrew Bellweather (Penn Dental) | Requesting clinician |
+| **To** | Dr. Priya Nandakumar (FCCC Medical Physics) | Has access to the IMRT dose planning data |
 | **Requested** | 2026-07-23 | During the dental exam encounter |
 | **Fulfilled** | 2026-07-25 | Data transmission date — not its own encounter (see Appendix Section 0) |
 | **Body Site** | Tooth #30 (FDI notation) | Specific tooth location |
@@ -495,7 +495,7 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 | **Category** | Dental | Procedure type |
 | **Code** | D7210 (CDT) / 41899 (CPT) | Extraction with bone removal |
 | **Subject** | John Smith | Patient reference |
-| **Performer** | Dr. Thomas Sollecito (DMD) | Performing dentist |
+| **Performer** | Dr. Andrew Bellweather (DMD) | Performing dentist |
 | **Performed DateTime** | 2026-07-27 | Date of procedure |
 | **Body Site** | Tooth #4 (FDI: 14) | Upper right first premolar |
 | **Reason** | Pre-radiation dental clearance; tooth with compromised prognosis | Clinical indication |
@@ -508,7 +508,7 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 | **Category** | Dental | Procedure type |
 | **Code** | D7210 (CDT) / 41899 (CPT) | Extraction; impacted tooth |
 | **Subject** | John Smith | Patient reference |
-| **Performer** | Dr. Thomas Sollecito (DMD) | Performing dentist |
+| **Performer** | Dr. Andrew Bellweather (DMD) | Performing dentist |
 | **Performed DateTime** | 2026-07-28 | Date of procedure |
 | **Body Site** | Tooth #17 (FDI: 28) | Lower left third molar |
 | **Reason** | Pre-radiation dental clearance; impacted wisdom tooth | Clinical indication |
@@ -521,7 +521,7 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 | **Category** | Dental | Procedure type |
 | **Code** | D7210 (CDT) / 41899 (CPT) | Extraction; requires bone removal |
 | **Subject** | John Smith | Patient reference |
-| **Performer** | Dr. Thomas Sollecito (DMD) | Performing dentist |
+| **Performer** | Dr. Andrew Bellweather (DMD) | Performing dentist |
 | **Performed DateTime** | 2026-07-29 | Date of procedure |
 | **Body Site** | Tooth #30 (FDI: 46) | Lower right first molar |
 | **Outcome Code** | *Unverified — see Section 6 caution* | Tooth extraction (text-only in built resources) |
@@ -535,7 +535,7 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 | **Category** | Dental Surgery | Procedure type |
 | **Code** | D6010 (CDT) / 21248 (CPT) | Surgical placement of implant body |
 | **Subject** | John Smith | Patient reference |
-| **Performer** | Dr. Thomas Sollecito (DMD) | Performing dentist |
+| **Performer** | Dr. Andrew Bellweather (DMD) | Performing dentist |
 | **Performed DateTime** | 2026-07-29 | Same-day as extraction |
 | **Body Site** | Tooth #30 site (FDI: 46) | Lower right first molar region |
 | **Reason** | Immediate implant placement following extraction; maintains vertical bone support; improves post-radiation oral function. | Clinical indication |
@@ -549,7 +549,7 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 | **Category** | Diagnostic result; Planning data | Type |
 | **Code** | **LOINC gap:** No established code | Site-specific radiation dose at tooth site |
 | **Subject** | John Smith | Patient reference |
-| **Performer** | Dr. Teh Lin (Medical Physicist, FCCC) | Data source |
+| **Performer** | Dr. Priya Nandakumar (Medical Physicist, FCCC) | Data source |
 | **Effective DateTime** | 2026-07-25 | Date of dosimetric extraction |
 | **Value (Quantity)** | 52 Gy | Radiation dose magnitude |
 | **Unit** | Gray (Gy) | International System of Units |
@@ -570,7 +570,7 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 | **Category** | Imaging | Report type |
 | **Code** | D0220 (CDT) / LOINC 62443-7 | Periapical radiographic image |
 | **Subject** | John Smith | Patient reference |
-| **Performer** | Dr. Thomas Sollecito (Dentist) | Ordering & interpreting provider |
+| **Performer** | Dr. Andrew Bellweather (Dentist) | Ordering & interpreting provider |
 | **Effective DateTime** | 2026-07-23 | Date of imaging |
 | **Issued** | 2026-07-23 | Report issue date |
 | **Conclusion** | Three teeth identified with pre-radiation compromise: #4 (standard extraction), #17 (impacted), #30 (high-dose site requiring DDC consultation). | Radiographic findings |
@@ -583,7 +583,7 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 | **Category** | Imaging | Report type |
 | **Code** | D0330 (CDT) / LOINC 24828-6 | Panoramic radiograph (orthopantomogram) |
 | **Subject** | John Smith | Patient reference |
-| **Performer** | Dr. Thomas Sollecito (Dentist) | Ordering & interpreting provider |
+| **Performer** | Dr. Andrew Bellweather (Dentist) | Ordering & interpreting provider |
 | **Effective DateTime** | 2026-07-23 | Date of imaging |
 | **Issued** | 2026-07-23 | Report issue date |
 | **Conclusion** | Full-mouth assessment confirms three teeth requiring extraction; no other significant findings. Mandible and maxilla without fracture or advanced pathology. | Full-mouth overview |
@@ -596,7 +596,7 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 | **Assessment Code** | *Unverified — see Section 6 caution* | Dental clearance (general) (text-only in built resources) |
 | **Subject** | John Smith | Patient reference |
 | **Date** | 2026-07-31 | Clearance date |
-| **Assessor** | Dr. Thomas Sollecito (DMD, Oral Oncology) | Assessing provider |
+| **Assessor** | Dr. Andrew Bellweather (DMD, Oral Oncology) | Assessing provider |
 | **Summary** | **DENTAL CLEARANCE APPROVED for head & neck IMRT.** Patient evaluated and treated for pre-radiation dental risk. Three teeth (#4, #17, #30) extracted. Tooth #30: immediate implant placed due to DDC-identified high-dose site (52 Gy > 45 Gy threshold). Remaining dentition assessed as suitable for radiation support therapy. Patient counseled on osteoradionecrosis risk, hygiene protocols, and follow-up imaging. No contraindications to IMRT initiation. | Clinical assessment summary |
 | **Finding** | Diagnosis: Pre-radiation dental risk assessment—MANAGED | Primary finding |
 | **Problem List** | – Teeth #4, #17, #30 extraction completed; – Implant #30 immediately placed; – Remaining dentition suitable for radiation; – Osteoradionecrosis prevention protocol initiated | Problem list |
@@ -662,23 +662,23 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 
 | Event | Date | Time | Actor(s) | System(s) |
 |---|---|---|---|---|
-| **IMRT Order & CRD Trigger** | 2026-07-06 | 09:00 | Dr. Galloway (FCCC) | Oracle Health (Cerner); CRD hook |
+| **IMRT Order & CRD Trigger** | 2026-07-06 | 09:00 | Dr. Whitfield (FCCC) | Oracle Health (Cerner); CRD hook |
 | **Referral Sent to Penn Dental** | 2026-07-06 | 10:30 | FCCC EHR | Cerner → Eaglesoft (direct or HL7 v2) |
 | **Referral Received & Scheduled** | 2026-07-07 | 08:00 | Penn Dental Reception | Eaglesoft |
-| **Dental Exam & Radiographs** | 2026-07-23 | 14:00 | Dr. Sollecito | Eaglesoft + imaging devices |
-| **DDC Request Sent to FCCC** | 2026-07-23 | 15:30 | Dr. Sollecito | Eaglesoft → FCCC (via secure message) |
-| **DDC Data Extracted & Transmitted** | 2026-07-25 | 11:00 | Dr. Teh Lin (FCCC Physics) | FCCC planning system → Penn Dental |
-| **Treatment Plan Finalized** | 2026-07-25 | 14:00 | Dr. Sollecito | Eaglesoft |
-| **Extraction #4** | 2026-07-27 | 10:00 | Dr. Sollecito | Eaglesoft |
-| **Extraction #17** | 2026-07-28 | 10:30 | Dr. Sollecito | Eaglesoft |
-| **Extraction #30 + Implant Placement** | 2026-07-29 | 09:00 | Dr. Sollecito | Eaglesoft |
-| **Dental Clearance Documented** | 2026-07-31 | 16:00 | Dr. Sollecito | Eaglesoft |
+| **Dental Exam & Radiographs** | 2026-07-23 | 14:00 | Dr. Bellweather | Eaglesoft + imaging devices |
+| **DDC Request Sent to FCCC** | 2026-07-23 | 15:30 | Dr. Bellweather | Eaglesoft → FCCC (via secure message) |
+| **DDC Data Extracted & Transmitted** | 2026-07-25 | 11:00 | Dr. Priya Nandakumar (FCCC Physics) | FCCC planning system → Penn Dental |
+| **Treatment Plan Finalized** | 2026-07-25 | 14:00 | Dr. Bellweather | Eaglesoft |
+| **Extraction #4** | 2026-07-27 | 10:00 | Dr. Bellweather | Eaglesoft |
+| **Extraction #17** | 2026-07-28 | 10:30 | Dr. Bellweather | Eaglesoft |
+| **Extraction #30 + Implant Placement** | 2026-07-29 | 09:00 | Dr. Bellweather | Eaglesoft |
+| **Dental Clearance Documented** | 2026-07-31 | 16:00 | Dr. Bellweather | Eaglesoft |
 | **Clearance Transmitted to FCCC** | 2026-07-31 | 16:30 | Penn Dental EHR | Eaglesoft → Cerner (CDex push) |
 | **PA Submitted to IBX** | 2026-08-01 | 09:00 | FCCC Billing/RCM | Cerner → IBX (FHIR `Claim` via Da Vinci PAS — corrected; this row previously said "837P via clearinghouse," which is the reimbursement billing transaction type, not the prior-auth request type this use case actually exercises) |
 | **14-Day Healing Window** | 2026-08-01 through 2026-08-14 | — | Patient | — |
 | **PA Approved by IBX** | 2026-08-03 | 13:00 | IBX Medical Review | IBX system → FCCC (ClaimResponse) |
 | **Original IMRT Start (Moved)** | 2026-08-10 | — | — | — |
-| **Revised IMRT Start** | 2026-08-24 | 08:00 | Dr. Galloway | FCCC treatment planning |
+| **Revised IMRT Start** | 2026-08-24 | 08:00 | Dr. Whitfield | FCCC treatment planning |
 
 #### Key Timeline Constraints
 

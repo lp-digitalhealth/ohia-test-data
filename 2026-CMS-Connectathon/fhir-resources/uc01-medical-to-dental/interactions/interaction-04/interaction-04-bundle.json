@@ -536,18 +536,18 @@
         "identifier": [
           {
             "system": "http://hl7.org/fhir/sid/us-npi",
-            "value": "1568374920"
+            "value": "1000000021"
           },
           {
             "system": "http://www.pa.gov/fhir/medical-license",
-            "value": "PA-MD-089456"
+            "value": "PA-MD-000101"
           }
         ],
         "active": true,
         "name": [
           {
             "use": "official",
-            "family": "Galloway",
+            "family": "Whitfield",
             "given": [
               "Thomas",
               "Mark"
@@ -566,7 +566,7 @@
           },
           {
             "system": "email",
-            "value": "thomas.galloway@foxchasecancercenter.org",
+            "value": "marcus.whitfield@example-cancercenter.org",
             "use": "work"
           }
         ],
@@ -604,7 +604,7 @@
                   "display": "Radiation Oncology"
                 }
               ],
-              "text": "Service Chief, Head & Neck Radiation Oncology; board certified by the American Board of Radiology (ABR)"
+              "text": "Attending physician, Head & Neck Radiation Oncology; board certified by the American Board of Radiology (ABR)"
             }
           }
         ]
@@ -627,18 +627,18 @@
         "identifier": [
           {
             "system": "http://hl7.org/fhir/sid/us-npi",
-            "value": "1558294816"
+            "value": "1000000034"
           },
           {
             "system": "http://www.pa.gov/fhir/medical-license",
-            "value": "PA-MD-067829"
+            "value": "PA-MD-000114"
           }
         ],
         "active": true,
         "name": [
           {
             "use": "official",
-            "family": "Schmalbach",
+            "family": "Osei",
             "given": [
               "Cecelia",
               "Marie"
@@ -658,7 +658,7 @@
           },
           {
             "system": "email",
-            "value": "cecelia.schmalbach@foxchasecancercenter.org",
+            "value": "renata.osei@example-cancercenter.org",
             "use": "work"
           }
         ],
@@ -696,7 +696,7 @@
                   "display": "Head and Neck Surgery"
                 }
               ],
-              "text": "Chair, Department of Surgical Oncology; board certified by the American Board of Surgery (ABS); Fellow, American College of Surgeons (FACS)"
+              "text": "Attending surgeon, Surgical Oncology; board certified by the American Board of Surgery (ABS); Fellow, American College of Surgeons (FACS)"
             }
           }
         ]
@@ -719,18 +719,18 @@
         "identifier": [
           {
             "system": "http://hl7.org/fhir/sid/us-npi",
-            "value": "1568472035"
+            "value": "1000000047"
           },
           {
             "system": "http://www.pa.gov/fhir/dental-license",
-            "value": "PA-DDS-045738"
+            "value": "PA-DDS-000123"
           }
         ],
         "active": true,
         "name": [
           {
             "use": "official",
-            "family": "Sollecito",
+            "family": "Bellweather",
             "given": [
               "Thomas",
               "Paul"
@@ -749,7 +749,7 @@
           },
           {
             "system": "email",
-            "value": "tsollecito@dental.upenn.edu",
+            "value": "andrew.bellweather@example-dental.edu",
             "use": "work"
           }
         ],
@@ -788,7 +788,7 @@
                   "display": "Oral Medicine"
                 }
               ],
-              "text": "Professor and Chair, Department of Oral Medicine; Oral Oncology Specialist; Diplomate, American Board of Oral Medicine (1993); Diplomate, American Board of Special Care Dentistry (2005); Faculty, University of Pennsylvania School of Dental Medicine"
+              "text": "Chair, Department of Oral Medicine; Oral Oncology Specialist; Diplomate, American Board of Oral Medicine; Diplomate, American Board of Special Care Dentistry"
             }
           }
         ]
@@ -811,16 +811,16 @@
         "identifier": [
           {
             "system": "http://hl7.org/fhir/sid/us-npi",
-            "value": "1598374562"
+            "value": "1000000050"
           }
         ],
         "active": true,
         "name": [
           {
             "use": "official",
-            "family": "Lin",
+            "family": "Nandakumar",
             "given": [
-              "Teh"
+              "Priya"
             ],
             "suffix": [
               "MS",
@@ -837,7 +837,7 @@
           },
           {
             "system": "email",
-            "value": "teh.lin@foxchasecancercenter.org",
+            "value": "priya.nandakumar@example-cancercenter.org",
             "use": "work"
           }
         ],
@@ -1277,7 +1277,7 @@
         "active": true,
         "practitioner": {
           "reference": "Practitioner/pract-galloway",
-          "display": "Thomas Mark Galloway, MD"
+          "display": "Thomas Mark Whitfield, MD"
         },
         "organization": {
           "reference": "Organization/org-fccc",
@@ -1339,7 +1339,7 @@
         "active": true,
         "practitioner": {
           "reference": "Practitioner/pract-schmalbach",
-          "display": "Cecelia Marie Schmalbach, MD, FACS"
+          "display": "Cecelia Marie Osei, MD, FACS"
         },
         "organization": {
           "reference": "Organization/org-fccc",
@@ -1401,7 +1401,7 @@
         "active": true,
         "practitioner": {
           "reference": "Practitioner/pract-sollecito",
-          "display": "Thomas Paul Sollecito, DMD, MMSc"
+          "display": "Thomas Paul Bellweather, DMD, MMSc"
         },
         "organization": {
           "reference": "Organization/org-penndental",
@@ -1455,7 +1455,7 @@
         "active": true,
         "practitioner": {
           "reference": "Practitioner/pract-lin",
-          "display": "Teh Lin, MS, FACMP"
+          "display": "Priya Nandakumar, MS, FACMP"
         },
         "organization": {
           "reference": "Organization/org-fccc",
@@ -1902,7 +1902,7 @@
           {
             "individual": {
               "reference": "Practitioner/pract-galloway",
-              "display": "Dr. Thomas Galloway"
+              "display": "Dr. Marcus Whitfield"
             }
           }
         ],
@@ -2015,7 +2015,7 @@
         "recordedDate": "2026-07-06",
         "recorder": {
           "reference": "Practitioner/pract-galloway",
-          "display": "Dr. Thomas Galloway"
+          "display": "Dr. Marcus Whitfield"
         },
         "stage": [
           {
@@ -2371,7 +2371,7 @@
         "authoredOn": "2026-07-06",
         "requester": {
           "reference": "PractitionerRole/role-galloway",
-          "display": "Dr. Thomas Galloway \u2014 Radiation Oncology, Fox Chase Cancer Center"
+          "display": "Dr. Marcus Whitfield \u2014 Radiation Oncology, Fox Chase Cancer Center"
         },
         "reasonReference": [
           {
@@ -2474,12 +2474,12 @@
         "authoredOn": "2026-07-06",
         "requester": {
           "reference": "PractitionerRole/role-galloway",
-          "display": "Dr. Thomas Galloway \u2014 Radiation Oncology, Fox Chase Cancer Center"
+          "display": "Dr. Marcus Whitfield \u2014 Radiation Oncology, Fox Chase Cancer Center"
         },
         "performer": [
           {
             "reference": "PractitionerRole/role-sollecito",
-            "display": "Dr. Thomas Sollecito \u2014 Oral Medicine, Penn Dental Medicine"
+            "display": "Dr. Andrew Bellweather \u2014 Oral Medicine, Penn Dental Medicine"
           }
         ],
         "supportingInfo": [
@@ -2643,7 +2643,7 @@
             },
             "who": {
               "reference": "PractitionerRole/role-galloway",
-              "display": "Dr. Thomas Galloway \u2014 Radiation Oncology, Fox Chase Cancer Center"
+              "display": "Dr. Marcus Whitfield \u2014 Radiation Oncology, Fox Chase Cancer Center"
             }
           },
           {
@@ -2712,7 +2712,7 @@
           {
             "individual": {
               "reference": "Practitioner/pract-sollecito",
-              "display": "Dr. Thomas Sollecito"
+              "display": "Dr. Andrew Bellweather"
             }
           }
         ],
@@ -2816,7 +2816,7 @@
         "performer": [
           {
             "reference": "Practitioner/pract-sollecito",
-            "display": "Dr. Thomas Sollecito"
+            "display": "Dr. Andrew Bellweather"
           }
         ],
         "conclusion": "Periapical views of teeth #4, #17, and #30 confirm findings consistent with the panoramic survey: tooth #4 shows a periapical lesion appropriate for standard extraction; tooth #17 is impacted; tooth #30 is structurally sound but sits within the planned high-dose radiation field."
@@ -2876,7 +2876,7 @@
         "performer": [
           {
             "reference": "Practitioner/pract-sollecito",
-            "display": "Dr. Thomas Sollecito"
+            "display": "Dr. Andrew Bellweather"
           }
         ],
         "conclusion": "Full-arch survey identifies three teeth requiring attention prior to head & neck IMRT: tooth #4 (periapical pathology, standard extraction indicated), tooth #17 (impacted, extraction indicated), tooth #30 (structurally sound but located within the planned high-dose radiation field \u2014 dose data requested from FCCC Medical Physics to determine extraction vs. preservation)."
@@ -2919,7 +2919,7 @@
         "performer": [
           {
             "reference": "Practitioner/pract-lin",
-            "display": "Teh Lin, MS, FACMP \u2014 Medical Physicist, FCCC"
+            "display": "Priya Nandakumar, MS, FACMP \u2014 Medical Physicist, FCCC"
           }
         ],
         "valueQuantity": {
@@ -2933,12 +2933,12 @@
         },
         "interpretation": [
           {
-            "text": "Exceeds the 45 Gy safe healing threshold for pre-radiation dental extraction \u2014 informs Dr. Sollecito's decision to extract and immediately place an implant rather than delay extraction until after radiation."
+            "text": "Exceeds the 45 Gy safe healing threshold for pre-radiation dental extraction \u2014 informs Dr. Bellweather's decision to extract and immediately place an implant rather than delay extraction until after radiation."
           }
         ],
         "note": [
           {
-            "text": "This value was obtained via an informal inter-provider information request: Dr. Sollecito asked Dr. Teh Lin (FCCC Medical Physics) on 2026-07-23 for site-specific dose data at tooth #30, extracted from the IMRT treatment plan already ordered in Interaction 1. Per project design decision, this request/response exchange is modeled as a note (this one), not as a formal ServiceRequest or CommunicationRequest/Communication \u2014 see fhir-resources/uc01-medical-to-dental/interactions/README.md for the full reasoning (a confirmed, legitimate instance of the base Clinical Order Workflows IG's 'Requesting additional information' pattern, which is not carried into the 360X-scoped crosswalk this project's referral pathway otherwise follows). Data transmitted 2026-07-25, two days after the request \u2014 this transmission date is not modeled as its own clinical encounter (see use case Appendix Section 0)."
+            "text": "This value was obtained via an informal inter-provider information request: Dr. Bellweather asked Dr. Priya Nandakumar (FCCC Medical Physics) on 2026-07-23 for site-specific dose data at tooth #30, extracted from the IMRT treatment plan already ordered in Interaction 1. Per project design decision, this request/response exchange is modeled as a note (this one), not as a formal ServiceRequest or CommunicationRequest/Communication \u2014 see fhir-resources/uc01-medical-to-dental/interactions/README.md for the full reasoning (a confirmed, legitimate instance of the base Clinical Order Workflows IG's 'Requesting additional information' pattern, which is not carried into the 360X-scoped crosswalk this project's referral pathway otherwise follows). Data transmitted 2026-07-25, two days after the request \u2014 this transmission date is not modeled as its own clinical encounter (see use case Appendix Section 0)."
           }
         ]
       },
@@ -3003,7 +3003,7 @@
         },
         "owner": {
           "reference": "PractitionerRole/role-sollecito",
-          "display": "Dr. Thomas Sollecito \u2014 Oral Medicine, Penn Dental Medicine"
+          "display": "Dr. Andrew Bellweather \u2014 Oral Medicine, Penn Dental Medicine"
         },
         "input": [
           {
@@ -3065,7 +3065,7 @@
         ],
         "note": [
           {
-            "text": "Task snapshot as of Interaction 2 (2026-07-23, dental exam). Reflects two combined transitions from the Interaction 1 intake state: (1) acceptance -- Penn Dental confirmed the referral on 2026-07-07 (not separately modeled as its own artifact), at which point Task.owner is correctly first populated (Dr. Sollecito's PractitionerRole), per the crosswalk's rule that ownership belongs to acceptance, not intake; (2) in-progress -- the exam itself, 2026-07-23. Task.output references the exam Encounter and both DiagnosticReports. IMPORTANT, corrected from an earlier draft of this file: this update does NOT correspond to a 360X PCC-59 (Interim Consultation Note) wire transaction. Per this project's design decision (see CLAUDE.md and the Interaction 2 use-case writeup), Interaction 2 has no 360X wire-level artifact at all -- it is pure FHIR-side Task/note activity. PCC-59 was considered and explicitly rejected for this interaction because it is the wrong direction (specialist reporting outward on an existing referral), not because it hasn't been built yet. The DDC dose inquiry and its answer (52 Gy, exceeding the 45 Gy osteoradionecrosis-risk threshold) are NOT included in Task.output -- that exchange is captured as an informal note on Observation/observation-tooth30-radiation-dose, per the base COW IG's 'Requesting additional information' pattern, not as a Task-tracked fulfillment artifact. Final clearance closes this Task as a PCC-57 transaction -- see Interaction 3's completed-state snapshot."
+            "text": "Task snapshot as of Interaction 2 (2026-07-23, dental exam). Reflects two combined transitions from the Interaction 1 intake state: (1) acceptance -- Penn Dental confirmed the referral on 2026-07-07 (not separately modeled as its own artifact), at which point Task.owner is correctly first populated (Dr. Bellweather's PractitionerRole), per the crosswalk's rule that ownership belongs to acceptance, not intake; (2) in-progress -- the exam itself, 2026-07-23. Task.output references the exam Encounter and both DiagnosticReports. IMPORTANT, corrected from an earlier draft of this file: this update does NOT correspond to a 360X PCC-59 (Interim Consultation Note) wire transaction. Per this project's design decision (see CLAUDE.md and the Interaction 2 use-case writeup), Interaction 2 has no 360X wire-level artifact at all -- it is pure FHIR-side Task/note activity. PCC-59 was considered and explicitly rejected for this interaction because it is the wrong direction (specialist reporting outward on an existing referral), not because it hasn't been built yet. The DDC dose inquiry and its answer (52 Gy, exceeding the 45 Gy osteoradionecrosis-risk threshold) are NOT included in Task.output -- that exchange is captured as an informal note on Observation/observation-tooth30-radiation-dose, per the base COW IG's 'Requesting additional information' pattern, not as a Task-tracked fulfillment artifact. Final clearance closes this Task as a PCC-57 transaction -- see Interaction 3's completed-state snapshot."
           }
         ]
       },
@@ -3108,7 +3108,7 @@
           {
             "actor": {
               "reference": "Practitioner/pract-sollecito",
-              "display": "Dr. Thomas Sollecito"
+              "display": "Dr. Andrew Bellweather"
             }
           }
         ],
@@ -3168,7 +3168,7 @@
           {
             "actor": {
               "reference": "Practitioner/pract-sollecito",
-              "display": "Dr. Thomas Sollecito"
+              "display": "Dr. Andrew Bellweather"
             }
           }
         ],
@@ -3233,7 +3233,7 @@
           {
             "actor": {
               "reference": "Practitioner/pract-sollecito",
-              "display": "Dr. Thomas Sollecito"
+              "display": "Dr. Andrew Bellweather"
             }
           }
         ],
@@ -3292,7 +3292,7 @@
         "performer": [
           {
             "reference": "Practitioner/pract-sollecito",
-            "display": "Dr. Thomas Sollecito"
+            "display": "Dr. Andrew Bellweather"
           }
         ],
         "valueCodeableConcept": {
@@ -3335,7 +3335,7 @@
         "date": "2026-07-31T16:00:00-04:00",
         "assessor": {
           "reference": "Practitioner/pract-sollecito",
-          "display": "Dr. Thomas Sollecito, DMD, MMSc \u2014 Oral Medicine"
+          "display": "Dr. Andrew Bellweather, DMD, MMSc \u2014 Oral Medicine"
         },
         "problem": [
           {
@@ -3420,7 +3420,7 @@
         "author": [
           {
             "reference": "Practitioner/pract-sollecito",
-            "display": "Dr. Thomas Sollecito"
+            "display": "Dr. Andrew Bellweather"
           }
         ],
         "custodian": {
@@ -3532,12 +3532,12 @@
         "authoredOn": "2026-07-06",
         "requester": {
           "reference": "PractitionerRole/role-galloway",
-          "display": "Dr. Thomas Galloway \u2014 Radiation Oncology, Fox Chase Cancer Center"
+          "display": "Dr. Marcus Whitfield \u2014 Radiation Oncology, Fox Chase Cancer Center"
         },
         "performer": [
           {
             "reference": "PractitionerRole/role-sollecito",
-            "display": "Dr. Thomas Sollecito \u2014 Oral Medicine, Penn Dental Medicine"
+            "display": "Dr. Andrew Bellweather \u2014 Oral Medicine, Penn Dental Medicine"
           }
         ],
         "supportingInfo": [
@@ -3624,7 +3624,7 @@
         },
         "owner": {
           "reference": "PractitionerRole/role-sollecito",
-          "display": "Dr. Thomas Sollecito \u2014 Oral Medicine, Penn Dental Medicine"
+          "display": "Dr. Andrew Bellweather \u2014 Oral Medicine, Penn Dental Medicine"
         },
         "input": [
           {
@@ -3713,7 +3713,7 @@
         ],
         "note": [
           {
-            "text": "Task snapshot as of Interaction 3 (2026-07-31, 16:30) \u2014 the PCC-57 Referral Outcome transaction. status=completed and businessStatus=outcome-final per the ode-360x-adapter crosswalk's transaction table. Task.owner is now set (Dr. Sollecito's PractitionerRole) \u2014 populated at PCC-56 accept (2026-07-07, not yet modeled as its own artifact) and carried forward here; see the Interaction 1 version of this Task for the intake-state snapshot where owner is correctly absent. Task.output populated per the crosswalk's PCC-57 row: ClinicalImpression, Procedure (x3), a coded disposition Observation, and DocumentReference. This Task, across its lifecycle, absorbs both the referral relationship AND the payer's dental-clearance documentation requirement -- confirmed as a single-Task design per base COW's own guidance (see Interaction 1's Task note for full reasoning)."
+            "text": "Task snapshot as of Interaction 3 (2026-07-31, 16:30) \u2014 the PCC-57 Referral Outcome transaction. status=completed and businessStatus=outcome-final per the ode-360x-adapter crosswalk's transaction table. Task.owner is now set (Dr. Bellweather's PractitionerRole) \u2014 populated at PCC-56 accept (2026-07-07, not yet modeled as its own artifact) and carried forward here; see the Interaction 1 version of this Task for the intake-state snapshot where owner is correctly absent. Task.output populated per the crosswalk's PCC-57 row: ClinicalImpression, Procedure (x3), a coded disposition Observation, and DocumentReference. This Task, across its lifecycle, absorbs both the referral relationship AND the payer's dental-clearance documentation requirement -- confirmed as a single-Task design per base COW's own guidance (see Interaction 1's Task note for full reasoning)."
           }
         ]
       },
@@ -3775,7 +3775,7 @@
             "sequence": 1,
             "provider": {
               "reference": "PractitionerRole/role-galloway",
-              "display": "Dr. Thomas Galloway \u2014 Radiation Oncology, Fox Chase Cancer Center"
+              "display": "Dr. Marcus Whitfield \u2014 Radiation Oncology, Fox Chase Cancer Center"
             },
             "responsible": true,
             "role": {
@@ -3855,7 +3855,7 @@
         ],
         "note": [
           {
-            "text": "This PA request is for the IMRT/radiation service itself (the same service flagged as requiring prior authorization back in Interaction 1's order-sign CRD evaluation) \u2014 NOT a claim for Dr. Sollecito's dental procedures. The dental clearance is included here only as supporting evidence that the prerequisite condition (dental clearance) has been satisfied. Uses Da Vinci PAS, which replaces the legacy X12 278 transaction entirely with FHIR Claim/ClaimResponse \u2014 the 278 is out of scope for this use case."
+            "text": "This PA request is for the IMRT/radiation service itself (the same service flagged as requiring prior authorization back in Interaction 1's order-sign CRD evaluation) \u2014 NOT a claim for Dr. Bellweather's dental procedures. The dental clearance is included here only as supporting evidence that the prerequisite condition (dental clearance) has been satisfied. Uses Da Vinci PAS, which replaces the legacy X12 278 transaction entirely with FHIR Claim/ClaimResponse \u2014 the 278 is out of scope for this use case."
           }
         ]
       },

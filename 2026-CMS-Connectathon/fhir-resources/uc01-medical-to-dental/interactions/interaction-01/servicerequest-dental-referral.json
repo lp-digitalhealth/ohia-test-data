@@ -72,12 +72,12 @@
   "authoredOn": "2026-07-06",
   "requester": {
     "reference": "PractitionerRole/role-galloway",
-    "display": "Dr. Thomas Galloway — Radiation Oncology, Fox Chase Cancer Center"
+    "display": "Dr. Marcus Whitfield — Radiation Oncology, Fox Chase Cancer Center"
   },
   "performer": [
     {
       "reference": "PractitionerRole/role-sollecito",
-      "display": "Dr. Thomas Sollecito — Oral Medicine, Penn Dental Medicine"
+      "display": "Dr. Andrew Bellweather — Oral Medicine, Penn Dental Medicine"
     }
   ],
   "supportingInfo": [

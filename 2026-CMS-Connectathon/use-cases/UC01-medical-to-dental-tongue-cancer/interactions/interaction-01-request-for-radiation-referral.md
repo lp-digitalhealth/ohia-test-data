@@ -2,17 +2,17 @@
 
 **Date:** July 6, 2026, 9:00–10:30 AM
 **Setting:** Fox Chase Cancer Center, Head & Neck Radiation Oncology
-**Clinician:** Dr. Thomas Galloway (Radiation Oncology)
+**Clinician:** Dr. Marcus Whitfield (Radiation Oncology)
 
 ## What happens
 
-Dr. Galloway sees John Smith to place the order for his intensity-modulated radiation therapy (IMRT) — the treatment plan developed by the multidisciplinary team for John's Stage IV squamous cell carcinoma of the tongue.
+Dr. Whitfield sees John Smith to place the order for his intensity-modulated radiation therapy (IMRT) — the treatment plan developed by the multidisciplinary team for John's Stage IV squamous cell carcinoma of the tongue.
 
-The moment the order is entered into Dr. Galloway's EHR, two things happen automatically, without anyone picking up a phone or logging into a payer portal:
+The moment the order is entered into Dr. Whitfield's EHR, two things happen automatically, without anyone picking up a phone or logging into a payer portal:
 
 1. **The system checks John's insurance in real time.** It confirms that IBX requires prior authorization for IMRT, and — critically — that IBX's coverage policy for this treatment also requires a documented **dental clearance** before authorization will be granted. This isn't a generic rule; it exists because high-dose radiation to the jaw carries a real risk of osteoradionecrosis (bone death from radiation damage), and any dental problems have to be resolved *before* treatment starts, not during.
 
-2. **A referral is generated and sent** to Dr. Thomas Sollecito at Penn Dental Medicine, along with the relevant portions of John's oncology record. The clock starts here: Dr. Sollecito has fewer than 21 days to evaluate John and return a clearance, because the radiation start date is already on the calendar.
+2. **A referral is generated and sent** to Dr. Andrew Bellweather at Penn Dental Medicine, along with the relevant portions of John's oncology record. The clock starts here: Dr. Bellweather has fewer than 21 days to evaluate John and return a clearance, because the radiation start date is already on the calendar.
 
 ## What John Sees (patient-facing)
 
@@ -32,7 +32,7 @@ This encounter is the trigger for the entire rest of the use case. Nothing downs
 - The IMRT treatment order itself
 - John's cancer diagnosis, formally recorded in context of this visit
 - The referral to Penn Dental
-- An open, trackable referral-loop record between the two organizations, which won't close until Dr. Sollecito's clearance comes back (see Encounter #6)
+- An open, trackable referral-loop record between the two organizations, which won't close until Dr. Bellweather's clearance comes back (see Encounter #6)
 
 ## What's expected to happen next
 

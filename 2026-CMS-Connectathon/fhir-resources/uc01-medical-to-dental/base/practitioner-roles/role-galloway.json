@@ -5,7 +5,7 @@
     "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"]
   },
   "active": true,
-  "practitioner": { "reference": "Practitioner/pract-galloway", "display": "Thomas Mark Galloway, MD" },
+  "practitioner": { "reference": "Practitioner/pract-galloway", "display": "Thomas Mark Whitfield, MD" },
   "organization": { "reference": "Organization/org-fccc", "display": "Fox Chase Cancer Center" },
   "code": [
     {

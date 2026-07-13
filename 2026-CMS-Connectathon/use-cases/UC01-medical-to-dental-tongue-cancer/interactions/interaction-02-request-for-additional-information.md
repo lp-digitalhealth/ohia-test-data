@@ -6,37 +6,37 @@
 
 ### Step 1: Penn Dental accepts the referral (2026-07-07)
 
-Before anything clinical happens, Penn Dental's front office reviews the referral that arrived from FCCC and confirms they'll take it. This is the moment the relationship actually becomes real — not just "a referral was sent," but "a specific practice, and specifically Dr. Sollecito, has agreed to see John." An appointment gets scheduled for 2026-07-23.
+Before anything clinical happens, Penn Dental's front office reviews the referral that arrived from FCCC and confirms they'll take it. This is the moment the relationship actually becomes real — not just "a referral was sent," but "a specific practice, and specifically Dr. Bellweather, has agreed to see John." An appointment gets scheduled for 2026-07-23.
 
 ## What John Sees (patient-facing) — Step 1
 
-📱 **Notification:** *"Appointment scheduled with Dr. Sollecito at Penn Dental — July 23."*
+📱 **Notification:** *"Appointment scheduled with Dr. Bellweather at Penn Dental — July 23."*
 
-This step matters more than it might seem: it's the first moment anyone other than Dr. Galloway's office has formal ownership of getting John cleared for radiation. Everything downstream depends on this handoff actually happening and being visible to the systems tracking it — and to John.
+This step matters more than it might seem: it's the first moment anyone other than Dr. Whitfield's office has formal ownership of getting John cleared for radiation. Everything downstream depends on this handoff actually happening and being visible to the systems tracking it — and to John.
 
 ### Step 2: The dental exam (2026-07-23)
 
-Dr. Sollecito examines John and takes radiographs. He finds three teeth needing attention: #4 (needs extraction), #17 (impacted, needs extraction), and #30 (structurally fine, but sitting inside the planned radiation field).
+Dr. Bellweather examines John and takes radiographs. He finds three teeth needing attention: #4 (needs extraction), #17 (impacted, needs extraction), and #30 (structurally fine, but sitting inside the planned radiation field).
 
 ## What John Sees (patient-facing) — Step 2
 
-📱 **Notification:** *"Dr. Sollecito is reviewing your case."*
+📱 **Notification:** *"Dr. Bellweather is reviewing your case."*
 
 ### Step 3: The DDC dose inquiry (same day, 2026-07-23)
 
-For tooth #30, Dr. Sollecito can't decide whether to extract it or leave it in place without knowing exactly how much radiation dose it's going to receive. That number lives in FCCC's radiation planning system, not in anything Penn Dental has access to. So he asks Dr. Teh Lin, FCCC's medical physicist, directly: *what's the dose at tooth #30?*
+For tooth #30, Dr. Bellweather can't decide whether to extract it or leave it in place without knowing exactly how much radiation dose it's going to receive. That number lives in FCCC's radiation planning system, not in anything Penn Dental has access to. So he asks Dr. Priya Nandakumar, FCCC's medical physicist, directly: *what's the dose at tooth #30?*
 
-Two days later, the answer comes back: 52 Gy — well above the 45 Gy threshold considered safe for extraction healing. That tells Dr. Sollecito the tooth needs to come out, with an implant placed immediately, rather than waiting.
+Two days later, the answer comes back: 52 Gy — well above the 45 Gy threshold considered safe for extraction healing. That tells Dr. Bellweather the tooth needs to come out, with an implant placed immediately, rather than waiting.
 
 ## What John Sees (patient-facing) — Step 3
 
-**Nothing.** This is deliberate, not an oversight: Dr. Sollecito asking Dr. Lin a clinical question, and Dr. Lin's answer, are provider-to-provider communication that never surfaces to John directly — he isn't notified that a question was asked or answered, only the *consequence* of it (the extraction/implant decision) once it's actually acted on. A patient app that fires a notification for this step is doing the wrong thing; testing that it correctly stays silent here is as important as testing that it correctly fires for the real milestones.
+**Nothing.** This is deliberate, not an oversight: Dr. Bellweather asking Dr. Nandakumar a clinical question, and Dr. Nandakumar's answer, are provider-to-provider communication that never surfaces to John directly — he isn't notified that a question was asked or answered, only the *consequence* of it (the extraction/implant decision) once it's actually acted on. A patient app that fires a notification for this step is doing the wrong thing; testing that it correctly stays silent here is as important as testing that it correctly fires for the real milestones.
 
 ### Step 4: The treatment extension request (early August)
 
-After all three extractions and the implant placement are done, Dr. Sollecito documents John's clearance and sends it to FCCC. Prior authorization for the radiation is approved by IBX shortly after. But the radiation can't start on its originally planned date — the extraction and implant sites need real time to heal first.
+After all three extractions and the implant placement are done, Dr. Bellweather documents John's clearance and sends it to FCCC. Prior authorization for the radiation is approved by IBX shortly after. But the radiation can't start on its originally planned date — the extraction and implant sites need real time to heal first.
 
-So Dr. Sollecito (or the coordinating team) tells Dr. Galloway, informally: *hold off — this needs more healing time than the original schedule allows.* The radiation start date moves out by two weeks.
+So Dr. Bellweather (or the coordinating team) tells Dr. Whitfield, informally: *hold off — this needs more healing time than the original schedule allows.* The radiation start date moves out by two weeks.
 
 ## What John Sees (patient-facing) — Step 4
 

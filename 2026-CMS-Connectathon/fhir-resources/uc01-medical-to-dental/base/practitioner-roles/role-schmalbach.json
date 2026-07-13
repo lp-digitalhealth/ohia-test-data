@@ -5,7 +5,7 @@
     "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"]
   },
   "active": true,
-  "practitioner": { "reference": "Practitioner/pract-schmalbach", "display": "Cecelia Marie Schmalbach, MD, FACS" },
+  "practitioner": { "reference": "Practitioner/pract-schmalbach", "display": "Cecelia Marie Osei, MD, FACS" },
   "organization": { "reference": "Organization/org-fccc", "display": "Fox Chase Cancer Center" },
   "code": [
     {

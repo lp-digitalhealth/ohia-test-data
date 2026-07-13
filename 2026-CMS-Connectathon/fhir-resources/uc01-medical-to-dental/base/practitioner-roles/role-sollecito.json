@@ -5,7 +5,7 @@
     "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"]
   },
   "active": true,
-  "practitioner": { "reference": "Practitioner/pract-sollecito", "display": "Thomas Paul Sollecito, DMD, MMSc" },
+  "practitioner": { "reference": "Practitioner/pract-sollecito", "display": "Thomas Paul Bellweather, DMD, MMSc" },
   "organization": { "reference": "Organization/org-penndental", "display": "Penn Dental Medicine" },
   "code": [
     {

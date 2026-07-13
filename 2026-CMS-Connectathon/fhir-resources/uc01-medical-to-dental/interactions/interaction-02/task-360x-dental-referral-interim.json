@@ -50,7 +50,7 @@
   },
   "owner": {
     "reference": "PractitionerRole/role-sollecito",
-    "display": "Dr. Thomas Sollecito — Oral Medicine, Penn Dental Medicine"
+    "display": "Dr. Andrew Bellweather — Oral Medicine, Penn Dental Medicine"
   },
   "input": [
     {
@@ -100,7 +100,7 @@
   ],
   "note": [
     {
-      "text": "Task snapshot as of Interaction 2 (2026-07-23, dental exam). Reflects two combined transitions from the Interaction 1 intake state: (1) acceptance -- Penn Dental confirmed the referral on 2026-07-07 (not separately modeled as its own artifact), at which point Task.owner is correctly first populated (Dr. Sollecito's PractitionerRole), per the crosswalk's rule that ownership belongs to acceptance, not intake; (2) in-progress -- the exam itself, 2026-07-23. Task.output references the exam Encounter and both DiagnosticReports. IMPORTANT, corrected from an earlier draft of this file: this update does NOT correspond to a 360X PCC-59 (Interim Consultation Note) wire transaction. Per this project's design decision (see CLAUDE.md and the Interaction 2 use-case writeup), Interaction 2 has no 360X wire-level artifact at all -- it is pure FHIR-side Task/note activity. PCC-59 was considered and explicitly rejected for this interaction because it is the wrong direction (specialist reporting outward on an existing referral), not because it hasn't been built yet. The DDC dose inquiry and its answer (52 Gy, exceeding the 45 Gy osteoradionecrosis-risk threshold) are NOT included in Task.output -- that exchange is captured as an informal note on Observation/observation-tooth30-radiation-dose, per the base COW IG's 'Requesting additional information' pattern, not as a Task-tracked fulfillment artifact. Final clearance closes this Task as a PCC-57 transaction -- see Interaction 3's completed-state snapshot."
+      "text": "Task snapshot as of Interaction 2 (2026-07-23, dental exam). Reflects two combined transitions from the Interaction 1 intake state: (1) acceptance -- Penn Dental confirmed the referral on 2026-07-07 (not separately modeled as its own artifact), at which point Task.owner is correctly first populated (Dr. Bellweather's PractitionerRole), per the crosswalk's rule that ownership belongs to acceptance, not intake; (2) in-progress -- the exam itself, 2026-07-23. Task.output references the exam Encounter and both DiagnosticReports. IMPORTANT, corrected from an earlier draft of this file: this update does NOT correspond to a 360X PCC-59 (Interim Consultation Note) wire transaction. Per this project's design decision (see CLAUDE.md and the Interaction 2 use-case writeup), Interaction 2 has no 360X wire-level artifact at all -- it is pure FHIR-side Task/note activity. PCC-59 was considered and explicitly rejected for this interaction because it is the wrong direction (specialist reporting outward on an existing referral), not because it hasn't been built yet. The DDC dose inquiry and its answer (52 Gy, exceeding the 45 Gy osteoradionecrosis-risk threshold) are NOT included in Task.output -- that exchange is captured as an informal note on Observation/observation-tooth30-radiation-dose, per the base COW IG's 'Requesting additional information' pattern, not as a Task-tracked fulfillment artifact. Final clearance closes this Task as a PCC-57 transaction -- see Interaction 3's completed-state snapshot."
     }
   ]
 }

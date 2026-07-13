@@ -46,6 +46,6 @@ Which stakeholder type is primarily responsible for each IG's conformance, indep
 
 ## Open items this matrix surfaces
 
-- Which encounter(s) in UC01 exercise Provider Access API — user has confirmed "not Encounter #1, needed later" but the specific encounter isn't pinned down yet. Likely candidate: Encounter #6 (clearance visit), where Dr. Sollecito might query IBX's claims history — **not confirmed, don't assume.**
+- Which encounter(s) in UC01 exercise Provider Access API — user has confirmed "not Encounter #1, needed later" but the specific encounter isn't pinned down yet. Likely candidate: Encounter #6 (clearance visit), where Dr. Bellweather might query IBX's claims history — **not confirmed, don't assume.**
 - Whether CARIN Blue Button is exercised anywhere in UC01 at all, or only relevant as an always-on payer capability that this specific use case's narrative never actually calls on.
 - Encounters #2–7 need actual design sessions before their rows can move from U to R/NR — see CLAUDE.md Section 3.

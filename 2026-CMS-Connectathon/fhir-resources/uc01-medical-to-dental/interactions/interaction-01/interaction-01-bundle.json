@@ -536,18 +536,18 @@
         "identifier": [
           {
             "system": "http://hl7.org/fhir/sid/us-npi",
-            "value": "1568374920"
+            "value": "1000000021"
           },
           {
             "system": "http://www.pa.gov/fhir/medical-license",
-            "value": "PA-MD-089456"
+            "value": "PA-MD-000101"
           }
         ],
         "active": true,
         "name": [
           {
             "use": "official",
-            "family": "Galloway",
+            "family": "Whitfield",
             "given": [
               "Thomas",
               "Mark"
@@ -566,7 +566,7 @@
           },
           {
             "system": "email",
-            "value": "thomas.galloway@foxchasecancercenter.org",
+            "value": "marcus.whitfield@example-cancercenter.org",
             "use": "work"
           }
         ],
@@ -604,7 +604,7 @@
                   "display": "Radiation Oncology"
                 }
               ],
-              "text": "Service Chief, Head & Neck Radiation Oncology; board certified by the American Board of Radiology (ABR)"
+              "text": "Attending physician, Head & Neck Radiation Oncology; board certified by the American Board of Radiology (ABR)"
             }
           }
         ]
@@ -627,18 +627,18 @@
         "identifier": [
           {
             "system": "http://hl7.org/fhir/sid/us-npi",
-            "value": "1558294816"
+            "value": "1000000034"
           },
           {
             "system": "http://www.pa.gov/fhir/medical-license",
-            "value": "PA-MD-067829"
+            "value": "PA-MD-000114"
           }
         ],
         "active": true,
         "name": [
           {
             "use": "official",
-            "family": "Schmalbach",
+            "family": "Osei",
             "given": [
               "Cecelia",
               "Marie"
@@ -658,7 +658,7 @@
           },
           {
             "system": "email",
-            "value": "cecelia.schmalbach@foxchasecancercenter.org",
+            "value": "renata.osei@example-cancercenter.org",
             "use": "work"
           }
         ],
@@ -696,7 +696,7 @@
                   "display": "Head and Neck Surgery"
                 }
               ],
-              "text": "Chair, Department of Surgical Oncology; board certified by the American Board of Surgery (ABS); Fellow, American College of Surgeons (FACS)"
+              "text": "Attending surgeon, Surgical Oncology; board certified by the American Board of Surgery (ABS); Fellow, American College of Surgeons (FACS)"
             }
           }
         ]
@@ -719,18 +719,18 @@
         "identifier": [
           {
             "system": "http://hl7.org/fhir/sid/us-npi",
-            "value": "1568472035"
+            "value": "1000000047"
           },
           {
             "system": "http://www.pa.gov/fhir/dental-license",
-            "value": "PA-DDS-045738"
+            "value": "PA-DDS-000123"
           }
         ],
         "active": true,
         "name": [
           {
             "use": "official",
-            "family": "Sollecito",
+            "family": "Bellweather",
             "given": [
               "Thomas",
               "Paul"
@@ -749,7 +749,7 @@
           },
           {
             "system": "email",
-            "value": "tsollecito@dental.upenn.edu",
+            "value": "andrew.bellweather@example-dental.edu",
             "use": "work"
           }
         ],
@@ -788,7 +788,7 @@
                   "display": "Oral Medicine"
                 }
               ],
-              "text": "Professor and Chair, Department of Oral Medicine; Oral Oncology Specialist; Diplomate, American Board of Oral Medicine (1993); Diplomate, American Board of Special Care Dentistry (2005); Faculty, University of Pennsylvania School of Dental Medicine"
+              "text": "Chair, Department of Oral Medicine; Oral Oncology Specialist; Diplomate, American Board of Oral Medicine; Diplomate, American Board of Special Care Dentistry"
             }
           }
         ]
@@ -811,16 +811,16 @@
         "identifier": [
           {
             "system": "http://hl7.org/fhir/sid/us-npi",
-            "value": "1598374562"
+            "value": "1000000050"
           }
         ],
         "active": true,
         "name": [
           {
             "use": "official",
-            "family": "Lin",
+            "family": "Nandakumar",
             "given": [
-              "Teh"
+              "Priya"
             ],
             "suffix": [
               "MS",
@@ -837,7 +837,7 @@
           },
           {
             "system": "email",
-            "value": "teh.lin@foxchasecancercenter.org",
+            "value": "priya.nandakumar@example-cancercenter.org",
             "use": "work"
           }
         ],
@@ -1277,7 +1277,7 @@
         "active": true,
         "practitioner": {
           "reference": "Practitioner/pract-galloway",
-          "display": "Thomas Mark Galloway, MD"
+          "display": "Thomas Mark Whitfield, MD"
         },
         "organization": {
           "reference": "Organization/org-fccc",
@@ -1339,7 +1339,7 @@
         "active": true,
         "practitioner": {
           "reference": "Practitioner/pract-schmalbach",
-          "display": "Cecelia Marie Schmalbach, MD, FACS"
+          "display": "Cecelia Marie Osei, MD, FACS"
         },
         "organization": {
           "reference": "Organization/org-fccc",
@@ -1401,7 +1401,7 @@
         "active": true,
         "practitioner": {
           "reference": "Practitioner/pract-sollecito",
-          "display": "Thomas Paul Sollecito, DMD, MMSc"
+          "display": "Thomas Paul Bellweather, DMD, MMSc"
         },
         "organization": {
           "reference": "Organization/org-penndental",
@@ -1455,7 +1455,7 @@
         "active": true,
         "practitioner": {
           "reference": "Practitioner/pract-lin",
-          "display": "Teh Lin, MS, FACMP"
+          "display": "Priya Nandakumar, MS, FACMP"
         },
         "organization": {
           "reference": "Organization/org-fccc",
@@ -1902,7 +1902,7 @@
           {
             "individual": {
               "reference": "Practitioner/pract-galloway",
-              "display": "Dr. Thomas Galloway"
+              "display": "Dr. Marcus Whitfield"
             }
           }
         ],
@@ -2015,7 +2015,7 @@
         "recordedDate": "2026-07-06",
         "recorder": {
           "reference": "Practitioner/pract-galloway",
-          "display": "Dr. Thomas Galloway"
+          "display": "Dr. Marcus Whitfield"
         },
         "stage": [
           {
@@ -2371,7 +2371,7 @@
         "authoredOn": "2026-07-06",
         "requester": {
           "reference": "PractitionerRole/role-galloway",
-          "display": "Dr. Thomas Galloway \u2014 Radiation Oncology, Fox Chase Cancer Center"
+          "display": "Dr. Marcus Whitfield \u2014 Radiation Oncology, Fox Chase Cancer Center"
         },
         "reasonReference": [
           {
@@ -2474,12 +2474,12 @@
         "authoredOn": "2026-07-06",
         "requester": {
           "reference": "PractitionerRole/role-galloway",
-          "display": "Dr. Thomas Galloway \u2014 Radiation Oncology, Fox Chase Cancer Center"
+          "display": "Dr. Marcus Whitfield \u2014 Radiation Oncology, Fox Chase Cancer Center"
         },
         "performer": [
           {
             "reference": "PractitionerRole/role-sollecito",
-            "display": "Dr. Thomas Sollecito \u2014 Oral Medicine, Penn Dental Medicine"
+            "display": "Dr. Andrew Bellweather \u2014 Oral Medicine, Penn Dental Medicine"
           }
         ],
         "supportingInfo": [
@@ -2643,7 +2643,7 @@
             },
             "who": {
               "reference": "PractitionerRole/role-galloway",
-              "display": "Dr. Thomas Galloway \u2014 Radiation Oncology, Fox Chase Cancer Center"
+              "display": "Dr. Marcus Whitfield \u2014 Radiation Oncology, Fox Chase Cancer Center"
             }
           },
           {
