@@ -4,19 +4,19 @@ Clinician-readable writeups for both UC02 sub-use-cases, following the same patt
 
 ## UC02a — Texas Medicaid, Prior Authorization
 
-- `uc02a-interaction-01-prior-authorization-cycle.md` — CRD → DTR → PAS, the first-of-kind PA-in-a-dental-benefit-context test
-- `uc02a-interaction-02-referral-send-receipt-scheduling.md` — referral + `Appointment`/`AppointmentResponse`
-- `uc02a-interaction-03-surgical-consultation-extraction.md` — the extraction itself
-- `uc02a-interaction-04-post-op-summary-referral-closure.md` — closed-loop summary back to Dr. Parker
-- `uc02a-interaction-05-claims-sharing.md` — **key driver, not deferred** — proves the `ODEOralProfessionalEOB` claims-sharing profile against a dental Medicaid payer
+- **UC02a-I1: The Prior Authorization Wait** (`uc02a-i1-prior-authorization-wait.md`) — CRD → DTR → PAS, the first-of-kind PA-in-a-dental-benefit-context test
+- **UC02a-I2: The Handoff to Oral Surgery** (`uc02a-i2-handoff-to-oral-surgery.md`) — referral + `Appointment`/`AppointmentResponse`
+- **UC02a-I3: The Extraction** (`uc02a-i3-the-extraction.md`) — the extraction itself
+- **UC02a-I4: Closing the Loop** (`uc02a-i4-closing-the-loop.md`) — closed-loop summary back to Dr. Parker
+- **UC02a-I5: Billing the Extraction** (`uc02a-i5-billing-the-extraction.md`) — **key driver, not deferred** — proves the `ODEOralProfessionalEOB` claims-sharing profile against a dental Medicaid payer
 
 ## UC02b — Commercial, Immediate Implant
 
-- `uc02b-interaction-01-benefit-verification-referral-send.md` — real-time benefit check (not PA), CRD returns negative/no-PA-needed
-- `uc02b-interaction-02-referral-receipt-scheduling.md` — same pattern as UC02a's Interaction 2
-- `uc02b-interaction-03-consultation-extraction-implant.md` — first use of the `Device` resource anywhere in this project
-- `uc02b-interaction-04-post-op-summary-device-referral-closure.md` — `Device` record travels with the summary, for future restorative continuity
-- `uc02b-interaction-05-claims-sharing.md` — second proof point for claims-sharing (commercial payer direction). **Open scope question, not yet resolved:** whether this should also anticipate the future crown claim referencing the `Device` record — see the file itself for detail.
+- **UC02b-I1: Checking Coverage, Choosing a Path** (`uc02b-i1-checking-coverage-choosing-path.md`) — real-time benefit check (not PA), CRD returns negative/no-PA-needed
+- **UC02b-I2: The Handoff to Oral Surgery** (`uc02b-i2-handoff-to-oral-surgery.md`) — same pattern as UC02a-I2
+- **UC02b-I3: Extraction and Implant, Same Day** (`uc02b-i3-extraction-implant-same-day.md`) — first use of the `Device` resource anywhere in this project
+- **UC02b-I4: Closing the Loop, Implant Included** (`uc02b-i4-closing-the-loop-implant.md`) — `Device` record travels with the summary, for future restorative continuity
+- **UC02b-I5: Billing for Two Procedures** (`uc02b-i5-billing-two-procedures.md`) — second proof point for claims-sharing (commercial payer direction). **Open scope question, not yet resolved:** whether this should also anticipate the future crown claim referencing the `Device` record — see the file itself for detail.
 
 ## Not yet built
 

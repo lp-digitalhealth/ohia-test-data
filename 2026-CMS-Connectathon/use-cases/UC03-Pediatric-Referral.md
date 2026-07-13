@@ -310,13 +310,13 @@ Timothy's dental services are covered under **Husky B** (Connecticut CHIP). The 
 | FHIR Element | Value | System / Note |
 |---|---|---|
 | **Organization NPI** | 1578293047 | `http://hl7.org/fhir/sid/us-npi` |
-| **Organization Name** | Pediatric Dental Practice — New Haven (Synthetic) | Test data label |
-| **Address** | 450 Congress Avenue, New Haven, CT 06519 | Synthetic practice location |
+| **Organization Name** | Elm City Pediatric Dental Care (Fictional — not a real practice; grounded in New Haven's real Husky B/CTDHP dental network context) | Test data label |
+| **Address** | 785 Whalley Avenue, New Haven, CT 06515 | Fictional location — corrected from a prior placeholder address that erroneously used "Congress Avenue" (an Austin, TX street), a copy-paste artifact from the Texas use cases |
 | **Phone** | (203) 555-0188 | Synthetic |
 | **Type** | Pediatric Dental Practice | Organization type |
 | **Specialty** | Pediatric Dentistry | Primary services |
 | **Practice Management System** | Dental PMS with interim FHIR server | Architecture pattern |
-| **FHIR Endpoint** | `https://pedsdental.example.org/fhir/r4` | Interim FHIR server |
+| **FHIR Endpoint** | `https://elmcitypediatricdental.example.org/fhir/r4` | Interim FHIR server |
 | **NPI Taxonomy Code** | 1223P0221X | Pediatric dentist |
 | **Husky B Participation** | Active — Connecticut Dental Health Partnership / Benecare network | Confirmed via Plan-Net query |
 | **Panel Status** | Accepting new patients | Confirmed via Plan-Net `HealthcareService` query |
@@ -400,7 +400,7 @@ Timothy's dental services are covered under **Husky B** (Connecticut CHIP). The 
 | **Qualification** | DDS — Doctor of Dental Surgery | Dental degree |
 | **License Number** | CT-DDS-052917 | Connecticut dental license (synthetic) |
 | **Specialty Code (Taxonomy)** | 1223P0221X | Pediatric dentist |
-| **Organization** | Pediatric Dental Practice — New Haven | Employment |
+| **Organization** | Elm City Pediatric Dental Care | Employment |
 | **Husky B Participation** | Active — Connecticut Dental Health Partnership / Benecare network | Confirmed via Plan-Net |
 | **Place of Service** | 11 — Office | In-office setting |
 | **Role in Use Case** | Receiving dental provider; sender of bidirectional encounter summaries | Dental evaluation, PRA, treatment; transmits summaries to pediatrician and endocrinologist |
@@ -421,7 +421,7 @@ Timothy's dental services are covered under **Husky B** (Connecticut CHIP). The 
 |---|---|---|
 | **Qualification** | RDH — Registered Dental Hygienist | Credential |
 | **Specialty Code (Taxonomy)** | 124Q00000X | Dental hygienist |
-| **Organization** | Pediatric Dental Practice — New Haven | Employment |
+| **Organization** | Elm City Pediatric Dental Care | Employment |
 | **Role in Use Case** | Oral hygiene education delivery to patient and grandmother | D1330 — oral hygiene instructions |
 
 ---
