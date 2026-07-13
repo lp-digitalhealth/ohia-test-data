@@ -1,0 +1,53 @@
+{
+  "resourceType": "ClaimResponse",
+  "id": "claimresponse-imrt-priorauth",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/davinci-pas/StructureDefinition/profile-claimresponse"]
+  },
+  "identifier": [
+    {
+      "system": "http://ibx.com/pa-response-id",
+      "value": "PA-2026-UC01-001-R1"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+        "code": "professional",
+        "display": "Professional"
+      }
+    ]
+  },
+  "use": "preauthorization",
+  "patient": {
+    "reference": "Patient/patient-john-smith",
+    "display": "John Smith"
+  },
+  "created": "2026-08-03T13:00:00-04:00",
+  "insurer": {
+    "reference": "Organization/org-ibx",
+    "display": "Independence Blue Cross, Inc"
+  },
+  "requestor": {
+    "reference": "Organization/org-fccc",
+    "display": "Fox Chase Cancer Center"
+  },
+  "request": {
+    "reference": "Claim/claim-imrt-priorauth",
+    "display": "IMRT prior authorization request"
+  },
+  "outcome": "complete",
+  "disposition": "Approved. Dental clearance documentation reviewed and accepted as satisfying the prerequisite condition for pre-radiation dental risk mitigation.",
+  "preAuthRef": "IBX-PA-20260803-001",
+  "preAuthPeriod": {
+    "start": "2026-08-03",
+    "end": "2027-02-03"
+  },
+  "note": [
+    {
+      "text": "PA decision returned within CMS Medicare Advantage electronic prior authorization timeliness requirements. No financial/adjudication amounts included — this is a prior authorization decision, not a reimbursement remittance; pricing is out of scope for this iteration, consistent with the rest of this project's built resources."
+    }
+  ]
+}

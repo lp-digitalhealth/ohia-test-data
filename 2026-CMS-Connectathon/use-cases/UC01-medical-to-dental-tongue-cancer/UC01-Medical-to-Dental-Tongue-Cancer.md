@@ -41,9 +41,9 @@ Dr. Sollecito requests the radiation dose data from Dr. Galloway's team. The req
 - Place a dental implant (`D6010` — surgical placement of implant body) immediately to maintain vertical bone support
 - Request a **14-day delay** to the planned radiation start date to allow for extraction healing and implant osseointegration — agreed to by Dr. Galloway
 
-As part of the pre-treatment protocol, Dr. Sollecito fabricates **custom fluoride trays** (`D5986`) for John and establishes a **daily high-potency fluoride regimen** to protect his remaining enamel from radiation-induced decay and reduce long-term caries risk.
+Once the extractions are complete, Dr. Sollecito sends the **dental clearance** back to FCCC as **structured clinical data**. John's app updates to show the clearance is received and the prior authorization is approved. Dr. Galloway's office submits the final authorization to IBX, and John begins treatment on the revised start date **14 days later than originally planned**.
 
-Once the extractions are complete and the fluoride trays are delivered, Dr. Sollecito sends the **dental clearance and fluoride protocol** back to FCCC as **structured clinical data** (`SNOMED 146328D` — dental clearance). John's app updates to show the clearance is received and the prior authorization is approved. Dr. Galloway's office submits the final authorization to IBX, and John begins treatment on the revised start date **14 days later than originally planned**.
+Separately, Dr. Sollecito's own practice still needs to be paid for the extractions and implant it performed. Because John has no standalone dental plan — only IBX's medical coverage — this billing has to travel through the medical benefit, under the same CMS "inextricably linked" exception that made the dental clearance a covered prerequisite in the first place. **This use case does not model the actual claim submission.** Instead, it defines a single, standardized, interoperable data package — assembled from the clinical trail already established across the referral, the dosimetric findings, and the clearance itself — that any dental practice management system can hand off for automatic conversion into whatever format a given payer or CMS requires. The goal is not to solve billing for this one claim, but to establish an interoperable shape the industry can converge on, so that translating dental-as-medical billing into any payer's required format becomes a mechanical, automated step rather than manual, payer-specific work.
 
 ---
 
@@ -60,9 +60,9 @@ The table below maps each key business event in John's care journey to the under
 | **Consolidated Patient View:** John views his FCCC and Penn Dental records in a single app. | US Core / SMART App Launch | US Core Patient Access API for provider clinical records from FCCC and Penn Dental; SMART App Launch as the authorization framework. |
 | **Request Radiation Data:** Dr. Sollecito requests the radiation dose (Gy) at the tooth #30 site. | US Core / ODE (Under Development) | `CommunicationRequest` sent from Penn Dental to the FCCC Medical Physicist. |
 | **Send Dosimetry Data:** Dr. Teh Lin sends the 52 Gray dose map for tooth #30. | US Core / ODE (Under Development) | `Observation` (radiation dose) wrapped in a `DiagnosticReport` sent to Dr. Sollecito. |
-| **Request Treatment Delay:** Dr. Sollecito asks Dr. Galloway to push the radiation start date back 14 days. | US Core / ODE (Under Development) | `Communication` sent to FCCC; updates the `CarePlan` and `ServiceRequest` start dates. |
+| **Request Treatment Delay:** Dr. Sollecito asks Dr. Galloway to push the radiation start date back. | US Core / ODE (Under Development) | **Correction:** not a formal `Communication` resource — modeled as an informal inter-provider note, the same mechanism as the DDC dose request (see Interaction 2 appendix). The resulting revised start date is captured formally via updates to `ServiceRequest`/`CarePlan`. |
 | **Document Procedures:** Dr. Sollecito records extractions (#4, #17, #30) and implant placement. | US Core / ODE (Under Development) | `Procedure` resources (CDT codes) + `Observation` (`bodySite`: tooth numbering). |
-| **Submit Dental Clearance:** Dr. Sollecito sends the final "Orally Fit" attestation to FCCC. | ODE (Under Development) / CDex | `ClinicalImpression` (attestation) pushed from Penn Dental to FCCC via CDex provider-to-provider structured data exchange; CDex Task closed on clearance receipt. |
+| **Submit Dental Clearance:** Dr. Sollecito sends the final "Orally Fit" attestation to FCCC. | ODE (Under Development) / CDex | `ClinicalImpression` (attestation) pushed from Penn Dental to FCCC via CDex provider-to-provider structured data exchange; closes out via the **same referral Task** established at Interaction 1 (see below — not a second Task). |
 | **Submit Prior Auth:** Dr. Galloway's office submits the final IMRT request with dental data attached. | Da Vinci PAS / CDex | `Claim` (PA) submitted to IBX via PAS; dental clearance bundle transmitted to IBX as a CDex unsolicited attachment via the `$submit-attachment` operation, referenced in `Claim.supportingInfo`. |
 | **Final Approval:** IBX approves the treatment; John's app shows "Approved." | Da Vinci PAS / Da Vinci PDex (PPA Profile) / CARIN Blue Button | `ClaimResponse` returned via PAS; `ExplanationOfBenefit` (`use = preauthorization`) made available to John via PDex PPA Profile within one business day of PA decision; patient-facing app developer implements CARIN Blue Button as the patient access API framework to query IBX's endpoint. |
 
@@ -116,15 +116,32 @@ This use case exercises a **multi-system, multi-organization clinical workflow**
 | `ClinicalImpression` | ODE | Dr. Sollecito's structured dental clearance attestation — the structured data equivalent of the dental clearance form |
 | `Appointment` / `AppointmentResponse` | US Core | Dental appointment scheduling for John at Penn Dental; surfaced in patient app via FHIR Subscriptions |
 | `Communication` / `CommunicationRequest` | US Core / ODE | IMRT delay request and authorization between providers (later encounter). **Correction:** the DDC data request/response between Dr. Sollecito and Dr. Lin is *not* modeled as `Communication`/`CommunicationRequest` — see Encounter #2 appendix; it's an informal inter-provider note, not a formal resource, since it's a request for existing information (not an order) between practitioners already in an established referral relationship. |
-| `Task` | Da Vinci DTR / CDex | Tracks the open dental clearance documentation requirement as an actionable item; closed when structured clearance is returned |
+| `Task` | Da Vinci DTR / CDex / IHE 360X | **Correction:** a single Task tracks both the referral relationship AND the payer's dental-clearance documentation requirement together — not two separate Task resources. Per base COW's own guidance, one Coordination Task per Request is the preferred pattern, with `Task.output` absorbing all fulfillment artifacts (the `ClinicalImpression` clearance included) and `businessStatus` progressing to reflect documentation status. "Multiple Coordination Tasks per Request" is explicitly out of scope for the 360X-adopted COW subset this project follows (see `ode-360x-adapter` crosswalk). |
 | `Questionnaire` / `QuestionnaireResponse` | Da Vinci DTR | Payer's dental clearance documentation requirements and completed provider responses pre-populated from EHR data |
 | `Claim` (PA) | Da Vinci PAS | Prior authorization request submitted to health plan after DTR documentation package is complete |
 | `ClaimResponse` | Da Vinci PAS | Health plan PA approval response — includes PA number and approved service details |
-| `ExplanationOfBenefit` | CARIN Blue Button | John's app displays claim submissions, adjudication results, and patient cost responsibility as claims process through the health plan |
+| `ExplanationOfBenefit` | CARIN Blue Button | Two distinct uses, not to be conflated: (1) `use: preauthorization` — John's app displays the PA decision (PDex PPA profile); (2) **new**, `use: claim` — a non-financial, oral-optimized profile (`ODEOralProfessionalEOB`, derived from C4BB Professional/NonClinician Basis) representing the interoperable claims-ready bundle for Dr. Sollecito's dental procedures billed to IBX's medical benefit. See the new subsection below this table for detail. |
 | `Subscription` / `SubscriptionStatus` | FHIR Subscriptions Backport IG | Event notifications pushed to John's patient app at each key workflow milestone — referral sent, appointment scheduled, DDC received, clearance transmitted, PA approved |
 | `Bundle` | FHIR Core | Transaction and document bundles wrapping multi-resource exchanges — referral packet, DDC report, PA submission, and dental clearance return |
 | `AuditEvent` | US Core | Logging of cross-organizational data access events for compliance and provenance tracking |
 | `Provenance` | US Core | Records the chain of custody for clinical data — who created, transmitted, and received each resource throughout the workflow |
+
+---
+
+### The Oral-Optimized Claims-Sharing Profile (`ODEOralProfessionalEOB`)
+
+This use case surfaces a real gap in existing FHIR IGs: **there is no single ExplanationOfBenefit profile that is simultaneously CMS-1500-compatible and dentally-aware.** CARIN Blue Button defines five EOB profile families — Inpatient, Outpatient, Pharmacy, Oral, and Professional/NonClinician — but each is scoped to one claim type. Professional/NonClinician is the profile structurally proven to map to CMS-1500 (its `careTeam.role: referring` element confirms directly to CMS-1500 Box 17; `diagnosis[]` to Box 21; `supportingInfo[servicefacility]` to Box 32); but it has no concept of a tooth. Oral has the tooth (`item.bodySite`, dual CDT/CPT-capable coding); but it maps to the ADA Dental Claim Form, not CMS-1500.
+
+`ODEOralProfessionalEOB` is derived from CARIN BB's **Professional/NonClinician Basis** profile (the non-financial variant, intended by CARIN BB itself for exactly this kind of external-IG reuse), extended with the oral must-support elements borrowed from Oral's own pattern:
+
+- `item.bodySite` required, using the **ADA Universal Tooth Designation System** only (confirmed directly with the ADA that FDI/ISO 3950 notation is not used for US dental data — this resolves a previously-open item in the ODE interface's own deferred-gaps list)
+- `item.productOrService` must carry **CDT always** (a HIPAA requirement for any dental claim, regardless of which payer receives it) **and CPT/HCPCS wherever a crosswalk is knowable**, so the same package works whether the receiving payer is medical or dental
+
+**Deliberately non-financial in this iteration**: `status: draft`, `outcome: queued`, no `unitPrice`/`net`/`total`/`adjudication`. This is not an oversight — the profile is structured so pricing and adjudication can be layered onto the identical shape in a future Connectathon without redesigning anything, matching CARIN BB's own convention for its "Basis" profiles.
+
+**Dual-purpose by design, not by accident:** this use case (UC01) exercises the profile in its medical-payer direction — Dr. Sollecito's dental procedures, billed to IBX's medical benefit under the CMS "inextricably linked" exception, with the CPT crosswalk populated. UC02 (dental-to-dental) is expected to exercise the same profile's dental-payer direction — CDT-only, no crosswalk needed, submitted to an actual dental plan. One profile, both directions, proving the shape generalizes rather than being use-case-specific.
+
+**Explicit scope boundary:** this profile defines the interoperable *package*, not a claim submission. Converting the package into any specific payer's required format — CDT-with-modifier, CPT-crosswalked, CMS-1500 fields, an 837D or 837P — is downstream work performed by the receiving PMS or a clearinghouse, not something this use case's resources produce or perform. The goal is industry consensus on one interoperable shape upstream of that conversion, not a solved claim for this one patient.
 
 ---
 
@@ -507,7 +524,7 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 | **Performer** | Dr. Thomas Sollecito (DMD) | Performing dentist |
 | **Performed DateTime** | 2026-07-29 | Date of procedure |
 | **Body Site** | Tooth #30 (FDI: 46) | Lower right first molar |
-| **Outcome Code** | SNOMED 394839003 | Tooth extraction |
+| **Outcome Code** | *Unverified — see Section 6 caution* | Tooth extraction (text-only in built resources) |
 | **Reason** | Excessive radiation dose (52 Gy exceeds 45 Gy threshold); high osteoradionecrosis risk. Scheduled immediate implant placement. | Clinical indication |
 
 ##### Implant Placement: Tooth #30
@@ -522,7 +539,7 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 | **Performed DateTime** | 2026-07-29 | Same-day as extraction |
 | **Body Site** | Tooth #30 site (FDI: 46) | Lower right first molar region |
 | **Reason** | Immediate implant placement following extraction; maintains vertical bone support; improves post-radiation oral function. | Clinical indication |
-| **Outcome Code** | SNOMED 234223000 | Implant placement successful |
+| **Outcome Code** | *Unverified — see Section 6 caution* | Implant placement successful (text-only in built resources) |
 
 #### Observation (Dosimetric Dental Contouring Data)
 
@@ -576,14 +593,14 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 | FHIR Element | Value | Notes |
 |---|---|---|
 | **Status** | Completed | Assessment complete |
-| **Assessment Code** | SNOMED 146328D | Dental clearance (general) |
+| **Assessment Code** | *Unverified — see Section 6 caution* | Dental clearance (general) (text-only in built resources) |
 | **Subject** | John Smith | Patient reference |
 | **Date** | 2026-07-31 | Clearance date |
 | **Assessor** | Dr. Thomas Sollecito (DMD, Oral Oncology) | Assessing provider |
 | **Summary** | **DENTAL CLEARANCE APPROVED for head & neck IMRT.** Patient evaluated and treated for pre-radiation dental risk. Three teeth (#4, #17, #30) extracted. Tooth #30: immediate implant placed due to DDC-identified high-dose site (52 Gy > 45 Gy threshold). Remaining dentition assessed as suitable for radiation support therapy. Patient counseled on osteoradionecrosis risk, hygiene protocols, and follow-up imaging. No contraindications to IMRT initiation. | Clinical assessment summary |
 | **Finding** | Diagnosis: Pre-radiation dental risk assessment—MANAGED | Primary finding |
 | **Problem List** | – Teeth #4, #17, #30 extraction completed; – Implant #30 immediately placed; – Remaining dentition suitable for radiation; – Osteoradionecrosis prevention protocol initiated | Problem list |
-| **Recommendations** | 1. Clearance transmitted to FCCC Radiation Oncology; 2. Recommend 14-day healing window for extractions; 3. Fluoride gel applications post-radiation; 4. Dental follow-up imaging at 6, 12, 24 months post-IMRT | Recommendations |
+| **Recommendations** | 1. Clearance transmitted to FCCC Radiation Oncology; 2. Recommend 14-day healing window for extractions; 3. Dental follow-up imaging at 6, 12, 24 months post-IMRT | Recommendations |
 
 ---
 
@@ -598,13 +615,17 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 
 #### SNOMED CT Clinical Codes
 
-| SNOMED Code | Description | Application |
+**⚠️ CAUTION — this table has not been verified and should not be trusted as-is.** During Interaction 3's build, `146328D` was found to be an invalid SNOMED CT identifier (SNOMED identifiers are purely numeric; this one has a trailing letter). Attempts to verify the other four codes below via general web search were inconclusive-to-contradictory: `394839003` and `234223000` returned no confirmation, and a different code (`55162003`) surfaced instead for "tooth extraction." General web search is a poor tool for verifying SNOMED concepts specifically (SNOMED's browser content isn't well-indexed by search engines), so this may reflect a tooling limitation rather than confirmation that all five codes are wrong — but none should be used in production or test resources until checked against an actual SNOMED terminology browser (e.g. `browser.ihtsdotools.org`).
+
+**Resolution used in this project's built FHIR resources:** all of the codes below are represented as **text-only** (`code.text`, no `coding`) in Interaction 3's `Procedure`, `Observation`, and `ClinicalImpression` resources, pending a proper terminology browser lookup by someone with SNOMED access.
+
+| SNOMED Code (as originally written — UNVERIFIED) | Description | Application |
 |---|---|---|
-| 146328D | Dental clearance | Clearance attestation |
-| 234223000 | Implant placement successful | Procedure outcome |
-| 394839003 | Tooth extraction (procedure) | Extraction procedures |
-| 276339004 | Osteoradionecrosis | Osteoradionecrosis risk indicator |
-| 52474006 | Intensity-modulated radiation therapy (IMRT) | Treatment modality |
+| ~~146328D~~ | Dental clearance | **Confirmed invalid** (not a real SNOMED format) |
+| ~~234223000~~ | Implant placement successful | Unconfirmed |
+| ~~394839003~~ | Tooth extraction (procedure) | Unconfirmed — `55162003` surfaced instead in search |
+| ~~276339004~~ | Osteoradionecrosis | Unconfirmed — `109716001` ("Osteoradionecrosis of the mandible") surfaced instead, not yet confirmed as the right match |
+| ~~52474006~~ | Intensity-modulated radiation therapy (IMRT) | Not checked yet |
 
 #### CDT (Current Dental Terminology) Codes
 
@@ -653,7 +674,7 @@ Any `Encounter` resources built for this use case must match this 7-encounter en
 | **Extraction #30 + Implant Placement** | 2026-07-29 | 09:00 | Dr. Sollecito | Eaglesoft |
 | **Dental Clearance Documented** | 2026-07-31 | 16:00 | Dr. Sollecito | Eaglesoft |
 | **Clearance Transmitted to FCCC** | 2026-07-31 | 16:30 | Penn Dental EHR | Eaglesoft → Cerner (CDex push) |
-| **PA Submitted to IBX** | 2026-08-01 | 09:00 | FCCC Billing/RCM | Cerner → IBX (837P via clearinghouse) |
+| **PA Submitted to IBX** | 2026-08-01 | 09:00 | FCCC Billing/RCM | Cerner → IBX (FHIR `Claim` via Da Vinci PAS — corrected; this row previously said "837P via clearinghouse," which is the reimbursement billing transaction type, not the prior-auth request type this use case actually exercises) |
 | **14-Day Healing Window** | 2026-08-01 through 2026-08-14 | — | Patient | — |
 | **PA Approved by IBX** | 2026-08-03 | 13:00 | IBX Medical Review | IBX system → FCCC (ClaimResponse) |
 | **Original IMRT Start (Moved)** | 2026-08-10 | — | — | — |

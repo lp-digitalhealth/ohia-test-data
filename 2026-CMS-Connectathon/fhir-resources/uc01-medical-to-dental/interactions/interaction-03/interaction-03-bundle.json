@@ -3073,6 +3073,654 @@
         "method": "PUT",
         "url": "Task/task-360x-dental-referral"
       }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure-procedure-extraction-tooth4",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-extraction-tooth4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D7210",
+              "display": "Extraction, erupted tooth requiring removal of bone and/or sectioning of tooth"
+            }
+          ],
+          "text": "Surgical extraction of tooth #4"
+        },
+        "subject": {
+          "reference": "Patient/patient-john-smith",
+          "display": "John Smith"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-02-dental-exam",
+          "display": "Dental exam & radiographs, 2026-07-23"
+        },
+        "performedDateTime": "2026-07-27",
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/pract-sollecito",
+              "display": "Dr. Thomas Sollecito"
+            }
+          }
+        ],
+        "bodySite": [
+          {
+            "text": "Tooth #4"
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-john-smith-tongue-cancer",
+            "display": "Stage IV squamous cell carcinoma, lateral border of tongue"
+          }
+        ],
+        "note": [
+          {
+            "text": "Pre-radiation extraction per dental clearance protocol; periapical pathology identified on 2026-07-23 exam."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/procedure-extraction-tooth4"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure-procedure-extraction-tooth17",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-extraction-tooth17",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D7210",
+              "display": "Extraction, erupted tooth requiring removal of bone and/or sectioning of tooth"
+            }
+          ],
+          "text": "Surgical extraction of tooth #17 (impacted)"
+        },
+        "subject": {
+          "reference": "Patient/patient-john-smith",
+          "display": "John Smith"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-02-dental-exam",
+          "display": "Dental exam & radiographs, 2026-07-23"
+        },
+        "performedDateTime": "2026-07-28",
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/pract-sollecito",
+              "display": "Dr. Thomas Sollecito"
+            }
+          }
+        ],
+        "bodySite": [
+          {
+            "text": "Tooth #17"
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-john-smith-tongue-cancer",
+            "display": "Stage IV squamous cell carcinoma, lateral border of tongue"
+          }
+        ],
+        "note": [
+          {
+            "text": "Pre-radiation extraction per dental clearance protocol; impacted tooth identified on 2026-07-23 exam."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/procedure-extraction-tooth17"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure-procedure-extraction-implant-tooth30",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-extraction-implant-tooth30",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D7210",
+              "display": "Extraction, erupted tooth requiring removal of bone and/or sectioning of tooth"
+            },
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D6010",
+              "display": "Surgical placement of implant body: endosteal implant"
+            }
+          ],
+          "text": "Surgical extraction of tooth #30 with immediate endosteal implant placement"
+        },
+        "subject": {
+          "reference": "Patient/patient-john-smith",
+          "display": "John Smith"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-02-dental-exam",
+          "display": "Dental exam & radiographs, 2026-07-23"
+        },
+        "performedDateTime": "2026-07-29",
+        "performer": [
+          {
+            "actor": {
+              "reference": "Practitioner/pract-sollecito",
+              "display": "Dr. Thomas Sollecito"
+            }
+          }
+        ],
+        "bodySite": [
+          {
+            "text": "Tooth #30"
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Observation/observation-tooth30-radiation-dose",
+            "display": "Site-specific radiation dose at tooth #30 (52 Gy, exceeds 45 Gy safe threshold)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Extraction and immediate implant placement, rather than delayed placement post-radiation, driven directly by the DDC dose finding (52 Gy > 45 Gy safe threshold) obtained in Interaction 2. Immediate placement avoids placing an implant into a field that will have already received high-dose radiation."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/procedure-extraction-implant-tooth30"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-dental-clearance-disposition",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-dental-clearance-disposition",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Dental clearance disposition for pre-radiation therapy \u2014 NO VERIFIED CODE. The use case appendix's original code (SNOMED 146328D) is invalid (SNOMED CT identifiers are purely numeric). Attempts to independently verify a replacement precomposed SNOMED concept for 'dental clearance'/'fit for procedure' as a disposition finding were inconclusive (see companion guide troubleshooting notes) -- left as text-only pending a proper SNOMED terminology browser lookup."
+        },
+        "subject": {
+          "reference": "Patient/patient-john-smith",
+          "display": "John Smith"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-02-dental-exam",
+          "display": "Dental exam & radiographs, 2026-07-23"
+        },
+        "effectiveDateTime": "2026-07-31",
+        "issued": "2026-07-31T16:00:00-04:00",
+        "performer": [
+          {
+            "reference": "Practitioner/pract-sollecito",
+            "display": "Dr. Thomas Sollecito"
+          }
+        ],
+        "valueCodeableConcept": {
+          "text": "Cleared for head & neck IMRT \u2014 no contraindications"
+        },
+        "derivedFrom": [
+          {
+            "reference": "Procedure/procedure-extraction-tooth4"
+          },
+          {
+            "reference": "Procedure/procedure-extraction-tooth17"
+          },
+          {
+            "reference": "Procedure/procedure-extraction-implant-tooth30"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-dental-clearance-disposition"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ClinicalImpression-clinicalimpression-dental-clearance",
+      "resource": {
+        "resourceType": "ClinicalImpression",
+        "id": "clinicalimpression-dental-clearance",
+        "status": "completed",
+        "code": {
+          "text": "Dental clearance for head & neck IMRT \u2014 NO VERIFIED CODE (see observation-dental-clearance-disposition.json for terminology note)"
+        },
+        "subject": {
+          "reference": "Patient/patient-john-smith",
+          "display": "John Smith"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-02-dental-exam",
+          "display": "Dental exam & radiographs, 2026-07-23"
+        },
+        "date": "2026-07-31T16:00:00-04:00",
+        "assessor": {
+          "reference": "Practitioner/pract-sollecito",
+          "display": "Dr. Thomas Sollecito, DMD, MMSc \u2014 Oral Medicine"
+        },
+        "problem": [
+          {
+            "reference": "Condition/condition-john-smith-tongue-cancer",
+            "display": "Stage IV squamous cell carcinoma, lateral border of tongue"
+          }
+        ],
+        "investigation": [
+          {
+            "code": {
+              "text": "Pre-radiation dental risk assessment and treatment"
+            },
+            "item": [
+              {
+                "reference": "Procedure/procedure-extraction-tooth4",
+                "display": "Extraction, tooth #4"
+              },
+              {
+                "reference": "Procedure/procedure-extraction-tooth17",
+                "display": "Extraction, tooth #17"
+              },
+              {
+                "reference": "Procedure/procedure-extraction-implant-tooth30",
+                "display": "Extraction + immediate implant, tooth #30"
+              },
+              {
+                "reference": "Observation/observation-tooth30-radiation-dose",
+                "display": "Site-specific radiation dose at tooth #30 (52 Gy)"
+              }
+            ]
+          }
+        ],
+        "finding": [
+          {
+            "itemReference": {
+              "reference": "Observation/observation-dental-clearance-disposition",
+              "display": "Cleared for head & neck IMRT \u2014 no contraindications"
+            }
+          }
+        ],
+        "summary": "DENTAL CLEARANCE APPROVED for head & neck IMRT. Patient evaluated and treated for pre-radiation dental risk. Three teeth (#4, #17, #30) extracted. Tooth #30: immediate implant placed due to DDC-identified high-dose site (52 Gy > 45 Gy threshold). Remaining dentition assessed as suitable for radiation support therapy. Patient counseled on osteoradionecrosis risk, hygiene protocols, and follow-up imaging. No contraindications to IMRT initiation.",
+        "protocol": [
+          "https://oralhealthalliance.net/fhir/protocol/pre-radiation-dental-clearance"
+        ],
+        "note": [
+          {
+            "text": "Recommendations: (1) Clearance transmitted to FCCC Radiation Oncology; (2) Recommend 14-day healing window for extractions; (3) Dental follow-up imaging at 6, 12, and 24 months post-IMRT."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ClinicalImpression/clinicalimpression-dental-clearance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DocumentReference-documentreference-dental-clearance-note",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentreference-dental-clearance-note",
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11488-4",
+              "display": "Consultation note"
+            }
+          ]
+        },
+        "category": [
+          {
+            "text": "Dental clearance transmission"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-john-smith",
+          "display": "John Smith"
+        },
+        "date": "2026-07-31T16:30:00-04:00",
+        "author": [
+          {
+            "reference": "Practitioner/pract-sollecito",
+            "display": "Dr. Thomas Sollecito"
+          }
+        ],
+        "custodian": {
+          "reference": "Organization/org-penndental",
+          "display": "Penn Dental Medicine"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/hl7-v2",
+              "title": "PCC-57 Referral Outcome \u2014 OMG^O19 + C-CDA Consultation Note"
+            }
+          }
+        ],
+        "context": {
+          "related": [
+            {
+              "reference": "ClinicalImpression/clinicalimpression-dental-clearance",
+              "display": "Dental clearance attestation"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "Represents the C-CDA Consultation Note component of the PCC-57 (Referral Outcome) 360X transaction that transmits John's dental clearance from Penn Dental to FCCC. Per the ode-360x-adapter crosswalk, PCC-57 travels as OMG^O19 + an accompanying C-CDA document; this DocumentReference is the FHIR-side representation of that document, listed as part of Task.output alongside ClinicalImpression, Procedure, and the disposition Observation."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DocumentReference/documentreference-dental-clearance-note"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ServiceRequest-servicerequest-dental-referral",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "servicerequest-dental-referral",
+        "meta": {
+          "profile": [
+            "https://oralhealthalliance.net/fhir/StructureDefinition/ode-medical-to-dental-referral"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC01-001"
+          }
+        ],
+        "status": "completed",
+        "intent": "order",
+        "priority": "urgent",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "103696004",
+                "display": "Patient referral to specialist"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "99242",
+              "display": "Office/outpatient consultation"
+            }
+          ],
+          "text": "Pre-radiation dental clearance evaluation"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "C02.1",
+                "display": "Malignant neoplasm of border of tongue"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "Z01.818",
+                "display": "Encounter for other preprocedural examination"
+              }
+            ]
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-john-smith-tongue-cancer",
+            "display": "Stage IV squamous cell carcinoma, lateral border of tongue"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-john-smith",
+          "display": "John Smith"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-imrt-order",
+          "display": "Oncology visit \u2014 IMRT order & CRD trigger, 2026-07-06"
+        },
+        "occurrenceDateTime": "2026-07-23",
+        "authoredOn": "2026-07-06",
+        "requester": {
+          "reference": "PractitionerRole/role-galloway",
+          "display": "Dr. Thomas Galloway \u2014 Radiation Oncology, Fox Chase Cancer Center"
+        },
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-sollecito",
+            "display": "Dr. Thomas Sollecito \u2014 Oral Medicine, Penn Dental Medicine"
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "List/list-john-smith-medications",
+            "display": "John Smith's medication list (ODEMedicationList)"
+          },
+          {
+            "reference": "AllergyIntolerance/allergyintolerance-john-smith-penicillin",
+            "display": "Penicillin allergy"
+          },
+          {
+            "reference": "ServiceRequest/servicerequest-imrt-order",
+            "display": "IMRT order requiring dental clearance"
+          }
+        ],
+        "note": [
+          {
+            "text": "Comprehensive dental evaluation, imaging, and clearance assessment prior to head & neck IMRT. Provide site-specific dosimetric dental contouring (DDC) data for tooth #30 to determine extraction vs. preservation strategy. Clearance must be returned within 21 days of this referral (by 2026-07-27) per osteoradionecrosis risk mitigation protocol. Supporting imaging to follow via a separate DocumentReference/$submit-attachment push per ODE medical-to-dental convention (this direction does not support pull)."
+          },
+          {
+            "text": "STATUS SNAPSHOT NOTE: this file represents the Interaction 3 (2026-07-31) version of this ServiceRequest, with status updated to 'completed' per the ode-360x-adapter crosswalk's PCC-57 row (Request.status: completed). See the Interaction 1 version of this same resource (same id) for the original 'active' status at intake."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/servicerequest-dental-referral"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Task-task-360x-dental-referral",
+      "resource": {
+        "resourceType": "Task",
+        "id": "task-360x-dental-referral",
+        "meta": {
+          "profile": [
+            "https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC01-001"
+          }
+        ],
+        "status": "completed",
+        "businessStatus": {
+          "coding": [
+            {
+              "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+              "code": "outcome-final",
+              "display": "Outcome Final"
+            }
+          ]
+        },
+        "intent": "order",
+        "priority": "urgent",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/CodeSystem/task-code",
+              "code": "fulfill"
+            }
+          ]
+        },
+        "focus": {
+          "reference": "ServiceRequest/servicerequest-dental-referral",
+          "display": "Referral: Pre-radiation dental clearance evaluation"
+        },
+        "for": {
+          "reference": "Patient/patient-john-smith",
+          "display": "John Smith"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-02-dental-exam",
+          "display": "Dental exam & radiographs, 2026-07-23"
+        },
+        "authoredOn": "2026-07-06T10:30:00-04:00",
+        "lastModified": "2026-07-31T16:30:00-04:00",
+        "requester": {
+          "reference": "Organization/org-fccc",
+          "display": "Fox Chase Cancer Center"
+        },
+        "owner": {
+          "reference": "PractitionerRole/role-sollecito",
+          "display": "Dr. Thomas Sollecito \u2014 Oral Medicine, Penn Dental Medicine"
+        },
+        "input": [
+          {
+            "type": {
+              "text": "Referral supporting resource \u2014 diagnosis"
+            },
+            "valueReference": {
+              "reference": "Condition/condition-john-smith-tongue-cancer",
+              "display": "Stage IV squamous cell carcinoma, lateral border of tongue"
+            }
+          },
+          {
+            "type": {
+              "text": "Referral supporting resource \u2014 medication list"
+            },
+            "valueReference": {
+              "reference": "List/list-john-smith-medications",
+              "display": "John Smith's medication list"
+            }
+          },
+          {
+            "type": {
+              "text": "Referral supporting resource \u2014 allergy"
+            },
+            "valueReference": {
+              "reference": "AllergyIntolerance/allergyintolerance-john-smith-penicillin",
+              "display": "Penicillin allergy"
+            }
+          }
+        ],
+        "output": [
+          {
+            "type": {
+              "text": "Referral outcome \u2014 dental clearance attestation"
+            },
+            "valueReference": {
+              "reference": "ClinicalImpression/clinicalimpression-dental-clearance",
+              "display": "Dental clearance for head & neck IMRT"
+            }
+          },
+          {
+            "type": {
+              "text": "Referral outcome \u2014 procedure performed"
+            },
+            "valueReference": {
+              "reference": "Procedure/procedure-extraction-tooth4",
+              "display": "Extraction, tooth #4"
+            }
+          },
+          {
+            "type": {
+              "text": "Referral outcome \u2014 procedure performed"
+            },
+            "valueReference": {
+              "reference": "Procedure/procedure-extraction-tooth17",
+              "display": "Extraction, tooth #17"
+            }
+          },
+          {
+            "type": {
+              "text": "Referral outcome \u2014 procedure performed"
+            },
+            "valueReference": {
+              "reference": "Procedure/procedure-extraction-implant-tooth30",
+              "display": "Extraction + immediate implant, tooth #30"
+            }
+          },
+          {
+            "type": {
+              "text": "Referral outcome \u2014 coded disposition"
+            },
+            "valueReference": {
+              "reference": "Observation/observation-dental-clearance-disposition",
+              "display": "Cleared for head & neck IMRT"
+            }
+          },
+          {
+            "type": {
+              "text": "Referral outcome \u2014 transmitted document"
+            },
+            "valueReference": {
+              "reference": "DocumentReference/documentreference-dental-clearance-note",
+              "display": "PCC-57 C-CDA Consultation Note"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Task snapshot as of Interaction 3 (2026-07-31, 16:30) \u2014 the PCC-57 Referral Outcome transaction. status=completed and businessStatus=outcome-final per the ode-360x-adapter crosswalk's transaction table. Task.owner is now set (Dr. Sollecito's PractitionerRole) \u2014 populated at PCC-56 accept (2026-07-07, not yet modeled as its own artifact) and carried forward here; see the Interaction 1 version of this Task for the intake-state snapshot where owner is correctly absent. Task.output populated per the crosswalk's PCC-57 row: ClinicalImpression, Procedure (x3), a coded disposition Observation, and DocumentReference. This Task, across its lifecycle, absorbs both the referral relationship AND the payer's dental-clearance documentation requirement -- confirmed as a single-Task design per base COW's own guidance (see Interaction 1's Task note for full reasoning)."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Task/task-360x-dental-referral"
+      }
     }
   ]
 }

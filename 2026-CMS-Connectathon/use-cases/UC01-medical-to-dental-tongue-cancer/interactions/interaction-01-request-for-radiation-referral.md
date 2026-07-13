@@ -14,7 +14,11 @@ The moment the order is entered into Dr. Galloway's EHR, two things happen autom
 
 2. **A referral is generated and sent** to Dr. Thomas Sollecito at Penn Dental Medicine, along with the relevant portions of John's oncology record. The clock starts here: Dr. Sollecito has fewer than 21 days to evaluate John and return a clearance, because the radiation start date is already on the calendar.
 
-John receives a notification on his patient app that a referral has been sent — the first of several real-time updates he'll get throughout this process without needing to call anyone.
+## What John Sees (patient-facing)
+
+📱 **Notification:** *"Referral sent to Penn Dental Medicine."*
+
+This is the first of several real-time updates John gets throughout this process without needing to call anyone. Behind the scenes, this fires the moment the referral's tracking record is created — John's app doesn't show him anything about the insurance check or the coverage-requirement logic, just this one plain-language milestone.
 
 ## Why this matters for testing
 
