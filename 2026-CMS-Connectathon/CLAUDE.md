@@ -1,6 +1,6 @@
 # CLAUDE.md — OHIA CMS Connectathon Test Data
 
-**Doc version:** 4.3
+**Doc version:** 4.7
 **Last updated:** 2026-07-13 (by: claude.ai chat)
 **Repo:** `lp-digitalhealth/ohia-test-data`, folder `2026-CMS-Connectathon/`
 
@@ -84,7 +84,7 @@ Full breakdown and the 6-vs-7 decision reasoning: `use-cases/UC01-medical-to-den
 | 3 (renumbered) | Encounter #6 | **The Clearance** — Dr. Bellweather's structured dental clearance transmitted to FCCC, closing the referral loop and satisfying the payer's documentation requirement | ✅ Built + QA'd |
 | 4 | Related to encounter #1's CRD/DTR pathway | Packaging treatment for submission to medical payer (PA Claim/ClaimResponse) | ✅ Built |
 
-**Fold decision (this session):** the extension request (Dr. Bellweather/Penn Dental telling Dr. Whitfield the radiation start needs to move from 2026-08-10 to 2026-08-24, due to extraction/implant healing time) is modeled using the **identical mechanism** as the DDC dose inquiry — an informal note, per the base COW "Requesting additional information" pattern — even though it happens at a different point in the clinical timeline (after clearance/PA approval, not during the dental exam). Since both are the same pattern, Interaction 3 was folded into Interaction 2 rather than kept as a separate interaction. The use-case writeup (`interaction-02-request-for-additional-information.md`) now covers both; **the FHIR resources for the extension-request portion are not yet built** — only the DDC dose inquiry's resources exist so far (Encounter, 2 DiagnosticReports, Observation).
+**Fold decision (this session):** the extension request (Dr. Bellweather/Penn Dental telling Dr. Whitfield the radiation start needs to move from 2026-08-10 to 2026-08-24, due to extraction/implant healing time) is modeled using the **identical mechanism** as the DDC dose inquiry — an informal note, per the base COW "Requesting additional information" pattern — even though it happens at a different point in the clinical timeline (after clearance/PA approval, not during the dental exam). Since both are the same pattern, Interaction 3 was folded into Interaction 2 rather than kept as a separate interaction. The use-case writeup (`uc01-i2-dental-exam-open-questions.md`) now covers both; **the FHIR resources for the extension-request portion are not yet built** — only the DDC dose inquiry's resources exist so far (Encounter, 2 DiagnosticReports, Observation).
 
 **Known gaps in Interaction 2, not yet fixed:**
 - The Task transition to `in-progress` (with the businessStatus update, communicated back to the EHR through the bridge) **before** the dental exam happens — flagged, not yet built. This should be the actual first step of Interaction 2, and is currently missing.
@@ -93,7 +93,7 @@ Full breakdown and the 6-vs-7 decision reasoning: `use-cases/UC01-medical-to-den
 
 **Interaction 3 — "The Clearance" (Encounter #6), scoped in detail, business-terms writeup built, FHIR resources not yet built:**
 
-What happens (business terms, full writeup in `use-cases/.../interaction-03-the-clearance.md`): after all three teeth are addressed (#4, #17 extracted; #30 extracted + immediate implant per the dose finding from Interaction 2), Dr. Bellweather re-examines John, confirms healing, and formally documents clearance — structured data, not a PDF or fax — sent to FCCC 30 minutes later. Two independent things close at this single moment: **(1)** the referral relationship itself (Dr. Bellweather reporting back what Dr. Whitfield asked for in Interaction 1), and **(2)** the payer's specific documentation requirement (the dental-clearance prerequisite IBX flagged back in Interaction 1's CRD/DTR pathway) — same real-world event, two separate things being tracked.
+What happens (business terms, full writeup in `use-cases/.../uc01-i3-the-clearance.md`): after all three teeth are addressed (#4, #17 extracted; #30 extracted + immediate implant per the dose finding from Interaction 2), Dr. Bellweather re-examines John, confirms healing, and formally documents clearance — structured data, not a PDF or fax — sent to FCCC 30 minutes later. Two independent things close at this single moment: **(1)** the referral relationship itself (Dr. Bellweather reporting back what Dr. Whitfield asked for in Interaction 1), and **(2)** the payer's specific documentation requirement (the dental-clearance prerequisite IBX flagged back in Interaction 1's CRD/DTR pathway) — same real-world event, two separate things being tracked.
 
 **Core deliverable:** `ClinicalImpression` (Dental Clearance) — fully specified in the use case appendix already: `status` completed, `code` SNOMED 146328D, `assessor` Dr. Bellweather, `date` 2026-07-31, full summary/findings/recommendations text already written out in the source doc.
 
@@ -222,6 +222,49 @@ Key facts this surfaced for UC01:
 ## Session Log
 
 *Append-only. Newest entry at the top. Every session (chat or Code) adds one entry before finishing.*
+
+### 2026-07-13 — claude.ai chat (v4.7) — Interaction filenames renamed and shortened to match new titles
+Per user: filenames themselves (not just H1 titles) needed updating, and shortened where possible. Renamed all 29 interaction files to the pattern `uc0X[a/b]-iN-short-slug.md`, e.g. `uc02a-interaction-01-prior-authorization-cycle.md` → `uc02a-i1-prior-authorization-wait.md`, `uc04b-interaction-01-coverage-providersearch-assessment-referral.md` → `uc04b-i1-midnight-pain-diabetes-flag.md` — considerably shorter across the board, derived from the new narrative titles rather than the old technical ones.
+
+Updated all 29 filename references across the four README index files, verified programmatically that every link in every README now resolves to a real file (zero broken links). Also found and fixed two stale filename references sitting in `CLAUDE.md`'s own *active* content (Section 3's Interaction 2 fold-decision note and Interaction 3 scoping note) — left the historical Session Log entries below them untouched, since those correctly describe filenames as they existed at the time each entry was written.
+
+### 2026-07-13 — claude.ai chat (v4.6) — Interaction naming convention standardized: UC0X-IY: Descriptive Name
+Per user: UC01's interaction titles ("The Clearance," "Ending the Prior Authorization") had real narrative flavor; UC02–04's were rushed, technical, resource-checklist-style titles — most damningly, "Claims-Sharing" was used as the title verbatim six separate times across different use cases with zero distinguishing flavor. Redesigned all 29 interaction titles for narrative quality matching UC01's standard, and applied a new consistent format across every file: **`UC0X-IY: Descriptive Name`** (e.g. `UC02a-I3: The Extraction`, `UC04b-I1: Midnight Pain, A Diabetes Flag`) — replacing the old inconsistent mix of "Interaction N:", "UC0Xa — Interaction N:", and "Encounter #1:" formats.
+
+Updated all 29 interaction file H1 headers plus all 4 README index files (UC01/UC02/UC03/UC04) to reference the new titles. Full new naming table:
+
+- UC01: I1 Request for Radiation & Referral · I2 Dental Exam & Open Questions · I3 The Clearance · I4 Ending the Prior Authorization
+- UC02a: I1 The Prior Authorization Wait · I2 The Handoff to Oral Surgery · I3 The Extraction · I4 Closing the Loop · I5 Billing the Extraction
+- UC02b: I1 Checking Coverage, Choosing a Path · I2 The Handoff to Oral Surgery · I3 Extraction and Implant, Same Day · I4 Closing the Loop, Implant Included · I5 Billing for Two Procedures
+- UC03: I1 A Routine Checkup Finds Something Else · I2 Records Before the Visit · I3 Three Months Later · I4 Telling Both Doctors · I5 Billing Timothy's Visit
+- UC04a: I1 Tuesday Night Pain · I2 An Appointment by Morning · I3 The Root Canal · I4 Reporting Back · I5 Two Bills, One Visit
+- UC04b: I1 Midnight Pain, A Diabetes Flag · I2 An Appointment Within 48 Hours · I3 More Than Expected · I4 Closing the Loop, Then Checking In · I5 Billing Three Teeth
+
+Note: file names themselves were NOT renamed (still e.g. `uc02a-interaction-01-prior-authorization-cycle.md`) — only the H1 title inside each file and the README references were updated. If file renaming is also wanted later, that's a separate, not-yet-done step.
+
+### 2026-07-13 — claude.ai chat (v4.5) — UC03/UC04 provider grounding: researched real orgs, then pivoted to fictional per user direction
+Researched and verified three real organizations matching each use case's jurisdiction/payer context (Sutton Dental Group, New Haven — confirmed Husky B acceptance directly from their own site; BLVD Dentistry & Orthodontics, Austin — confirmed Aetna acceptance; Avion Dental, San Antonio — confirmed explicit "STAR Medicaid" acceptance). **User then directed a pivot: use fictional organizations instead, at least for now** — a different call than UC02a's Austin Oral Surgery (a large, multi-location, already-OHIA-member USOSM partner), since these would have been small independent practices named without their involvement.
+
+Built three fictional identities instead, grounded in real local flavor (real neighborhoods/landmarks) without naming actual businesses: **Elm City Pediatric Dental Care** (UC03, New Haven — "Elm City" is New Haven's real nickname), **Barton Springs Dental Group** (UC04a, Austin — near the real Barton Springs area), **Mission Trail Family Dental** (UC04b, San Antonio — near the real Mission Trail). Updated each use case doc's Organization Resource Data appendix and all specific identity references (FHIR endpoints, MRN systems, employment fields) — confirmed the interaction writeups themselves didn't need touching, since they refer to practices generically ("Dr. Watson's practice") rather than by name.
+
+**Real error caught and fixed along the way, unrelated to the naming question**: UC03's placeholder address was "450 Congress Avenue, New Haven, CT" — Congress Avenue is a well-known Austin, TX street, not a New Haven one. A clear copy-paste artifact from the Texas use cases, corrected to a real New Haven street (Whalley Avenue).
+
+Updated the UC04 interactions README to explain the fictional-not-real approach explicitly, distinguishing it from UC02a's real-org precedent as a deliberate choice, not an inconsistency.
+
+### 2026-07-13 — claude.ai chat (v4.4) — UC04 scoped and built (both sub-use-cases), rigorous QA applied throughout
+Read both UC04a (commercial) and UC04b (Medicaid) fully, pulled exact timelines before proposing anything. Proposed and confirmed a 5-interaction breakdown per sub-use-case (10 total), then built all 10 writeups with the same proactive QA discipline used for UC03: exact times cross-checked against the source timeline tables, automated checks run before considering it done (all clean — one flagged "vague date" hit was a false positive, verified and dismissed rather than blindly trusted).
+
+**Two structural differences from prior use cases, resolved deliberately rather than pattern-matched from UC01/UC02:**
+1. **No imaging exchange between providers** — the virtual/teledentistry provider has no way to generate a radiograph, so imaging is captured fresh in-office (Interaction 3 of each), not pulled/pushed at referral time. Noted explicitly in both writeups and the README, same as UC03's "no DICOM here" callout.
+2. **Two separate claims-sharing packages per use case, one per submitting organization** (teledentistry org + in-office org, same payer) — a genuine new pattern for the claims-sharing profile, resolved as "yes, two packages" rather than left as an open question.
+
+**Real finding, not just narrative polish:** UC04a's own source appendix labels tooth #19 using FDI notation ("FDI 36") in a `Procedure` resource description — directly contradicting the ADA's confirmation (established earlier in this project) that FDI isn't used for US dental data. This is the **second** time this exact error pattern has surfaced (the first was in the other dataset's Jason Morales precedent file). Flagged in the writeup, not silently propagated or silently corrected without note.
+
+**Also newly tested in UC04b specifically:** mid-encounter scope expansion (two additional decayed teeth found beyond the referred one, Interaction 3) and a next-day same-provider follow-up `Communication` explicitly modeled as NOT reopening the referral or being a new clinical encounter (Interaction 4).
+
+**Flagged, not addressed this session:** UC04's organizations are still synthetic placeholders — unlike UC02a's Austin Oral Surgery, no real-organization grounding has been done here. Noted in the README as an open item for a future session, not silently skipped.
+
+No FHIR resources built yet for either UC04a or UC04b — narrative-only, per established discipline.
 
 ### 2026-07-13 — claude.ai chat (v4.3) — UC03 scoped, rigorously QA'd from the start
 Read the full UC03 doc (pediatric periodontitis / Type 1 diabetes, Connecticut Husky B, Connie state HIE). Proposed and confirmed a 5-interaction breakdown, then built all 5 writeups applying the QA discipline established last session **proactively this time**, not as a follow-up correction pass: exact dates cross-checked against the source Timeline table before writing (including preserving the source's own `~2026-03-05` approximation rather than asserting false precision), FHIR resources explicitly listed per interaction as requested, and ran the same automated checks that caught real errors in UC02 (split headers, vague date language, incorrect payer-direction reasoning) before considering this done — all clean on first pass.

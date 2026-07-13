@@ -196,7 +196,7 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | **Date of Birth** | 1991-03-17 | Age: 34 |
 | **Sex** | Female | `http://hl7.org/fhir/ValueSet/administrative-gender` |
 | **Teledentistry Provider Patient ID** | `TELE-TX-10047823` | System: `https://teledentistry-provider.example.org/fhir/patient-id` |
-| **In-Office Practice MRN** | `INOFF-2026-0091` | System: `https://inoffice-dental.example.org/fhir/mrn` |
+| **In-Office Practice MRN** | `INOFF-2026-0091` | System: `https://bartonspringsdental.example.org/fhir/mrn` |
 | **Telecom (Phone)** | (512) 555-0184 | Use: Mobile |
 | **Telecom (Email)** | sarah.okonkwo@example.com | Use: Home |
 | **Address** | 4412 Barton Creek Blvd, Apt 7, Austin, TX 78735 | City: Austin; State: TX; ZIP: 78735 |
@@ -247,13 +247,13 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | FHIR Element | Value | System / Note |
 |---|---|---|
 | **Organization NPI** | 1467823059 | `http://hl7.org/fhir/sid/us-npi` |
-| **Organization Name** | In-Office Dental Practice (Synthetic) | Test data label |
-| **Address** | 3801 South Lamar Blvd, Suite 200, Austin, TX 78704 | Synthetic practice location |
+| **Organization Name** | Barton Springs Dental Group (Fictional — not a real practice) | Test data label |
+| **Address** | 3801 South Lamar Blvd, Suite 200, Austin, TX 78704 | Fictional practice location |
 | **Phone** | (512) 555-0210 | Synthetic |
 | **Type** | Dental Practice | Organization type |
 | **Care Setting** | Place of Service 11 — Office | In-office setting |
 | **Practice Management System** | Dental PMS with interim FHIR server | Architecture pattern |
-| **FHIR Endpoint** | `https://inoffice-dental.example.org/fhir/r4` | Interim FHIR server |
+| **FHIR Endpoint** | `https://bartonspringsdental.example.org/fhir/r4` | Interim FHIR server |
 | **NPI Taxonomy Code** | 1223G0001X | General dentist |
 | **Network** | Commercial PPO In-Network | Payer participation |
 
@@ -291,7 +291,7 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | **Qualification** | DDS — Doctor of Dental Surgery | Dental degree |
 | **License Number** | TX-DDS-052394 | Texas dental license (synthetic) |
 | **Specialty Code (Taxonomy)** | 1223G0001X | General dentist |
-| **Organization** | In-Office Dental Practice | Employment |
+| **Organization** | Barton Springs Dental Group | Employment |
 | **Place of Service** | 11 — Office | In-office setting |
 
 ---
@@ -612,7 +612,7 @@ Darius's dental benefits are administered through a **dental benefit manager (DB
 | **Sex** | Male | `http://hl7.org/fhir/ValueSet/administrative-gender` |
 | **Teledentistry Provider Patient ID** | `TELE-TX-10052914` | System: `https://teledentistry-provider.example.org/fhir/patient-id` |
 | **Texas Medicaid ID** | `TX-MCD-0047832` | System: `http://texas.medicaid.gov/beneficiary` |
-| **In-Office Practice MRN** | `INOFF-SA-2026-0047` | System: `https://inoffice-dental.example.org/fhir/mrn` |
+| **In-Office Practice MRN** | `INOFF-SA-2026-0047` | System: `https://missiontraildental.example.org/fhir/mrn` |
 | **Telecom (Phone)** | (210) 555-0193 | Use: Mobile |
 | **Telecom (Email)** | darius.reyes97@example.com | Use: Home |
 | **Address** | 718 West Commerce Street, Apt 12, San Antonio, TX 78207 | City: San Antonio; State: TX; ZIP: 78207 |
@@ -653,13 +653,13 @@ Darius's dental benefits are administered through a **dental benefit manager (DB
 | FHIR Element | Value | System / Note |
 |---|---|---|
 | **Organization NPI** | 1578234096 | `http://hl7.org/fhir/sid/us-npi` |
-| **Organization Name** | In-Office Dental Practice — San Antonio (Synthetic) | Test data label |
-| **Address** | 2210 Fredericksburg Road, San Antonio, TX 78201 | Synthetic practice location |
+| **Organization Name** | Mission Trail Family Dental (Fictional — not a real practice) | Test data label |
+| **Address** | 2210 Fredericksburg Road, San Antonio, TX 78201 | Fictional practice location |
 | **Phone** | (210) 555-0247 | Synthetic |
 | **Type** | Dental Practice | Organization type |
 | **Care Setting** | Place of Service 11 — Office | In-office setting |
 | **Practice Management System** | Dental PMS with interim FHIR server | Architecture pattern |
-| **FHIR Endpoint** | `https://inoffice-dental-sa.example.org/fhir/r4` | Interim FHIR server |
+| **FHIR Endpoint** | `https://missiontraildental.example.org/fhir/r4` | Interim FHIR server |
 | **NPI Taxonomy Code** | 1223G0001X | General dentist |
 | **Medicaid Participation** | Active — Texas Medicaid (STAR); DBM network | Confirmed via Plan-Net query |
 | **Panel Status** | Accepting new patients | Confirmed via Plan-Net `HealthcareService` query |
@@ -708,7 +708,7 @@ Darius's dental benefits are administered through a **dental benefit manager (DB
 | **Qualification** | DDS — Doctor of Dental Surgery | Dental degree |
 | **License Number** | TX-DDS-048293 | Texas dental license (synthetic) |
 | **Specialty Code (Taxonomy)** | 1223G0001X | General dentist |
-| **Organization** | In-Office Dental Practice — San Antonio | Employment |
+| **Organization** | Mission Trail Family Dental | Employment |
 | **Medicaid Participation** | Active — Texas STAR / DBM | Confirmed via Plan-Net |
 | **Place of Service** | 11 — Office | In-office setting |
 
