@@ -1,0 +1,61 @@
+{
+  "resourceType": "Procedure",
+  "id": "procedure-d3330-rootcanal",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"]
+  },
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D3330",
+        "display": "Endodontic therapy, molar tooth (excluding final restoration)"
+      }
+    ],
+    "text": "Root canal therapy, tooth #19"
+  },
+  "subject": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-inoffice"
+  },
+  "performedDateTime": "2026-07-15",
+  "performer": [
+    {
+      "actor": {
+        "reference": "PractitionerRole/role-nair",
+        "display": "Dr. Priya Nair, DDS"
+      }
+    }
+  ],
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-k04-01-pulpitis",
+      "display": "Irreversible pulpitis, tooth #19 (confirmed)"
+    },
+    {
+      "reference": "Condition/condition-k04-7-periapical-abscess",
+      "display": "Periapical abscess without sinus, tooth #19"
+    }
+  ],
+  "bodySite": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+          "code": "19",
+          "display": "19"
+        }
+      ],
+      "text": "Tooth #19 (lower left first molar)"
+    }
+  ],
+  "note": [
+    {
+      "text": "Single-visit root canal therapy (CDT D3330), tooth #19: three canals instrumented and obturated; patient tolerated the procedure well. Final restoration (crown) to be placed by the patient's regular dental provider (see the post-treatment CarePlan at Interaction 4). Tooth designation uses the ADA Universal Numbering System (#19); the source document's 'FDI 36' label is the separately-flagged FDI error and is deliberately NOT reproduced here, per ADA confirmation that FDI is not used for US dental data."
+    }
+  ]
+}

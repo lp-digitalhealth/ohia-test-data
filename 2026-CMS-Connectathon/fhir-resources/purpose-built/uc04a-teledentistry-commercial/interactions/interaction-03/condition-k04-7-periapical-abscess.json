@@ -1,0 +1,74 @@
+{
+  "resourceType": "Condition",
+  "id": "condition-k04-7-periapical-abscess",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"]
+  },
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "code": "K04.7",
+        "display": "Periapical abscess without sinus"
+      }
+    ],
+    "text": "Periapical abscess without sinus, tooth #19 (newly confirmed in-office by radiograph)"
+  },
+  "bodySite": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+          "code": "19",
+          "display": "19"
+        }
+      ],
+      "text": "Tooth #19 (lower left first molar, Universal Numbering System)"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-inoffice",
+    "display": "In-office dental evaluation and treatment, 2026-07-15"
+  },
+  "recordedDate": "2026-07-15",
+  "asserter": {
+    "reference": "PractitionerRole/role-nair",
+    "display": "Dr. Priya Nair, DDS"
+  },
+  "note": [
+    {
+      "text": "Newly identified in-office diagnosis: the periapical radiograph revealed early periapical pathology not visible in the virtual assessment. CODE CORRECTION (project verification discipline): the source use-case document labels this 'K04.5 — Periapical abscess without sinus', but ICD-10-CM K04.5 is 'Chronic apical periodontitis'; 'Periapical abscess without sinus' is K04.7 (consistent with the code used in UC02a's claims-sharing EOB). K04.7 is used here per the clinical narrative ('periapical rarefaction consistent with periapical abscess'). Tooth #19 uses the ADA Universal Numbering System; FDI is deliberately NOT asserted."
+    }
+  ]
+}

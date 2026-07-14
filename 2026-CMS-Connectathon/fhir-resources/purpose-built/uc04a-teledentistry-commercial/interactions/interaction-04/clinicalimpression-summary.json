@@ -1,0 +1,59 @@
+{
+  "resourceType": "ClinicalImpression",
+  "id": "clinicalimpression-summary",
+  "status": "completed",
+  "code": {
+    "text": "Dental encounter summary — to referring teledentistry provider"
+  },
+  "subject": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-inoffice"
+  },
+  "date": "2026-07-15T12:35:00-05:00",
+  "assessor": {
+    "reference": "PractitionerRole/role-nair",
+    "display": "Dr. Priya Nair, DDS — Barton Springs Dental Group"
+  },
+  "problem": [
+    {
+      "reference": "Condition/condition-k04-01-pulpitis",
+      "display": "Irreversible pulpitis, tooth #19 (confirmed)"
+    },
+    {
+      "reference": "Condition/condition-k04-7-periapical-abscess",
+      "display": "Periapical abscess without sinus, tooth #19"
+    }
+  ],
+  "investigation": [
+    {
+      "code": { "text": "Imaging and treatment delivered" },
+      "item": [
+        { "reference": "DiagnosticReport/diagnosticreport-periapical", "display": "Periapical radiograph, tooth #19 (D0220)" },
+        { "reference": "Procedure/procedure-d3330-rootcanal", "display": "D3330 root canal therapy, tooth #19" }
+      ]
+    }
+  ],
+  "finding": [
+    {
+      "itemReference": {
+        "reference": "Condition/condition-k04-01-pulpitis",
+        "display": "Irreversible pulpitis, tooth #19 — confirmed"
+      }
+    },
+    {
+      "itemReference": {
+        "reference": "Condition/condition-k04-7-periapical-abscess",
+        "display": "Periapical abscess without sinus, tooth #19"
+      }
+    }
+  ],
+  "summary": "Sarah Okonkwo seen 2026-07-15 per referral from Meridian Teledental (Dr. Webb). Periapical radiograph confirmed irreversible pulpitis with periapical abscess, tooth #19. Root canal therapy completed in a single visit (D3330): three canals instrumented and obturated. Patient tolerated the procedure well. Final restoration (crown) indicated; patient advised to contact her regular dental provider. Follow-up periapical radiograph recommended at 6 months. Ibuprofen 400 mg PRN for post-operative discomfort.",
+  "note": [
+    {
+      "text": "Structured encounter summary returned to the referring teledentistry provider (Dr. Webb, Meridian Teledental) via Da Vinci CDex provider-to-provider push — a single recipient (the originating provider), unlike UC03's two-recipient fan-out. This summary closes the referral loop (see the completed referral Task and ServiceRequest). Transmitted as discrete FHIR, not a PDF. The in-office radiograph itself is not re-transmitted; its conclusion is carried here via the referenced DiagnosticReport."
+    }
+  ]
+}

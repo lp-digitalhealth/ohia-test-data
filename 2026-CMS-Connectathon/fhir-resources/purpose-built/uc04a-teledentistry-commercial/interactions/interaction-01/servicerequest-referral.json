@@ -1,0 +1,116 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "servicerequest-referral",
+  "meta": {
+    "profile": [
+      "https://oralhealthalliance.net/fhir/StructureDefinition/ode-dental-to-dental-referral"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC04A-001"
+    }
+  ],
+  "status": "active",
+  "intent": "order",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "103696004",
+          "display": "Patient referral to specialist"
+        }
+      ],
+      "text": "Consultation / Referral"
+    }
+  ],
+  "priority": "urgent",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D3330",
+        "display": "Endodontic therapy, molar tooth (excluding final restoration)"
+      }
+    ],
+    "text": "In-office dental evaluation with radiograph and likely endodontic treatment — irreversible pulpitis, tooth #19"
+  },
+  "subject": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "requester": {
+    "reference": "PractitionerRole/role-webb",
+    "display": "Dr. Marcus Webb, DDS — Meridian Teledental"
+  },
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-nair",
+      "display": "Dr. Priya Nair, DDS — Barton Springs Dental Group"
+    }
+  ],
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "K04.01",
+          "display": "Irreversible pulpitis"
+        }
+      ]
+    }
+  ],
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-k04-01-pulpitis"
+    }
+  ],
+  "bodySite": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+          "code": "19",
+          "display": "19"
+        }
+      ],
+      "text": "Tooth #19"
+    }
+  ],
+  "supportingInfo": [
+    {
+      "reference": "Observation/observation-symptoms",
+      "display": "Symptom findings, tooth #19"
+    },
+    {
+      "reference": "Observation/observation-tobacco-status",
+      "display": "Tobacco smoking status"
+    },
+    {
+      "reference": "MedicationStatement/medicationstatement-ibuprofen",
+      "display": "Patient-reported medications"
+    },
+    {
+      "reference": "DocumentReference/documentreference-virtual-findings",
+      "display": "Virtual assessment note"
+    },
+    {
+      "reference": "DocumentReference/documentreference-intraoral-photos",
+      "display": "Patient-submitted intraoral photos, tooth #19"
+    }
+  ],
+  "insurance": [
+    {
+      "reference": "Coverage/coverage-sarah-okonkwo-ppo"
+    }
+  ],
+  "authoredOn": "2026-07-14T19:56:00-05:00",
+  "occurrenceDateTime": "2026-07-15",
+  "note": [
+    {
+      "text": "Dental-to-dental referral (virtual general dentist -> in-office general dentist), pushed via Da Vinci CDex provider-to-provider to Barton Springs Dental Group's interim FHIR server. Priority urgent — acute pain, next-day appointment indicated. Commercial dental PPO with NO prior authorization required (D9995 virtual consult, D0220 radiograph, D3330 root canal all covered without PA) — so, unlike UC02a's Medicaid PA, there is no PA number and no Claim/ClaimResponse here. Benefits were verified in real time at the start of the virtual encounter. Supporting info includes the patient-submitted intraoral photos (documentreference-intraoral-photos): unlike UC02's dental-to-dental support-a-pull for DICOM radiographs, these non-radiographic photos travel INLINE with the referral (self-contained push to an interim server), and the affected tooth is correlated via Observation/observation-symptoms (bodySite #19, derivedFrom -> the photos). The diagnostic radiograph does not exist yet — it is taken in-office at Interaction 3."
+    }
+  ]
+}

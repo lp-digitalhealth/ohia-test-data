@@ -1,0 +1,44 @@
+{
+  "resourceType": "Organization",
+  "id": "org-barton-springs-dental",
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "1487263095"
+    }
+  ],
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "prov",
+          "display": "Healthcare Provider"
+        }
+      ],
+      "text": "General Dental Practice"
+    }
+  ],
+  "name": "Barton Springs Dental Group",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(512) 555-0164"
+    }
+  ],
+  "address": [
+    {
+      "line": ["2001 Barton Springs Road"],
+      "city": "Austin",
+      "state": "TX",
+      "postalCode": "78704",
+      "country": "US"
+    }
+  ],
+  "note": [
+    {
+      "text": "Fictional organization — not a real practice. Named for and located near the real Barton Springs area of Austin for narrative grounding, consistent with this project's practice of using fictional-but-locally-grounded organizations where a real business isn't being named (per the UC04 interactions README). The in-office general dental practice that receives Sarah Okonkwo's teledentistry referral (Place of Service 11). NPI is a synthetic test-data value."
+    }
+  ]
+}

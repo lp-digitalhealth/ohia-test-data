@@ -1,0 +1,49 @@
+{
+  "resourceType": "MedicationStatement",
+  "id": "medicationstatement-ibuprofen",
+  "status": "active",
+  "medicationCodeableConcept": {
+    "coding": [
+      {
+        "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+        "code": "5640",
+        "display": "Ibuprofen"
+      }
+    ],
+    "text": "Ibuprofen (over-the-counter), taken as needed for pain"
+  },
+  "subject": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "context": {
+    "reference": "Encounter/encounter-01-virtual",
+    "display": "Virtual dental consultation, 2026-07-14"
+  },
+  "effectiveDateTime": "2026-07-14",
+  "dateAsserted": "2026-07-14",
+  "informationSource": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "dosage": [
+    {
+      "text": "400 mg by mouth as needed for pain over the past few days",
+      "asNeededBoolean": true,
+      "route": {
+        "coding": [
+          {
+            "system": "http://snomed.info/sct",
+            "code": "26643006",
+            "display": "Oral route"
+          }
+        ]
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Patient-reported medication captured during the virtual assessment (the 'medication list attached' referenced in the referral payload). Sarah reports self-medicating with OTC ibuprofen for the lower-left pain; no known drug allergies. RxNorm 5640 is the ingredient-level concept for ibuprofen; a specific product/strength code is not asserted since the exact OTC product was patient-reported rather than clinically verified."
+    }
+  ]
+}

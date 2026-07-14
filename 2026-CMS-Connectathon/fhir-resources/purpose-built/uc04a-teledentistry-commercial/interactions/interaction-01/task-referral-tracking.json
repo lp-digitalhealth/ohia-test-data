@@ -1,0 +1,67 @@
+{
+  "resourceType": "Task",
+  "id": "task-referral-tracking",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC04A-001"
+    }
+  ],
+  "status": "in-progress",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+        "code": "referral-sent",
+        "display": "Referral Sent"
+      }
+    ]
+  },
+  "intent": "order",
+  "priority": "urgent",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-referral",
+    "display": "Referral: In-office evaluation and endodontic treatment, tooth #19"
+  },
+  "for": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-virtual"
+  },
+  "authoredOn": "2026-07-14T19:56:00-05:00",
+  "lastModified": "2026-07-14T19:56:00-05:00",
+  "requester": {
+    "reference": "Organization/org-meridian-teledental",
+    "display": "Meridian Teledental"
+  },
+  "input": [
+    {
+      "type": { "text": "Referral clinical basis — diagnosis" },
+      "valueReference": { "reference": "Condition/condition-k04-01-pulpitis" }
+    }
+  ],
+  "output": [
+    {
+      "type": { "text": "Referral sent" },
+      "valueReference": { "reference": "ServiceRequest/servicerequest-referral" }
+    }
+  ],
+  "note": [
+    {
+      "text": "This is the ONLY Task for this referral episode — same single-Task design established for UC01/UC02/UC03 (one Coordination Task per Request; Task.output absorbs fulfillment artifacts). focus points at the referral ServiceRequest from the start (there is no PA cycle preceding it — commercial coverage requires no PA). businessStatus is 'referral-sent' at this I1 snapshot; owner is intentionally NOT set yet (it is set for the first time at I2 when Barton Springs Dental Group accepts the referral and books the appointment). status is in-progress, not completed — the Task closes only when the referral itself closes at Interaction 4 (not built this pass). This same Task (same id) is updated, not replaced, at I2."
+    }
+  ]
+}

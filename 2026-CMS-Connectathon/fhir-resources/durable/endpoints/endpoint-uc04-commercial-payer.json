@@ -1,0 +1,24 @@
+{
+  "resourceType": "Endpoint",
+  "id": "endpoint-uc04-commercial-payer",
+  "status": "active",
+  "connectionType": {
+    "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+    "code": "hl7-fhir-rest"
+  },
+  "name": "Aetna Dental FHIR API (synthetic test endpoint)",
+  "managingOrganization": {
+    "reference": "Organization/org-uc04-commercial-payer"
+  },
+  "payloadType": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/resource-types",
+          "code": "Bundle"
+        }
+      ]
+    }
+  ],
+  "address": "https://aetna-dental.example.org/fhir/r4"
+}

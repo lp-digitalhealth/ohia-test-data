@@ -1,0 +1,61 @@
+{
+  "resourceType": "Task",
+  "id": "task-summary-delivery",
+  "identifier": [
+    {
+      "system": "urn:ohia:summary-delivery-id",
+      "value": "SUMDEL-2026-UC04A-001"
+    }
+  ],
+  "status": "completed",
+  "businessStatus": {
+    "text": "Encounter summary delivered to referring teledentistry provider via CDex"
+  },
+  "intent": "order",
+  "priority": "urgent",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill"
+      }
+    ],
+    "text": "Deliver dental encounter summary to referring teledentistry provider (Meridian Teledental)"
+  },
+  "focus": {
+    "reference": "ClinicalImpression/clinicalimpression-summary",
+    "display": "Dental encounter summary — to Dr. Webb, Meridian Teledental"
+  },
+  "for": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-inoffice"
+  },
+  "authoredOn": "2026-07-15T12:35:00-05:00",
+  "lastModified": "2026-07-15T12:36:00-05:00",
+  "requester": {
+    "reference": "Organization/org-barton-springs-dental",
+    "display": "Barton Springs Dental Group"
+  },
+  "owner": {
+    "reference": "Organization/org-meridian-teledental",
+    "display": "Meridian Teledental (receiving referring provider)"
+  },
+  "output": [
+    {
+      "type": { "text": "Delivered summary" },
+      "valueReference": { "reference": "ClinicalImpression/clinicalimpression-summary" }
+    },
+    {
+      "type": { "text": "Care plan included" },
+      "valueReference": { "reference": "CarePlan/careplan-posttreatment" }
+    }
+  ],
+  "note": [
+    {
+      "text": "Single summary-delivery Task at Interaction 4 (contrast UC03's two simultaneous delivery Tasks). It routes the encounter summary + care plan from Barton Springs back to the originating teledentistry provider (Meridian Teledental) via Da Vinci CDex provider-to-provider push — direct, no HIE hub, no 360X bridge. Distinct from the referral Task (task-referral-tracking), which closes to outcome-final at the same moment."
+    }
+  ]
+}

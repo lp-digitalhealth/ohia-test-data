@@ -1,0 +1,133 @@
+{
+  "resourceType": "ExplanationOfBenefit",
+  "id": "eob-teledentistry-claims-sharing",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-dental-claim"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:claims-sharing-id",
+      "value": "CS-2026-UC04A-TELE"
+    }
+  ],
+  "status": "draft",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+        "code": "oral",
+        "display": "Oral"
+      }
+    ]
+  },
+  "use": "claim",
+  "patient": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "created": "2026-07-16",
+  "insurer": {
+    "reference": "Organization/org-uc04-commercial-payer",
+    "display": "Aetna Dental"
+  },
+  "provider": {
+    "reference": "Organization/org-meridian-teledental",
+    "display": "Meridian Teledental"
+  },
+  "outcome": "queued",
+  "careTeam": [
+    {
+      "sequence": 1,
+      "provider": {
+        "reference": "PractitionerRole/role-webb",
+        "display": "Dr. Marcus Webb, DDS"
+      },
+      "responsible": true,
+      "role": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole",
+            "code": "rendering",
+            "display": "Rendering provider"
+          }
+        ]
+      }
+    }
+  ],
+  "diagnosis": [
+    {
+      "sequence": 1,
+      "diagnosisCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "K04.01",
+            "display": "Irreversible pulpitis"
+          }
+        ]
+      }
+    }
+  ],
+  "insurance": [
+    {
+      "focal": true,
+      "coverage": {
+        "reference": "Coverage/coverage-sarah-okonkwo-ppo",
+        "display": "Sarah Okonkwo's Aetna Dental PPO coverage"
+      }
+    }
+  ],
+  "item": [
+    {
+      "sequence": 1,
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D9995",
+            "display": "Teledentistry — synchronous; real-time encounter"
+          }
+        ]
+      },
+      "servicedDate": "2026-07-14",
+      "locationReference": {
+        "reference": "Location/loc-meridian-virtual",
+        "display": "Meridian Teledental — Virtual Care (POS 02)"
+      },
+      "quantity": {
+        "value": 1
+      }
+    }
+  ],
+  "supportingInfo": [
+    {
+      "sequence": 1,
+      "category": {
+        "text": "Rendered procedure"
+      },
+      "valueReference": {
+        "reference": "Procedure/procedure-d9995-teledentistry"
+      }
+    },
+    {
+      "sequence": 2,
+      "category": {
+        "text": "Coordinated-episode referral"
+      },
+      "valueReference": {
+        "reference": "ServiceRequest/servicerequest-referral"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Teledentistry claims-sharing package (one of two independent packages at Interaction 5). Meridian Teledental bills its own virtual consultation — a single line, D9995, Place of Service 02 (carried via item.locationReference -> loc-meridian-virtual), rendered by Dr. Webb on 2026-07-14. This is the FHIR-native equivalent of the separate 837D the teledentistry provider files at 08:00 on 2026-07-16."
+    },
+    {
+      "text": "This is the first time this project's claims-sharing profile represents TWO independently-billing organizations for ONE coordinated episode of care. The two packages (this one and eob-inoffice-claims-sharing) are tied together only by a shared referral reference (supportingInfo -> ServiceRequest/servicerequest-referral, referral-id REF-2026-UC04A-001), not by a combined joint claim. The test is whether the profile's shape holds unchanged when used twice in parallel."
+    },
+    {
+      "text": "Bills Aetna Dental's commercial dental benefit directly — CDT alone (D9995) is what's required; no CPT crosswalk applies (dental payer, not medical), same reasoning established for UC02. NO prior authorization reference anywhere — this commercial plan requires none for D9995/D0220/D3330. Deliberately excluded, per this profile's non-financial design: unitPrice, net, total, adjudication."
+    }
+  ]
+}

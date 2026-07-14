@@ -1,0 +1,79 @@
+{
+  "resourceType": "Task",
+  "id": "task-referral-tracking",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC04A-001"
+    }
+  ],
+  "status": "in-progress",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+        "code": "appointment-confirmed",
+        "display": "Appointment Confirmed"
+      }
+    ]
+  },
+  "intent": "order",
+  "priority": "urgent",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-referral",
+    "display": "Referral: In-office evaluation and endodontic treatment, tooth #19"
+  },
+  "for": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-virtual"
+  },
+  "authoredOn": "2026-07-14T19:56:00-05:00",
+  "lastModified": "2026-07-14T20:47:00-05:00",
+  "requester": {
+    "reference": "Organization/org-meridian-teledental",
+    "display": "Meridian Teledental"
+  },
+  "owner": {
+    "reference": "PractitionerRole/role-nair",
+    "display": "Dr. Priya Nair, DDS — Barton Springs Dental Group"
+  },
+  "input": [
+    {
+      "type": { "text": "Referral clinical basis — diagnosis" },
+      "valueReference": { "reference": "Condition/condition-k04-01-pulpitis" }
+    }
+  ],
+  "output": [
+    {
+      "type": { "text": "Referral sent" },
+      "valueReference": { "reference": "ServiceRequest/servicerequest-referral" }
+    },
+    {
+      "type": { "text": "Appointment scheduled" },
+      "valueReference": { "reference": "Appointment/appointment-inoffice" }
+    },
+    {
+      "type": { "text": "Appointment confirmed" },
+      "valueReference": { "reference": "AppointmentResponse/appointmentresponse-inoffice" }
+    }
+  ],
+  "note": [
+    {
+      "text": "Task snapshot as of I2 (2026-07-14, 20:47) — referral received, reviewed, and a next-morning appointment booked and confirmed. owner is now set for the first time (Dr. Nair's PractitionerRole), reflecting Barton Springs Dental Group's acceptance of the referral (the appointment creation is the acceptance signal in this compressed flow; there is no separately-modeled accept transaction). businessStatus advances to appointment-confirmed. status remains in-progress — the Task does not close until the referral itself closes at Interaction 4 (not built this pass). Same resource id as Interaction 1's Task; this is a new version (sequential PUT), not a second Task."
+    }
+  ]
+}

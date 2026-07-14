@@ -1,6 +1,6 @@
 # CLAUDE.md — OHIA CMS Connectathon Test Data
 
-**Doc version:** 5.8
+**Doc version:** 6.0
 **Last updated:** 2026-07-14 (by: Claude Code)
 **Repo:** `lp-digitalhealth/ohia-test-data`, folder `2026-CMS-Connectathon/`
 
@@ -225,6 +225,47 @@ Key facts this surfaced for UC01:
 ## Session Log
 
 *Append-only. Newest entry at the top. Every session (chat or Code) adds one entry before finishing.*
+
+### 2026-07-14 — Claude Code (v6.0) — UC04a Interactions 3–5 built; UC04a now complete (I1–I5)
+Finished UC04a by building **Interactions 3–5** as FHIR resources and bringing every downstream doc from "I1–I2 built / I3–I5 narrative-only" to **full I1–I5 parity**.
+
+**FHIR resources built (17 new unique resources + 3 cumulative bundles):**
+- **I3 — The Root Canal** (`interactions/interaction-03/`, 2026-07-15 in-office): `Encounter` (POS 11), the **first radiograph** as `ImagingStudy` (modality IO, tooth #19, `endpoint` → interim server as WADO-RS pointer — DICOM metadata only) + `DiagnosticReport` (LOINC 62443-7 / CDT D0220) + findings `Observation`; a **snapshot** of the I1 pulpitis `Condition` (same `id`) flipped provisional→**confirmed**; a new **K04.7** periapical-abscess `Condition`; and the `Procedure` (CDT D3330 root canal, tooth #19). Bundle: **35 entries**.
+- **I4 — Reporting Back** (`interactions/interaction-04/`, 2026-07-15 12:35): `ClinicalImpression` + `CarePlan` (crown by regular provider, 6-mo follow-up radiograph, ibuprofen PRN); snapshots of the referral `ServiceRequest` (→completed) and referral `Task` (→completed/outcome-final, `output` populated); a single `task-summary-delivery` + `Provenance` + `AuditEvent` (**single recipient** — Meridian only, contrast UC03's dual fan-out). Bundle: **40 entries**.
+- **I5 — Two Bills, One Visit** (`interactions/interaction-05/`, 2026-07-16): the D9995 teledentistry `Procedure` (filed here, references the I1 virtual Encounter, to avoid churning committed I1/I2 bundles) + **two independent** `ODEOralProfessionalEOB` packages — Meridian (D9995, POS 02) and Barton Springs (D0220 + D3330, POS 11, tooth #19) — same commercial payer, tied only by the shared referral-id, no joint claim, CDT-only (no CPT crosswalk), no PA ref, non-financial. First time this project's claims-sharing profile represents **two billing orgs for one episode**. Bundle: **43 entries**.
+
+Scripted verification (JSON validity, every `reference` resolves, snapshot/id-override handling): 47 files parsed clean; three new bundles assembled (35/40/43 entries), zero unresolved refs; script deleted.
+
+**Key decisions this session (defaults, following established patterns):**
+- **ICD-10 correction (verification discipline):** the source doc labeled the periapical finding "K04.5 — Periapical abscess without sinus." K04.5 is *chronic apical periodontitis*; the correct code is **K04.7** (as UC02a's EOB already uses). Built resources use K04.7; corrected all 6 occurrences in the UC04 source doc's UC04a appendix + added a flag note. Not silently followed.
+- **Imaging is in-office-only at I3 and never exchanged.** The radiograph is a first-class `ImagingStudy`/`DiagnosticReport` (DICOM/WADO-RS pointer per the standing imaging instruction) generated in-office; it is **not** pushed/pulled back to Meridian (no cross-org support-a-pull, unlike UC02). I4's closed-loop summary is clinical and carries the radiograph's *conclusion*, not the image.
+- **D9995 Procedure placed in the I5 folder** (the billing interaction that needs it), referencing the I1 virtual Encounter — keeps the already-committed I1/I2 bundles and their documented counts untouched.
+- **FDI not asserted** (tooth #19 Universal only); the source's "FDI 36" remains the separately-flagged FDI error, not reproduced.
+
+**Downstream docs updated to I1–I5 parity:** `companion-guides/UC04a-companion-guide.md` (status, IG table, step-by-step 2a–2c, Resource Index I3/I4/I5 sub-tables with verified bundle counts, patient-milestone I4 row, new Tooling §6c imaging-at-I3 + §6d claims-sharing, Section 7 "expect this" notes; all links verified resolving); `stakeholder-matrix.md` (replaced the single UC04a I3–I5 placeholder with three built rows, rows-only in the Description column); `fhir-resources/purpose-built/uc04a-.../interactions/README.md` (I3/I4/I5 built sections + verification), `fhir-resources/purpose-built/README.md`, `fhir-resources/README.md`, and `use-cases/UC04-teledentistry-referral/interactions/README.md` (all UC04a build-status → I1–I5). No new durable resources, so `durable/README.md` counts unchanged. No new ODE interface issue (I3–I5 reuse already-logged patterns).
+
+**Still out of scope:** all of UC04b (narrative-only); no HL7v2, no Plan-Net, no CRD/DTR/PAS anywhere in UC04a.
+
+### 2026-07-14 — Claude Code (v5.9) — UC04 use-case folder restructure + UC04a Interactions 1–2 built (FHIR resources, companion guide, matrix, READMEs) + intraoral-photo standards decision
+Started UC04. Gave it a **named use-case folder** matching UC01/UC02/UC03 (`git mv` of `UC04-Teledentistry-Referral.md` + the 11-file `UC04-interactions/` into `use-cases/UC04-teledentistry-referral/`), then built **UC04a (commercial teledentistry) Interactions 1–2** end to end.
+
+**Naming/modeling decisions (defaults, since the plan's questions were skipped):**
+- **New UC04-specific commercial payer**, named **Aetna Dental** (`org-uc04-commercial-payer`) — the source doc names Aetna Dental PPO explicitly, and the project already keeps real large payers by name (IBX, DentaQuest); EDI/endpoint identifiers are synthetic. Distinct from UC02b's generic "Commercial Dental PPO (Synthetic)."
+- **Fictional teledentistry brand "Meridian Teledental"** (`org-meridian-teledental`, neutral/non-geographic, shared with future UC04b) as the virtual provider; **Barton Springs Dental Group** (already fictional per the UC04 README) as the in-office practice.
+
+**Intraoral-photo standards decision (the substantive design call this session):** UC04a-I1 is a **virtual** encounter, so there's no radiograph — but real teledentistry platforms (teledentistry.com/MESH, TheTeleDentists, Dentistry.One) all center on **patient-submitted intraoral photos**, so those were added to I1. Modeled as a **US Core `DocumentReference`** (inline `image/jpeg`, `author` = Patient), **not** R4 `Media`. Rationale, tied to the project's real constraints: ONC mandates **R4 and will skip R5 to go to R6** — `Media` is removed in R5/R6 while `DocumentReference` persists and is US-Core-profiled (CDex uses it); through a 360X/C-CDA bridge the bytes survive either way, and `Media`'s one native advantage (tooth-on-image via `Media.bodySite`) is exactly what flattens into C-CDA. Because **R4 `DocumentReference` has no `bodySite`**, tooth #19 is correlated **indirectly**: the symptom `Observation` carries `bodySite` = tooth #19 and `derivedFrom` → the photo `DocumentReference`. The DICOM radiograph/`ImagingStudy`/PACS layer still does **not** appear until I3.
+
+**Built (29 FHIR resources, all verified — JSON valid, all references resolve; scripted, script deleted):**
+- **Durable (11):** orgs `org-meridian-teledental`/`org-barton-springs-dental`/`org-uc04-commercial-payer`; practitioners `pract-webb`/`pract-nair`; locations `loc-meridian-virtual` (POS 02)/`loc-barton-springs` (POS 11); endpoints ×3; `insplan-uc04-commercial-ppo` (teledentistry + endodontic, **no PA**). No CRD payer-rule set added (commercial no-PA).
+- **Base (5):** `patient-sarah-okonkwo`, `coverage-sarah-okonkwo-ppo` (Aetna Dental PPO), `role-webb`/`role-nair`, `subscription-sarah-referral-status` (adult self-auth, no guardian).
+- **I1 (10 + bundle, 26 entries):** virtual `Encounter` (VR/POS 02), `Condition` K04.01 **provisional** (tooth #19 Universal, no FDI), symptom `Observation` (tooth-level, `derivedFrom` → photos), tobacco `Observation`, `MedicationStatement` (ibuprofen), findings `DocumentReference`, **intraoral-photos `DocumentReference`** (inline `image/jpeg`, author=Patient), `ServiceRequest` (`ode-dental-to-dental-referral`, urgent), referral `Task` (referral-sent, no owner), `Provenance` (CDex push).
+- **I2 (4 + bundle, 29 entries):** `Appointment` (next-morning 2026-07-15 10:00), `AppointmentResponse` (accepted), referral `Task` snapshot (appointment-confirmed, owner=Dr. Nair, same id), `Provenance`.
+
+**Docs:** navigable **`companion-guides/UC04a-companion-guide.md`** (7 sections, I1–I2 built / I3–I5 narrative-only, all 42 links verified resolving); stakeholder-matrix rows for UC04a I1/I2 (+ I3–I5 and UC04b placeholders); durable/master/purpose-built READMEs updated (counts: orgs 17, practitioners 12, locations 8, endpoints 14, insurance-plans 5); new `purpose-built/uc04a-teledentistry-commercial/interactions/README.md`; UC04 interactions README build-status + imaging wording updated.
+
+**Business-narrative alignment (per user, both sub-use-cases):** updated the I1 writeup and **both the UC04a and UC04b portions** of the shared `UC04-Teledentistry-Referral.md` to include the patient-submitted intraoral photos (Section I narrative, Section II mapping rows, Section III `DocumentReference` row, appendix `ServiceRequest` Description) — UC04b kept narrative-only (no FHIR built), for internal consistency of the shared doc.
+
+**Still to do (flagged, not done):** a standalone **ODE interface issue** (targets `ohia-fhirr4-scratchpad`'s `ODE-INTERFACE-ISSUES-LOG.md` per Section 5a — delivered separately, NOT committed here) capturing the intraoral-photo `DocumentReference` profile + R4 tooth-correlation pattern, the patient-device→platform upload hop having no HL7 IG, and the 360X/C-CDA lossiness (bytes survive as embedded multimedia; tooth survives only as a coded `Observation`). UC04a I3–I5 and all of UC04b remain narrative-only.
 
 ### 2026-07-14 — Claude Code (v5.8) — UC03 use-case folder restructure + Interactions 3–5 built (FHIR resources, full companion guide, matrix, READMEs)
 Completed UC03: gave it a **named use-case folder** matching UC01/UC02, then built out the remaining three interactions and brought all downstream docs to full I1–I5 parity.

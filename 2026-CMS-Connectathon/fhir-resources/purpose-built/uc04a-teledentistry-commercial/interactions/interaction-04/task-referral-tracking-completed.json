@@ -1,0 +1,92 @@
+{
+  "resourceType": "Task",
+  "id": "task-referral-tracking",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC04A-001"
+    }
+  ],
+  "status": "completed",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+        "code": "outcome-final",
+        "display": "Outcome Final"
+      }
+    ]
+  },
+  "intent": "order",
+  "priority": "urgent",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-referral",
+    "display": "Referral: In-office evaluation and endodontic treatment, tooth #19"
+  },
+  "for": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-inoffice",
+    "display": "In-office dental evaluation and treatment, 2026-07-15"
+  },
+  "authoredOn": "2026-07-14T19:56:00-05:00",
+  "lastModified": "2026-07-15T12:36:00-05:00",
+  "requester": {
+    "reference": "Organization/org-meridian-teledental",
+    "display": "Meridian Teledental"
+  },
+  "owner": {
+    "reference": "PractitionerRole/role-nair",
+    "display": "Dr. Priya Nair, DDS — Barton Springs Dental Group"
+  },
+  "input": [
+    {
+      "type": { "text": "Referral clinical basis — diagnosis" },
+      "valueReference": { "reference": "Condition/condition-k04-01-pulpitis" }
+    }
+  ],
+  "output": [
+    {
+      "type": { "text": "Referral sent" },
+      "valueReference": { "reference": "ServiceRequest/servicerequest-referral" }
+    },
+    {
+      "type": { "text": "Appointment scheduled" },
+      "valueReference": { "reference": "Appointment/appointment-inoffice" }
+    },
+    {
+      "type": { "text": "Appointment confirmed" },
+      "valueReference": { "reference": "AppointmentResponse/appointmentresponse-inoffice" }
+    },
+    {
+      "type": { "text": "Confirmed diagnosis" },
+      "valueReference": { "reference": "Condition/condition-k04-01-pulpitis" }
+    },
+    {
+      "type": { "text": "Referral outcome — encounter summary" },
+      "valueReference": { "reference": "ClinicalImpression/clinicalimpression-summary" }
+    },
+    {
+      "type": { "text": "Referral outcome — care plan" },
+      "valueReference": { "reference": "CarePlan/careplan-posttreatment" }
+    }
+  ],
+  "note": [
+    {
+      "text": "Task snapshot as of Interaction 4 (2026-07-15, 12:36) — the referral outcome closes here. status: completed, businessStatus: outcome-final. Single referral Coordination Task carried through from Interaction 1 (referral-sent) -> Interaction 2 (appointment-confirmed, owner set) -> here (outcome-final), per base COW's one-Task-per-Request guidance; Task.output absorbs the full fulfillment history. Same resource id as the Interaction 1/2 versions; this is a new version (sequential PUT), not a new Task. See the I1 and I2 versions for the earlier snapshots."
+    }
+  ]
+}

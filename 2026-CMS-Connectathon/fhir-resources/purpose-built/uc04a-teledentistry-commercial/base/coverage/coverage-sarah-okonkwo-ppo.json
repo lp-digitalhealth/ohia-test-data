@@ -1,0 +1,80 @@
+{
+  "resourceType": "Coverage",
+  "id": "coverage-sarah-okonkwo-ppo",
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "DENTAL",
+        "display": "dental care policy"
+      }
+    ],
+    "text": "Aetna Dental PPO"
+  },
+  "beneficiary": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "subscriber": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "subscriberId": "AET-TX-00284711",
+  "relationship": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+        "code": "self",
+        "display": "Self"
+      }
+    ]
+  },
+  "period": {
+    "start": "2026-01-01",
+    "end": "2026-12-31"
+  },
+  "payor": [
+    {
+      "reference": "Organization/org-uc04-commercial-payer",
+      "display": "Aetna Dental"
+    }
+  ],
+  "class": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+            "code": "group"
+          }
+        ]
+      },
+      "value": "847221",
+      "name": "Employer group"
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+            "code": "plan"
+          }
+        ]
+      },
+      "value": "AETNA-DENTAL-PPO",
+      "name": "Aetna Dental PPO"
+    }
+  ],
+  "identifier": [
+    {
+      "system": "urn:ohia:aetna-dental:member-id",
+      "value": "AET-TX-00284711"
+    }
+  ],
+  "note": [
+    {
+      "text": "Employer-sponsored commercial dental PPO coverage (Aetna Dental PPO), member AET-TX-00284711, group 847221. Verified in real time by Sarah's patient app at the start of the 2026-07-14 virtual encounter (a named UC04a test objective): teledentistry/virtual consultation covered in full, endodontic treatment covered 80% after a $50 deductible, annual maximum $2,000/plan year. NO prior authorization required for the virtual consultation (D9995), radiograph (D0220), or root canal (D3330) — commercial no-PA case, contrast UC02a's Texas Medicaid PA. Fixed plan-level benefit percentages and annual maximum live on InsurancePlan/insplan-uc04-commercial-ppo; point-in-time balances are returned by the real-time benefit response rather than stored here."
+    }
+  ]
+}
