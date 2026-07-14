@@ -6,7 +6,7 @@
 
 Timothy's appointment is a week away. He'll be accompanied by his grandparents, who know he has diabetes and who his pediatrician is — and not much else. Without something changing that, Dr. Watson would start the visit blind: no idea what medications Timothy is on, no idea about the insulin pump or the CGM, no record of the gingivitis Dr. Smith found three months earlier.
 
-New Haven Pediatric Care Center's Epic system — with Care Everywhere enabled — makes Timothy's record available. Connie, Connecticut's state health information exchange, routes it: not a document, not a PDF summary, but discrete FHIR data pulled from Epic and pushed through to Dr. Watson's practice, a full week before Timothy ever walks in. Diagnoses, active medications, the devices he's wearing, his full care team, and the oral health findings from February — all of it arrives in time to actually inform how Dr. Watson prepares.
+Northeast Medical Group's Epic system — the Yale New Haven Health instance, with Care Everywhere enabled — makes Timothy's record available. Connie, Connecticut's statewide health information exchange and the central hub that already routed the referral in Interaction 1, routes the records too: not a document, not a PDF summary, but discrete FHIR data pulled from Epic and pushed through to Dr. Watson's practice at Cornell Scott-Hill Health Center, a full week before Timothy ever walks in. Diagnoses, active medications, the devices he's wearing, his full care team, and the oral health findings from February — all of it arrives in time to actually inform how Dr. Watson prepares.
 
 ## What Timothy's Guardians See (patient-facing)
 
@@ -14,7 +14,7 @@ New Haven Pediatric Care Center's Epic system — with Care Everywhere enabled �
 
 ## Key resources exchanged in this interaction
 
-A single `Bundle`, routed New Haven Pediatric Care Center → Connie → Dr. Watson's interim FHIR server, containing:
+A single `Bundle`, routed Northeast Medical Group → Connie → Dr. Watson's interim FHIR server at Cornell Scott-Hill Health Center, containing:
 
 - `Patient` (Timothy's demographics)
 - `Condition` ×3 — E10.9, K05.00, Z77.22, all now transmitted as existing findings (not newly asserted — these were created back in Interaction 1, or earlier for E10.9)

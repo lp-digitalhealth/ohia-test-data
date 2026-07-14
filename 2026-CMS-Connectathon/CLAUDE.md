@@ -1,6 +1,6 @@
 # CLAUDE.md — OHIA CMS Connectathon Test Data
 
-**Doc version:** 5.5
+**Doc version:** 5.6
 **Last updated:** 2026-07-14 (by: Claude Code)
 **Repo:** `lp-digitalhealth/ohia-test-data`, folder `2026-CMS-Connectathon/`
 
@@ -225,6 +225,28 @@ Key facts this surfaced for UC01:
 ## Session Log
 
 *Append-only. Newest entry at the top. Every session (chat or Code) adds one entry before finishing.*
+
+### 2026-07-14 — Claude Code (v5.6) — UC03 business narratives corrected to the real Connecticut ecosystem model; stale duplicate narratives deleted
+Business-layer-only pass on UC03 (Pediatric Periodontitis / Type 1 Diabetes) — no FHIR resources built (still narrative-only). Corrected the whole UC03 business narrative set to the **verified Connecticut administration model**, replacing an earlier (wrong) MCO-chain framing and fictional placeholder practices.
+
+**The corrected model (now the single reference for UC03):**
+- **DSS** = state Medicaid sponsor.
+- **Gainwell Technologies** = DSS fiscal agent; runs the MMIS (CMAP); handles eligibility (270/271), DTR/PAS, and **adjudicates + pays** dental claims (837D/835).
+- **CTDHP (Connecticut Dental Health Partnership)** = the HUSKY dental benefit *brand*, **administered/facilitated by BeneCare (an ASO)** — BeneCare owns network, provider directory, referral coordination, and PA intake, but does **not** adjudicate/pay claims.
+- **Connie** = the central statewide-HIE hub (part of the MES): routes the referral to BeneCare, facilitates/holds CRD coverage requirements, and routes records + bidirectional summaries.
+- **No dental MCO** anywhere in the chain.
+- Real institutions, fictional clinicians: **Northeast Medical Group (Yale New Haven Health)**, **Cornell Scott-Hill Health Center (Dental)**, **Yale Children's Diabetes Program**.
+
+**Prior session (Phase 1) had corrected the model in `UC03-Pediatric-Referral.md` + Interaction 1/2 narratives but was never logged here — this entry covers that plus this session's completion of the remaining interaction docs.**
+
+**This session (finishing the interaction business docs):**
+- **I5 (`uc03-i5-billing-timothys-visit.md`)** rewritten off the wrong "DSS → Medicaid MCO → CTDHP adjudicator" chain: 837D now submitted to **Gainwell (CMAP)** as adjudicator/payer; CTDHP framed as the dental plan brand facilitated by BeneCare (ASO, network/PA-side only, not claims); "no dental MCO" stated explicitly; the "third proof point" framing changed from "MCO-to-plan-administrator chain" to "fiscal-agent model." The two carried-forward coverage questions (D4341 PA, D4381 coverage) and the out-of-scope medical-billing note left unchanged.
+- **I3 (`uc03-i3-three-months-later.md`)** — purely clinical (evaluation/SRP/chlorhexidine), no admin-model or org-name references; verified, no edit.
+- **I4 (`uc03-i4-telling-both-doctors.md`)** — already routed summaries "through Connie"; light wording touch only ("single HIE routing layer" → "Connie as the central HIE routing hub") for consistency.
+- **`UC03-interactions/README.md`** — I5 bullet's "CHIP/MCO-to-plan-administrator chain" fixed to the fiscal-agent model; stale intro claim that the flat use-case doc "is unchanged" corrected (it was edited in Phase 1).
+- **Deleted 5 superseded old-style duplicate narratives** (`uc03-interaction-01..05-*.md`) — leftovers from the v4.7 rename that still carried the wrong MCO model. Confirmed via repo-wide search that nothing links to the deleted filenames.
+
+**Verification (clean):** grep across `UC03-interactions/` shows every residual "MCO" is a corrected negation ("no MCO"/"not an MCO chain"), every "BeneCare" is correctly capitalized as ASO, and zero `Benecare`(lowercase)/`New Haven Pediatric`/`Elm City`/CTDHP-as-adjudicator language remains; dates and CDT/ICD codes unchanged; the 5 duplicates confirmed gone on disk. **Still deferred (Phase 2):** UC03 FHIR resource build, the UC03 companion guide, and `stakeholder-matrix.md`.
 
 ### 2026-07-14 — Claude Code (v5.5) — UC02b companion guide made navigable + patient-facing & imaging-tooling sections added (completes the companion-guide cleanups)
 Third and final companion-guide cleanup (UC01 was v5.3, UC02a v5.4). Rewrote `companion-guides/UC02b-companion-guide.md` following the exact UC02a pattern — compact structure/prose preserved, two new sections added.
