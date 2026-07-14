@@ -1,0 +1,47 @@
+{
+  "resourceType": "Practitioner",
+  "id": "pract-maxil",
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "1649203912"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "family": "Maxil",
+      "given": ["Alex", "James"],
+      "prefix": ["Dr."],
+      "suffix": ["DDS, MD"]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "email",
+      "value": "alex.maxil@austinoralsurgery.example.org"
+    }
+  ],
+  "qualification": [
+    {
+      "code": {
+        "text": "DDS, MD — Dual degree oral and maxillofacial surgeon"
+      },
+      "identifier": [
+        {
+          "system": "urn:ohia:license",
+          "value": "TX-DDS-052841"
+        },
+        {
+          "system": "urn:ohia:license",
+          "value": "TX-MD-091023"
+        }
+      ]
+    }
+  ],
+  "note": [
+    {
+      "text": "Fictional individual — not modeled on any specific real surgeon at Austin Oral Surgery, the real organization he's employed by in this use case."
+    }
+  ]
+}

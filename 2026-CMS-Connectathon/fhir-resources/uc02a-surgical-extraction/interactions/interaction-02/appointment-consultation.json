@@ -1,0 +1,62 @@
+{
+  "resourceType": "Appointment",
+  "id": "appointment-consultation",
+  "status": "booked",
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/servicerequest-referral",
+      "display": "Referral: Surgical extraction, tooth #30"
+    }
+  ],
+  "serviceType": [
+    {
+      "coding": [
+        {
+          "system": "http://www.ada.org/cdt",
+          "code": "D7210",
+          "display": "Extraction, erupted tooth requiring removal of bone and/or sectioning of tooth"
+        }
+      ],
+      "text": "Surgical consultation and extraction"
+    }
+  ],
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "K04.7",
+          "display": "Periapical abscess without sinus"
+        }
+      ]
+    }
+  ],
+  "priority": 5,
+  "description": "Surgical consultation and extraction, tooth #30, following referral from South Congress Dental Care",
+  "start": "2026-07-21T09:00:00-05:00",
+  "end": "2026-07-21T11:00:00-05:00",
+  "created": "2026-07-14T15:00:00-05:00",
+  "participant": [
+    {
+      "actor": {
+        "reference": "Patient/patient-frank-castle",
+        "display": "Frank Castle"
+      },
+      "status": "accepted"
+    },
+    {
+      "actor": {
+        "reference": "PractitionerRole/role-maxil",
+        "display": "Dr. Alex Maxil, DDS, MD"
+      },
+      "status": "accepted"
+    },
+    {
+      "actor": {
+        "reference": "Location/loc-austin-oral-surgery",
+        "display": "Austin Oral Surgery — Central Austin"
+      },
+      "status": "accepted"
+    }
+  ]
+}

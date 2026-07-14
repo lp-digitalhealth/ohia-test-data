@@ -1,0 +1,38 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "plandef-dentaquest-d7210-pa-rule",
+  "status": "active",
+  "name": "DentaQuestD7210PriorAuthRule",
+  "title": "DentaQuest — D7210 Requires Prior Authorization",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "code": "eca-rule",
+        "display": "ECA Rule"
+      }
+    ]
+  },
+  "library": ["Library/lib-dentaquest-d7210-pa-logic"],
+  "action": [
+    {
+      "title": "Flag PA required for D7210",
+      "trigger": [
+        {
+          "type": "named-event",
+          "name": "order-sign"
+        }
+      ],
+      "condition": [
+        {
+          "kind": "applicability",
+          "expression": {
+            "language": "text/cql",
+            "expression": "IsD7210Order"
+          }
+        }
+      ],
+      "definitionCanonical": "Questionnaire/questionnaire-dentaquest-d7210-pa-dtr"
+    }
+  ]
+}

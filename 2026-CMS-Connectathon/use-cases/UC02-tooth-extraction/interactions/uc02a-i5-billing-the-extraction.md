@@ -4,7 +4,7 @@
 
 ## What happens
 
-Now that the extraction is done, Austin Oral Surgery needs to get paid. In the real world, that's an 837D to Texas Medicaid's dental plan. What this interaction actually builds instead is the standardized, interoperable claims-ready package this project has already designed (`ODEOralProfessionalEOB`): the procedure (D7210, CDT-coded), the PA number carried all the way through from Interaction 1, the diagnosis, and the referring/rendering provider chain — everything a downstream system needs to construct its own 837D, without OHIA having made that construction decision on the practice's behalf.
+Now that the extraction is done, Austin Oral Surgery needs to get paid. In the real world, that's an 837D to Texas Medicaid's dental plan. What this interaction actually builds instead is the standardized, interoperable claims-ready package this project has already designed (`ODEDentalClaim`): the procedure (D7210, CDT-coded), the PA number carried all the way through from Interaction 1, the diagnosis, and the referring/rendering provider chain — everything a downstream system needs to construct its own 837D, without OHIA having made that construction decision on the practice's behalf.
 
 **This is a dental-to-dental payer relationship — Texas Medicaid's dental plan, billed via 837D — not a medical benefit.** CDT is what's actually required here; there's no CPT crosswalk to reason about the way there was in UC01, where the receiving payer was a medical plan. If a CPT crosswalk is included at all, it's incidental, not load-bearing — the opposite of UC01's direction.
 

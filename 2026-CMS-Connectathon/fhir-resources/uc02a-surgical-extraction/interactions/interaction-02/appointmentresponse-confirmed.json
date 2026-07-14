@@ -1,0 +1,16 @@
+{
+  "resourceType": "AppointmentResponse",
+  "id": "appointmentresponse-confirmed",
+  "appointment": {
+    "reference": "Appointment/appointment-consultation",
+    "display": "Surgical consultation and extraction, 2026-07-21"
+  },
+  "start": "2026-07-21T09:00:00-05:00",
+  "end": "2026-07-21T11:00:00-05:00",
+  "actor": {
+    "reference": "PractitionerRole/role-maxil",
+    "display": "Dr. Alex Maxil, DDS, MD"
+  },
+  "participantStatus": "accepted",
+  "comment": "Appointment confirmed by Austin Oral Surgery, returned to South Congress Dental Care via CDex within 5 minutes of the referral being received."
+}

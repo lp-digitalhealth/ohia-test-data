@@ -1,0 +1,44 @@
+{
+  "resourceType": "Organization",
+  "id": "org-south-congress-dental",
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "1467823094"
+    }
+  ],
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "prov",
+          "display": "Healthcare Provider"
+        }
+      ],
+      "text": "General Dental Practice"
+    }
+  ],
+  "name": "South Congress Dental Care",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(512) 555-0130"
+    }
+  ],
+  "address": [
+    {
+      "line": ["1500 South Congress Avenue, Suite 110"],
+      "city": "Austin",
+      "state": "TX",
+      "postalCode": "78704",
+      "country": "US"
+    }
+  ],
+  "note": [
+    {
+      "text": "Fictional organization — not a real practice. Named for and located near Frank Castle's own Austin neighborhood (South Congress Avenue) for narrative grounding, consistent with this project's practice of using fictional-but-locally-grounded organizations where a real business isn't being named."
+    }
+  ]
+}

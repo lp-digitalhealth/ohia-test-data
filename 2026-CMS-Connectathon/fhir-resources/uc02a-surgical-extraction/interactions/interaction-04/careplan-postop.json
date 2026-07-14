@@ -1,0 +1,54 @@
+{
+  "resourceType": "CarePlan",
+  "id": "careplan-postop",
+  "status": "active",
+  "intent": "plan",
+  "title": "Post-operative care plan — surgical extraction, tooth #30",
+  "subject": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-surgical"
+  },
+  "period": {
+    "start": "2026-07-21"
+  },
+  "author": {
+    "reference": "PractitionerRole/role-maxil",
+    "display": "Dr. Alex Maxil, DDS, MD"
+  },
+  "addresses": [
+    {
+      "reference": "Condition/condition-k08-89-nonrestorable"
+    }
+  ],
+  "activity": [
+    {
+      "detail": {
+        "kind": "Appointment",
+        "status": "not-started",
+        "description": "Follow-up visit at 1 week to assess healing"
+      }
+    },
+    {
+      "detail": {
+        "kind": "ServiceRequest",
+        "status": "not-started",
+        "description": "Future restorative options (implant, bridge, or space maintenance) to be discussed with general dental provider after healing"
+      }
+    },
+    {
+      "detail": {
+        "kind": "ServiceRequest",
+        "status": "in-progress",
+        "description": "Maintain oral hygiene at extraction site"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Surfaced to Frank's patient-facing app alongside the referral-complete notification at Interaction 4."
+    }
+  ]
+}

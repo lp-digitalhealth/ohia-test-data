@@ -1,0 +1,166 @@
+{
+  "resourceType": "ExplanationOfBenefit",
+  "id": "eob-d7210-claims-sharing",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-dental-claim"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:claims-sharing-id",
+      "value": "CS-2026-UC02A-001"
+    }
+  ],
+  "status": "draft",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+        "code": "oral",
+        "display": "Oral"
+      }
+    ]
+  },
+  "use": "claim",
+  "patient": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "created": "2026-07-21",
+  "insurer": {
+    "reference": "Organization/org-dentaquest",
+    "display": "DentaQuest"
+  },
+  "provider": {
+    "reference": "Organization/org-austin-oral-surgery",
+    "display": "Austin Oral Surgery"
+  },
+  "outcome": "queued",
+  "careTeam": [
+    {
+      "sequence": 1,
+      "provider": {
+        "reference": "PractitionerRole/role-parker",
+        "display": "Dr. Mary Parker, DDS"
+      },
+      "role": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole",
+            "code": "referring",
+            "display": "Referring"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 2,
+      "provider": {
+        "reference": "PractitionerRole/role-maxil",
+        "display": "Dr. Alex Maxil, DDS, MD"
+      },
+      "responsible": true,
+      "role": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole",
+            "code": "rendering",
+            "display": "Rendering provider"
+          }
+        ]
+      }
+    }
+  ],
+  "diagnosis": [
+    {
+      "sequence": 1,
+      "diagnosisCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "K04.7",
+            "display": "Periapical abscess without sinus"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 2,
+      "diagnosisCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "K08.89",
+            "display": "Other specified disorders of teeth and supporting structures"
+          }
+        ],
+        "text": "Non-restorable tooth — vertical root fracture"
+      }
+    }
+  ],
+  "insurance": [
+    {
+      "focal": true,
+      "coverage": {
+        "reference": "Coverage/coverage-frank-castle",
+        "display": "Frank Castle's Texas Medicaid Adult Dental coverage"
+      }
+    }
+  ],
+  "item": [
+    {
+      "sequence": 1,
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D7210",
+            "display": "Extraction, erupted tooth requiring removal of bone and/or sectioning of tooth"
+          }
+        ]
+      },
+      "bodySite": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+            "code": "30",
+            "display": "30"
+          }
+        ],
+        "text": "Tooth #30"
+      },
+      "servicedDate": "2026-07-21",
+      "quantity": {
+        "value": 1
+      }
+    }
+  ],
+  "supportingInfo": [
+    {
+      "sequence": 1,
+      "category": {
+        "text": "Prior authorization reference"
+      },
+      "valueString": "TX-MCD-PA-2026-047291"
+    },
+    {
+      "sequence": 2,
+      "category": {
+        "text": "Referring provider's referral"
+      },
+      "valueReference": {
+        "reference": "ServiceRequest/servicerequest-referral"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Named test objective #4 from this use case's own documentation: 'The PA number returned in the ClaimResponse must be carried forward into the ServiceRequest (referral) and the 837D claim.' PA number TX-MCD-PA-2026-047291 is carried forward here via supportingInfo, continuing the same chain already present on the referral ServiceRequest (Interaction 2) and originating from the ClaimResponse (Interaction 1)."
+    },
+    {
+      "text": "This bills DentaQuest's dental benefit plan directly — a dental-to-dental payer relationship, not a medical benefit. CDT alone (D7210) is what's required here; no CPT crosswalk reasoning applies, unlike UC01's medical-payer direction. This is the second proof point (after UC01's medical-payer direction) that the ODEDentalClaim profile's shape generalizes across payer types."
+    },
+    {
+      "text": "Deliberately excluded, per this profile's own non-financial design: unitPrice, net, total, adjudication. Also deliberately excluded, per this specific interaction's stated scope: Dr. Parker's own separate claim for the original evaluation and radiograph (D0140, D0220) — a parallel billing event not modeled here, since it doesn't involve the referral relationship or this claims-sharing profile."
+    }
+  ]
+}

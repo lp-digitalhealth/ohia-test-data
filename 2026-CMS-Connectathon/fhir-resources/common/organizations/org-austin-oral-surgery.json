@@ -1,0 +1,44 @@
+{
+  "resourceType": "Organization",
+  "id": "org-austin-oral-surgery",
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "1578293148"
+    }
+  ],
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "prov",
+          "display": "Healthcare Provider"
+        }
+      ],
+      "text": "Oral and Maxillofacial Surgery Practice"
+    }
+  ],
+  "name": "Austin Oral Surgery",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(512) 555-0210"
+    }
+  ],
+  "address": [
+    {
+      "line": ["711 W. 38th Street, Suite A-1"],
+      "city": "Austin",
+      "state": "TX",
+      "postalCode": "78705",
+      "country": "US"
+    }
+  ],
+  "note": [
+    {
+      "text": "Real organization — a founding USOSM (U.S. Oral Surgery Management) partner practice, 12+ locations across Central Texas since 2017. Real, publicly-published Central Austin address. The treating surgeon in this use case (Dr. Alex Maxil) is fictional, not modeled on any specific real surgeon at this practice. NPI shown is synthetic, not the real practice's actual NPI."
+    }
+  ]
+}

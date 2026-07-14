@@ -1,0 +1,103 @@
+{
+  "resourceType": "Task",
+  "id": "task-referral-pa-tracking",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC02A-001"
+    }
+  ],
+  "status": "completed",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+        "code": "outcome-final",
+        "display": "Outcome Final"
+      }
+    ]
+  },
+  "intent": "order",
+  "priority": "routine",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-referral",
+    "display": "Referral: Surgical extraction, tooth #30"
+  },
+  "for": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-surgical"
+  },
+  "authoredOn": "2026-07-08T10:35:00-05:00",
+  "lastModified": "2026-07-21T11:31:00-05:00",
+  "requester": {
+    "reference": "Organization/org-south-congress-dental",
+    "display": "South Congress Dental Care"
+  },
+  "owner": {
+    "reference": "PractitionerRole/role-maxil",
+    "display": "Dr. Alex Maxil, DDS, MD — Austin Oral Surgery"
+  },
+  "input": [
+    {
+      "type": { "text": "PA documentation requirement — diagnosis" },
+      "valueReference": { "reference": "Condition/condition-k04-7-periapical-abscess" }
+    },
+    {
+      "type": { "text": "PA documentation requirement — diagnosis" },
+      "valueReference": { "reference": "Condition/condition-k08-89-nonrestorable" }
+    }
+  ],
+  "output": [
+    {
+      "type": { "text": "PA request submitted" },
+      "valueReference": { "reference": "Claim/claim-d7210-priorauth" }
+    },
+    {
+      "type": { "text": "PA decision" },
+      "valueReference": { "reference": "ClaimResponse/claimresponse-d7210-priorauth" }
+    },
+    {
+      "type": { "text": "Referral sent" },
+      "valueReference": { "reference": "ServiceRequest/servicerequest-referral" }
+    },
+    {
+      "type": { "text": "Appointment scheduled" },
+      "valueReference": { "reference": "Appointment/appointment-consultation" }
+    },
+    {
+      "type": { "text": "Appointment confirmed" },
+      "valueReference": { "reference": "AppointmentResponse/appointmentresponse-confirmed" }
+    },
+    {
+      "type": { "text": "Procedure performed" },
+      "valueReference": { "reference": "Procedure/procedure-extraction-tooth30" }
+    },
+    {
+      "type": { "text": "Referral outcome — post-operative summary" },
+      "valueReference": { "reference": "ClinicalImpression/clinicalimpression-postop-summary" }
+    },
+    {
+      "type": { "text": "Referral outcome — care plan" },
+      "valueReference": { "reference": "CarePlan/careplan-postop" }
+    }
+  ],
+  "note": [
+    {
+      "text": "Task snapshot as of Interaction 4 (2026-07-21, 11:31) — the referral outcome closes here, same single-Task design carried through this entire episode from Interaction 1's PA-documentation tracking. status: completed, businessStatus: outcome-final. Task.output now includes every fulfillment artifact produced across all four interactions, per base COW's own guidance that Task.output absorbs the full fulfillment history, not just the most recent step. See Interaction 1's and Interaction 2's versions of this same Task (same id) for the intake and referral-sent snapshots."
+    }
+  ]
+}

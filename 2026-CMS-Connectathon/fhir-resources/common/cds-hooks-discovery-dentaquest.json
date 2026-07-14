@@ -1,0 +1,14 @@
+{
+  "services": [
+    {
+      "hook": "order-sign",
+      "title": "DentaQuest Prior Authorization Check",
+      "description": "Evaluates a dental service order at sign-time and returns a card if prior authorization is required under Texas Medicaid Adult Dental.",
+      "id": "dentaquest-d7210-pa-check",
+      "prefetch": {
+        "coverage": "Coverage?patient={{context.patientId}}",
+        "serviceRequest": "ServiceRequest/{{context.draftOrders.entry.0.resource.id}}"
+      }
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "resourceType": "Task",
+  "id": "task-referral-pa-tracking",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC02A-001"
+    }
+  ],
+  "status": "in-progress",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+        "code": "appointment-confirmed",
+        "display": "Appointment Confirmed"
+      }
+    ]
+  },
+  "intent": "order",
+  "priority": "routine",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-referral",
+    "display": "Referral: Surgical extraction, tooth #30"
+  },
+  "for": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "authoredOn": "2026-07-08T10:35:00-05:00",
+  "lastModified": "2026-07-14T15:05:00-05:00",
+  "requester": {
+    "reference": "Organization/org-south-congress-dental",
+    "display": "South Congress Dental Care"
+  },
+  "owner": {
+    "reference": "PractitionerRole/role-maxil",
+    "display": "Dr. Alex Maxil, DDS, MD — Austin Oral Surgery"
+  },
+  "input": [
+    {
+      "type": { "text": "PA documentation requirement — diagnosis" },
+      "valueReference": { "reference": "Condition/condition-k04-7-periapical-abscess" }
+    },
+    {
+      "type": { "text": "PA documentation requirement — diagnosis" },
+      "valueReference": { "reference": "Condition/condition-k08-89-nonrestorable" }
+    }
+  ],
+  "output": [
+    {
+      "type": { "text": "PA request submitted" },
+      "valueReference": { "reference": "Claim/claim-d7210-priorauth" }
+    },
+    {
+      "type": { "text": "PA decision" },
+      "valueReference": { "reference": "ClaimResponse/claimresponse-d7210-priorauth" }
+    },
+    {
+      "type": { "text": "Referral sent" },
+      "valueReference": { "reference": "ServiceRequest/servicerequest-referral" }
+    },
+    {
+      "type": { "text": "Appointment scheduled" },
+      "valueReference": { "reference": "Appointment/appointment-consultation" }
+    },
+    {
+      "type": { "text": "Appointment confirmed" },
+      "valueReference": { "reference": "AppointmentResponse/appointmentresponse-confirmed" }
+    }
+  ],
+  "note": [
+    {
+      "text": "Task snapshot as of I2 (2026-07-14, 15:05) — referral sent and appointment confirmed. owner is now set for the first time (Dr. Maxil's PractitionerRole), reflecting Austin Oral Surgery's acceptance of the referral (implicit here — the appointment creation itself is the acceptance signal in this compressed dental-to-dental flow; there's no separately-modeled accept transaction, matching how tightly-timed I2 actually is per the source timeline). status remains in-progress, not completed -- the Task doesn't close until the referral itself closes at Interaction 4, not yet built. See Interaction 1's version of this Task (same id) for the intake/PA-tracking-only snapshot."
+    }
+  ]
+}

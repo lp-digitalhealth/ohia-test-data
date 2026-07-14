@@ -1,0 +1,52 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "role-maxil",
+  "active": true,
+  "practitioner": {
+    "reference": "Practitioner/pract-maxil",
+    "display": "Dr. Alex Maxil, DDS, MD"
+  },
+  "organization": {
+    "reference": "Organization/org-austin-oral-surgery",
+    "display": "Austin Oral Surgery"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223X0400X",
+          "display": "Oral and Maxillofacial Surgery"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223X0400X",
+          "display": "Oral and Maxillofacial Surgery"
+        }
+      ]
+    }
+  ],
+  "location": [
+    {
+      "reference": "Location/loc-austin-oral-surgery",
+      "display": "Austin Oral Surgery — Central Austin"
+    }
+  ],
+  "telecom": [
+    {
+      "system": "email",
+      "value": "alex.maxil@austinoralsurgery.example.org"
+    }
+  ],
+  "note": [
+    {
+      "text": "Medicaid participation confirmed via Plan-Net query before Frank's referral was created — see UC02a-I1's narrative."
+    }
+  ]
+}

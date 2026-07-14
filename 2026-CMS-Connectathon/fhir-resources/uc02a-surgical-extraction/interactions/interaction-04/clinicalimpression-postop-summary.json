@@ -1,0 +1,61 @@
+{
+  "resourceType": "ClinicalImpression",
+  "id": "clinicalimpression-postop-summary",
+  "status": "completed",
+  "code": {
+    "text": "Post-operative summary — surgical extraction, tooth #30"
+  },
+  "subject": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-surgical"
+  },
+  "date": "2026-07-21T11:30:00-05:00",
+  "assessor": {
+    "reference": "PractitionerRole/role-maxil",
+    "display": "Dr. Alex Maxil, DDS, MD — Austin Oral Surgery"
+  },
+  "problem": [
+    {
+      "reference": "Condition/condition-k04-7-periapical-abscess"
+    },
+    {
+      "reference": "Condition/condition-k08-89-nonrestorable"
+    }
+  ],
+  "investigation": [
+    {
+      "code": {
+        "text": "Surgical extraction, tooth #30"
+      },
+      "item": [
+        {
+          "reference": "Procedure/procedure-extraction-tooth30",
+          "display": "D7210, tooth #30"
+        }
+      ]
+    }
+  ],
+  "finding": [
+    {
+      "itemReference": {
+        "reference": "Condition/condition-k04-7-periapical-abscess",
+        "display": "Periapical abscess — confirmed"
+      }
+    },
+    {
+      "itemReference": {
+        "reference": "Condition/condition-k08-89-nonrestorable",
+        "display": "Non-restorable tooth — vertical root fracture confirmed intraoperatively"
+      }
+    }
+  ],
+  "summary": "Frank Castle seen 2026-07-21 per referral from South Congress Dental Care. Diagnosis of periapical abscess (K04.7) and non-restorable tooth #30 confirmed. Vertical root fracture confirmed intraoperatively. Surgical extraction of tooth #30 completed without complication (D7210). Socket curetted; primary closure achieved. Post-operative instructions provided. Follow-up in 1 week to assess healing. Patient tolerated procedure well. Case returned to general dental provider for ongoing management and future restorative planning.",
+  "note": [
+    {
+      "text": "Recommendations: (1) Follow-up at 1 week for healing assessment; (2) Future restorative options (implant, bridge, or space maintenance) to be discussed with general dental provider after healing; (3) Patient advised to maintain oral hygiene at extraction site."
+    }
+  ]
+}

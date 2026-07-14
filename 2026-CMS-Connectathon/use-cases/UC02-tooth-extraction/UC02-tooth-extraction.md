@@ -76,7 +76,7 @@ At follow-up, healing is assessed and care is returned to Dr. Parker for ongoing
 | **Referral received at oral surgery practice:** Dr. Maxil's practice receives referral and clinical package; schedules Frank. | US Core / ODE (Under Development) | `ServiceRequest` received via interim FHIR server; `Appointment` created and linked to referral; `AppointmentResponse` returned to general practice. |
 | **Patient notified — referral sent and appointment confirmed:** Frank's application receives notifications at referral creation and appointment confirmation. | FHIR Subscriptions Backport IG | Subscription events on `ServiceRequest` creation and `AppointmentResponse`. |
 | **Surgical consultation:** Dr. Maxil reviews records, confirms diagnosis, reviews medical history and medications, confirms active Medicaid coverage. | US Core / ODE (Under Development) | `Encounter` (consultation, POS 11); eligibility re-verified via 270/271; `MedicationStatement` (patient-reported medications reviewed for surgical risk); `Condition` confirmed. |
-| **Surgical extraction performed:** Dr. Maxil extracts tooth #30. | US Core / ODE (Under Development) | `Procedure` (D7210, tooth #30, FDI 46); `Encounter` (surgical, POS 11); anesthesia documented; discharge instructions documented. |
+| **Surgical extraction performed:** Dr. Maxil extracts tooth #30. | US Core / ODE (Under Development) | `Procedure` (D7210, tooth #30); `Encounter` (surgical, POS 11); anesthesia documented; discharge instructions documented. |
 | **Post-operative summary returned:** Dr. Maxil transmits structured summary to Dr. Parker. | Da Vinci CDex / ODE (Under Development) | `ClinicalImpression` (post-operative summary); `Procedure` (completed); `CarePlan` (post-operative instructions, healing timeline, follow-up recommended); CDex provider-to-provider push to general practice FHIR endpoint. |
 | **Referral closed:** General practice reviews summary; referral marked complete. | US Core / CDex | `ServiceRequest` status updated to `completed`; `Task` closed. |
 | **Patient application updated:** Frank's application shows referral complete with post-operative summary and follow-up guidance. | FHIR Subscriptions Backport IG / US Core | Subscription event on `ServiceRequest` status change; `CarePlan` surfaced to patient application. |
@@ -132,7 +132,7 @@ This is the first OHIA Connectathon use case to exercise **Da Vinci CRD, DTR, an
 | `Claim` (PA) | Da Vinci PAS | Prior authorization request for D7210 submitted to Texas Medicaid |
 | `ClaimResponse` | Da Vinci PAS | Texas Medicaid PA approval response — PA number, approved service, validity period |
 | `Appointment` / `AppointmentResponse` | US Core | Oral surgery appointment created and confirmed; surfaced to patient application |
-| `Procedure` | US Core / ODE | D7210 (surgical extraction, tooth #30, FDI 46); D0140 (limited oral evaluation); D0220 (periapical radiograph) |
+| `Procedure` | US Core / ODE | D7210 (surgical extraction, tooth #30); D0140 (limited oral evaluation); D0220 (periapical radiograph) |
 | `ClinicalImpression` | ODE | Post-operative summary from oral surgery practice; includes procedure details, anesthesia, healing status, and discharge instructions |
 | `CarePlan` | US Core | Post-operative care instructions and follow-up timeline; surfaced to patient application |
 | `Task` | Da Vinci DTR / CDex | Tracks open PA documentation requirement (DTR); tracks open referral (CDex); both closed on completion |
@@ -149,7 +149,7 @@ This is the first OHIA Connectathon use case to exercise **Da Vinci CRD, DTR, an
 
 2. **DTR pre-population from a dental EHR** — DTR questionnaire pre-population is tested against a dental practice management system's FHIR endpoint rather than a medical EHR. The test validates whether dental EHR data — tooth number, CDT code, periapical radiographic findings, diagnosis — can pre-populate a payer PA questionnaire via DTR without manual data entry.
 
-3. **PAS for a CDT-coded dental procedure** — Da Vinci PAS is tested with CDT procedure codes (D7210) and dental benefit plan prior authorization rules. This is the first OHIA Connectathon use of PAS in a dental-only benefit context. The test validates whether the `Claim` (PA) resource can correctly carry a CDT code, tooth number (FDI notation), and dental diagnosis in a format that a dental benefit payer can adjudicate.
+3. **PAS for a CDT-coded dental procedure** — Da Vinci PAS is tested with CDT procedure codes (D7210) and dental benefit plan prior authorization rules. This is the first OHIA Connectathon use of PAS in a dental-only benefit context. The test validates whether the `Claim` (PA) resource can correctly carry a CDT code, tooth number (ADA Universal Tooth Designation System — confirmed directly with the ADA that FDI notation is not used for US dental data), and dental diagnosis in a format that a dental benefit payer can adjudicate.
 
 4. **PA number carried through referral and claim** — The PA number returned in the `ClaimResponse` must be carried forward into the `ServiceRequest` (referral) and the 837D claim. The test validates this chain of custody: PA approved → PA number in referral → PA number on 837D → claim adjudicated with PA reference.
 
@@ -205,7 +205,7 @@ Frank's dental benefit is administered through **Texas Medicaid**. All dental se
 | **Name** | Frank Castle | Given: Frank; Family: Castle |
 | **Date of Birth** | 1972-03-17 | Age: 53 |
 | **Sex** | Male | `http://hl7.org/fhir/ValueSet/administrative-gender` |
-| **General Dental Practice MRN** | `GDENT-TX-2026-0047` | System: `https://generaldental.example.org/fhir/mrn` |
+| **General Dental Practice MRN** | `GDENT-TX-2026-0047` | System: `https://southcongressdental.example.org/fhir/mrn` |
 | **Oral Surgery Practice MRN** | `ORALSURG-TX-2026-0031` | System: `https://austinoralsurgery.example.org/fhir/mrn` |
 | **Texas Medicaid ID** | `TX-MCD-0091847` | System: `http://texas.medicaid.gov/beneficiary` |
 | **Telecom (Phone)** | (512) 555-0147 | Use: Mobile |
@@ -238,11 +238,11 @@ Frank's dental benefit is administered through **Texas Medicaid**. All dental se
 | FHIR Element | Value | System / Note |
 |---|---|---|
 | **Organization NPI** | 1467823094 | `http://hl7.org/fhir/sid/us-npi` |
-| **Organization Name** | General Dental Practice — Texas (Synthetic) | Test data label — to be filled with actual organization |
+| **Organization Name** | South Congress Dental Care (Fictional — not a real practice; grounded in Frank's own Austin neighborhood, South Congress Avenue) | Test data label |
 | **Type** | General Dental Practice | Organization type |
 | **Care Setting** | Place of Service 11 — Office | In-office |
 | **Practice Management System** | Dental PMS with interim FHIR server | Architecture pattern |
-| **FHIR Endpoint** | `https://generaldental.example.org/fhir/r4` | Interim FHIR server |
+| **FHIR Endpoint** | `https://southcongressdental.example.org/fhir/r4` | Interim FHIR server |
 | **NPI Taxonomy Code** | 1223G0001X | General dentist |
 | **Medicaid Participation** | Active — Texas Medicaid dental | Confirmed |
 
@@ -264,7 +264,7 @@ Frank's dental benefit is administered through **Texas Medicaid**. All dental se
 
 | FHIR Element | Value | System / Note |
 |---|---|---|
-| **Organization Name** | Texas Medicaid Dental Plan (Synthetic) | Test data label |
+| **Organization Name** | DentaQuest | Real organization — one of the three statewide Texas Medicaid dental plan administrators (alongside MCNA Dental and UnitedHealthcare Dental), confirmed via research earlier in this project. Same treatment as UC01's real payer (Independence Blue Cross) — a large, real payer organization, not a small independent practice. |
 | **Type** | State Medicaid Dental Benefit | Organization type |
 | **Payer EDI ID** | TX-MCD-DENTAL-EDI | X12 claims routing (synthetic) |
 | **FHIR Endpoint** | `https://txmedicaid-dental.example.org/fhir/r4` | Synthetic FHIR API |
@@ -282,7 +282,7 @@ Frank's dental benefit is administered through **Texas Medicaid**. All dental se
 | **Qualification** | DDS — Doctor of Dental Surgery | Dental degree |
 | **License Number** | TX-DDS-047291 | Texas dental license (synthetic) |
 | **Specialty Code (Taxonomy)** | 1223G0001X | General dentist |
-| **Organization** | General Dental Practice — Texas | Employment |
+| **Organization** | South Congress Dental Care | Employment |
 | **Place of Service** | 11 — Office | In-office |
 | **Role in Use Case** | Originating referring provider; recipient of post-operative summary | Limited oral evaluation; PA submission; referral creation; receives summary from Dr. Maxil |
 
@@ -315,7 +315,7 @@ Frank's dental benefit is administered through **Texas Medicaid**. All dental se
 | **Provider** | Dr. Mary Parker, DDS (General Dental Practice) | Requesting provider |
 | **Priority** | Normal | Routine PA |
 | **Procedure Code** | D7210 — Surgical extraction, erupted tooth | CDT code |
-| **Tooth** | Tooth #30 (FDI: 46) | Lower right first molar |
+| **Tooth** | Tooth #30 (ADA Universal Tooth Designation System) | Lower right first molar |
 | **Diagnosis** | K04.7 (periapical abscess without sinus); K08.89 (non-restorable tooth — vertical root fracture) | Supporting diagnoses |
 | **Supporting Info** | Periapical radiograph (LOINC 62443-7); clinical narrative (vertical root fracture, periapical radiolucency, failed endodontic treatment); prior endodontic history | Clinical justification |
 | **Submitted Date** | 2026-07-10 | PA submission date |
@@ -359,7 +359,7 @@ Frank's dental benefit is administered through **Texas Medicaid**. All dental se
 | **Subject** | Frank Castle | Patient reference |
 | **Performer** | Dr. Alex Maxil, DDS, MD | Oral surgeon |
 | **Performed DateTime** | 2026-07-21 | Date of procedure |
-| **Body Site** | Tooth #30 (FDI: 46) | Lower right first molar |
+| **Body Site** | Tooth #30 (ADA Universal Tooth Designation System) | Lower right first molar |
 | **Reason Reference** | K04.7 (periapical abscess, confirmed); K08.89 (non-restorable, vertical root fracture confirmed) | Confirmed diagnoses |
 | **Note** | Surgical extraction completed without complication. Flap reflected; tooth sectioned for removal. Socket curetted; irrigated. Primary closure achieved. Local anesthesia: inferior alveolar nerve block + long buccal block, 2% lidocaine with 1:100,000 epinephrine. Post-operative instructions provided; follow-up in 1 week. | Operative note |
 
@@ -471,7 +471,7 @@ Frank's patient-facing application provides real-time updates on referral status
 | **Referral received; appointment confirmed:** Oral surgery practice receives referral and schedules Frank. | US Core / ODE (Under Development) | `ServiceRequest` received; `Appointment` created; `AppointmentResponse` returned to general practice. |
 | **Patient notified — referral sent and appointment confirmed:** Frank's application receives notifications at referral creation and appointment confirmation. | FHIR Subscriptions Backport IG | Subscription events on `ServiceRequest` creation and `AppointmentResponse`. |
 | **Surgical consultation:** Dr. Maxil reviews records, confirms diagnosis, reviews medical history and medications, discusses treatment options including immediate implant placement. | US Core / ODE (Under Development) | `Encounter` (consultation, POS 11); `MedicationStatement` reviewed; informed consent documented. |
-| **Surgical extraction and immediate implant placement performed:** Dr. Maxil extracts tooth #30 and places implant at same visit. | US Core / ODE (Under Development) | `Procedure` (D7210, tooth #30, FDI 46); `Procedure` (D6010, tooth #30 site, FDI 46); `Device` (implant specifications — manufacturer, size, lot number); `Encounter` (surgical, POS 11). |
+| **Surgical extraction and immediate implant placement performed:** Dr. Maxil extracts tooth #30 and places implant at same visit. | US Core / ODE (Under Development) | `Procedure` (D7210, tooth #30); `Procedure` (D6010, tooth #30 site); `Device` (implant specifications — manufacturer, size, lot number); `Encounter` (surgical, POS 11). |
 | **Post-operative summary returned:** Dr. Maxil transmits structured summary including implant specifications to Dr. Parker. | Da Vinci CDex / ODE (Under Development) | `ClinicalImpression` (post-operative summary with implant detail); `Procedure` (completed); `Device` (implant record); `CarePlan` (osseointegration timeline, restorative follow-up); CDex push to general dental practice FHIR endpoint. |
 | **Referral closed:** General practice reviews summary and implant record; referral marked complete. | US Core / CDex | `ServiceRequest` → completed; `Task` closed. |
 | **Patient application updated:** Frank's application shows referral complete with post-operative summary and restorative follow-up timeline. | FHIR Subscriptions Backport IG / US Core | Subscription event; `CarePlan` surfaced to patient application. |
@@ -521,7 +521,7 @@ The key interoperability problem this use case addresses: the oral surgeon place
 | `MedicationStatement` | US Core | Patient-reported medications reviewed for surgical risk |
 | `ServiceRequest` | US Core / ODE | Dental-to-dental referral; status lifecycle `active` → `completed` |
 | `DocumentReference` | US Core | Radiographs, periodontal charting, intraoral images in referral package |
-| `Procedure` | US Core / ODE | D7210 (surgical extraction, tooth #30, FDI 46); D6010 (immediate endosteal implant placement, tooth #30 site) |
+| `Procedure` | US Core / ODE | D7210 (surgical extraction, tooth #30); D6010 (immediate endosteal implant placement, tooth #30 site) |
 | `Device` | US Core | Implant specifications — manufacturer, catalog number, size (diameter and length), lot number, placement torque — documented at time of placement and transmitted in post-operative summary to general dental practice for restorative continuity |
 | `ClinicalImpression` | ODE | Post-operative summary including implant detail, osseointegration timeline, and restorative follow-up guidance |
 | `CarePlan` | US Core | Post-operative care instructions; osseointegration timeline; restorative follow-up (crown placement) at general practice |
@@ -597,7 +597,7 @@ Frank's dental benefit is a **commercial dental PPO**. All services are billed v
 | **Name** | Frank Castle | Given: Frank; Family: Castle |
 | **Date of Birth** | 1972-03-17 | Age: 53 |
 | **Sex** | Male | `http://hl7.org/fhir/ValueSet/administrative-gender` |
-| **General Dental Practice MRN** | `GDENT-TX-2026-0047` | System: `https://generaldental.example.org/fhir/mrn` |
+| **General Dental Practice MRN** | `GDENT-TX-2026-0047` | System: `https://southcongressdental.example.org/fhir/mrn` |
 | **Oral Surgery Practice MRN** | `ORALSURG-TX-2026-0031` | System: `https://austinoralsurgery.example.org/fhir/mrn` |
 | **Commercial Member ID** | `COMM-TX-00819472` | System: commercial payer member ID |
 | **Group Number** | 582047 | Employer group |
@@ -680,7 +680,7 @@ Frank's dental benefit is a **commercial dental PPO**. All services are billed v
 | **Subject** | Frank Castle | Patient reference |
 | **Performer** | Dr. Alex Maxil, DDS, MD | Oral surgeon |
 | **Performed DateTime** | 2026-07-15 | Date of procedure |
-| **Body Site** | Tooth #30 (FDI: 46) | Lower right first molar |
+| **Body Site** | Tooth #30 (ADA Universal Tooth Designation System) | Lower right first molar |
 | **Note** | Surgical extraction completed. Flap reflected; tooth sectioned; vertical root fracture confirmed. Socket prepared for immediate implant placement. | Operative note |
 
 #### Procedure (Immediate Implant Placement — Oral Surgery Practice)
@@ -692,7 +692,7 @@ Frank's dental benefit is a **commercial dental PPO**. All services are billed v
 | **Subject** | Frank Castle | Patient reference |
 | **Performer** | Dr. Alex Maxil, DDS, MD | Oral surgeon |
 | **Performed DateTime** | 2026-07-15 | Same visit as extraction |
-| **Body Site** | Tooth #30 site (FDI: 46) | Lower right first molar region |
+| **Body Site** | Tooth #30 site (ADA Universal Tooth Designation System) | Lower right first molar region |
 | **Device** | Implant specifications — see Device resource below | Implant record |
 | **Note** | Immediate implant placed following extraction. Bone density adequate; primary stability achieved. Placement torque: 35 Ncm. Healing abutment placed. Patient instructed on implant care. Osseointegration period: 3–4 months before restorative phase. | Operative note |
 
@@ -706,7 +706,7 @@ Frank's dental benefit is a **commercial dental PPO**. All services are billed v
 | **Catalog Number** | IMPL-4.0-11.5-SYN | Diameter 4.0mm; length 11.5mm (synthetic catalog number) |
 | **Lot Number** | LOT-2026-04821 | Manufacturing lot (synthetic) |
 | **Manufacture Date** | 2025-11-01 | Manufacturing date |
-| **Body Site** | Tooth #30 site (FDI: 46) | Placement location |
+| **Body Site** | Tooth #30 site (ADA Universal Tooth Designation System) | Placement location |
 | **Patient** | Frank Castle | Patient reference |
 | **Placement Torque** | 35 Ncm | Primary stability metric |
 | **Note** | Transmitted to general dental practice in post-operative summary to support future restorative phase (crown placement). Restorative provider will need implant specifications to select appropriate abutment and crown components. | Restorative continuity note |
