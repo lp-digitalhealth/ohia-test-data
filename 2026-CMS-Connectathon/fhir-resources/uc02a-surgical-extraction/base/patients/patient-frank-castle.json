@@ -1,0 +1,65 @@
+{
+  "resourceType": "Patient",
+  "id": "patient-frank-castle",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"]
+  },
+  "identifier": [
+    {
+      "system": "https://southcongressdental.example.org/fhir/mrn",
+      "value": "GDENT-TX-2026-0047"
+    },
+    {
+      "system": "https://austinoralsurgery.example.org/fhir/mrn",
+      "value": "ORALSURG-TX-2026-0031"
+    },
+    {
+      "system": "http://texas.medicaid.gov/beneficiary",
+      "value": "TX-MCD-0091847"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "family": "Castle",
+      "given": ["Frank"]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(512) 555-0147",
+      "use": "mobile"
+    },
+    {
+      "system": "email",
+      "value": "frank.castle@example.com",
+      "use": "home"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1972-03-17",
+  "address": [
+    {
+      "line": ["918 South Congress Avenue, Apt 6"],
+      "city": "Austin",
+      "state": "TX",
+      "postalCode": "78704",
+      "country": "US"
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English"
+          }
+        ]
+      },
+      "preferred": true
+    }
+  ]
+}

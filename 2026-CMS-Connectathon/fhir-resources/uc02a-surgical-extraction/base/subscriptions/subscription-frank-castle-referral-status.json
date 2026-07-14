@@ -1,0 +1,35 @@
+{
+  "resourceType": "Subscription",
+  "id": "subscription-frank-castle-referral-status",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-subscription"]
+  },
+  "status": "active",
+  "contact": [
+    {
+      "system": "phone",
+      "value": "(512) 555-0147",
+      "use": "mobile"
+    }
+  ],
+  "reason": "Notify Frank Castle's patient-facing app of status changes on his surgical extraction referral (Task/task-referral-pa-tracking), so the app can surface milestone updates (PA approved, referral sent, appointment confirmed) without Frank needing to call either office.",
+  "criteria": "https://oralhealthalliance.net/fhir/SubscriptionTopic/ode-referral-status",
+  "channel": {
+    "type": "rest-hook",
+    "endpoint": "https://patient-app.example.org/notifications/frank-castle",
+    "payload": "application/fhir+json",
+    "_payload": {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-payload-content",
+          "valueCode": "full-resource"
+        }
+      ]
+    }
+  },
+  "note": [
+    {
+      "text": "Per the HL7 FHIR Subscriptions R4 Backport IG, same pattern established for UC01: the SubscriptionTopic canonical URL is carried directly in Subscription.criteria, not via a separate extension. This single Subscription spans both I1 (PA approval notification) and I2 (referral sent, appointment confirmed notifications) — same referral Task tracked throughout."
+    }
+  ]
+}

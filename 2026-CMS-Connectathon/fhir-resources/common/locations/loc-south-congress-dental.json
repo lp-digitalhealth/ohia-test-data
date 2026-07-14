@@ -1,0 +1,29 @@
+{
+  "resourceType": "Location",
+  "id": "loc-south-congress-dental",
+  "status": "active",
+  "name": "South Congress Dental Care",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "OUTPHARM",
+          "display": "outpatient dental office"
+        }
+      ],
+      "text": "General dental office"
+    }
+  ],
+  "address": {
+    "line": ["1500 South Congress Avenue, Suite 110"],
+    "city": "Austin",
+    "state": "TX",
+    "postalCode": "78704",
+    "country": "US"
+  },
+  "managingOrganization": {
+    "reference": "Organization/org-south-congress-dental",
+    "display": "South Congress Dental Care"
+  }
+}

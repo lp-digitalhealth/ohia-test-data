@@ -1,0 +1,34 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "questionnaire-dentaquest-d7210-pa-dtr",
+  "status": "active",
+  "title": "Texas Medicaid Prior Authorization — Surgical Extraction (D7210)",
+  "subjectType": ["Patient"],
+  "item": [
+    {
+      "linkId": "1",
+      "text": "Tooth number (ADA Universal Tooth Designation System)",
+      "type": "string"
+    },
+    {
+      "linkId": "2",
+      "text": "Diagnosis (ICD-10)",
+      "type": "string"
+    },
+    {
+      "linkId": "3",
+      "text": "Clinical justification — why is extraction, not restoration, the appropriate treatment?",
+      "type": "text"
+    },
+    {
+      "linkId": "4",
+      "text": "Supporting radiograph attached?",
+      "type": "boolean"
+    },
+    {
+      "linkId": "5",
+      "text": "Prior endodontic treatment history on this tooth?",
+      "type": "text"
+    }
+  ]
+}

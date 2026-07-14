@@ -1,0 +1,45 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "id": "questionnaireresponse-pa-dtr",
+  "questionnaire": "Questionnaire/questionnaire-dentaquest-d7210-pa-dtr",
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-limited-oral-eval"
+  },
+  "authored": "2026-07-08T10:35:00-05:00",
+  "author": {
+    "reference": "PractitionerRole/role-parker",
+    "display": "Dr. Mary Parker, DDS"
+  },
+  "item": [
+    {
+      "linkId": "1",
+      "text": "Tooth number (ADA Universal Tooth Designation System)",
+      "answer": [{ "valueString": "30" }]
+    },
+    {
+      "linkId": "2",
+      "text": "Diagnosis (ICD-10)",
+      "answer": [{ "valueString": "K04.7, K08.89" }]
+    },
+    {
+      "linkId": "3",
+      "text": "Clinical justification — why is extraction, not restoration, the appropriate treatment?",
+      "answer": [{ "valueString": "Vertical root fracture below the gumline following prior root canal treatment. Tooth is non-restorable; periapical abscess present." }]
+    },
+    {
+      "linkId": "4",
+      "text": "Supporting radiograph attached?",
+      "answer": [{ "valueBoolean": true }]
+    },
+    {
+      "linkId": "5",
+      "text": "Prior endodontic treatment history on this tooth?",
+      "answer": [{ "valueString": "Root canal treatment previously performed on tooth #30; now failed, with vertical root fracture. DTR pre-populated this response from EHR data (diagnosis, tooth number) automatically at DTR launch; Dr. Parker's staff confirmed and submitted." }]
+    }
+  ]
+}

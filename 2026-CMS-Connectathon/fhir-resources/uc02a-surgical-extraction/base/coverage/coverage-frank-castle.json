@@ -1,0 +1,66 @@
+{
+  "resourceType": "Coverage",
+  "id": "coverage-frank-castle",
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "MCD",
+        "display": "Medicaid"
+      }
+    ]
+  },
+  "beneficiary": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "subscriber": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "relationship": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+        "code": "self",
+        "display": "Self"
+      }
+    ]
+  },
+  "period": {
+    "start": "2026-01-01",
+    "end": "2026-12-31"
+  },
+  "payor": [
+    {
+      "reference": "Organization/org-dentaquest",
+      "display": "DentaQuest"
+    }
+  ],
+  "class": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+            "code": "plan"
+          }
+        ]
+      },
+      "value": "TX-MCD-ADULT-DENTAL",
+      "name": "Texas Medicaid — Adult Dental"
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://texas.medicaid.gov/beneficiary",
+      "value": "TX-MCD-0091847"
+    }
+  ],
+  "note": [
+    {
+      "text": "Prior authorization required for D7210 (surgical extraction) — confirmed via CRD at order entry, 2026-07-08."
+    }
+  ]
+}

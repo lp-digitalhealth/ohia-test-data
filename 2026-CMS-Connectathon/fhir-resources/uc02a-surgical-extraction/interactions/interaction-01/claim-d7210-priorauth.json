@@ -1,0 +1,139 @@
+{
+  "resourceType": "Claim",
+  "id": "claim-d7210-priorauth",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/davinci-pas/StructureDefinition/profile-claim"]
+  },
+  "identifier": [
+    {
+      "system": "http://dentaquest.example.org/pa-request-id",
+      "value": "PA-REQ-2026-UC02A-001"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+        "code": "oral",
+        "display": "Oral"
+      }
+    ]
+  },
+  "use": "preauthorization",
+  "patient": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "created": "2026-07-10T09:00:00-05:00",
+  "insurer": {
+    "reference": "Organization/org-dentaquest",
+    "display": "DentaQuest"
+  },
+  "provider": {
+    "reference": "Organization/org-south-congress-dental",
+    "display": "South Congress Dental Care"
+  },
+  "priority": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/processpriority",
+        "code": "normal"
+      }
+    ]
+  },
+  "careTeam": [
+    {
+      "sequence": 1,
+      "provider": {
+        "reference": "PractitionerRole/role-parker",
+        "display": "Dr. Mary Parker, DDS"
+      },
+      "responsible": true,
+      "role": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole",
+            "code": "rendering",
+            "display": "Rendering provider"
+          }
+        ]
+      }
+    }
+  ],
+  "diagnosis": [
+    {
+      "sequence": 1,
+      "diagnosisReference": {
+        "reference": "Condition/condition-k04-7-periapical-abscess",
+        "display": "Periapical abscess without sinus"
+      }
+    },
+    {
+      "sequence": 2,
+      "diagnosisReference": {
+        "reference": "Condition/condition-k08-89-nonrestorable",
+        "display": "Non-restorable tooth — vertical root fracture"
+      }
+    }
+  ],
+  "insurance": [
+    {
+      "sequence": 1,
+      "focal": true,
+      "coverage": {
+        "reference": "Coverage/coverage-frank-castle",
+        "display": "Frank Castle's Texas Medicaid Adult Dental coverage"
+      }
+    }
+  ],
+  "item": [
+    {
+      "sequence": 1,
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D7210",
+            "display": "Extraction, erupted tooth requiring removal of bone and/or sectioning of tooth"
+          }
+        ]
+      },
+      "bodySite": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+            "code": "30",
+            "display": "30"
+          }
+        ],
+        "text": "Tooth #30"
+      }
+    }
+  ],
+  "supportingInfo": [
+    {
+      "sequence": 1,
+      "category": {
+        "text": "Periapical radiograph"
+      },
+      "valueReference": {
+        "reference": "DiagnosticReport/diagnosticreport-periapical-radiograph"
+      }
+    },
+    {
+      "sequence": 2,
+      "category": {
+        "text": "DTR-completed PA documentation"
+      },
+      "valueReference": {
+        "reference": "QuestionnaireResponse/questionnaireresponse-pa-dtr"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "This is a dental-to-dental PA request (Da Vinci PAS in a dental-only benefit context, the first OHIA Connectathon test of this pattern) — bills a dental benefit plan (DentaQuest), not a medical payer. CDT is what's required here; no CPT crosswalk reasoning applies, consistent with the dental-payer direction of the claims-sharing profile designed elsewhere in this project."
+    }
+  ]
+}

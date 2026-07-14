@@ -1,0 +1,75 @@
+{
+  "resourceType": "Task",
+  "id": "task-referral-pa-tracking",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC02A-001"
+    }
+  ],
+  "status": "in-progress",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+        "code": "pa-approved",
+        "display": "Prior Authorization Approved"
+      }
+    ]
+  },
+  "intent": "order",
+  "priority": "routine",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "QuestionnaireResponse/questionnaireresponse-pa-dtr",
+    "display": "DTR-completed PA documentation for D7210"
+  },
+  "for": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-limited-oral-eval"
+  },
+  "authoredOn": "2026-07-08T10:35:00-05:00",
+  "lastModified": "2026-07-14T14:00:00-05:00",
+  "requester": {
+    "reference": "Organization/org-south-congress-dental",
+    "display": "South Congress Dental Care"
+  },
+  "input": [
+    {
+      "type": { "text": "PA documentation requirement — diagnosis" },
+      "valueReference": { "reference": "Condition/condition-k04-7-periapical-abscess" }
+    },
+    {
+      "type": { "text": "PA documentation requirement — diagnosis" },
+      "valueReference": { "reference": "Condition/condition-k08-89-nonrestorable" }
+    }
+  ],
+  "output": [
+    {
+      "type": { "text": "PA request submitted" },
+      "valueReference": { "reference": "Claim/claim-d7210-priorauth" }
+    },
+    {
+      "type": { "text": "PA decision" },
+      "valueReference": { "reference": "ClaimResponse/claimresponse-d7210-priorauth" }
+    }
+  ],
+  "note": [
+    {
+      "text": "This is the ONLY Task for this referral episode — same single-Task design established for UC01, per base COW's own guidance (one Coordination Task per Request; Task.output absorbs fulfillment artifacts). At this I1 stage, this Task tracks the DTR/PA documentation requirement only — no referral exists yet (the ServiceRequest referral isn't created until I2, after PA approval, per the use case appendix's own 'Ordered Date: 2026-07-14' for that resource). status is in-progress, not completed: PA approval is a milestone within this Task's overall lifecycle, not the Task's own completion — the Task doesn't actually finish until the referral itself closes (Interaction 4, not yet built). This same Task (same id) will be updated, not replaced, at I2 to also carry the referral tracking, and its owner will be set for the first time at that point."
+    }
+  ]
+}

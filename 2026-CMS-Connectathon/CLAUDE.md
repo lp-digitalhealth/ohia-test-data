@@ -1,6 +1,6 @@
 # CLAUDE.md — OHIA CMS Connectathon Test Data
 
-**Doc version:** 4.7
+**Doc version:** 4.9
 **Last updated:** 2026-07-13 (by: claude.ai chat)
 **Repo:** `lp-digitalhealth/ohia-test-data`, folder `2026-CMS-Connectathon/`
 
@@ -222,6 +222,34 @@ Key facts this surfaced for UC01:
 ## Session Log
 
 *Append-only. Newest entry at the top. Every session (chat or Code) adds one entry before finishing.*
+
+### 2026-07-13 — claude.ai chat (v4.9) — UC02a Interactions 3–5 completed; rigorous QA caught a real broken-reference bug from the previous session
+Per user: complete UC02a's remaining interactions (I3: The Extraction, I4: Closing the Loop, I5: Billing the Extraction), explicit instruction to be rigorous and not miss anything. Found substantial work already in progress from the prior session (8 of 9 new FHIR files already built); verified every one against source data rather than assuming correctness because the files existed.
+
+**The most important catch this session:** the Interaction 2 and Interaction 4 `ServiceRequest` files both referenced `DiagnosticReport/diagnosticreport-periodontal-charting` and `DocumentReference/documentreference-intraoral-images` — **neither of which existed anywhere in the build.** This is a genuine broken-reference bug that slipped through the previous session's QA (which checked the file's *content* for accuracy but never verified every reference actually resolved). Confirmed this wasn't a new I4 mistake — it existed since Interaction 2 was originally built. Resolved correctly: the source doc's own text explicitly promises these as part of "the referral package," so the fix was to build the two missing resources properly (retroactively into Interaction 1, since they're captured at the same visit as the periapical radiograph), not to remove the references. `diagnosticreport-periodontal-charting.json` required a real terminology decision: no verified LOINC code exists for a periodontal charting report specifically (confirmed via search — periodontal charting also isn't a separately billable CDT procedure), so it's text-only, correctly identified as **this project's fourth named terminology gap**, alongside the DDC dose (UC01) and the pediatric PRA (UC03). `documentreference-intraoral-images.json` uses LOINC 72170-4, verified real.
+
+**A second thing verified, not assumed:** confirmed the Interaction 5 claims-sharing resource correctly omits a KX modifier — this isn't a gap, since KX specifically certifies dental work billed to a *medical* payer (the CMS/Humana mechanism from earlier UC01 work), and this is Texas Medicaid's own dental benefit paying for dental work directly, a different scenario entirely where KX doesn't apply.
+
+**Bundles:** both existing ones (I1, I2) were stale — missing the two newly-discovered files — rebuilt along with new I3/I4/I5 bundles. All five bundles cross-reference-validated on the final (most complete) bundle: 29 unique references, zero broken, 44 total resources across the full episode.
+
+**Companion guide fully extended** to cover all five interactions — stakeholder steps for I3-5, resource index corrected (including the two files missing since I2), stub specs extended, patient-facing section corrected to explicitly note I3 and I5 are non-patient-facing, troubleshooting section updated to name the terminology gap. Verified via automated check (with manual confirmation of flagged false positives) that all 53 file references in the guide resolve to real files.
+
+### 2026-07-13 — claude.ai chat (v4.8) — UC02a built: companion guide + FHIR resources, Interactions 1–2 only
+Per user: reset focus to UC02a, built ONLY Interactions 1–2 (I1: The Prior Authorization Wait; I2: The Handoff to Oral Surgery), companion guide first, then resources, exactly as requested.
+
+**Two real fixes made to the source use case doc before building anything**, found while re-reading closely: (1) the same FDI-tooth-numbering error caught twice before in UC01/UC04 — 10 instances of "(FDI: 46)" throughout UC02's doc (both sub-cases), corrected to the ADA Universal Tooth Designation System; (2) the two remaining `(Synthetic)` placeholder organizations never got fictional identities the way UC04's did — fixed: **South Congress Dental Care** (fictional, grounded in Frank's own Austin neighborhood) for the referring practice, and **DentaQuest** (real — confirmed one of Texas's three statewide Medicaid dental administrators, same treatment as UC01's real payer IBX) for the payer.
+
+**Companion guide** (`companion-guides/UC02a-companion-guide.md`) built first as requested, matching UC01's format, explicitly scoped to I1–I2 only with I3–5 named as not-yet-covered.
+
+**FHIR resources built**: full registry tier (3 orgs, 2 practitioners, 2 locations, 3 endpoints, InsurancePlan, DTR Questionnaire, CRD Library/PlanDefinition, CDS Hooks discovery), full base tier (Patient, Coverage, 2 PractitionerRoles, Subscription), Interaction 1 (11 resources: Encounter, 2 Conditions, 2 Observations, ImagingStudy, DiagnosticReport, QuestionnaireResponse, Claim, ClaimResponse, Task), Interaction 2 (4 resources: ServiceRequest, Appointment, AppointmentResponse, updated Task).
+
+**One real modeling catch during the build**: initially planned a `MedicationStatement` for Interaction 1, but the source doc's own appendix places medication review at the *surgical consultation* (Interaction 3, not built this round) — removed before it was built, and the companion guide's resource index corrected to match.
+
+**A second real catch**: added a `note` field to a draft `QuestionnaireResponse`, then verified (rather than assumed) that base FHIR `QuestionnaireResponse` has no top-level `note` element — unlike `Task`/`Observation`, which do. Removed before finalizing, same discipline as the earlier `Encounter.note` catch in UC01.
+
+**Design continuity confirmed, not reinvented**: the single-Task pattern (one Coordination Task per Request, per base COW guidance, already resolved for UC01) applied identically here — one Task tracks the PA documentation requirement at I1 (`focus` on the `QuestionnaireResponse`, since no referral exists yet) and is updated, not replaced, at I2 to also track the referral (`owner` set for the first time). The dental-to-dental support-a-pull imaging pattern (vs. UC01's medical-side separate-push) applied correctly — `ImagingStudy` built at I1, referenced but not duplicated into the I2 referral's `supportingInfo`.
+
+Both bundles built and cross-reference-validated (30 and 34 resources respectively) — every reference in the final bundle confirmed to resolve to an included resource, zero broken references.
 
 ### 2026-07-13 — claude.ai chat (v4.7) — Interaction filenames renamed and shortened to match new titles
 Per user: filenames themselves (not just H1 titles) needed updating, and shortened where possible. Renamed all 29 interaction files to the pattern `uc0X[a/b]-iN-short-slug.md`, e.g. `uc02a-interaction-01-prior-authorization-cycle.md` → `uc02a-i1-prior-authorization-wait.md`, `uc04b-interaction-01-coverage-providersearch-assessment-referral.md` → `uc04b-i1-midnight-pain-diabetes-flag.md` — considerably shorter across the board, derived from the new narrative titles rather than the old technical ones.

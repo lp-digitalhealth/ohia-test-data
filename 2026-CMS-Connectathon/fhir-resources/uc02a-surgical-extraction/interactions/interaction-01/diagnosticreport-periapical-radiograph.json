@@ -1,0 +1,38 @@
+{
+  "resourceType": "DiagnosticReport",
+  "id": "diagnosticreport-periapical-radiograph",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note"]
+  },
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "62443-7",
+        "display": "Single view Teeth Document XR"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-limited-oral-eval"
+  },
+  "effectiveDateTime": "2026-07-08",
+  "issued": "2026-07-08T10:20:00-05:00",
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-parker",
+      "display": "Dr. Mary Parker, DDS"
+    }
+  ],
+  "conclusion": "Periapical radiograph, tooth #30: periapical radiolucency and vertical root fracture identified, consistent with periapical abscess and failed prior endodontic treatment. Tooth non-restorable; surgical extraction recommended.",
+  "imagingStudy": [
+    {
+      "reference": "ImagingStudy/imagingstudy-periapical"
+    }
+  ]
+}

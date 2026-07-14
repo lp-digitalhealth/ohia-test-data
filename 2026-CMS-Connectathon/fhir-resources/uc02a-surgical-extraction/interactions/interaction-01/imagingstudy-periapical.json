@@ -1,0 +1,44 @@
+{
+  "resourceType": "ImagingStudy",
+  "id": "imagingstudy-periapical",
+  "status": "available",
+  "subject": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-limited-oral-eval"
+  },
+  "started": "2026-07-08T10:15:00-05:00",
+  "endpoint": [
+    {
+      "reference": "Endpoint/endpoint-south-congress-dental",
+      "display": "South Congress Dental Care Interim FHIR Server (WADO-RS)"
+    }
+  ],
+  "series": [
+    {
+      "uid": "1.2.826.0.1.3680043.8.498.10000000000000000000000000000030",
+      "modality": {
+        "system": "http://dicom.nema.org/resources/ontology/DCM",
+        "code": "IO",
+        "display": "Intra-oral Radiography"
+      },
+      "bodySite": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+            "code": "30",
+            "display": "30"
+          }
+        ],
+        "text": "Tooth #30"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Real image data is DICOM, not carried in this FHIR resource — this ImagingStudy is a pointer/metadata layer only, per HL7's own spec (confirmed earlier in this project). Retrieval at Interaction 2 happens via CDex -> this ImagingStudy -> a real DICOMweb WADO-RS call against the referenced endpoint's PACS, using the series Study Instance UID above. This is the dental-to-dental support-a-pull direction (not UC01's separate-push, since neither side here is a medical EHR)."
+    }
+  ]
+}

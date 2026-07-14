@@ -1,0 +1,29 @@
+{
+  "resourceType": "Organization",
+  "id": "org-dentaquest",
+  "identifier": [
+    {
+      "system": "urn:ohia:payer-edi-id",
+      "value": "TX-MCD-DENTAL-EDI"
+    }
+  ],
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "pay",
+          "display": "Payer"
+        }
+      ],
+      "text": "State Medicaid Dental Benefit Administrator"
+    }
+  ],
+  "name": "DentaQuest",
+  "note": [
+    {
+      "text": "Real organization — one of the three statewide Texas Medicaid dental plan administrators (alongside MCNA Dental and UnitedHealthcare Dental), confirmed via research earlier in this project. Same treatment as UC01's real payer (Independence Blue Cross): a large, real payer organization, not a small independent practice. Endpoint and EDI identifiers below are synthetic test-data values, not DentaQuest's actual production identifiers."
+    }
+  ]
+}

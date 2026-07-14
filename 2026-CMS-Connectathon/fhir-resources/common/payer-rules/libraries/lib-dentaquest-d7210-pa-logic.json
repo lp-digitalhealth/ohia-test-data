@@ -1,0 +1,22 @@
+{
+  "resourceType": "Library",
+  "id": "lib-dentaquest-d7210-pa-logic",
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "logic-library"
+      }
+    ]
+  },
+  "name": "DentaQuestD7210PriorAuthLogic",
+  "title": "DentaQuest D7210 Prior Authorization Determination Logic",
+  "description": "CQL logic evaluated by the CRD service at order entry: does a D7210 (surgical extraction) order for a Texas Medicaid Adult Dental beneficiary require prior authorization? Returns true for all D7210 orders under this benefit, since surgical extraction is confirmed to always require PA under this plan.",
+  "content": [
+    {
+      "contentType": "text/cql",
+      "data": "bGlicmFyeSBEZW50YVF1ZXN0RDcyMTBQQUxvZ2ljIHZlcnNpb24gJzEuMC4wJw=="
+    }
+  ]
+}

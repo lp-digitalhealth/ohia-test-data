@@ -1,0 +1,35 @@
+{
+  "resourceType": "InsurancePlan",
+  "id": "insplan-tx-medicaid-adult-dental",
+  "status": "active",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+          "code": "medicaid",
+          "display": "Medicaid"
+        }
+      ]
+    }
+  ],
+  "name": "Texas Medicaid — Adult Dental",
+  "ownedBy": {
+    "reference": "Organization/org-dentaquest",
+    "display": "DentaQuest"
+  },
+  "administeredBy": {
+    "reference": "Organization/org-dentaquest",
+    "display": "DentaQuest"
+  },
+  "coverageArea": [
+    {
+      "display": "Texas"
+    }
+  ],
+  "note": [
+    {
+      "text": "Texas Medicaid's adult dental benefit is limited to services medically necessary to control bleeding, relieve pain, and eliminate acute infection — not routine dental care. Surgical extraction (D7210) requires prior authorization under this plan."
+    }
+  ]
+}

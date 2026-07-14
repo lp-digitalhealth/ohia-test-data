@@ -1,0 +1,47 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "role-parker",
+  "active": true,
+  "practitioner": {
+    "reference": "Practitioner/pract-parker",
+    "display": "Dr. Mary Parker, DDS"
+  },
+  "organization": {
+    "reference": "Organization/org-south-congress-dental",
+    "display": "South Congress Dental Care"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223G0001X",
+          "display": "General Practice Dentistry"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223G0001X",
+          "display": "General Practice Dentistry"
+        }
+      ]
+    }
+  ],
+  "location": [
+    {
+      "reference": "Location/loc-south-congress-dental",
+      "display": "South Congress Dental Care"
+    }
+  ],
+  "telecom": [
+    {
+      "system": "email",
+      "value": "mary.parker@southcongressdental.example.org"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "resourceType": "ClaimResponse",
+  "id": "claimresponse-d7210-priorauth",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/davinci-pas/StructureDefinition/profile-claimresponse"]
+  },
+  "identifier": [
+    {
+      "system": "http://dentaquest.example.org/pa-response-id",
+      "value": "PA-REQ-2026-UC02A-001-R1"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+        "code": "oral",
+        "display": "Oral"
+      }
+    ]
+  },
+  "use": "preauthorization",
+  "patient": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "created": "2026-07-14T14:00:00-05:00",
+  "insurer": {
+    "reference": "Organization/org-dentaquest",
+    "display": "DentaQuest"
+  },
+  "requestor": {
+    "reference": "Organization/org-south-congress-dental",
+    "display": "South Congress Dental Care"
+  },
+  "request": {
+    "reference": "Claim/claim-d7210-priorauth",
+    "display": "D7210 prior authorization request"
+  },
+  "outcome": "complete",
+  "disposition": "Approved. Surgical extraction of tooth #30 authorized. Approved rendering provider: Dr. Alex Maxil, DDS, MD (Austin Oral Surgery).",
+  "preAuthRef": "TX-MCD-PA-2026-047291",
+  "preAuthPeriod": {
+    "start": "2026-07-14",
+    "end": "2026-10-14"
+  },
+  "note": [
+    {
+      "text": "PA approval confirms medical necessity and coverage eligibility at time of review — it is NOT a guarantee of payment. Final reimbursement still depends on Frank's Medicaid eligibility on the actual date of service and a clean, complete claim submission at billing. This is standard Texas Medicaid PA language, named as a test consideration in this use case, not a defect."
+    }
+  ]
+}
