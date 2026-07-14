@@ -25,7 +25,7 @@ Also: `CarePlan` (surfaced to the guardian app), `Procedure` marked completed, `
 
 ## Why this matters for testing
 
-This is its own named cross-cutting test objective in the source doc, distinct from the encounter itself: whether a dental practice can fire two simultaneous CDex pushes to two different organizations through a single HIE routing layer, and whether Connie correctly routes each to the right endpoint. It's also the interaction where the diabetes-periodontal relationship has to become genuinely structured data — a `Flag`, not a sentence in a note — since that's the whole clinical point of sending anything to the endocrinologist at all.
+This is its own named cross-cutting test objective in the source doc, distinct from the encounter itself: whether a dental practice can fire two simultaneous CDex pushes to two different organizations through Connie as the central HIE routing hub, and whether Connie correctly routes each to the right endpoint. It's also the interaction where the diabetes-periodontal relationship has to become genuinely structured data — a `Flag`, not a sentence in a note — since that's the whole clinical point of sending anything to the endocrinologist at all.
 
 ## What's deliberately NOT part of this interaction
 
