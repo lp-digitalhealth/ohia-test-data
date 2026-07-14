@@ -1,0 +1,44 @@
+{
+  "resourceType": "Procedure",
+  "id": "procedure-d9995-teledentistry",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"]
+  },
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D9995",
+        "display": "Teledentistry — synchronous; real-time encounter"
+      }
+    ],
+    "text": "Synchronous teledentistry consultation (Place of Service 02)"
+  },
+  "subject": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-virtual",
+    "display": "Virtual dental consultation, 2026-07-14"
+  },
+  "performedDateTime": "2026-07-14",
+  "performer": [
+    {
+      "actor": {
+        "reference": "PractitionerRole/role-webb",
+        "display": "Dr. Marcus Webb, DDS"
+      }
+    }
+  ],
+  "location": {
+    "reference": "Location/loc-meridian-virtual",
+    "display": "Meridian Teledental — Virtual Care (POS 02)"
+  },
+  "note": [
+    {
+      "text": "The billable virtual consult (CDT D9995) performed by Dr. Webb during the Interaction 1 virtual encounter (encounter-01-virtual, 2026-07-14). It is placed in the Interaction 5 folder because that is where it is billed (the teledentistry claims-sharing package), and to avoid disturbing the already-committed Interaction 1/2 bundles — clinically it belongs to the I1 virtual encounter it references. Satisfies test objective #7: both care settings' CDT codes (D9995 teledentistry, D3330 in-office) are expressible as ODE-profiled Procedure resources for downstream 837D."
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "resourceType": "DiagnosticReport",
+  "id": "diagnosticreport-periapical",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note"]
+  },
+  "status": "final",
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "62443-7",
+        "display": "Single view Teeth Document XR"
+      }
+    ],
+    "text": "Periapical radiograph, tooth #19 (CDT D0220)"
+  },
+  "subject": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-inoffice"
+  },
+  "effectiveDateTime": "2026-07-15",
+  "issued": "2026-07-15T10:25:00-05:00",
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-nair",
+      "display": "Dr. Priya Nair, DDS"
+    }
+  ],
+  "conclusion": "Tooth #19 (lower left first molar): periapical rarefaction consistent with periapical abscess; three-canal anatomy; no root fracture. Findings confirm irreversible pulpitis with early periapical pathology. Endodontic treatment indicated and completed same visit.",
+  "imagingStudy": [
+    {
+      "reference": "ImagingStudy/imagingstudy-periapical"
+    }
+  ]
+}

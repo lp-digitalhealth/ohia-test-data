@@ -1,0 +1,75 @@
+{
+  "resourceType": "Condition",
+  "id": "condition-k04-01-pulpitis",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"]
+  },
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "code": "K04.01",
+        "display": "Irreversible pulpitis"
+      }
+    ],
+    "text": "Irreversible pulpitis, tooth #19 (confirmed radiographically in-office)"
+  },
+  "bodySite": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+          "code": "19",
+          "display": "19"
+        }
+      ],
+      "text": "Tooth #19 (lower left first molar, Universal Numbering System)"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-inoffice",
+    "display": "In-office dental evaluation and treatment, 2026-07-15"
+  },
+  "onsetString": "Approximately 3 days prior to the virtual encounter (patient-reported)",
+  "recordedDate": "2026-07-14",
+  "asserter": {
+    "reference": "PractitionerRole/role-nair",
+    "display": "Dr. Priya Nair, DDS"
+  },
+  "note": [
+    {
+      "text": "STATUS SNAPSHOT NOTE: this is the Interaction 3 (2026-07-15) version of the pulpitis Condition (same id as the Interaction 1 version), verificationStatus advanced from provisional to confirmed once the in-office periapical radiograph (DiagnosticReport/diagnosticreport-periapical) confirmed the diagnosis. The encounter reference and asserter are updated to the in-office visit/provider. See the Interaction 1 version for the original provisional state asserted by Dr. Webb during the virtual encounter. Tooth designation uses the ADA Universal Numbering System (#19); FDI notation is deliberately NOT asserted, per ADA confirmation that FDI is not used for US dental data."
+    }
+  ]
+}

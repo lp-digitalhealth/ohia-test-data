@@ -1,0 +1,68 @@
+{
+  "resourceType": "Provenance",
+  "id": "provenance-referral",
+  "target": [
+    {
+      "reference": "ServiceRequest/servicerequest-referral",
+      "display": "Referral: In-office dental evaluation and endodontic treatment"
+    },
+    {
+      "reference": "Task/task-referral-tracking",
+      "display": "Referral tracking Task"
+    }
+  ],
+  "recorded": "2026-07-14T19:56:00-05:00",
+  "activity": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-DataOperation",
+        "code": "CREATE",
+        "display": "create"
+      }
+    ]
+  },
+  "agent": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "author",
+            "display": "Author"
+          }
+        ]
+      },
+      "who": {
+        "reference": "PractitionerRole/role-webb",
+        "display": "Dr. Marcus Webb, DDS"
+      },
+      "onBehalfOf": {
+        "reference": "Organization/org-meridian-teledental",
+        "display": "Meridian Teledental"
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "transmitter",
+            "display": "Transmitter"
+          }
+        ]
+      },
+      "who": {
+        "reference": "Organization/org-meridian-teledental",
+        "display": "Meridian Teledental"
+      }
+    }
+  ],
+  "entity": [
+    {
+      "role": "source",
+      "what": {
+        "display": "Referral created in the Meridian Teledental platform during the virtual encounter and pushed directly to Barton Springs Dental Group's interim FHIR server via Da Vinci CDex provider-to-provider (no HIE, no 360X bridge). Patient-submitted intraoral photos travel inline with the referral bundle."
+      }
+    }
+  ]
+}

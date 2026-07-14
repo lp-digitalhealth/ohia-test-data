@@ -20,10 +20,12 @@ Clinician-readable writeups for both UC04 sub-use-cases (teledentistry, virtual-
 
 ## Two structural notes, carried over from UC03's approach
 
-**No DICOM/imaging exchange between providers in either use case.** The virtual/teledentistry provider has no way to generate a radiograph — imaging is captured fresh, in-office, in Interaction 3 of each use case, not pulled or pushed between organizations at referral time the way UC02's was.
+**No DICOM radiograph exchange between providers in either use case.** The virtual/teledentistry provider has no way to generate a radiograph — the diagnostic radiograph is captured fresh, in-office, in Interaction 3 of each use case, not pulled or pushed between organizations at referral time the way UC02's was. **Patient-submitted intraoral photos are a different matter:** the patient captures 1–2 phone photos through the teledentistry app during the virtual visit (I1), and those non-radiographic images travel with the referral as a US Core `DocumentReference` (inline `image/jpeg`, `author` = Patient), correlated to the affected tooth via a linked `Observation`. This is deliberately distinguished from the DICOM/PACS radiograph layer, which still does not appear until I3.
 
 **Organizations now have fictional identities, not bare placeholders.** Per user direction, these are slightly-fabricated organizations — not real businesses, but also not generic "(Synthetic)" labels. Barton Springs Dental Group (UC04a, Austin) and Mission Trail Family Dental (UC04b, San Antonio) are grounded in real local flavor (real neighborhoods/landmarks) without naming actual practices. This differs from UC02a's approach (Austin Oral Surgery, a real USOSM partner org) — a deliberate choice, not an oversight; naming small real independent practices without their involvement was judged different from naming a large multi-location group already an OHIA member.
 
-## Not yet built
+## Build status
 
-FHIR resources for any of these 10 interactions — narrative-only, per established discipline.
+**All five UC04a interactions (I1–I5) are built** as FHIR resources — virtual teledentistry referral → in-office scheduling (I1–I2), in-office root canal with the first radiograph (I3, in-office-only, not exchanged), closed-loop outcome summary back to the teledentistry provider (I4), and two-organization claims-sharing (I5) — with a full navigable companion guide (`companion-guides/UC04a-companion-guide.md`). **All of UC04b remains narrative-only**, per established discipline.
+
+**Verification-discipline note (ICD-10):** the source doc labels the periapical finding "K04.5 — Periapical abscess without sinus." K04.5 is actually chronic apical periodontitis; the correct code is **K04.7**, which the built I3/I5 resources use and the main UC04 doc's UC04a appendix has been corrected to reflect.

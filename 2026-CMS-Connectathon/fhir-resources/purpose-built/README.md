@@ -17,6 +17,7 @@ Why base is separate from durable: a `Patient` or their `Coverage` is stable acr
 | **UC02a** | `uc02a-surgical-extraction/` | Texas Medicaid surgical extraction (Frank Castle), **with** prior auth | I1-I5 |
 | **UC02b** | `uc02b-commercial-implant/` | Commercial surgical extraction + immediate implant (Frank Castle), **no** prior auth | I1-I5 |
 | **UC03** | `uc03-pediatric-referral/` | Pediatric dental referral, Type 1 diabetes (Timothy Jones), CT HUSKY B routed via **Connie HIE**; covered referral (**no PA at referral**) but **D4341 PA fires at the treatment visit (I3)**, no imaging/HL7v2, minor/guardian proxy | I1-I5 |
+| **UC04a** | `uc04a-teledentistry-commercial/` | Commercial **teledentistry** referral, acute pulpitis (Sarah Okonkwo), Aetna Dental PPO; virtual origin (**first radiograph at I3, in-office-only, not exchanged**) but **patient-submitted intraoral photos** exchanged at I1 as an inline US Core `DocumentReference`; root canal (I3), closed-loop summary (I4), **two-organization** claims-sharing (I5); **no PA** (commercial), CDex provider-to-provider push, no Plan-Net/HL7v2 | I1-I5 |
 
 Each use case's `interactions/README.md` lists its per-interaction resources in detail. Durable dependencies (organizations, clinicians, plans, payer rules) live in [`../durable/`](../durable/); see [`../README.md`](../README.md) for the full library map and load order.
 

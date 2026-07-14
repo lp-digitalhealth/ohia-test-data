@@ -1,0 +1,55 @@
+{
+  "resourceType": "CarePlan",
+  "id": "careplan-posttreatment",
+  "status": "active",
+  "intent": "plan",
+  "title": "Post-treatment care plan — Sarah Okonkwo (tooth #19 root canal)",
+  "subject": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-inoffice"
+  },
+  "period": {
+    "start": "2026-07-15"
+  },
+  "author": {
+    "reference": "PractitionerRole/role-nair",
+    "display": "Dr. Priya Nair, DDS"
+  },
+  "addresses": [
+    {
+      "reference": "Condition/condition-k04-01-pulpitis",
+      "display": "Irreversible pulpitis, tooth #19 (confirmed)"
+    }
+  ],
+  "activity": [
+    {
+      "detail": {
+        "kind": "ServiceRequest",
+        "status": "not-started",
+        "description": "Final restoration (crown) on tooth #19 by the patient's regular dental provider — the endodontically treated molar needs definitive coronal coverage."
+      }
+    },
+    {
+      "detail": {
+        "kind": "Appointment",
+        "status": "not-started",
+        "description": "Follow-up periapical radiograph of tooth #19 at 6 months to confirm periapical healing."
+      }
+    },
+    {
+      "detail": {
+        "kind": "ServiceRequest",
+        "status": "in-progress",
+        "description": "Post-operative discomfort: ibuprofen 400 mg by mouth as needed."
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Post-treatment care plan surfaced to Sarah's patient-facing app alongside the referral-complete milestone at Interaction 4, and transmitted to the referring teledentistry provider as part of the closed-loop summary. Final restoration is deliberately deferred to the patient's regular dental provider (not Barton Springs), consistent with the operative note."
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "resourceType": "AuditEvent",
+  "id": "auditevent-summary",
+  "type": {
+    "system": "http://terminology.hl7.org/CodeSystem/audit-event-type",
+    "code": "transmit",
+    "display": "Transmit"
+  },
+  "subtype": [
+    {
+      "system": "http://hl7.org/fhir/restful-interaction",
+      "code": "create",
+      "display": "create"
+    }
+  ],
+  "action": "R",
+  "recorded": "2026-07-15T12:36:00-05:00",
+  "outcome": "0",
+  "outcomeDesc": "Success — dental encounter summary pushed via CDex and received at the teledentistry provider's FHIR endpoint.",
+  "agent": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "transmitter",
+            "display": "Transmitter"
+          }
+        ]
+      },
+      "who": {
+        "reference": "Organization/org-barton-springs-dental",
+        "display": "Barton Springs Dental Group (source — in-office practice)"
+      },
+      "requestor": true
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://dicom.nema.org/resources/ontology/DCM",
+            "code": "110152",
+            "display": "Destination Role ID"
+          }
+        ]
+      },
+      "who": {
+        "reference": "Organization/org-meridian-teledental",
+        "display": "Meridian Teledental (destination — referring teledentistry provider)"
+      },
+      "requestor": false
+    }
+  ],
+  "source": {
+    "observer": {
+      "reference": "Organization/org-barton-springs-dental",
+      "display": "Barton Springs Dental Group interim FHIR server"
+    },
+    "type": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/security-source-type",
+        "code": "4",
+        "display": "Application Server"
+      }
+    ]
+  },
+  "entity": [
+    {
+      "what": {
+        "reference": "ClinicalImpression/clinicalimpression-summary",
+        "display": "Dental encounter summary"
+      }
+    },
+    {
+      "what": {
+        "reference": "Patient/patient-sarah-okonkwo",
+        "display": "Sarah Okonkwo"
+      }
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "resourceType": "Observation",
+  "id": "observation-periapical-findings",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"]
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "text": "Periapical radiographic findings — tooth #19"
+  },
+  "subject": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-inoffice"
+  },
+  "effectiveDateTime": "2026-07-15T10:25:00-05:00",
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-nair",
+      "display": "Dr. Priya Nair, DDS"
+    }
+  ],
+  "bodySite": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+        "code": "19",
+        "display": "19"
+      }
+    ],
+    "text": "Tooth #19 (lower left first molar)"
+  },
+  "derivedFrom": [
+    {
+      "reference": "DiagnosticReport/diagnosticreport-periapical",
+      "display": "Periapical radiograph report, tooth #19"
+    }
+  ],
+  "component": [
+    {
+      "code": { "text": "Periapical rarefaction" },
+      "valueString": "Radiolucency at the apex of tooth #19, consistent with periapical abscess."
+    },
+    {
+      "code": { "text": "Canal anatomy" },
+      "valueString": "Three canals identified."
+    },
+    {
+      "code": { "text": "Root integrity" },
+      "valueString": "No root fracture identified."
+    }
+  ],
+  "note": [
+    {
+      "text": "Periapical findings read from the in-office radiograph (DiagnosticReport/diagnosticreport-periapical), confirming what the virtual assessment had provisionally suspected. Correlated to tooth #19 via Observation.bodySite. Text-only components (no LOINC asserted for the overall finding, per project verification discipline)."
+    }
+  ]
+}

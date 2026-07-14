@@ -1,0 +1,62 @@
+{
+  "resourceType": "Appointment",
+  "id": "appointment-inoffice",
+  "status": "booked",
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/servicerequest-referral",
+      "display": "Referral: In-office evaluation and endodontic treatment, tooth #19"
+    }
+  ],
+  "serviceType": [
+    {
+      "coding": [
+        {
+          "system": "http://www.ada.org/cdt",
+          "code": "D3330",
+          "display": "Endodontic therapy, molar tooth (excluding final restoration)"
+        }
+      ],
+      "text": "In-office evaluation with radiograph and likely root canal, tooth #19"
+    }
+  ],
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "K04.01",
+          "display": "Irreversible pulpitis"
+        }
+      ]
+    }
+  ],
+  "priority": 5,
+  "description": "In-office evaluation and treatment of tooth #19 (irreversible pulpitis), following referral from Meridian Teledental",
+  "start": "2026-07-15T10:00:00-05:00",
+  "end": "2026-07-15T11:00:00-05:00",
+  "created": "2026-07-14T20:47:00-05:00",
+  "participant": [
+    {
+      "actor": {
+        "reference": "Patient/patient-sarah-okonkwo",
+        "display": "Sarah Okonkwo"
+      },
+      "status": "accepted"
+    },
+    {
+      "actor": {
+        "reference": "PractitionerRole/role-nair",
+        "display": "Dr. Priya Nair, DDS"
+      },
+      "status": "accepted"
+    },
+    {
+      "actor": {
+        "reference": "Location/loc-barton-springs",
+        "display": "Barton Springs Dental Group (POS 11)"
+      },
+      "status": "accepted"
+    }
+  ]
+}

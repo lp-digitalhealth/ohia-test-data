@@ -1,0 +1,56 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "documentreference-virtual-findings",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"]
+  },
+  "status": "current",
+  "docStatus": "final",
+  "type": {
+    "text": "Virtual dental assessment note (teledentistry consultation)"
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+          "code": "clinical-note",
+          "display": "Clinical Note"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "date": "2026-07-14T19:56:00-05:00",
+  "author": [
+    {
+      "reference": "PractitionerRole/role-webb",
+      "display": "Dr. Marcus Webb, DDS"
+    }
+  ],
+  "custodian": {
+    "reference": "Organization/org-meridian-teledental",
+    "display": "Meridian Teledental"
+  },
+  "content": [
+    {
+      "attachment": {
+        "contentType": "text/plain",
+        "title": "Virtual dental assessment — Sarah Okonkwo, 2026-07-14",
+        "creation": "2026-07-14"
+      }
+    }
+  ],
+  "context": {
+    "encounter": [
+      {
+        "reference": "Encounter/encounter-01-virtual",
+        "display": "Virtual dental consultation, 2026-07-14"
+      }
+    ]
+  },
+  "description": "Structured wrapper for Dr. Webb's virtual assessment findings (see Observation/observation-symptoms), transmitted with the dental-to-dental referral. This is a clinical-note wrapper, not an imaging document — the diagnostic radiograph does not exist until the in-office visit (Interaction 3). The patient-submitted intraoral photos are a separate DocumentReference (documentreference-intraoral-photos)."
+}

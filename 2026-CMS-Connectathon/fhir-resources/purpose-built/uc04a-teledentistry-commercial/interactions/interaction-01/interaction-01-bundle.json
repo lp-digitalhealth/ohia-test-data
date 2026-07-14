@@ -1,0 +1,1655 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:Organization-org-meridian-teledental",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-meridian-teledental",
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1629384756"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Teledentistry Provider (virtual care)"
+          }
+        ],
+        "name": "Meridian Teledental",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(888) 555-0192"
+          },
+          {
+            "system": "url",
+            "value": "https://meridian-teledental.example.org"
+          }
+        ],
+        "note": [
+          {
+            "text": "Fictional teledentistry brand invented for UC04 \u2014 not a real business. A neutral, non-geographic name so it can serve both UC04a (commercial) and UC04b (Medicaid) virtual encounters. Delivers synchronous virtual dental assessments (Place of Service 02); has no physical treatment location and cannot generate radiographs. NPI is a synthetic test-data value."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-meridian-teledental"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Organization-org-barton-springs-dental",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-barton-springs-dental",
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1487263095"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "General Dental Practice"
+          }
+        ],
+        "name": "Barton Springs Dental Group",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(512) 555-0164"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "2001 Barton Springs Road"
+            ],
+            "city": "Austin",
+            "state": "TX",
+            "postalCode": "78704",
+            "country": "US"
+          }
+        ],
+        "note": [
+          {
+            "text": "Fictional organization \u2014 not a real practice. Named for and located near the real Barton Springs area of Austin for narrative grounding, consistent with this project's practice of using fictional-but-locally-grounded organizations where a real business isn't being named (per the UC04 interactions README). The in-office general dental practice that receives Sarah Okonkwo's teledentistry referral (Place of Service 11). NPI is a synthetic test-data value."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-barton-springs-dental"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Organization-org-uc04-commercial-payer",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-uc04-commercial-payer",
+        "identifier": [
+          {
+            "system": "urn:ohia:payer-edi-id",
+            "value": "AETNA-DENTAL-EDI"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "pay",
+                "display": "Payer"
+              }
+            ],
+            "text": "Commercial Dental Payer"
+          }
+        ],
+        "name": "Aetna Dental",
+        "note": [
+          {
+            "text": "The commercial dental payer named directly in the UC04a source use case ('Aetna Dental PPO'), consistent with this project's practice of using real large national payers by name (as with Independence Blue Cross in UC01 and DentaQuest in UC02a). Distinct from UC02b's generic 'Commercial Dental PPO (Synthetic)' \u2014 UC04 has its own payer, benefit design (teledentistry + endodontic coverage), and endpoint. The EDI identifier and FHIR endpoint here are synthetic test-data values, not Aetna's real production identifiers."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-uc04-commercial-payer"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner-pract-webb",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-webb",
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1710293846"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Webb",
+            "given": [
+              "Marcus",
+              "James"
+            ],
+            "prefix": [
+              "Dr."
+            ],
+            "suffix": [
+              "DDS"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "marcus.webb@meridian-teledental.example.org"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "text": "DDS \u2014 Doctor of Dental Surgery"
+            },
+            "identifier": [
+              {
+                "system": "urn:ohia:license",
+                "value": "TX-DDS-058314"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/pract-webb"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner-pract-nair",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-nair",
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1821304957"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Nair",
+            "given": [
+              "Priya"
+            ],
+            "prefix": [
+              "Dr."
+            ],
+            "suffix": [
+              "DDS"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "priya.nair@bartonspringsdental.example.org"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "text": "DDS \u2014 Doctor of Dental Surgery"
+            },
+            "identifier": [
+              {
+                "system": "urn:ohia:license",
+                "value": "TX-DDS-061927"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/pract-nair"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Location-loc-meridian-virtual",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-meridian-virtual",
+        "status": "active",
+        "name": "Meridian Teledental \u2014 Virtual Care (Place of Service 02)",
+        "mode": "kind",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "PTRES",
+                "display": "Patient's Residence"
+              }
+            ],
+            "text": "Telehealth \u2014 provided via synchronous virtual encounter (CMS Place of Service 02, Telehealth Provided Other than in Patient's Home)"
+          }
+        ],
+        "managingOrganization": {
+          "reference": "Organization/org-meridian-teledental",
+          "display": "Meridian Teledental"
+        },
+        "note": [
+          {
+            "text": "Virtual/telehealth 'location' for Meridian Teledental's synchronous encounters \u2014 CMS Place of Service 02. There is no physical treatment site; the code above is illustrative only (FHIR R4 core has no dedicated telehealth Location.type concept, and CMS POS is not carried as a standard FHIR CodeSystem here \u2014 POS 02 is stated in the name/text per project verification discipline)."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-meridian-virtual"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Location-loc-barton-springs",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-barton-springs",
+        "status": "active",
+        "name": "Barton Springs Dental Group (Place of Service 11)",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "OUTPHARM",
+                "display": "outpatient dental office"
+              }
+            ],
+            "text": "General dental office (CMS Place of Service 11, Office)"
+          }
+        ],
+        "address": {
+          "line": [
+            "2001 Barton Springs Road"
+          ],
+          "city": "Austin",
+          "state": "TX",
+          "postalCode": "78704",
+          "country": "US"
+        },
+        "managingOrganization": {
+          "reference": "Organization/org-barton-springs-dental",
+          "display": "Barton Springs Dental Group"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-barton-springs"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Endpoint-endpoint-meridian-teledental",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-meridian-teledental",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest"
+        },
+        "name": "Meridian Teledental FHIR API (synthetic test endpoint)",
+        "managingOrganization": {
+          "reference": "Organization/org-meridian-teledental"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/resource-types",
+                "code": "Bundle"
+              }
+            ]
+          }
+        ],
+        "address": "https://meridian-teledental.example.org/fhir/r4"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-meridian-teledental"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Endpoint-endpoint-barton-springs",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-barton-springs",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest"
+        },
+        "name": "Barton Springs Dental Group interim FHIR server (synthetic test endpoint)",
+        "managingOrganization": {
+          "reference": "Organization/org-barton-springs-dental"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/resource-types",
+                "code": "Bundle"
+              }
+            ]
+          }
+        ],
+        "address": "https://bartonspringsdental.example.org/fhir/r4"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-barton-springs"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Endpoint-endpoint-uc04-commercial-payer",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-uc04-commercial-payer",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest"
+        },
+        "name": "Aetna Dental FHIR API (synthetic test endpoint)",
+        "managingOrganization": {
+          "reference": "Organization/org-uc04-commercial-payer"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/resource-types",
+                "code": "Bundle"
+              }
+            ]
+          }
+        ],
+        "address": "https://aetna-dental.example.org/fhir/r4"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-uc04-commercial-payer"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:InsurancePlan-insplan-uc04-commercial-ppo",
+      "resource": {
+        "resourceType": "InsurancePlan",
+        "id": "insplan-uc04-commercial-ppo",
+        "status": "active",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+                "code": "dental",
+                "display": "Dental"
+              }
+            ]
+          }
+        ],
+        "name": "Aetna Dental PPO",
+        "ownedBy": {
+          "reference": "Organization/org-uc04-commercial-payer",
+          "display": "Aetna Dental"
+        },
+        "administeredBy": {
+          "reference": "Organization/org-uc04-commercial-payer",
+          "display": "Aetna Dental"
+        },
+        "coverageArea": [
+          {
+            "display": "Texas"
+          }
+        ],
+        "coverage": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+                  "code": "dental",
+                  "display": "Dental"
+                }
+              ]
+            },
+            "benefit": [
+              {
+                "type": {
+                  "text": "Teledentistry / virtual consultation (D9995)"
+                },
+                "limit": [
+                  {
+                    "value": {
+                      "value": 100,
+                      "unit": "%",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "%"
+                    },
+                    "code": {
+                      "text": "Covered in full (in-network); no prior authorization required"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": {
+                  "text": "Basic / endodontic services (molar root canal, D3330)"
+                },
+                "limit": [
+                  {
+                    "value": {
+                      "value": 80,
+                      "unit": "%",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "%"
+                    },
+                    "code": {
+                      "text": "Plan pays after deductible (in-network); no prior authorization required"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": {
+                  "text": "Diagnostic imaging (periapical radiograph, D0220)"
+                },
+                "limit": [
+                  {
+                    "value": {
+                      "value": 100,
+                      "unit": "%",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "%"
+                    },
+                    "code": {
+                      "text": "Covered in full (in-network)"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "plan": [
+          {
+            "type": {
+              "text": "PPO"
+            },
+            "generalCost": [
+              {
+                "type": {
+                  "text": "Annual maximum benefit"
+                },
+                "cost": {
+                  "value": 2000,
+                  "currency": "USD"
+                }
+              },
+              {
+                "type": {
+                  "text": "Annual deductible"
+                },
+                "cost": {
+                  "value": 50,
+                  "currency": "USD"
+                }
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Employer-sponsored commercial dental PPO benefit for UC04a (Sarah Okonkwo). Covers teledentistry/virtual consultation (D9995) so the after-hours virtual visit is a benefit, not an out-of-pocket expense \u2014 this is what the patient app verifies in real time at session initiation (a named UC04a test objective). Endodontic treatment (D3330) covered 80% after a $50 deductible; diagnostic radiograph (D0220) covered in full; annual maximum $2,000/plan year. NO prior authorization required for D9995, D0220, or D3330 under this plan design (commercial no-PA case, contrast UC02a's Medicaid PA). Fixed plan-level benefit values live here; member- and point-in-time-specific balances are returned by the real-time benefit response rather than stored on Coverage. Endpoint/EDI identifiers are synthetic \u2014 see Organization/org-uc04-commercial-payer."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "InsurancePlan/insplan-uc04-commercial-ppo"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Coverage-coverage-sarah-okonkwo-ppo",
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "coverage-sarah-okonkwo-ppo",
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "DENTAL",
+              "display": "dental care policy"
+            }
+          ],
+          "text": "Aetna Dental PPO"
+        },
+        "beneficiary": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "subscriber": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "subscriberId": "AET-TX-00284711",
+        "relationship": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+              "code": "self",
+              "display": "Self"
+            }
+          ]
+        },
+        "period": {
+          "start": "2026-01-01",
+          "end": "2026-12-31"
+        },
+        "payor": [
+          {
+            "reference": "Organization/org-uc04-commercial-payer",
+            "display": "Aetna Dental"
+          }
+        ],
+        "class": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "group"
+                }
+              ]
+            },
+            "value": "847221",
+            "name": "Employer group"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "plan"
+                }
+              ]
+            },
+            "value": "AETNA-DENTAL-PPO",
+            "name": "Aetna Dental PPO"
+          }
+        ],
+        "identifier": [
+          {
+            "system": "urn:ohia:aetna-dental:member-id",
+            "value": "AET-TX-00284711"
+          }
+        ],
+        "note": [
+          {
+            "text": "Employer-sponsored commercial dental PPO coverage (Aetna Dental PPO), member AET-TX-00284711, group 847221. Verified in real time by Sarah's patient app at the start of the 2026-07-14 virtual encounter (a named UC04a test objective): teledentistry/virtual consultation covered in full, endodontic treatment covered 80% after a $50 deductible, annual maximum $2,000/plan year. NO prior authorization required for the virtual consultation (D9995), radiograph (D0220), or root canal (D3330) \u2014 commercial no-PA case, contrast UC02a's Texas Medicaid PA. Fixed plan-level benefit percentages and annual maximum live on InsurancePlan/insplan-uc04-commercial-ppo; point-in-time balances are returned by the real-time benefit response rather than stored here."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Coverage/coverage-sarah-okonkwo-ppo"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Patient-patient-sarah-okonkwo",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-sarah-okonkwo",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://meridian-teledental.example.org/fhir/patient-id",
+            "value": "MTD-2026-004871"
+          },
+          {
+            "system": "https://bartonspringsdental.example.org/fhir/mrn",
+            "value": "BSDG-MRN-2026-0391"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Okonkwo",
+            "given": [
+              "Sarah"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(512) 555-0148",
+            "use": "mobile"
+          },
+          {
+            "system": "email",
+            "value": "sarah.okonkwo@example.com",
+            "use": "home"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1991-03-17",
+        "address": [
+          {
+            "line": [
+              "1140 South 1st Street, Apt 6"
+            ],
+            "city": "Austin",
+            "state": "TX",
+            "postalCode": "78704",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/patient-sarah-okonkwo"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:PractitionerRole-role-nair",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "role-nair",
+        "active": true,
+        "practitioner": {
+          "reference": "Practitioner/pract-nair",
+          "display": "Dr. Priya Nair, DDS"
+        },
+        "organization": {
+          "reference": "Organization/org-barton-springs-dental",
+          "display": "Barton Springs Dental Group"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223G0001X",
+                "display": "Dentist \u2014 General Practice"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223G0001X",
+                "display": "Dentist \u2014 General Practice"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "reference": "Location/loc-barton-springs",
+            "display": "Barton Springs Dental Group (POS 11)"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "priya.nair@bartonspringsdental.example.org"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/role-nair"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:PractitionerRole-role-webb",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "role-webb",
+        "active": true,
+        "practitioner": {
+          "reference": "Practitioner/pract-webb",
+          "display": "Dr. Marcus Webb, DDS"
+        },
+        "organization": {
+          "reference": "Organization/org-meridian-teledental",
+          "display": "Meridian Teledental"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223G0001X",
+                "display": "Dentist \u2014 General Practice"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223G0001X",
+                "display": "Dentist \u2014 General Practice"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "reference": "Location/loc-meridian-virtual",
+            "display": "Meridian Teledental \u2014 Virtual Care (POS 02)"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "marcus.webb@meridian-teledental.example.org"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/role-webb"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Subscription-subscription-sarah-referral-status",
+      "resource": {
+        "resourceType": "Subscription",
+        "id": "subscription-sarah-referral-status",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-subscription"
+          ]
+        },
+        "status": "active",
+        "contact": [
+          {
+            "system": "phone",
+            "value": "(512) 555-0148",
+            "use": "mobile"
+          }
+        ],
+        "reason": "Notify Sarah Okonkwo's patient-facing app of status changes on her teledentistry referral (Task/task-referral-tracking), so the app can surface milestone updates (referral sent, appointment confirmed, and \u2014 at Interaction 4 \u2014 referral complete) without Sarah needing to call either office.",
+        "criteria": "https://oralhealthalliance.net/fhir/SubscriptionTopic/ode-referral-status",
+        "channel": {
+          "type": "rest-hook",
+          "endpoint": "https://patient-app.example.org/notifications/sarah-okonkwo",
+          "payload": "application/fhir+json",
+          "_payload": {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-payload-content",
+                "valueCode": "full-resource"
+              }
+            ]
+          }
+        },
+        "note": [
+          {
+            "text": "Per the HL7 FHIR Subscriptions R4 Backport IG, same pattern established for UC01/UC02/UC03: the SubscriptionTopic canonical URL is carried directly in Subscription.criteria, not via a separate extension. Sarah is an adult subscribing on her own behalf (no guardian/RelatedPerson, unlike UC03's pediatric case). This single Subscription spans the whole UC04a episode. Patient-visible milestones: referral sent (I1) and appointment confirmed (I2); referral complete fires at I4 (not built this pass). Like UC02b, there is NO 'prior authorization approved' milestone \u2014 commercial coverage here requires no PA."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Subscription/subscription-sarah-referral-status"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition-condition-k04-01-pulpitis",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-k04-01-pulpitis",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "provisional"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K04.01",
+              "display": "Irreversible pulpitis"
+            }
+          ],
+          "text": "Irreversible pulpitis, tooth #19 (provisional \u2014 radiographic confirmation required in-office)"
+        },
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+                "code": "19",
+                "display": "19"
+              }
+            ],
+            "text": "Tooth #19 (lower left first molar, Universal Numbering System)"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-virtual",
+          "display": "Virtual dental consultation, 2026-07-14"
+        },
+        "onsetString": "Approximately 3 days prior to encounter (patient-reported)",
+        "recordedDate": "2026-07-14",
+        "asserter": {
+          "reference": "PractitionerRole/role-webb",
+          "display": "Dr. Marcus Webb, DDS"
+        },
+        "note": [
+          {
+            "text": "Documented by Dr. Webb during the virtual encounter based on symptom history and patient-submitted intraoral photos. Verification status is provisional: a virtual visit cannot confirm irreversible pulpitis or periapical involvement without a radiograph \u2014 that confirmation happens in-office at Interaction 3. Tooth designation uses the ADA Universal Numbering System (#19); FDI notation is deliberately NOT asserted, per ADA confirmation that FDI is not used for US dental data."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/condition-k04-01-pulpitis"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DocumentReference-documentreference-intraoral-photos",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentreference-intraoral-photos",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"
+          ]
+        },
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "72170-4",
+              "display": "Photographic image"
+            }
+          ],
+          "text": "Patient-submitted intraoral photographs, lower left region (tooth #19)"
+        },
+        "category": [
+          {
+            "text": "Intraoral photography (patient-submitted, non-radiographic)"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "date": "2026-07-14T19:38:00-05:00",
+        "author": [
+          {
+            "reference": "Patient/patient-sarah-okonkwo",
+            "display": "Sarah Okonkwo (patient-captured via teledentistry app)"
+          }
+        ],
+        "custodian": {
+          "reference": "Organization/org-meridian-teledental",
+          "display": "Meridian Teledental"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "image/jpeg",
+              "title": "Intraoral photograph 1 \u2014 lower left, tooth #19 region",
+              "creation": "2026-07-14",
+              "data": "SGVsbG8gT0hJQSAtLSB0cnVuY2F0ZWQgaW50cmFvcmFsIHBob3RvIHBsYWNlaG9sZGVy"
+            }
+          },
+          {
+            "attachment": {
+              "contentType": "image/jpeg",
+              "title": "Intraoral photograph 2 \u2014 lower left occlusal view",
+              "creation": "2026-07-14",
+              "data": "SGVsbG8gT0hJQSAtLSB0cnVuY2F0ZWQgaW50cmFvcmFsIHBob3RvIHBsYWNlaG9sZGVyIDI="
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "Encounter/encounter-01-virtual",
+              "display": "Virtual dental consultation, 2026-07-14"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "One to two intraoral photos Sarah captured on her phone through the Meridian teledentistry app during the virtual visit, reviewed by Dr. Webb and sent with the referral. Modeled as a US Core DocumentReference (the R5/R6-forward, US-Core-conformant vehicle for non-DICOM clinical images \u2014 chosen over R4 Media, which is removed in R5/R6 and has no US Core profile). Inline base64 (content.attachment.data) is a SHORT placeholder for test data; a production submission carries the full image/jpeg bytes inline so the artifact is self-contained for the CDex push to Barton Springs' interim FHIR server (no reach-back pull required). This is explicitly NOT a diagnostic radiograph: no DICOM, no ImagingStudy, no WADO-RS/PACS \u2014 the radiograph first appears in-office at Interaction 3. The affected tooth (#19) is carried on Observation/observation-symptoms (bodySite) which references these photos via derivedFrom, since R4 DocumentReference has no bodySite element."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DocumentReference/documentreference-intraoral-photos"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DocumentReference-documentreference-virtual-findings",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentreference-virtual-findings",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"
+          ]
+        },
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "text": "Virtual dental assessment note (teledentistry consultation)"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "date": "2026-07-14T19:56:00-05:00",
+        "author": [
+          {
+            "reference": "PractitionerRole/role-webb",
+            "display": "Dr. Marcus Webb, DDS"
+          }
+        ],
+        "custodian": {
+          "reference": "Organization/org-meridian-teledental",
+          "display": "Meridian Teledental"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Virtual dental assessment \u2014 Sarah Okonkwo, 2026-07-14",
+              "creation": "2026-07-14"
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "Encounter/encounter-01-virtual",
+              "display": "Virtual dental consultation, 2026-07-14"
+            }
+          ]
+        },
+        "description": "Structured wrapper for Dr. Webb's virtual assessment findings (see Observation/observation-symptoms), transmitted with the dental-to-dental referral. This is a clinical-note wrapper, not an imaging document \u2014 the diagnostic radiograph does not exist until the in-office visit (Interaction 3). The patient-submitted intraoral photos are a separate DocumentReference (documentreference-intraoral-photos)."
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DocumentReference/documentreference-virtual-findings"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Encounter-encounter-01-virtual",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-01-virtual",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "VR",
+          "display": "virtual"
+        },
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "448337001",
+                "display": "Telemedicine consultation with patient"
+              }
+            ],
+            "text": "Synchronous virtual dental consultation (Place of Service 02)"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "PractitionerRole/role-webb",
+              "display": "Dr. Marcus Webb, DDS"
+            }
+          }
+        ],
+        "period": {
+          "start": "2026-07-14T19:32:00-05:00",
+          "end": "2026-07-14T19:58:00-05:00"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "K04.01",
+                "display": "Irreversible pulpitis"
+              }
+            ],
+            "text": "Acute lower-left tooth pain, presenting complaint"
+          }
+        ],
+        "location": [
+          {
+            "location": {
+              "reference": "Location/loc-meridian-virtual",
+              "display": "Meridian Teledental \u2014 Virtual Care (POS 02)"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-meridian-teledental",
+          "display": "Meridian Teledental"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/encounter-01-virtual"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement-medicationstatement-ibuprofen",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medicationstatement-ibuprofen",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://www.nlm.nih.gov/research/umls/rxnorm",
+              "code": "5640",
+              "display": "Ibuprofen"
+            }
+          ],
+          "text": "Ibuprofen (over-the-counter), taken as needed for pain"
+        },
+        "subject": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "context": {
+          "reference": "Encounter/encounter-01-virtual",
+          "display": "Virtual dental consultation, 2026-07-14"
+        },
+        "effectiveDateTime": "2026-07-14",
+        "dateAsserted": "2026-07-14",
+        "informationSource": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "dosage": [
+          {
+            "text": "400 mg by mouth as needed for pain over the past few days",
+            "asNeededBoolean": true,
+            "route": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "26643006",
+                  "display": "Oral route"
+                }
+              ]
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Patient-reported medication captured during the virtual assessment (the 'medication list attached' referenced in the referral payload). Sarah reports self-medicating with OTC ibuprofen for the lower-left pain; no known drug allergies. RxNorm 5640 is the ingredient-level concept for ibuprofen; a specific product/strength code is not asserted since the exact OTC product was patient-reported rather than clinically verified."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medicationstatement-ibuprofen"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-symptoms",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-symptoms",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Dental symptom findings (virtual assessment) \u2014 tooth #19"
+        },
+        "subject": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-virtual",
+          "display": "Virtual dental consultation, 2026-07-14"
+        },
+        "effectiveDateTime": "2026-07-14T19:40:00-05:00",
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-webb",
+            "display": "Dr. Marcus Webb, DDS"
+          }
+        ],
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+              "code": "19",
+              "display": "19"
+            }
+          ],
+          "text": "Tooth #19 (lower left first molar)"
+        },
+        "derivedFrom": [
+          {
+            "reference": "DocumentReference/documentreference-intraoral-photos",
+            "display": "Patient-submitted intraoral photos, lower left region"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "text": "Symptom duration"
+            },
+            "valueString": "Building pain over approximately 3 days; now unable to chew on the lower left side."
+          },
+          {
+            "code": {
+              "text": "Pain on biting"
+            },
+            "valueString": "Sharp pain when biting down on the lower left side."
+          },
+          {
+            "code": {
+              "text": "Thermal sensitivity"
+            },
+            "valueString": "Sensitive to cold; lingering discomfort after the stimulus is removed."
+          },
+          {
+            "code": {
+              "text": "Spontaneous aching"
+            },
+            "valueString": "Aches without anything touching it, including at rest."
+          }
+        ],
+        "note": [
+          {
+            "text": "Symptom findings captured as discrete components during Dr. Webb's structured virtual assessment. The finding is correlated to tooth #19 both directly (Observation.bodySite) and to the patient-submitted intraoral photos (Observation.derivedFrom -> DocumentReference/documentreference-intraoral-photos). This derivedFrom link is the R4 work-around for the affected tooth: R4 DocumentReference has no bodySite element, so the tooth is carried on this coded Observation, letting the receiving PMS re-associate the photos to tooth #19. No LOINC code is asserted for the overall symptom finding (text-only components, per project verification discipline)."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-symptoms"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-tobacco-status",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-tobacco-status",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "social-history",
+                "display": "Social History"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "72166-2",
+              "display": "Tobacco smoking status"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-virtual",
+          "display": "Virtual dental consultation, 2026-07-14"
+        },
+        "effectiveDateTime": "2026-07-14T19:40:00-05:00",
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-webb",
+            "display": "Dr. Marcus Webb, DDS"
+          }
+        ],
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "266919005",
+              "display": "Never smoked tobacco"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-tobacco-status"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Provenance-provenance-referral",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "provenance-referral",
+        "target": [
+          {
+            "reference": "ServiceRequest/servicerequest-referral",
+            "display": "Referral: In-office dental evaluation and endodontic treatment"
+          },
+          {
+            "reference": "Task/task-referral-tracking",
+            "display": "Referral tracking Task"
+          }
+        ],
+        "recorded": "2026-07-14T19:56:00-05:00",
+        "activity": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-DataOperation",
+              "code": "CREATE",
+              "display": "create"
+            }
+          ]
+        },
+        "agent": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author",
+                  "display": "Author"
+                }
+              ]
+            },
+            "who": {
+              "reference": "PractitionerRole/role-webb",
+              "display": "Dr. Marcus Webb, DDS"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/org-meridian-teledental",
+              "display": "Meridian Teledental"
+            }
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "transmitter",
+                  "display": "Transmitter"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-meridian-teledental",
+              "display": "Meridian Teledental"
+            }
+          }
+        ],
+        "entity": [
+          {
+            "role": "source",
+            "what": {
+              "display": "Referral created in the Meridian Teledental platform during the virtual encounter and pushed directly to Barton Springs Dental Group's interim FHIR server via Da Vinci CDex provider-to-provider (no HIE, no 360X bridge). Patient-submitted intraoral photos travel inline with the referral bundle."
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Provenance/provenance-referral"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ServiceRequest-servicerequest-referral",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "servicerequest-referral",
+        "meta": {
+          "profile": [
+            "https://oralhealthalliance.net/fhir/StructureDefinition/ode-dental-to-dental-referral"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC04A-001"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "103696004",
+                "display": "Patient referral to specialist"
+              }
+            ],
+            "text": "Consultation / Referral"
+          }
+        ],
+        "priority": "urgent",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D3330",
+              "display": "Endodontic therapy, molar tooth (excluding final restoration)"
+            }
+          ],
+          "text": "In-office dental evaluation with radiograph and likely endodontic treatment \u2014 irreversible pulpitis, tooth #19"
+        },
+        "subject": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "requester": {
+          "reference": "PractitionerRole/role-webb",
+          "display": "Dr. Marcus Webb, DDS \u2014 Meridian Teledental"
+        },
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-nair",
+            "display": "Dr. Priya Nair, DDS \u2014 Barton Springs Dental Group"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "K04.01",
+                "display": "Irreversible pulpitis"
+              }
+            ]
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-k04-01-pulpitis"
+          }
+        ],
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+                "code": "19",
+                "display": "19"
+              }
+            ],
+            "text": "Tooth #19"
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "Observation/observation-symptoms",
+            "display": "Symptom findings, tooth #19"
+          },
+          {
+            "reference": "Observation/observation-tobacco-status",
+            "display": "Tobacco smoking status"
+          },
+          {
+            "reference": "MedicationStatement/medicationstatement-ibuprofen",
+            "display": "Patient-reported medications"
+          },
+          {
+            "reference": "DocumentReference/documentreference-virtual-findings",
+            "display": "Virtual assessment note"
+          },
+          {
+            "reference": "DocumentReference/documentreference-intraoral-photos",
+            "display": "Patient-submitted intraoral photos, tooth #19"
+          }
+        ],
+        "insurance": [
+          {
+            "reference": "Coverage/coverage-sarah-okonkwo-ppo"
+          }
+        ],
+        "authoredOn": "2026-07-14T19:56:00-05:00",
+        "occurrenceDateTime": "2026-07-15",
+        "note": [
+          {
+            "text": "Dental-to-dental referral (virtual general dentist -> in-office general dentist), pushed via Da Vinci CDex provider-to-provider to Barton Springs Dental Group's interim FHIR server. Priority urgent \u2014 acute pain, next-day appointment indicated. Commercial dental PPO with NO prior authorization required (D9995 virtual consult, D0220 radiograph, D3330 root canal all covered without PA) \u2014 so, unlike UC02a's Medicaid PA, there is no PA number and no Claim/ClaimResponse here. Benefits were verified in real time at the start of the virtual encounter. Supporting info includes the patient-submitted intraoral photos (documentreference-intraoral-photos): unlike UC02's dental-to-dental support-a-pull for DICOM radiographs, these non-radiographic photos travel INLINE with the referral (self-contained push to an interim server), and the affected tooth is correlated via Observation/observation-symptoms (bodySite #19, derivedFrom -> the photos). The diagnostic radiograph does not exist yet \u2014 it is taken in-office at Interaction 3."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/servicerequest-referral"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Task-task-referral-tracking",
+      "resource": {
+        "resourceType": "Task",
+        "id": "task-referral-tracking",
+        "meta": {
+          "profile": [
+            "https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC04A-001"
+          }
+        ],
+        "status": "in-progress",
+        "businessStatus": {
+          "coding": [
+            {
+              "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+              "code": "referral-sent",
+              "display": "Referral Sent"
+            }
+          ]
+        },
+        "intent": "order",
+        "priority": "urgent",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/CodeSystem/task-code",
+              "code": "fulfill"
+            }
+          ]
+        },
+        "focus": {
+          "reference": "ServiceRequest/servicerequest-referral",
+          "display": "Referral: In-office evaluation and endodontic treatment, tooth #19"
+        },
+        "for": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-virtual"
+        },
+        "authoredOn": "2026-07-14T19:56:00-05:00",
+        "lastModified": "2026-07-14T19:56:00-05:00",
+        "requester": {
+          "reference": "Organization/org-meridian-teledental",
+          "display": "Meridian Teledental"
+        },
+        "input": [
+          {
+            "type": {
+              "text": "Referral clinical basis \u2014 diagnosis"
+            },
+            "valueReference": {
+              "reference": "Condition/condition-k04-01-pulpitis"
+            }
+          }
+        ],
+        "output": [
+          {
+            "type": {
+              "text": "Referral sent"
+            },
+            "valueReference": {
+              "reference": "ServiceRequest/servicerequest-referral"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "This is the ONLY Task for this referral episode \u2014 same single-Task design established for UC01/UC02/UC03 (one Coordination Task per Request; Task.output absorbs fulfillment artifacts). focus points at the referral ServiceRequest from the start (there is no PA cycle preceding it \u2014 commercial coverage requires no PA). businessStatus is 'referral-sent' at this I1 snapshot; owner is intentionally NOT set yet (it is set for the first time at I2 when Barton Springs Dental Group accepts the referral and books the appointment). status is in-progress, not completed \u2014 the Task closes only when the referral itself closes at Interaction 4 (not built this pass). This same Task (same id) is updated, not replaced, at I2."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Task/task-referral-tracking"
+      }
+    }
+  ]
+}

@@ -1,0 +1,131 @@
+{
+  "resourceType": "InsurancePlan",
+  "id": "insplan-uc04-commercial-ppo",
+  "status": "active",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+          "code": "dental",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "name": "Aetna Dental PPO",
+  "ownedBy": {
+    "reference": "Organization/org-uc04-commercial-payer",
+    "display": "Aetna Dental"
+  },
+  "administeredBy": {
+    "reference": "Organization/org-uc04-commercial-payer",
+    "display": "Aetna Dental"
+  },
+  "coverageArea": [
+    {
+      "display": "Texas"
+    }
+  ],
+  "coverage": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+            "code": "dental",
+            "display": "Dental"
+          }
+        ]
+      },
+      "benefit": [
+        {
+          "type": {
+            "text": "Teledentistry / virtual consultation (D9995)"
+          },
+          "limit": [
+            {
+              "value": {
+                "value": 100,
+                "unit": "%",
+                "system": "http://unitsofmeasure.org",
+                "code": "%"
+              },
+              "code": {
+                "text": "Covered in full (in-network); no prior authorization required"
+              }
+            }
+          ]
+        },
+        {
+          "type": {
+            "text": "Basic / endodontic services (molar root canal, D3330)"
+          },
+          "limit": [
+            {
+              "value": {
+                "value": 80,
+                "unit": "%",
+                "system": "http://unitsofmeasure.org",
+                "code": "%"
+              },
+              "code": {
+                "text": "Plan pays after deductible (in-network); no prior authorization required"
+              }
+            }
+          ]
+        },
+        {
+          "type": {
+            "text": "Diagnostic imaging (periapical radiograph, D0220)"
+          },
+          "limit": [
+            {
+              "value": {
+                "value": 100,
+                "unit": "%",
+                "system": "http://unitsofmeasure.org",
+                "code": "%"
+              },
+              "code": {
+                "text": "Covered in full (in-network)"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "plan": [
+    {
+      "type": {
+        "text": "PPO"
+      },
+      "generalCost": [
+        {
+          "type": {
+            "text": "Annual maximum benefit"
+          },
+          "cost": {
+            "value": 2000,
+            "currency": "USD"
+          }
+        },
+        {
+          "type": {
+            "text": "Annual deductible"
+          },
+          "cost": {
+            "value": 50,
+            "currency": "USD"
+          }
+        }
+      ]
+    }
+  ],
+  "note": [
+    {
+      "text": "Employer-sponsored commercial dental PPO benefit for UC04a (Sarah Okonkwo). Covers teledentistry/virtual consultation (D9995) so the after-hours virtual visit is a benefit, not an out-of-pocket expense — this is what the patient app verifies in real time at session initiation (a named UC04a test objective). Endodontic treatment (D3330) covered 80% after a $50 deductible; diagnostic radiograph (D0220) covered in full; annual maximum $2,000/plan year. NO prior authorization required for D9995, D0220, or D3330 under this plan design (commercial no-PA case, contrast UC02a's Medicaid PA). Fixed plan-level benefit values live here; member- and point-in-time-specific balances are returned by the real-time benefit response rather than stored on Coverage. Endpoint/EDI identifiers are synthetic — see Organization/org-uc04-commercial-payer."
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "role-webb",
+  "active": true,
+  "practitioner": {
+    "reference": "Practitioner/pract-webb",
+    "display": "Dr. Marcus Webb, DDS"
+  },
+  "organization": {
+    "reference": "Organization/org-meridian-teledental",
+    "display": "Meridian Teledental"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223G0001X",
+          "display": "Dentist — General Practice"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223G0001X",
+          "display": "Dentist — General Practice"
+        }
+      ]
+    }
+  ],
+  "location": [
+    {
+      "reference": "Location/loc-meridian-virtual",
+      "display": "Meridian Teledental — Virtual Care (POS 02)"
+    }
+  ],
+  "telecom": [
+    {
+      "system": "email",
+      "value": "marcus.webb@meridian-teledental.example.org"
+    }
+  ]
+}

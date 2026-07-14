@@ -1,0 +1,71 @@
+{
+  "resourceType": "Encounter",
+  "id": "encounter-03-inoffice",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"]
+  },
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "225365006",
+          "display": "Dental care"
+        }
+      ],
+      "text": "In-office dental evaluation and endodontic treatment (Place of Service 11)"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/servicerequest-referral",
+      "display": "Referral: In-office evaluation and endodontic treatment, tooth #19"
+    }
+  ],
+  "participant": [
+    {
+      "individual": {
+        "reference": "PractitionerRole/role-nair",
+        "display": "Dr. Priya Nair, DDS"
+      }
+    }
+  ],
+  "period": {
+    "start": "2026-07-15T10:00:00-05:00",
+    "end": "2026-07-15T12:15:00-05:00"
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "K04.01",
+          "display": "Irreversible pulpitis"
+        }
+      ],
+      "text": "Lower-left tooth pain, referred from teledentistry for evaluation and likely endodontic treatment"
+    }
+  ],
+  "location": [
+    {
+      "location": {
+        "reference": "Location/loc-barton-springs",
+        "display": "Barton Springs Dental Group (POS 11)"
+      }
+    }
+  ],
+  "serviceProvider": {
+    "reference": "Organization/org-barton-springs-dental",
+    "display": "Barton Springs Dental Group"
+  }
+}

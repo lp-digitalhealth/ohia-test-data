@@ -1,0 +1,39 @@
+{
+  "resourceType": "Organization",
+  "id": "org-meridian-teledental",
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "1629384756"
+    }
+  ],
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "prov",
+          "display": "Healthcare Provider"
+        }
+      ],
+      "text": "Teledentistry Provider (virtual care)"
+    }
+  ],
+  "name": "Meridian Teledental",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(888) 555-0192"
+    },
+    {
+      "system": "url",
+      "value": "https://meridian-teledental.example.org"
+    }
+  ],
+  "note": [
+    {
+      "text": "Fictional teledentistry brand invented for UC04 — not a real business. A neutral, non-geographic name so it can serve both UC04a (commercial) and UC04b (Medicaid) virtual encounters. Delivers synchronous virtual dental assessments (Place of Service 02); has no physical treatment location and cannot generate radiographs. NPI is a synthetic test-data value."
+    }
+  ]
+}

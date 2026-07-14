@@ -1,0 +1,47 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "role-nair",
+  "active": true,
+  "practitioner": {
+    "reference": "Practitioner/pract-nair",
+    "display": "Dr. Priya Nair, DDS"
+  },
+  "organization": {
+    "reference": "Organization/org-barton-springs-dental",
+    "display": "Barton Springs Dental Group"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223G0001X",
+          "display": "Dentist — General Practice"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223G0001X",
+          "display": "Dentist — General Practice"
+        }
+      ]
+    }
+  ],
+  "location": [
+    {
+      "reference": "Location/loc-barton-springs",
+      "display": "Barton Springs Dental Group (POS 11)"
+    }
+  ],
+  "telecom": [
+    {
+      "system": "email",
+      "value": "priya.nair@bartonspringsdental.example.org"
+    }
+  ]
+}

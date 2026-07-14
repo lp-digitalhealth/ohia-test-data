@@ -45,13 +45,13 @@ On a Tuesday evening, Sarah develops sharp pain when biting down on her lower le
 
 Sarah opens a **SMART-enabled patient application** associated with her teledentistry benefit. The application verifies her Aetna Dental eligibility in real time via a FHIR `Coverage` query. She is connected to **Dr. Marcus Webb, DDS**, a licensed Texas dental provider practicing in a virtual care setting (Place of Service 02).
 
-Dr. Webb conducts a structured synchronous virtual assessment. Based on Sarah's symptom history — duration, thermal sensitivity, pain on biting, and spontaneous aching — he documents clinical indicators consistent with **irreversible pulpitis of tooth #19** (`ICD-10: K04.01`) with possible periapical involvement. He records these findings as discrete FHIR resources within the teledentistry platform.
+Dr. Webb conducts a structured synchronous virtual assessment. Based on Sarah's symptom history — duration, thermal sensitivity, pain on biting, and spontaneous aching — he documents clinical indicators consistent with **irreversible pulpitis of tooth #19** (`ICD-10: K04.01`) with possible periapical involvement. He also has Sarah capture one or two **intraoral photos** of the affected area on her phone through the app, which he reviews on screen. He records these findings as discrete FHIR resources within the teledentistry platform.
 
-This presentation requires in-office evaluation with radiographs and likely endodontic treatment. Dr. Webb creates a **structured referral** targeting an in-office general dental practice participating in the Aetna Dental PPO network in Austin. The referral is transmitted as a FHIR `ServiceRequest` with supporting `Condition`, `Observation`, and `MedicationStatement` resources via CDex provider-to-provider push.
+This presentation requires in-office evaluation with radiographs and likely endodontic treatment. Dr. Webb creates a **structured referral** targeting an in-office general dental practice participating in the Aetna Dental PPO network in Austin. The referral is transmitted as a FHIR `ServiceRequest` with supporting `Condition`, `Observation`, and `MedicationStatement` resources — and the patient-submitted intraoral photos as a `DocumentReference` (non-radiographic, correlated to tooth #19 via the symptom `Observation`) — via CDex provider-to-provider push. The photos travel inline with the referral; the diagnostic radiograph does not yet exist and is taken in-office at the next visit.
 
 Sarah receives an in-application notification that her referral has been sent. The in-office practice receives the referral via an interim FHIR server and contacts Sarah within the hour to schedule a next-day appointment.
 
-**Dr. Priya Nair, DDS**, at the in-office practice sees Sarah the following morning. She takes a periapical radiograph (`D0220`) and confirms irreversible pulpitis with early periapical pathology (`ICD-10: K04.01`, `K04.5`). She completes root canal therapy on tooth #19 (`D3330`) in a single visit.
+**Dr. Priya Nair, DDS**, at the in-office practice sees Sarah the following morning. She takes a periapical radiograph (`D0220`) and confirms irreversible pulpitis with early periapical pathology (`ICD-10: K04.01`, `K04.7`). She completes root canal therapy on tooth #19 (`D3330`) in a single visit.
 
 Dr. Nair documents the encounter and transmits a **structured encounter summary** back to the originating teledentistry provider via CDex provider-to-provider push. The summary includes the confirmed diagnoses, procedures performed with CDT codes, and a post-treatment care plan. Dr. Webb reviews the closed referral. Sarah's application updates to show the referral as complete and surfaces a summary of treatment and recovery guidance.
 
@@ -64,12 +64,12 @@ The in-office practice submits an 837D to Aetna Dental for the in-office service
 | What Happens (Business Language) | Implementation Guide / Standard | Key Transaction |
 |---|---|---|
 | **Verify Coverage:** The patient application verifies Aetna Dental eligibility and benefit status at session initiation. | US Core / Da Vinci PDex | `Coverage` resource queried against payer FHIR API; `InsurancePlan` returned with benefit details including teledentistry and endodontic coverage. |
-| **Virtual Assessment:** Dr. Webb conducts a structured synchronous virtual evaluation (POS 02) and documents clinical findings as discrete FHIR resources. | US Core / ODE (Under Development) | `Encounter` (virtual, POS 02); `Condition` (K04.01); `Observation` (symptom findings, tooth-level); `MedicationStatement` (patient-reported medications). |
+| **Virtual Assessment:** Dr. Webb conducts a structured synchronous virtual evaluation (POS 02), documents clinical findings as discrete FHIR resources, and reviews patient-submitted intraoral photos. | US Core / ODE (Under Development) | `Encounter` (virtual, POS 02); `Condition` (K04.01); `Observation` (symptom findings, tooth-level, `derivedFrom` → the photos); `MedicationStatement` (patient-reported medications); `DocumentReference` (patient-submitted intraoral photos, `image/jpeg`, non-radiographic). |
 | **Patient Notification — Referral Sent:** Patient is notified in-application that the referral has been transmitted. | FHIR Subscriptions Backport IG | Subscription event triggered on `ServiceRequest` creation. |
-| **Structured Referral Transmitted:** Dr. Webb transmits a structured referral with clinical context to the in-office dental provider. | US Core / ODE (Under Development) / CDex | `ServiceRequest` (referral, priority: urgent); `DocumentReference` wrapping structured findings bundle; transmitted via CDex provider-to-provider push to in-office practice interim FHIR server. |
+| **Structured Referral Transmitted:** Dr. Webb transmits a structured referral with clinical context — including the intraoral photos — to the in-office dental provider. | US Core / ODE (Under Development) / CDex | `ServiceRequest` (referral, priority: urgent); `DocumentReference` wrapping structured findings bundle; `DocumentReference` carrying the patient-submitted intraoral photos (inline `image/jpeg`); transmitted via CDex provider-to-provider push to in-office practice interim FHIR server. |
 | **Referral Received at In-Office Practice:** In-office practice receives referral and clinical context; schedules the patient. | US Core / ODE (Under Development) | `ServiceRequest` received and acknowledged; `Appointment` created and linked to referral; `AppointmentResponse` returned to teledentistry provider. |
 | **Patient Notification — Appointment Confirmed:** Patient receives in-application confirmation of appointment time and location. | FHIR Subscriptions Backport IG | Subscription event triggered on `AppointmentResponse`. |
-| **In-Office Evaluation & Imaging:** Dr. Nair takes a periapical radiograph and confirms diagnosis. | US Core / ODE (Under Development) | `DiagnosticReport` (LOINC 62443-7); `Condition` updated with confirmed diagnoses (K04.01, K04.5); `Observation` (periapical findings). |
+| **In-Office Evaluation & Imaging:** Dr. Nair takes a periapical radiograph and confirms diagnosis. | US Core / ODE (Under Development) | `DiagnosticReport` (LOINC 62443-7); `Condition` updated with confirmed diagnoses (K04.01, K04.7); `Observation` (periapical findings). |
 | **Treatment Performed:** Dr. Nair completes root canal therapy on tooth #19. | US Core / ODE (Under Development) | `Procedure` (D3330, tooth #19, FDI 36); `Encounter` (in-office, POS 11). |
 | **Encounter Summary Returned:** Dr. Nair transmits a structured post-treatment summary to the teledentistry provider. | Da Vinci CDex / ODE (Under Development) | `ClinicalImpression` (encounter summary); `Procedure` (completed); `CarePlan` (post-treatment instructions); CDex provider-to-provider push from in-office practice to teledentistry provider FHIR endpoint. |
 | **Referral Closed:** Dr. Webb reviews the encounter summary; referral marked complete. | US Core / CDex | `ServiceRequest` status updated to `completed`; open `Task` closed. |
@@ -112,11 +112,11 @@ This use case exercises a **virtual-to-in-office provider referral** spanning a 
 | `Organization` | US Core | Teledentistry provider organization; in-office dental practice; commercial payer |
 | `Location` | US Core | Teledentistry virtual location (POS 02); in-office dental practice physical location (POS 11, Austin, TX) |
 | `Encounter` | US Core | Virtual encounter (teledentistry provider, POS 02); in-office encounter (dental practice, POS 11) |
-| `Condition` | US Core / ODE | Presenting condition (K04.01) documented in virtual encounter; confirmed diagnoses (K04.01, K04.5) updated by in-office provider |
+| `Condition` | US Core / ODE | Presenting condition (K04.01) documented in virtual encounter; confirmed diagnoses (K04.01, K04.7) updated by in-office provider |
 | `Observation` | US Core / ODE | Symptom findings from virtual encounter (pain on biting, thermal sensitivity, duration); periapical findings from in-office imaging |
 | `MedicationStatement` | US Core | Patient-reported medications captured during virtual assessment; transmitted with referral |
 | `ServiceRequest` | US Core / ODE | Structured referral from teledentistry provider to in-office dental provider; status lifecycle `active` → `completed` |
-| `DocumentReference` | US Core | Clinical findings bundle from virtual encounter, transmitted as supporting documentation with referral |
+| `DocumentReference` | US Core | Two uses: (1) a clinical-note wrapper for the virtual encounter's structured findings; (2) the patient-submitted **intraoral photos** (inline `image/jpeg`, `author` = Patient, non-radiographic), correlated to tooth #19 via the symptom `Observation.derivedFrom` since R4 `DocumentReference` has no body-site element. Both transmitted as supporting documentation with the referral |
 | `Appointment` / `AppointmentResponse` | US Core | In-office appointment created by receiving practice; response returned to teledentistry provider and surfaced to patient application |
 | `DiagnosticReport` | US Core / ODE | Periapical radiograph report (LOINC 62443-7) from in-office evaluation |
 | `ImagingStudy` | US Core | Periapical radiographic image referenced in `DiagnosticReport` |
@@ -313,7 +313,7 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | **Reason Code** | K04.01 — Irreversible pulpitis | ICD-10 presenting diagnosis |
 | **Ordered Date** | 2026-07-14 | Virtual encounter date |
 | **Occurrence DateTime** | 2026-07-15 | Target in-office appointment |
-| **Description** | Patient presents via synchronous teledentistry encounter with acute pain on biting, thermal sensitivity, and three-day symptom duration, lower left quadrant. Clinical presentation consistent with irreversible pulpitis, tooth #19. Periapical involvement possible. Radiographic evaluation and endodontic assessment indicated. Patient medication list attached. No known drug allergies reported. | Referral payload |
+| **Description** | Patient presents via synchronous teledentistry encounter with acute pain on biting, thermal sensitivity, and three-day symptom duration, lower left quadrant. Clinical presentation consistent with irreversible pulpitis, tooth #19. Periapical involvement possible. Radiographic evaluation and endodontic assessment indicated. Patient-submitted intraoral photos of the tooth #19 region attached (non-radiographic). Patient medication list attached. No known drug allergies reported. | Referral payload |
 
 #### Encounter (Virtual — Teledentistry Provider, POS 02)
 
@@ -350,7 +350,7 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | **Performer** | Dr. Priya Nair, DDS | In-office dental provider |
 | **Performed DateTime** | 2026-07-15 | Date of procedure |
 | **Body Site** | Tooth #19 (FDI: 36) | Lower left first molar |
-| **Reason Reference** | K04.01 (confirmed); K04.5 (periapical abscess without sinus) | Confirmed diagnoses |
+| **Reason Reference** | K04.01 (confirmed); K04.7 (periapical abscess without sinus) | Confirmed diagnoses |
 | **Note** | Three canals instrumented and obturated. Pre-operative periapical radiograph confirmed periapical rarefaction. Post-operative radiograph taken. Patient tolerated procedure well. Final restoration to be placed by patient's regular dental provider. | Operative note |
 
 #### DiagnosticReport (Periapical Radiograph)
@@ -371,7 +371,7 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | **Date** | 2026-07-15 | Date of summary |
 | **Assessor** | Dr. Priya Nair, DDS | In-office dental provider |
 | **Summary** | Patient seen 2026-07-15 per referral from teledentistry provider. Periapical radiograph confirmed irreversible pulpitis with periapical abscess, tooth #19. Root canal therapy completed in single visit (D3330). Three canals instrumented and obturated. Patient tolerated procedure well. Final restoration (crown) indicated; patient advised to contact primary dental provider. Follow-up periapical radiograph recommended at 6 months. | Encounter summary |
-| **Finding** | Confirmed: K04.01; K04.5 | Confirmed diagnoses |
+| **Finding** | Confirmed: K04.01; K04.7 | Confirmed diagnoses |
 | **Recommendations** | 1. Final restoration (crown) by patient's regular dental provider; 2. Periapical radiograph follow-up at 6 months; 3. Ibuprofen 400mg PRN for post-operative discomfort | Post-treatment plan |
 
 ---
@@ -383,7 +383,9 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | Code | Description | Application |
 |---|---|---|
 | K04.01 | Irreversible pulpitis | Presenting diagnosis (virtual); confirmed (in-office) |
-| K04.5 | Periapical abscess without sinus | Confirmed in-office (radiographic) |
+| K04.7 | Periapical abscess without sinus | Confirmed in-office (radiographic) |
+
+> **Code correction (verification discipline):** earlier drafts of this document labeled "Periapical abscess without sinus" as **K04.5**. K04.5 is actually *Chronic apical periodontitis*; the correct ICD-10-CM code for "periapical abscess without sinus" is **K04.7** (consistent with the code UC02a's claims-sharing EOB uses). All occurrences have been corrected to K04.7, and the built UC04a I3/I5 FHIR resources use K04.7.
 
 #### CDT Codes in Scope
 
@@ -451,9 +453,9 @@ At 11:45 PM, Darius accesses a **SMART-enabled patient application** associated 
 
 Before creating a referral, the teledentistry provider system performs a **FHIR-based provider directory query** (Plan-Net) against the DBM's network directory to identify an in-office dental practice in San Antonio that is currently active in the Medicaid network and accepting new patients. This check — which today requires a phone call or a static PDF directory — is performed as a structured `PractitionerRole` and `HealthcareService` query and returns a confirmed in-network in-office practice.
 
-Dr. Torres conducts a structured synchronous virtual assessment. Darius describes throbbing pain in the upper right, sensitivity to sweets, and pain that has kept him awake. He reports he is currently taking metformin for **Type 2 diabetes** (`ICD-10: E11.9`). Dr. Torres documents these findings and creates a **`Flag` resource** communicating elevated infection and healing risk due to diabetes — a clinically relevant signal that must travel with the referral to inform the in-office care team.
+Dr. Torres conducts a structured synchronous virtual assessment. Darius describes throbbing pain in the upper right, sensitivity to sweets, and pain that has kept him awake, and captures a couple of **intraoral photos** of the area on his phone through the app at Dr. Torres's request. He reports he is currently taking metformin for **Type 2 diabetes** (`ICD-10: E11.9`). Dr. Torres documents these findings and creates a **`Flag` resource** communicating elevated infection and healing risk due to diabetes — a clinically relevant signal that must travel with the referral to inform the in-office care team.
 
-Based on the assessment, Dr. Torres identifies clinical indicators consistent with **irreversible pulpitis of tooth #3** (`ICD-10: K04.01`) with probable secondary caries. She creates a **structured referral** to the identified in-office dental practice, transmitting the referral as a FHIR `ServiceRequest` with supporting `Condition`, `Observation`, `MedicationStatement`, and `Flag` resources via CDex provider-to-provider push.
+Based on the assessment, Dr. Torres identifies clinical indicators consistent with **irreversible pulpitis of tooth #3** (`ICD-10: K04.01`) with probable secondary caries. She creates a **structured referral** to the identified in-office dental practice, transmitting the referral as a FHIR `ServiceRequest` with supporting `Condition`, `Observation`, `MedicationStatement`, and `Flag` resources — and the patient-submitted intraoral photos as a `DocumentReference` (non-radiographic, correlated to tooth #3 via the symptom `Observation`) — via CDex provider-to-provider push. As in UC04a, the photos travel inline with the referral; the diagnostic radiograph does not yet exist and is taken in-office.
 
 Darius receives an in-application notification that his referral has been sent. The in-office practice receives the referral via an interim FHIR server and contacts Darius that morning to schedule an appointment within 48 hours — consistent with Texas Medicaid urgent care access standards.
 
@@ -473,9 +475,9 @@ The in-office practice submits an 837D to the DBM for in-office services. The te
 |---|---|---|
 | **Verify Coverage:** Patient application verifies Texas Medicaid dental eligibility and DBM benefit at session initiation. | US Core / Da Vinci PDex | `Coverage` queried against DBM FHIR API; `InsurancePlan` returned with adult dental benefit details and annual maximum. |
 | **Provider Directory Check:** Teledentistry provider system queries DBM provider directory to identify a Medicaid-participating in-office dental practice accepting new patients in San Antonio. | Da Vinci PDex / Plan-Net IG | `PractitionerRole` and `HealthcareService` queried from DBM Plan-Net FHIR API; confirms network participation and open panel status before referral is created. |
-| **Virtual Assessment:** Dr. Torres conducts a structured synchronous evaluation (POS 02); documents clinical findings and flags diabetes comorbidity. | US Core / ODE (Under Development) | `Encounter` (POS 02); `Condition` (K04.01, K02.9); `Observation` (symptom findings, tooth-level); `MedicationStatement` (metformin); `Flag` (diabetes — elevated infection and healing risk). |
+| **Virtual Assessment:** Dr. Torres conducts a structured synchronous evaluation (POS 02); documents clinical findings, reviews patient-submitted intraoral photos, and flags diabetes comorbidity. | US Core / ODE (Under Development) | `Encounter` (POS 02); `Condition` (K04.01, K02.9); `Observation` (symptom findings, tooth-level, `derivedFrom` → the photos); `MedicationStatement` (metformin); `DocumentReference` (patient-submitted intraoral photos, `image/jpeg`, non-radiographic); `Flag` (diabetes — elevated infection and healing risk). |
 | **Patient Notification — Referral Sent:** Patient notified in-application that referral has been transmitted. | FHIR Subscriptions Backport IG | Subscription event on `ServiceRequest` creation. |
-| **Structured Referral Transmitted:** Dr. Torres transmits structured referral with clinical context and diabetes flag to in-office dental practice. | US Core / ODE (Under Development) / CDex | `ServiceRequest` (urgent); `DocumentReference` (findings bundle); `Flag` (diabetes); `MedicationStatement`; CDex provider-to-provider push to in-office practice interim FHIR server. |
+| **Structured Referral Transmitted:** Dr. Torres transmits structured referral with clinical context, intraoral photos, and diabetes flag to in-office dental practice. | US Core / ODE (Under Development) / CDex | `ServiceRequest` (urgent); `DocumentReference` (findings bundle); `DocumentReference` (patient-submitted intraoral photos, inline `image/jpeg`); `Flag` (diabetes); `MedicationStatement`; CDex provider-to-provider push to in-office practice interim FHIR server. |
 | **Referral Received at In-Office Practice:** In-office practice receives referral via interim FHIR server; contacts patient for urgent appointment. | US Core / ODE (Under Development) | `ServiceRequest` received; `Appointment` created; `AppointmentResponse` returned. |
 | **Patient Notification — Appointment Confirmed:** Patient receives in-application confirmation of appointment. | FHIR Subscriptions Backport IG | Subscription event on `AppointmentResponse`. |
 | **In-Office Evaluation & Imaging:** Dr. Okafor takes periapical and bitewing radiographs; confirms diagnoses. | US Core / ODE (Under Development) | `DiagnosticReport` (LOINC 62443-7, 46386-9); `Condition` updated with confirmed diagnoses; additional caries conditions documented. |
@@ -526,7 +528,7 @@ This use case exercises a **virtual-to-in-office provider referral in a Medicaid
 | `MedicationStatement` | US Core | Metformin captured in virtual assessment; transmitted with referral |
 | `Observation` | US Core / ODE | Symptom findings from virtual encounter; periapical and bitewing findings from in-office imaging |
 | `ServiceRequest` | US Core / ODE | Structured referral; status lifecycle `active` → `completed` |
-| `DocumentReference` | US Core | Clinical findings bundle from virtual encounter |
+| `DocumentReference` | US Core | Two uses: (1) a clinical-note wrapper for the virtual encounter's structured findings; (2) the patient-submitted **intraoral photos** (inline `image/jpeg`, `author` = Patient, non-radiographic), correlated to tooth #3 via the symptom `Observation.derivedFrom` since R4 `DocumentReference` has no body-site element |
 | `Appointment` / `AppointmentResponse` | US Core | In-office appointment and confirmation |
 | `DiagnosticReport` | US Core / ODE | Periapical (LOINC 62443-7) and bitewing (LOINC 46386-9) radiograph reports |
 | `Procedure` | US Core / ODE | D7210 (tooth #3); D2940 ×2; D9995 (teledentistry encounter) |
@@ -732,7 +734,7 @@ Darius's dental benefits are administered through a **dental benefit manager (DB
 | **Supporting Info** | `Flag`: E11.9 (Type 2 diabetes — elevated infection and healing risk); `MedicationStatement`: Metformin 500mg daily | Comorbidity and medication context |
 | **Ordered Date** | 2026-07-21 | Virtual encounter date |
 | **Occurrence DateTime** | 2026-07-23 | Target in-office appointment (within 48 hours) |
-| **Description** | Patient presents via synchronous teledentistry encounter at 11:45 PM with acute throbbing pain, upper right, sweet sensitivity, sleep disruption. Clinical presentation consistent with irreversible pulpitis, tooth #3, with probable secondary caries. Patient has Type 2 diabetes (E11.9) — elevated infection and healing risk; on metformin 500mg daily. No known drug allergies. Last dental visit > 3 years. Radiographic evaluation and in-office assessment indicated. Network verification confirmed — in-office practice active in DBM Medicaid network, accepting new patients. | Referral payload |
+| **Description** | Patient presents via synchronous teledentistry encounter at 11:45 PM with acute throbbing pain, upper right, sweet sensitivity, sleep disruption. Clinical presentation consistent with irreversible pulpitis, tooth #3, with probable secondary caries. Patient-submitted intraoral photos of the tooth #3 region attached (non-radiographic). Patient has Type 2 diabetes (E11.9) — elevated infection and healing risk; on metformin 500mg daily. No known drug allergies. Last dental visit > 3 years. Radiographic evaluation and in-office assessment indicated. Network verification confirmed — in-office practice active in DBM Medicaid network, accepting new patients. | Referral payload |
 
 #### Flag (Diabetes Comorbidity Alert)
 

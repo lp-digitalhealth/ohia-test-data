@@ -1,0 +1,28 @@
+{
+  "resourceType": "Location",
+  "id": "loc-meridian-virtual",
+  "status": "active",
+  "name": "Meridian Teledental — Virtual Care (Place of Service 02)",
+  "mode": "kind",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "PTRES",
+          "display": "Patient's Residence"
+        }
+      ],
+      "text": "Telehealth — provided via synchronous virtual encounter (CMS Place of Service 02, Telehealth Provided Other than in Patient's Home)"
+    }
+  ],
+  "managingOrganization": {
+    "reference": "Organization/org-meridian-teledental",
+    "display": "Meridian Teledental"
+  },
+  "note": [
+    {
+      "text": "Virtual/telehealth 'location' for Meridian Teledental's synchronous encounters — CMS Place of Service 02. There is no physical treatment site; the code above is illustrative only (FHIR R4 core has no dedicated telehealth Location.type concept, and CMS POS is not carried as a standard FHIR CodeSystem here — POS 02 is stated in the name/text per project verification discipline)."
+    }
+  ]
+}

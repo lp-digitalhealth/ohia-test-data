@@ -1,0 +1,29 @@
+{
+  "resourceType": "Location",
+  "id": "loc-barton-springs",
+  "status": "active",
+  "name": "Barton Springs Dental Group (Place of Service 11)",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "OUTPHARM",
+          "display": "outpatient dental office"
+        }
+      ],
+      "text": "General dental office (CMS Place of Service 11, Office)"
+    }
+  ],
+  "address": {
+    "line": ["2001 Barton Springs Road"],
+    "city": "Austin",
+    "state": "TX",
+    "postalCode": "78704",
+    "country": "US"
+  },
+  "managingOrganization": {
+    "reference": "Organization/org-barton-springs-dental",
+    "display": "Barton Springs Dental Group"
+  }
+}

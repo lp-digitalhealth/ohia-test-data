@@ -1,0 +1,70 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "documentreference-intraoral-photos",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"]
+  },
+  "status": "current",
+  "docStatus": "final",
+  "type": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "72170-4",
+        "display": "Photographic image"
+      }
+    ],
+    "text": "Patient-submitted intraoral photographs, lower left region (tooth #19)"
+  },
+  "category": [
+    {
+      "text": "Intraoral photography (patient-submitted, non-radiographic)"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "date": "2026-07-14T19:38:00-05:00",
+  "author": [
+    {
+      "reference": "Patient/patient-sarah-okonkwo",
+      "display": "Sarah Okonkwo (patient-captured via teledentistry app)"
+    }
+  ],
+  "custodian": {
+    "reference": "Organization/org-meridian-teledental",
+    "display": "Meridian Teledental"
+  },
+  "content": [
+    {
+      "attachment": {
+        "contentType": "image/jpeg",
+        "title": "Intraoral photograph 1 — lower left, tooth #19 region",
+        "creation": "2026-07-14",
+        "data": "SGVsbG8gT0hJQSAtLSB0cnVuY2F0ZWQgaW50cmFvcmFsIHBob3RvIHBsYWNlaG9sZGVy"
+      }
+    },
+    {
+      "attachment": {
+        "contentType": "image/jpeg",
+        "title": "Intraoral photograph 2 — lower left occlusal view",
+        "creation": "2026-07-14",
+        "data": "SGVsbG8gT0hJQSAtLSB0cnVuY2F0ZWQgaW50cmFvcmFsIHBob3RvIHBsYWNlaG9sZGVyIDI="
+      }
+    }
+  ],
+  "context": {
+    "encounter": [
+      {
+        "reference": "Encounter/encounter-01-virtual",
+        "display": "Virtual dental consultation, 2026-07-14"
+      }
+    ]
+  },
+  "note": [
+    {
+      "text": "One to two intraoral photos Sarah captured on her phone through the Meridian teledentistry app during the virtual visit, reviewed by Dr. Webb and sent with the referral. Modeled as a US Core DocumentReference (the R5/R6-forward, US-Core-conformant vehicle for non-DICOM clinical images — chosen over R4 Media, which is removed in R5/R6 and has no US Core profile). Inline base64 (content.attachment.data) is a SHORT placeholder for test data; a production submission carries the full image/jpeg bytes inline so the artifact is self-contained for the CDex push to Barton Springs' interim FHIR server (no reach-back pull required). This is explicitly NOT a diagnostic radiograph: no DICOM, no ImagingStudy, no WADO-RS/PACS — the radiograph first appears in-office at Interaction 3. The affected tooth (#19) is carried on Observation/observation-symptoms (bodySite) which references these photos via derivedFrom, since R4 DocumentReference has no bodySite element."
+    }
+  ]
+}

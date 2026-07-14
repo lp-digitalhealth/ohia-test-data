@@ -1,0 +1,44 @@
+{
+  "resourceType": "ImagingStudy",
+  "id": "imagingstudy-periapical",
+  "status": "available",
+  "subject": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-inoffice"
+  },
+  "started": "2026-07-15T10:20:00-05:00",
+  "endpoint": [
+    {
+      "reference": "Endpoint/endpoint-barton-springs",
+      "display": "Barton Springs Dental Group interim FHIR server (WADO-RS)"
+    }
+  ],
+  "series": [
+    {
+      "uid": "1.2.826.0.1.3680043.8.498.10000000000000000000000000000119",
+      "modality": {
+        "system": "http://dicom.nema.org/resources/ontology/DCM",
+        "code": "IO",
+        "display": "Intra-oral Radiography"
+      },
+      "bodySite": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+            "code": "19",
+            "display": "19"
+          }
+        ],
+        "text": "Tooth #19"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "The real image data is DICOM, not carried in this FHIR resource — this ImagingStudy is a pointer/metadata layer only, per HL7's own spec. It references the DICOM Study/Series UID above; actual retrieval is a DICOMweb WADO-RS call against the referenced endpoint's PACS. This is the FIRST imaging in UC04a: it is generated IN-OFFICE at Barton Springs (the originating teledentistry provider had no way to take a radiograph virtually), not exchanged between organizations — unlike UC02's dental-to-dental support-a-pull. It is not re-transmitted back to Meridian at Interaction 4; the closed-loop summary is clinical (ClinicalImpression/CarePlan) and references the radiograph's conclusion rather than the image itself."
+    }
+  ]
+}

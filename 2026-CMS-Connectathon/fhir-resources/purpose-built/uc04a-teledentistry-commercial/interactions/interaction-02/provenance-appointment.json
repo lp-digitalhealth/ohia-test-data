@@ -1,0 +1,68 @@
+{
+  "resourceType": "Provenance",
+  "target": [
+    {
+      "reference": "Appointment/appointment-inoffice",
+      "display": "In-office appointment, 2026-07-15 10:00"
+    },
+    {
+      "reference": "AppointmentResponse/appointmentresponse-inoffice",
+      "display": "Appointment confirmation"
+    }
+  ],
+  "id": "provenance-appointment",
+  "recorded": "2026-07-14T20:47:00-05:00",
+  "activity": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-DataOperation",
+        "code": "CREATE",
+        "display": "create"
+      }
+    ]
+  },
+  "agent": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "author",
+            "display": "Author"
+          }
+        ]
+      },
+      "who": {
+        "reference": "PractitionerRole/role-nair",
+        "display": "Dr. Priya Nair, DDS"
+      },
+      "onBehalfOf": {
+        "reference": "Organization/org-barton-springs-dental",
+        "display": "Barton Springs Dental Group"
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "transmitter",
+            "display": "Transmitter"
+          }
+        ]
+      },
+      "who": {
+        "reference": "Organization/org-barton-springs-dental",
+        "display": "Barton Springs Dental Group"
+      }
+    }
+  ],
+  "entity": [
+    {
+      "role": "source",
+      "what": {
+        "display": "Appointment booked in Barton Springs Dental Group's PMS/interim FHIR server and the AppointmentResponse pushed back to Meridian Teledental via Da Vinci CDex provider-to-provider."
+      }
+    }
+  ]
+}
