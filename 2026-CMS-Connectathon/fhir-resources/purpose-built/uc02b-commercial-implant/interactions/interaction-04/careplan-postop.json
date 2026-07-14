@@ -1,0 +1,60 @@
+{
+  "resourceType": "CarePlan",
+  "id": "careplan-postop",
+  "status": "active",
+  "intent": "plan",
+  "title": "Post-operative care plan — extraction + immediate implant, tooth #30",
+  "subject": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-surgical"
+  },
+  "period": {
+    "start": "2026-07-15"
+  },
+  "author": {
+    "reference": "PractitionerRole/role-maxil",
+    "display": "Dr. Alex Maxil, DDS, MD"
+  },
+  "addresses": [
+    {
+      "reference": "Condition/condition-k08-89-nonrestorable"
+    }
+  ],
+  "supportingInfo": [
+    {
+      "reference": "Device/device-implant-tooth30",
+      "display": "Endosteal dental implant record — for restorative-phase component selection"
+    }
+  ],
+  "activity": [
+    {
+      "detail": {
+        "kind": "Appointment",
+        "status": "not-started",
+        "description": "Follow-up at oral surgery in 1 week to assess healing and the implant site"
+      }
+    },
+    {
+      "detail": {
+        "kind": "ServiceRequest",
+        "status": "not-started",
+        "description": "Restorative phase at the general dental practice ~4 months post-placement, pending osseointegration: implant crown (D6065 porcelain/ceramic or D6066 porcelain-fused-to-metal). Abutment and crown components selected using the transmitted implant Device record."
+      }
+    },
+    {
+      "detail": {
+        "kind": "ServiceRequest",
+        "status": "in-progress",
+        "description": "Implant-site care and oral hygiene during the osseointegration period"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Surfaced to Frank's patient-facing app alongside the referral-complete notification at Interaction 4. The implant Device record travels with this care plan (CarePlan.supportingInfo) so the general dental practice has the exact specifications on hand for the crown restoration months from now. The crown itself (D6065/D6066) is future work at the general practice and is out of scope for this use case — referenced here only as the planned next step."
+    }
+  ]
+}

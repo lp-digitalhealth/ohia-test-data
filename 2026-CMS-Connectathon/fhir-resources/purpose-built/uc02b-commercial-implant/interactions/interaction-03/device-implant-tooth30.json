@@ -1,0 +1,42 @@
+{
+  "resourceType": "Device",
+  "id": "device-implant-tooth30",
+  "status": "active",
+  "manufacturer": "Implant Manufacturer (Synthetic)",
+  "manufactureDate": "2025-11-01",
+  "lotNumber": "LOT-2026-04821",
+  "modelNumber": "IMPL-4.0-11.5-SYN",
+  "type": {
+    "text": "Endosteal dental implant — diameter 4.0 mm, length 11.5 mm. NO VERIFIED SNOMED CODE: searched for a precise 'endosteal dental implant' device concept and found only a generic 'Implant' (SNOMED 40388003) or overly-specific one-piece/two-piece variants that don't cleanly match this screw-type implant; left text-only pending a proper SNOMED browser lookup, consistent with this project's discipline on unverifiable codes (same as the periodontal-charting LOINC gap)."
+  },
+  "deviceName": [
+    {
+      "name": "Endosteal dental implant (synthetic), 4.0 x 11.5 mm",
+      "type": "user-friendly-name"
+    }
+  ],
+  "patient": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "property": [
+    {
+      "type": {
+        "text": "Placement torque (primary stability)"
+      },
+      "valueQuantity": [
+        {
+          "value": 35,
+          "unit": "Ncm",
+          "system": "http://unitsofmeasure.org",
+          "code": "N.cm"
+        }
+      ]
+    }
+  ],
+  "note": [
+    {
+      "text": "First Device resource in this project — the implant placed at UC02b-I3 (2026-07-15). Manufacturer, catalog/model number, and lot number are synthetic placeholders per the source appendix ('to be filled with actual manufacturer'). Placement torque (35 Ncm) is carried as a structured Device.property (UCUM N.cm) as well as in the note, since it is a named test value and Device has no dedicated torque element. NOTE on modeling: FHIR R4 Device has no bodySite element — the implant's tooth #30 site lives on the linked Procedure (procedure-implant-tooth30) via Procedure.focalDevice, not here. No us-core-implantable-device profile is asserted: this synthetic record has no UDI and a text-only type, so claiming that profile's conformance would be unverifiable. Transmitted to the general dental practice in the I4 post-operative summary (via CarePlan.supportingInfo and Task.output) so Dr. Parker's practice can select the correct abutment and crown components at the restorative phase without a records request."
+    }
+  ]
+}

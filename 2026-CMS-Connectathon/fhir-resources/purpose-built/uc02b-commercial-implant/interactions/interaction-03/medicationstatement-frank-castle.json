@@ -1,0 +1,25 @@
+{
+  "resourceType": "MedicationStatement",
+  "id": "medicationstatement-frank-castle",
+  "status": "active",
+  "medicationCodeableConcept": {
+    "text": "No current prescription medications reported"
+  },
+  "subject": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "context": {
+    "reference": "Encounter/encounter-03-surgical"
+  },
+  "dateAsserted": "2026-07-15T09:10:00-05:00",
+  "informationSource": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle (patient-reported)"
+  },
+  "note": [
+    {
+      "text": "Reviewed by Dr. Maxil for surgical risk assessment prior to the extraction and immediate implant placement, per this use case's own appendix (medication review occurs at the surgical consultation, not the initial exam). The source use case doc does not specify particular medications for Frank — represented here as patient-reported, no current medications, consistent with what's actually documented rather than inventing specific drug names."
+    }
+  ]
+}

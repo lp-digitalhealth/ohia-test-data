@@ -1,0 +1,47 @@
+{
+  "resourceType": "Practitioner",
+  "id": "pract-nandakumar",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"]
+  },
+  "identifier": [
+    { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1000000050" }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Nandakumar",
+      "given": ["Priya"],
+      "suffix": ["MS", "FACMP"]
+    }
+  ],
+  "telecom": [
+    { "system": "phone", "value": "(215) 728-6900", "extension": "2865", "use": "work" },
+    { "system": "email", "value": "priya.nandakumar@example-cancercenter.org", "use": "work" }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "line": ["333 Cottman Avenue"],
+      "city": "Philadelphia",
+      "state": "PA",
+      "postalCode": "19111",
+      "country": "US"
+    }
+  ],
+  "qualification": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://nucc.org/provider-taxonomy",
+            "code": "1649P1900X",
+            "display": "Medical Physicist, Radiation Physics"
+          }
+        ],
+        "text": "Medical Physicist, Head & Neck Radiation Oncology; Fellow, American College of Medical Physics (FACMP); role in this use case: Dosimetric Dental Contouring (DDC) data provider"
+      }
+    }
+  ]
+}

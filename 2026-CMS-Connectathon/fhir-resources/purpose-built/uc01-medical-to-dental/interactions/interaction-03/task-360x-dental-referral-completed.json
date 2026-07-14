@@ -1,0 +1,145 @@
+{
+  "resourceType": "Task",
+  "id": "task-360x-dental-referral",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC01-001"
+    }
+  ],
+  "status": "completed",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+        "code": "outcome-final",
+        "display": "Outcome Final"
+      }
+    ]
+  },
+  "intent": "order",
+  "priority": "urgent",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-dental-referral",
+    "display": "Referral: Pre-radiation dental clearance evaluation"
+  },
+  "for": {
+    "reference": "Patient/patient-john-smith",
+    "display": "John Smith"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-02-dental-exam",
+    "display": "Dental exam & radiographs, 2026-07-23"
+  },
+  "authoredOn": "2026-07-06T10:30:00-04:00",
+  "lastModified": "2026-07-31T16:30:00-04:00",
+  "requester": {
+    "reference": "Organization/org-fccc",
+    "display": "Fox Chase Cancer Center"
+  },
+  "owner": {
+    "reference": "PractitionerRole/role-bellweather",
+    "display": "Dr. Andrew Bellweather — Oral Medicine, Penn Dental Medicine"
+  },
+  "input": [
+    {
+      "type": {
+        "text": "Referral supporting resource — diagnosis"
+      },
+      "valueReference": {
+        "reference": "Condition/condition-john-smith-tongue-cancer",
+        "display": "Stage IV squamous cell carcinoma, lateral border of tongue"
+      }
+    },
+    {
+      "type": {
+        "text": "Referral supporting resource — medication list"
+      },
+      "valueReference": {
+        "reference": "List/list-john-smith-medications",
+        "display": "John Smith's medication list"
+      }
+    },
+    {
+      "type": {
+        "text": "Referral supporting resource — allergy"
+      },
+      "valueReference": {
+        "reference": "AllergyIntolerance/allergyintolerance-john-smith-penicillin",
+        "display": "Penicillin allergy"
+      }
+    }
+  ],
+  "output": [
+    {
+      "type": {
+        "text": "Referral outcome — dental clearance attestation"
+      },
+      "valueReference": {
+        "reference": "ClinicalImpression/clinicalimpression-dental-clearance",
+        "display": "Dental clearance for head & neck IMRT"
+      }
+    },
+    {
+      "type": {
+        "text": "Referral outcome — procedure performed"
+      },
+      "valueReference": {
+        "reference": "Procedure/procedure-extraction-tooth4",
+        "display": "Extraction, tooth #4"
+      }
+    },
+    {
+      "type": {
+        "text": "Referral outcome — procedure performed"
+      },
+      "valueReference": {
+        "reference": "Procedure/procedure-extraction-tooth17",
+        "display": "Extraction, tooth #17"
+      }
+    },
+    {
+      "type": {
+        "text": "Referral outcome — procedure performed"
+      },
+      "valueReference": {
+        "reference": "Procedure/procedure-extraction-implant-tooth30",
+        "display": "Extraction + immediate implant, tooth #30"
+      }
+    },
+    {
+      "type": {
+        "text": "Referral outcome — coded disposition"
+      },
+      "valueReference": {
+        "reference": "Observation/observation-dental-clearance-disposition",
+        "display": "Cleared for head & neck IMRT"
+      }
+    },
+    {
+      "type": {
+        "text": "Referral outcome — transmitted document"
+      },
+      "valueReference": {
+        "reference": "DocumentReference/documentreference-dental-clearance-note",
+        "display": "PCC-57 C-CDA Consultation Note"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Task snapshot as of Interaction 3 (2026-07-31, 16:30) — the PCC-57 Referral Outcome transaction. status=completed and businessStatus=outcome-final per the ode-360x-adapter crosswalk's transaction table. Task.owner is now set (Dr. Bellweather's PractitionerRole) — populated at PCC-56 accept (2026-07-07, not yet modeled as its own artifact) and carried forward here; see the Interaction 1 version of this Task for the intake-state snapshot where owner is correctly absent. Task.output populated per the crosswalk's PCC-57 row: ClinicalImpression, Procedure (x3), a coded disposition Observation, and DocumentReference. This Task, across its lifecycle, absorbs both the referral relationship AND the payer's dental-clearance documentation requirement -- confirmed as a single-Task design per base COW's own guidance (see Interaction 1's Task note for full reasoning)."
+    }
+  ]
+}

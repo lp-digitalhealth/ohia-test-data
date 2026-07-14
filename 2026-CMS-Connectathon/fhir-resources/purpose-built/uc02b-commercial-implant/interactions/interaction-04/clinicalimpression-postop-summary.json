@@ -1,0 +1,65 @@
+{
+  "resourceType": "ClinicalImpression",
+  "id": "clinicalimpression-postop-summary",
+  "status": "completed",
+  "code": {
+    "text": "Post-operative summary — surgical extraction + immediate implant, tooth #30"
+  },
+  "subject": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-surgical"
+  },
+  "date": "2026-07-15T11:45:00-05:00",
+  "assessor": {
+    "reference": "PractitionerRole/role-maxil",
+    "display": "Dr. Alex Maxil, DDS, MD — Austin Oral Surgery"
+  },
+  "problem": [
+    {
+      "reference": "Condition/condition-k04-7-periapical-abscess"
+    },
+    {
+      "reference": "Condition/condition-k08-89-nonrestorable"
+    }
+  ],
+  "investigation": [
+    {
+      "code": {
+        "text": "Procedures performed, tooth #30"
+      },
+      "item": [
+        {
+          "reference": "Procedure/procedure-extraction-tooth30",
+          "display": "D7210, surgical extraction, tooth #30"
+        },
+        {
+          "reference": "Procedure/procedure-implant-tooth30",
+          "display": "D6010, immediate endosteal implant, tooth #30 site"
+        }
+      ]
+    }
+  ],
+  "finding": [
+    {
+      "itemReference": {
+        "reference": "Condition/condition-k04-7-periapical-abscess",
+        "display": "Periapical abscess — confirmed"
+      }
+    },
+    {
+      "itemReference": {
+        "reference": "Condition/condition-k08-89-nonrestorable",
+        "display": "Non-restorable tooth — vertical root fracture confirmed intraoperatively"
+      }
+    }
+  ],
+  "summary": "Frank Castle seen 2026-07-15 per referral from South Congress Dental Care. Periapical abscess (K04.7) and non-restorable tooth #30 confirmed; vertical root fracture confirmed intraoperatively. Surgical extraction of tooth #30 completed (D7210). Immediate endosteal implant placed at the same visit (D6010) — full specifications in the linked implant Device record (Device/device-implant-tooth30): synthetic manufacturer, model IMPL-4.0-11.5-SYN (4.0 x 11.5 mm), lot LOT-2026-04821. Primary stability achieved at 35 Ncm placement torque; healing abutment placed. Post-operative instructions provided. Anticipated osseointegration period 3–4 months. Patient to return to the general dental provider for the restorative (crown) phase once osseointegration is confirmed. Implant Device record transmitted with this summary so the restorative provider can select abutment and crown components without a separate records request.",
+  "note": [
+    {
+      "text": "Recommendations: (1) Follow-up at oral surgery in 1 week for healing check; (2) Restorative phase (implant crown, D6065 or D6066) at the general dental practice approximately 4 months post-placement, pending osseointegration; (3) Implant specifications transmitted (see Device/device-implant-tooth30) — abutment and crown components to be selected by the restorative provider using the Device record. The Device is carried structurally on the accompanying CarePlan (CarePlan.supportingInfo) and on the referral Task.output; it is named here in the summary because R4 ClinicalImpression.investigation.item cannot reference a Device."
+    }
+  ]
+}

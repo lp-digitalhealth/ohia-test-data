@@ -1,0 +1,71 @@
+{
+  "resourceType": "Task",
+  "id": "task-referral-tracking",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC02B-001"
+    }
+  ],
+  "status": "in-progress",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+        "code": "referral-sent",
+        "display": "Referral Sent"
+      }
+    ]
+  },
+  "intent": "order",
+  "priority": "routine",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-referral",
+    "display": "Referral: Surgical extraction (± immediate implant), tooth #30"
+  },
+  "for": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-limited-oral-eval"
+  },
+  "authoredOn": "2026-07-08T11:00:00-05:00",
+  "lastModified": "2026-07-08T11:00:00-05:00",
+  "requester": {
+    "reference": "Organization/org-south-congress-dental",
+    "display": "South Congress Dental Care"
+  },
+  "input": [
+    {
+      "type": { "text": "Referral clinical basis — diagnosis" },
+      "valueReference": { "reference": "Condition/condition-k04-7-periapical-abscess" }
+    },
+    {
+      "type": { "text": "Referral clinical basis — diagnosis" },
+      "valueReference": { "reference": "Condition/condition-k08-89-nonrestorable" }
+    }
+  ],
+  "output": [
+    {
+      "type": { "text": "Referral sent" },
+      "valueReference": { "reference": "ServiceRequest/servicerequest-referral" }
+    }
+  ],
+  "note": [
+    {
+      "text": "This is the ONLY Task for this referral episode — same single-Task design established for UC01/UC02a (one Coordination Task per Request; Task.output absorbs fulfillment artifacts). Unlike UC02a, this Task's focus points at the referral ServiceRequest from the start, because in UC02b the referral is created in Interaction 1 itself (there is no PA cycle preceding it — commercial coverage requires no PA, so no DTR QuestionnaireResponse to focus on). businessStatus is 'referral-sent' at this I1 snapshot; owner is intentionally NOT set yet (it is set for the first time at I2 when Austin Oral Surgery accepts the referral and books the appointment). status is in-progress, not completed — the Task closes only when the referral itself closes at Interaction 4 (not yet built). The ode-referral-sub-status codes here are illustrative/consistent with UC02a's usage of the same CodeSystem. This same Task (same id) is updated, not replaced, at I2."
+    }
+  ]
+}

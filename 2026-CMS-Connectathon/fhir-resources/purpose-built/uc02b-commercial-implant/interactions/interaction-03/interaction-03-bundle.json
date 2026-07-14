@@ -1,0 +1,2132 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:Organization-org-south-congress-dental",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-south-congress-dental",
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1467823094"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "General Dental Practice"
+          }
+        ],
+        "name": "South Congress Dental Care",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(512) 555-0130"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "1500 South Congress Avenue, Suite 110"
+            ],
+            "city": "Austin",
+            "state": "TX",
+            "postalCode": "78704",
+            "country": "US"
+          }
+        ],
+        "note": [
+          {
+            "text": "Fictional organization — not a real practice. Named for and located near Frank Castle's own Austin neighborhood (South Congress Avenue). Shared with UC02a."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-south-congress-dental"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Organization-org-austin-oral-surgery",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-austin-oral-surgery",
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1578293148"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Oral and Maxillofacial Surgery Practice"
+          }
+        ],
+        "name": "Austin Oral Surgery",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(512) 555-0210"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "711 W. 38th Street, Suite A-1"
+            ],
+            "city": "Austin",
+            "state": "TX",
+            "postalCode": "78705",
+            "country": "US"
+          }
+        ],
+        "note": [
+          {
+            "text": "Real organization — a founding USOSM partner practice. Real Central Austin address. Treating surgeon Dr. Alex Maxil is fictional. NPI is synthetic. Shared with UC02a."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-austin-oral-surgery"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Organization-org-commercial-dental-ppo",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-commercial-dental-ppo",
+        "identifier": [
+          {
+            "system": "urn:ohia:payer-edi-id",
+            "value": "COMM-TX-PPO-EDI"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "pay",
+                "display": "Payer"
+              }
+            ],
+            "text": "Commercial Dental Plan"
+          }
+        ],
+        "name": "Commercial Dental PPO",
+        "note": [
+          {
+            "text": "Synthetic placeholder payer, per the UC02b source appendix. No real commercial dental PPO is named here — a deliberate choice. EDI and endpoint identifiers are synthetic."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-commercial-dental-ppo"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner-pract-parker",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-parker",
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1538476284"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Parker",
+            "given": [
+              "Mary",
+              "Elizabeth"
+            ],
+            "prefix": [
+              "Dr."
+            ],
+            "suffix": [
+              "DDS"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "mary.parker@southcongressdental.example.org"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "text": "DDS — Doctor of Dental Surgery"
+            },
+            "identifier": [
+              {
+                "system": "urn:ohia:license",
+                "value": "TX-DDS-047291"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/pract-parker"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner-pract-maxil",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-maxil",
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1649203912"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Maxil",
+            "given": [
+              "Alex",
+              "James"
+            ],
+            "prefix": [
+              "Dr."
+            ],
+            "suffix": [
+              "DDS, MD"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "alex.maxil@austinoralsurgery.example.org"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "text": "DDS, MD — Dual degree oral and maxillofacial surgeon"
+            },
+            "identifier": [
+              {
+                "system": "urn:ohia:license",
+                "value": "TX-DDS-052841"
+              },
+              {
+                "system": "urn:ohia:license",
+                "value": "TX-MD-091023"
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Fictional individual — not modeled on any specific real surgeon at Austin Oral Surgery, the real organization he's employed by."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/pract-maxil"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Location-loc-south-congress-dental",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-south-congress-dental",
+        "status": "active",
+        "name": "South Congress Dental Care",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "OUTPHARM",
+                "display": "outpatient dental office"
+              }
+            ],
+            "text": "General dental office"
+          }
+        ],
+        "address": {
+          "line": [
+            "1500 South Congress Avenue, Suite 110"
+          ],
+          "city": "Austin",
+          "state": "TX",
+          "postalCode": "78704",
+          "country": "US"
+        },
+        "managingOrganization": {
+          "reference": "Organization/org-south-congress-dental",
+          "display": "South Congress Dental Care"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-south-congress-dental"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Location-loc-austin-oral-surgery",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-austin-oral-surgery",
+        "status": "active",
+        "name": "Austin Oral Surgery — Central Austin",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "OUTPHARM",
+                "display": "outpatient surgical office"
+              }
+            ],
+            "text": "Oral and maxillofacial surgery office"
+          }
+        ],
+        "address": {
+          "line": [
+            "711 W. 38th Street, Suite A-1"
+          ],
+          "city": "Austin",
+          "state": "TX",
+          "postalCode": "78705",
+          "country": "US"
+        },
+        "managingOrganization": {
+          "reference": "Organization/org-austin-oral-surgery",
+          "display": "Austin Oral Surgery"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-austin-oral-surgery"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Endpoint-endpoint-south-congress-dental",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-south-congress-dental",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest"
+        },
+        "name": "South Congress Dental Care Interim FHIR Server",
+        "managingOrganization": {
+          "reference": "Organization/org-south-congress-dental"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/resource-types",
+                "code": "Bundle"
+              }
+            ]
+          }
+        ],
+        "address": "https://southcongressdental.example.org/fhir/r4"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-south-congress-dental"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Endpoint-endpoint-austin-oral-surgery",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-austin-oral-surgery",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest"
+        },
+        "name": "Austin Oral Surgery Interim FHIR Server",
+        "managingOrganization": {
+          "reference": "Organization/org-austin-oral-surgery"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/resource-types",
+                "code": "Bundle"
+              }
+            ]
+          }
+        ],
+        "address": "https://austinoralsurgery.example.org/fhir/r4"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-austin-oral-surgery"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Endpoint-endpoint-commercial-dental-ppo",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-commercial-dental-ppo",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest"
+        },
+        "name": "Commercial Dental PPO FHIR API (synthetic test endpoint)",
+        "managingOrganization": {
+          "reference": "Organization/org-commercial-dental-ppo"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/resource-types",
+                "code": "Bundle"
+              }
+            ]
+          }
+        ],
+        "address": "https://commercial-dental.example.org/fhir/r4"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-commercial-dental-ppo"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:InsurancePlan-insplan-commercial-dental-ppo",
+      "resource": {
+        "resourceType": "InsurancePlan",
+        "id": "insplan-commercial-dental-ppo",
+        "status": "active",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+                "code": "dental",
+                "display": "Dental"
+              }
+            ]
+          }
+        ],
+        "name": "Commercial Dental PPO",
+        "ownedBy": {
+          "reference": "Organization/org-commercial-dental-ppo",
+          "display": "Commercial Dental PPO"
+        },
+        "administeredBy": {
+          "reference": "Organization/org-commercial-dental-ppo",
+          "display": "Commercial Dental PPO"
+        },
+        "coverageArea": [
+          {
+            "display": "Texas"
+          }
+        ],
+        "coverage": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+                  "code": "dental",
+                  "display": "Dental"
+                }
+              ]
+            },
+            "benefit": [
+              {
+                "type": {
+                  "text": "Basic services (surgical extraction, D7210)"
+                },
+                "limit": [
+                  {
+                    "value": {
+                      "value": 80,
+                      "unit": "%",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "%"
+                    },
+                    "code": {
+                      "text": "Plan pays after deductible (in-network)"
+                    }
+                  }
+                ]
+              },
+              {
+                "type": {
+                  "text": "Major services (endosteal implant, D6010)"
+                },
+                "limit": [
+                  {
+                    "value": {
+                      "value": 50,
+                      "unit": "%",
+                      "system": "http://unitsofmeasure.org",
+                      "code": "%"
+                    },
+                    "code": {
+                      "text": "Plan pays after deductible (in-network); implant waiting period waived (plan year 3+)"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "plan": [
+          {
+            "type": {
+              "text": "PPO"
+            },
+            "generalCost": [
+              {
+                "type": {
+                  "text": "Annual maximum benefit"
+                },
+                "cost": {
+                  "value": 2000,
+                  "currency": "USD"
+                }
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "Commercial dental PPO benefit structure. Annual maximum $2,000/member/year. No PA required for D7210 or D6010. Synthetic placeholder plan."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "InsurancePlan/insplan-commercial-dental-ppo"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Library-lib-commercial-noauth-logic",
+      "resource": {
+        "resourceType": "Library",
+        "id": "lib-commercial-noauth-logic",
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/library-type",
+              "code": "logic-library"
+            }
+          ]
+        },
+        "name": "CommercialNoAuthLogic",
+        "title": "Commercial Dental PPO — No Prior Authorization Determination Logic",
+        "description": "CQL logic evaluated by the CRD service at order entry: does a D7210 or D6010 order under this commercial dental PPO require prior authorization? Returns false for both. Stub CQL declaration only.",
+        "content": [
+          {
+            "contentType": "text/cql",
+            "data": "bGlicmFyeSBDb21tZXJjaWFsTm9BdXRoTG9naWMgdmVyc2lvbiAnMS4wLjAn"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Library/lib-commercial-noauth-logic"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:PlanDefinition-plandef-commercial-noauth-rule",
+      "resource": {
+        "resourceType": "PlanDefinition",
+        "id": "plandef-commercial-noauth-rule",
+        "status": "active",
+        "name": "CommercialDentalNoAuthRule",
+        "title": "Commercial Dental PPO — D7210 / D6010 Require No Prior Authorization",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+              "code": "eca-rule",
+              "display": "ECA Rule"
+            }
+          ]
+        },
+        "library": [
+          "Library/lib-commercial-noauth-logic"
+        ],
+        "action": [
+          {
+            "title": "Confirm no PA required for D7210 / D6010; benefits active",
+            "description": "When a D7210 or D6010 order is signed for a covered party of this commercial dental PPO, return an informational CDS card confirming no prior authorization is required and benefits are active — no DTR launch, no PAS submission.",
+            "trigger": [
+              {
+                "type": "named-event",
+                "name": "order-sign"
+              }
+            ],
+            "condition": [
+              {
+                "kind": "applicability",
+                "expression": {
+                  "language": "text/cql",
+                  "expression": "IsExtractionOrImplantOrder"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "PlanDefinition/plandef-commercial-noauth-rule"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Patient-patient-frank-castle",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-frank-castle",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://southcongressdental.example.org/fhir/mrn",
+            "value": "GDENT-TX-2026-0047"
+          },
+          {
+            "system": "https://austinoralsurgery.example.org/fhir/mrn",
+            "value": "ORALSURG-TX-2026-0031"
+          },
+          {
+            "system": "urn:ohia:commercial-dental-ppo:member-id",
+            "value": "COMM-TX-00819472"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Castle",
+            "given": [
+              "Frank"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(512) 555-0147",
+            "use": "mobile"
+          },
+          {
+            "system": "email",
+            "value": "frank.castle@example.com",
+            "use": "home"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "1972-03-17",
+        "address": [
+          {
+            "line": [
+              "918 South Congress Avenue, Apt 6"
+            ],
+            "city": "Austin",
+            "state": "TX",
+            "postalCode": "78704",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/patient-frank-castle"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Coverage-coverage-frank-castle-commercial",
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "coverage-frank-castle-commercial",
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "DENTAL",
+              "display": "dental care policy"
+            }
+          ],
+          "text": "Commercial dental PPO"
+        },
+        "beneficiary": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "subscriber": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "subscriberId": "COMM-TX-00819472",
+        "relationship": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+              "code": "self",
+              "display": "Self"
+            }
+          ]
+        },
+        "period": {
+          "start": "2026-01-01",
+          "end": "2026-12-31"
+        },
+        "payor": [
+          {
+            "reference": "Organization/org-commercial-dental-ppo",
+            "display": "Commercial Dental PPO"
+          }
+        ],
+        "class": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "group"
+                }
+              ]
+            },
+            "value": "582047",
+            "name": "Employer group"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "plan"
+                }
+              ]
+            },
+            "value": "COMM-DENTAL-PPO",
+            "name": "Commercial Dental PPO"
+          }
+        ],
+        "identifier": [
+          {
+            "system": "urn:ohia:commercial-dental-ppo:member-id",
+            "value": "COMM-TX-00819472"
+          }
+        ],
+        "note": [
+          {
+            "text": "Commercial dental PPO coverage. Benefit detail confirmed at the 2026-07-08 real-time benefit verification: annual maximum $2,000/plan year with $1,720 remaining; basic (D7210) 80%; major (D6010 implant) 50%; implant waiting period waived. NO prior authorization required. Fixed plan benefits live on InsurancePlan/insplan-commercial-dental-ppo."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Coverage/coverage-frank-castle-commercial"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:PractitionerRole-role-parker",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "role-parker",
+        "active": true,
+        "practitioner": {
+          "reference": "Practitioner/pract-parker",
+          "display": "Dr. Mary Parker, DDS"
+        },
+        "organization": {
+          "reference": "Organization/org-south-congress-dental",
+          "display": "South Congress Dental Care"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223G0001X",
+                "display": "General Practice Dentistry"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223G0001X",
+                "display": "General Practice Dentistry"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "reference": "Location/loc-south-congress-dental",
+            "display": "South Congress Dental Care"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "mary.parker@southcongressdental.example.org"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/role-parker"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:PractitionerRole-role-maxil",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "role-maxil",
+        "active": true,
+        "practitioner": {
+          "reference": "Practitioner/pract-maxil",
+          "display": "Dr. Alex Maxil, DDS, MD"
+        },
+        "organization": {
+          "reference": "Organization/org-austin-oral-surgery",
+          "display": "Austin Oral Surgery"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223X0400X",
+                "display": "Oral and Maxillofacial Surgery"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223X0400X",
+                "display": "Oral and Maxillofacial Surgery"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "reference": "Location/loc-austin-oral-surgery",
+            "display": "Austin Oral Surgery — Central Austin"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "alex.maxil@austinoralsurgery.example.org"
+          }
+        ],
+        "note": [
+          {
+            "text": "Commercial dental PPO network participation confirmed via Plan-Net query before Frank's referral was created — see UC02b-I1's narrative."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/role-maxil"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Subscription-subscription-frank-castle-referral-status",
+      "resource": {
+        "resourceType": "Subscription",
+        "id": "subscription-frank-castle-referral-status",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-subscription"
+          ]
+        },
+        "status": "active",
+        "contact": [
+          {
+            "system": "phone",
+            "value": "(512) 555-0147",
+            "use": "mobile"
+          }
+        ],
+        "reason": "Notify Frank Castle's patient-facing app of status changes on his surgical extraction / implant referral (Task/task-referral-tracking), so the app can surface milestone updates (referral sent, appointment confirmed, and — at Interaction 4 — referral complete) without Frank needing to call either office.",
+        "criteria": "https://oralhealthalliance.net/fhir/SubscriptionTopic/ode-referral-status",
+        "channel": {
+          "type": "rest-hook",
+          "endpoint": "https://patient-app.example.org/notifications/frank-castle",
+          "payload": "application/fhir+json",
+          "_payload": {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-payload-content",
+                "valueCode": "full-resource"
+              }
+            ]
+          }
+        },
+        "note": [
+          {
+            "text": "Same Backport IG pattern as UC01/UC02a. No 'PA approved' milestone (commercial coverage needs no PA); patient-visible milestones are referral sent (I1), appointment confirmed (I2), referral complete (I4, not yet built). Interaction 3 is deliberately not a patient-notification milestone."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Subscription/subscription-frank-castle-referral-status"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Encounter-encounter-01-limited-oral-eval",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-01-limited-oral-eval",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "subject": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "PractitionerRole/role-parker",
+              "display": "Dr. Mary Parker, DDS"
+            }
+          }
+        ],
+        "period": {
+          "start": "2026-07-08T10:00:00-05:00",
+          "end": "2026-07-08T10:30:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/loc-south-congress-dental",
+              "display": "South Congress Dental Care"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-south-congress-dental",
+          "display": "South Congress Dental Care"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/encounter-01-limited-oral-eval"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition-condition-k04-7-periapical-abscess",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-k04-7-periapical-abscess",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K04.7",
+              "display": "Periapical abscess without sinus"
+            }
+          ]
+        },
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+                "code": "30",
+                "display": "30"
+              }
+            ],
+            "text": "Tooth #30"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-limited-oral-eval"
+        },
+        "recordedDate": "2026-07-08"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/condition-k04-7-periapical-abscess"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition-condition-k08-89-nonrestorable",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-k08-89-nonrestorable",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K08.89",
+              "display": "Other specified disorders of teeth and supporting structures"
+            }
+          ],
+          "text": "Non-restorable tooth — vertical root fracture"
+        },
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+                "code": "30",
+                "display": "30"
+              }
+            ],
+            "text": "Tooth #30"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-limited-oral-eval"
+        },
+        "recordedDate": "2026-07-08",
+        "note": [
+          {
+            "text": "Vertical root fracture following prior root canal on tooth #30. Non-restorable — surgical extraction is the appropriate treatment; extraction alone or with immediate implant are both viable under commercial coverage, decided at consultation (Interaction 3)."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/condition-k08-89-nonrestorable"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-periapical-radiolucency",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-periapical-radiolucency",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Periapical radiolucency, tooth #30"
+        },
+        "subject": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-limited-oral-eval"
+        },
+        "effectiveDateTime": "2026-07-08",
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-parker",
+            "display": "Dr. Mary Parker, DDS"
+          }
+        ],
+        "valueCodeableConcept": {
+          "text": "Periapical radiolucency present, consistent with periapical abscess"
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+              "code": "30",
+              "display": "30"
+            }
+          ],
+          "text": "Tooth #30"
+        },
+        "derivedFrom": [
+          {
+            "reference": "DiagnosticReport/diagnosticreport-periapical-radiograph"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-periapical-radiolucency"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-vertical-root-fracture",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-vertical-root-fracture",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Vertical root fracture, tooth #30"
+        },
+        "subject": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-limited-oral-eval"
+        },
+        "effectiveDateTime": "2026-07-08",
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-parker",
+            "display": "Dr. Mary Parker, DDS"
+          }
+        ],
+        "valueCodeableConcept": {
+          "text": "Vertical root fracture identified below the gumline, following prior root canal treatment. Tooth determined non-restorable."
+        },
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+              "code": "30",
+              "display": "30"
+            }
+          ],
+          "text": "Tooth #30"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-vertical-root-fracture"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ImagingStudy-imagingstudy-periapical",
+      "resource": {
+        "resourceType": "ImagingStudy",
+        "id": "imagingstudy-periapical",
+        "status": "available",
+        "subject": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-limited-oral-eval"
+        },
+        "started": "2026-07-08T10:15:00-05:00",
+        "endpoint": [
+          {
+            "reference": "Endpoint/endpoint-south-congress-dental",
+            "display": "South Congress Dental Care Interim FHIR Server (WADO-RS)"
+          }
+        ],
+        "series": [
+          {
+            "uid": "1.2.826.0.1.3680043.8.498.10000000000000000000000000000030",
+            "modality": {
+              "system": "http://dicom.nema.org/resources/ontology/DCM",
+              "code": "IO",
+              "display": "Intra-oral Radiography"
+            },
+            "bodySite": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+                  "code": "30",
+                  "display": "30"
+                }
+              ],
+              "text": "Tooth #30"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "DICOM pointer/metadata layer only. Retrieved at Interaction 2 via CDex -> this ImagingStudy -> a DICOMweb WADO-RS call against the referenced endpoint's PACS. Dental-to-dental support-a-pull direction."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ImagingStudy/imagingstudy-periapical"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DiagnosticReport-diagnosticreport-periapical-radiograph",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "diagnosticreport-periapical-radiograph",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "62443-7",
+              "display": "Single view Teeth Document XR"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-limited-oral-eval"
+        },
+        "effectiveDateTime": "2026-07-08",
+        "issued": "2026-07-08T10:20:00-05:00",
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-parker",
+            "display": "Dr. Mary Parker, DDS"
+          }
+        ],
+        "conclusion": "Periapical radiograph, tooth #30: periapical radiolucency and vertical root fracture identified, consistent with periapical abscess and failed prior endodontic treatment. Tooth non-restorable; surgical extraction recommended, with immediate implant placement a viable option given adequate bone.",
+        "imagingStudy": [
+          {
+            "reference": "ImagingStudy/imagingstudy-periapical"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DiagnosticReport/diagnosticreport-periapical-radiograph"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DiagnosticReport-diagnosticreport-periodontal-charting",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "diagnosticreport-periodontal-charting",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note"
+          ]
+        },
+        "status": "final",
+        "code": {
+          "text": "Periodontal charting — NO VERIFIED LOINC CODE. Same named terminology gap carried in UC02a's periodontal-charting DiagnosticReport; left text-only pending a proper LOINC terminology browser lookup, not an oversight."
+        },
+        "subject": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-limited-oral-eval"
+        },
+        "effectiveDateTime": "2026-07-08",
+        "issued": "2026-07-08T10:25:00-05:00",
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-parker",
+            "display": "Dr. Mary Parker, DDS"
+          }
+        ],
+        "conclusion": "Periodontal charting performed at limited oral evaluation, tooth #30 region. Retrieved by Austin Oral Surgery via support-a-pull (Interaction 2)."
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DiagnosticReport/diagnosticreport-periodontal-charting"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DocumentReference-documentreference-intraoral-images",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentreference-intraoral-images",
+        "status": "current",
+        "docStatus": "final",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "72170-4",
+              "display": "Photographic image"
+            }
+          ],
+          "text": "Intraoral photographic images, tooth #30 region"
+        },
+        "category": [
+          {
+            "text": "Intraoral imaging"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "date": "2026-07-08T10:22:00-05:00",
+        "author": [
+          {
+            "reference": "PractitionerRole/role-parker",
+            "display": "Dr. Mary Parker, DDS"
+          }
+        ],
+        "custodian": {
+          "reference": "Organization/org-south-congress-dental",
+          "display": "South Congress Dental Care"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "image/jpeg",
+              "title": "Intraoral photograph, tooth #30 region",
+              "url": "https://southcongressdental.example.org/fhir/Binary/intraoral-frank-castle-t30"
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "Encounter/encounter-01-limited-oral-eval"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "Retrieved by Austin Oral Surgery at Interaction 2 via CDex support-a-pull, same as the ImagingStudy/periapical radiograph — not pushed with the referral, only referenced."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DocumentReference/documentreference-intraoral-images"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ServiceRequest-servicerequest-referral",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "servicerequest-referral",
+        "meta": {
+          "profile": [
+            "https://oralhealthalliance.net/fhir/StructureDefinition/ode-dental-to-dental-referral"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC02B-001"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "103696004",
+                "display": "Patient referral to specialist"
+              }
+            ],
+            "text": "Consultation / Referral"
+          }
+        ],
+        "priority": "routine",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D7210",
+              "display": "Extraction, erupted tooth requiring removal of bone and/or sectioning of tooth"
+            },
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D6010",
+              "display": "Surgical placement of implant body: endosteal implant"
+            }
+          ],
+          "text": "Surgical extraction — tooth #30 (non-restorable following root canal failure), with immediate endosteal implant placement as an option for Dr. Maxil's review"
+        },
+        "subject": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "requester": {
+          "reference": "PractitionerRole/role-parker",
+          "display": "Dr. Mary Parker, DDS"
+        },
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-maxil",
+            "display": "Dr. Alex Maxil, DDS, MD"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "K04.7",
+                "display": "Periapical abscess without sinus"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "K08.89",
+                "display": "Other specified disorders of teeth and supporting structures"
+              }
+            ]
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-k04-7-periapical-abscess"
+          },
+          {
+            "reference": "Condition/condition-k08-89-nonrestorable"
+          }
+        ],
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+                "code": "30",
+                "display": "30"
+              }
+            ],
+            "text": "Tooth #30"
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "DiagnosticReport/diagnosticreport-periapical-radiograph"
+          },
+          {
+            "reference": "ImagingStudy/imagingstudy-periapical"
+          },
+          {
+            "reference": "DiagnosticReport/diagnosticreport-periodontal-charting"
+          },
+          {
+            "reference": "DocumentReference/documentreference-intraoral-images"
+          }
+        ],
+        "insurance": [
+          {
+            "reference": "Coverage/coverage-frank-castle-commercial"
+          }
+        ],
+        "authoredOn": "2026-07-08T11:00:00-05:00",
+        "occurrenceDateTime": "2026-07-15",
+        "note": [
+          {
+            "text": "Commercial dental PPO — NO prior authorization required (CRD negative result); no PA number and no Claim/ClaimResponse in supportingInfo. Two treatment options travel in this referral (D7210 alone or D7210 + D6010); Frank's election is deferred to the consultation (Interaction 3). Imaging retrieved via CDex support-a-pull."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/servicerequest-referral"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Task-task-referral-tracking-i1",
+      "resource": {
+        "resourceType": "Task",
+        "id": "task-referral-tracking",
+        "meta": {
+          "profile": [
+            "https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC02B-001"
+          }
+        ],
+        "status": "in-progress",
+        "businessStatus": {
+          "coding": [
+            {
+              "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+              "code": "referral-sent",
+              "display": "Referral Sent"
+            }
+          ]
+        },
+        "intent": "order",
+        "priority": "routine",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/CodeSystem/task-code",
+              "code": "fulfill"
+            }
+          ]
+        },
+        "focus": {
+          "reference": "ServiceRequest/servicerequest-referral",
+          "display": "Referral: Surgical extraction (± immediate implant), tooth #30"
+        },
+        "for": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-limited-oral-eval"
+        },
+        "authoredOn": "2026-07-08T11:00:00-05:00",
+        "lastModified": "2026-07-08T11:00:00-05:00",
+        "requester": {
+          "reference": "Organization/org-south-congress-dental",
+          "display": "South Congress Dental Care"
+        },
+        "input": [
+          {
+            "type": {
+              "text": "Referral clinical basis — diagnosis"
+            },
+            "valueReference": {
+              "reference": "Condition/condition-k04-7-periapical-abscess"
+            }
+          },
+          {
+            "type": {
+              "text": "Referral clinical basis — diagnosis"
+            },
+            "valueReference": {
+              "reference": "Condition/condition-k08-89-nonrestorable"
+            }
+          }
+        ],
+        "output": [
+          {
+            "type": {
+              "text": "Referral sent"
+            },
+            "valueReference": {
+              "reference": "ServiceRequest/servicerequest-referral"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Interaction 1 snapshot of the single referral-tracking Task (businessStatus referral-sent, no owner yet). Included here first so the bundle applies version history in order; the updated I2 version (same id) follows as the last entry."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Task/task-referral-tracking"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Appointment-appointment-consultation",
+      "resource": {
+        "resourceType": "Appointment",
+        "id": "appointment-consultation",
+        "status": "booked",
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/servicerequest-referral",
+            "display": "Referral: Surgical extraction (± immediate implant), tooth #30"
+          }
+        ],
+        "serviceType": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ada.org/cdt",
+                "code": "D7210",
+                "display": "Extraction, erupted tooth requiring removal of bone and/or sectioning of tooth"
+              },
+              {
+                "system": "http://www.ada.org/cdt",
+                "code": "D6010",
+                "display": "Surgical placement of implant body: endosteal implant"
+              }
+            ],
+            "text": "Surgical consultation and extraction, with immediate implant placement as an option to be decided at consultation"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "K04.7",
+                "display": "Periapical abscess without sinus"
+              }
+            ]
+          }
+        ],
+        "priority": 5,
+        "description": "Surgical consultation and extraction of tooth #30 (± immediate implant), following referral from South Congress Dental Care",
+        "start": "2026-07-15T09:00:00-05:00",
+        "end": "2026-07-15T11:30:00-05:00",
+        "created": "2026-07-08T11:30:00-05:00",
+        "participant": [
+          {
+            "actor": {
+              "reference": "Patient/patient-frank-castle",
+              "display": "Frank Castle"
+            },
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "reference": "PractitionerRole/role-maxil",
+              "display": "Dr. Alex Maxil, DDS, MD"
+            },
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "reference": "Location/loc-austin-oral-surgery",
+              "display": "Austin Oral Surgery — Central Austin"
+            },
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Appointment/appointment-consultation"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:AppointmentResponse-appointmentresponse-confirmed",
+      "resource": {
+        "resourceType": "AppointmentResponse",
+        "id": "appointmentresponse-confirmed",
+        "appointment": {
+          "reference": "Appointment/appointment-consultation",
+          "display": "Surgical consultation and extraction (± immediate implant), 2026-07-15"
+        },
+        "start": "2026-07-15T09:00:00-05:00",
+        "end": "2026-07-15T11:30:00-05:00",
+        "actor": {
+          "reference": "PractitionerRole/role-maxil",
+          "display": "Dr. Alex Maxil, DDS, MD"
+        },
+        "participantStatus": "accepted",
+        "comment": "Appointment confirmed by Austin Oral Surgery, returned to South Congress Dental Care via CDex by 11:35 — within about five minutes of the referral being received and imaging retrieved."
+      },
+      "request": {
+        "method": "PUT",
+        "url": "AppointmentResponse/appointmentresponse-confirmed"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Task-task-referral-tracking-i2",
+      "resource": {
+        "resourceType": "Task",
+        "id": "task-referral-tracking",
+        "meta": {
+          "profile": [
+            "https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC02B-001"
+          }
+        ],
+        "status": "in-progress",
+        "businessStatus": {
+          "coding": [
+            {
+              "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+              "code": "appointment-confirmed",
+              "display": "Appointment Confirmed"
+            }
+          ]
+        },
+        "intent": "order",
+        "priority": "routine",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/CodeSystem/task-code",
+              "code": "fulfill"
+            }
+          ]
+        },
+        "focus": {
+          "reference": "ServiceRequest/servicerequest-referral",
+          "display": "Referral: Surgical extraction (± immediate implant), tooth #30"
+        },
+        "for": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-limited-oral-eval"
+        },
+        "authoredOn": "2026-07-08T11:00:00-05:00",
+        "lastModified": "2026-07-08T11:35:00-05:00",
+        "requester": {
+          "reference": "Organization/org-south-congress-dental",
+          "display": "South Congress Dental Care"
+        },
+        "owner": {
+          "reference": "PractitionerRole/role-maxil",
+          "display": "Dr. Alex Maxil, DDS, MD — Austin Oral Surgery"
+        },
+        "input": [
+          {
+            "type": {
+              "text": "Referral clinical basis — diagnosis"
+            },
+            "valueReference": {
+              "reference": "Condition/condition-k04-7-periapical-abscess"
+            }
+          },
+          {
+            "type": {
+              "text": "Referral clinical basis — diagnosis"
+            },
+            "valueReference": {
+              "reference": "Condition/condition-k08-89-nonrestorable"
+            }
+          }
+        ],
+        "output": [
+          {
+            "type": {
+              "text": "Referral sent"
+            },
+            "valueReference": {
+              "reference": "ServiceRequest/servicerequest-referral"
+            }
+          },
+          {
+            "type": {
+              "text": "Appointment scheduled"
+            },
+            "valueReference": {
+              "reference": "Appointment/appointment-consultation"
+            }
+          },
+          {
+            "type": {
+              "text": "Appointment confirmed"
+            },
+            "valueReference": {
+              "reference": "AppointmentResponse/appointmentresponse-confirmed"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Task snapshot as of I2 (2026-07-08, 11:35) — referral received, imaging retrieved via support-a-pull, appointment booked and confirmed. owner set for the first time (Dr. Maxil's PractitionerRole). businessStatus advances to appointment-confirmed. status remains in-progress — the Task closes only when the referral closes at Interaction 4 (not yet built). Same resource id as Interaction 1's Task; sequential PUT / new version, not a second Task."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Task/task-referral-tracking"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Encounter-encounter-03-surgical",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-03-surgical",
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "subject": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/servicerequest-referral",
+            "display": "Referral: Surgical extraction (± immediate implant), tooth #30"
+          }
+        ],
+        "participant": [
+          {
+            "individual": {
+              "reference": "PractitionerRole/role-maxil",
+              "display": "Dr. Alex Maxil, DDS, MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2026-07-15T09:00:00-05:00",
+          "end": "2026-07-15T11:30:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/loc-austin-oral-surgery",
+              "display": "Austin Oral Surgery — Central Austin"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-austin-oral-surgery",
+          "display": "Austin Oral Surgery"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-k04-7-periapical-abscess"
+          },
+          {
+            "reference": "Condition/condition-k08-89-nonrestorable"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/encounter-03-surgical"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationStatement-medicationstatement-frank-castle",
+      "resource": {
+        "resourceType": "MedicationStatement",
+        "id": "medicationstatement-frank-castle",
+        "status": "active",
+        "medicationCodeableConcept": {
+          "text": "No current prescription medications reported"
+        },
+        "subject": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "context": {
+          "reference": "Encounter/encounter-03-surgical"
+        },
+        "dateAsserted": "2026-07-15T09:10:00-05:00",
+        "informationSource": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle (patient-reported)"
+        },
+        "note": [
+          {
+            "text": "Reviewed by Dr. Maxil for surgical risk assessment prior to the extraction and immediate implant placement, per this use case's own appendix (medication review occurs at the surgical consultation, not the initial exam). The source use case doc does not specify particular medications for Frank — represented here as patient-reported, no current medications, consistent with what's actually documented rather than inventing specific drug names."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationStatement/medicationstatement-frank-castle"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure-procedure-extraction-tooth30",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-extraction-tooth30",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D7210",
+              "display": "Extraction, erupted tooth requiring removal of bone and/or sectioning of tooth"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-surgical"
+        },
+        "performedDateTime": "2026-07-15",
+        "performer": [
+          {
+            "actor": {
+              "reference": "PractitionerRole/role-maxil",
+              "display": "Dr. Alex Maxil, DDS, MD"
+            }
+          }
+        ],
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+                "code": "30",
+                "display": "30"
+              }
+            ],
+            "text": "Tooth #30"
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-k04-7-periapical-abscess"
+          },
+          {
+            "reference": "Condition/condition-k08-89-nonrestorable"
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/servicerequest-referral"
+          }
+        ],
+        "note": [
+          {
+            "text": "Surgical extraction completed without complication. Flap reflected; tooth sectioned for removal; vertical root fracture confirmed intraoperatively. Socket curetted and irrigated, then prepared for immediate implant placement (see the D6010 implant Procedure at the same encounter). Local anesthesia: inferior alveolar nerve block + long buccal block, 2% lidocaine with 1:100,000 epinephrine."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/procedure-extraction-tooth30"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure-procedure-implant-tooth30",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-implant-tooth30",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D6010",
+              "display": "Surgical placement of implant body: endosteal implant"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-surgical"
+        },
+        "performedDateTime": "2026-07-15",
+        "performer": [
+          {
+            "actor": {
+              "reference": "PractitionerRole/role-maxil",
+              "display": "Dr. Alex Maxil, DDS, MD"
+            }
+          }
+        ],
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+                "code": "30",
+                "display": "30"
+              }
+            ],
+            "text": "Tooth #30 site"
+          }
+        ],
+        "focalDevice": [
+          {
+            "action": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/CodeSystem/device-action",
+                  "code": "implanted",
+                  "display": "Implanted"
+                }
+              ]
+            },
+            "manipulated": {
+              "reference": "Device/device-implant-tooth30",
+              "display": "Endosteal dental implant, tooth #30 site"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Immediate endosteal implant placed into the tooth #30 socket following the extraction, same appointment. Bone density adequate; primary stability achieved. Placement torque: 35 Ncm. Healing abutment placed. Patient instructed on implant care. Anticipated osseointegration period: 3–4 months before the restorative (crown) phase at the general dental practice. Implant device specifications captured in the linked Device resource (see focalDevice)."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/procedure-implant-tooth30"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Device-device-implant-tooth30",
+      "resource": {
+        "resourceType": "Device",
+        "id": "device-implant-tooth30",
+        "status": "active",
+        "manufacturer": "Implant Manufacturer (Synthetic)",
+        "manufactureDate": "2025-11-01",
+        "lotNumber": "LOT-2026-04821",
+        "modelNumber": "IMPL-4.0-11.5-SYN",
+        "type": {
+          "text": "Endosteal dental implant — diameter 4.0 mm, length 11.5 mm. NO VERIFIED SNOMED CODE: searched for a precise 'endosteal dental implant' device concept and found only a generic 'Implant' (SNOMED 40388003) or overly-specific one-piece/two-piece variants that don't cleanly match this screw-type implant; left text-only pending a proper SNOMED browser lookup, consistent with this project's discipline on unverifiable codes (same as the periodontal-charting LOINC gap)."
+        },
+        "deviceName": [
+          {
+            "name": "Endosteal dental implant (synthetic), 4.0 x 11.5 mm",
+            "type": "user-friendly-name"
+          }
+        ],
+        "patient": {
+          "reference": "Patient/patient-frank-castle",
+          "display": "Frank Castle"
+        },
+        "property": [
+          {
+            "type": {
+              "text": "Placement torque (primary stability)"
+            },
+            "valueQuantity": [
+              {
+                "value": 35,
+                "unit": "Ncm",
+                "system": "http://unitsofmeasure.org",
+                "code": "N.cm"
+              }
+            ]
+          }
+        ],
+        "note": [
+          {
+            "text": "First Device resource in this project — the implant placed at UC02b-I3 (2026-07-15). Manufacturer, catalog/model number, and lot number are synthetic placeholders per the source appendix ('to be filled with actual manufacturer'). Placement torque (35 Ncm) is carried as a structured Device.property (UCUM N.cm) as well as in the note, since it is a named test value and Device has no dedicated torque element. NOTE on modeling: FHIR R4 Device has no bodySite element — the implant's tooth #30 site lives on the linked Procedure (procedure-implant-tooth30) via Procedure.focalDevice, not here. No us-core-implantable-device profile is asserted: this synthetic record has no UDI and a text-only type, so claiming that profile's conformance would be unverifiable. Transmitted to the general dental practice in the I4 post-operative summary (via CarePlan.supportingInfo and Task.output) so Dr. Parker's practice can select the correct abutment and crown components at the restorative phase without a records request."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Device/device-implant-tooth30"
+      }
+    }
+  ]
+}

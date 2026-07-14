@@ -1,0 +1,60 @@
+{
+  "resourceType": "Practitioner",
+  "id": "pract-whitfield",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"]
+  },
+  "identifier": [
+    { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1000000021" },
+    { "system": "http://www.pa.gov/fhir/medical-license", "value": "PA-MD-000101" }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Whitfield",
+      "given": ["Marcus"],
+      "suffix": ["MD"]
+    }
+  ],
+  "telecom": [
+    { "system": "phone", "value": "(215) 728-6900", "extension": "2847", "use": "work" },
+    { "system": "email", "value": "marcus.whitfield@example-cancercenter.org", "use": "work" }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "line": ["333 Cottman Avenue"],
+      "city": "Philadelphia",
+      "state": "PA",
+      "postalCode": "19111",
+      "country": "US"
+    }
+  ],
+  "gender": "male",
+  "qualification": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+            "code": "MD",
+            "display": "Doctor of Medicine"
+          }
+        ]
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://nucc.org/provider-taxonomy",
+            "code": "2070AM0800X",
+            "display": "Radiation Oncology"
+          }
+        ],
+        "text": "Attending physician, Head & Neck Radiation Oncology; board certified by the American Board of Radiology (ABR)"
+      }
+    }
+  ]
+}

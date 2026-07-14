@@ -18,6 +18,7 @@ Clinician-readable writeups for both UC02 sub-use-cases, following the same patt
 - **UC02b-I4: Closing the Loop, Implant Included** (`uc02b-i4-closing-the-loop-implant.md`) — `Device` record travels with the summary, for future restorative continuity
 - **UC02b-I5: Billing for Two Procedures** (`uc02b-i5-billing-two-procedures.md`) — second proof point for claims-sharing (commercial payer direction). **Open scope question, not yet resolved:** whether this should also anticipate the future crown claim referencing the `Device` record — see the file itself for detail.
 
-## Not yet built
+## Build status
 
-FHIR resources for any of these 10 interactions — this session was narrative-only, per the established discipline of confirming the story before building.
+- **UC02a:** all five interactions built as FHIR resources (`fhir-resources/uc02a-surgical-extraction/`), plus a companion guide (`companion-guides/UC02a-companion-guide.md`).
+- **UC02b:** all five interactions built as FHIR resources (`fhir-resources/uc02b-commercial-implant/`), plus a companion guide covering all five (`companion-guides/UC02b-companion-guide.md`). I3 introduces the project's first `Device` resource (the immediate implant); I5 is the commercial-payer direction of the claims-sharing profile with a two-line-item `ExplanationOfBenefit`.

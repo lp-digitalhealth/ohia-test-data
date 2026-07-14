@@ -1,0 +1,14 @@
+{
+  "services": [
+    {
+      "hook": "order-sign",
+      "title": "Commercial Dental PPO Coverage Requirements Check",
+      "description": "Evaluates a dental service order at sign-time under the commercial dental PPO. For D7210 (surgical extraction) and D6010 (endosteal implant), returns an informational card confirming that NO prior authorization is required and that benefits are active — the negative-result CRD case that UC02b is specifically designed to test, in contrast to UC02a's PA-required result.",
+      "id": "commercial-dental-noauth-check",
+      "prefetch": {
+        "coverage": "Coverage?patient={{context.patientId}}",
+        "serviceRequest": "ServiceRequest/{{context.draftOrders.entry.0.resource.id}}"
+      }
+    }
+  ]
+}

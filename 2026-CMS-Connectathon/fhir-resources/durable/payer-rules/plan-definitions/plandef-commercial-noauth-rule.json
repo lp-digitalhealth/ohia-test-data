@@ -1,0 +1,40 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "plandef-commercial-noauth-rule",
+  "status": "active",
+  "name": "CommercialDentalNoAuthRule",
+  "title": "Commercial Dental PPO — D7210 / D6010 Require No Prior Authorization",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "code": "eca-rule",
+        "display": "ECA Rule"
+      }
+    ]
+  },
+  "library": [
+    "Library/lib-commercial-noauth-logic"
+  ],
+  "action": [
+    {
+      "title": "Confirm no PA required for D7210 / D6010; benefits active",
+      "description": "When a D7210 or D6010 order is signed for a covered party of this commercial dental PPO, return an informational CDS card confirming no prior authorization is required and benefits are active — no DTR launch, no PAS submission. This is the negative-result CRD path (contrast UC02a, whose action launches DTR).",
+      "trigger": [
+        {
+          "type": "named-event",
+          "name": "order-sign"
+        }
+      ],
+      "condition": [
+        {
+          "kind": "applicability",
+          "expression": {
+            "language": "text/cql",
+            "expression": "IsExtractionOrImplantOrder"
+          }
+        }
+      ]
+    }
+  ]
+}

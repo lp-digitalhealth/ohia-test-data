@@ -1,0 +1,57 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "documentreference-intraoral-images",
+  "status": "current",
+  "docStatus": "final",
+  "type": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "72170-4",
+        "display": "Photographic image"
+      }
+    ],
+    "text": "Intraoral photographic images, tooth #30 region"
+  },
+  "category": [
+    {
+      "text": "Intraoral imaging"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "date": "2026-07-08T10:22:00-05:00",
+  "author": [
+    {
+      "reference": "PractitionerRole/role-parker",
+      "display": "Dr. Mary Parker, DDS"
+    }
+  ],
+  "custodian": {
+    "reference": "Organization/org-south-congress-dental",
+    "display": "South Congress Dental Care"
+  },
+  "content": [
+    {
+      "attachment": {
+        "contentType": "image/jpeg",
+        "title": "Intraoral photograph, tooth #30 region",
+        "url": "https://southcongressdental.example.org/fhir/Binary/intraoral-frank-castle-t30"
+      }
+    }
+  ],
+  "context": {
+    "encounter": [
+      {
+        "reference": "Encounter/encounter-01-limited-oral-eval"
+      }
+    ]
+  },
+  "note": [
+    {
+      "text": "Retrieved by Austin Oral Surgery at Interaction 2 via CDex support-a-pull, same as the ImagingStudy/periapical radiograph — not pushed with the referral itself, only referenced."
+    }
+  ]
+}

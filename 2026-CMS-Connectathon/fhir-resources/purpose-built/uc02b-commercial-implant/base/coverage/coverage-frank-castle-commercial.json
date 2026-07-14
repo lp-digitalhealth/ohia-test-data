@@ -1,0 +1,80 @@
+{
+  "resourceType": "Coverage",
+  "id": "coverage-frank-castle-commercial",
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "DENTAL",
+        "display": "dental care policy"
+      }
+    ],
+    "text": "Commercial dental PPO"
+  },
+  "beneficiary": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "subscriber": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "subscriberId": "COMM-TX-00819472",
+  "relationship": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+        "code": "self",
+        "display": "Self"
+      }
+    ]
+  },
+  "period": {
+    "start": "2026-01-01",
+    "end": "2026-12-31"
+  },
+  "payor": [
+    {
+      "reference": "Organization/org-commercial-dental-ppo",
+      "display": "Commercial Dental PPO"
+    }
+  ],
+  "class": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+            "code": "group"
+          }
+        ]
+      },
+      "value": "582047",
+      "name": "Employer group"
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+            "code": "plan"
+          }
+        ]
+      },
+      "value": "COMM-DENTAL-PPO",
+      "name": "Commercial Dental PPO"
+    }
+  ],
+  "identifier": [
+    {
+      "system": "urn:ohia:commercial-dental-ppo:member-id",
+      "value": "COMM-TX-00819472"
+    }
+  ],
+  "note": [
+    {
+      "text": "Commercial dental PPO coverage (contrast UC02a's Texas Medicaid). Benefit detail confirmed at the 2026-07-08 real-time benefit verification (a named UC02b test objective): annual maximum $2,000/plan year with $1,720 remaining at time of verification; basic services (D7210 extraction) covered 80% after deductible; major services (D6010 implant) covered 50% after deductible; implant waiting period waived (plan year 3+). NO prior authorization required for D7210 or D6010 — confirmed via CRD (negative result), so no DTR/PAS in this use case. The remaining-annual-maximum and waiting-period values are member- and point-in-time-specific and in the real world are returned by the PDex/271 benefit response rather than stored on the Coverage resource; they are captured here in narrative form. The fixed plan-level benefit percentages and annual maximum live on InsurancePlan/insplan-commercial-dental-ppo."
+    }
+  ]
+}
