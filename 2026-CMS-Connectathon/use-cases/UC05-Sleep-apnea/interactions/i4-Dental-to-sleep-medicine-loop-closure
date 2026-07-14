@@ -1,0 +1,30 @@
+
+### I4 — Dental-to-Sleep Medicine Treatment Update and Loop Closure
+
+**Organizations:**
+Dental sleep medicine practice → Sleep medicine practice
+
+**Exchange:**
+The dental practice sends appliance delivery and titration updates so the sleep physician can order follow-up testing, evaluate treatment effectiveness, and close the referral loop.
+
+**Key data:**
+
+* dental candidacy result;
+* panoramic radiograph and digital-scan references;
+* appliance delivery status;
+* titration progress;
+* patient-reported improvement;
+* readiness for follow-up sleep testing; and
+* final dental treatment status.
+
+**Primary FHIR resources:**
+
+* `DiagnosticReport`
+* `Observation`
+* `DocumentReference`
+* `ImagingStudy`
+* `Procedure`
+* `Device`
+* `Communication`
+* `ServiceRequest`
+* `Provenance`
