@@ -1,0 +1,147 @@
+{
+  "resourceType": "Claim",
+  "id": "claim-d4341-priorauth",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/davinci-pas/StructureDefinition/profile-claim"]
+  },
+  "identifier": [
+    {
+      "system": "http://ctdhp.example.org/pa-request-id",
+      "value": "PA-REQ-2026-UC03-001"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+        "code": "oral",
+        "display": "Oral"
+      }
+    ]
+  },
+  "use": "preauthorization",
+  "patient": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "created": "2026-05-28T09:35:00-04:00",
+  "insurer": {
+    "reference": "Organization/org-gainwell",
+    "display": "Gainwell Technologies (CMAP fiscal agent — HUSKY dental adjudication)"
+  },
+  "provider": {
+    "reference": "Organization/org-cornell-scott",
+    "display": "Cornell Scott-Hill Health Center"
+  },
+  "priority": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/processpriority",
+        "code": "normal"
+      }
+    ]
+  },
+  "careTeam": [
+    {
+      "sequence": 1,
+      "provider": {
+        "reference": "PractitionerRole/role-watson",
+        "display": "Dr. David Watson, DDS"
+      },
+      "responsible": true,
+      "role": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole",
+            "code": "rendering",
+            "display": "Rendering provider"
+          }
+        ]
+      }
+    }
+  ],
+  "diagnosis": [
+    {
+      "sequence": 1,
+      "diagnosisReference": {
+        "reference": "Condition/condition-k05-211-periodontitis",
+        "display": "Aggressive periodontitis, localized, slight"
+      }
+    },
+    {
+      "sequence": 2,
+      "diagnosisReference": {
+        "reference": "Condition/condition-e10-9-diabetes",
+        "display": "Type 1 diabetes mellitus (contributing systemic condition)"
+      }
+    }
+  ],
+  "insurance": [
+    {
+      "sequence": 1,
+      "focal": true,
+      "coverage": {
+        "reference": "Coverage/coverage-timothy-jones-huskyb",
+        "display": "Timothy Jones's HUSKY B dental coverage (CTDHP)"
+      }
+    }
+  ],
+  "item": [
+    {
+      "sequence": 1,
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D4341",
+            "display": "Periodontal scaling and root planing — four or more teeth per quadrant"
+          }
+        ]
+      },
+      "bodySite": {
+        "text": "Lower right quadrant"
+      }
+    },
+    {
+      "sequence": 2,
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D4341",
+            "display": "Periodontal scaling and root planing — four or more teeth per quadrant"
+          }
+        ]
+      },
+      "bodySite": {
+        "text": "Lower left quadrant"
+      }
+    }
+  ],
+  "supportingInfo": [
+    {
+      "sequence": 1,
+      "category": {
+        "text": "Periodontal risk assessment"
+      },
+      "valueReference": {
+        "reference": "DiagnosticReport/diagnosticreport-perio-risk-assessment"
+      }
+    },
+    {
+      "sequence": 2,
+      "category": {
+        "text": "DTR-completed PA documentation"
+      },
+      "valueReference": {
+        "reference": "QuestionnaireResponse/questionnaireresponse-srp-pa-dtr"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Prior-authorization request for scaling and root planing (D4341), two quadrants, under the HUSKY B dental benefit — UC03's PA proof point in a pediatric CHIP dental context. Billed to the dental benefit (CTDHP), adjudicated by Gainwell (DSS fiscal agent); CDT is what is required, no CPT crosswalk applies. Routed through Connie; PA intake handled by the BeneCare ASO. Two D4341 line items, one per quadrant, matching CDT per-quadrant billing granularity."
+    }
+  ]
+}

@@ -1,0 +1,23 @@
+{
+  "resourceType": "Organization",
+  "id": "org-ctdhp",
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "ins",
+          "display": "Insurance Company"
+        }
+      ],
+      "text": "Dental Plan (HUSKY dental benefit)"
+    }
+  ],
+  "name": "Connecticut Dental Health Partnership (CTDHP)",
+  "note": [
+    {
+      "text": "Real — the HUSKY / Covered CT dental plan brand, administered by the BeneCare ASO under contract with Connecticut DSS. CTDHP handles the provider network, Plan-Net directory, referral coordination, member services, and prior-authorization / post-procedure review intake — it is NOT the claims payer. Dental claims (837D) are adjudicated and paid by Gainwell (the DSS fiscal agent). There is no dental MCO in the HUSKY model."
+    }
+  ]
+}

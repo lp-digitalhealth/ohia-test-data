@@ -1,0 +1,17 @@
+{
+  "resourceType": "Device",
+  "id": "device-cgm",
+  "status": "active",
+  "type": {
+    "text": "Continuous glucose monitor (CGM)"
+  },
+  "patient": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "note": [
+    {
+      "text": "Patient-worn continuous glucose monitor, part of Timothy's diabetes management. Transmitted to the dental practice in the Interaction 2 pre-encounter records bundle to contextualize glycemic control for treatment planning (healing/infection/anesthetic considerations). Device.type is text-only (no verified SNOMED code asserted per project verification discipline); R4 Device has no bodySite. Synthetic — no manufacturer/model/UDI asserted."
+    }
+  ]
+}

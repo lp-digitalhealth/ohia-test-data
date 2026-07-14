@@ -1,0 +1,39 @@
+{
+  "resourceType": "Flag",
+  "id": "flag-perio-glycemic-risk",
+  "status": "active",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/flag-category",
+          "code": "clinical",
+          "display": "Clinical"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "text": "Active periodontal disease (aggressive periodontitis) — may exacerbate glycemic dysregulation and complicate insulin management. Recommend glycemic review and coordinated care."
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "period": {
+    "start": "2026-05-28"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval",
+    "display": "Dental evaluation, 2026-05-28"
+  },
+  "author": {
+    "reference": "PractitionerRole/role-watson",
+    "display": "Dr. David Watson, DDS"
+  },
+  "note": [
+    {
+      "text": "NEW Flag raised at Interaction 4, directed to the pediatric endocrinologist. This is the periodontal->glycemic-risk direction (periodontitis worsening glycemic control), the OPPOSITE of the Interaction 1 Flag (flag-diabetes-perio-risk), which was the diabetes->periodontal-risk direction directed to the dental provider. Two distinct Flags pointed in opposite directions — deliberately not the same Flag reused. Travels with the endocrinologist summary (clinicalimpression-summary-endocrinologist)."
+    }
+  ]
+}

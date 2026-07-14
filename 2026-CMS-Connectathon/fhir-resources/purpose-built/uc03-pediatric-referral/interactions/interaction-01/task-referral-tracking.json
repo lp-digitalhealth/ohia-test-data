@@ -1,0 +1,78 @@
+{
+  "resourceType": "Task",
+  "id": "task-referral-tracking",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC03-001"
+    }
+  ],
+  "status": "requested",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+        "code": "referral-sent",
+        "display": "Referral sent"
+      }
+    ]
+  },
+  "intent": "order",
+  "priority": "routine",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-referral",
+    "display": "Referral: Pediatric dental evaluation"
+  },
+  "for": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-well-child",
+    "display": "Well-child visit, 2026-02-28"
+  },
+  "authoredOn": "2026-02-28T09:40:00-05:00",
+  "requester": {
+    "reference": "Organization/org-nemg",
+    "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+  },
+  "input": [
+    {
+      "type": { "text": "Referral supporting resource — dental diagnosis" },
+      "valueReference": {
+        "reference": "Condition/condition-k05-00-gingivitis",
+        "display": "Plaque-induced gingivitis"
+      }
+    },
+    {
+      "type": { "text": "Referral supporting resource — systemic risk flag" },
+      "valueReference": {
+        "reference": "Flag/flag-diabetes-perio-risk",
+        "display": "Type 1 diabetes — elevated periodontal/infection/healing risk"
+      }
+    },
+    {
+      "type": { "text": "Referral supporting resource — oral health assessment" },
+      "valueReference": {
+        "reference": "DocumentReference/documentreference-oral-health-assessment",
+        "display": "Oral health assessment findings"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Single referral-tracking Task (one Coordination Task per Request, per base COW guidance — no second Task). Unlike UC01/UC02 there is no IHE 360X bridge here: the referral is routed through Connie (Connecticut's statewide HIE) to BeneCare (the CTDHP ASO). businessStatus is 'referral-sent' at creation. Task.owner is intentionally NOT set yet — it should be populated with the accepting dental provider (PractitionerRole/role-watson or Organization/org-cornell-scott) once the practice accepts/confirms the appointment (an acceptance step not separately modeled in this I1/I2 build). Later status transitions (in-progress at the dental visit, completed when the encounter summary returns) are Interaction 3/4 work, not built here."
+    }
+  ]
+}

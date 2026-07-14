@@ -1,0 +1,54 @@
+{
+  "resourceType": "Procedure",
+  "id": "procedure-d4341-srp-lr",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"]
+  },
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D4341",
+        "display": "Periodontal scaling and root planing — four or more teeth per quadrant"
+      }
+    ],
+    "text": "Scaling and root planing — lower right quadrant"
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval"
+  },
+  "performedDateTime": "2026-05-28",
+  "performer": [
+    {
+      "actor": {
+        "reference": "PractitionerRole/role-watson",
+        "display": "Dr. David Watson, DDS"
+      }
+    }
+  ],
+  "bodySite": [
+    {
+      "text": "Lower right quadrant"
+    }
+  ],
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-k05-211-periodontitis"
+    }
+  ],
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/servicerequest-srp-order"
+    }
+  ],
+  "note": [
+    {
+      "text": "Scaling and root planing, lower right quadrant. One of two D4341 quadrant Procedures (the other is the lower left, procedure-d4341-srp-ll) — modeled as two separate Procedure resources to match CDT per-quadrant billing granularity, producing two line items on the Interaction 5 claims-sharing EOB. Performed under approved prior authorization (preAuthRef CT-HUSKYB-PA-2026-00318)."
+    }
+  ]
+}

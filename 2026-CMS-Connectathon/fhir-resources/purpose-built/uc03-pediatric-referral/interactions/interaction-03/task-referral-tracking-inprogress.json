@@ -1,0 +1,83 @@
+{
+  "resourceType": "Task",
+  "id": "task-referral-tracking",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC03-001"
+    }
+  ],
+  "status": "in-progress",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+        "code": "accepted",
+        "display": "Accepted"
+      }
+    ]
+  },
+  "intent": "order",
+  "priority": "routine",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-referral",
+    "display": "Referral: Pediatric dental evaluation"
+  },
+  "for": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval",
+    "display": "Dental evaluation, 2026-05-28"
+  },
+  "authoredOn": "2026-02-28T09:40:00-05:00",
+  "lastModified": "2026-05-28T09:05:00-04:00",
+  "requester": {
+    "reference": "Organization/org-nemg",
+    "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+  },
+  "owner": {
+    "reference": "PractitionerRole/role-watson",
+    "display": "Dr. David Watson, DDS — Cornell Scott-Hill Health Center"
+  },
+  "input": [
+    {
+      "type": { "text": "Referral supporting resource — dental diagnosis" },
+      "valueReference": {
+        "reference": "Condition/condition-k05-00-gingivitis",
+        "display": "Plaque-induced gingivitis"
+      }
+    },
+    {
+      "type": { "text": "Referral supporting resource — systemic risk flag" },
+      "valueReference": {
+        "reference": "Flag/flag-diabetes-perio-risk",
+        "display": "Type 1 diabetes — elevated periodontal/infection/healing risk"
+      }
+    },
+    {
+      "type": { "text": "Referral supporting resource — oral health assessment" },
+      "valueReference": {
+        "reference": "DocumentReference/documentreference-oral-health-assessment",
+        "display": "Oral health assessment findings"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "STATUS SNAPSHOT NOTE: this is the Interaction 3 (2026-05-28) version of the referral-tracking Task (same id as the Interaction 1 version). status advances to in-progress and Task.owner is now set to the accepting dental provider (Dr. Watson / Cornell Scott-Hill) — owner was intentionally unset at Interaction 1. businessStatus advances to 'accepted'. The single referral Coordination Task is closed to outcome-final at Interaction 4 once the encounter summaries return. This referral Task is distinct from the SRP prior-authorization Task (task-srp-pa-tracking), which tracks a different Request."
+    }
+  ]
+}

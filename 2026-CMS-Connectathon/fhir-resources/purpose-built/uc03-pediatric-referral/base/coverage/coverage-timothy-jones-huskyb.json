@@ -1,0 +1,64 @@
+{
+  "resourceType": "Coverage",
+  "id": "coverage-timothy-jones-huskyb",
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "DENTAL",
+        "display": "dental care policy"
+      }
+    ],
+    "text": "HUSKY B (Connecticut CHIP) — dental benefit"
+  },
+  "beneficiary": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "subscriberId": "CT-MCD-HB-0082341",
+  "relationship": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+        "code": "child",
+        "display": "Child"
+      }
+    ]
+  },
+  "period": {
+    "start": "2026-01-01",
+    "end": "2026-12-31"
+  },
+  "payor": [
+    {
+      "reference": "Organization/org-gainwell",
+      "display": "Gainwell Technologies (CMAP fiscal agent — adjudicates and pays HUSKY dental claims)"
+    }
+  ],
+  "class": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+            "code": "plan"
+          }
+        ]
+      },
+      "value": "CTDHP-HUSKY-B",
+      "name": "Connecticut Dental Health Partnership — HUSKY B dental (administered by BeneCare ASO)"
+    }
+  ],
+  "identifier": [
+    {
+      "system": "http://ct.medicaid.gov/beneficiary",
+      "value": "CT-MCD-HB-0082341"
+    }
+  ],
+  "note": [
+    {
+      "text": "HUSKY B (Connecticut CHIP) dental coverage. Administration model (verified): Connecticut DSS is the program sponsor; Gainwell Technologies (CMAP fiscal agent) adjudicates and pays claims and is named here as payor; the dental benefit is the Connecticut Dental Health Partnership (CTDHP), administered by the BeneCare ASO (network, Plan-Net directory, referral coordination, PA intake — not the claims payer). There is no dental MCO. For Interaction 1 the benefit is simply confirmed active for a covered evaluation referral; no CRD/prior-authorization fires at referral — CRD (and DTR/PAS via Gainwell if a planned procedure needs it) applies at the treatment visit. Fixed plan structure lives on InsurancePlan/insplan-ctdhp-huskyb."
+    }
+  ]
+}

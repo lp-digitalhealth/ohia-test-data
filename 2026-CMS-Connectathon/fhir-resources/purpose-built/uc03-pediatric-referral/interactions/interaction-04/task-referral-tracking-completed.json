@@ -1,0 +1,94 @@
+{
+  "resourceType": "Task",
+  "id": "task-referral-tracking",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC03-001"
+    }
+  ],
+  "status": "completed",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+        "code": "outcome-final",
+        "display": "Outcome Final"
+      }
+    ]
+  },
+  "intent": "order",
+  "priority": "routine",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-referral",
+    "display": "Referral: Pediatric dental evaluation"
+  },
+  "for": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval",
+    "display": "Dental evaluation, 2026-05-28"
+  },
+  "authoredOn": "2026-02-28T09:40:00-05:00",
+  "lastModified": "2026-05-28T11:05:00-04:00",
+  "requester": {
+    "reference": "Organization/org-nemg",
+    "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+  },
+  "owner": {
+    "reference": "PractitionerRole/role-watson",
+    "display": "Dr. David Watson, DDS — Cornell Scott-Hill Health Center"
+  },
+  "input": [
+    {
+      "type": { "text": "Referral supporting resource — dental diagnosis" },
+      "valueReference": {
+        "reference": "Condition/condition-k05-00-gingivitis",
+        "display": "Plaque-induced gingivitis"
+      }
+    },
+    {
+      "type": { "text": "Referral supporting resource — systemic risk flag" },
+      "valueReference": {
+        "reference": "Flag/flag-diabetes-perio-risk",
+        "display": "Type 1 diabetes — elevated periodontal/infection/healing risk"
+      }
+    }
+  ],
+  "output": [
+    {
+      "type": { "text": "Referral outcome — encounter summary to pediatrician" },
+      "valueReference": { "reference": "ClinicalImpression/clinicalimpression-summary-pediatrician" }
+    },
+    {
+      "type": { "text": "Referral outcome — encounter summary to endocrinologist" },
+      "valueReference": { "reference": "ClinicalImpression/clinicalimpression-summary-endocrinologist" }
+    },
+    {
+      "type": { "text": "Confirmed diagnosis" },
+      "valueReference": { "reference": "Condition/condition-k05-211-periodontitis" }
+    },
+    {
+      "type": { "text": "Referral outcome — care plan" },
+      "valueReference": { "reference": "CarePlan/careplan-perio" }
+    }
+  ],
+  "note": [
+    {
+      "text": "Task snapshot as of Interaction 4 (2026-05-28, 11:05) — the referral outcome closes here. status: completed, businessStatus: outcome-final. Single referral Coordination Task carried through from Interaction 1 (referral-sent) -> Interaction 3 (in-progress, owner set) -> here (outcome-final), per base COW's one-Task-per-Request guidance; Task.output absorbs the full fulfillment history. Distinct from the SRP prior-authorization Task (task-srp-pa-tracking). See the I1 and I3 versions of this same Task (same id) for the earlier snapshots."
+    }
+  ]
+}

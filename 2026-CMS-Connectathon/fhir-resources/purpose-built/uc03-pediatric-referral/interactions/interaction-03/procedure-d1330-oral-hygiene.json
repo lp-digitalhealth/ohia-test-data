@@ -1,0 +1,38 @@
+{
+  "resourceType": "Procedure",
+  "id": "procedure-d1330-oral-hygiene",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"]
+  },
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D1330",
+        "display": "Oral hygiene instructions"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval"
+  },
+  "performedDateTime": "2026-05-28",
+  "performer": [
+    {
+      "actor": {
+        "reference": "Organization/org-cornell-scott",
+        "display": "Cornell Scott-Hill Health Center — dental hygienist"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Oral hygiene education delivered by the hygienist to Timothy and his grandmother (brushing technique, flossing, age-appropriate toothpaste); toothbrush, toothpaste, and floss dispensed. The education interaction itself is also captured as Communication/communication-oral-hygiene-education."
+    }
+  ]
+}

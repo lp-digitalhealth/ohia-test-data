@@ -1,0 +1,23 @@
+{
+  "resourceType": "Organization",
+  "id": "org-gainwell",
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "pay",
+          "display": "Payer"
+        }
+      ],
+      "text": "Medicaid fiscal agent / claims administrator"
+    }
+  ],
+  "name": "Gainwell Technologies",
+  "note": [
+    {
+      "text": "Real — the Connecticut DSS fiscal agent that runs the Medicaid Management Information System / CT Medical Assistance Program (CMAP, ctdssmap.com). Gainwell performs eligibility verification (270/271), DTR and PAS where prior authorization applies, and adjudicates and pays all dental claims (837D in, 835 out). It is the entity that actually administers the HUSKY plan operationally (claims/payment). There is no dental MCO in this model."
+    }
+  ]
+}

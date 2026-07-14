@@ -1,0 +1,60 @@
+{
+  "resourceType": "Observation",
+  "id": "observation-periodontal-findings",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"]
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "text": "Periodontal findings by site (probing depths, attachment loss, bleeding)"
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval",
+    "display": "Dental evaluation, 2026-05-28"
+  },
+  "effectiveDateTime": "2026-05-28",
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-watson",
+      "display": "Dr. David Watson, DDS"
+    }
+  ],
+  "component": [
+    {
+      "code": { "text": "Lower right quadrant — probing depths" },
+      "valueString": "Localized 4-5 mm pockets with bleeding on probing at the lower right posterior sextant; early attachment loss."
+    },
+    {
+      "code": { "text": "Lower left quadrant — probing depths" },
+      "valueString": "Localized 4-5 mm pockets with bleeding on probing at the lower left posterior sextant; early attachment loss."
+    },
+    {
+      "code": { "text": "Extent / severity" },
+      "valueString": "Localized (two quadrants), slight severity. Consistent with early-stage aggressive periodontitis in the context of Type 1 diabetes."
+    },
+    {
+      "code": { "text": "Radiographic bone loss" },
+      "valueString": "Early crestal bone changes noted clinically; no advanced bone loss."
+    }
+  ],
+  "note": [
+    {
+      "text": "Per-site periodontal findings supporting the K05.211 diagnosis and the D4341 scaling and root planing plan. Findings captured as text-valued components; no LOINC/SNOMED codes asserted for the individual periodontal measures (text-only per project verification discipline)."
+    }
+  ]
+}

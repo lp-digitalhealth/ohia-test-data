@@ -1,0 +1,44 @@
+{
+  "resourceType": "Organization",
+  "id": "org-cornell-scott",
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "1578293047"
+    }
+  ],
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "prov",
+          "display": "Healthcare Provider"
+        }
+      ],
+      "text": "Federally Qualified Health Center — Dental"
+    }
+  ],
+  "name": "Cornell Scott-Hill Health Center",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(203) 555-0188"
+    }
+  ],
+  "address": [
+    {
+      "line": ["428 Columbus Avenue"],
+      "city": "New Haven",
+      "state": "CT",
+      "postalCode": "06519",
+      "country": "US"
+    }
+  ],
+  "note": [
+    {
+      "text": "Real New Haven FQHC that accepts HUSKY and provides pediatric dental services; the receiving dental provider in this use case. Runs a dental PMS with an interim FHIR server. Individual clinicians (Dr. David Watson) are fictional. NPI shown is synthetic, not the real organization's actual NPI."
+    }
+  ]
+}

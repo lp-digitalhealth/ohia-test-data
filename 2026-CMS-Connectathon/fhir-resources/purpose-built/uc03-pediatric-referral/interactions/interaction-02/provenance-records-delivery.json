@@ -1,0 +1,68 @@
+{
+  "resourceType": "Provenance",
+  "target": [
+    {
+      "reference": "Bundle/bundle-preencounter-records",
+      "display": "Pre-encounter medical records (collection bundle)"
+    },
+    {
+      "reference": "Task/task-records-delivery",
+      "display": "Pre-encounter records delivery Task"
+    }
+  ],
+  "id": "provenance-records-delivery",
+  "recorded": "2026-05-21T08:05:00-04:00",
+  "activity": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-DataOperation",
+        "code": "CREATE",
+        "display": "create"
+      }
+    ]
+  },
+  "agent": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "author",
+            "display": "Author"
+          }
+        ]
+      },
+      "who": {
+        "reference": "PractitionerRole/role-smith",
+        "display": "Dr. Laura Smith, MD"
+      },
+      "onBehalfOf": {
+        "reference": "Organization/org-nemg",
+        "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "transmitter",
+            "display": "Transmitter"
+          }
+        ]
+      },
+      "who": {
+        "reference": "Organization/org-connie",
+        "display": "Connie — Connecticut Health Information Exchange (routing hub)"
+      }
+    }
+  ],
+  "entity": [
+    {
+      "role": "source",
+      "what": {
+        "display": "Discrete FHIR records extracted from the NEMG/Yale New Haven Health Epic instance via Care Everywhere and routed by Connie to Cornell Scott-Hill Health Center's interim FHIR server."
+      }
+    }
+  ]
+}

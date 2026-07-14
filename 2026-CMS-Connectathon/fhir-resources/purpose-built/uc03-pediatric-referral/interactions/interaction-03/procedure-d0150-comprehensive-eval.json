@@ -1,0 +1,43 @@
+{
+  "resourceType": "Procedure",
+  "id": "procedure-d0150-comprehensive-eval",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"]
+  },
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D0150",
+        "display": "Comprehensive oral evaluation — new or established patient"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval"
+  },
+  "performedDateTime": "2026-05-28",
+  "performer": [
+    {
+      "actor": {
+        "reference": "PractitionerRole/role-watson",
+        "display": "Dr. David Watson, DDS"
+      }
+    }
+  ],
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/servicerequest-referral"
+    }
+  ],
+  "note": [
+    {
+      "text": "Comprehensive oral evaluation performed at the referral visit; establishes Timothy's dental home. Covered once per provider per benefit year under HUSKY B; does not require prior authorization."
+    }
+  ]
+}

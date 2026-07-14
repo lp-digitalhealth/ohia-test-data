@@ -1,0 +1,61 @@
+{
+  "resourceType": "Task",
+  "id": "task-summary-delivery-endocrinologist",
+  "identifier": [
+    {
+      "system": "urn:ohia:summary-delivery-id",
+      "value": "SUMDEL-2026-UC03-ENDO"
+    }
+  ],
+  "status": "completed",
+  "businessStatus": {
+    "text": "Encounter summary delivered to endocrinologist via Connie"
+  },
+  "intent": "order",
+  "priority": "routine",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill"
+      }
+    ],
+    "text": "Deliver dental encounter summary + periodontal->glycemic risk Flag to pediatric endocrinologist (via Connie)"
+  },
+  "focus": {
+    "reference": "ClinicalImpression/clinicalimpression-summary-endocrinologist",
+    "display": "Dental encounter summary — endocrinologist"
+  },
+  "for": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval"
+  },
+  "authoredOn": "2026-05-28T11:00:00-04:00",
+  "lastModified": "2026-05-28T11:06:00-04:00",
+  "requester": {
+    "reference": "Organization/org-cornell-scott",
+    "display": "Cornell Scott-Hill Health Center"
+  },
+  "owner": {
+    "reference": "Organization/org-connie",
+    "display": "Connie — Connecticut Health Information Exchange (routing hub)"
+  },
+  "output": [
+    {
+      "type": { "text": "Delivered summary" },
+      "valueReference": { "reference": "ClinicalImpression/clinicalimpression-summary-endocrinologist" }
+    },
+    {
+      "type": { "text": "Periodontal->glycemic risk flag" },
+      "valueReference": { "reference": "Flag/flag-perio-glycemic-risk" }
+    }
+  ],
+  "note": [
+    {
+      "text": "The second simultaneous summary-delivery Task at Interaction 4. Routes the parallel encounter summary AND the new periodontal->glycemic risk Flag to the pediatric endocrinologist (Yale Children's Diabetes Program) through Connie. This is the direction that carries the bidirectional oral-systemic signal back to diabetes care. Distinct from the pediatrician delivery Task."
+    }
+  ]
+}

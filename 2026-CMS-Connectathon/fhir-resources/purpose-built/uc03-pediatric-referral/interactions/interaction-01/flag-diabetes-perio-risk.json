@@ -1,0 +1,39 @@
+{
+  "resourceType": "Flag",
+  "id": "flag-diabetes-perio-risk",
+  "status": "active",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/flag-category",
+          "code": "clinical",
+          "display": "Clinical"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "text": "Type 1 diabetes — elevated periodontal, infection, and impaired-healing risk. Coordinate dental care with diabetes management."
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "period": {
+    "start": "2026-02-28"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-well-child",
+    "display": "Well-child visit, 2026-02-28"
+  },
+  "author": {
+    "reference": "PractitionerRole/role-smith",
+    "display": "Dr. Laura Smith, MD"
+  },
+  "note": [
+    {
+      "text": "Active systemic-disease risk signal (not just problem-list history) raised at referral by Dr. Smith, referencing the pre-existing Condition/condition-e10-9-diabetes. It travels with the referral (ServiceRequest.supportingInfo) so the dental provider sees the diabetes-driven risk up front. This is the diabetes -> periodontal-risk direction; a distinct periodontal -> glycemic-risk Flag to the endocrinologist is a separate resource built at Interaction 4 (not here) — the two must not be conflated."
+    }
+  ]
+}

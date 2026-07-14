@@ -1,0 +1,14 @@
+{
+  "services": [
+    {
+      "hook": "order-sign",
+      "title": "HUSKY B / CTDHP Prior Authorization Check",
+      "description": "Evaluates a dental service order at sign-time and returns a card if prior authorization is required under the Connecticut HUSKY B dental benefit (CTDHP). Routed through Connie (statewide HIE) with PA intake at the BeneCare ASO; DTR/PAS and adjudication are performed downstream by Gainwell (DSS fiscal agent, CMAP). Fires at the treatment visit (UC03 Interaction 3), not at the covered-evaluation referral (Interaction 1).",
+      "id": "ctdhp-d4341-pa-check",
+      "prefetch": {
+        "coverage": "Coverage?patient={{context.patientId}}",
+        "serviceRequest": "ServiceRequest/{{context.draftOrders.entry.0.resource.id}}"
+      }
+    }
+  ]
+}

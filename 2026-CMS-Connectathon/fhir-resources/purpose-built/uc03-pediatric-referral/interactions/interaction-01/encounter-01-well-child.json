@@ -1,0 +1,46 @@
+{
+  "resourceType": "Encounter",
+  "id": "encounter-01-well-child",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"]
+  },
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "type": [
+    {
+      "text": "Well-child visit with pediatric oral health assessment"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "participant": [
+    {
+      "individual": {
+        "reference": "PractitionerRole/role-smith",
+        "display": "Dr. Laura Smith, MD"
+      }
+    }
+  ],
+  "period": {
+    "start": "2026-02-28T09:00:00-05:00",
+    "end": "2026-02-28T09:40:00-05:00"
+  },
+  "location": [
+    {
+      "location": {
+        "reference": "Location/loc-nemg",
+        "display": "Northeast Medical Group — Pediatrics, New Haven"
+      }
+    }
+  ],
+  "serviceProvider": {
+    "reference": "Organization/org-nemg",
+    "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+  }
+}

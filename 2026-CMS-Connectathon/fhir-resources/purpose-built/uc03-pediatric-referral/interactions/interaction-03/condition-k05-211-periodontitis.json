@@ -1,0 +1,62 @@
+{
+  "resourceType": "Condition",
+  "id": "condition-k05-211-periodontitis",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"]
+  },
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "code": "K05.211",
+        "display": "Aggressive periodontitis, localized, slight"
+      }
+    ],
+    "text": "Aggressive periodontitis, localized, slight"
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval",
+    "display": "Dental evaluation, 2026-05-28"
+  },
+  "recordedDate": "2026-05-28",
+  "asserter": {
+    "reference": "PractitionerRole/role-watson",
+    "display": "Dr. David Watson, DDS"
+  },
+  "note": [
+    {
+      "text": "Confirmed at the dental visit: the plaque-induced gingivitis (K05.00) found at the well-child visit has progressed. Coded as aggressive periodontitis, localized, slight (ICD-10-CM K05.211, verified against the 2026 ICD-10-CM). 'Aggressive' rather than 'chronic' is deliberate and clinically correct: chronic periodontitis is a slow adult disease, whereas the rapid breakdown in a six-year-old with poorly controlled Type 1 diabetes (E10.9) is the aggressive pattern. This Condition is linked to the diabetes as a contributing systemic condition and is transmitted in the Interaction 4 bidirectional summaries."
+    }
+  ]
+}

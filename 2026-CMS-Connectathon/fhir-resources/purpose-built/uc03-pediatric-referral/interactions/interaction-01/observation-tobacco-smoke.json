@@ -1,0 +1,52 @@
+{
+  "resourceType": "Observation",
+  "id": "observation-tobacco-smoke",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"]
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "social-history",
+          "display": "Social History"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "72166-2",
+        "display": "Tobacco smoking status"
+      }
+    ],
+    "text": "Household tobacco smoke exposure"
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-well-child",
+    "display": "Well-child visit, 2026-02-28"
+  },
+  "effectiveDateTime": "2026-02-28",
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-smith",
+      "display": "Dr. Laura Smith, MD"
+    }
+  ],
+  "valueCodeableConcept": {
+    "text": "Household includes tobacco smoke exposure (environmental risk factor; corresponds to Condition Z77.22)"
+  },
+  "note": [
+    {
+      "text": "Documents household tobacco smoke exposure noted at the well-child visit, paired with Condition/condition-z77-22-tobacco. LOINC 72166-2 (tobacco smoking status) is used per the source use-case doc's code mapping; here it captures environmental exposure rather than the (6-year-old) patient's own smoking."
+    }
+  ]
+}

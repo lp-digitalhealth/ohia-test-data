@@ -1,0 +1,55 @@
+{
+  "resourceType": "Condition",
+  "id": "condition-e10-9-diabetes",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"]
+  },
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "problem-list-item",
+          "display": "Problem List Item"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "code": "E10.9",
+        "display": "Type 1 diabetes mellitus without complications"
+      }
+    ],
+    "text": "Type 1 diabetes mellitus, without complications"
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "onsetDateTime": "2025-02-28",
+  "recordedDate": "2025-02-28",
+  "note": [
+    {
+      "text": "Pre-existing systemic condition — diagnosed 2025-02-28 during an ED visit, one year before the well-child exam. NOT newly asserted at Interaction 1; it already exists and is referenced (by the risk Flag and the referral) and later transmitted in the pre-encounter records bundle (Interaction 2). It is the driver of Timothy's elevated periodontal risk. Managed with an insulin pump and CGM; prescribed insulin lispro."
+    }
+  ]
+}

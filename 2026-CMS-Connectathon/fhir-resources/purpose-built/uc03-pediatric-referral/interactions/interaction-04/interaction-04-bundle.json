@@ -1,0 +1,5300 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:Organization-org-nemg",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-nemg",
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1437823056"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Pediatric Medical Practice"
+          }
+        ],
+        "name": "Northeast Medical Group — Pediatrics (Yale New Haven Health)",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(203) 555-0220"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "20 York Street"
+            ],
+            "city": "New Haven",
+            "state": "CT",
+            "postalCode": "06510",
+            "country": "US"
+          }
+        ],
+        "note": [
+          {
+            "text": "Real institution — Northeast Medical Group (NEMG) is Yale New Haven Health's physician foundation; the referring pediatric practice in this use case, running the Yale New Haven Health instance of Epic with Care Everywhere enabled. Individual clinicians (Dr. Laura Smith) are fictional. NPI shown is synthetic, not the real organization's actual NPI."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-nemg"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Organization-org-cornell-scott",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-cornell-scott",
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1578293047"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Federally Qualified Health Center — Dental"
+          }
+        ],
+        "name": "Cornell Scott-Hill Health Center",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(203) 555-0188"
+          }
+        ],
+        "address": [
+          {
+            "line": [
+              "428 Columbus Avenue"
+            ],
+            "city": "New Haven",
+            "state": "CT",
+            "postalCode": "06519",
+            "country": "US"
+          }
+        ],
+        "note": [
+          {
+            "text": "Real New Haven FQHC that accepts HUSKY and provides pediatric dental services; the receiving dental provider in this use case. Runs a dental PMS with an interim FHIR server. Individual clinicians (Dr. David Watson) are fictional. NPI shown is synthetic, not the real organization's actual NPI."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-cornell-scott"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Organization-org-connie",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-connie",
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "other",
+                "display": "Other"
+              }
+            ],
+            "text": "State Health Information Exchange"
+          }
+        ],
+        "name": "Connie — Connecticut Health Information Exchange",
+        "alias": [
+          "Health Information Alliance, Inc."
+        ],
+        "address": [
+          {
+            "city": "Hartford",
+            "state": "CT",
+            "country": "US"
+          }
+        ],
+        "note": [
+          {
+            "text": "Real institution — Connie is Connecticut's state-designated statewide HIE (CGS Sec. 17b-59d/e), built as part of the state's Medicaid Enterprise System. In this use case Connie is the central routing hub: it routes the referral to BeneCare, routes the pre-encounter medical records from the Epic FHIR endpoint at Yale New Haven Health to the dental practice, and (at later interactions) routes the encounter summaries back to the medical care team. Named OHIA member organization (sector: State HIE)."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-connie"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Organization-org-ctdhp",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-ctdhp",
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "ins",
+                "display": "Insurance Company"
+              }
+            ],
+            "text": "Dental Plan (HUSKY dental benefit)"
+          }
+        ],
+        "name": "Connecticut Dental Health Partnership (CTDHP)",
+        "note": [
+          {
+            "text": "Real — the HUSKY / Covered CT dental plan brand, administered by the BeneCare ASO under contract with Connecticut DSS. CTDHP handles the provider network, Plan-Net directory, referral coordination, member services, and prior-authorization / post-procedure review intake — it is NOT the claims payer. Dental claims (837D) are adjudicated and paid by Gainwell (the DSS fiscal agent). There is no dental MCO in the HUSKY model."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-ctdhp"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Organization-org-benecare",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-benecare",
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "other",
+                "display": "Other"
+              }
+            ],
+            "text": "Administrative Services Organization (dental)"
+          }
+        ],
+        "name": "BeneCare Dental Plans",
+        "partOf": {
+          "reference": "Organization/org-ctdhp",
+          "display": "Connecticut Dental Health Partnership (CTDHP)"
+        },
+        "note": [
+          {
+            "text": "Real — the Administrative Services Organization (ASO) that administers CTDHP for Connecticut DSS (selected 2008). BeneCare facilitates administration: Plan-Net provider directory, referral receipt + coordination, prior-authorization / post-procedure review intake, and member services. It is NOT the claims payer and does not adjudicate 837D claims — those are adjudicated and paid by Gainwell (the DSS fiscal agent). The Plan-Net provider directory query in this use case is directed at the CTDHP/BeneCare network directory."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-benecare"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Organization-org-gainwell",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-gainwell",
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "pay",
+                "display": "Payer"
+              }
+            ],
+            "text": "Medicaid fiscal agent / claims administrator"
+          }
+        ],
+        "name": "Gainwell Technologies",
+        "note": [
+          {
+            "text": "Real — the Connecticut DSS fiscal agent that runs the Medicaid Management Information System / CT Medical Assistance Program (CMAP, ctdssmap.com). Gainwell performs eligibility verification (270/271), DTR and PAS where prior authorization applies, and adjudicates and pays all dental claims (837D in, 835 out). It is the entity that actually administers the HUSKY plan operationally (claims/payment). There is no dental MCO in this model."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-gainwell"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Organization-org-yale-diabetes",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-yale-diabetes",
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1689203741"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Pediatric Specialty Practice — Endocrinology"
+          }
+        ],
+        "name": "Yale Children's Diabetes Program — Yale New Haven Children's Hospital",
+        "address": [
+          {
+            "city": "New Haven",
+            "state": "CT",
+            "country": "US"
+          }
+        ],
+        "note": [
+          {
+            "text": "Real pediatric Type 1 diabetes program at Yale New Haven Children's Hospital; supplies the pediatric endocrinologist and registered dietitian on Timothy's care team. In I2 this organization is a member of the care team transmitted to the dental practice; at later interactions it is a recipient of the encounter summary. Individual clinicians are fictional. NPI shown is synthetic."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-yale-diabetes"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner-pract-smith",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-smith",
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1538472091"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Smith",
+            "given": [
+              "Laura",
+              "Ann"
+            ],
+            "prefix": [
+              "Dr."
+            ],
+            "suffix": [
+              "MD"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "laura.smith@nemg.example.org"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "text": "MD — Doctor of Medicine"
+            },
+            "identifier": [
+              {
+                "system": "urn:ohia:license",
+                "value": "CT-MD-047821"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/pract-smith"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner-pract-watson",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-watson",
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1649203058"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Watson",
+            "given": [
+              "David",
+              "Michael"
+            ],
+            "prefix": [
+              "Dr."
+            ],
+            "suffix": [
+              "DDS"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "david.watson@cornellscott.example.org"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "text": "DDS — Doctor of Dental Surgery"
+            },
+            "identifier": [
+              {
+                "system": "urn:ohia:license",
+                "value": "CT-DDS-052917"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/pract-watson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner-pract-endo",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-endo",
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1729384102"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "text": "Pediatric Endocrinologist (name withheld — care team member)"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "text": "MD — Pediatric Endocrinology"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/pract-endo"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner-pract-dietitian",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-dietitian",
+        "active": true,
+        "name": [
+          {
+            "text": "Registered Dietitian (name withheld — care team member)"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "text": "RD — Registered Dietitian"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/pract-dietitian"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Location-loc-nemg",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-nemg",
+        "status": "active",
+        "name": "Northeast Medical Group — Pediatrics, New Haven",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "PEDC",
+                "display": "Pediatrics clinic"
+              }
+            ],
+            "text": "Pediatric medical office"
+          }
+        ],
+        "address": {
+          "line": [
+            "20 York Street"
+          ],
+          "city": "New Haven",
+          "state": "CT",
+          "postalCode": "06510",
+          "country": "US"
+        },
+        "managingOrganization": {
+          "reference": "Organization/org-nemg",
+          "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-nemg"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Location-loc-cornell-scott",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-cornell-scott",
+        "status": "active",
+        "name": "Cornell Scott-Hill Health Center — Dental",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "DENTAL",
+                "display": "Dental clinic"
+              }
+            ],
+            "text": "Pediatric dental office (FQHC)"
+          }
+        ],
+        "address": {
+          "line": [
+            "428 Columbus Avenue"
+          ],
+          "city": "New Haven",
+          "state": "CT",
+          "postalCode": "06519",
+          "country": "US"
+        },
+        "managingOrganization": {
+          "reference": "Organization/org-cornell-scott",
+          "display": "Cornell Scott-Hill Health Center"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-cornell-scott"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Endpoint-endpoint-nemg",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-nemg",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest"
+        },
+        "name": "Northeast Medical Group / Yale New Haven Health Epic FHIR Server (Care Everywhere enabled)",
+        "managingOrganization": {
+          "reference": "Organization/org-nemg"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/resource-types",
+                "code": "Bundle"
+              }
+            ]
+          }
+        ],
+        "address": "https://epicfhir.yalenewhavenhealth.org/fhir/r4"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-nemg"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Endpoint-endpoint-cornell-scott",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-cornell-scott",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest"
+        },
+        "name": "Cornell Scott-Hill Health Center Interim FHIR Server",
+        "managingOrganization": {
+          "reference": "Organization/org-cornell-scott"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/resource-types",
+                "code": "Bundle"
+              }
+            ]
+          }
+        ],
+        "address": "https://cornellscott.example.org/fhir/r4"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-cornell-scott"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Endpoint-endpoint-connie",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-connie",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest"
+        },
+        "name": "Connie Connecticut HIE FHIR Routing Endpoint",
+        "managingOrganization": {
+          "reference": "Organization/org-connie"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/resource-types",
+                "code": "Bundle"
+              }
+            ]
+          }
+        ],
+        "address": "https://conniect.org/fhir/r4"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-connie"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Endpoint-endpoint-benecare",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-benecare",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest"
+        },
+        "name": "CTDHP / BeneCare FHIR API (Plan-Net directory, referral coordination, PA intake)",
+        "managingOrganization": {
+          "reference": "Organization/org-benecare"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/resource-types",
+                "code": "Bundle"
+              }
+            ]
+          }
+        ],
+        "address": "https://benecare.example.org/fhir/r4"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-benecare"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:HealthcareService-hs-cornell-scott-pediatric-dental",
+      "resource": {
+        "resourceType": "HealthcareService",
+        "id": "hs-cornell-scott-pediatric-dental",
+        "active": true,
+        "providedBy": {
+          "reference": "Organization/org-cornell-scott",
+          "display": "Cornell Scott-Hill Health Center"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/service-category",
+                "code": "10",
+                "display": "Dental"
+              }
+            ]
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223P0221X",
+                "display": "Pediatric Dentistry"
+              }
+            ],
+            "text": "Pediatric dentistry"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223P0221X",
+                "display": "Pediatric Dentistry"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "reference": "Location/loc-cornell-scott",
+            "display": "Cornell Scott-Hill Health Center — Dental"
+          }
+        ],
+        "name": "Pediatric Dental Services — Cornell Scott-Hill Health Center",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(203) 555-0188"
+          }
+        ],
+        "eligibility": [
+          {
+            "code": {
+              "text": "HUSKY B (Connecticut CHIP) — CTDHP / BeneCare network; accepting new pediatric patients"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "This is the Plan-Net directory entry that BeneCare's provider directory returns in Interaction 1 when queried for a HUSKY B–participating pediatric dental provider within 20 miles accepting new patients. It is a read-only directory target, queried (not created) by the referring practice. Confirms network participation, pediatric-dentistry specialty, proximity (New Haven), and accepting-new-patients panel status. Paired with PractitionerRole/role-watson."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "HealthcareService/hs-cornell-scott-pediatric-dental"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:InsurancePlan-insplan-ctdhp-huskyb",
+      "resource": {
+        "resourceType": "InsurancePlan",
+        "id": "insplan-ctdhp-huskyb",
+        "status": "active",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+                "code": "medicaid",
+                "display": "Medicaid"
+              }
+            ],
+            "text": "HUSKY B (Connecticut CHIP) — dental benefit"
+          }
+        ],
+        "name": "HUSKY B (Connecticut CHIP) — Dental Benefit (CTDHP)",
+        "ownedBy": {
+          "reference": "Organization/org-ctdhp",
+          "display": "Connecticut Dental Health Partnership (CTDHP)"
+        },
+        "administeredBy": {
+          "reference": "Organization/org-benecare",
+          "display": "BeneCare Dental Plans (ASO)"
+        },
+        "coverageArea": [
+          {
+            "display": "Connecticut"
+          }
+        ],
+        "note": [
+          {
+            "text": "The HUSKY B (Connecticut CHIP) dental benefit. Administered by the BeneCare ASO (network, Plan-Net directory, referral coordination, PA/post-procedure review intake) on behalf of CTDHP; claims are adjudicated and paid by Gainwell (the DSS fiscal agent via CMAP), not by CTDHP/BeneCare — there is no dental MCO. Covers pediatric diagnostic/preventive services (e.g. D0150, D1330); periodontal scaling and root planing (D4341) is covered with medical-necessity documentation and is unusual for a pediatric patient; localized antimicrobial delivery (D4381) coverage is uncertain under the pediatric benefit (named open test finding). Connecticut Medicaid fee schedule rates apply. Prior authorization, where it applies, is evaluated at the treatment visit, not at referral."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "InsurancePlan/insplan-ctdhp-huskyb"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:CareTeam-careteam-timothy",
+      "resource": {
+        "resourceType": "CareTeam",
+        "id": "careteam-timothy",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam"
+          ]
+        },
+        "status": "active",
+        "name": "Timothy Jones — medical care team",
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "participant": [
+          {
+            "role": [
+              {
+                "coding": [
+                  {
+                    "system": "http://nucc.org/provider-taxonomy",
+                    "code": "208000000X",
+                    "display": "Pediatrics"
+                  }
+                ],
+                "text": "Pediatrician (referring provider)"
+              }
+            ],
+            "member": {
+              "reference": "Practitioner/pract-smith",
+              "display": "Dr. Laura Smith, MD"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/org-nemg",
+              "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+            }
+          },
+          {
+            "role": [
+              {
+                "coding": [
+                  {
+                    "system": "http://nucc.org/provider-taxonomy",
+                    "code": "2080P0202X",
+                    "display": "Pediatric Endocrinology"
+                  }
+                ],
+                "text": "Pediatric endocrinologist"
+              }
+            ],
+            "member": {
+              "reference": "Practitioner/pract-endo",
+              "display": "Pediatric Endocrinologist"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/org-yale-diabetes",
+              "display": "Yale Children's Diabetes Program"
+            }
+          },
+          {
+            "role": [
+              {
+                "text": "Registered dietitian"
+              }
+            ],
+            "member": {
+              "reference": "Practitioner/pract-dietitian",
+              "display": "Registered Dietitian"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/org-yale-diabetes",
+              "display": "Yale Children's Diabetes Program"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Timothy's full medical care team, transmitted with the pre-encounter medical records bundle to the dental practice in Interaction 2 so Dr. Watson can see who manages Timothy's diabetes before the appointment."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "CareTeam/careteam-timothy"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition-condition-e10-9-diabetes",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-e10-9-diabetes",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E10.9",
+              "display": "Type 1 diabetes mellitus without complications"
+            }
+          ],
+          "text": "Type 1 diabetes mellitus, without complications"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "onsetDateTime": "2025-02-28",
+        "recordedDate": "2025-02-28",
+        "note": [
+          {
+            "text": "Pre-existing systemic condition — diagnosed 2025-02-28 during an ED visit, one year before the well-child exam. NOT newly asserted at Interaction 1; it already exists and is referenced (by the risk Flag and the referral) and later transmitted in the pre-encounter records bundle (Interaction 2). It is the driver of Timothy's elevated periodontal risk. Managed with an insulin pump and CGM; prescribed insulin lispro."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/condition-e10-9-diabetes"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Consent-consent-timothy-connie-hie",
+      "resource": {
+        "resourceType": "Consent",
+        "id": "consent-timothy-connie-hie",
+        "status": "active",
+        "scope": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+              "code": "patient-privacy",
+              "display": "Privacy Consent"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "59284-0",
+                "display": "Patient Consent"
+              }
+            ]
+          }
+        ],
+        "patient": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "dateTime": "2026-02-28",
+        "performer": [
+          {
+            "reference": "RelatedPerson/relatedperson-timothy-guardian",
+            "display": "Parent / Legal Guardian (consenting on behalf of a minor)"
+          }
+        ],
+        "organization": [
+          {
+            "reference": "Organization/org-connie",
+            "display": "Connie — Connecticut Health Information Exchange"
+          }
+        ],
+        "policyRule": {
+          "text": "Guardian-authorized consent (minor patient) for treatment, payment, and healthcare operations (TPO) data exchange under HIPAA through Connie, Connecticut's statewide HIE. Authorizes Connie to route Timothy's clinical data between Northeast Medical Group (Yale New Haven Health), Cornell Scott-Hill Health Center (dental), and the Yale Children's Diabetes Program to coordinate the dental referral, the pre-encounter medical record exchange, and the return of encounter summaries."
+        },
+        "provision": {
+          "type": "permit",
+          "period": {
+            "start": "2026-02-28",
+            "end": "2027-02-28"
+          },
+          "actor": [
+            {
+              "role": {
+                "text": "State HIE routing hub"
+              },
+              "reference": {
+                "reference": "Organization/org-connie",
+                "display": "Connie — Connecticut Health Information Exchange"
+              }
+            },
+            {
+              "role": {
+                "text": "Sending/referring provider (medical)"
+              },
+              "reference": {
+                "reference": "Organization/org-nemg",
+                "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+              }
+            },
+            {
+              "role": {
+                "text": "Receiving/referral provider (dental)"
+              },
+              "reference": {
+                "reference": "Organization/org-cornell-scott",
+                "display": "Cornell Scott-Hill Health Center"
+              }
+            },
+            {
+              "role": {
+                "text": "Care team recipient (endocrinology)"
+              },
+              "reference": {
+                "reference": "Organization/org-yale-diabetes",
+                "display": "Yale Children's Diabetes Program"
+              }
+            }
+          ],
+          "purpose": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+              "code": "TREAT",
+              "display": "treatment"
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+              "code": "HPAYMT",
+              "display": "healthcare payment"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Consent/consent-timothy-connie-hie"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Coverage-coverage-timothy-jones-huskyb",
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "coverage-timothy-jones-huskyb",
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "DENTAL",
+              "display": "dental care policy"
+            }
+          ],
+          "text": "HUSKY B (Connecticut CHIP) — dental benefit"
+        },
+        "beneficiary": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "subscriberId": "CT-MCD-HB-0082341",
+        "relationship": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+              "code": "child",
+              "display": "Child"
+            }
+          ]
+        },
+        "period": {
+          "start": "2026-01-01",
+          "end": "2026-12-31"
+        },
+        "payor": [
+          {
+            "reference": "Organization/org-gainwell",
+            "display": "Gainwell Technologies (CMAP fiscal agent — adjudicates and pays HUSKY dental claims)"
+          }
+        ],
+        "class": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "plan"
+                }
+              ]
+            },
+            "value": "CTDHP-HUSKY-B",
+            "name": "Connecticut Dental Health Partnership — HUSKY B dental (administered by BeneCare ASO)"
+          }
+        ],
+        "identifier": [
+          {
+            "system": "http://ct.medicaid.gov/beneficiary",
+            "value": "CT-MCD-HB-0082341"
+          }
+        ],
+        "note": [
+          {
+            "text": "HUSKY B (Connecticut CHIP) dental coverage. Administration model (verified): Connecticut DSS is the program sponsor; Gainwell Technologies (CMAP fiscal agent) adjudicates and pays claims and is named here as payor; the dental benefit is the Connecticut Dental Health Partnership (CTDHP), administered by the BeneCare ASO (network, Plan-Net directory, referral coordination, PA intake — not the claims payer). There is no dental MCO. For Interaction 1 the benefit is simply confirmed active for a covered evaluation referral; no CRD/prior-authorization fires at referral — CRD (and DTR/PAS via Gainwell if a planned procedure needs it) applies at the treatment visit. Fixed plan structure lives on InsurancePlan/insplan-ctdhp-huskyb."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Coverage/coverage-timothy-jones-huskyb"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Device-device-cgm",
+      "resource": {
+        "resourceType": "Device",
+        "id": "device-cgm",
+        "status": "active",
+        "type": {
+          "text": "Continuous glucose monitor (CGM)"
+        },
+        "patient": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "note": [
+          {
+            "text": "Patient-worn continuous glucose monitor, part of Timothy's diabetes management. Transmitted to the dental practice in the Interaction 2 pre-encounter records bundle to contextualize glycemic control for treatment planning (healing/infection/anesthetic considerations). Device.type is text-only (no verified SNOMED code asserted per project verification discipline); R4 Device has no bodySite. Synthetic — no manufacturer/model/UDI asserted."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Device/device-cgm"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Device-device-insulin-pump",
+      "resource": {
+        "resourceType": "Device",
+        "id": "device-insulin-pump",
+        "status": "active",
+        "type": {
+          "text": "Insulin pump"
+        },
+        "patient": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "note": [
+          {
+            "text": "Patient-worn insulin pump, started ~2025-12-01, delivering insulin lispro. Part of Timothy's diabetes management; transmitted to the dental practice in the Interaction 2 pre-encounter records bundle. Device.type is text-only (no verified SNOMED code asserted per project verification discipline); R4 Device has no bodySite. Synthetic — no manufacturer/model/UDI asserted."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Device/device-insulin-pump"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationRequest-medicationrequest-insulin-lispro",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medicationrequest-insulin-lispro",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+          ]
+        },
+        "status": "active",
+        "intent": "order",
+        "reportedBoolean": true,
+        "medicationCodeableConcept": {
+          "text": "Insulin lispro (rapid-acting insulin analog), delivered via insulin pump"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "authoredOn": "2025-12-01",
+        "dosageInstruction": [
+          {
+            "text": "Insulin lispro delivered continuously via insulin pump with mealtime boluses, dosed to glycemic targets per endocrinology management"
+          }
+        ],
+        "note": [
+          {
+            "text": "Pre-existing active medication (part of Timothy's standing diabetes management), transmitted to the dental practice in the Interaction 2 pre-encounter records bundle — relevant to dental treatment planning (healing/infection risk). Medication is text-only (no RxNorm coding asserted): the source use-case doc provides no RxNorm code, and per project verification discipline an unverified code is not fabricated. Add a verified RxNorm code (e.g. the appropriate insulin lispro product) before production use if required."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationRequest/medicationrequest-insulin-lispro"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Patient-patient-timothy-jones",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-timothy-jones",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://yalenewhavenhealth.org/fhir/mrn",
+            "value": "YNHH-MRN-20190505-TJ"
+          },
+          {
+            "system": "https://cornellscott.example.org/fhir/mrn",
+            "value": "PDENT-CT-2026-0028"
+          },
+          {
+            "system": "http://ct.medicaid.gov/beneficiary",
+            "value": "CT-MCD-HB-0082341"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Jones",
+            "given": [
+              "Timothy"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(203) 555-0174",
+            "use": "mobile"
+          },
+          {
+            "system": "email",
+            "value": "jones.family.ct@example.com",
+            "use": "home"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "2019-05-05",
+        "address": [
+          {
+            "line": [
+              "214 Elm Street, Apt 4"
+            ],
+            "city": "New Haven",
+            "state": "CT",
+            "postalCode": "06510",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/patient-timothy-jones"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:PractitionerRole-role-endo",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "role-endo",
+        "active": true,
+        "practitioner": {
+          "reference": "Practitioner/pract-endo",
+          "display": "Pediatric Endocrinologist"
+        },
+        "organization": {
+          "reference": "Organization/org-yale-diabetes",
+          "display": "Yale Children's Diabetes Program — Yale New Haven Children's Hospital"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "2080P0202X",
+                "display": "Pediatric Endocrinology"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "2080P0202X",
+                "display": "Pediatric Endocrinology"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/role-endo"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:PractitionerRole-role-smith",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "role-smith",
+        "active": true,
+        "practitioner": {
+          "reference": "Practitioner/pract-smith",
+          "display": "Dr. Laura Smith, MD"
+        },
+        "organization": {
+          "reference": "Organization/org-nemg",
+          "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208000000X",
+                "display": "Pediatrics"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "208000000X",
+                "display": "Pediatrics"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "reference": "Location/loc-nemg",
+            "display": "Northeast Medical Group — Pediatrics, New Haven"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "laura.smith@nemg.example.org"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/role-smith"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:PractitionerRole-role-watson",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "role-watson",
+        "active": true,
+        "practitioner": {
+          "reference": "Practitioner/pract-watson",
+          "display": "Dr. David Watson, DDS"
+        },
+        "organization": {
+          "reference": "Organization/org-cornell-scott",
+          "display": "Cornell Scott-Hill Health Center"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223P0221X",
+                "display": "Pediatric Dentistry"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223P0221X",
+                "display": "Pediatric Dentistry"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "reference": "Location/loc-cornell-scott",
+            "display": "Cornell Scott-Hill Health Center — Dental"
+          }
+        ],
+        "healthcareService": [
+          {
+            "reference": "HealthcareService/hs-cornell-scott-pediatric-dental",
+            "display": "Pediatric Dental Services — Cornell Scott-Hill Health Center"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "email",
+            "value": "david.watson@cornellscott.example.org"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/role-watson"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:RelatedPerson-relatedperson-timothy-grandparent",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "id": "relatedperson-timothy-grandparent",
+        "active": true,
+        "patient": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "relationship": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "GRPRN",
+                "display": "grandparent"
+              }
+            ],
+            "text": "Grandparent — accompanying caregiver"
+          }
+        ],
+        "name": [
+          {
+            "family": "Jones",
+            "text": "Jones (grandparent — name withheld per minor patient convention)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Accompanying caregiver at the dental appointment; NOT the legal guardian. Has limited knowledge of Timothy's medical history beyond knowing he has Type 1 diabetes and who his pediatrician is. This limited-knowledge caregiver is the clinical driver for the pre-encounter structured medical record exchange in Interaction 2."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "RelatedPerson/relatedperson-timothy-grandparent"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:RelatedPerson-relatedperson-timothy-guardian",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "id": "relatedperson-timothy-guardian",
+        "active": true,
+        "patient": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "relationship": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "GUARD",
+                "display": "guardian"
+              }
+            ],
+            "text": "Parent / Legal Guardian"
+          }
+        ],
+        "name": [
+          {
+            "family": "Jones",
+            "text": "Jones (parent — name withheld per minor patient convention)"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(203) 555-0174",
+            "use": "mobile"
+          }
+        ],
+        "note": [
+          {
+            "text": "Legal guardian of record for Timothy (a minor). Authorized via SMART App Launch proxy for the guardian-facing patient application. This is the party who receives referral/appointment milestone notifications."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "RelatedPerson/relatedperson-timothy-guardian"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Subscription-subscription-timothy-referral-status",
+      "resource": {
+        "resourceType": "Subscription",
+        "id": "subscription-timothy-referral-status",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-subscription"
+          ]
+        },
+        "status": "active",
+        "contact": [
+          {
+            "system": "phone",
+            "value": "(203) 555-0174",
+            "use": "mobile"
+          }
+        ],
+        "reason": "Notify Timothy Jones's guardian-facing proxy application of status changes on his pediatric dental referral (Task/task-referral-tracking), so the guardian sees milestone updates (referral created, appointment confirmed, and — at later interactions — encounter complete / care plan available) without having to call either office. Timothy is a minor; notifications go to the guardian proxy app, not to Timothy.",
+        "criteria": "https://oralhealthalliance.net/fhir/SubscriptionTopic/ode-referral-status",
+        "channel": {
+          "type": "rest-hook",
+          "endpoint": "https://guardian-app.example.org/notifications/timothy-jones",
+          "payload": "application/fhir+json",
+          "_payload": {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-payload-content",
+                "valueCode": "full-resource"
+              }
+            ]
+          }
+        },
+        "note": [
+          {
+            "text": "Per the HL7 FHIR Subscriptions R4 Backport IG, same pattern established for UC01/UC02: the SubscriptionTopic canonical URL is carried directly in Subscription.criteria, not via a separate extension. This single Subscription spans the whole UC03 episode and is a guardian-proxy subscription (minor patient). Patient-visible milestones: referral created (I1) and appointment confirmed (~I1/I2 boundary); later milestones (encounter complete, care plan available) come at Interaction 4, not yet built. IMPORTANT non-event: the Interaction 2 pre-encounter medical-records exchange (provider-to-provider, via Connie) is NOT a patient-facing milestone and must fire nothing to the guardian app."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Subscription/subscription-timothy-referral-status"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Appointment-appointment-dental",
+      "resource": {
+        "resourceType": "Appointment",
+        "id": "appointment-dental",
+        "status": "booked",
+        "serviceCategory": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/service-category",
+                "code": "10",
+                "display": "Dental"
+              }
+            ]
+          }
+        ],
+        "serviceType": [
+          {
+            "text": "Pediatric dental evaluation (new patient)"
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-k05-00-gingivitis",
+            "display": "Plaque-induced gingivitis"
+          }
+        ],
+        "description": "New-patient pediatric dental evaluation for Timothy Jones with Dr. Watson at Cornell Scott-Hill Health Center. Earliest available appointment is three months out.",
+        "supportingInformation": [
+          {
+            "reference": "ServiceRequest/servicerequest-referral",
+            "display": "Referral: Pediatric dental evaluation (REF-2026-UC03-001)"
+          }
+        ],
+        "start": "2026-05-28T09:00:00-04:00",
+        "end": "2026-05-28T09:45:00-04:00",
+        "created": "2026-03-05",
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/servicerequest-referral",
+            "display": "Referral: Pediatric dental evaluation"
+          }
+        ],
+        "participant": [
+          {
+            "actor": {
+              "reference": "Patient/patient-timothy-jones",
+              "display": "Timothy Jones"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "reference": "PractitionerRole/role-watson",
+              "display": "Dr. David Watson, DDS"
+            },
+            "required": "required",
+            "status": "accepted"
+          },
+          {
+            "actor": {
+              "reference": "Location/loc-cornell-scott",
+              "display": "Cornell Scott-Hill Health Center — Dental"
+            },
+            "required": "required",
+            "status": "accepted"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Appointment/appointment-dental"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition-condition-k05-00-gingivitis",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-k05-00-gingivitis",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K05.00",
+              "display": "Acute gingivitis, plaque induced"
+            }
+          ],
+          "text": "Plaque-induced gingivitis"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-well-child",
+          "display": "Well-child visit, 2026-02-28"
+        },
+        "recordedDate": "2026-02-28",
+        "asserter": {
+          "reference": "PractitionerRole/role-smith",
+          "display": "Dr. Laura Smith, MD"
+        },
+        "note": [
+          {
+            "text": "Newly identified at the well-child visit by Dr. Smith; a primary clinical reason for the dental referral. Alongside the diabetes (E10.9), this drives the periodontal risk picture."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/condition-k05-00-gingivitis"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition-condition-z77-22-tobacco",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-z77-22-tobacco",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "health-concern",
+                "display": "Health Concern"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "Z77.22",
+              "display": "Contact with and (suspected) exposure to environmental tobacco smoke (acute) (chronic)"
+            }
+          ],
+          "text": "Environmental tobacco smoke exposure"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-well-child",
+          "display": "Well-child visit, 2026-02-28"
+        },
+        "recordedDate": "2026-02-28",
+        "asserter": {
+          "reference": "PractitionerRole/role-smith",
+          "display": "Dr. Laura Smith, MD"
+        },
+        "note": [
+          {
+            "text": "Household tobacco smoke exposure documented at the well-child visit (paired with Observation/observation-tobacco-smoke); a contributing environmental risk factor for oral/periodontal disease."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/condition-z77-22-tobacco"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DocumentReference-documentreference-oral-health-assessment",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentreference-oral-health-assessment",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"
+          ]
+        },
+        "status": "current",
+        "type": {
+          "text": "Pediatric oral health assessment note (well-child visit)"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "date": "2026-02-28T09:40:00-05:00",
+        "author": [
+          {
+            "reference": "PractitionerRole/role-smith",
+            "display": "Dr. Laura Smith, MD"
+          }
+        ],
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Oral health assessment — Timothy Jones, 2026-02-28",
+              "creation": "2026-02-28"
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "Encounter/encounter-01-well-child",
+              "display": "Well-child visit, 2026-02-28"
+            }
+          ]
+        },
+        "description": "Structured wrapper for Dr. Smith's oral health assessment findings (see Observation/observation-oral-health-assessment), attached to the dental referral. This is a clinical note wrapper, not an imaging document — UC03 has no radiographs at referral."
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DocumentReference/documentreference-oral-health-assessment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Encounter-encounter-01-well-child",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-01-well-child",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "text": "Well-child visit with pediatric oral health assessment"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "PractitionerRole/role-smith",
+              "display": "Dr. Laura Smith, MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2026-02-28T09:00:00-05:00",
+          "end": "2026-02-28T09:40:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/loc-nemg",
+              "display": "Northeast Medical Group — Pediatrics, New Haven"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-nemg",
+          "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/encounter-01-well-child"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Flag-flag-diabetes-perio-risk",
+      "resource": {
+        "resourceType": "Flag",
+        "id": "flag-diabetes-perio-risk",
+        "status": "active",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/flag-category",
+                "code": "clinical",
+                "display": "Clinical"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Type 1 diabetes — elevated periodontal, infection, and impaired-healing risk. Coordinate dental care with diabetes management."
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "period": {
+          "start": "2026-02-28"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-well-child",
+          "display": "Well-child visit, 2026-02-28"
+        },
+        "author": {
+          "reference": "PractitionerRole/role-smith",
+          "display": "Dr. Laura Smith, MD"
+        },
+        "note": [
+          {
+            "text": "Active systemic-disease risk signal (not just problem-list history) raised at referral by Dr. Smith, referencing the pre-existing Condition/condition-e10-9-diabetes. It travels with the referral (ServiceRequest.supportingInfo) so the dental provider sees the diabetes-driven risk up front. This is the diabetes -> periodontal-risk direction; a distinct periodontal -> glycemic-risk Flag to the endocrinologist is a separate resource built at Interaction 4 (not here) — the two must not be conflated."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Flag/flag-diabetes-perio-risk"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-oral-health-assessment",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-oral-health-assessment",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Pediatric oral health assessment findings (well-child visit)"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-well-child",
+          "display": "Well-child visit, 2026-02-28"
+        },
+        "effectiveDateTime": "2026-02-28",
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-smith",
+            "display": "Dr. Laura Smith, MD"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "text": "Gingivitis present"
+            },
+            "valueString": "Significant plaque-induced gingivitis observed on examination."
+          },
+          {
+            "code": {
+              "text": "Tooth loss"
+            },
+            "valueString": "Two lower central (baby) incisors lost: one site remains edentulous; one adult tooth partially erupted."
+          },
+          {
+            "code": {
+              "text": "Pain"
+            },
+            "valueString": "Patient reports pain around the area of the missing teeth."
+          },
+          {
+            "code": {
+              "text": "Dental home"
+            },
+            "valueString": "No established dental home; patient has never seen a dental provider."
+          }
+        ],
+        "note": [
+          {
+            "text": "Oral health assessment performed by Dr. Smith as part of the well-child protocol. Wrapped for transmission with the referral (DocumentReference) and included in the Interaction 2 pre-encounter records bundle. Findings are captured as components with text values; no LOINC code is asserted for the overall pediatric oral health assessment (text-only per project verification discipline)."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-oral-health-assessment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-tobacco-smoke",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-tobacco-smoke",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "social-history",
+                "display": "Social History"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "72166-2",
+              "display": "Tobacco smoking status"
+            }
+          ],
+          "text": "Household tobacco smoke exposure"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-well-child",
+          "display": "Well-child visit, 2026-02-28"
+        },
+        "effectiveDateTime": "2026-02-28",
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-smith",
+            "display": "Dr. Laura Smith, MD"
+          }
+        ],
+        "valueCodeableConcept": {
+          "text": "Household includes tobacco smoke exposure (environmental risk factor; corresponds to Condition Z77.22)"
+        },
+        "note": [
+          {
+            "text": "Documents household tobacco smoke exposure noted at the well-child visit, paired with Condition/condition-z77-22-tobacco. LOINC 72166-2 (tobacco smoking status) is used per the source use-case doc's code mapping; here it captures environmental exposure rather than the (6-year-old) patient's own smoking."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-tobacco-smoke"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Provenance-provenance-referral",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "provenance-referral",
+        "target": [
+          {
+            "reference": "ServiceRequest/servicerequest-referral",
+            "display": "Referral: Pediatric dental evaluation"
+          },
+          {
+            "reference": "Task/task-referral-tracking",
+            "display": "Referral tracking Task"
+          }
+        ],
+        "recorded": "2026-02-28T09:41:00-05:00",
+        "activity": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-DataOperation",
+              "code": "CREATE",
+              "display": "create"
+            }
+          ]
+        },
+        "agent": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author",
+                  "display": "Author"
+                }
+              ]
+            },
+            "who": {
+              "reference": "PractitionerRole/role-smith",
+              "display": "Dr. Laura Smith, MD"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/org-nemg",
+              "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+            }
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "transmitter",
+                  "display": "Transmitter"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-connie",
+              "display": "Connie — Connecticut Health Information Exchange (routing hub)"
+            }
+          }
+        ],
+        "entity": [
+          {
+            "role": "source",
+            "what": {
+              "display": "Referral created in the NEMG/Yale New Haven Health Epic instance and routed through Connie to BeneCare (CTDHP ASO); Plan-Net directory identified Dr. Watson at Cornell Scott-Hill Health Center."
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Provenance/provenance-referral"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ServiceRequest-servicerequest-referral",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "servicerequest-referral",
+        "meta": {
+          "profile": [
+            "https://oralhealthalliance.net/fhir/StructureDefinition/ode-medical-to-dental-referral"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC03-001"
+          }
+        ],
+        "status": "completed",
+        "intent": "order",
+        "priority": "routine",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "103696004",
+                "display": "Patient referral to specialist"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Pediatric dental evaluation — gingivitis, tooth loss, and diabetes-related periodontal risk assessment; establish a dental home"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "K05.00",
+                "display": "Acute gingivitis, plaque induced"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "E10.9",
+                "display": "Type 1 diabetes mellitus without complications"
+              }
+            ]
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-k05-00-gingivitis",
+            "display": "Plaque-induced gingivitis"
+          },
+          {
+            "reference": "Condition/condition-e10-9-diabetes",
+            "display": "Type 1 diabetes mellitus (pre-existing)"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-well-child",
+          "display": "Well-child visit, 2026-02-28"
+        },
+        "occurrenceDateTime": "2026-05-28",
+        "authoredOn": "2026-02-28",
+        "requester": {
+          "reference": "PractitionerRole/role-smith",
+          "display": "Dr. Laura Smith, MD — Pediatrics, Northeast Medical Group"
+        },
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-watson",
+            "display": "Dr. David Watson, DDS — Pediatric Dentistry, Cornell Scott-Hill Health Center"
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "Flag/flag-diabetes-perio-risk",
+            "display": "Type 1 diabetes — elevated periodontal/infection/healing risk"
+          },
+          {
+            "reference": "MedicationRequest/medicationrequest-insulin-lispro",
+            "display": "Insulin lispro (via insulin pump)"
+          },
+          {
+            "reference": "Device/device-insulin-pump",
+            "display": "Insulin pump"
+          },
+          {
+            "reference": "Device/device-cgm",
+            "display": "Continuous glucose monitor"
+          },
+          {
+            "reference": "DocumentReference/documentreference-oral-health-assessment",
+            "display": "Oral health assessment findings"
+          }
+        ],
+        "insurance": [
+          {
+            "reference": "Coverage/coverage-timothy-jones-huskyb",
+            "display": "HUSKY B dental (CTDHP) — Gainwell payor, BeneCare ASO"
+          }
+        ],
+        "note": [
+          {
+            "text": "STATUS SNAPSHOT NOTE: this is the Interaction 4 (2026-05-28) version of the referral ServiceRequest (same id as the Interaction 1 version), status updated to completed once the encounter summaries close the referral loop. See the Interaction 1 version for the original active status when the referral was first sent."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/servicerequest-referral"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Task-task-referral-tracking",
+      "resource": {
+        "resourceType": "Task",
+        "id": "task-referral-tracking",
+        "meta": {
+          "profile": [
+            "https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC03-001"
+          }
+        ],
+        "status": "completed",
+        "businessStatus": {
+          "coding": [
+            {
+              "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+              "code": "outcome-final",
+              "display": "Outcome Final"
+            }
+          ]
+        },
+        "intent": "order",
+        "priority": "routine",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/CodeSystem/task-code",
+              "code": "fulfill"
+            }
+          ]
+        },
+        "focus": {
+          "reference": "ServiceRequest/servicerequest-referral",
+          "display": "Referral: Pediatric dental evaluation"
+        },
+        "for": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval",
+          "display": "Dental evaluation, 2026-05-28"
+        },
+        "authoredOn": "2026-02-28T09:40:00-05:00",
+        "lastModified": "2026-05-28T11:05:00-04:00",
+        "requester": {
+          "reference": "Organization/org-nemg",
+          "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+        },
+        "owner": {
+          "reference": "PractitionerRole/role-watson",
+          "display": "Dr. David Watson, DDS — Cornell Scott-Hill Health Center"
+        },
+        "input": [
+          {
+            "type": {
+              "text": "Referral supporting resource — dental diagnosis"
+            },
+            "valueReference": {
+              "reference": "Condition/condition-k05-00-gingivitis",
+              "display": "Plaque-induced gingivitis"
+            }
+          },
+          {
+            "type": {
+              "text": "Referral supporting resource — systemic risk flag"
+            },
+            "valueReference": {
+              "reference": "Flag/flag-diabetes-perio-risk",
+              "display": "Type 1 diabetes — elevated periodontal/infection/healing risk"
+            }
+          }
+        ],
+        "output": [
+          {
+            "type": {
+              "text": "Referral outcome — encounter summary to pediatrician"
+            },
+            "valueReference": {
+              "reference": "ClinicalImpression/clinicalimpression-summary-pediatrician"
+            }
+          },
+          {
+            "type": {
+              "text": "Referral outcome — encounter summary to endocrinologist"
+            },
+            "valueReference": {
+              "reference": "ClinicalImpression/clinicalimpression-summary-endocrinologist"
+            }
+          },
+          {
+            "type": {
+              "text": "Confirmed diagnosis"
+            },
+            "valueReference": {
+              "reference": "Condition/condition-k05-211-periodontitis"
+            }
+          },
+          {
+            "type": {
+              "text": "Referral outcome — care plan"
+            },
+            "valueReference": {
+              "reference": "CarePlan/careplan-perio"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Task snapshot as of Interaction 4 (2026-05-28, 11:05) — the referral outcome closes here. status: completed, businessStatus: outcome-final. Single referral Coordination Task carried through from Interaction 1 (referral-sent) -> Interaction 3 (in-progress, owner set) -> here (outcome-final), per base COW's one-Task-per-Request guidance; Task.output absorbs the full fulfillment history. Distinct from the SRP prior-authorization Task (task-srp-pa-tracking). See the I1 and I3 versions of this same Task (same id) for the earlier snapshots."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Task/task-referral-tracking"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:AuditEvent-auditevent-records-routing",
+      "resource": {
+        "resourceType": "AuditEvent",
+        "id": "auditevent-records-routing",
+        "type": {
+          "system": "http://terminology.hl7.org/CodeSystem/audit-event-type",
+          "code": "transmit",
+          "display": "Transmit"
+        },
+        "subtype": [
+          {
+            "system": "http://hl7.org/fhir/restful-interaction",
+            "code": "create",
+            "display": "create"
+          }
+        ],
+        "action": "R",
+        "recorded": "2026-05-21T08:05:00-04:00",
+        "outcome": "0",
+        "outcomeDesc": "Success — pre-encounter records routed via Connie and received at the dental practice.",
+        "agent": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "transmitter",
+                  "display": "Transmitter"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-connie",
+              "display": "Connie — Connecticut Health Information Exchange"
+            },
+            "requestor": true
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author",
+                  "display": "Author"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-nemg",
+              "display": "Northeast Medical Group (source)"
+            },
+            "requestor": false
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://dicom.nema.org/resources/ontology/DCM",
+                  "code": "110152",
+                  "display": "Destination Role ID"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-cornell-scott",
+              "display": "Cornell Scott-Hill Health Center (destination)"
+            },
+            "requestor": false
+          }
+        ],
+        "source": {
+          "observer": {
+            "reference": "Organization/org-connie",
+            "display": "Connie — Connecticut Health Information Exchange"
+          },
+          "type": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/security-source-type",
+              "code": "4",
+              "display": "Application Server"
+            }
+          ]
+        },
+        "entity": [
+          {
+            "what": {
+              "reference": "Bundle/bundle-preencounter-records",
+              "display": "Pre-encounter medical records (collection bundle)"
+            }
+          },
+          {
+            "what": {
+              "reference": "Patient/patient-timothy-jones",
+              "display": "Timothy Jones"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "AuditEvent/auditevent-records-routing"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Provenance-provenance-records-delivery",
+      "resource": {
+        "resourceType": "Provenance",
+        "target": [
+          {
+            "reference": "Bundle/bundle-preencounter-records",
+            "display": "Pre-encounter medical records (collection bundle)"
+          },
+          {
+            "reference": "Task/task-records-delivery",
+            "display": "Pre-encounter records delivery Task"
+          }
+        ],
+        "id": "provenance-records-delivery",
+        "recorded": "2026-05-21T08:05:00-04:00",
+        "activity": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-DataOperation",
+              "code": "CREATE",
+              "display": "create"
+            }
+          ]
+        },
+        "agent": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author",
+                  "display": "Author"
+                }
+              ]
+            },
+            "who": {
+              "reference": "PractitionerRole/role-smith",
+              "display": "Dr. Laura Smith, MD"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/org-nemg",
+              "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+            }
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "transmitter",
+                  "display": "Transmitter"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-connie",
+              "display": "Connie — Connecticut Health Information Exchange (routing hub)"
+            }
+          }
+        ],
+        "entity": [
+          {
+            "role": "source",
+            "what": {
+              "display": "Discrete FHIR records extracted from the NEMG/Yale New Haven Health Epic instance via Care Everywhere and routed by Connie to Cornell Scott-Hill Health Center's interim FHIR server."
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Provenance/provenance-records-delivery"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Task-task-records-delivery",
+      "resource": {
+        "resourceType": "Task",
+        "id": "task-records-delivery",
+        "status": "completed",
+        "intent": "order",
+        "priority": "routine",
+        "code": {
+          "text": "Pre-encounter clinical records delivery (CDex) — NEMG → Connie → Cornell Scott-Hill dental"
+        },
+        "focus": {
+          "reference": "Bundle/bundle-preencounter-records",
+          "display": "Timothy Jones pre-encounter medical records (collection bundle)"
+        },
+        "for": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "authoredOn": "2026-05-21T08:00:00-04:00",
+        "lastModified": "2026-05-21T08:05:00-04:00",
+        "requester": {
+          "reference": "Organization/org-nemg",
+          "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+        },
+        "owner": {
+          "reference": "Organization/org-cornell-scott",
+          "display": "Cornell Scott-Hill Health Center (receiving dental practice)"
+        },
+        "output": [
+          {
+            "type": {
+              "text": "Delivered records bundle"
+            },
+            "valueReference": {
+              "reference": "Bundle/bundle-preencounter-records",
+              "display": "Pre-encounter medical records (collection bundle)"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "CDex-style clinical-data delivery, one week before the 2026-05-28 dental appointment, so Dr. Watson has Timothy's diabetes context, medications, devices, care team, and oral-health findings ahead of the visit — motivated by the accompanying caregiver being a grandparent with limited medical-history knowledge. Records are extracted as discrete FHIR from the NEMG/Yale New Haven Health Epic instance (Care Everywhere) and routed by Connie to the dental practice's interim FHIR server. status 'completed' reflects Connie-confirmed receipt at the dental practice. This is a SEPARATE Task from the referral-tracking Task (Task/task-referral-tracking) — records delivery and referral state are tracked independently. No patient-facing notification fires for this provider-to-provider exchange."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Task/task-records-delivery"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Bundle-bundle-preencounter-records",
+      "resource": {
+        "resourceType": "Bundle",
+        "id": "bundle-preencounter-records",
+        "type": "collection",
+        "timestamp": "2026-05-21T08:00:00-04:00",
+        "entry": [
+          {
+            "fullUrl": "urn:uuid:Patient-patient-timothy-jones",
+            "resource": {
+              "resourceType": "Patient",
+              "id": "patient-timothy-jones",
+              "meta": {
+                "profile": [
+                  "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+                ]
+              },
+              "identifier": [
+                {
+                  "system": "https://yalenewhavenhealth.org/fhir/mrn",
+                  "value": "YNHH-MRN-20190505-TJ"
+                },
+                {
+                  "system": "https://cornellscott.example.org/fhir/mrn",
+                  "value": "PDENT-CT-2026-0028"
+                },
+                {
+                  "system": "http://ct.medicaid.gov/beneficiary",
+                  "value": "CT-MCD-HB-0082341"
+                }
+              ],
+              "active": true,
+              "name": [
+                {
+                  "family": "Jones",
+                  "given": [
+                    "Timothy"
+                  ]
+                }
+              ],
+              "telecom": [
+                {
+                  "system": "phone",
+                  "value": "(203) 555-0174",
+                  "use": "mobile"
+                },
+                {
+                  "system": "email",
+                  "value": "jones.family.ct@example.com",
+                  "use": "home"
+                }
+              ],
+              "gender": "male",
+              "birthDate": "2019-05-05",
+              "address": [
+                {
+                  "line": [
+                    "214 Elm Street, Apt 4"
+                  ],
+                  "city": "New Haven",
+                  "state": "CT",
+                  "postalCode": "06510",
+                  "country": "US"
+                }
+              ],
+              "communication": [
+                {
+                  "language": {
+                    "coding": [
+                      {
+                        "system": "urn:ietf:bcp:47",
+                        "code": "en",
+                        "display": "English"
+                      }
+                    ]
+                  },
+                  "preferred": true
+                }
+              ]
+            }
+          },
+          {
+            "fullUrl": "urn:uuid:Condition-condition-e10-9-diabetes",
+            "resource": {
+              "resourceType": "Condition",
+              "id": "condition-e10-9-diabetes",
+              "meta": {
+                "profile": [
+                  "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+                ]
+              },
+              "clinicalStatus": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "active"
+                  }
+                ]
+              },
+              "verificationStatus": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed"
+                  }
+                ]
+              },
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                      "code": "problem-list-item",
+                      "display": "Problem List Item"
+                    }
+                  ]
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "E10.9",
+                    "display": "Type 1 diabetes mellitus without complications"
+                  }
+                ],
+                "text": "Type 1 diabetes mellitus, without complications"
+              },
+              "subject": {
+                "reference": "Patient/patient-timothy-jones",
+                "display": "Timothy Jones"
+              },
+              "onsetDateTime": "2025-02-28",
+              "recordedDate": "2025-02-28",
+              "note": [
+                {
+                  "text": "Pre-existing systemic condition — diagnosed 2025-02-28 during an ED visit, one year before the well-child exam. NOT newly asserted at Interaction 1; it already exists and is referenced (by the risk Flag and the referral) and later transmitted in the pre-encounter records bundle (Interaction 2). It is the driver of Timothy's elevated periodontal risk. Managed with an insulin pump and CGM; prescribed insulin lispro."
+                }
+              ]
+            }
+          },
+          {
+            "fullUrl": "urn:uuid:Condition-condition-k05-00-gingivitis",
+            "resource": {
+              "resourceType": "Condition",
+              "id": "condition-k05-00-gingivitis",
+              "meta": {
+                "profile": [
+                  "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+                ]
+              },
+              "clinicalStatus": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "active"
+                  }
+                ]
+              },
+              "verificationStatus": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed"
+                  }
+                ]
+              },
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                      "code": "encounter-diagnosis",
+                      "display": "Encounter Diagnosis"
+                    }
+                  ]
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "K05.00",
+                    "display": "Acute gingivitis, plaque induced"
+                  }
+                ],
+                "text": "Plaque-induced gingivitis"
+              },
+              "subject": {
+                "reference": "Patient/patient-timothy-jones",
+                "display": "Timothy Jones"
+              },
+              "encounter": {
+                "reference": "Encounter/encounter-01-well-child",
+                "display": "Well-child visit, 2026-02-28"
+              },
+              "recordedDate": "2026-02-28",
+              "asserter": {
+                "reference": "PractitionerRole/role-smith",
+                "display": "Dr. Laura Smith, MD"
+              },
+              "note": [
+                {
+                  "text": "Newly identified at the well-child visit by Dr. Smith; a primary clinical reason for the dental referral. Alongside the diabetes (E10.9), this drives the periodontal risk picture."
+                }
+              ]
+            }
+          },
+          {
+            "fullUrl": "urn:uuid:Condition-condition-z77-22-tobacco",
+            "resource": {
+              "resourceType": "Condition",
+              "id": "condition-z77-22-tobacco",
+              "meta": {
+                "profile": [
+                  "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+                ]
+              },
+              "clinicalStatus": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+                    "code": "active"
+                  }
+                ]
+              },
+              "verificationStatus": {
+                "coding": [
+                  {
+                    "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+                    "code": "confirmed"
+                  }
+                ]
+              },
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                      "code": "health-concern",
+                      "display": "Health Concern"
+                    }
+                  ]
+                }
+              ],
+              "code": {
+                "coding": [
+                  {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "Z77.22",
+                    "display": "Contact with and (suspected) exposure to environmental tobacco smoke (acute) (chronic)"
+                  }
+                ],
+                "text": "Environmental tobacco smoke exposure"
+              },
+              "subject": {
+                "reference": "Patient/patient-timothy-jones",
+                "display": "Timothy Jones"
+              },
+              "encounter": {
+                "reference": "Encounter/encounter-01-well-child",
+                "display": "Well-child visit, 2026-02-28"
+              },
+              "recordedDate": "2026-02-28",
+              "asserter": {
+                "reference": "PractitionerRole/role-smith",
+                "display": "Dr. Laura Smith, MD"
+              },
+              "note": [
+                {
+                  "text": "Household tobacco smoke exposure documented at the well-child visit (paired with Observation/observation-tobacco-smoke); a contributing environmental risk factor for oral/periodontal disease."
+                }
+              ]
+            }
+          },
+          {
+            "fullUrl": "urn:uuid:MedicationRequest-medicationrequest-insulin-lispro",
+            "resource": {
+              "resourceType": "MedicationRequest",
+              "id": "medicationrequest-insulin-lispro",
+              "meta": {
+                "profile": [
+                  "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+                ]
+              },
+              "status": "active",
+              "intent": "order",
+              "reportedBoolean": true,
+              "medicationCodeableConcept": {
+                "text": "Insulin lispro (rapid-acting insulin analog), delivered via insulin pump"
+              },
+              "subject": {
+                "reference": "Patient/patient-timothy-jones",
+                "display": "Timothy Jones"
+              },
+              "authoredOn": "2025-12-01",
+              "dosageInstruction": [
+                {
+                  "text": "Insulin lispro delivered continuously via insulin pump with mealtime boluses, dosed to glycemic targets per endocrinology management"
+                }
+              ],
+              "note": [
+                {
+                  "text": "Pre-existing active medication (part of Timothy's standing diabetes management), transmitted to the dental practice in the Interaction 2 pre-encounter records bundle — relevant to dental treatment planning (healing/infection risk). Medication is text-only (no RxNorm coding asserted): the source use-case doc provides no RxNorm code, and per project verification discipline an unverified code is not fabricated. Add a verified RxNorm code (e.g. the appropriate insulin lispro product) before production use if required."
+                }
+              ]
+            }
+          },
+          {
+            "fullUrl": "urn:uuid:Device-device-cgm",
+            "resource": {
+              "resourceType": "Device",
+              "id": "device-cgm",
+              "status": "active",
+              "type": {
+                "text": "Continuous glucose monitor (CGM)"
+              },
+              "patient": {
+                "reference": "Patient/patient-timothy-jones",
+                "display": "Timothy Jones"
+              },
+              "note": [
+                {
+                  "text": "Patient-worn continuous glucose monitor, part of Timothy's diabetes management. Transmitted to the dental practice in the Interaction 2 pre-encounter records bundle to contextualize glycemic control for treatment planning (healing/infection/anesthetic considerations). Device.type is text-only (no verified SNOMED code asserted per project verification discipline); R4 Device has no bodySite. Synthetic — no manufacturer/model/UDI asserted."
+                }
+              ]
+            }
+          },
+          {
+            "fullUrl": "urn:uuid:Device-device-insulin-pump",
+            "resource": {
+              "resourceType": "Device",
+              "id": "device-insulin-pump",
+              "status": "active",
+              "type": {
+                "text": "Insulin pump"
+              },
+              "patient": {
+                "reference": "Patient/patient-timothy-jones",
+                "display": "Timothy Jones"
+              },
+              "note": [
+                {
+                  "text": "Patient-worn insulin pump, started ~2025-12-01, delivering insulin lispro. Part of Timothy's diabetes management; transmitted to the dental practice in the Interaction 2 pre-encounter records bundle. Device.type is text-only (no verified SNOMED code asserted per project verification discipline); R4 Device has no bodySite. Synthetic — no manufacturer/model/UDI asserted."
+                }
+              ]
+            }
+          },
+          {
+            "fullUrl": "urn:uuid:CareTeam-careteam-timothy",
+            "resource": {
+              "resourceType": "CareTeam",
+              "id": "careteam-timothy",
+              "meta": {
+                "profile": [
+                  "http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam"
+                ]
+              },
+              "status": "active",
+              "name": "Timothy Jones — medical care team",
+              "subject": {
+                "reference": "Patient/patient-timothy-jones",
+                "display": "Timothy Jones"
+              },
+              "participant": [
+                {
+                  "role": [
+                    {
+                      "coding": [
+                        {
+                          "system": "http://nucc.org/provider-taxonomy",
+                          "code": "208000000X",
+                          "display": "Pediatrics"
+                        }
+                      ],
+                      "text": "Pediatrician (referring provider)"
+                    }
+                  ],
+                  "member": {
+                    "reference": "Practitioner/pract-smith",
+                    "display": "Dr. Laura Smith, MD"
+                  },
+                  "onBehalfOf": {
+                    "reference": "Organization/org-nemg",
+                    "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+                  }
+                },
+                {
+                  "role": [
+                    {
+                      "coding": [
+                        {
+                          "system": "http://nucc.org/provider-taxonomy",
+                          "code": "2080P0202X",
+                          "display": "Pediatric Endocrinology"
+                        }
+                      ],
+                      "text": "Pediatric endocrinologist"
+                    }
+                  ],
+                  "member": {
+                    "reference": "Practitioner/pract-endo",
+                    "display": "Pediatric Endocrinologist"
+                  },
+                  "onBehalfOf": {
+                    "reference": "Organization/org-yale-diabetes",
+                    "display": "Yale Children's Diabetes Program"
+                  }
+                },
+                {
+                  "role": [
+                    {
+                      "text": "Registered dietitian"
+                    }
+                  ],
+                  "member": {
+                    "reference": "Practitioner/pract-dietitian",
+                    "display": "Registered Dietitian"
+                  },
+                  "onBehalfOf": {
+                    "reference": "Organization/org-yale-diabetes",
+                    "display": "Yale Children's Diabetes Program"
+                  }
+                }
+              ],
+              "note": [
+                {
+                  "text": "Timothy's full medical care team, transmitted with the pre-encounter medical records bundle to the dental practice in Interaction 2 so Dr. Watson can see who manages Timothy's diabetes before the appointment."
+                }
+              ]
+            }
+          },
+          {
+            "fullUrl": "urn:uuid:Observation-observation-oral-health-assessment",
+            "resource": {
+              "resourceType": "Observation",
+              "id": "observation-oral-health-assessment",
+              "meta": {
+                "profile": [
+                  "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+                ]
+              },
+              "status": "final",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                      "code": "exam",
+                      "display": "Exam"
+                    }
+                  ]
+                }
+              ],
+              "code": {
+                "text": "Pediatric oral health assessment findings (well-child visit)"
+              },
+              "subject": {
+                "reference": "Patient/patient-timothy-jones",
+                "display": "Timothy Jones"
+              },
+              "encounter": {
+                "reference": "Encounter/encounter-01-well-child",
+                "display": "Well-child visit, 2026-02-28"
+              },
+              "effectiveDateTime": "2026-02-28",
+              "performer": [
+                {
+                  "reference": "PractitionerRole/role-smith",
+                  "display": "Dr. Laura Smith, MD"
+                }
+              ],
+              "component": [
+                {
+                  "code": {
+                    "text": "Gingivitis present"
+                  },
+                  "valueString": "Significant plaque-induced gingivitis observed on examination."
+                },
+                {
+                  "code": {
+                    "text": "Tooth loss"
+                  },
+                  "valueString": "Two lower central (baby) incisors lost: one site remains edentulous; one adult tooth partially erupted."
+                },
+                {
+                  "code": {
+                    "text": "Pain"
+                  },
+                  "valueString": "Patient reports pain around the area of the missing teeth."
+                },
+                {
+                  "code": {
+                    "text": "Dental home"
+                  },
+                  "valueString": "No established dental home; patient has never seen a dental provider."
+                }
+              ],
+              "note": [
+                {
+                  "text": "Oral health assessment performed by Dr. Smith as part of the well-child protocol. Wrapped for transmission with the referral (DocumentReference) and included in the Interaction 2 pre-encounter records bundle. Findings are captured as components with text values; no LOINC code is asserted for the overall pediatric oral health assessment (text-only per project verification discipline)."
+                }
+              ]
+            }
+          },
+          {
+            "fullUrl": "urn:uuid:Flag-flag-diabetes-perio-risk",
+            "resource": {
+              "resourceType": "Flag",
+              "id": "flag-diabetes-perio-risk",
+              "status": "active",
+              "category": [
+                {
+                  "coding": [
+                    {
+                      "system": "http://terminology.hl7.org/CodeSystem/flag-category",
+                      "code": "clinical",
+                      "display": "Clinical"
+                    }
+                  ]
+                }
+              ],
+              "code": {
+                "text": "Type 1 diabetes — elevated periodontal, infection, and impaired-healing risk. Coordinate dental care with diabetes management."
+              },
+              "subject": {
+                "reference": "Patient/patient-timothy-jones",
+                "display": "Timothy Jones"
+              },
+              "period": {
+                "start": "2026-02-28"
+              },
+              "encounter": {
+                "reference": "Encounter/encounter-01-well-child",
+                "display": "Well-child visit, 2026-02-28"
+              },
+              "author": {
+                "reference": "PractitionerRole/role-smith",
+                "display": "Dr. Laura Smith, MD"
+              },
+              "note": [
+                {
+                  "text": "Active systemic-disease risk signal (not just problem-list history) raised at referral by Dr. Smith, referencing the pre-existing Condition/condition-e10-9-diabetes. It travels with the referral (ServiceRequest.supportingInfo) so the dental provider sees the diabetes-driven risk up front. This is the diabetes -> periodontal-risk direction; a distinct periodontal -> glycemic-risk Flag to the endocrinologist is a separate resource built at Interaction 4 (not here) — the two must not be conflated."
+                }
+              ]
+            }
+          },
+          {
+            "fullUrl": "urn:uuid:Encounter-encounter-01-well-child",
+            "resource": {
+              "resourceType": "Encounter",
+              "id": "encounter-01-well-child",
+              "meta": {
+                "profile": [
+                  "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+                ]
+              },
+              "status": "finished",
+              "class": {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+                "code": "AMB",
+                "display": "ambulatory"
+              },
+              "type": [
+                {
+                  "text": "Well-child visit with pediatric oral health assessment"
+                }
+              ],
+              "subject": {
+                "reference": "Patient/patient-timothy-jones",
+                "display": "Timothy Jones"
+              },
+              "participant": [
+                {
+                  "individual": {
+                    "reference": "PractitionerRole/role-smith",
+                    "display": "Dr. Laura Smith, MD"
+                  }
+                }
+              ],
+              "period": {
+                "start": "2026-02-28T09:00:00-05:00",
+                "end": "2026-02-28T09:40:00-05:00"
+              },
+              "location": [
+                {
+                  "location": {
+                    "reference": "Location/loc-nemg",
+                    "display": "Northeast Medical Group — Pediatrics, New Haven"
+                  }
+                }
+              ],
+              "serviceProvider": {
+                "reference": "Organization/org-nemg",
+                "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+              }
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Bundle/bundle-preencounter-records"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Claim-claim-d4341-priorauth",
+      "resource": {
+        "resourceType": "Claim",
+        "id": "claim-d4341-priorauth",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/profile-claim"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://ctdhp.example.org/pa-request-id",
+            "value": "PA-REQ-2026-UC03-001"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "oral",
+              "display": "Oral"
+            }
+          ]
+        },
+        "use": "preauthorization",
+        "patient": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "created": "2026-05-28T09:35:00-04:00",
+        "insurer": {
+          "reference": "Organization/org-gainwell",
+          "display": "Gainwell Technologies (CMAP fiscal agent — HUSKY dental adjudication)"
+        },
+        "provider": {
+          "reference": "Organization/org-cornell-scott",
+          "display": "Cornell Scott-Hill Health Center"
+        },
+        "priority": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/processpriority",
+              "code": "normal"
+            }
+          ]
+        },
+        "careTeam": [
+          {
+            "sequence": 1,
+            "provider": {
+              "reference": "PractitionerRole/role-watson",
+              "display": "Dr. David Watson, DDS"
+            },
+            "responsible": true,
+            "role": {
+              "coding": [
+                {
+                  "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole",
+                  "code": "rendering",
+                  "display": "Rendering provider"
+                }
+              ]
+            }
+          }
+        ],
+        "diagnosis": [
+          {
+            "sequence": 1,
+            "diagnosisReference": {
+              "reference": "Condition/condition-k05-211-periodontitis",
+              "display": "Aggressive periodontitis, localized, slight"
+            }
+          },
+          {
+            "sequence": 2,
+            "diagnosisReference": {
+              "reference": "Condition/condition-e10-9-diabetes",
+              "display": "Type 1 diabetes mellitus (contributing systemic condition)"
+            }
+          }
+        ],
+        "insurance": [
+          {
+            "sequence": 1,
+            "focal": true,
+            "coverage": {
+              "reference": "Coverage/coverage-timothy-jones-huskyb",
+              "display": "Timothy Jones's HUSKY B dental coverage (CTDHP)"
+            }
+          }
+        ],
+        "item": [
+          {
+            "sequence": 1,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ada.org/cdt",
+                  "code": "D4341",
+                  "display": "Periodontal scaling and root planing — four or more teeth per quadrant"
+                }
+              ]
+            },
+            "bodySite": {
+              "text": "Lower right quadrant"
+            }
+          },
+          {
+            "sequence": 2,
+            "productOrService": {
+              "coding": [
+                {
+                  "system": "http://www.ada.org/cdt",
+                  "code": "D4341",
+                  "display": "Periodontal scaling and root planing — four or more teeth per quadrant"
+                }
+              ]
+            },
+            "bodySite": {
+              "text": "Lower left quadrant"
+            }
+          }
+        ],
+        "supportingInfo": [
+          {
+            "sequence": 1,
+            "category": {
+              "text": "Periodontal risk assessment"
+            },
+            "valueReference": {
+              "reference": "DiagnosticReport/diagnosticreport-perio-risk-assessment"
+            }
+          },
+          {
+            "sequence": 2,
+            "category": {
+              "text": "DTR-completed PA documentation"
+            },
+            "valueReference": {
+              "reference": "QuestionnaireResponse/questionnaireresponse-srp-pa-dtr"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Prior-authorization request for scaling and root planing (D4341), two quadrants, under the HUSKY B dental benefit — UC03's PA proof point in a pediatric CHIP dental context. Billed to the dental benefit (CTDHP), adjudicated by Gainwell (DSS fiscal agent); CDT is what is required, no CPT crosswalk applies. Routed through Connie; PA intake handled by the BeneCare ASO. Two D4341 line items, one per quadrant, matching CDT per-quadrant billing granularity."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Claim/claim-d4341-priorauth"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ClaimResponse-claimresponse-d4341-priorauth",
+      "resource": {
+        "resourceType": "ClaimResponse",
+        "id": "claimresponse-d4341-priorauth",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/profile-claimresponse"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://ctdhp.example.org/pa-response-id",
+            "value": "PA-REQ-2026-UC03-001-R1"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+              "code": "oral",
+              "display": "Oral"
+            }
+          ]
+        },
+        "use": "preauthorization",
+        "patient": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "created": "2026-05-28T09:50:00-04:00",
+        "insurer": {
+          "reference": "Organization/org-gainwell",
+          "display": "Gainwell Technologies (CMAP fiscal agent)"
+        },
+        "requestor": {
+          "reference": "Organization/org-cornell-scott",
+          "display": "Cornell Scott-Hill Health Center"
+        },
+        "request": {
+          "reference": "Claim/claim-d4341-priorauth",
+          "display": "D4341 (SRP, two quadrants) prior authorization request"
+        },
+        "outcome": "complete",
+        "disposition": "Approved. Scaling and root planing (D4341) authorized for two quadrants (lower right, lower left). Medical necessity supported by the periodontal risk assessment and Type 1 diabetes context.",
+        "preAuthRef": "CT-HUSKYB-PA-2026-00318",
+        "preAuthPeriod": {
+          "start": "2026-05-28",
+          "end": "2026-08-28"
+        },
+        "note": [
+          {
+            "text": "PA approval confirms medical necessity and coverage eligibility at time of review — not a guarantee of payment. Final reimbursement still depends on Timothy's HUSKY B eligibility on the date of service and a clean claim. Adjudicated by Gainwell (DSS fiscal agent) via CMAP; PA intake coordinated by the BeneCare ASO; routed through Connie. The preAuthRef is carried forward onto the D4341 lines of the Interaction 5 claims-sharing EOB."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ClaimResponse/claimresponse-d4341-priorauth"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Communication-communication-oral-hygiene-education",
+      "resource": {
+        "resourceType": "Communication",
+        "id": "communication-oral-hygiene-education",
+        "status": "completed",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/communication-category",
+                "code": "instruction",
+                "display": "Instruction"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval",
+          "display": "Dental evaluation, 2026-05-28"
+        },
+        "sent": "2026-05-28T10:05:00-04:00",
+        "sender": {
+          "reference": "Organization/org-cornell-scott",
+          "display": "Cornell Scott-Hill Health Center — dental hygienist"
+        },
+        "recipient": [
+          {
+            "reference": "Patient/patient-timothy-jones",
+            "display": "Timothy Jones"
+          },
+          {
+            "reference": "RelatedPerson/relatedperson-timothy-grandparent",
+            "display": "Timothy's grandmother (accompanying caregiver)"
+          }
+        ],
+        "payload": [
+          {
+            "contentString": "Oral hygiene education: proper brushing technique, daily flossing, and age-appropriate toothpaste guidance for a six-year-old with mixed dentition and elevated periodontal risk from Type 1 diabetes. Toothbrush, toothpaste, and floss dispensed. Reinforced coordination of dental care with diabetes management."
+          }
+        ],
+        "note": [
+          {
+            "text": "The oral-hygiene education delivered to Timothy and his grandmother, paired with the D1330 Procedure. Delivered to the accompanying caregiver (grandparent). Not a patient-app notification event."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Communication/communication-oral-hygiene-education"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition-condition-k05-211-periodontitis",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-k05-211-periodontitis",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K05.211",
+              "display": "Aggressive periodontitis, localized, slight"
+            }
+          ],
+          "text": "Aggressive periodontitis, localized, slight"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval",
+          "display": "Dental evaluation, 2026-05-28"
+        },
+        "recordedDate": "2026-05-28",
+        "asserter": {
+          "reference": "PractitionerRole/role-watson",
+          "display": "Dr. David Watson, DDS"
+        },
+        "note": [
+          {
+            "text": "Confirmed at the dental visit: the plaque-induced gingivitis (K05.00) found at the well-child visit has progressed. Coded as aggressive periodontitis, localized, slight (ICD-10-CM K05.211, verified against the 2026 ICD-10-CM). 'Aggressive' rather than 'chronic' is deliberate and clinically correct: chronic periodontitis is a slow adult disease, whereas the rapid breakdown in a six-year-old with poorly controlled Type 1 diabetes (E10.9) is the aggressive pattern. This Condition is linked to the diabetes as a contributing systemic condition and is transmitted in the Interaction 4 bidirectional summaries."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/condition-k05-211-periodontitis"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DiagnosticReport-diagnosticreport-perio-risk-assessment",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "diagnosticreport-perio-risk-assessment",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "OT",
+                "display": "Other"
+              }
+            ],
+            "text": "Periodontal risk assessment"
+          }
+        ],
+        "code": {
+          "text": "Periodontal risk assessment (PRA)"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval",
+          "display": "Dental evaluation, 2026-05-28"
+        },
+        "effectiveDateTime": "2026-05-28",
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-watson",
+            "display": "Dr. David Watson, DDS"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/observation-periodontal-findings",
+            "display": "Periodontal findings by site"
+          },
+          {
+            "reference": "Observation/observation-tooth-development",
+            "display": "Tooth development / dentition status"
+          }
+        ],
+        "conclusion": "Elevated periodontal risk. Localized slight aggressive periodontitis confirmed in the context of Type 1 diabetes. Scaling and root planing (two quadrants) with localized antimicrobial delivery indicated; reinforce oral hygiene and coordinate with diabetes care team.",
+        "note": [
+          {
+            "text": "This is where the project's third named terminology gap lives: there is no established LOINC code for a structured periodontal risk assessment score, which the source doc flags as its own ODE IG action item. The PRA code is therefore text-only; the underlying findings are carried as referenced Observations."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DiagnosticReport/diagnosticreport-perio-risk-assessment"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Encounter-encounter-03-dental-eval",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-03-dental-eval",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "text": "Comprehensive dental evaluation, periodontal risk assessment, and periodontal therapy"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/servicerequest-referral",
+            "display": "Medical-to-dental referral (Interaction 1)"
+          }
+        ],
+        "participant": [
+          {
+            "individual": {
+              "reference": "PractitionerRole/role-watson",
+              "display": "Dr. David Watson, DDS"
+            }
+          }
+        ],
+        "period": {
+          "start": "2026-05-28T09:00:00-04:00",
+          "end": "2026-05-28T10:15:00-04:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/loc-cornell-scott",
+              "display": "Cornell Scott-Hill Health Center — Dental, New Haven"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-cornell-scott",
+          "display": "Cornell Scott-Hill Health Center"
+        },
+        "note": [
+          {
+            "text": "The dental treatment visit (three months after the well-child referral). Dr. Watson already has Timothy's medical record from the Interaction 2 pre-encounter push via Connie. Place of service 11 (office). This encounter is where UC03's prior-authorization machinery fires: the planned scaling and root planing (D4341) requires PA under HUSKY B, so CRD/DTR/PAS run here (see the PA-cycle resources in this interaction), unlike the covered-evaluation referral at Interaction 1 which triggered no CRD."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/encounter-03-dental-eval"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationAdministration-medicationadministration-chlorhexidine",
+      "resource": {
+        "resourceType": "MedicationAdministration",
+        "id": "medicationadministration-chlorhexidine",
+        "status": "completed",
+        "medicationCodeableConcept": {
+          "text": "Chlorhexidine 2.5 mg controlled-release dental insert (localized periodontal delivery)"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "context": {
+          "reference": "Encounter/encounter-03-dental-eval",
+          "display": "Dental evaluation, 2026-05-28"
+        },
+        "effectiveDateTime": "2026-05-28",
+        "performer": [
+          {
+            "actor": {
+              "reference": "PractitionerRole/role-watson",
+              "display": "Dr. David Watson, DDS"
+            }
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-k05-211-periodontitis"
+          }
+        ],
+        "request": {
+          "display": "In-office administration; not a dispensed prescription"
+        },
+        "dosage": {
+          "site": {
+            "text": "Affected periodontal pockets, lower right and lower left quadrants"
+          },
+          "route": {
+            "text": "Dental / periodontal (subgingival insert)"
+          },
+          "text": "Chlorhexidine controlled-release chip placed subgingivally at affected sites following scaling and root planing."
+        },
+        "note": [
+          {
+            "text": "In-office administration record for the chlorhexidine chip placed as part of the D4381 procedure (procedure-d4381-chlorhexidine). The drug is captured text-only (medicationCodeableConcept.text); no RxNorm code is asserted (text-only per project verification discipline, to avoid an unverified drug code)."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "MedicationAdministration/medicationadministration-chlorhexidine"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-periodontal-findings",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-periodontal-findings",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Periodontal findings by site (probing depths, attachment loss, bleeding)"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval",
+          "display": "Dental evaluation, 2026-05-28"
+        },
+        "effectiveDateTime": "2026-05-28",
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-watson",
+            "display": "Dr. David Watson, DDS"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "text": "Lower right quadrant — probing depths"
+            },
+            "valueString": "Localized 4-5 mm pockets with bleeding on probing at the lower right posterior sextant; early attachment loss."
+          },
+          {
+            "code": {
+              "text": "Lower left quadrant — probing depths"
+            },
+            "valueString": "Localized 4-5 mm pockets with bleeding on probing at the lower left posterior sextant; early attachment loss."
+          },
+          {
+            "code": {
+              "text": "Extent / severity"
+            },
+            "valueString": "Localized (two quadrants), slight severity. Consistent with early-stage aggressive periodontitis in the context of Type 1 diabetes."
+          },
+          {
+            "code": {
+              "text": "Radiographic bone loss"
+            },
+            "valueString": "Early crestal bone changes noted clinically; no advanced bone loss."
+          }
+        ],
+        "note": [
+          {
+            "text": "Per-site periodontal findings supporting the K05.211 diagnosis and the D4341 scaling and root planing plan. Findings captured as text-valued components; no LOINC/SNOMED codes asserted for the individual periodontal measures (text-only per project verification discipline)."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-periodontal-findings"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-tooth-development",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-tooth-development",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Tooth development / dentition status"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval",
+          "display": "Dental evaluation, 2026-05-28"
+        },
+        "effectiveDateTime": "2026-05-28",
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-watson",
+            "display": "Dr. David Watson, DDS"
+          }
+        ],
+        "valueString": "Mixed dentition: primary and permanent teeth both present. One lower central incisor site remains edentulous following early loss of two primary incisors; one permanent lower central incisor partially erupted. Restoration/monitoring of the partially erupted incisor deferred to recall.",
+        "note": [
+          {
+            "text": "Timothy has a mix of primary and permanent teeth present at once — the source use case calls this out specifically as an ODE modeling consideration (a genuinely pediatric picture the profiles must represent). Captured text-only; no coded dentition value asserted."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-tooth-development"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure-procedure-d0150-comprehensive-eval",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-d0150-comprehensive-eval",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D0150",
+              "display": "Comprehensive oral evaluation — new or established patient"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval"
+        },
+        "performedDateTime": "2026-05-28",
+        "performer": [
+          {
+            "actor": {
+              "reference": "PractitionerRole/role-watson",
+              "display": "Dr. David Watson, DDS"
+            }
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/servicerequest-referral"
+          }
+        ],
+        "note": [
+          {
+            "text": "Comprehensive oral evaluation performed at the referral visit; establishes Timothy's dental home. Covered once per provider per benefit year under HUSKY B; does not require prior authorization."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/procedure-d0150-comprehensive-eval"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure-procedure-d1330-oral-hygiene",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-d1330-oral-hygiene",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D1330",
+              "display": "Oral hygiene instructions"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval"
+        },
+        "performedDateTime": "2026-05-28",
+        "performer": [
+          {
+            "actor": {
+              "reference": "Organization/org-cornell-scott",
+              "display": "Cornell Scott-Hill Health Center — dental hygienist"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Oral hygiene education delivered by the hygienist to Timothy and his grandmother (brushing technique, flossing, age-appropriate toothpaste); toothbrush, toothpaste, and floss dispensed. The education interaction itself is also captured as Communication/communication-oral-hygiene-education."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/procedure-d1330-oral-hygiene"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure-procedure-d4341-srp-ll",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-d4341-srp-ll",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D4341",
+              "display": "Periodontal scaling and root planing — four or more teeth per quadrant"
+            }
+          ],
+          "text": "Scaling and root planing — lower left quadrant"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval"
+        },
+        "performedDateTime": "2026-05-28",
+        "performer": [
+          {
+            "actor": {
+              "reference": "PractitionerRole/role-watson",
+              "display": "Dr. David Watson, DDS"
+            }
+          }
+        ],
+        "bodySite": [
+          {
+            "text": "Lower left quadrant"
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-k05-211-periodontitis"
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/servicerequest-srp-order"
+          }
+        ],
+        "note": [
+          {
+            "text": "Scaling and root planing, lower left quadrant. The second of two D4341 quadrant Procedures (the other is the lower right, procedure-d4341-srp-lr) — modeled as two separate Procedure resources to match CDT per-quadrant billing granularity, producing two line items on the Interaction 5 claims-sharing EOB. Performed under approved prior authorization (preAuthRef CT-HUSKYB-PA-2026-00318)."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/procedure-d4341-srp-ll"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure-procedure-d4341-srp-lr",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-d4341-srp-lr",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D4341",
+              "display": "Periodontal scaling and root planing — four or more teeth per quadrant"
+            }
+          ],
+          "text": "Scaling and root planing — lower right quadrant"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval"
+        },
+        "performedDateTime": "2026-05-28",
+        "performer": [
+          {
+            "actor": {
+              "reference": "PractitionerRole/role-watson",
+              "display": "Dr. David Watson, DDS"
+            }
+          }
+        ],
+        "bodySite": [
+          {
+            "text": "Lower right quadrant"
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-k05-211-periodontitis"
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/servicerequest-srp-order"
+          }
+        ],
+        "note": [
+          {
+            "text": "Scaling and root planing, lower right quadrant. One of two D4341 quadrant Procedures (the other is the lower left, procedure-d4341-srp-ll) — modeled as two separate Procedure resources to match CDT per-quadrant billing granularity, producing two line items on the Interaction 5 claims-sharing EOB. Performed under approved prior authorization (preAuthRef CT-HUSKYB-PA-2026-00318)."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/procedure-d4341-srp-lr"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure-procedure-d4381-chlorhexidine",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-d4381-chlorhexidine",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D4381",
+              "display": "Localized delivery of antimicrobial agents via a controlled release vehicle — per tooth"
+            }
+          ],
+          "text": "Localized delivery of chlorhexidine at affected periodontal sites"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval"
+        },
+        "performedDateTime": "2026-05-28",
+        "performer": [
+          {
+            "actor": {
+              "reference": "PractitionerRole/role-watson",
+              "display": "Dr. David Watson, DDS"
+            }
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-k05-211-periodontitis"
+          }
+        ],
+        "note": [
+          {
+            "text": "Localized chlorhexidine chip placed at the affected periodontal sites to reduce bacterial load (the drug administration itself is recorded as MedicationAdministration/medicationadministration-chlorhexidine). COVERAGE-UNCERTAIN: whether D4381 is covered under the HUSKY B pediatric benefit is a genuinely open question in the source material — carried here as performed clinical care and flagged as coverage-uncertain on the Interaction 5 claims-sharing EOB, not asserted as covered."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/procedure-d4381-chlorhexidine"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:QuestionnaireResponse-questionnaireresponse-srp-pa-dtr",
+      "resource": {
+        "resourceType": "QuestionnaireResponse",
+        "id": "questionnaireresponse-srp-pa-dtr",
+        "questionnaire": "Questionnaire/questionnaire-ctdhp-d4341-pa-dtr",
+        "status": "completed",
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval"
+        },
+        "authored": "2026-05-28T09:30:00-04:00",
+        "author": {
+          "reference": "PractitionerRole/role-watson",
+          "display": "Dr. David Watson, DDS"
+        },
+        "item": [
+          {
+            "linkId": "1",
+            "text": "Quadrant(s) treated (UR / UL / LR / LL)",
+            "answer": [
+              {
+                "valueString": "LR"
+              },
+              {
+                "valueString": "LL"
+              }
+            ]
+          },
+          {
+            "linkId": "2",
+            "text": "Periodontal diagnosis (ICD-10-CM)",
+            "answer": [
+              {
+                "valueString": "K05.211 — Aggressive periodontitis, localized, slight"
+              }
+            ]
+          },
+          {
+            "linkId": "3",
+            "text": "Periodontal risk assessment / clinical findings supporting scaling and root planing (probing depths, attachment loss, radiographic bone loss)",
+            "answer": [
+              {
+                "valueString": "Localized 4-5 mm pockets with bleeding on probing in the lower right and lower left posterior sextants; early attachment loss and early crestal bone changes. See PRA (DiagnosticReport/diagnosticreport-perio-risk-assessment)."
+              }
+            ]
+          },
+          {
+            "linkId": "4",
+            "text": "Relevant systemic condition affecting periodontal risk (e.g., Type 1 diabetes)?",
+            "answer": [
+              {
+                "valueString": "Type 1 diabetes mellitus (E10.9), insulin-pump managed with CGM — materially elevates periodontal/infection/healing risk and drives the aggressive periodontitis pattern."
+              }
+            ]
+          },
+          {
+            "linkId": "5",
+            "text": "Medical-necessity justification for periodontal therapy in a pediatric patient",
+            "answer": [
+              {
+                "valueString": "Progression from plaque-induced gingivitis to localized slight aggressive periodontitis in a six-year-old within three months, accelerated by Type 1 diabetes. Non-surgical periodontal therapy (SRP) is indicated to arrest progression. DTR pre-populated diagnosis, tooth/quadrant, and systemic condition from the record already routed via Connie at Interaction 2; Dr. Watson confirmed and submitted."
+              }
+            ]
+          },
+          {
+            "linkId": "6",
+            "text": "Supporting periodontal charting / diagnostic report attached?",
+            "answer": [
+              {
+                "valueBoolean": true
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "QuestionnaireResponse/questionnaireresponse-srp-pa-dtr"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ServiceRequest-servicerequest-srp-order",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "servicerequest-srp-order",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ohia:srp-order-id",
+            "value": "SRP-2026-UC03-001"
+          }
+        ],
+        "status": "completed",
+        "intent": "order",
+        "priority": "routine",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D4341",
+              "display": "Periodontal scaling and root planing — four or more teeth per quadrant"
+            }
+          ],
+          "text": "Scaling and root planing, two quadrants (lower right, lower left)"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval",
+          "display": "Dental evaluation, 2026-05-28"
+        },
+        "authoredOn": "2026-05-28T09:20:00-04:00",
+        "requester": {
+          "reference": "PractitionerRole/role-watson",
+          "display": "Dr. David Watson, DDS"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "K05.211",
+                "display": "Aggressive periodontitis, localized, slight"
+              }
+            ]
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-k05-211-periodontitis",
+            "display": "Aggressive periodontitis, localized, slight"
+          }
+        ],
+        "insurance": [
+          {
+            "reference": "Coverage/coverage-timothy-jones-huskyb",
+            "display": "HUSKY B dental (CTDHP) — Gainwell payor, BeneCare ASO"
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "DiagnosticReport/diagnosticreport-perio-risk-assessment",
+            "display": "Periodontal risk assessment"
+          }
+        ],
+        "note": [
+          {
+            "text": "The signed SRP order that triggers coverage-requirements discovery (CRD) at the treatment visit. D4341 requires prior authorization under HUSKY B, so the order-sign CRD check (PlanDefinition/plandef-ctdhp-d4341-pa-rule) surfaces the PA requirement; DTR completes QuestionnaireResponse/questionnaireresponse-srp-pa-dtr and PAS submits Claim/claim-d4341-priorauth, approved via ClaimResponse/claimresponse-d4341-priorauth. Routed through Connie; PA intake at BeneCare (CTDHP ASO); DTR/PAS run and adjudicated by Gainwell (DSS fiscal agent). status: completed once the procedure is performed the same visit."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/servicerequest-srp-order"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Task-task-srp-pa-tracking",
+      "resource": {
+        "resourceType": "Task",
+        "id": "task-srp-pa-tracking",
+        "identifier": [
+          {
+            "system": "http://ctdhp.example.org/pa-request-id",
+            "value": "PA-REQ-2026-UC03-001"
+          }
+        ],
+        "status": "completed",
+        "businessStatus": {
+          "text": "Prior authorization approved"
+        },
+        "intent": "order",
+        "priority": "routine",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/CodeSystem/task-code",
+              "code": "fulfill"
+            }
+          ],
+          "text": "Prior-authorization tracking for D4341 (scaling and root planing)"
+        },
+        "focus": {
+          "reference": "ServiceRequest/servicerequest-srp-order",
+          "display": "SRP order (D4341, two quadrants)"
+        },
+        "for": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval",
+          "display": "Dental evaluation, 2026-05-28"
+        },
+        "authoredOn": "2026-05-28T09:20:00-04:00",
+        "lastModified": "2026-05-28T09:50:00-04:00",
+        "requester": {
+          "reference": "Organization/org-cornell-scott",
+          "display": "Cornell Scott-Hill Health Center"
+        },
+        "owner": {
+          "reference": "Organization/org-gainwell",
+          "display": "Gainwell Technologies (CMAP fiscal agent — adjudicates PA)"
+        },
+        "input": [
+          {
+            "type": {
+              "text": "PA documentation — diagnosis"
+            },
+            "valueReference": {
+              "reference": "Condition/condition-k05-211-periodontitis"
+            }
+          },
+          {
+            "type": {
+              "text": "PA documentation — periodontal risk assessment"
+            },
+            "valueReference": {
+              "reference": "DiagnosticReport/diagnosticreport-perio-risk-assessment"
+            }
+          },
+          {
+            "type": {
+              "text": "DTR-completed questionnaire"
+            },
+            "valueReference": {
+              "reference": "QuestionnaireResponse/questionnaireresponse-srp-pa-dtr"
+            }
+          }
+        ],
+        "output": [
+          {
+            "type": {
+              "text": "PA request submitted"
+            },
+            "valueReference": {
+              "reference": "Claim/claim-d4341-priorauth"
+            }
+          },
+          {
+            "type": {
+              "text": "PA decision"
+            },
+            "valueReference": {
+              "reference": "ClaimResponse/claimresponse-d4341-priorauth"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Separate Coordination Task for the SRP prior-authorization Request — distinct from the referral-tracking Task (task-referral-tracking), which tracks the referral Request. This is one Coordination Task per Request (the referral Request and the SRP Request are different Requests), consistent with the project's adopted COW scope; it is NOT a second Task on the same Request. Tracks the D4341 CRD/DTR/PAS cycle at the treatment visit: routed through Connie, PA intake at BeneCare (CTDHP ASO), adjudicated by Gainwell. The PA is not a patient-facing milestone and fires nothing to the guardian app."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Task/task-srp-pa-tracking"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Questionnaire-questionnaire-ctdhp-d4341-pa-dtr",
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "questionnaire-ctdhp-d4341-pa-dtr",
+        "status": "active",
+        "title": "HUSKY B / CTDHP Prior Authorization — Scaling & Root Planing (D4341)",
+        "description": "DTR questionnaire for the HUSKY B (CTDHP) prior-authorization pathway for periodontal scaling and root planing (D4341). PA intake is handled by the BeneCare ASO; the DTR/PAS determination and claims adjudication are performed by Gainwell (DSS fiscal agent, CMAP), with traffic routed through Connie. Medical-necessity justification is particularly relevant for a pediatric patient, where periodontitis is unusual.",
+        "subjectType": [
+          "Patient"
+        ],
+        "item": [
+          {
+            "linkId": "1",
+            "text": "Quadrant(s) treated (UR / UL / LR / LL)",
+            "type": "string",
+            "repeats": true
+          },
+          {
+            "linkId": "2",
+            "text": "Periodontal diagnosis (ICD-10-CM)",
+            "type": "string"
+          },
+          {
+            "linkId": "3",
+            "text": "Periodontal risk assessment / clinical findings supporting scaling and root planing (probing depths, attachment loss, radiographic bone loss)",
+            "type": "text"
+          },
+          {
+            "linkId": "4",
+            "text": "Relevant systemic condition affecting periodontal risk (e.g., Type 1 diabetes)?",
+            "type": "text"
+          },
+          {
+            "linkId": "5",
+            "text": "Medical-necessity justification for periodontal therapy in a pediatric patient",
+            "type": "text"
+          },
+          {
+            "linkId": "6",
+            "text": "Supporting periodontal charting / diagnostic report attached?",
+            "type": "boolean"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Questionnaire/questionnaire-ctdhp-d4341-pa-dtr"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Library-lib-ctdhp-d4341-pa-logic",
+      "resource": {
+        "resourceType": "Library",
+        "id": "lib-ctdhp-d4341-pa-logic",
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/library-type",
+              "code": "logic-library"
+            }
+          ]
+        },
+        "name": "CTDHPD4341PriorAuthLogic",
+        "title": "CTDHP / HUSKY B D4341 Prior Authorization Determination Logic",
+        "description": "CQL logic evaluated at order entry for the Connecticut HUSKY B dental benefit (CTDHP): does a D4341 (periodontal scaling and root planing, per quadrant) order require prior authorization? Returns true for D4341 orders under this benefit, since scaling and root planing requires PA. The determination is routed through Connie (statewide HIE) and intake-managed by the BeneCare ASO, while Gainwell (DSS fiscal agent, CMAP) performs the downstream DTR/PAS and adjudicates the resulting claim. Not evaluated at the covered-evaluation referral (Interaction 1); evaluated at the treatment visit (Interaction 3).",
+        "content": [
+          {
+            "contentType": "text/cql",
+            "data": "bGlicmFyeSBDVERIUEQ0MzQxUEFMb2dpYyB2ZXJzaW9uICcxLjAuMCc="
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Library/lib-ctdhp-d4341-pa-logic"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:PlanDefinition-plandef-ctdhp-d4341-pa-rule",
+      "resource": {
+        "resourceType": "PlanDefinition",
+        "id": "plandef-ctdhp-d4341-pa-rule",
+        "status": "active",
+        "name": "CTDHPD4341PriorAuthRule",
+        "title": "CTDHP / HUSKY B — D4341 (Scaling & Root Planing) Requires Prior Authorization",
+        "description": "Coverage-requirements rule for the Connecticut HUSKY B dental benefit (CTDHP). Fires at order-sign when a dental provider plans periodontal scaling and root planing (CDT D4341). Per the Connecticut administration model, this rule is surfaced/routed through Connie (the statewide HIE) with prior-authorization intake handled by the BeneCare ASO, while DTR/PAS evaluation and claims adjudication are performed by Gainwell Technologies (the DSS fiscal agent running CMAP). There is no dental MCO. This rule is not triggered by the covered-evaluation referral (UC03 Interaction 1); it fires only at the treatment visit (Interaction 3).",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+              "code": "eca-rule",
+              "display": "ECA Rule"
+            }
+          ]
+        },
+        "library": [
+          "Library/lib-ctdhp-d4341-pa-logic"
+        ],
+        "action": [
+          {
+            "title": "Flag PA required for D4341 (scaling and root planing)",
+            "trigger": [
+              {
+                "type": "named-event",
+                "name": "order-sign"
+              }
+            ],
+            "condition": [
+              {
+                "kind": "applicability",
+                "expression": {
+                  "language": "text/cql",
+                  "expression": "IsD4341Order"
+                }
+              }
+            ],
+            "definitionCanonical": "Questionnaire/questionnaire-ctdhp-d4341-pa-dtr"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "PlanDefinition/plandef-ctdhp-d4341-pa-rule"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:AuditEvent-auditevent-summary-endocrinologist",
+      "resource": {
+        "resourceType": "AuditEvent",
+        "id": "auditevent-summary-endocrinologist",
+        "type": {
+          "system": "http://terminology.hl7.org/CodeSystem/audit-event-type",
+          "code": "transmit",
+          "display": "Transmit"
+        },
+        "subtype": [
+          {
+            "system": "http://hl7.org/fhir/restful-interaction",
+            "code": "create",
+            "display": "create"
+          }
+        ],
+        "action": "R",
+        "recorded": "2026-05-28T11:06:00-04:00",
+        "outcome": "0",
+        "outcomeDesc": "Success — dental encounter summary and periodontal->glycemic risk Flag routed via Connie and received at the endocrinologist's endpoint.",
+        "agent": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "transmitter",
+                  "display": "Transmitter"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-connie",
+              "display": "Connie — Connecticut Health Information Exchange"
+            },
+            "requestor": true
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author",
+                  "display": "Author"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-cornell-scott",
+              "display": "Cornell Scott-Hill Health Center (source)"
+            },
+            "requestor": false
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://dicom.nema.org/resources/ontology/DCM",
+                  "code": "110152",
+                  "display": "Destination Role ID"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-yale-diabetes",
+              "display": "Yale Children's Diabetes Program (destination — endocrinologist)"
+            },
+            "requestor": false
+          }
+        ],
+        "source": {
+          "observer": {
+            "reference": "Organization/org-connie",
+            "display": "Connie — Connecticut Health Information Exchange"
+          },
+          "type": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/security-source-type",
+              "code": "4",
+              "display": "Application Server"
+            }
+          ]
+        },
+        "entity": [
+          {
+            "what": {
+              "reference": "ClinicalImpression/clinicalimpression-summary-endocrinologist",
+              "display": "Dental encounter summary — endocrinologist"
+            }
+          },
+          {
+            "what": {
+              "reference": "Flag/flag-perio-glycemic-risk",
+              "display": "Periodontal->glycemic risk Flag"
+            }
+          },
+          {
+            "what": {
+              "reference": "Patient/patient-timothy-jones",
+              "display": "Timothy Jones"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "AuditEvent/auditevent-summary-endocrinologist"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:AuditEvent-auditevent-summary-pediatrician",
+      "resource": {
+        "resourceType": "AuditEvent",
+        "id": "auditevent-summary-pediatrician",
+        "type": {
+          "system": "http://terminology.hl7.org/CodeSystem/audit-event-type",
+          "code": "transmit",
+          "display": "Transmit"
+        },
+        "subtype": [
+          {
+            "system": "http://hl7.org/fhir/restful-interaction",
+            "code": "create",
+            "display": "create"
+          }
+        ],
+        "action": "R",
+        "recorded": "2026-05-28T11:06:00-04:00",
+        "outcome": "0",
+        "outcomeDesc": "Success — dental encounter summary routed via Connie and received at the pediatrician's Epic endpoint.",
+        "agent": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "transmitter",
+                  "display": "Transmitter"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-connie",
+              "display": "Connie — Connecticut Health Information Exchange"
+            },
+            "requestor": true
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author",
+                  "display": "Author"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-cornell-scott",
+              "display": "Cornell Scott-Hill Health Center (source)"
+            },
+            "requestor": false
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://dicom.nema.org/resources/ontology/DCM",
+                  "code": "110152",
+                  "display": "Destination Role ID"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-nemg",
+              "display": "Northeast Medical Group (destination — referring pediatrician)"
+            },
+            "requestor": false
+          }
+        ],
+        "source": {
+          "observer": {
+            "reference": "Organization/org-connie",
+            "display": "Connie — Connecticut Health Information Exchange"
+          },
+          "type": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/security-source-type",
+              "code": "4",
+              "display": "Application Server"
+            }
+          ]
+        },
+        "entity": [
+          {
+            "what": {
+              "reference": "ClinicalImpression/clinicalimpression-summary-pediatrician",
+              "display": "Dental encounter summary — pediatrician"
+            }
+          },
+          {
+            "what": {
+              "reference": "Patient/patient-timothy-jones",
+              "display": "Timothy Jones"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "AuditEvent/auditevent-summary-pediatrician"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:CarePlan-careplan-perio",
+      "resource": {
+        "resourceType": "CarePlan",
+        "id": "careplan-perio",
+        "status": "active",
+        "intent": "plan",
+        "title": "Post-treatment periodontal care plan — Timothy Jones",
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval"
+        },
+        "period": {
+          "start": "2026-05-28"
+        },
+        "author": {
+          "reference": "PractitionerRole/role-watson",
+          "display": "Dr. David Watson, DDS"
+        },
+        "addresses": [
+          {
+            "reference": "Condition/condition-k05-211-periodontitis"
+          }
+        ],
+        "activity": [
+          {
+            "detail": {
+              "kind": "ServiceRequest",
+              "status": "in-progress",
+              "description": "Daily oral hygiene: brushing technique and flossing as instructed; age-appropriate toothpaste"
+            }
+          },
+          {
+            "detail": {
+              "kind": "Appointment",
+              "status": "not-started",
+              "description": "Six-month periodontal recall to reassess and monitor the partially erupted lower central incisor"
+            }
+          },
+          {
+            "detail": {
+              "kind": "ServiceRequest",
+              "status": "not-started",
+              "description": "Coordinate periodontal management with the diabetes care team (glycemic control affects periodontal outcomes and vice versa)"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Post-treatment care plan surfaced to Timothy's guardian-facing app alongside the visit-complete milestone at Interaction 4. Recall interval and oral-hygiene reinforcement reflect the elevated periodontal risk from Type 1 diabetes."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "CarePlan/careplan-perio"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ClinicalImpression-clinicalimpression-summary-endocrinologist",
+      "resource": {
+        "resourceType": "ClinicalImpression",
+        "id": "clinicalimpression-summary-endocrinologist",
+        "status": "completed",
+        "code": {
+          "text": "Dental encounter summary — to pediatric endocrinologist"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval"
+        },
+        "date": "2026-05-28T11:00:00-04:00",
+        "assessor": {
+          "reference": "PractitionerRole/role-watson",
+          "display": "Dr. David Watson, DDS — Cornell Scott-Hill Health Center"
+        },
+        "problem": [
+          {
+            "reference": "Condition/condition-k05-211-periodontitis"
+          },
+          {
+            "reference": "Condition/condition-e10-9-diabetes"
+          }
+        ],
+        "finding": [
+          {
+            "itemReference": {
+              "reference": "Condition/condition-k05-211-periodontitis",
+              "display": "Aggressive periodontitis, localized, slight — confirmed"
+            }
+          }
+        ],
+        "summary": "Timothy Jones, six-year-old male with Type 1 diabetes (E10.9), seen 2026-05-28 for dental evaluation. Aggressive periodontitis (K05.211), localized, slight, confirmed. Periodontal disease progression accelerated by poorly controlled glycemia - this relationship is bidirectional: periodontitis also exacerbates glycemic dysregulation and may complicate insulin management. Scaling and root planing performed (D4341 x2). Chlorhexidine 2.5% chip placed at affected periodontal sites (D4381). Most recent HbA1c requested from chart if available - not available in records received. Recommend glycemic review given periodontal disease burden in the context of ongoing diabetes management.",
+        "note": [
+          {
+            "text": "Structured summary to the pediatric endocrinologist (Yale Children's Diabetes Program) via Connie — the second of the two simultaneous Interaction 4 summaries. Its clinical point is the bidirectional oral-systemic relationship: it carries the NEW periodontal->glycemic risk Flag (flag-perio-glycemic-risk), which points in the OPPOSITE direction from the Interaction 1 diabetes->periodontal Flag. The two Flags must not be conflated."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ClinicalImpression/clinicalimpression-summary-endocrinologist"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ClinicalImpression-clinicalimpression-summary-pediatrician",
+      "resource": {
+        "resourceType": "ClinicalImpression",
+        "id": "clinicalimpression-summary-pediatrician",
+        "status": "completed",
+        "code": {
+          "text": "Dental encounter summary — to referring pediatrician"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval"
+        },
+        "date": "2026-05-28T11:00:00-04:00",
+        "assessor": {
+          "reference": "PractitionerRole/role-watson",
+          "display": "Dr. David Watson, DDS — Cornell Scott-Hill Health Center"
+        },
+        "problem": [
+          {
+            "reference": "Condition/condition-k05-211-periodontitis"
+          }
+        ],
+        "investigation": [
+          {
+            "code": {
+              "text": "Periodontal therapy delivered"
+            },
+            "item": [
+              {
+                "reference": "Procedure/procedure-d0150-comprehensive-eval",
+                "display": "D0150 comprehensive oral evaluation"
+              },
+              {
+                "reference": "Procedure/procedure-d4341-srp-lr",
+                "display": "D4341 SRP, lower right"
+              },
+              {
+                "reference": "Procedure/procedure-d4341-srp-ll",
+                "display": "D4341 SRP, lower left"
+              },
+              {
+                "reference": "Procedure/procedure-d4381-chlorhexidine",
+                "display": "D4381 chlorhexidine delivery"
+              },
+              {
+                "reference": "Procedure/procedure-d1330-oral-hygiene",
+                "display": "D1330 oral hygiene instructions"
+              }
+            ]
+          }
+        ],
+        "finding": [
+          {
+            "itemReference": {
+              "reference": "Condition/condition-k05-211-periodontitis",
+              "display": "Aggressive periodontitis, localized, slight — confirmed"
+            }
+          }
+        ],
+        "summary": "Timothy Jones seen 2026-05-28 per referral from Northeast Medical Group. Comprehensive oral evaluation and periodontal risk assessment completed. Gingivitis has progressed to early-stage aggressive periodontitis (K05.211), localized, slight - consistent with the accelerated periodontitis trajectory in Type 1 diabetes. Scaling and root planing performed in two quadrants (D4341 x2). Chlorhexidine chip placed at affected sites (D4381). Oral hygiene education provided to patient and grandmother (D1330); toothbrush, toothpaste, and floss dispensed. Six-month recall recommended. Permanent restoration of partially erupted lower central incisor to be monitored at recall.",
+        "note": [
+          {
+            "text": "Structured encounter summary returned to the referring pediatrician (Dr. Smith, NEMG) via Connie — one of two simultaneous summaries at Interaction 4 (the other goes to the endocrinologist). This summary closes the referral loop (see the completed referral Task and ServiceRequest). Transmitted as discrete FHIR, not a PDF."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ClinicalImpression/clinicalimpression-summary-pediatrician"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Flag-flag-perio-glycemic-risk",
+      "resource": {
+        "resourceType": "Flag",
+        "id": "flag-perio-glycemic-risk",
+        "status": "active",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/flag-category",
+                "code": "clinical",
+                "display": "Clinical"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Active periodontal disease (aggressive periodontitis) — may exacerbate glycemic dysregulation and complicate insulin management. Recommend glycemic review and coordinated care."
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "period": {
+          "start": "2026-05-28"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval",
+          "display": "Dental evaluation, 2026-05-28"
+        },
+        "author": {
+          "reference": "PractitionerRole/role-watson",
+          "display": "Dr. David Watson, DDS"
+        },
+        "note": [
+          {
+            "text": "NEW Flag raised at Interaction 4, directed to the pediatric endocrinologist. This is the periodontal->glycemic-risk direction (periodontitis worsening glycemic control), the OPPOSITE of the Interaction 1 Flag (flag-diabetes-perio-risk), which was the diabetes->periodontal-risk direction directed to the dental provider. Two distinct Flags pointed in opposite directions — deliberately not the same Flag reused. Travels with the endocrinologist summary (clinicalimpression-summary-endocrinologist)."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Flag/flag-perio-glycemic-risk"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Provenance-provenance-summary-endocrinologist",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "provenance-summary-endocrinologist",
+        "target": [
+          {
+            "reference": "ClinicalImpression/clinicalimpression-summary-endocrinologist",
+            "display": "Dental encounter summary — endocrinologist"
+          },
+          {
+            "reference": "Task/task-summary-delivery-endocrinologist",
+            "display": "Summary delivery Task (endocrinologist)"
+          },
+          {
+            "reference": "Flag/flag-perio-glycemic-risk",
+            "display": "Periodontal->glycemic risk Flag"
+          }
+        ],
+        "recorded": "2026-05-28T11:06:00-04:00",
+        "activity": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-DataOperation",
+              "code": "CREATE",
+              "display": "create"
+            }
+          ]
+        },
+        "agent": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author",
+                  "display": "Author"
+                }
+              ]
+            },
+            "who": {
+              "reference": "PractitionerRole/role-watson",
+              "display": "Dr. David Watson, DDS"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/org-cornell-scott",
+              "display": "Cornell Scott-Hill Health Center"
+            }
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "transmitter",
+                  "display": "Transmitter"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-connie",
+              "display": "Connie — Connecticut Health Information Exchange (routing hub)"
+            }
+          }
+        ],
+        "entity": [
+          {
+            "role": "source",
+            "what": {
+              "display": "Dental encounter summary and periodontal->glycemic risk Flag composed at Cornell Scott-Hill and routed by Connie to the pediatric endocrinologist at the Yale Children's Diabetes Program."
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Provenance/provenance-summary-endocrinologist"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Provenance-provenance-summary-pediatrician",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "provenance-summary-pediatrician",
+        "target": [
+          {
+            "reference": "ClinicalImpression/clinicalimpression-summary-pediatrician",
+            "display": "Dental encounter summary — pediatrician"
+          },
+          {
+            "reference": "Task/task-summary-delivery-pediatrician",
+            "display": "Summary delivery Task (pediatrician)"
+          }
+        ],
+        "recorded": "2026-05-28T11:06:00-04:00",
+        "activity": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-DataOperation",
+              "code": "CREATE",
+              "display": "create"
+            }
+          ]
+        },
+        "agent": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author",
+                  "display": "Author"
+                }
+              ]
+            },
+            "who": {
+              "reference": "PractitionerRole/role-watson",
+              "display": "Dr. David Watson, DDS"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/org-cornell-scott",
+              "display": "Cornell Scott-Hill Health Center"
+            }
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "transmitter",
+                  "display": "Transmitter"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-connie",
+              "display": "Connie — Connecticut Health Information Exchange (routing hub)"
+            }
+          }
+        ],
+        "entity": [
+          {
+            "role": "source",
+            "what": {
+              "display": "Dental encounter summary composed at Cornell Scott-Hill and routed by Connie to the referring pediatrician's Epic FHIR endpoint at Yale New Haven Health (Northeast Medical Group)."
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Provenance/provenance-summary-pediatrician"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Task-task-summary-delivery-endocrinologist",
+      "resource": {
+        "resourceType": "Task",
+        "id": "task-summary-delivery-endocrinologist",
+        "identifier": [
+          {
+            "system": "urn:ohia:summary-delivery-id",
+            "value": "SUMDEL-2026-UC03-ENDO"
+          }
+        ],
+        "status": "completed",
+        "businessStatus": {
+          "text": "Encounter summary delivered to endocrinologist via Connie"
+        },
+        "intent": "order",
+        "priority": "routine",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/CodeSystem/task-code",
+              "code": "fulfill"
+            }
+          ],
+          "text": "Deliver dental encounter summary + periodontal->glycemic risk Flag to pediatric endocrinologist (via Connie)"
+        },
+        "focus": {
+          "reference": "ClinicalImpression/clinicalimpression-summary-endocrinologist",
+          "display": "Dental encounter summary — endocrinologist"
+        },
+        "for": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval"
+        },
+        "authoredOn": "2026-05-28T11:00:00-04:00",
+        "lastModified": "2026-05-28T11:06:00-04:00",
+        "requester": {
+          "reference": "Organization/org-cornell-scott",
+          "display": "Cornell Scott-Hill Health Center"
+        },
+        "owner": {
+          "reference": "Organization/org-connie",
+          "display": "Connie — Connecticut Health Information Exchange (routing hub)"
+        },
+        "output": [
+          {
+            "type": {
+              "text": "Delivered summary"
+            },
+            "valueReference": {
+              "reference": "ClinicalImpression/clinicalimpression-summary-endocrinologist"
+            }
+          },
+          {
+            "type": {
+              "text": "Periodontal->glycemic risk flag"
+            },
+            "valueReference": {
+              "reference": "Flag/flag-perio-glycemic-risk"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "The second simultaneous summary-delivery Task at Interaction 4. Routes the parallel encounter summary AND the new periodontal->glycemic risk Flag to the pediatric endocrinologist (Yale Children's Diabetes Program) through Connie. This is the direction that carries the bidirectional oral-systemic signal back to diabetes care. Distinct from the pediatrician delivery Task."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Task/task-summary-delivery-endocrinologist"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Task-task-summary-delivery-pediatrician",
+      "resource": {
+        "resourceType": "Task",
+        "id": "task-summary-delivery-pediatrician",
+        "identifier": [
+          {
+            "system": "urn:ohia:summary-delivery-id",
+            "value": "SUMDEL-2026-UC03-PED"
+          }
+        ],
+        "status": "completed",
+        "businessStatus": {
+          "text": "Encounter summary delivered to pediatrician via Connie"
+        },
+        "intent": "order",
+        "priority": "routine",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/CodeSystem/task-code",
+              "code": "fulfill"
+            }
+          ],
+          "text": "Deliver dental encounter summary to referring pediatrician (via Connie)"
+        },
+        "focus": {
+          "reference": "ClinicalImpression/clinicalimpression-summary-pediatrician",
+          "display": "Dental encounter summary — pediatrician"
+        },
+        "for": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-dental-eval"
+        },
+        "authoredOn": "2026-05-28T11:00:00-04:00",
+        "lastModified": "2026-05-28T11:06:00-04:00",
+        "requester": {
+          "reference": "Organization/org-cornell-scott",
+          "display": "Cornell Scott-Hill Health Center"
+        },
+        "owner": {
+          "reference": "Organization/org-connie",
+          "display": "Connie — Connecticut Health Information Exchange (routing hub)"
+        },
+        "output": [
+          {
+            "type": {
+              "text": "Delivered summary"
+            },
+            "valueReference": {
+              "reference": "ClinicalImpression/clinicalimpression-summary-pediatrician"
+            }
+          },
+          {
+            "type": {
+              "text": "Care plan included"
+            },
+            "valueReference": {
+              "reference": "CarePlan/careplan-perio"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "One of two simultaneous summary-delivery Tasks at Interaction 4. This one routes the encounter summary to the referring pediatrician (Dr. Smith, NEMG) through Connie to the Epic FHIR endpoint at Yale New Haven Health. CDex provider-to-provider push. The other delivery Task (task-summary-delivery-endocrinologist) routes the parallel summary + the perio->glycemic Flag to the endocrinologist."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Task/task-summary-delivery-pediatrician"
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "resourceType": "Device",
+  "id": "device-insulin-pump",
+  "status": "active",
+  "type": {
+    "text": "Insulin pump"
+  },
+  "patient": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "note": [
+    {
+      "text": "Patient-worn insulin pump, started ~2025-12-01, delivering insulin lispro. Part of Timothy's diabetes management; transmitted to the dental practice in the Interaction 2 pre-encounter records bundle. Device.type is text-only (no verified SNOMED code asserted per project verification discipline); R4 Device has no bodySite. Synthetic — no manufacturer/model/UDI asserted."
+    }
+  ]
+}

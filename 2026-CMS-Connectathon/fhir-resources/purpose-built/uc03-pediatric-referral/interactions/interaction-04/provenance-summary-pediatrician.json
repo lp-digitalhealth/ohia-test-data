@@ -1,0 +1,68 @@
+{
+  "resourceType": "Provenance",
+  "id": "provenance-summary-pediatrician",
+  "target": [
+    {
+      "reference": "ClinicalImpression/clinicalimpression-summary-pediatrician",
+      "display": "Dental encounter summary — pediatrician"
+    },
+    {
+      "reference": "Task/task-summary-delivery-pediatrician",
+      "display": "Summary delivery Task (pediatrician)"
+    }
+  ],
+  "recorded": "2026-05-28T11:06:00-04:00",
+  "activity": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-DataOperation",
+        "code": "CREATE",
+        "display": "create"
+      }
+    ]
+  },
+  "agent": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "author",
+            "display": "Author"
+          }
+        ]
+      },
+      "who": {
+        "reference": "PractitionerRole/role-watson",
+        "display": "Dr. David Watson, DDS"
+      },
+      "onBehalfOf": {
+        "reference": "Organization/org-cornell-scott",
+        "display": "Cornell Scott-Hill Health Center"
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "transmitter",
+            "display": "Transmitter"
+          }
+        ]
+      },
+      "who": {
+        "reference": "Organization/org-connie",
+        "display": "Connie — Connecticut Health Information Exchange (routing hub)"
+      }
+    }
+  ],
+  "entity": [
+    {
+      "role": "source",
+      "what": {
+        "display": "Dental encounter summary composed at Cornell Scott-Hill and routed by Connie to the referring pediatrician's Epic FHIR endpoint at Yale New Haven Health (Northeast Medical Group)."
+      }
+    }
+  ]
+}

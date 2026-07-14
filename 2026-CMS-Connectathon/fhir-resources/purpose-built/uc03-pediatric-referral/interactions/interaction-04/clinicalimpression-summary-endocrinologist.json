@@ -1,0 +1,42 @@
+{
+  "resourceType": "ClinicalImpression",
+  "id": "clinicalimpression-summary-endocrinologist",
+  "status": "completed",
+  "code": {
+    "text": "Dental encounter summary — to pediatric endocrinologist"
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval"
+  },
+  "date": "2026-05-28T11:00:00-04:00",
+  "assessor": {
+    "reference": "PractitionerRole/role-watson",
+    "display": "Dr. David Watson, DDS — Cornell Scott-Hill Health Center"
+  },
+  "problem": [
+    {
+      "reference": "Condition/condition-k05-211-periodontitis"
+    },
+    {
+      "reference": "Condition/condition-e10-9-diabetes"
+    }
+  ],
+  "finding": [
+    {
+      "itemReference": {
+        "reference": "Condition/condition-k05-211-periodontitis",
+        "display": "Aggressive periodontitis, localized, slight — confirmed"
+      }
+    }
+  ],
+  "summary": "Timothy Jones, six-year-old male with Type 1 diabetes (E10.9), seen 2026-05-28 for dental evaluation. Aggressive periodontitis (K05.211), localized, slight, confirmed. Periodontal disease progression accelerated by poorly controlled glycemia - this relationship is bidirectional: periodontitis also exacerbates glycemic dysregulation and may complicate insulin management. Scaling and root planing performed (D4341 x2). Chlorhexidine 2.5% chip placed at affected periodontal sites (D4381). Most recent HbA1c requested from chart if available - not available in records received. Recommend glycemic review given periodontal disease burden in the context of ongoing diabetes management.",
+  "note": [
+    {
+      "text": "Structured summary to the pediatric endocrinologist (Yale Children's Diabetes Program) via Connie — the second of the two simultaneous Interaction 4 summaries. Its clinical point is the bidirectional oral-systemic relationship: it carries the NEW periodontal->glycemic risk Flag (flag-perio-glycemic-risk), which points in the OPPOSITE direction from the Interaction 1 diabetes->periodontal Flag. The two Flags must not be conflated."
+    }
+  ]
+}

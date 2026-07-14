@@ -8,15 +8,20 @@ A resource belongs in `durable/` if it answers "who/what is this entity in the r
 
 | Folder | Resource type(s) | Count |
 |---|---|---|
-| `organizations/` | Organization | 7 |
-| `practitioners/` | Practitioner | 6 |
-| `locations/` | Location | 4 |
-| `endpoints/` | Endpoint (FHIR REST / WADO-RS addresses) | 7 |
-| `insurance-plans/` | InsurancePlan | 3 |
-| `payer-rules/plan-definitions/` | PlanDefinition (CRD ECA rules) | 3 |
-| `payer-rules/libraries/` | Library (CQL logic) | 3 |
-| `payer-rules/questionnaires/` | Questionnaire (DTR templates) | 2 |
-| `cds-hooks/` | CDS Hooks discovery configs (NOT FHIR resources) | 3 |
+| `organizations/` | Organization | 14 |
+| `practitioners/` | Practitioner | 10 |
+| `locations/` | Location | 6 |
+| `endpoints/` | Endpoint (FHIR REST / WADO-RS addresses) | 11 |
+| `healthcare-services/` | HealthcareService (Plan-Net directory entries) | 1 |
+| `insurance-plans/` | InsurancePlan | 4 |
+| `payer-rules/plan-definitions/` | PlanDefinition (CRD ECA rules) | 4 |
+| `payer-rules/libraries/` | Library (CQL logic) | 4 |
+| `payer-rules/questionnaires/` | Questionnaire (DTR templates) | 3 |
+| `cds-hooks/` | CDS Hooks discovery configs (NOT FHIR resources) | 4 |
+
+**UC03 (Connecticut pediatric referral) added a net-new block of Connecticut entities:** organizations `org-nemg`, `org-cornell-scott`, `org-connie` (statewide HIE), `org-ctdhp`, `org-benecare` (ASO), `org-gainwell` (fiscal agent/payer), `org-yale-diabetes`; practitioners `pract-smith`, `pract-watson`, `pract-endo`, `pract-dietitian`; locations `loc-nemg`, `loc-cornell-scott`; endpoints `endpoint-nemg`, `endpoint-cornell-scott`, `endpoint-connie`, `endpoint-benecare`; the new `healthcare-services/` subfolder with `hs-cornell-scott-pediatric-dental` (the Plan-Net entry BeneCare returns); and `insplan-ctdhp-huskyb`. Note the Connecticut payer split: **Gainwell** is the claims payer (fiscal agent), while **CTDHP/BeneCare** runs the directory/referral coordination — there is no dental MCO.
+
+**UC03's D4341 prior-authorization (fires at the treatment visit, I3) added the CTDHP PA rule set:** `payer-rules/plan-definitions/plandef-ctdhp-d4341-pa-rule`, `payer-rules/libraries/lib-ctdhp-d4341-pa-logic`, `payer-rules/questionnaires/questionnaire-ctdhp-d4341-pa-dtr`, and `cds-hooks/cds-hooks-discovery-ctdhp` (the `order-sign` discovery config). Their notes capture the Connecticut routing/adjudication split — **Connie** routes, **BeneCare** takes PA intake, **Gainwell** runs DTR/PAS and adjudicates. Durable because they are the CTDHP/HUSKY B plan's rules, not Timothy's episode.
 
 ## What is shared across more than one use case (the reuse payoff)
 
@@ -32,4 +37,4 @@ Everything else here is currently loaded by a single use case, but lives in `dur
 The full file-by-file manifest (which real-world entity each file represents, and which use cases consume it) is in the library master index: [`../README.md`](../README.md).
 
 ## CDS Hooks placement note
-All three payers' `order-sign` discovery configs now live together in `cds-hooks/`. Previously two sat loose at the registry root and IBX's was mis-filed inside a UC01 interaction folder; they were consolidated here during the library reorg. Each interaction bundle that exercises a payer's hook still embeds its own inline copy, so moving the standalone files did not affect any bundle.
+All four payers' `order-sign` discovery configs now live together in `cds-hooks/` (IBX, DentaQuest, commercial, and CTDHP). Previously two sat loose at the registry root and IBX's was mis-filed inside a UC01 interaction folder; they were consolidated here during the library reorg. Each interaction bundle that exercises a payer's hook still embeds its own inline copy, so moving the standalone files did not affect any bundle.

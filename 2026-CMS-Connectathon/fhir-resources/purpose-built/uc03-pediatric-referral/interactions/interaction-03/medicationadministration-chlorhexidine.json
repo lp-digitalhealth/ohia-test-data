@@ -1,0 +1,47 @@
+{
+  "resourceType": "MedicationAdministration",
+  "id": "medicationadministration-chlorhexidine",
+  "status": "completed",
+  "medicationCodeableConcept": {
+    "text": "Chlorhexidine 2.5 mg controlled-release dental insert (localized periodontal delivery)"
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "context": {
+    "reference": "Encounter/encounter-03-dental-eval",
+    "display": "Dental evaluation, 2026-05-28"
+  },
+  "effectiveDateTime": "2026-05-28",
+  "performer": [
+    {
+      "actor": {
+        "reference": "PractitionerRole/role-watson",
+        "display": "Dr. David Watson, DDS"
+      }
+    }
+  ],
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-k05-211-periodontitis"
+    }
+  ],
+  "request": {
+    "display": "In-office administration; not a dispensed prescription"
+  },
+  "dosage": {
+    "site": {
+      "text": "Affected periodontal pockets, lower right and lower left quadrants"
+    },
+    "route": {
+      "text": "Dental / periodontal (subgingival insert)"
+    },
+    "text": "Chlorhexidine controlled-release chip placed subgingivally at affected sites following scaling and root planing."
+  },
+  "note": [
+    {
+      "text": "In-office administration record for the chlorhexidine chip placed as part of the D4381 procedure (procedure-d4381-chlorhexidine). The drug is captured text-only (medicationCodeableConcept.text); no RxNorm code is asserted (text-only per project verification discipline, to avoid an unverified drug code)."
+    }
+  ]
+}

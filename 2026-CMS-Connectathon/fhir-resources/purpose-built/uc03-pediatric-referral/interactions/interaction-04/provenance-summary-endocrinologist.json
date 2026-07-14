@@ -1,0 +1,72 @@
+{
+  "resourceType": "Provenance",
+  "id": "provenance-summary-endocrinologist",
+  "target": [
+    {
+      "reference": "ClinicalImpression/clinicalimpression-summary-endocrinologist",
+      "display": "Dental encounter summary — endocrinologist"
+    },
+    {
+      "reference": "Task/task-summary-delivery-endocrinologist",
+      "display": "Summary delivery Task (endocrinologist)"
+    },
+    {
+      "reference": "Flag/flag-perio-glycemic-risk",
+      "display": "Periodontal->glycemic risk Flag"
+    }
+  ],
+  "recorded": "2026-05-28T11:06:00-04:00",
+  "activity": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-DataOperation",
+        "code": "CREATE",
+        "display": "create"
+      }
+    ]
+  },
+  "agent": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "author",
+            "display": "Author"
+          }
+        ]
+      },
+      "who": {
+        "reference": "PractitionerRole/role-watson",
+        "display": "Dr. David Watson, DDS"
+      },
+      "onBehalfOf": {
+        "reference": "Organization/org-cornell-scott",
+        "display": "Cornell Scott-Hill Health Center"
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "transmitter",
+            "display": "Transmitter"
+          }
+        ]
+      },
+      "who": {
+        "reference": "Organization/org-connie",
+        "display": "Connie — Connecticut Health Information Exchange (routing hub)"
+      }
+    }
+  ],
+  "entity": [
+    {
+      "role": "source",
+      "what": {
+        "display": "Dental encounter summary and periodontal->glycemic risk Flag composed at Cornell Scott-Hill and routed by Connie to the pediatric endocrinologist at the Yale Children's Diabetes Program."
+      }
+    }
+  ]
+}

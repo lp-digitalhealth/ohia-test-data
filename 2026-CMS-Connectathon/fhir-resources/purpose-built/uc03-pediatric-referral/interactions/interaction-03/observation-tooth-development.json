@@ -1,0 +1,43 @@
+{
+  "resourceType": "Observation",
+  "id": "observation-tooth-development",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"]
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "text": "Tooth development / dentition status"
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval",
+    "display": "Dental evaluation, 2026-05-28"
+  },
+  "effectiveDateTime": "2026-05-28",
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-watson",
+      "display": "Dr. David Watson, DDS"
+    }
+  ],
+  "valueString": "Mixed dentition: primary and permanent teeth both present. One lower central incisor site remains edentulous following early loss of two primary incisors; one permanent lower central incisor partially erupted. Restoration/monitoring of the partially erupted incisor deferred to recall.",
+  "note": [
+    {
+      "text": "Timothy has a mix of primary and permanent teeth present at once — the source use case calls this out specifically as an ODE modeling consideration (a genuinely pediatric picture the profiles must represent). Captured text-only; no coded dentition value asserted."
+    }
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "resourceType": "Task",
+  "id": "task-records-delivery",
+  "status": "completed",
+  "intent": "order",
+  "priority": "routine",
+  "code": {
+    "text": "Pre-encounter clinical records delivery (CDex) — NEMG → Connie → Cornell Scott-Hill dental"
+  },
+  "focus": {
+    "reference": "Bundle/bundle-preencounter-records",
+    "display": "Timothy Jones pre-encounter medical records (collection bundle)"
+  },
+  "for": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "authoredOn": "2026-05-21T08:00:00-04:00",
+  "lastModified": "2026-05-21T08:05:00-04:00",
+  "requester": {
+    "reference": "Organization/org-nemg",
+    "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+  },
+  "owner": {
+    "reference": "Organization/org-cornell-scott",
+    "display": "Cornell Scott-Hill Health Center (receiving dental practice)"
+  },
+  "output": [
+    {
+      "type": { "text": "Delivered records bundle" },
+      "valueReference": {
+        "reference": "Bundle/bundle-preencounter-records",
+        "display": "Pre-encounter medical records (collection bundle)"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "CDex-style clinical-data delivery, one week before the 2026-05-28 dental appointment, so Dr. Watson has Timothy's diabetes context, medications, devices, care team, and oral-health findings ahead of the visit — motivated by the accompanying caregiver being a grandparent with limited medical-history knowledge. Records are extracted as discrete FHIR from the NEMG/Yale New Haven Health Epic instance (Care Everywhere) and routed by Connie to the dental practice's interim FHIR server. status 'completed' reflects Connie-confirmed receipt at the dental practice. This is a SEPARATE Task from the referral-tracking Task (Task/task-referral-tracking) — records delivery and referral state are tracked independently. No patient-facing notification fires for this provider-to-provider exchange."
+    }
+  ]
+}

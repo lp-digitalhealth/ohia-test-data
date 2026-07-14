@@ -1,0 +1,35 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "role-endo",
+  "active": true,
+  "practitioner": {
+    "reference": "Practitioner/pract-endo",
+    "display": "Pediatric Endocrinologist"
+  },
+  "organization": {
+    "reference": "Organization/org-yale-diabetes",
+    "display": "Yale Children's Diabetes Program — Yale New Haven Children's Hospital"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "2080P0202X",
+          "display": "Pediatric Endocrinology"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "2080P0202X",
+          "display": "Pediatric Endocrinology"
+        }
+      ]
+    }
+  ]
+}

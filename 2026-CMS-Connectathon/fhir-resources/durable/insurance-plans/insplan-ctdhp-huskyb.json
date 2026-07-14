@@ -1,0 +1,36 @@
+{
+  "resourceType": "InsurancePlan",
+  "id": "insplan-ctdhp-huskyb",
+  "status": "active",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+          "code": "medicaid",
+          "display": "Medicaid"
+        }
+      ],
+      "text": "HUSKY B (Connecticut CHIP) — dental benefit"
+    }
+  ],
+  "name": "HUSKY B (Connecticut CHIP) — Dental Benefit (CTDHP)",
+  "ownedBy": {
+    "reference": "Organization/org-ctdhp",
+    "display": "Connecticut Dental Health Partnership (CTDHP)"
+  },
+  "administeredBy": {
+    "reference": "Organization/org-benecare",
+    "display": "BeneCare Dental Plans (ASO)"
+  },
+  "coverageArea": [
+    {
+      "display": "Connecticut"
+    }
+  ],
+  "note": [
+    {
+      "text": "The HUSKY B (Connecticut CHIP) dental benefit. Administered by the BeneCare ASO (network, Plan-Net directory, referral coordination, PA/post-procedure review intake) on behalf of CTDHP; claims are adjudicated and paid by Gainwell (the DSS fiscal agent via CMAP), not by CTDHP/BeneCare — there is no dental MCO. Covers pediatric diagnostic/preventive services (e.g. D0150, D1330); periodontal scaling and root planing (D4341) is covered with medical-necessity documentation and is unusual for a pediatric patient; localized antimicrobial delivery (D4381) coverage is uncertain under the pediatric benefit (named open test finding). Connecticut Medicaid fee schedule rates apply. Prior authorization, where it applies, is evaluated at the treatment visit, not at referral."
+    }
+  ]
+}

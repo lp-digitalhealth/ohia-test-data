@@ -1,0 +1,60 @@
+{
+  "resourceType": "Observation",
+  "id": "observation-oral-health-assessment",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"]
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "text": "Pediatric oral health assessment findings (well-child visit)"
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-well-child",
+    "display": "Well-child visit, 2026-02-28"
+  },
+  "effectiveDateTime": "2026-02-28",
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-smith",
+      "display": "Dr. Laura Smith, MD"
+    }
+  ],
+  "component": [
+    {
+      "code": { "text": "Gingivitis present" },
+      "valueString": "Significant plaque-induced gingivitis observed on examination."
+    },
+    {
+      "code": { "text": "Tooth loss" },
+      "valueString": "Two lower central (baby) incisors lost: one site remains edentulous; one adult tooth partially erupted."
+    },
+    {
+      "code": { "text": "Pain" },
+      "valueString": "Patient reports pain around the area of the missing teeth."
+    },
+    {
+      "code": { "text": "Dental home" },
+      "valueString": "No established dental home; patient has never seen a dental provider."
+    }
+  ],
+  "note": [
+    {
+      "text": "Oral health assessment performed by Dr. Smith as part of the well-child protocol. Wrapped for transmission with the referral (DocumentReference) and included in the Interaction 2 pre-encounter records bundle. Findings are captured as components with text values; no LOINC code is asserted for the overall pediatric oral health assessment (text-only per project verification discipline)."
+    }
+  ]
+}

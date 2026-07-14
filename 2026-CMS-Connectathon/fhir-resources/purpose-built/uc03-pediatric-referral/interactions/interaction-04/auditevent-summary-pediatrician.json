@@ -1,0 +1,97 @@
+{
+  "resourceType": "AuditEvent",
+  "id": "auditevent-summary-pediatrician",
+  "type": {
+    "system": "http://terminology.hl7.org/CodeSystem/audit-event-type",
+    "code": "transmit",
+    "display": "Transmit"
+  },
+  "subtype": [
+    {
+      "system": "http://hl7.org/fhir/restful-interaction",
+      "code": "create",
+      "display": "create"
+    }
+  ],
+  "action": "R",
+  "recorded": "2026-05-28T11:06:00-04:00",
+  "outcome": "0",
+  "outcomeDesc": "Success — dental encounter summary routed via Connie and received at the pediatrician's Epic endpoint.",
+  "agent": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "transmitter",
+            "display": "Transmitter"
+          }
+        ]
+      },
+      "who": {
+        "reference": "Organization/org-connie",
+        "display": "Connie — Connecticut Health Information Exchange"
+      },
+      "requestor": true
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "author",
+            "display": "Author"
+          }
+        ]
+      },
+      "who": {
+        "reference": "Organization/org-cornell-scott",
+        "display": "Cornell Scott-Hill Health Center (source)"
+      },
+      "requestor": false
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://dicom.nema.org/resources/ontology/DCM",
+            "code": "110152",
+            "display": "Destination Role ID"
+          }
+        ]
+      },
+      "who": {
+        "reference": "Organization/org-nemg",
+        "display": "Northeast Medical Group (destination — referring pediatrician)"
+      },
+      "requestor": false
+    }
+  ],
+  "source": {
+    "observer": {
+      "reference": "Organization/org-connie",
+      "display": "Connie — Connecticut Health Information Exchange"
+    },
+    "type": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/security-source-type",
+        "code": "4",
+        "display": "Application Server"
+      }
+    ]
+  },
+  "entity": [
+    {
+      "what": {
+        "reference": "ClinicalImpression/clinicalimpression-summary-pediatrician",
+        "display": "Dental encounter summary — pediatrician"
+      }
+    },
+    {
+      "what": {
+        "reference": "Patient/patient-timothy-jones",
+        "display": "Timothy Jones"
+      }
+    }
+  ]
+}

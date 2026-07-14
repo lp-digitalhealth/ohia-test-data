@@ -1,0 +1,65 @@
+{
+  "resourceType": "Patient",
+  "id": "patient-timothy-jones",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"]
+  },
+  "identifier": [
+    {
+      "system": "https://yalenewhavenhealth.org/fhir/mrn",
+      "value": "YNHH-MRN-20190505-TJ"
+    },
+    {
+      "system": "https://cornellscott.example.org/fhir/mrn",
+      "value": "PDENT-CT-2026-0028"
+    },
+    {
+      "system": "http://ct.medicaid.gov/beneficiary",
+      "value": "CT-MCD-HB-0082341"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "family": "Jones",
+      "given": ["Timothy"]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(203) 555-0174",
+      "use": "mobile"
+    },
+    {
+      "system": "email",
+      "value": "jones.family.ct@example.com",
+      "use": "home"
+    }
+  ],
+  "gender": "male",
+  "birthDate": "2019-05-05",
+  "address": [
+    {
+      "line": ["214 Elm Street, Apt 4"],
+      "city": "New Haven",
+      "state": "CT",
+      "postalCode": "06510",
+      "country": "US"
+    }
+  ],
+  "communication": [
+    {
+      "language": {
+        "coding": [
+          {
+            "system": "urn:ietf:bcp:47",
+            "code": "en",
+            "display": "English"
+          }
+        ]
+      },
+      "preferred": true
+    }
+  ]
+}

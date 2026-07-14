@@ -1,0 +1,599 @@
+{
+  "resourceType": "Bundle",
+  "id": "bundle-preencounter-records",
+  "type": "collection",
+  "timestamp": "2026-05-21T08:00:00-04:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:Patient-patient-timothy-jones",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-timothy-jones",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://yalenewhavenhealth.org/fhir/mrn",
+            "value": "YNHH-MRN-20190505-TJ"
+          },
+          {
+            "system": "https://cornellscott.example.org/fhir/mrn",
+            "value": "PDENT-CT-2026-0028"
+          },
+          {
+            "system": "http://ct.medicaid.gov/beneficiary",
+            "value": "CT-MCD-HB-0082341"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Jones",
+            "given": [
+              "Timothy"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(203) 555-0174",
+            "use": "mobile"
+          },
+          {
+            "system": "email",
+            "value": "jones.family.ct@example.com",
+            "use": "home"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "2019-05-05",
+        "address": [
+          {
+            "line": [
+              "214 Elm Street, Apt 4"
+            ],
+            "city": "New Haven",
+            "state": "CT",
+            "postalCode": "06510",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition-condition-e10-9-diabetes",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-e10-9-diabetes",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E10.9",
+              "display": "Type 1 diabetes mellitus without complications"
+            }
+          ],
+          "text": "Type 1 diabetes mellitus, without complications"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "onsetDateTime": "2025-02-28",
+        "recordedDate": "2025-02-28",
+        "note": [
+          {
+            "text": "Pre-existing systemic condition — diagnosed 2025-02-28 during an ED visit, one year before the well-child exam. NOT newly asserted at Interaction 1; it already exists and is referenced (by the risk Flag and the referral) and later transmitted in the pre-encounter records bundle (Interaction 2). It is the driver of Timothy's elevated periodontal risk. Managed with an insulin pump and CGM; prescribed insulin lispro."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition-condition-k05-00-gingivitis",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-k05-00-gingivitis",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K05.00",
+              "display": "Acute gingivitis, plaque induced"
+            }
+          ],
+          "text": "Plaque-induced gingivitis"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-well-child",
+          "display": "Well-child visit, 2026-02-28"
+        },
+        "recordedDate": "2026-02-28",
+        "asserter": {
+          "reference": "PractitionerRole/role-smith",
+          "display": "Dr. Laura Smith, MD"
+        },
+        "note": [
+          {
+            "text": "Newly identified at the well-child visit by Dr. Smith; a primary clinical reason for the dental referral. Alongside the diabetes (E10.9), this drives the periodontal risk picture."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition-condition-z77-22-tobacco",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-z77-22-tobacco",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "health-concern",
+                "display": "Health Concern"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "Z77.22",
+              "display": "Contact with and (suspected) exposure to environmental tobacco smoke (acute) (chronic)"
+            }
+          ],
+          "text": "Environmental tobacco smoke exposure"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-well-child",
+          "display": "Well-child visit, 2026-02-28"
+        },
+        "recordedDate": "2026-02-28",
+        "asserter": {
+          "reference": "PractitionerRole/role-smith",
+          "display": "Dr. Laura Smith, MD"
+        },
+        "note": [
+          {
+            "text": "Household tobacco smoke exposure documented at the well-child visit (paired with Observation/observation-tobacco-smoke); a contributing environmental risk factor for oral/periodontal disease."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:MedicationRequest-medicationrequest-insulin-lispro",
+      "resource": {
+        "resourceType": "MedicationRequest",
+        "id": "medicationrequest-insulin-lispro",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"
+          ]
+        },
+        "status": "active",
+        "intent": "order",
+        "reportedBoolean": true,
+        "medicationCodeableConcept": {
+          "text": "Insulin lispro (rapid-acting insulin analog), delivered via insulin pump"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "authoredOn": "2025-12-01",
+        "dosageInstruction": [
+          {
+            "text": "Insulin lispro delivered continuously via insulin pump with mealtime boluses, dosed to glycemic targets per endocrinology management"
+          }
+        ],
+        "note": [
+          {
+            "text": "Pre-existing active medication (part of Timothy's standing diabetes management), transmitted to the dental practice in the Interaction 2 pre-encounter records bundle — relevant to dental treatment planning (healing/infection risk). Medication is text-only (no RxNorm coding asserted): the source use-case doc provides no RxNorm code, and per project verification discipline an unverified code is not fabricated. Add a verified RxNorm code (e.g. the appropriate insulin lispro product) before production use if required."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Device-device-cgm",
+      "resource": {
+        "resourceType": "Device",
+        "id": "device-cgm",
+        "status": "active",
+        "type": {
+          "text": "Continuous glucose monitor (CGM)"
+        },
+        "patient": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "note": [
+          {
+            "text": "Patient-worn continuous glucose monitor, part of Timothy's diabetes management. Transmitted to the dental practice in the Interaction 2 pre-encounter records bundle to contextualize glycemic control for treatment planning (healing/infection/anesthetic considerations). Device.type is text-only (no verified SNOMED code asserted per project verification discipline); R4 Device has no bodySite. Synthetic — no manufacturer/model/UDI asserted."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Device-device-insulin-pump",
+      "resource": {
+        "resourceType": "Device",
+        "id": "device-insulin-pump",
+        "status": "active",
+        "type": {
+          "text": "Insulin pump"
+        },
+        "patient": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "note": [
+          {
+            "text": "Patient-worn insulin pump, started ~2025-12-01, delivering insulin lispro. Part of Timothy's diabetes management; transmitted to the dental practice in the Interaction 2 pre-encounter records bundle. Device.type is text-only (no verified SNOMED code asserted per project verification discipline); R4 Device has no bodySite. Synthetic — no manufacturer/model/UDI asserted."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:CareTeam-careteam-timothy",
+      "resource": {
+        "resourceType": "CareTeam",
+        "id": "careteam-timothy",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam"
+          ]
+        },
+        "status": "active",
+        "name": "Timothy Jones — medical care team",
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "participant": [
+          {
+            "role": [
+              {
+                "coding": [
+                  {
+                    "system": "http://nucc.org/provider-taxonomy",
+                    "code": "208000000X",
+                    "display": "Pediatrics"
+                  }
+                ],
+                "text": "Pediatrician (referring provider)"
+              }
+            ],
+            "member": {
+              "reference": "Practitioner/pract-smith",
+              "display": "Dr. Laura Smith, MD"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/org-nemg",
+              "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+            }
+          },
+          {
+            "role": [
+              {
+                "coding": [
+                  {
+                    "system": "http://nucc.org/provider-taxonomy",
+                    "code": "2080P0202X",
+                    "display": "Pediatric Endocrinology"
+                  }
+                ],
+                "text": "Pediatric endocrinologist"
+              }
+            ],
+            "member": {
+              "reference": "Practitioner/pract-endo",
+              "display": "Pediatric Endocrinologist"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/org-yale-diabetes",
+              "display": "Yale Children's Diabetes Program"
+            }
+          },
+          {
+            "role": [
+              {
+                "text": "Registered dietitian"
+              }
+            ],
+            "member": {
+              "reference": "Practitioner/pract-dietitian",
+              "display": "Registered Dietitian"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/org-yale-diabetes",
+              "display": "Yale Children's Diabetes Program"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Timothy's full medical care team, transmitted with the pre-encounter medical records bundle to the dental practice in Interaction 2 so Dr. Watson can see who manages Timothy's diabetes before the appointment."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-oral-health-assessment",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-oral-health-assessment",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Pediatric oral health assessment findings (well-child visit)"
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-well-child",
+          "display": "Well-child visit, 2026-02-28"
+        },
+        "effectiveDateTime": "2026-02-28",
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-smith",
+            "display": "Dr. Laura Smith, MD"
+          }
+        ],
+        "component": [
+          {
+            "code": {
+              "text": "Gingivitis present"
+            },
+            "valueString": "Significant plaque-induced gingivitis observed on examination."
+          },
+          {
+            "code": {
+              "text": "Tooth loss"
+            },
+            "valueString": "Two lower central (baby) incisors lost: one site remains edentulous; one adult tooth partially erupted."
+          },
+          {
+            "code": {
+              "text": "Pain"
+            },
+            "valueString": "Patient reports pain around the area of the missing teeth."
+          },
+          {
+            "code": {
+              "text": "Dental home"
+            },
+            "valueString": "No established dental home; patient has never seen a dental provider."
+          }
+        ],
+        "note": [
+          {
+            "text": "Oral health assessment performed by Dr. Smith as part of the well-child protocol. Wrapped for transmission with the referral (DocumentReference) and included in the Interaction 2 pre-encounter records bundle. Findings are captured as components with text values; no LOINC code is asserted for the overall pediatric oral health assessment (text-only per project verification discipline)."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Flag-flag-diabetes-perio-risk",
+      "resource": {
+        "resourceType": "Flag",
+        "id": "flag-diabetes-perio-risk",
+        "status": "active",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/flag-category",
+                "code": "clinical",
+                "display": "Clinical"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Type 1 diabetes — elevated periodontal, infection, and impaired-healing risk. Coordinate dental care with diabetes management."
+        },
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "period": {
+          "start": "2026-02-28"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-well-child",
+          "display": "Well-child visit, 2026-02-28"
+        },
+        "author": {
+          "reference": "PractitionerRole/role-smith",
+          "display": "Dr. Laura Smith, MD"
+        },
+        "note": [
+          {
+            "text": "Active systemic-disease risk signal (not just problem-list history) raised at referral by Dr. Smith, referencing the pre-existing Condition/condition-e10-9-diabetes. It travels with the referral (ServiceRequest.supportingInfo) so the dental provider sees the diabetes-driven risk up front. This is the diabetes -> periodontal-risk direction; a distinct periodontal -> glycemic-risk Flag to the endocrinologist is a separate resource built at Interaction 4 (not here) — the two must not be conflated."
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Encounter-encounter-01-well-child",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-01-well-child",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "text": "Well-child visit with pediatric oral health assessment"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-timothy-jones",
+          "display": "Timothy Jones"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "PractitionerRole/role-smith",
+              "display": "Dr. Laura Smith, MD"
+            }
+          }
+        ],
+        "period": {
+          "start": "2026-02-28T09:00:00-05:00",
+          "end": "2026-02-28T09:40:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/loc-nemg",
+              "display": "Northeast Medical Group — Pediatrics, New Haven"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-nemg",
+          "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+        }
+      }
+    }
+  ]
+}

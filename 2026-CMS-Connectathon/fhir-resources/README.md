@@ -11,8 +11,8 @@ Loadable FHIR R4 test data for the OHIA CMS Connectathon. The library is split a
 graph TD
   root["fhir-resources/"] --> dur["durable/  (reuse across use cases)"]
   root --> pb["purpose-built/  (one episode only)"]
-  dur --> reg["organizations, practitioners, locations,<br/>endpoints, insurance-plans, payer-rules, cds-hooks"]
-  pb --> uc["uc01 / uc02a / uc02b"]
+  dur --> reg["organizations, practitioners, locations,<br/>endpoints, healthcare-services, insurance-plans, payer-rules, cds-hooks"]
+  pb --> uc["uc01 / uc02a / uc02b / uc03"]
   uc --> base["base/  (reusable WITHIN one use case:<br/>Patient, Coverage, Consent, PractitionerRole, Subscription)"]
   uc --> ix["interactions/  (purpose-built per step)"]
 ```
@@ -49,6 +49,13 @@ Note: practitioner/role files are named for the fictional identity they contain 
 | `org-south-congress-dental.json` | South Congress Dental Care (general dentistry, fictional) | UC02a, UC02b |
 | `org-austin-oral-surgery.json` | Austin Oral Surgery (real USOSM partner) | UC02a, UC02b |
 | `org-commercial-dental-ppo.json` | Commercial Dental PPO (synthetic payer) | UC02b |
+| `org-nemg.json` | Northeast Medical Group / Yale New Haven Health pediatrics | UC03 |
+| `org-cornell-scott.json` | Cornell Scott-Hill Health Center (pediatric dental FQHC) | UC03 |
+| `org-connie.json` | Connie — Connecticut statewide HIE (routing hub) | UC03 |
+| `org-ctdhp.json` | Connecticut Dental Health Partnership (HUSKY dental plan brand) | UC03 |
+| `org-benecare.json` | BeneCare Dental Plans (ASO administering CTDHP) | UC03 |
+| `org-gainwell.json` | Gainwell Technologies (DSS fiscal agent / claims payer) | UC03 |
+| `org-yale-diabetes.json` | Yale Children's Diabetes Program (endocrinology) | UC03 |
 
 ### Practitioners - `durable/practitioners/`
 | File | Display (content) | Role | Used by |
@@ -59,6 +66,9 @@ Note: practitioner/role files are named for the fictional identity they contain 
 | `pract-nandakumar.json` | Priya Nandakumar, MS | Medical Physics (DDC data) | UC01 |
 | `pract-parker.json` | Dr. Mary Parker, DDS | General Dentistry | UC02a, UC02b |
 | `pract-maxil.json` | Dr. Alex Maxil, DDS, MD | Oral & Maxillofacial Surgery | UC02a, UC02b |
+| `pract-smith.json` | Dr. Laura Smith, MD | Pediatrics (referring) | UC03 |
+| `pract-watson.json` | Dr. David Watson, DDS | Pediatric Dentistry (receiving) | UC03 |
+| `pract-endo.json`, `pract-dietitian.json` | Endocrinologist, Dietitian (names withheld) | Care-team members | UC03 |
 
 ### Locations - `durable/locations/`
 | File | Entity | Used by |
@@ -67,9 +77,16 @@ Note: practitioner/role files are named for the fictional identity they contain 
 | `loc-penndental.json` | Penn Dental Medicine | UC01 |
 | `loc-south-congress-dental.json` | South Congress Dental Care | UC02a, UC02b |
 | `loc-austin-oral-surgery.json` | Austin Oral Surgery - Central Austin | UC02a, UC02b |
+| `loc-nemg.json` | Northeast Medical Group - Pediatrics, New Haven | UC03 |
+| `loc-cornell-scott.json` | Cornell Scott-Hill Health Center - Dental | UC03 |
 
 ### Endpoints - `durable/endpoints/`
-`endpoint-fccc`, `endpoint-ibx`, `endpoint-penndental` (UC01); `endpoint-dentaquest` (UC02a); `endpoint-south-congress-dental`, `endpoint-austin-oral-surgery` (UC02a, UC02b); `endpoint-commercial-dental-ppo` (UC02b). One FHIR/WADO-RS endpoint per participating organization.
+`endpoint-fccc`, `endpoint-ibx`, `endpoint-penndental` (UC01); `endpoint-dentaquest` (UC02a); `endpoint-south-congress-dental`, `endpoint-austin-oral-surgery` (UC02a, UC02b); `endpoint-commercial-dental-ppo` (UC02b); `endpoint-nemg`, `endpoint-cornell-scott`, `endpoint-connie`, `endpoint-benecare` (UC03). One FHIR/WADO-RS endpoint per participating organization.
+
+### Healthcare services - `durable/healthcare-services/`
+| File | Entry | Used by |
+|---|---|---|
+| `hs-cornell-scott-pediatric-dental.json` | Plan-Net directory entry BeneCare returns for a HUSKY B pediatric dental provider (paired with `role-watson`) | UC03 |
 
 ### Insurance plans - `durable/insurance-plans/`
 | File | Plan | Used by |
@@ -77,6 +94,7 @@ Note: practitioner/role files are named for the fictional identity they contain 
 | `insplan-ibx-pc65ppo.json` | IBX Personal Choice 65 PPO (medical) | UC01 |
 | `insplan-tx-medicaid-adult-dental.json` | Texas Medicaid Adult Dental | UC02a |
 | `insplan-commercial-dental-ppo.json` | Commercial Dental PPO | UC02b |
+| `insplan-ctdhp-huskyb.json` | HUSKY B (CT CHIP) dental — CTDHP, administered by BeneCare ASO, Gainwell payer | UC03 |
 
 ### Payer rules - `durable/payer-rules/` (`plan-definitions/`, `libraries/`, `questionnaires/`)
 | Payer / rule | Files | Used by |
@@ -84,9 +102,10 @@ Note: practitioner/role files are named for the fictional identity they contain 
 | IBX IMRT prior-auth (CRD + DTR) | `plandef-ibx-imrt-pa-rule`, `lib-ibx-imrt-pa-logic`, `questionnaire-ibx-imrt-pa-dtr` | UC01 |
 | DentaQuest D7210 prior-auth (CRD + DTR) | `plandef-dentaquest-d7210-pa-rule`, `lib-dentaquest-d7210-pa-logic`, `questionnaire-dentaquest-d7210-pa-dtr` | UC02a |
 | Commercial no-PA determination (CRD only, no DTR) | `plandef-commercial-noauth-rule`, `lib-commercial-noauth-logic` | UC02b |
+| CTDHP/HUSKY B D4341 SRP prior-auth (CRD + DTR) | `plandef-ctdhp-d4341-pa-rule`, `lib-ctdhp-d4341-pa-logic`, `questionnaire-ctdhp-d4341-pa-dtr` | UC03 (fires at treatment visit I3) |
 
 ### CDS Hooks discovery configs - `durable/cds-hooks/`
-Not FHIR resources (flagged in-file). One `order-sign` service config per payer: `cds-hooks-discovery-ibx.json` (UC01), `cds-hooks-discovery-dentaquest.json` (UC02a), `cds-hooks-discovery-commercial.json` (UC02b).
+Not FHIR resources (flagged in-file). One `order-sign` service config per payer: `cds-hooks-discovery-ibx.json` (UC01), `cds-hooks-discovery-dentaquest.json` (UC02a), `cds-hooks-discovery-commercial.json` (UC02b), `cds-hooks-discovery-ctdhp.json` (UC03).
 
 ## Purpose-built index
 
@@ -95,6 +114,7 @@ Not FHIR resources (flagged in-file). One `order-sign` service config per payer:
 | **UC01** | [`purpose-built/uc01-medical-to-dental/`](purpose-built/uc01-medical-to-dental/) | Medical-to-dental referral, head & neck cancer (John Smith), with prior auth | I1-I4 |
 | **UC02a** | [`purpose-built/uc02a-surgical-extraction/`](purpose-built/uc02a-surgical-extraction/) | TX Medicaid surgical extraction (Frank Castle), **with** prior auth | I1-I5 |
 | **UC02b** | [`purpose-built/uc02b-commercial-implant/`](purpose-built/uc02b-commercial-implant/) | Commercial surgical extraction + immediate implant (Frank Castle), **no** prior auth | I1-I5 |
+| **UC03** | [`purpose-built/uc03-pediatric-referral/`](purpose-built/uc03-pediatric-referral/) | Pediatric dental referral, Type 1 diabetes (Timothy Jones), CT HUSKY B via **Connie HIE**; covered referral (no PA at referral) but **D4341 PA fires at treatment visit I3**, no imaging/HL7v2 | I1-I5 |
 
 See [`durable/README.md`](durable/README.md) and [`purpose-built/README.md`](purpose-built/README.md) for tier-specific detail, and each use case's `interactions/README.md` for per-interaction resource lists.
 

@@ -1,0 +1,54 @@
+{
+  "resourceType": "CarePlan",
+  "id": "careplan-perio",
+  "status": "active",
+  "intent": "plan",
+  "title": "Post-treatment periodontal care plan — Timothy Jones",
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval"
+  },
+  "period": {
+    "start": "2026-05-28"
+  },
+  "author": {
+    "reference": "PractitionerRole/role-watson",
+    "display": "Dr. David Watson, DDS"
+  },
+  "addresses": [
+    {
+      "reference": "Condition/condition-k05-211-periodontitis"
+    }
+  ],
+  "activity": [
+    {
+      "detail": {
+        "kind": "ServiceRequest",
+        "status": "in-progress",
+        "description": "Daily oral hygiene: brushing technique and flossing as instructed; age-appropriate toothpaste"
+      }
+    },
+    {
+      "detail": {
+        "kind": "Appointment",
+        "status": "not-started",
+        "description": "Six-month periodontal recall to reassess and monitor the partially erupted lower central incisor"
+      }
+    },
+    {
+      "detail": {
+        "kind": "ServiceRequest",
+        "status": "not-started",
+        "description": "Coordinate periodontal management with the diabetes care team (glycemic control affects periodontal outcomes and vice versa)"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Post-treatment care plan surfaced to Timothy's guardian-facing app alongside the visit-complete milestone at Interaction 4. Recall interval and oral-hygiene reinforcement reflect the elevated periodontal risk from Type 1 diabetes."
+    }
+  ]
+}

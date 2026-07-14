@@ -1,0 +1,28 @@
+{
+  "resourceType": "MedicationRequest",
+  "id": "medicationrequest-insulin-lispro",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest"]
+  },
+  "status": "active",
+  "intent": "order",
+  "reportedBoolean": true,
+  "medicationCodeableConcept": {
+    "text": "Insulin lispro (rapid-acting insulin analog), delivered via insulin pump"
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "authoredOn": "2025-12-01",
+  "dosageInstruction": [
+    {
+      "text": "Insulin lispro delivered continuously via insulin pump with mealtime boluses, dosed to glycemic targets per endocrinology management"
+    }
+  ],
+  "note": [
+    {
+      "text": "Pre-existing active medication (part of Timothy's standing diabetes management), transmitted to the dental practice in the Interaction 2 pre-encounter records bundle — relevant to dental treatment planning (healing/infection risk). Medication is text-only (no RxNorm coding asserted): the source use-case doc provides no RxNorm code, and per project verification discipline an unverified code is not fabricated. Add a verified RxNorm code (e.g. the appropriate insulin lispro product) before production use if required."
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "resourceType": "Condition",
+  "id": "condition-k05-00-gingivitis",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"]
+  },
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+        "code": "active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+        "code": "confirmed"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+          "code": "encounter-diagnosis",
+          "display": "Encounter Diagnosis"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/sid/icd-10-cm",
+        "code": "K05.00",
+        "display": "Acute gingivitis, plaque induced"
+      }
+    ],
+    "text": "Plaque-induced gingivitis"
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-well-child",
+    "display": "Well-child visit, 2026-02-28"
+  },
+  "recordedDate": "2026-02-28",
+  "asserter": {
+    "reference": "PractitionerRole/role-smith",
+    "display": "Dr. Laura Smith, MD"
+  },
+  "note": [
+    {
+      "text": "Newly identified at the well-child visit by Dr. Smith; a primary clinical reason for the dental referral. Alongside the diabetes (E10.9), this drives the periodontal risk picture."
+    }
+  ]
+}
