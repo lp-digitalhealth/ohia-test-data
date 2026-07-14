@@ -1,0 +1,125 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "servicerequest-referral",
+  "meta": {
+    "profile": [
+      "https://oralhealthalliance.net/fhir/StructureDefinition/ode-dental-to-dental-referral"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC02B-001"
+    }
+  ],
+  "status": "active",
+  "intent": "order",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "103696004",
+          "display": "Patient referral to specialist"
+        }
+      ],
+      "text": "Consultation / Referral"
+    }
+  ],
+  "priority": "routine",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D7210",
+        "display": "Extraction, erupted tooth requiring removal of bone and/or sectioning of tooth"
+      },
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D6010",
+        "display": "Surgical placement of implant body: endosteal implant"
+      }
+    ],
+    "text": "Surgical extraction — tooth #30 (non-restorable following root canal failure), with immediate endosteal implant placement as an option for Dr. Maxil's review"
+  },
+  "subject": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "requester": {
+    "reference": "PractitionerRole/role-parker",
+    "display": "Dr. Mary Parker, DDS"
+  },
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-maxil",
+      "display": "Dr. Alex Maxil, DDS, MD"
+    }
+  ],
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "K04.7",
+          "display": "Periapical abscess without sinus"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "K08.89",
+          "display": "Other specified disorders of teeth and supporting structures"
+        }
+      ]
+    }
+  ],
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-k04-7-periapical-abscess"
+    },
+    {
+      "reference": "Condition/condition-k08-89-nonrestorable"
+    }
+  ],
+  "bodySite": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+          "code": "30",
+          "display": "30"
+        }
+      ],
+      "text": "Tooth #30"
+    }
+  ],
+  "supportingInfo": [
+    {
+      "reference": "DiagnosticReport/diagnosticreport-periapical-radiograph"
+    },
+    {
+      "reference": "ImagingStudy/imagingstudy-periapical"
+    },
+    {
+      "reference": "DiagnosticReport/diagnosticreport-periodontal-charting"
+    },
+    {
+      "reference": "DocumentReference/documentreference-intraoral-images"
+    }
+  ],
+  "insurance": [
+    {
+      "reference": "Coverage/coverage-frank-castle-commercial"
+    }
+  ],
+  "authoredOn": "2026-07-08T11:00:00-05:00",
+  "occurrenceDateTime": "2026-07-15",
+  "note": [
+    {
+      "text": "Commercial dental PPO — NO prior authorization required (confirmed via CRD negative result), so unlike UC02a there is no PA number and no Claim/ClaimResponse in supportingInfo. Benefits were verified in real time before sending (annual maximum $1,720 remaining; implant coverage active, waiting period waived). Two treatment options travel in this referral for Dr. Maxil's review — extraction alone (D7210) or extraction with immediate implant placement (D7210 + D6010); Frank's final election is deferred to the consultation (Interaction 3). Per the dental-to-dental direction, imaging is NOT pushed with this referral — Austin Oral Surgery retrieves it via CDex support-a-pull using the ImagingStudy reference in supportingInfo (which points to a DICOM WADO-RS endpoint), same pattern for the periodontal charting and intraoral images."
+    }
+  ]
+}

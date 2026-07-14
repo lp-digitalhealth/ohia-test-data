@@ -1,0 +1,61 @@
+{
+  "resourceType": "Practitioner",
+  "id": "pract-bellweather",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"]
+  },
+  "identifier": [
+    { "system": "http://hl7.org/fhir/sid/us-npi", "value": "1000000047" },
+    { "system": "http://www.pa.gov/fhir/dental-license", "value": "PA-DDS-000123" }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Bellweather",
+      "given": ["Andrew"],
+      "suffix": ["DMD", "MMSc"]
+    }
+  ],
+  "telecom": [
+    { "system": "phone", "value": "(215) 898-4615", "use": "work" },
+    { "system": "email", "value": "andrew.bellweather@example-dental.edu", "use": "work" }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "line": ["240 South 40th Street"],
+      "city": "Philadelphia",
+      "state": "PA",
+      "postalCode": "19104",
+      "country": "US"
+    }
+  ],
+  "gender": "male",
+  "qualification": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/v2-0360",
+            "code": "DDS",
+            "display": "Doctor of Dental Surgery"
+          }
+        ],
+        "text": "DMD (Doctor of Medical Dentistry)"
+      }
+    },
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://nucc.org/provider-taxonomy",
+            "code": "125Q00000X",
+            "display": "Oral Medicine"
+          }
+        ],
+        "text": "Chair, Department of Oral Medicine; Oral Oncology Specialist; Diplomate, American Board of Oral Medicine; Diplomate, American Board of Special Care Dentistry"
+      }
+    }
+  ]
+}

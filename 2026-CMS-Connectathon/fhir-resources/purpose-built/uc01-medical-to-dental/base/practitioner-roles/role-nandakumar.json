@@ -1,0 +1,32 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "role-nandakumar",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"]
+  },
+  "active": true,
+  "practitioner": { "reference": "Practitioner/pract-nandakumar", "display": "Priya Nandakumar, MS, FACMP" },
+  "organization": { "reference": "Organization/org-fccc", "display": "Fox Chase Cancer Center" },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1649P1900X",
+          "display": "Medical Physicist, Radiation Physics"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "text": "Medical Physicist, Head & Neck Radiation Oncology; Dosimetric Dental Contouring (DDC) data provider [SNOMED code pending verification]"
+    }
+  ],
+  "location": [
+    { "reference": "Location/loc-fccc-radonc", "display": "Fox Chase Cancer Center" }
+  ],
+  "telecom": [
+    { "system": "phone", "value": "(215) 728-6900", "extension": "2865", "use": "work" }
+  ]
+}

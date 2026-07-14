@@ -1,0 +1,67 @@
+{
+  "resourceType": "Procedure",
+  "id": "procedure-implant-tooth30",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"]
+  },
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D6010",
+        "display": "Surgical placement of implant body: endosteal implant"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-surgical"
+  },
+  "performedDateTime": "2026-07-15",
+  "performer": [
+    {
+      "actor": {
+        "reference": "PractitionerRole/role-maxil",
+        "display": "Dr. Alex Maxil, DDS, MD"
+      }
+    }
+  ],
+  "bodySite": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+          "code": "30",
+          "display": "30"
+        }
+      ],
+      "text": "Tooth #30 site"
+    }
+  ],
+  "focalDevice": [
+    {
+      "action": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/CodeSystem/device-action",
+            "code": "implanted",
+            "display": "Implanted"
+          }
+        ]
+      },
+      "manipulated": {
+        "reference": "Device/device-implant-tooth30",
+        "display": "Endosteal dental implant, tooth #30 site"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Immediate endosteal implant placed into the tooth #30 socket following the extraction, same appointment. Bone density adequate; primary stability achieved. Placement torque: 35 Ncm. Healing abutment placed. Patient instructed on implant care. Anticipated osseointegration period: 3–4 months before the restorative (crown) phase at the general dental practice. Implant device specifications captured in the linked Device resource (see focalDevice)."
+    }
+  ]
+}

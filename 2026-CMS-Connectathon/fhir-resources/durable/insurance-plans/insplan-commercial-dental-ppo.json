@@ -1,0 +1,104 @@
+{
+  "resourceType": "InsurancePlan",
+  "id": "insplan-commercial-dental-ppo",
+  "status": "active",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+          "code": "dental",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "name": "Commercial Dental PPO",
+  "ownedBy": {
+    "reference": "Organization/org-commercial-dental-ppo",
+    "display": "Commercial Dental PPO"
+  },
+  "administeredBy": {
+    "reference": "Organization/org-commercial-dental-ppo",
+    "display": "Commercial Dental PPO"
+  },
+  "coverageArea": [
+    {
+      "display": "Texas"
+    }
+  ],
+  "coverage": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+            "code": "dental",
+            "display": "Dental"
+          }
+        ]
+      },
+      "benefit": [
+        {
+          "type": {
+            "text": "Basic services (surgical extraction, D7210)"
+          },
+          "limit": [
+            {
+              "value": {
+                "value": 80,
+                "unit": "%",
+                "system": "http://unitsofmeasure.org",
+                "code": "%"
+              },
+              "code": {
+                "text": "Plan pays after deductible (in-network)"
+              }
+            }
+          ]
+        },
+        {
+          "type": {
+            "text": "Major services (endosteal implant, D6010)"
+          },
+          "limit": [
+            {
+              "value": {
+                "value": 50,
+                "unit": "%",
+                "system": "http://unitsofmeasure.org",
+                "code": "%"
+              },
+              "code": {
+                "text": "Plan pays after deductible (in-network); implant waiting period waived (plan year 3+)"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "plan": [
+    {
+      "type": {
+        "text": "PPO"
+      },
+      "generalCost": [
+        {
+          "type": {
+            "text": "Annual maximum benefit"
+          },
+          "cost": {
+            "value": 2000,
+            "currency": "USD"
+          }
+        }
+      ]
+    }
+  ],
+  "note": [
+    {
+      "text": "Commercial dental PPO benefit structure used for real-time benefit verification in UC02b-I1 (a named test objective: implant coverage, waiting-period status, and remaining annual maximum, in contrast to UC02a's binary Medicaid PA check). Annual maximum $2,000/member/year; at Frank's 2026-07-08 benefit check, $1,720 remained (the per-episode remaining balance is carried on Coverage/coverage-frank-castle-commercial, since it is member- and point-in-time-specific rather than a fixed plan attribute). No prior authorization required for D7210 or D6010 under this plan design. Synthetic placeholder plan — see Organization/org-commercial-dental-ppo."
+    }
+  ]
+}

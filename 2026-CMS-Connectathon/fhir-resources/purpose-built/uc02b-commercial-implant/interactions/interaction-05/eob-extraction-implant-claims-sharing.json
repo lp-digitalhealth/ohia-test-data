@@ -1,0 +1,185 @@
+{
+  "resourceType": "ExplanationOfBenefit",
+  "id": "eob-extraction-implant-claims-sharing",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-dental-claim"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:claims-sharing-id",
+      "value": "CS-2026-UC02B-001"
+    }
+  ],
+  "status": "draft",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+        "code": "oral",
+        "display": "Oral"
+      }
+    ]
+  },
+  "use": "claim",
+  "patient": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "created": "2026-07-15",
+  "insurer": {
+    "reference": "Organization/org-commercial-dental-ppo",
+    "display": "Commercial Dental PPO"
+  },
+  "provider": {
+    "reference": "Organization/org-austin-oral-surgery",
+    "display": "Austin Oral Surgery"
+  },
+  "outcome": "queued",
+  "careTeam": [
+    {
+      "sequence": 1,
+      "provider": {
+        "reference": "PractitionerRole/role-parker",
+        "display": "Dr. Mary Parker, DDS"
+      },
+      "role": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole",
+            "code": "referring",
+            "display": "Referring"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 2,
+      "provider": {
+        "reference": "PractitionerRole/role-maxil",
+        "display": "Dr. Alex Maxil, DDS, MD"
+      },
+      "responsible": true,
+      "role": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole",
+            "code": "rendering",
+            "display": "Rendering provider"
+          }
+        ]
+      }
+    }
+  ],
+  "diagnosis": [
+    {
+      "sequence": 1,
+      "diagnosisCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "K04.7",
+            "display": "Periapical abscess without sinus"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 2,
+      "diagnosisCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "K08.89",
+            "display": "Other specified disorders of teeth and supporting structures"
+          }
+        ],
+        "text": "Non-restorable tooth — vertical root fracture"
+      }
+    }
+  ],
+  "insurance": [
+    {
+      "focal": true,
+      "coverage": {
+        "reference": "Coverage/coverage-frank-castle-commercial",
+        "display": "Frank Castle's Commercial Dental PPO coverage"
+      }
+    }
+  ],
+  "item": [
+    {
+      "sequence": 1,
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D7210",
+            "display": "Extraction, erupted tooth requiring removal of bone and/or sectioning of tooth"
+          }
+        ]
+      },
+      "bodySite": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+            "code": "30",
+            "display": "30"
+          }
+        ],
+        "text": "Tooth #30"
+      },
+      "servicedDate": "2026-07-15",
+      "quantity": {
+        "value": 1
+      }
+    },
+    {
+      "sequence": 2,
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D6010",
+            "display": "Surgical placement of implant body: endosteal implant"
+          }
+        ]
+      },
+      "bodySite": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+            "code": "30",
+            "display": "30"
+          }
+        ],
+        "text": "Tooth #30 site"
+      },
+      "servicedDate": "2026-07-15",
+      "quantity": {
+        "value": 1
+      }
+    }
+  ],
+  "supportingInfo": [
+    {
+      "sequence": 1,
+      "category": {
+        "text": "Referring provider's referral"
+      },
+      "valueReference": {
+        "reference": "ServiceRequest/servicerequest-referral"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Two line items on a single claims-sharing package: D7210 (surgical extraction) and D6010 (immediate endosteal implant), both tooth #30, both performed 2026-07-15. This is the commercial-payer direction of the ODEDentalClaim profile, billing the Commercial Dental PPO's dental benefit directly — the counterpart to UC02a's Medicaid-dental direction and UC01's medical-payer direction, demonstrating one profile shape generalizes across all three."
+    },
+    {
+      "text": "NO prior authorization reference anywhere on this claim — none exists for this episode. UC02b's commercial coverage returned a negative CRD result (no PA required), so unlike UC02a (whose claims-sharing package carries PA number TX-MCD-PA-2026-047291 forward via supportingInfo), the only supportingInfo entry here is the referring provider's referral. CDT alone (D7210, D6010) is what's required; no CPT crosswalk reasoning applies (dental payer, not medical), and no KX or other medical-necessity modifier."
+    },
+    {
+      "text": "Deliberately excluded, per this profile's own non-financial design: unitPrice, net, total, adjudication. Also deliberately out of scope per this interaction's own narrative: the future implant crown claim (D6065/D6066) at the general dental practice — it happens ~4 months later after osseointegration and is a separate billing event not modeled here, even though the Device record was transmitted at I4 to enable it. The narrative flags 'restorative continuity' as a value proposition but explicitly does not resolve the future crown claim here; that open question is noted rather than built."
+    }
+  ]
+}

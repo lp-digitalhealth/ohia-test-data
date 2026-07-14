@@ -1,0 +1,29 @@
+{
+  "resourceType": "Organization",
+  "id": "org-commercial-dental-ppo",
+  "identifier": [
+    {
+      "system": "urn:ohia:payer-edi-id",
+      "value": "COMM-TX-PPO-EDI"
+    }
+  ],
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "pay",
+          "display": "Payer"
+        }
+      ],
+      "text": "Commercial Dental Plan"
+    }
+  ],
+  "name": "Commercial Dental PPO",
+  "note": [
+    {
+      "text": "Synthetic placeholder payer, per the UC02b source appendix (which labels it 'Commercial Dental PPO (Synthetic) — to be filled with actual payer'). Unlike UC02a's DentaQuest or UC01's Independence Blue Cross (real payers), no real commercial dental PPO is named here — a deliberate choice, not an oversight. EDI and endpoint identifiers are synthetic test-data values. If a real payer is chosen later, this Organization is the single place to update the name."
+    }
+  ]
+}

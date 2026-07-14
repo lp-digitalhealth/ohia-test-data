@@ -1,0 +1,51 @@
+{
+  "resourceType": "Procedure",
+  "id": "procedure-extraction-tooth17",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"]
+  },
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D7210",
+        "display": "Extraction, erupted tooth requiring removal of bone and/or sectioning of tooth"
+      }
+    ],
+    "text": "Surgical extraction of tooth #17 (impacted)"
+  },
+  "subject": {
+    "reference": "Patient/patient-john-smith",
+    "display": "John Smith"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-02-dental-exam",
+    "display": "Dental exam & radiographs, 2026-07-23"
+  },
+  "performedDateTime": "2026-07-28",
+  "performer": [
+    {
+      "actor": {
+        "reference": "Practitioner/pract-bellweather",
+        "display": "Dr. Andrew Bellweather"
+      }
+    }
+  ],
+  "bodySite": [
+    {
+      "text": "Tooth #17"
+    }
+  ],
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-john-smith-tongue-cancer",
+      "display": "Stage IV squamous cell carcinoma, lateral border of tongue"
+    }
+  ],
+  "note": [
+    {
+      "text": "Pre-radiation extraction per dental clearance protocol; impacted tooth identified on 2026-07-23 exam."
+    }
+  ]
+}

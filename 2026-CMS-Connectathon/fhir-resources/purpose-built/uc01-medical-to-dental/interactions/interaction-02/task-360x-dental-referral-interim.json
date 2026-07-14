@@ -1,0 +1,106 @@
+{
+  "resourceType": "Task",
+  "id": "task-360x-dental-referral",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC01-001"
+    }
+  ],
+  "status": "in-progress",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+        "code": "in-progress",
+        "display": "In Progress"
+      }
+    ]
+  },
+  "intent": "order",
+  "priority": "urgent",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-dental-referral",
+    "display": "Referral: Pre-radiation dental clearance evaluation"
+  },
+  "for": {
+    "reference": "Patient/patient-john-smith",
+    "display": "John Smith"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-02-dental-exam",
+    "display": "Dental exam & radiographs, 2026-07-23"
+  },
+  "authoredOn": "2026-07-06T10:30:00-04:00",
+  "lastModified": "2026-07-23T15:30:00-04:00",
+  "requester": {
+    "reference": "Organization/org-fccc",
+    "display": "Fox Chase Cancer Center"
+  },
+  "owner": {
+    "reference": "PractitionerRole/role-bellweather",
+    "display": "Dr. Andrew Bellweather — Oral Medicine, Penn Dental Medicine"
+  },
+  "input": [
+    {
+      "type": { "text": "Referral supporting resource — diagnosis" },
+      "valueReference": {
+        "reference": "Condition/condition-john-smith-tongue-cancer",
+        "display": "Stage IV squamous cell carcinoma, lateral border of tongue"
+      }
+    },
+    {
+      "type": { "text": "Referral supporting resource — medication list" },
+      "valueReference": {
+        "reference": "List/list-john-smith-medications",
+        "display": "John Smith's medication list"
+      }
+    },
+    {
+      "type": { "text": "Referral supporting resource — allergy" },
+      "valueReference": {
+        "reference": "AllergyIntolerance/allergyintolerance-john-smith-penicillin",
+        "display": "Penicillin allergy"
+      }
+    }
+  ],
+  "output": [
+    {
+      "type": { "text": "Exam encounter" },
+      "valueReference": {
+        "reference": "Encounter/encounter-02-dental-exam",
+        "display": "Dental exam & radiographs, 2026-07-23"
+      }
+    },
+    {
+      "type": { "text": "Exam finding — periapical radiograph" },
+      "valueReference": {
+        "reference": "DiagnosticReport/diagnosticreport-periapical",
+        "display": "Periapical radiograph — teeth #4, #17, #30 (2026-07-23)"
+      }
+    },
+    {
+      "type": { "text": "Exam finding — panoramic radiograph" },
+      "valueReference": {
+        "reference": "DiagnosticReport/diagnosticreport-panoramic",
+        "display": "Panoramic radiograph — pre-radiation dental survey (2026-07-23)"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Task snapshot as of Interaction 2 (2026-07-23, dental exam). Reflects two combined transitions from the Interaction 1 intake state: (1) acceptance -- Penn Dental confirmed the referral on 2026-07-07 (not separately modeled as its own artifact), at which point Task.owner is correctly first populated (Dr. Bellweather's PractitionerRole), per the crosswalk's rule that ownership belongs to acceptance, not intake; (2) in-progress -- the exam itself, 2026-07-23. Task.output references the exam Encounter and both DiagnosticReports. IMPORTANT, corrected from an earlier draft of this file: this update does NOT correspond to a 360X PCC-59 (Interim Consultation Note) wire transaction. Per this project's design decision (see CLAUDE.md and the Interaction 2 use-case writeup), Interaction 2 has no 360X wire-level artifact at all -- it is pure FHIR-side Task/note activity. PCC-59 was considered and explicitly rejected for this interaction because it is the wrong direction (specialist reporting outward on an existing referral), not because it hasn't been built yet. The DDC dose inquiry and its answer (52 Gy, exceeding the 45 Gy osteoradionecrosis-risk threshold) are NOT included in Task.output -- that exchange is captured as an informal note on Observation/observation-tooth30-radiation-dose, per the base COW IG's 'Requesting additional information' pattern, not as a Task-tracked fulfillment artifact. Final clearance closes this Task as a PCC-57 transaction -- see Interaction 3's completed-state snapshot."
+    }
+  ]
+}

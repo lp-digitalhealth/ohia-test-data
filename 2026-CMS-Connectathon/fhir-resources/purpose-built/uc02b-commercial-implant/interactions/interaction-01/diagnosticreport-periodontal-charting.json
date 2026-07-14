@@ -1,0 +1,27 @@
+{
+  "resourceType": "DiagnosticReport",
+  "id": "diagnosticreport-periodontal-charting",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note"]
+  },
+  "status": "final",
+  "code": {
+    "text": "Periodontal charting — NO VERIFIED LOINC CODE. This is the same named terminology gap carried in UC02a's periodontal-charting DiagnosticReport: no precomposed LOINC code for periodontal charting specifically was found in prior project searches, and CDT confirms periodontal charting is not itself a billable procedure (it lives inside exam codes such as D0180), consistent with it lacking its own LOINC code. Left as text-only pending a proper LOINC terminology browser lookup — not an oversight."
+  },
+  "subject": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-limited-oral-eval"
+  },
+  "effectiveDateTime": "2026-07-08",
+  "issued": "2026-07-08T10:25:00-05:00",
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-parker",
+      "display": "Dr. Mary Parker, DDS"
+    }
+  ],
+  "conclusion": "Periodontal charting performed at limited oral evaluation, tooth #30 region. Findings support the periapical abscess and non-restorable tooth diagnoses; charting data referenced in the referral to Austin Oral Surgery and retrieved by them via support-a-pull (Interaction 2)."
+}

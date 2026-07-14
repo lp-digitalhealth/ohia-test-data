@@ -1,0 +1,51 @@
+{
+  "resourceType": "Observation",
+  "id": "observation-periapical-radiolucency",
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "text": "Periapical radiolucency, tooth #30"
+  },
+  "subject": {
+    "reference": "Patient/patient-frank-castle",
+    "display": "Frank Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-limited-oral-eval"
+  },
+  "effectiveDateTime": "2026-07-08",
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-parker",
+      "display": "Dr. Mary Parker, DDS"
+    }
+  ],
+  "valueCodeableConcept": {
+    "text": "Periapical radiolucency present, consistent with periapical abscess"
+  },
+  "bodySite": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+        "code": "30",
+        "display": "30"
+      }
+    ],
+    "text": "Tooth #30"
+  },
+  "derivedFrom": [
+    {
+      "reference": "DiagnosticReport/diagnosticreport-periapical-radiograph"
+    }
+  ]
+}
