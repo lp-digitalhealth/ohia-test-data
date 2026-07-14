@@ -1,0 +1,76 @@
+{
+  "resourceType": "Task",
+  "id": "task-srp-pa-tracking",
+  "identifier": [
+    {
+      "system": "http://ctdhp.example.org/pa-request-id",
+      "value": "PA-REQ-2026-UC03-001"
+    }
+  ],
+  "status": "completed",
+  "businessStatus": {
+    "text": "Prior authorization approved"
+  },
+  "intent": "order",
+  "priority": "routine",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill"
+      }
+    ],
+    "text": "Prior-authorization tracking for D4341 (scaling and root planing)"
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-srp-order",
+    "display": "SRP order (D4341, two quadrants)"
+  },
+  "for": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval",
+    "display": "Dental evaluation, 2026-05-28"
+  },
+  "authoredOn": "2026-05-28T09:20:00-04:00",
+  "lastModified": "2026-05-28T09:50:00-04:00",
+  "requester": {
+    "reference": "Organization/org-cornell-scott",
+    "display": "Cornell Scott-Hill Health Center"
+  },
+  "owner": {
+    "reference": "Organization/org-gainwell",
+    "display": "Gainwell Technologies (CMAP fiscal agent — adjudicates PA)"
+  },
+  "input": [
+    {
+      "type": { "text": "PA documentation — diagnosis" },
+      "valueReference": { "reference": "Condition/condition-k05-211-periodontitis" }
+    },
+    {
+      "type": { "text": "PA documentation — periodontal risk assessment" },
+      "valueReference": { "reference": "DiagnosticReport/diagnosticreport-perio-risk-assessment" }
+    },
+    {
+      "type": { "text": "DTR-completed questionnaire" },
+      "valueReference": { "reference": "QuestionnaireResponse/questionnaireresponse-srp-pa-dtr" }
+    }
+  ],
+  "output": [
+    {
+      "type": { "text": "PA request submitted" },
+      "valueReference": { "reference": "Claim/claim-d4341-priorauth" }
+    },
+    {
+      "type": { "text": "PA decision" },
+      "valueReference": { "reference": "ClaimResponse/claimresponse-d4341-priorauth" }
+    }
+  ],
+  "note": [
+    {
+      "text": "Separate Coordination Task for the SRP prior-authorization Request — distinct from the referral-tracking Task (task-referral-tracking), which tracks the referral Request. This is one Coordination Task per Request (the referral Request and the SRP Request are different Requests), consistent with the project's adopted COW scope; it is NOT a second Task on the same Request. Tracks the D4341 CRD/DTR/PAS cycle at the treatment visit: routed through Connie, PA intake at BeneCare (CTDHP ASO), adjudicated by Gainwell. The PA is not a patient-facing milestone and fires nothing to the guardian app."
+    }
+  ]
+}

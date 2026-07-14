@@ -1,0 +1,41 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "questionnaire-ctdhp-d4341-pa-dtr",
+  "status": "active",
+  "title": "HUSKY B / CTDHP Prior Authorization — Scaling & Root Planing (D4341)",
+  "description": "DTR questionnaire for the HUSKY B (CTDHP) prior-authorization pathway for periodontal scaling and root planing (D4341). PA intake is handled by the BeneCare ASO; the DTR/PAS determination and claims adjudication are performed by Gainwell (DSS fiscal agent, CMAP), with traffic routed through Connie. Medical-necessity justification is particularly relevant for a pediatric patient, where periodontitis is unusual.",
+  "subjectType": ["Patient"],
+  "item": [
+    {
+      "linkId": "1",
+      "text": "Quadrant(s) treated (UR / UL / LR / LL)",
+      "type": "string",
+      "repeats": true
+    },
+    {
+      "linkId": "2",
+      "text": "Periodontal diagnosis (ICD-10-CM)",
+      "type": "string"
+    },
+    {
+      "linkId": "3",
+      "text": "Periodontal risk assessment / clinical findings supporting scaling and root planing (probing depths, attachment loss, radiographic bone loss)",
+      "type": "text"
+    },
+    {
+      "linkId": "4",
+      "text": "Relevant systemic condition affecting periodontal risk (e.g., Type 1 diabetes)?",
+      "type": "text"
+    },
+    {
+      "linkId": "5",
+      "text": "Medical-necessity justification for periodontal therapy in a pediatric patient",
+      "type": "text"
+    },
+    {
+      "linkId": "6",
+      "text": "Supporting periodontal charting / diagnostic report attached?",
+      "type": "boolean"
+    }
+  ]
+}

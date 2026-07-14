@@ -1,0 +1,29 @@
+{
+  "resourceType": "Location",
+  "id": "loc-nemg",
+  "status": "active",
+  "name": "Northeast Medical Group — Pediatrics, New Haven",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "PEDC",
+          "display": "Pediatrics clinic"
+        }
+      ],
+      "text": "Pediatric medical office"
+    }
+  ],
+  "address": {
+    "line": ["20 York Street"],
+    "city": "New Haven",
+    "state": "CT",
+    "postalCode": "06510",
+    "country": "US"
+  },
+  "managingOrganization": {
+    "reference": "Organization/org-nemg",
+    "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+  }
+}

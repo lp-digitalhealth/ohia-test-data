@@ -1,0 +1,47 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "role-smith",
+  "active": true,
+  "practitioner": {
+    "reference": "Practitioner/pract-smith",
+    "display": "Dr. Laura Smith, MD"
+  },
+  "organization": {
+    "reference": "Organization/org-nemg",
+    "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "208000000X",
+          "display": "Pediatrics"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "208000000X",
+          "display": "Pediatrics"
+        }
+      ]
+    }
+  ],
+  "location": [
+    {
+      "reference": "Location/loc-nemg",
+      "display": "Northeast Medical Group — Pediatrics, New Haven"
+    }
+  ],
+  "telecom": [
+    {
+      "system": "email",
+      "value": "laura.smith@nemg.example.org"
+    }
+  ]
+}

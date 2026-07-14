@@ -1,0 +1,102 @@
+{
+  "resourceType": "Consent",
+  "id": "consent-timothy-connie-hie",
+  "status": "active",
+  "scope": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+        "code": "patient-privacy",
+        "display": "Privacy Consent"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "59284-0",
+          "display": "Patient Consent"
+        }
+      ]
+    }
+  ],
+  "patient": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "dateTime": "2026-02-28",
+  "performer": [
+    {
+      "reference": "RelatedPerson/relatedperson-timothy-guardian",
+      "display": "Parent / Legal Guardian (consenting on behalf of a minor)"
+    }
+  ],
+  "organization": [
+    {
+      "reference": "Organization/org-connie",
+      "display": "Connie — Connecticut Health Information Exchange"
+    }
+  ],
+  "policyRule": {
+    "text": "Guardian-authorized consent (minor patient) for treatment, payment, and healthcare operations (TPO) data exchange under HIPAA through Connie, Connecticut's statewide HIE. Authorizes Connie to route Timothy's clinical data between Northeast Medical Group (Yale New Haven Health), Cornell Scott-Hill Health Center (dental), and the Yale Children's Diabetes Program to coordinate the dental referral, the pre-encounter medical record exchange, and the return of encounter summaries."
+  },
+  "provision": {
+    "type": "permit",
+    "period": {
+      "start": "2026-02-28",
+      "end": "2027-02-28"
+    },
+    "actor": [
+      {
+        "role": {
+          "text": "State HIE routing hub"
+        },
+        "reference": {
+          "reference": "Organization/org-connie",
+          "display": "Connie — Connecticut Health Information Exchange"
+        }
+      },
+      {
+        "role": {
+          "text": "Sending/referring provider (medical)"
+        },
+        "reference": {
+          "reference": "Organization/org-nemg",
+          "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+        }
+      },
+      {
+        "role": {
+          "text": "Receiving/referral provider (dental)"
+        },
+        "reference": {
+          "reference": "Organization/org-cornell-scott",
+          "display": "Cornell Scott-Hill Health Center"
+        }
+      },
+      {
+        "role": {
+          "text": "Care team recipient (endocrinology)"
+        },
+        "reference": {
+          "reference": "Organization/org-yale-diabetes",
+          "display": "Yale Children's Diabetes Program"
+        }
+      }
+    ],
+    "purpose": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "TREAT",
+        "display": "treatment"
+      },
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HPAYMT",
+        "display": "healthcare payment"
+      }
+    ]
+  }
+}

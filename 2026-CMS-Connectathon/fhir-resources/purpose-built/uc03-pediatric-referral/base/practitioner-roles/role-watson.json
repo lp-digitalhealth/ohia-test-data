@@ -1,0 +1,53 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "role-watson",
+  "active": true,
+  "practitioner": {
+    "reference": "Practitioner/pract-watson",
+    "display": "Dr. David Watson, DDS"
+  },
+  "organization": {
+    "reference": "Organization/org-cornell-scott",
+    "display": "Cornell Scott-Hill Health Center"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223P0221X",
+          "display": "Pediatric Dentistry"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223P0221X",
+          "display": "Pediatric Dentistry"
+        }
+      ]
+    }
+  ],
+  "location": [
+    {
+      "reference": "Location/loc-cornell-scott",
+      "display": "Cornell Scott-Hill Health Center — Dental"
+    }
+  ],
+  "healthcareService": [
+    {
+      "reference": "HealthcareService/hs-cornell-scott-pediatric-dental",
+      "display": "Pediatric Dental Services — Cornell Scott-Hill Health Center"
+    }
+  ],
+  "telecom": [
+    {
+      "system": "email",
+      "value": "david.watson@cornellscott.example.org"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "resourceType": "RelatedPerson",
+  "id": "relatedperson-timothy-grandparent",
+  "active": true,
+  "patient": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "relationship": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "GRPRN",
+          "display": "grandparent"
+        }
+      ],
+      "text": "Grandparent — accompanying caregiver"
+    }
+  ],
+  "name": [
+    {
+      "family": "Jones",
+      "text": "Jones (grandparent — name withheld per minor patient convention)"
+    }
+  ],
+  "note": [
+    {
+      "text": "Accompanying caregiver at the dental appointment; NOT the legal guardian. Has limited knowledge of Timothy's medical history beyond knowing he has Type 1 diabetes and who his pediatrician is. This limited-knowledge caregiver is the clinical driver for the pre-encounter structured medical record exchange in Interaction 2."
+    }
+  ]
+}

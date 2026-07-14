@@ -1,0 +1,39 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "plandef-ctdhp-d4341-pa-rule",
+  "status": "active",
+  "name": "CTDHPD4341PriorAuthRule",
+  "title": "CTDHP / HUSKY B — D4341 (Scaling & Root Planing) Requires Prior Authorization",
+  "description": "Coverage-requirements rule for the Connecticut HUSKY B dental benefit (CTDHP). Fires at order-sign when a dental provider plans periodontal scaling and root planing (CDT D4341). Per the Connecticut administration model, this rule is surfaced/routed through Connie (the statewide HIE) with prior-authorization intake handled by the BeneCare ASO, while DTR/PAS evaluation and claims adjudication are performed by Gainwell Technologies (the DSS fiscal agent running CMAP). There is no dental MCO. This rule is not triggered by the covered-evaluation referral (UC03 Interaction 1); it fires only at the treatment visit (Interaction 3).",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "code": "eca-rule",
+        "display": "ECA Rule"
+      }
+    ]
+  },
+  "library": ["Library/lib-ctdhp-d4341-pa-logic"],
+  "action": [
+    {
+      "title": "Flag PA required for D4341 (scaling and root planing)",
+      "trigger": [
+        {
+          "type": "named-event",
+          "name": "order-sign"
+        }
+      ],
+      "condition": [
+        {
+          "kind": "applicability",
+          "expression": {
+            "language": "text/cql",
+            "expression": "IsD4341Order"
+          }
+        }
+      ],
+      "definitionCanonical": "Questionnaire/questionnaire-ctdhp-d4341-pa-dtr"
+    }
+  ]
+}

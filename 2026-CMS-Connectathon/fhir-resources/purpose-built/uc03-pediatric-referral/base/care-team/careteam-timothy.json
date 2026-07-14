@@ -1,0 +1,79 @@
+{
+  "resourceType": "CareTeam",
+  "id": "careteam-timothy",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam"]
+  },
+  "status": "active",
+  "name": "Timothy Jones — medical care team",
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "participant": [
+    {
+      "role": [
+        {
+          "coding": [
+            {
+              "system": "http://nucc.org/provider-taxonomy",
+              "code": "208000000X",
+              "display": "Pediatrics"
+            }
+          ],
+          "text": "Pediatrician (referring provider)"
+        }
+      ],
+      "member": {
+        "reference": "Practitioner/pract-smith",
+        "display": "Dr. Laura Smith, MD"
+      },
+      "onBehalfOf": {
+        "reference": "Organization/org-nemg",
+        "display": "Northeast Medical Group — Pediatrics (Yale New Haven Health)"
+      }
+    },
+    {
+      "role": [
+        {
+          "coding": [
+            {
+              "system": "http://nucc.org/provider-taxonomy",
+              "code": "2080P0202X",
+              "display": "Pediatric Endocrinology"
+            }
+          ],
+          "text": "Pediatric endocrinologist"
+        }
+      ],
+      "member": {
+        "reference": "Practitioner/pract-endo",
+        "display": "Pediatric Endocrinologist"
+      },
+      "onBehalfOf": {
+        "reference": "Organization/org-yale-diabetes",
+        "display": "Yale Children's Diabetes Program"
+      }
+    },
+    {
+      "role": [
+        {
+          "text": "Registered dietitian"
+        }
+      ],
+      "member": {
+        "reference": "Practitioner/pract-dietitian",
+        "display": "Registered Dietitian"
+      },
+      "onBehalfOf": {
+        "reference": "Organization/org-yale-diabetes",
+        "display": "Yale Children's Diabetes Program"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Timothy's full medical care team, transmitted with the pre-encounter medical records bundle to the dental practice in Interaction 2 so Dr. Watson can see who manages Timothy's diabetes before the appointment."
+    }
+  ]
+}

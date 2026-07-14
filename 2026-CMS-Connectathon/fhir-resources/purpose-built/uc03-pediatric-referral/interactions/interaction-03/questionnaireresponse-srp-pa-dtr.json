@@ -1,0 +1,53 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "id": "questionnaireresponse-srp-pa-dtr",
+  "questionnaire": "Questionnaire/questionnaire-ctdhp-d4341-pa-dtr",
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval"
+  },
+  "authored": "2026-05-28T09:30:00-04:00",
+  "author": {
+    "reference": "PractitionerRole/role-watson",
+    "display": "Dr. David Watson, DDS"
+  },
+  "item": [
+    {
+      "linkId": "1",
+      "text": "Quadrant(s) treated (UR / UL / LR / LL)",
+      "answer": [
+        { "valueString": "LR" },
+        { "valueString": "LL" }
+      ]
+    },
+    {
+      "linkId": "2",
+      "text": "Periodontal diagnosis (ICD-10-CM)",
+      "answer": [{ "valueString": "K05.211 — Aggressive periodontitis, localized, slight" }]
+    },
+    {
+      "linkId": "3",
+      "text": "Periodontal risk assessment / clinical findings supporting scaling and root planing (probing depths, attachment loss, radiographic bone loss)",
+      "answer": [{ "valueString": "Localized 4-5 mm pockets with bleeding on probing in the lower right and lower left posterior sextants; early attachment loss and early crestal bone changes. See PRA (DiagnosticReport/diagnosticreport-perio-risk-assessment)." }]
+    },
+    {
+      "linkId": "4",
+      "text": "Relevant systemic condition affecting periodontal risk (e.g., Type 1 diabetes)?",
+      "answer": [{ "valueString": "Type 1 diabetes mellitus (E10.9), insulin-pump managed with CGM — materially elevates periodontal/infection/healing risk and drives the aggressive periodontitis pattern." }]
+    },
+    {
+      "linkId": "5",
+      "text": "Medical-necessity justification for periodontal therapy in a pediatric patient",
+      "answer": [{ "valueString": "Progression from plaque-induced gingivitis to localized slight aggressive periodontitis in a six-year-old within three months, accelerated by Type 1 diabetes. Non-surgical periodontal therapy (SRP) is indicated to arrest progression. DTR pre-populated diagnosis, tooth/quadrant, and systemic condition from the record already routed via Connie at Interaction 2; Dr. Watson confirmed and submitted." }]
+    },
+    {
+      "linkId": "6",
+      "text": "Supporting periodontal charting / diagnostic report attached?",
+      "answer": [{ "valueBoolean": true }]
+    }
+  ]
+}

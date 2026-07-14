@@ -1,0 +1,22 @@
+{
+  "resourceType": "Library",
+  "id": "lib-ctdhp-d4341-pa-logic",
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "logic-library"
+      }
+    ]
+  },
+  "name": "CTDHPD4341PriorAuthLogic",
+  "title": "CTDHP / HUSKY B D4341 Prior Authorization Determination Logic",
+  "description": "CQL logic evaluated at order entry for the Connecticut HUSKY B dental benefit (CTDHP): does a D4341 (periodontal scaling and root planing, per quadrant) order require prior authorization? Returns true for D4341 orders under this benefit, since scaling and root planing requires PA. The determination is routed through Connie (statewide HIE) and intake-managed by the BeneCare ASO, while Gainwell (DSS fiscal agent, CMAP) performs the downstream DTR/PAS and adjudicates the resulting claim. Not evaluated at the covered-evaluation referral (Interaction 1); evaluated at the treatment visit (Interaction 3).",
+  "content": [
+    {
+      "contentType": "text/cql",
+      "data": "bGlicmFyeSBDVERIUEQ0MzQxUEFMb2dpYyB2ZXJzaW9uICcxLjAuMCc="
+    }
+  ]
+}

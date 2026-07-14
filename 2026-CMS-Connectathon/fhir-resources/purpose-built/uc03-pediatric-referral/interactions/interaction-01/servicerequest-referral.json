@@ -1,0 +1,113 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "servicerequest-referral",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-medical-to-dental-referral"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC03-001"
+    }
+  ],
+  "status": "active",
+  "intent": "order",
+  "priority": "routine",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "103696004",
+          "display": "Patient referral to specialist"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "text": "Pediatric dental evaluation — gingivitis, tooth loss, and diabetes-related periodontal risk assessment; establish a dental home"
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "K05.00",
+          "display": "Acute gingivitis, plaque induced"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "E10.9",
+          "display": "Type 1 diabetes mellitus without complications"
+        }
+      ]
+    }
+  ],
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-k05-00-gingivitis",
+      "display": "Plaque-induced gingivitis"
+    },
+    {
+      "reference": "Condition/condition-e10-9-diabetes",
+      "display": "Type 1 diabetes mellitus (pre-existing)"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-well-child",
+    "display": "Well-child visit, 2026-02-28"
+  },
+  "occurrenceDateTime": "2026-05-28",
+  "authoredOn": "2026-02-28",
+  "requester": {
+    "reference": "PractitionerRole/role-smith",
+    "display": "Dr. Laura Smith, MD — Pediatrics, Northeast Medical Group"
+  },
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-watson",
+      "display": "Dr. David Watson, DDS — Pediatric Dentistry, Cornell Scott-Hill Health Center"
+    }
+  ],
+  "supportingInfo": [
+    {
+      "reference": "Flag/flag-diabetes-perio-risk",
+      "display": "Type 1 diabetes — elevated periodontal/infection/healing risk"
+    },
+    {
+      "reference": "MedicationRequest/medicationrequest-insulin-lispro",
+      "display": "Insulin lispro (via insulin pump)"
+    },
+    {
+      "reference": "Device/device-insulin-pump",
+      "display": "Insulin pump"
+    },
+    {
+      "reference": "Device/device-cgm",
+      "display": "Continuous glucose monitor"
+    },
+    {
+      "reference": "DocumentReference/documentreference-oral-health-assessment",
+      "display": "Oral health assessment findings"
+    }
+  ],
+  "insurance": [
+    {
+      "reference": "Coverage/coverage-timothy-jones-huskyb",
+      "display": "HUSKY B dental (CTDHP) — Gainwell payor, BeneCare ASO"
+    }
+  ],
+  "note": [
+    {
+      "text": "Medical-to-dental referral created in Epic at the well-child visit and routed through Connie (Connecticut's statewide HIE) to BeneCare (the CTDHP ASO), whose Plan-Net directory identifies Dr. Watson at Cornell Scott-Hill Health Center (HUSKY B, accepting new patients, within 20 miles). This is a referral for a COVERED evaluation, not a treatment order: no CRD/prior-authorization fires here (the dental benefit is confirmed active); CRD — and DTR/PAS via Gainwell if a planned procedure needs it — applies at the treatment visit, not at referral. The scheduled appointment is 2026-05-28, three months out. No imaging accompanies this referral: UC03 involves no radiographs/DICOM at referral time (unlike UC01/UC02); the receiving practice will capture any imaging in-office."
+    }
+  ]
+}

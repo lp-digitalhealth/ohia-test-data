@@ -1,0 +1,73 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "servicerequest-srp-order",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:srp-order-id",
+      "value": "SRP-2026-UC03-001"
+    }
+  ],
+  "status": "completed",
+  "intent": "order",
+  "priority": "routine",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D4341",
+        "display": "Periodontal scaling and root planing — four or more teeth per quadrant"
+      }
+    ],
+    "text": "Scaling and root planing, two quadrants (lower right, lower left)"
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval",
+    "display": "Dental evaluation, 2026-05-28"
+  },
+  "authoredOn": "2026-05-28T09:20:00-04:00",
+  "requester": {
+    "reference": "PractitionerRole/role-watson",
+    "display": "Dr. David Watson, DDS"
+  },
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "K05.211",
+          "display": "Aggressive periodontitis, localized, slight"
+        }
+      ]
+    }
+  ],
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-k05-211-periodontitis",
+      "display": "Aggressive periodontitis, localized, slight"
+    }
+  ],
+  "insurance": [
+    {
+      "reference": "Coverage/coverage-timothy-jones-huskyb",
+      "display": "HUSKY B dental (CTDHP) — Gainwell payor, BeneCare ASO"
+    }
+  ],
+  "supportingInfo": [
+    {
+      "reference": "DiagnosticReport/diagnosticreport-perio-risk-assessment",
+      "display": "Periodontal risk assessment"
+    }
+  ],
+  "note": [
+    {
+      "text": "The signed SRP order that triggers coverage-requirements discovery (CRD) at the treatment visit. D4341 requires prior authorization under HUSKY B, so the order-sign CRD check (PlanDefinition/plandef-ctdhp-d4341-pa-rule) surfaces the PA requirement; DTR completes QuestionnaireResponse/questionnaireresponse-srp-pa-dtr and PAS submits Claim/claim-d4341-priorauth, approved via ClaimResponse/claimresponse-d4341-priorauth. Routed through Connie; PA intake at BeneCare (CTDHP ASO); DTR/PAS run and adjudicated by Gainwell (DSS fiscal agent). status: completed once the procedure is performed the same visit."
+    }
+  ]
+}

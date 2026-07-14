@@ -1,0 +1,222 @@
+{
+  "resourceType": "ExplanationOfBenefit",
+  "id": "eob-timothy-dental-claims-sharing",
+  "meta": {
+    "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-dental-claim"]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:claims-sharing-id",
+      "value": "CS-2026-UC03-001"
+    }
+  ],
+  "status": "draft",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+        "code": "oral",
+        "display": "Oral"
+      }
+    ]
+  },
+  "use": "claim",
+  "patient": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "created": "2026-05-29",
+  "insurer": {
+    "reference": "Organization/org-gainwell",
+    "display": "Gainwell Technologies (CMAP fiscal agent — adjudicates and pays HUSKY dental claims)"
+  },
+  "provider": {
+    "reference": "Organization/org-cornell-scott",
+    "display": "Cornell Scott-Hill Health Center"
+  },
+  "outcome": "queued",
+  "careTeam": [
+    {
+      "sequence": 1,
+      "provider": {
+        "reference": "PractitionerRole/role-smith",
+        "display": "Dr. Laura Smith, MD (referring pediatrician)"
+      },
+      "role": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole",
+            "code": "referring",
+            "display": "Referring"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 2,
+      "provider": {
+        "reference": "PractitionerRole/role-watson",
+        "display": "Dr. David Watson, DDS (rendering)"
+      },
+      "responsible": true,
+      "role": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole",
+            "code": "rendering",
+            "display": "Rendering provider"
+          }
+        ]
+      }
+    }
+  ],
+  "diagnosis": [
+    {
+      "sequence": 1,
+      "diagnosisCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "K05.211",
+            "display": "Aggressive periodontitis, localized, slight"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 2,
+      "diagnosisCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "E10.9",
+            "display": "Type 1 diabetes mellitus without complications"
+          }
+        ],
+        "text": "Type 1 diabetes — contributing systemic condition / medical-necessity context"
+      }
+    }
+  ],
+  "insurance": [
+    {
+      "focal": true,
+      "coverage": {
+        "reference": "Coverage/coverage-timothy-jones-huskyb",
+        "display": "Timothy Jones's HUSKY B dental coverage (CTDHP)"
+      }
+    }
+  ],
+  "supportingInfo": [
+    {
+      "sequence": 1,
+      "category": {
+        "text": "Prior authorization reference (D4341 scaling and root planing)"
+      },
+      "valueString": "CT-HUSKYB-PA-2026-00318"
+    },
+    {
+      "sequence": 2,
+      "category": {
+        "text": "Referring provider's referral"
+      },
+      "valueReference": {
+        "reference": "ServiceRequest/servicerequest-referral"
+      }
+    },
+    {
+      "sequence": 3,
+      "category": {
+        "text": "Coverage uncertain — flagged open item"
+      },
+      "valueString": "D4381 (localized chlorhexidine delivery): coverage under the HUSKY B pediatric dental benefit is a genuinely open question in the source material. Line is included as performed care but flagged coverage-uncertain, not asserted as covered."
+    }
+  ],
+  "item": [
+    {
+      "sequence": 1,
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D0150",
+            "display": "Comprehensive oral evaluation — new or established patient"
+          }
+        ]
+      },
+      "servicedDate": "2026-05-28",
+      "quantity": { "value": 1 }
+    },
+    {
+      "sequence": 2,
+      "informationSequence": [1],
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D4341",
+            "display": "Periodontal scaling and root planing — four or more teeth per quadrant"
+          }
+        ]
+      },
+      "bodySite": { "text": "Lower right quadrant" },
+      "servicedDate": "2026-05-28",
+      "quantity": { "value": 1 }
+    },
+    {
+      "sequence": 3,
+      "informationSequence": [1],
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D4341",
+            "display": "Periodontal scaling and root planing — four or more teeth per quadrant"
+          }
+        ]
+      },
+      "bodySite": { "text": "Lower left quadrant" },
+      "servicedDate": "2026-05-28",
+      "quantity": { "value": 1 }
+    },
+    {
+      "sequence": 4,
+      "informationSequence": [3],
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D4381",
+            "display": "Localized delivery of antimicrobial agents via a controlled release vehicle — per tooth"
+          }
+        ]
+      },
+      "servicedDate": "2026-05-28",
+      "quantity": { "value": 1 }
+    },
+    {
+      "sequence": 5,
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D1330",
+            "display": "Oral hygiene instructions"
+          }
+        ]
+      },
+      "servicedDate": "2026-05-28",
+      "quantity": { "value": 1 }
+    }
+  ],
+  "note": [
+    {
+      "text": "UC03's claims-sharing proof point: the third payer context for the ODEDentalClaim profile after Medicaid (UC02a) and commercial (UC02b) — now a CHIP program on a fiscal-agent model (Connecticut DSS sponsor -> Gainwell fiscal agent adjudicates/pays; CTDHP dental plan facilitated by BeneCare as ASO; no MCO). Insurer is Gainwell; billing provider is Cornell Scott-Hill. Five line items: D0150, D4341 x2 (one per quadrant, matching the two Procedure resources built at Interaction 3), D4381, D1330. CDT alone is required; no CPT crosswalk applies (dental-payer direction)."
+    },
+    {
+      "text": "PA number CT-HUSKYB-PA-2026-00318 (from the Interaction 3 ClaimResponse) is carried forward here via supportingInfo and linked to the two D4341 lines (informationSequence). The D4381 line is linked to the coverage-uncertain supportingInfo flag — carried honestly as an open coverage question, not asserted as covered."
+    },
+    {
+      "text": "Deliberately excluded, per this profile's non-financial design: unitPrice, net, total, adjudication. Also out of scope: Dr. Smith's well-child medical claim (billed under the medical benefit), which is a separate billing event not part of this dental claims-sharing package."
+    }
+  ]
+}

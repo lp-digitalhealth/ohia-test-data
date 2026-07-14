@@ -1,0 +1,38 @@
+{
+  "resourceType": "Practitioner",
+  "id": "pract-smith",
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "1538472091"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "family": "Smith",
+      "given": ["Laura", "Ann"],
+      "prefix": ["Dr."],
+      "suffix": ["MD"]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "email",
+      "value": "laura.smith@nemg.example.org"
+    }
+  ],
+  "qualification": [
+    {
+      "code": {
+        "text": "MD — Doctor of Medicine"
+      },
+      "identifier": [
+        {
+          "system": "urn:ohia:license",
+          "value": "CT-MD-047821"
+        }
+      ]
+    }
+  ]
+}

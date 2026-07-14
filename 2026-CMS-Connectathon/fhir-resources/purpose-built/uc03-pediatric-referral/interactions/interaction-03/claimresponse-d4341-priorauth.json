@@ -1,0 +1,53 @@
+{
+  "resourceType": "ClaimResponse",
+  "id": "claimresponse-d4341-priorauth",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/davinci-pas/StructureDefinition/profile-claimresponse"]
+  },
+  "identifier": [
+    {
+      "system": "http://ctdhp.example.org/pa-response-id",
+      "value": "PA-REQ-2026-UC03-001-R1"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+        "code": "oral",
+        "display": "Oral"
+      }
+    ]
+  },
+  "use": "preauthorization",
+  "patient": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "created": "2026-05-28T09:50:00-04:00",
+  "insurer": {
+    "reference": "Organization/org-gainwell",
+    "display": "Gainwell Technologies (CMAP fiscal agent)"
+  },
+  "requestor": {
+    "reference": "Organization/org-cornell-scott",
+    "display": "Cornell Scott-Hill Health Center"
+  },
+  "request": {
+    "reference": "Claim/claim-d4341-priorauth",
+    "display": "D4341 (SRP, two quadrants) prior authorization request"
+  },
+  "outcome": "complete",
+  "disposition": "Approved. Scaling and root planing (D4341) authorized for two quadrants (lower right, lower left). Medical necessity supported by the periodontal risk assessment and Type 1 diabetes context.",
+  "preAuthRef": "CT-HUSKYB-PA-2026-00318",
+  "preAuthPeriod": {
+    "start": "2026-05-28",
+    "end": "2026-08-28"
+  },
+  "note": [
+    {
+      "text": "PA approval confirms medical necessity and coverage eligibility at time of review — not a guarantee of payment. Final reimbursement still depends on Timothy's HUSKY B eligibility on the date of service and a clean claim. Adjudicated by Gainwell (DSS fiscal agent) via CMAP; PA intake coordinated by the BeneCare ASO; routed through Connie. The preAuthRef is carried forward onto the D4341 lines of the Interaction 5 claims-sharing EOB."
+    }
+  ]
+}

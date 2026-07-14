@@ -1,0 +1,29 @@
+{
+  "resourceType": "Location",
+  "id": "loc-cornell-scott",
+  "status": "active",
+  "name": "Cornell Scott-Hill Health Center — Dental",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "DENTAL",
+          "display": "Dental clinic"
+        }
+      ],
+      "text": "Pediatric dental office (FQHC)"
+    }
+  ],
+  "address": {
+    "line": ["428 Columbus Avenue"],
+    "city": "New Haven",
+    "state": "CT",
+    "postalCode": "06519",
+    "country": "US"
+  },
+  "managingOrganization": {
+    "reference": "Organization/org-cornell-scott",
+    "display": "Cornell Scott-Hill Health Center"
+  }
+}

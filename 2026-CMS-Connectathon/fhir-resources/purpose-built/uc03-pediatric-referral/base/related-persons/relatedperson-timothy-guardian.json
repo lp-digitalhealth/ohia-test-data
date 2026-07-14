@@ -1,0 +1,39 @@
+{
+  "resourceType": "RelatedPerson",
+  "id": "relatedperson-timothy-guardian",
+  "active": true,
+  "patient": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "relationship": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "GUARD",
+          "display": "guardian"
+        }
+      ],
+      "text": "Parent / Legal Guardian"
+    }
+  ],
+  "name": [
+    {
+      "family": "Jones",
+      "text": "Jones (parent — name withheld per minor patient convention)"
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(203) 555-0174",
+      "use": "mobile"
+    }
+  ],
+  "note": [
+    {
+      "text": "Legal guardian of record for Timothy (a minor). Authorized via SMART App Launch proxy for the guardian-facing patient application. This is the party who receives referral/appointment milestone notifications."
+    }
+  ]
+}

@@ -1,0 +1,44 @@
+{
+  "resourceType": "Organization",
+  "id": "org-nemg",
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "1437823056"
+    }
+  ],
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "prov",
+          "display": "Healthcare Provider"
+        }
+      ],
+      "text": "Pediatric Medical Practice"
+    }
+  ],
+  "name": "Northeast Medical Group — Pediatrics (Yale New Haven Health)",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(203) 555-0220"
+    }
+  ],
+  "address": [
+    {
+      "line": ["20 York Street"],
+      "city": "New Haven",
+      "state": "CT",
+      "postalCode": "06510",
+      "country": "US"
+    }
+  ],
+  "note": [
+    {
+      "text": "Real institution — Northeast Medical Group (NEMG) is Yale New Haven Health's physician foundation; the referring pediatric practice in this use case, running the Yale New Haven Health instance of Epic with Care Everywhere enabled. Individual clinicians (Dr. Laura Smith) are fictional. NPI shown is synthetic, not the real organization's actual NPI."
+    }
+  ]
+}

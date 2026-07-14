@@ -1,0 +1,31 @@
+{
+  "resourceType": "Organization",
+  "id": "org-connie",
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "other",
+          "display": "Other"
+        }
+      ],
+      "text": "State Health Information Exchange"
+    }
+  ],
+  "name": "Connie — Connecticut Health Information Exchange",
+  "alias": ["Health Information Alliance, Inc."],
+  "address": [
+    {
+      "city": "Hartford",
+      "state": "CT",
+      "country": "US"
+    }
+  ],
+  "note": [
+    {
+      "text": "Real institution — Connie is Connecticut's state-designated statewide HIE (CGS Sec. 17b-59d/e), built as part of the state's Medicaid Enterprise System. In this use case Connie is the central routing hub: it routes the referral to BeneCare, routes the pre-encounter medical records from the Epic FHIR endpoint at Yale New Haven Health to the dental practice, and (at later interactions) routes the encounter summaries back to the medical care team. Named OHIA member organization (sector: State HIE)."
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "resourceType": "Encounter",
+  "id": "encounter-03-dental-eval",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"]
+  },
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "type": [
+    {
+      "text": "Comprehensive dental evaluation, periodontal risk assessment, and periodontal therapy"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/servicerequest-referral",
+      "display": "Medical-to-dental referral (Interaction 1)"
+    }
+  ],
+  "participant": [
+    {
+      "individual": {
+        "reference": "PractitionerRole/role-watson",
+        "display": "Dr. David Watson, DDS"
+      }
+    }
+  ],
+  "period": {
+    "start": "2026-05-28T09:00:00-04:00",
+    "end": "2026-05-28T10:15:00-04:00"
+  },
+  "location": [
+    {
+      "location": {
+        "reference": "Location/loc-cornell-scott",
+        "display": "Cornell Scott-Hill Health Center — Dental, New Haven"
+      }
+    }
+  ],
+  "serviceProvider": {
+    "reference": "Organization/org-cornell-scott",
+    "display": "Cornell Scott-Hill Health Center"
+  },
+  "note": [
+    {
+      "text": "The dental treatment visit (three months after the well-child referral). Dr. Watson already has Timothy's medical record from the Interaction 2 pre-encounter push via Connie. Place of service 11 (office). This encounter is where UC03's prior-authorization machinery fires: the planned scaling and root planing (D4341) requires PA under HUSKY B, so CRD/DTR/PAS run here (see the PA-cycle resources in this interaction), unlike the covered-evaluation referral at Interaction 1 which triggered no CRD."
+    }
+  ]
+}

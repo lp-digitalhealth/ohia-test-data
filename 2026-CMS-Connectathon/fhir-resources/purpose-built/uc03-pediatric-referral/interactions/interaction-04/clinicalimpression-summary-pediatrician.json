@@ -1,0 +1,51 @@
+{
+  "resourceType": "ClinicalImpression",
+  "id": "clinicalimpression-summary-pediatrician",
+  "status": "completed",
+  "code": {
+    "text": "Dental encounter summary — to referring pediatrician"
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval"
+  },
+  "date": "2026-05-28T11:00:00-04:00",
+  "assessor": {
+    "reference": "PractitionerRole/role-watson",
+    "display": "Dr. David Watson, DDS — Cornell Scott-Hill Health Center"
+  },
+  "problem": [
+    {
+      "reference": "Condition/condition-k05-211-periodontitis"
+    }
+  ],
+  "investigation": [
+    {
+      "code": { "text": "Periodontal therapy delivered" },
+      "item": [
+        { "reference": "Procedure/procedure-d0150-comprehensive-eval", "display": "D0150 comprehensive oral evaluation" },
+        { "reference": "Procedure/procedure-d4341-srp-lr", "display": "D4341 SRP, lower right" },
+        { "reference": "Procedure/procedure-d4341-srp-ll", "display": "D4341 SRP, lower left" },
+        { "reference": "Procedure/procedure-d4381-chlorhexidine", "display": "D4381 chlorhexidine delivery" },
+        { "reference": "Procedure/procedure-d1330-oral-hygiene", "display": "D1330 oral hygiene instructions" }
+      ]
+    }
+  ],
+  "finding": [
+    {
+      "itemReference": {
+        "reference": "Condition/condition-k05-211-periodontitis",
+        "display": "Aggressive periodontitis, localized, slight — confirmed"
+      }
+    }
+  ],
+  "summary": "Timothy Jones seen 2026-05-28 per referral from Northeast Medical Group. Comprehensive oral evaluation and periodontal risk assessment completed. Gingivitis has progressed to early-stage aggressive periodontitis (K05.211), localized, slight - consistent with the accelerated periodontitis trajectory in Type 1 diabetes. Scaling and root planing performed in two quadrants (D4341 x2). Chlorhexidine chip placed at affected sites (D4381). Oral hygiene education provided to patient and grandmother (D1330); toothbrush, toothpaste, and floss dispensed. Six-month recall recommended. Permanent restoration of partially erupted lower central incisor to be monitored at recall.",
+  "note": [
+    {
+      "text": "Structured encounter summary returned to the referring pediatrician (Dr. Smith, NEMG) via Connie — one of two simultaneous summaries at Interaction 4 (the other goes to the endocrinologist). This summary closes the referral loop (see the completed referral Task and ServiceRequest). Transmitted as discrete FHIR, not a PDF."
+    }
+  ]
+}

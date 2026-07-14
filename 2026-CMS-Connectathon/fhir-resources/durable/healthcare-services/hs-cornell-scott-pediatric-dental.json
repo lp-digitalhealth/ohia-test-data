@@ -1,0 +1,68 @@
+{
+  "resourceType": "HealthcareService",
+  "id": "hs-cornell-scott-pediatric-dental",
+  "active": true,
+  "providedBy": {
+    "reference": "Organization/org-cornell-scott",
+    "display": "Cornell Scott-Hill Health Center"
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/service-category",
+          "code": "10",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223P0221X",
+          "display": "Pediatric Dentistry"
+        }
+      ],
+      "text": "Pediatric dentistry"
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223P0221X",
+          "display": "Pediatric Dentistry"
+        }
+      ]
+    }
+  ],
+  "location": [
+    {
+      "reference": "Location/loc-cornell-scott",
+      "display": "Cornell Scott-Hill Health Center — Dental"
+    }
+  ],
+  "name": "Pediatric Dental Services — Cornell Scott-Hill Health Center",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "(203) 555-0188"
+    }
+  ],
+  "eligibility": [
+    {
+      "code": {
+        "text": "HUSKY B (Connecticut CHIP) — CTDHP / BeneCare network; accepting new pediatric patients"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "This is the Plan-Net directory entry that BeneCare's provider directory returns in Interaction 1 when queried for a HUSKY B–participating pediatric dental provider within 20 miles accepting new patients. It is a read-only directory target, queried (not created) by the referring practice. Confirms network participation, pediatric-dentistry specialty, proximity (New Haven), and accepting-new-patients panel status. Paired with PractitionerRole/role-watson."
+    }
+  ]
+}

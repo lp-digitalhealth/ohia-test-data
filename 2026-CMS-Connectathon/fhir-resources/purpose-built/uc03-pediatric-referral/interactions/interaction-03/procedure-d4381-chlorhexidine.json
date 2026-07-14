@@ -1,0 +1,44 @@
+{
+  "resourceType": "Procedure",
+  "id": "procedure-d4381-chlorhexidine",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"]
+  },
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D4381",
+        "display": "Localized delivery of antimicrobial agents via a controlled release vehicle — per tooth"
+      }
+    ],
+    "text": "Localized delivery of chlorhexidine at affected periodontal sites"
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval"
+  },
+  "performedDateTime": "2026-05-28",
+  "performer": [
+    {
+      "actor": {
+        "reference": "PractitionerRole/role-watson",
+        "display": "Dr. David Watson, DDS"
+      }
+    }
+  ],
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-k05-211-periodontitis"
+    }
+  ],
+  "note": [
+    {
+      "text": "Localized chlorhexidine chip placed at the affected periodontal sites to reduce bacterial load (the drug administration itself is recorded as MedicationAdministration/medicationadministration-chlorhexidine). COVERAGE-UNCERTAIN: whether D4381 is covered under the HUSKY B pediatric benefit is a genuinely open question in the source material — carried here as performed clinical care and flagged as coverage-uncertain on the Interaction 5 claims-sharing EOB, not asserted as covered."
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "resourceType": "Task",
+  "id": "task-summary-delivery-pediatrician",
+  "identifier": [
+    {
+      "system": "urn:ohia:summary-delivery-id",
+      "value": "SUMDEL-2026-UC03-PED"
+    }
+  ],
+  "status": "completed",
+  "businessStatus": {
+    "text": "Encounter summary delivered to pediatrician via Connie"
+  },
+  "intent": "order",
+  "priority": "routine",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill"
+      }
+    ],
+    "text": "Deliver dental encounter summary to referring pediatrician (via Connie)"
+  },
+  "focus": {
+    "reference": "ClinicalImpression/clinicalimpression-summary-pediatrician",
+    "display": "Dental encounter summary — pediatrician"
+  },
+  "for": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval"
+  },
+  "authoredOn": "2026-05-28T11:00:00-04:00",
+  "lastModified": "2026-05-28T11:06:00-04:00",
+  "requester": {
+    "reference": "Organization/org-cornell-scott",
+    "display": "Cornell Scott-Hill Health Center"
+  },
+  "owner": {
+    "reference": "Organization/org-connie",
+    "display": "Connie — Connecticut Health Information Exchange (routing hub)"
+  },
+  "output": [
+    {
+      "type": { "text": "Delivered summary" },
+      "valueReference": { "reference": "ClinicalImpression/clinicalimpression-summary-pediatrician" }
+    },
+    {
+      "type": { "text": "Care plan included" },
+      "valueReference": { "reference": "CarePlan/careplan-perio" }
+    }
+  ],
+  "note": [
+    {
+      "text": "One of two simultaneous summary-delivery Tasks at Interaction 4. This one routes the encounter summary to the referring pediatrician (Dr. Smith, NEMG) through Connie to the Epic FHIR endpoint at Yale New Haven Health. CDex provider-to-provider push. The other delivery Task (task-summary-delivery-endocrinologist) routes the parallel summary + the perio->glycemic Flag to the endocrinologist."
+    }
+  ]
+}

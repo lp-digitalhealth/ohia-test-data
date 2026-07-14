@@ -1,0 +1,54 @@
+{
+  "resourceType": "DiagnosticReport",
+  "id": "diagnosticreport-perio-risk-assessment",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note"]
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+          "code": "OT",
+          "display": "Other"
+        }
+      ],
+      "text": "Periodontal risk assessment"
+    }
+  ],
+  "code": {
+    "text": "Periodontal risk assessment (PRA)"
+  },
+  "subject": {
+    "reference": "Patient/patient-timothy-jones",
+    "display": "Timothy Jones"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-03-dental-eval",
+    "display": "Dental evaluation, 2026-05-28"
+  },
+  "effectiveDateTime": "2026-05-28",
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-watson",
+      "display": "Dr. David Watson, DDS"
+    }
+  ],
+  "result": [
+    {
+      "reference": "Observation/observation-periodontal-findings",
+      "display": "Periodontal findings by site"
+    },
+    {
+      "reference": "Observation/observation-tooth-development",
+      "display": "Tooth development / dentition status"
+    }
+  ],
+  "conclusion": "Elevated periodontal risk. Localized slight aggressive periodontitis confirmed in the context of Type 1 diabetes. Scaling and root planing (two quadrants) with localized antimicrobial delivery indicated; reinforce oral hygiene and coordinate with diabetes care team.",
+  "note": [
+    {
+      "text": "This is where the project's third named terminology gap lives: there is no established LOINC code for a structured periodontal risk assessment score, which the source doc flags as its own ODE IG action item. The PRA code is therefore text-only; the underlying findings are carried as referenced Observations."
+    }
+  ]
+}

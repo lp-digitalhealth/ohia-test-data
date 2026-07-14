@@ -1,0 +1,38 @@
+{
+  "resourceType": "Practitioner",
+  "id": "pract-watson",
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "1649203058"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "family": "Watson",
+      "given": ["David", "Michael"],
+      "prefix": ["Dr."],
+      "suffix": ["DDS"]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "email",
+      "value": "david.watson@cornellscott.example.org"
+    }
+  ],
+  "qualification": [
+    {
+      "code": {
+        "text": "DDS — Doctor of Dental Surgery"
+      },
+      "identifier": [
+        {
+          "system": "urn:ohia:license",
+          "value": "CT-DDS-052917"
+        }
+      ]
+    }
+  ]
+}

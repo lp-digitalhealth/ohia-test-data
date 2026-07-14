@@ -1,0 +1,36 @@
+{
+  "resourceType": "Organization",
+  "id": "org-yale-diabetes",
+  "identifier": [
+    {
+      "system": "http://hl7.org/fhir/sid/us-npi",
+      "value": "1689203741"
+    }
+  ],
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "prov",
+          "display": "Healthcare Provider"
+        }
+      ],
+      "text": "Pediatric Specialty Practice — Endocrinology"
+    }
+  ],
+  "name": "Yale Children's Diabetes Program — Yale New Haven Children's Hospital",
+  "address": [
+    {
+      "city": "New Haven",
+      "state": "CT",
+      "country": "US"
+    }
+  ],
+  "note": [
+    {
+      "text": "Real pediatric Type 1 diabetes program at Yale New Haven Children's Hospital; supplies the pediatric endocrinologist and registered dietitian on Timothy's care team. In I2 this organization is a member of the care team transmitted to the dental practice; at later interactions it is a recipient of the encounter summary. Individual clinicians are fictional. NPI shown is synthetic."
+    }
+  ]
+}

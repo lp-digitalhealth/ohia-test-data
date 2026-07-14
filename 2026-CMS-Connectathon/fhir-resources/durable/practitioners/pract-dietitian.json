@@ -1,0 +1,17 @@
+{
+  "resourceType": "Practitioner",
+  "id": "pract-dietitian",
+  "active": true,
+  "name": [
+    {
+      "text": "Registered Dietitian (name withheld — care team member)"
+    }
+  ],
+  "qualification": [
+    {
+      "code": {
+        "text": "RD — Registered Dietitian"
+      }
+    }
+  ]
+}
