@@ -1,7 +1,7 @@
 # CLAUDE.md — OHIA CMS Connectathon Test Data
 
-**Doc version:** 5.2
-**Last updated:** 2026-07-13 (by: Claude Code)
+**Doc version:** 5.5
+**Last updated:** 2026-07-14 (by: Claude Code)
 **Repo:** `lp-digitalhealth/ohia-test-data`, folder `2026-CMS-Connectathon/`
 
 > This file is the single source of truth for this project's decisions, structure, and state. It lives in the repo, not in any one chat. Whoever works on this project next — claude.ai chat or Claude Code — reads this file first, and updates it (including the Session Log at the bottom) before finishing a session.
@@ -202,7 +202,7 @@ Key facts this surfaced for UC01:
 
 ## 7c. Companion guide (Interaction 1 — finalized by user directly in the repo)
 
-`companion-guides/UC01-companion-guide.md` — Interaction 1 (referred to as "Encounter #1" throughout the current text, predating the reframe) complete and user-edited directly in GitHub (not just Claude-drafted). User's edits added real value beyond the original draft: per-role "Files for this role" tables in Section 2, Stub Specifications moved to its own Section 3, and a **Section 4 Resource Index** — a complete table of every file needed, organized by tier (registry/base/encounter), with direct links. Sections numbered 0–9 consistently. **This confirms the user is now editing the repo directly — treat GitHub as authoritative over any local/chat-side copy going forward; if there's ever a conflict, ask which is newer rather than assuming chat's version wins.** **Not yet updated for interaction terminology** — still says "Encounter #1" throughout; whether/when to rename is the user's call given they're actively hand-editing this file.
+`companion-guides/UC01-companion-guide.md` — covers all four built interactions (I1–I4), user-edited directly in GitHub (not just Claude-drafted). User's edits added real value beyond the original draft: per-role "Files for this role" tables in Section 2, Stub Specifications moved to its own Section 3, and a **Section 4 Resource Index** — a complete table of every file needed, organized by tier (durable/base/interaction), with direct links. Sections numbered 0–9 consistently. **This confirms the user is now editing the repo directly — treat GitHub as authoritative over any local/chat-side copy going forward; if there's ever a conflict, ask which is newer rather than assuming chat's version wins.** **Now made fully navigable and modernized (v5.3):** every resource/file reference is a working markdown link to its actual post-reorg home (`../fhir-resources/durable/...`, `../fhir-resources/purpose-built/...`, `../hl7v2/...`), the four renamed practitioners/roles and the relocated `cds-hooks-discovery-ibx.json` are corrected, "Encounter #1" terminology is modernized to "Interaction 1" throughout, and stale bundle counts are fixed (I1=35, I3=48, I4=51). 130 links verified to resolve on disk. This is the first of the deferred companion-guide cleanups from v5.2; UC02a/UC02b guides and `use-cases/**` remain deferred.
 
 ---
 
@@ -225,6 +225,54 @@ Key facts this surfaced for UC01:
 ## Session Log
 
 *Append-only. Newest entry at the top. Every session (chat or Code) adds one entry before finishing.*
+
+### 2026-07-14 — Claude Code (v5.5) — UC02b companion guide made navigable + patient-facing & imaging-tooling sections added (completes the companion-guide cleanups)
+Third and final companion-guide cleanup (UC01 was v5.3, UC02a v5.4). Rewrote `companion-guides/UC02b-companion-guide.md` following the exact UC02a pattern — compact structure/prose preserved, two new sections added.
+
+**Navigability:**
+- **Every resource/file reference is now a working markdown link**, relative from `companion-guides/`: Registry rows → `../fhir-resources/durable/<subfolder>/`; Base/Interaction rows → `../fhir-resources/purpose-built/uc02b-commercial-implant/{base,interactions}/...`. Section 2 inline filenames, full Section 4 Resource Index, the two named narrative files in Section 0, and `../CLAUDE.md` all linked.
+- **Stale paths fixed:** `fhir-resources/common/` → `durable/`; `cds-hooks-discovery-commercial.json` corrected to its real home `durable/cds-hooks/` (guide had it under `common/`).
+- **Stale status fixed:** the Base subscription row said "referral-complete (I4, **not yet built**)" — I4 is built; dropped the parenthetical.
+- **Counts:** all bundle counts (I1=29, I2=32, I3=37, I4=41, I5=42) were already correct — verified, no changes. No practitioner/role renames needed (`parker`/`maxil`, shared with UC02a, were never renamed).
+
+**Two new sections (matching UC02a):**
+- **Section 5 — Patient-Facing App Companion Guide (consolidated):** milestone table grounded in the actual Task snapshots — I1 `businessStatus: referral-sent` (no owner), I2 `appointment-confirmed` (owner set to role-maxil), I4 `completed`/`outcome-final` (output absorbs both Procedures + Device + summary + care plan). Explicit non-events for I3 (surgery) and I5 (billing). Trimmed Section 2d to a cross-reference. **UC02b-specific point called out:** there is **no "PA approved" milestone at all** — no PA in the commercial scenario — unlike both UC01 and UC02a; every milestone rides the one referral Task/Subscription.
+- **Section 6 — Tooling:** (6a) FHIR services — server (HAPI/OnyxOS, incl. the `Device` needing no special tooling), loading, profile validation, CRD/PDex benefit-verification as plain HTTP with an explicit "no DTR/PAS here" note; (6b) **imaging support-a-pull stack**, emphasized: **CDex** (receiver pulls) → **`ImagingStudy`** (pointer/metadata; `endpoint` → WADO-RS base) → **DICOM/WADO-RS** (pixels on a PACS/DICOMweb server, e.g. Orthanc/dcm4chee), with the periodontal-charting `DiagnosticReport` and intraoral-images `DocumentReference` pulled the same way; noted UC02b has **no HL7v2**, so no MLLP tooling. Old "What to do if something doesn't match" renumbered 5 → 7 (its `Device`/EOB/periodontal-charting/org references now linked).
+
+**Verification (clean):** a script confirmed all repo-relative markdown links resolve to real files on disk; both in-page `#` anchors match their heading slugs; zero stale tokens (`fhir-resources/common`, un-prefixed `uc02b-.../base`, residual "not yet built"); cited bundle counts match actual. Documentation-only — no FHIR resource files touched.
+
+**Companion-guide cleanups now complete (UC01, UC02a, UC02b all navigable).** Still deferred: all `use-cases/**` narrative docs (several still carry old `common/`/`uc0X-.../` paths; UC01's `use-cases/.../` files still carry pre-v3.7 real practitioner names).
+
+### 2026-07-14 — Claude Code (v5.4) — UC02a companion guide made navigable + patient-facing & imaging-tooling sections added (second of the v5.2 deferred doc cleanups)
+Second of the deferred companion-guide cleanups (UC01 was v5.3). Rewrote `companion-guides/UC02a-companion-guide.md` — existing compact structure/prose preserved, with two new sections added per user request.
+
+**Navigability (same treatment as UC01):**
+- **Every resource/file reference is now a working markdown link** to its actual post-reorg home, relative from `companion-guides/`: Registry rows → `../fhir-resources/durable/<subfolder>/`; Base/Interaction rows → `../fhir-resources/purpose-built/uc02a-surgical-extraction/{base,interactions}/...`. Section 2 inline filenames, the full Section 4 Resource Index, and cross-doc refs (`../CLAUDE.md`, `../use-cases/UC02-tooth-extraction/interactions/`) all linked.
+- **Stale paths fixed:** `fhir-resources/common/` → `durable/`; the `cds-hooks-discovery-dentaquest.json` reference corrected to its real home `durable/cds-hooks/` (guide had it under `common/` in prose and bare in the index).
+- **Count fix:** Interaction 1 bundle cited "30" → **32** (verified actual entry count). I2=36, I3=39, I4=43, I5=44 were already correct. No practitioner/role renames needed — UC02a's `parker`/`maxil` were never part of the UC01 rename.
+
+**Two new sections (user asked for a consolidated patient-facing section + tooling, "particularly since this involves images"):**
+- **Section 5 — Patient-Facing App Companion Guide (consolidated):** milestone-by-milestone table grounded in the actual Task field values (read from the three Task snapshots): I1 `businessStatus: pa-approved` (status in-progress), I2 referral-sent then `appointment-confirmed` (`owner` set to role-maxil for the first time), I4 `status: completed`/`outcome-final`. Explicit non-events for I3 (surgery) and I5 (billing). Trimmed Section 2d to a cross-reference pointing here. **Noted a real simplification vs. UC01:** every UC02a patient milestone (PA approval included) rides the *same* referral Task + one Subscription — no separate CARIN BB/PDex channel, because PA approval here is just a `businessStatus` value, not an `ExplanationOfBenefit` from a medical payer (UC01-I4's special case).
+- **Section 6 — Tooling:** (6a) FHIR services — server (HAPI/OnyxOS), loading, profile validation, CRD/DTR/PAS as plain HTTP; (6b) **Imaging support-a-pull stack, emphasized** — the three named layers per CLAUDE.md's standing instruction: **CDex** (receiver pulls, dental-to-dental) → **`ImagingStudy`** (FHIR pointer/metadata; `endpoint` → WADO-RS base URL, no pixel data) → **DICOM/WADO-RS** (actual pixels on a PACS/DICOMweb server, e.g. Orthanc/dcm4chee). Called out that the periodontal-charting `DiagnosticReport` and intraoral-images `DocumentReference` are pulled the same way, and that UC02a has **no HL7v2**, so no MLLP/interface-engine tooling is needed. The old "What to do if something doesn't match" renumbered 5 → 7.
+
+**Verification (clean):** a script extracted every repo-relative markdown link and confirmed all resolve to real files on disk; zero stale tokens (`fhir-resources/common`, un-prefixed `uc02a-.../base`); cited bundle counts match actual (I1=32, I2=36, I3=39, I4=43, I5=44). Documentation-only — no FHIR resource files touched.
+
+**Still deferred:** `UC02b-companion-guide.md` and all `use-cases/**` narrative docs.
+
+### 2026-07-14 — Claude Code (v5.3) — UC01 companion guide made navigable (first of the v5.2 deferred doc cleanups)
+Targeted rewrite of `companion-guides/UC01-companion-guide.md` — structure and prose preserved, only links/paths/terms/counts changed. This is the first of the companion-guide cleanups the v5.2 pass explicitly deferred.
+
+**What changed:**
+- **Every resource/file reference is now a working markdown link** to its actual current file, relative from `companion-guides/` (`../fhir-resources/...`, `../hl7v2/...`, same-folder docs bare). All Section 2 per-role tables, Section 4 Resource Index, and every Interaction 2/3/4 Resource Index + prose path converted.
+- **Post-reorg paths applied:** Registry rows → `../fhir-resources/durable/<subfolder>/`; Base/Interaction rows → `../fhir-resources/purpose-built/uc01-medical-to-dental/{base,interactions}/...`. Fixed the stale `fhir-resources/common/` and un-prefixed `uc01-.../base` references, including inside Interaction 2 Part B.
+- **Renamed practitioners/roles corrected** in the Resource Index (galloway→whitfield, lin→nandakumar, schmalbach→osei, sollecito→bellweather).
+- **`cds-hooks-discovery-ibx.json` relocated** in the doc from the Interaction 1 folder listing up to the Registry/durable section (`durable/cds-hooks/`), matching its real home.
+- **Terminology modernized:** "Encounter #1" → "Interaction 1" throughout (header, Sections 0/1/2, patient-app rows); the stale status header ("Encounter #1 only, #2–7 pending") rewritten to state I1–I4 are built.
+- **Stale bundle counts fixed:** I1 34→35, I3 46→48, I4 50→51 (I2=40 and delta=5 were already correct). Cross-doc references (`CLAUDE.md`, `stakeholder-matrix.md`, `UC01-readiness-checklist.md`, use-case folder, interactions `README.md`) made clickable.
+
+**Verification (clean):** a script extracted every repo-relative markdown link and confirmed all **130 resolve** to real files on disk; zero remaining old tokens (`fhir-resources/common`, old `pract-*`/`role-*` names, un-prefixed base paths); every cited bundle count matches actual entry counts (I1=35, I2=40, delta=5, I3=48, I4=51). Temp script removed. Documentation-only — no FHIR/HL7v2 resource files touched.
+
+**Still deferred (unchanged from v5.2):** `UC02a-companion-guide.md`, `UC02b-companion-guide.md`, and all `use-cases/**` narrative docs.
 
 ### 2026-07-13 — Claude Code (v5.2) — FHIR library reorg finalized + full practitioner rename + given-name alignment + HL7v2/stale-artifact cleanup
 The "current release" cleanup pass, scoped by the user to **`fhir-resources/`, `hl7v2/`, and this file only** — companion guides and `use-cases/` narrative docs are deliberately **deferred** to a follow-up pass (their path/terminology updates are flagged below, not done here).
