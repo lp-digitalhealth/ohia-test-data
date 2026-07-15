@@ -1,0 +1,158 @@
+{
+  "resourceType": "ExplanationOfBenefit",
+  "id": "eob-e0486-claims-sharing",
+  "meta": {
+    "profile": [
+      "https://oralhealthalliance.net/fhir/StructureDefinition/ode-dental-claim"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "https://uc05.ohia.example.org/claims-sharing-id",
+      "value": "CS-2026-UC05-001"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+        "code": "professional",
+        "display": "Professional"
+      }
+    ]
+  },
+  "use": "claim",
+  "patient": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "billablePeriod": {
+    "start": "2026-04-06",
+    "end": "2026-04-06"
+  },
+  "created": "2026-04-07T08:55:00-04:00",
+  "insurer": {
+    "reference": "Organization/org-florida-blue-hmo"
+  },
+  "provider": {
+    "reference": "Organization/org-first-coast-dental-sleep"
+  },
+  "outcome": "queued",
+  "insurance": [
+    {
+      "focal": true,
+      "coverage": {
+        "reference": "Coverage/coverage-maya-torres-myblue-hmo"
+      },
+      "preAuthRef": [
+        "AUTH-UC05-E0486-260320"
+      ]
+    }
+  ],
+  "careTeam": [
+    {
+      "sequence": 1,
+      "provider": {
+        "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+      },
+      "responsible": true,
+      "role": {
+        "text": "Rendering dentist"
+      }
+    },
+    {
+      "sequence": 2,
+      "provider": {
+        "reference": "PractitionerRole/role-priya-nanduri-sleep"
+      },
+      "role": {
+        "text": "Ordering/referring sleep physician"
+      }
+    }
+  ],
+  "supportingInfo": [
+    {
+      "sequence": 1,
+      "category": {
+        "text": "Referral"
+      },
+      "valueReference": {
+        "reference": "ServiceRequest/servicerequest-sleep-to-dental-referral"
+      }
+    },
+    {
+      "sequence": 2,
+      "category": {
+        "text": "Prior authorization"
+      },
+      "valueString": "AUTH-UC05-E0486-260320"
+    },
+    {
+      "sequence": 3,
+      "category": {
+        "text": "Delivered device"
+      },
+      "valueReference": {
+        "reference": "Device/device-maya-mandibular-advancement"
+      }
+    }
+  ],
+  "diagnosis": [
+    {
+      "sequence": 1,
+      "diagnosisCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "G47.33",
+            "display": "Obstructive sleep apnea"
+          }
+        ]
+      }
+    }
+  ],
+  "item": [
+    {
+      "sequence": 1,
+      "careTeamSequence": [
+        1,
+        2
+      ],
+      "diagnosisSequence": [
+        1
+      ],
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D9947",
+            "display": "Custom sleep apnea appliance fabrication and placement"
+          },
+          {
+            "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+            "code": "E0486",
+            "display": "Custom-fabricated oral appliance for obstructive sleep apnea"
+          }
+        ],
+        "text": "Custom oral appliance documented dentally and billed to the medical DME benefit"
+      },
+      "servicedDate": "2026-04-06",
+      "locationReference": {
+        "reference": "Location/loc-first-coast-dental-sleep"
+      },
+      "quantity": {
+        "value": 1
+      }
+    }
+  ],
+  "note": [
+    {
+      "number": 1,
+      "text": "This is the non-financial ODEDentalClaim claims-sharing package. It is the tested FHIR artifact from which a receiving system may generate an 837P or payer-specific submission. It is not itself the claim submission or adjudication."
+    },
+    {
+      "number": 2,
+      "text": "D9948 titration documentation is associated with follow-up dental procedures and is not represented as a duplicate paid E0486 line."
+    }
+  ]
+}

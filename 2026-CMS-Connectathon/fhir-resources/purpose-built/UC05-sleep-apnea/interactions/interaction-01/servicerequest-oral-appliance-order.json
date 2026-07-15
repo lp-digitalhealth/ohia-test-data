@@ -1,0 +1,58 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "servicerequest-oral-appliance-order",
+  "status": "active",
+  "intent": "order",
+  "priority": "routine",
+  "category": [
+    {
+      "text": "Durable medical equipment"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+        "code": "E0486",
+        "display": "Custom-fabricated oral appliance for obstructive sleep apnea"
+      }
+    ],
+    "text": "Custom titratable mandibular advancement device"
+  },
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-sleep-followup-oat-decision"
+  },
+  "authoredOn": "2026-03-13",
+  "requester": {
+    "reference": "PractitionerRole/role-priya-nanduri-sleep"
+  },
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+    }
+  ],
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-maya-osa"
+    }
+  ],
+  "supportingInfo": [
+    {
+      "reference": "DiagnosticReport/diagnosticreport-initial-hsat"
+    },
+    {
+      "reference": "Observation/observation-pap-intolerance"
+    },
+    {
+      "reference": "DocumentReference/documentreference-pap-adherence"
+    }
+  ],
+  "note": [
+    {
+      "text": "Treating-practitioner order created after review of the sleep test and documentation of PAP intolerance and patient preference."
+    }
+  ]
+}

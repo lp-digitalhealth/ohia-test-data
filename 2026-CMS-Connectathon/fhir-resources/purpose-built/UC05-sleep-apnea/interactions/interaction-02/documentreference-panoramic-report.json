@@ -1,0 +1,49 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "documentreference-panoramic-report",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"
+    ]
+  },
+  "status": "current",
+  "type": {
+    "text": "Panoramic radiograph report"
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+          "code": "clinical-note",
+          "display": "Clinical Note"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "date": "2026-03-18T14:40:00-04:00",
+  "author": [
+    {
+      "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+    }
+  ],
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/pdf",
+        "url": "https://uc05-dental.example.org/documents/panoramic-report-maya.pdf",
+        "title": "Panoramic radiograph report"
+      }
+    }
+  ],
+  "context": {
+    "related": [
+      {
+        "reference": "ImagingStudy/imagingstudy-panoramic"
+      }
+    ]
+  }
+}

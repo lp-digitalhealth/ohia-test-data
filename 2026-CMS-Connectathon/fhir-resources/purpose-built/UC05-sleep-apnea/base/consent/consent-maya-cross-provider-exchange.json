@@ -1,0 +1,75 @@
+{
+  "resourceType": "Consent",
+  "id": "consent-maya-cross-provider-exchange",
+  "status": "active",
+  "scope": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+        "code": "patient-privacy",
+        "display": "Privacy Consent"
+      }
+    ]
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://loinc.org",
+          "code": "59284-0",
+          "display": "Patient Consent"
+        }
+      ]
+    }
+  ],
+  "patient": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "dateTime": "2026-03-13T09:20:00-04:00",
+  "performer": [
+    {
+      "reference": "Patient/patient-maya-torres"
+    }
+  ],
+  "organization": [
+    {
+      "reference": "Organization/org-river-city-sleep-medicine"
+    },
+    {
+      "reference": "Organization/org-first-coast-dental-sleep"
+    }
+  ],
+  "policyRule": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/consentpolicycodes",
+        "code": "hipaa-auth",
+        "display": "HIPAA Authorization"
+      }
+    ]
+  },
+  "provision": {
+    "type": "permit",
+    "period": {
+      "start": "2026-03-13",
+      "end": "2027-03-13"
+    },
+    "purpose": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "TREAT",
+        "display": "treatment"
+      },
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+        "code": "HPAYMT",
+        "display": "healthcare payment"
+      }
+    ]
+  },
+  "note": [
+    {
+      "text": "Synthetic consent supporting treatment, prior authorization, payment, and closed-loop referral exchange for UC05."
+    }
+  ]
+}

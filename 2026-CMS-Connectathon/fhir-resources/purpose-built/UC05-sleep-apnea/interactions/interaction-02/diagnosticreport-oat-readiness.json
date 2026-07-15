@@ -1,0 +1,76 @@
+{
+  "resourceType": "DiagnosticReport",
+  "id": "diagnosticreport-oat-readiness",
+  "status": "final",
+  "category": [
+    {
+      "text": "Dental oral appliance readiness assessment"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+        "code": "oat-readiness-assessment",
+        "display": "Oral appliance therapy readiness assessment"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-dental-oat-readiness"
+  },
+  "effectiveDateTime": "2026-03-18",
+  "issued": "2026-03-18T15:05:00-04:00",
+  "performer": [
+    {
+      "reference": "Organization/org-first-coast-dental-sleep"
+    }
+  ],
+  "resultsInterpreter": [
+    {
+      "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+    }
+  ],
+  "result": [
+    {
+      "reference": "Observation/observation-no-active-periodontal-infection"
+    },
+    {
+      "reference": "Observation/observation-no-unstable-dentition"
+    },
+    {
+      "reference": "Observation/observation-no-tmj-contraindication"
+    },
+    {
+      "reference": "Observation/observation-adequate-protrusive-range"
+    },
+    {
+      "reference": "Observation/observation-adequate-appliance-retention"
+    },
+    {
+      "reference": "Observation/observation-periodontal-status"
+    },
+    {
+      "reference": "Observation/observation-missing-teeth-assessment"
+    },
+    {
+      "reference": "Observation/observation-mandibular-range-of-motion"
+    }
+  ],
+  "imagingStudy": [
+    {
+      "reference": "ImagingStudy/imagingstudy-panoramic"
+    }
+  ],
+  "conclusion": "Patient is dentally appropriate for a custom titratable mandibular advancement device. No active periodontal infection. No unstable dentition. No TMJ contraindication. Adequate protrusive range for titration. Proceed with custom appliance pending medical/DME authorization.",
+  "presentedForm": [
+    {
+      "contentType": "application/pdf",
+      "url": "https://uc05-dental.example.org/documents/oat-readiness-maya.pdf",
+      "title": "OAT Readiness Assessment"
+    }
+  ]
+}

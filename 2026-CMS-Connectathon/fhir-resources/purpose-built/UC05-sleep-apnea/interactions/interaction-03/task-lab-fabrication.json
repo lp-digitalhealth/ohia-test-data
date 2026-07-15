@@ -1,0 +1,39 @@
+{
+  "resourceType": "Task",
+  "id": "task-lab-fabrication",
+  "status": "completed",
+  "intent": "order",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill",
+        "display": "Fulfill the focal request"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-lab-fabrication"
+  },
+  "for": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "authoredOn": "2026-03-23T08:30:00-04:00",
+  "lastModified": "2026-04-01T15:45:00-04:00",
+  "requester": {
+    "reference": "Organization/org-first-coast-dental-sleep"
+  },
+  "owner": {
+    "reference": "Organization/org-suncoast-oral-appliance-lab"
+  },
+  "output": [
+    {
+      "type": {
+        "text": "Fabricated appliance"
+      },
+      "valueReference": {
+        "reference": "Device/device-maya-mandibular-advancement"
+      }
+    }
+  ]
+}

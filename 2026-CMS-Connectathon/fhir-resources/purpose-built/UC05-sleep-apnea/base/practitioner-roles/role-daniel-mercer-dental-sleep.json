@@ -1,0 +1,43 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "role-daniel-mercer-dental-sleep",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+    ]
+  },
+  "active": true,
+  "practitioner": {
+    "reference": "Practitioner/pract-daniel-mercer",
+    "display": "Daniel Mercer, DMD"
+  },
+  "organization": {
+    "reference": "Organization/org-first-coast-dental-sleep"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223G0001X",
+          "display": "General Practice Dentistry"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "text": "General dentistry with dental sleep medicine services"
+    }
+  ],
+  "location": [
+    {
+      "reference": "Location/loc-first-coast-dental-sleep"
+    }
+  ],
+  "endpoint": [
+    {
+      "reference": "Endpoint/endpoint-first-coast-dental-sleep"
+    }
+  ]
+}

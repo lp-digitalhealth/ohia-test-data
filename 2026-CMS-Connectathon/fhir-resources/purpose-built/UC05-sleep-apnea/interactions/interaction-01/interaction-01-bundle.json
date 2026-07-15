@@ -1,0 +1,3420 @@
+{
+  "resourceType": "Bundle",
+  "id": "uc05-interaction-01-bundle",
+  "type": "transaction",
+  "timestamp": "2026-03-13T09:31:00-04:00",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:Organization-org-river-city-sleep-medicine",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-river-city-sleep-medicine",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/organization",
+            "value": "uc05-river-city-sleep-medicine"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "River City Sleep Medicine",
+        "alias": [
+          "RCSM"
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "904-555-0151",
+            "use": "work"
+          },
+          {
+            "system": "url",
+            "value": "https://river-city-sleep.example.org",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "4500 San Pablo Rd S"
+            ],
+            "city": "Jacksonville",
+            "state": "FL",
+            "postalCode": "32224-1865",
+            "country": "US"
+          }
+        ],
+        "endpoint": [
+          {
+            "reference": "Endpoint/endpoint-river-city-sleep-medicine",
+            "display": "River City Sleep Medicine FHIR endpoint"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-river-city-sleep-medicine"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Organization-org-first-coast-dental-sleep",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-first-coast-dental-sleep",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/organization",
+            "value": "uc05-first-coast-dental-sleep"
+          },
+          {
+            "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/dme-supplier",
+            "value": "UC05-DME-SUPPLIER-001"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "First Coast Dental Sleep Center",
+        "alias": [
+          "FCDSC"
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "904-555-0152",
+            "use": "work"
+          },
+          {
+            "system": "url",
+            "value": "https://first-coast-dental-sleep.example.org",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "12276 San Jose Blvd",
+              "Suite 720"
+            ],
+            "city": "Jacksonville",
+            "state": "FL",
+            "postalCode": "32223-8674",
+            "country": "US"
+          }
+        ],
+        "endpoint": [
+          {
+            "reference": "Endpoint/endpoint-first-coast-dental-sleep",
+            "display": "First Coast Dental Sleep Center FHIR endpoint"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-first-coast-dental-sleep"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Organization-org-florida-blue-hmo",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-florida-blue-hmo",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/payer",
+            "value": "uc05-florida-blue-hmo-test-payer"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "ins",
+                "display": "Insurance Company"
+              }
+            ]
+          }
+        ],
+        "name": "Health Options, Inc. DBA Florida Blue HMO",
+        "alias": [
+          "Florida Blue HMO",
+          "Florida Blue"
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "800-352-2583",
+            "use": "work"
+          },
+          {
+            "system": "url",
+            "value": "https://www.floridablue.com",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "4855 Town Center Pkwy"
+            ],
+            "city": "Jacksonville",
+            "state": "FL",
+            "postalCode": "32246-8437",
+            "country": "US"
+          }
+        ],
+        "endpoint": [
+          {
+            "reference": "Endpoint/endpoint-florida-blue-hmo",
+            "display": "Florida Blue HMO UC05 test FHIR endpoint"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-florida-blue-hmo"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Organization-org-suncoast-oral-appliance-lab",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-suncoast-oral-appliance-lab",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/organization",
+            "value": "uc05-suncoast-oral-appliance-lab"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "other",
+                "display": "Other"
+              }
+            ],
+            "text": "Custom oral appliance laboratory"
+          }
+        ],
+        "name": "SunCoast Oral Appliance Lab",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "904-555-0153",
+            "use": "work"
+          },
+          {
+            "system": "url",
+            "value": "https://suncoast-oat-lab.example.org",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "city": "Jacksonville",
+            "state": "FL",
+            "country": "US",
+            "text": "Synthetic Jacksonville-area laboratory; street address intentionally omitted"
+          }
+        ],
+        "endpoint": [
+          {
+            "reference": "Endpoint/endpoint-suncoast-oral-appliance-lab",
+            "display": "SunCoast Oral Appliance Lab FHIR endpoint"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-suncoast-oral-appliance-lab"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner-pract-priya-nanduri",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-priya-nanduri",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/practitioner",
+            "value": "uc05-priya-nanduri"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Nanduri",
+            "given": [
+              "Priya"
+            ],
+            "prefix": [
+              "Dr."
+            ],
+            "suffix": [
+              "MD"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "904-555-0151",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "priya.nanduri@river-city-sleep.example.org",
+            "use": "work"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://nucc.org/provider-taxonomy",
+                  "code": "207RS0012X",
+                  "display": "Internal Medicine, Sleep Medicine"
+                }
+              ],
+              "text": "Internal Medicine — Sleep Medicine"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/pract-priya-nanduri"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner-pract-daniel-mercer",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-daniel-mercer",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/practitioner",
+            "value": "uc05-daniel-mercer"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Mercer",
+            "given": [
+              "Daniel"
+            ],
+            "prefix": [
+              "Dr."
+            ],
+            "suffix": [
+              "DMD"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "904-555-0152",
+            "use": "work"
+          },
+          {
+            "system": "email",
+            "value": "daniel.mercer@first-coast-dental-sleep.example.org",
+            "use": "work"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "http://nucc.org/provider-taxonomy",
+                  "code": "1223G0001X",
+                  "display": "Dentist, General Practice"
+                }
+              ],
+              "text": "General Practice Dentistry with dental sleep medicine services"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/pract-daniel-mercer"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Location-loc-river-city-sleep-medicine",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-river-city-sleep-medicine",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/location",
+            "value": "uc05-river-city-sleep-medicine"
+          }
+        ],
+        "status": "active",
+        "name": "River City Sleep Medicine — San Pablo",
+        "description": "Synthetic sleep-medicine practice name at a real Jacksonville healthcare address used for geographic realism.",
+        "type": [
+          {
+            "text": "Outpatient sleep medicine clinic"
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "904-555-0151",
+            "use": "work"
+          }
+        ],
+        "address": {
+          "use": "work",
+          "line": [
+            "4500 San Pablo Rd S"
+          ],
+          "city": "Jacksonville",
+          "state": "FL",
+          "postalCode": "32224-1865",
+          "country": "US"
+        },
+        "physicalType": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
+              "code": "bu",
+              "display": "Building"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/org-river-city-sleep-medicine",
+          "display": "River City Sleep Medicine"
+        },
+        "endpoint": [
+          {
+            "reference": "Endpoint/endpoint-river-city-sleep-medicine"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-river-city-sleep-medicine"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Location-loc-first-coast-dental-sleep",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-first-coast-dental-sleep",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/location",
+            "value": "uc05-first-coast-dental-sleep"
+          }
+        ],
+        "status": "active",
+        "name": "First Coast Dental Sleep Center — Mandarin",
+        "description": "Synthetic dental sleep practice name at a real Jacksonville dental address used for geographic realism.",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "DENT",
+                "display": "Dental Clinic"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "904-555-0152",
+            "use": "work"
+          }
+        ],
+        "address": {
+          "use": "work",
+          "line": [
+            "12276 San Jose Blvd",
+            "Suite 720"
+          ],
+          "city": "Jacksonville",
+          "state": "FL",
+          "postalCode": "32223-8674",
+          "country": "US"
+        },
+        "physicalType": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
+              "code": "bu",
+              "display": "Building"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/org-first-coast-dental-sleep",
+          "display": "First Coast Dental Sleep Center"
+        },
+        "endpoint": [
+          {
+            "reference": "Endpoint/endpoint-first-coast-dental-sleep"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-first-coast-dental-sleep"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Location-loc-suncoast-oral-appliance-lab",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-suncoast-oral-appliance-lab",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/location",
+            "value": "uc05-suncoast-oat-lab"
+          }
+        ],
+        "status": "active",
+        "name": "SunCoast Oral Appliance Lab — Jacksonville",
+        "description": "Fully synthetic laboratory location. Street address is intentionally omitted to avoid implying a real laboratory relationship.",
+        "type": [
+          {
+            "text": "Custom dental appliance laboratory"
+          }
+        ],
+        "address": {
+          "use": "work",
+          "city": "Jacksonville",
+          "state": "FL",
+          "country": "US"
+        },
+        "physicalType": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/location-physical-type",
+              "code": "bu",
+              "display": "Building"
+            }
+          ]
+        },
+        "managingOrganization": {
+          "reference": "Organization/org-suncoast-oral-appliance-lab",
+          "display": "SunCoast Oral Appliance Lab"
+        },
+        "endpoint": [
+          {
+            "reference": "Endpoint/endpoint-suncoast-oral-appliance-lab"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-suncoast-oral-appliance-lab"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Endpoint-endpoint-river-city-sleep-medicine",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-river-city-sleep-medicine",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest",
+          "display": "HL7 FHIR"
+        },
+        "name": "River City Sleep Medicine FHIR R4 endpoint (synthetic)",
+        "managingOrganization": {
+          "reference": "Organization/org-river-city-sleep-medicine"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/endpoint-payload-type",
+                "code": "any",
+                "display": "Any"
+              }
+            ]
+          }
+        ],
+        "payloadMimeType": [
+          "application/fhir+json"
+        ],
+        "address": "https://river-city-sleep.example.org/fhir/r4",
+        "header": [
+          "Synthetic Connectathon endpoint; does not route to a production system"
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-river-city-sleep-medicine"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Endpoint-endpoint-first-coast-dental-sleep",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-first-coast-dental-sleep",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest",
+          "display": "HL7 FHIR"
+        },
+        "name": "First Coast Dental Sleep Center FHIR R4 endpoint (synthetic)",
+        "managingOrganization": {
+          "reference": "Organization/org-first-coast-dental-sleep"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/endpoint-payload-type",
+                "code": "any",
+                "display": "Any"
+              }
+            ]
+          }
+        ],
+        "payloadMimeType": [
+          "application/fhir+json"
+        ],
+        "address": "https://first-coast-dental-sleep.example.org/fhir/r4",
+        "header": [
+          "Synthetic Connectathon endpoint; does not route to a production system"
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-first-coast-dental-sleep"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Endpoint-endpoint-florida-blue-hmo",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-florida-blue-hmo",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest",
+          "display": "HL7 FHIR"
+        },
+        "name": "Florida Blue HMO UC05 test FHIR API (synthetic)",
+        "managingOrganization": {
+          "reference": "Organization/org-florida-blue-hmo"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/endpoint-payload-type",
+                "code": "any",
+                "display": "Any"
+              }
+            ]
+          }
+        ],
+        "payloadMimeType": [
+          "application/fhir+json"
+        ],
+        "address": "https://florida-blue-hmo.uc05.example.org/fhir/r4",
+        "header": [
+          "Synthetic CRD/DTR/PAS/Patient Access test endpoint; not a Florida Blue production endpoint"
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-florida-blue-hmo"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Endpoint-endpoint-suncoast-oral-appliance-lab",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-suncoast-oral-appliance-lab",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest",
+          "display": "HL7 FHIR"
+        },
+        "name": "SunCoast Oral Appliance Lab FHIR R4 endpoint (synthetic)",
+        "managingOrganization": {
+          "reference": "Organization/org-suncoast-oral-appliance-lab"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/resource-types",
+                "code": "Bundle",
+                "display": "Bundle"
+              }
+            ]
+          }
+        ],
+        "payloadMimeType": [
+          "application/fhir+json"
+        ],
+        "address": "https://suncoast-oat-lab.example.org/fhir/r4",
+        "header": [
+          "Synthetic Connectathon endpoint for authorized fabrication orders and status updates"
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-suncoast-oral-appliance-lab"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:HealthcareService-hs-river-city-sleep-medicine",
+      "resource": {
+        "resourceType": "HealthcareService",
+        "id": "hs-river-city-sleep-medicine",
+        "active": true,
+        "providedBy": {
+          "reference": "Organization/org-river-city-sleep-medicine",
+          "display": "River City Sleep Medicine"
+        },
+        "category": [
+          {
+            "text": "Medical specialty care"
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "207RS0012X",
+                "display": "Internal Medicine, Sleep Medicine"
+              }
+            ],
+            "text": "Sleep medicine evaluation and management"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "207RS0012X",
+                "display": "Internal Medicine, Sleep Medicine"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "reference": "Location/loc-river-city-sleep-medicine"
+          }
+        ],
+        "name": "Sleep Medicine Services — River City Sleep Medicine",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "904-555-0151"
+          }
+        ],
+        "eligibility": [
+          {
+            "code": {
+              "text": "UC05 test assumption: participating provider for Maya’s 2026 Florida Blue myBlue HMO product"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Synthetic provider-directory entry. Network participation is a Connectathon assumption and is not a statement about an actual Florida Blue network."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "HealthcareService/hs-river-city-sleep-medicine"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:HealthcareService-hs-first-coast-dental-sleep",
+      "resource": {
+        "resourceType": "HealthcareService",
+        "id": "hs-first-coast-dental-sleep",
+        "active": true,
+        "providedBy": {
+          "reference": "Organization/org-first-coast-dental-sleep",
+          "display": "First Coast Dental Sleep Center"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/service-category",
+                "code": "10",
+                "display": "Dental"
+              }
+            ]
+          }
+        ],
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223G0001X",
+                "display": "Dentist, General Practice"
+              }
+            ],
+            "text": "Dental sleep medicine and custom oral appliance therapy"
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223G0001X",
+                "display": "Dentist, General Practice"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "reference": "Location/loc-first-coast-dental-sleep"
+          }
+        ],
+        "name": "Dental Sleep Medicine Services — First Coast Dental Sleep Center",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "904-555-0152"
+          }
+        ],
+        "eligibility": [
+          {
+            "code": {
+              "text": "UC05 test assumption: in-network dental sleep provider and enrolled medical DME rendering/billing supplier for E0486"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "Synthetic provider-directory entry. Network and DME supplier status are Connectathon assumptions and must not be used for real-world credentialing or billing."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "HealthcareService/hs-first-coast-dental-sleep"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:InsurancePlan-insplan-florida-blue-myblue-hmo-2026",
+      "resource": {
+        "resourceType": "InsurancePlan",
+        "id": "insplan-florida-blue-myblue-hmo-2026",
+        "identifier": [
+          {
+            "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/insurance-plan",
+            "value": "UC05-FL-BLUE-MYBLUE-HMO-2026"
+          }
+        ],
+        "status": "active",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+                "code": "medical",
+                "display": "Medical"
+              }
+            ],
+            "text": "ACA individual-market HMO"
+          }
+        ],
+        "name": "2026 Florida Blue myBlue HMO — UC05 Test Plan",
+        "alias": [
+          "myBlue HMO",
+          "UC05 Connectathon test product"
+        ],
+        "period": {
+          "start": "2026-01-01",
+          "end": "2026-12-31"
+        },
+        "ownedBy": {
+          "reference": "Organization/org-florida-blue-hmo",
+          "display": "Health Options, Inc. DBA Florida Blue HMO"
+        },
+        "administeredBy": {
+          "reference": "Organization/org-florida-blue-hmo",
+          "display": "Health Options, Inc. DBA Florida Blue HMO"
+        },
+        "coverageArea": [
+          {
+            "display": "Florida"
+          }
+        ],
+        "network": [
+          {
+            "display": "UC05 myBlue HMO test network"
+          }
+        ],
+        "coverage": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "medical",
+                  "display": "Medical"
+                }
+              ]
+            },
+            "benefit": [
+              {
+                "type": {
+                  "text": "Custom oral appliance for obstructive sleep apnea — HCPCS E0486"
+                },
+                "requirement": "Covered under the UC05 medical DME benefit; prior authorization required."
+              },
+              {
+                "type": {
+                  "text": "Prior authorization documentation"
+                },
+                "requirement": "Sleep-study report; REI/AHI/RDI; G47.33 diagnosis; treating-practitioner order; PAP intolerance or preference documentation; dental candidacy assessment; provider identities; and treatment plan."
+              },
+              {
+                "type": {
+                  "text": "Referral and network"
+                },
+                "requirement": "UC05 test rule requires the PCP referral chain and an in-network dental sleep provider."
+              },
+              {
+                "type": {
+                  "text": "Patient access"
+                },
+                "requirement": "Authorization status and eventual EOB are available through the test payer Patient Access API."
+              }
+            ]
+          }
+        ],
+        "plan": [
+          {
+            "type": {
+              "text": "HMO"
+            },
+            "generalCost": [
+              {
+                "type": {
+                  "text": "Cost sharing"
+                },
+                "comment": "Synthetic; populated in the interaction-level payer response or ExplanationOfBenefit rather than asserted here."
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "InsurancePlan/insplan-florida-blue-myblue-hmo-2026"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:PlanDefinition-plandef-florida-blue-e0486-pa-rule",
+      "resource": {
+        "resourceType": "PlanDefinition",
+        "id": "plandef-florida-blue-e0486-pa-rule",
+        "url": "https://uc05.ohia.example.org/fhir/PlanDefinition/florida-blue-e0486-pa-rule",
+        "identifier": [
+          {
+            "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/coverage-rule",
+            "value": "UC05-FBHMO-E0486-PA-001"
+          }
+        ],
+        "version": "1.0.0",
+        "name": "FloridaBlueE0486PriorAuthorizationRule",
+        "title": "UC05 Coverage Requirement: E0486 Prior Authorization",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+              "code": "eca-rule",
+              "display": "ECA Rule"
+            }
+          ]
+        },
+        "status": "active",
+        "experimental": true,
+        "publisher": "OHIA CMS Connectathon Test Data",
+        "description": "Synthetic Da Vinci CRD rule fired at order-sign for a custom oral appliance coded E0486. The rule returns the UC05 test requirements for prior authorization under the medical DME benefit.",
+        "purpose": "Allows the sleep EHR to discover the UC05 test payer requirements before sending the medical-to-dental referral and allows the dental system to complete the missing candidacy documentation before PAS submission.",
+        "action": [
+          {
+            "title": "E0486 requires prior authorization under the UC05 test plan",
+            "description": "For the UC05 myBlue HMO test product, E0486 is a medical DME benefit requiring PA, a treating-practitioner order, qualifying sleep-test evidence, PAP intolerance or preference documentation, dental candidacy, provider identities, and a treatment plan.",
+            "trigger": [
+              {
+                "type": "named-event",
+                "name": "order-sign"
+              }
+            ],
+            "condition": [
+              {
+                "kind": "applicability",
+                "expression": {
+                  "language": "text/cql",
+                  "expression": "E0486OrderRequiresPriorAuth",
+                  "reference": "Library/lib-florida-blue-e0486-pa-logic"
+                }
+              }
+            ],
+            "definitionCanonical": "Questionnaire/questionnaire-florida-blue-e0486-pa-dtr"
+          }
+        ],
+        "library": [
+          "Library/lib-florida-blue-e0486-pa-logic"
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "PlanDefinition/plandef-florida-blue-e0486-pa-rule"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Library-lib-florida-blue-e0486-pa-logic",
+      "resource": {
+        "resourceType": "Library",
+        "id": "lib-florida-blue-e0486-pa-logic",
+        "url": "https://uc05.ohia.example.org/fhir/Library/florida-blue-e0486-pa-logic",
+        "identifier": [
+          {
+            "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/coverage-rule",
+            "value": "UC05-FBHMO-E0486-LOGIC-001"
+          }
+        ],
+        "version": "1.0.0",
+        "name": "FloridaBlueE0486PriorAuthLogic",
+        "title": "UC05 Florida Blue HMO E0486 Prior Authorization Logic",
+        "status": "active",
+        "experimental": true,
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/library-type",
+              "code": "logic-library",
+              "display": "Logic Library"
+            }
+          ]
+        },
+        "publisher": "OHIA CMS Connectathon Test Data",
+        "description": "Synthetic CQL rule metadata for the UC05 test payer. It evaluates an E0486 oral-appliance order and active UC05 myBlue HMO coverage. It is not an actual Florida Blue medical policy.",
+        "content": [
+          {
+            "contentType": "text/cql",
+            "title": "E0486OrderRequiresPriorAuth.cql",
+            "url": "https://uc05.ohia.example.org/cql/E0486OrderRequiresPriorAuth.cql"
+          }
+        ],
+        "dataRequirement": [
+          {
+            "type": "ServiceRequest",
+            "codeFilter": [
+              {
+                "path": "code",
+                "code": [
+                  {
+                    "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+                    "code": "E0486",
+                    "display": "Oral device/appliance, custom fabricated, used to reduce upper airway collapsibility"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "Coverage"
+          },
+          {
+            "type": "Condition",
+            "codeFilter": [
+              {
+                "path": "code",
+                "code": [
+                  {
+                    "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                    "code": "G47.33",
+                    "display": "Obstructive sleep apnea (adult) (pediatric)"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Library/lib-florida-blue-e0486-pa-logic"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Questionnaire-questionnaire-florida-blue-e0486-pa-dtr",
+      "resource": {
+        "resourceType": "Questionnaire",
+        "id": "questionnaire-florida-blue-e0486-pa-dtr",
+        "url": "https://uc05.ohia.example.org/fhir/Questionnaire/florida-blue-e0486-pa-dtr",
+        "identifier": [
+          {
+            "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/coverage-rule",
+            "value": "UC05-FBHMO-E0486-DTR-001"
+          }
+        ],
+        "version": "1.0.0",
+        "name": "FloridaBlueE0486PriorAuthDTR",
+        "title": "UC05 E0486 Prior Authorization — Documentation Requirements",
+        "status": "active",
+        "experimental": true,
+        "publisher": "OHIA CMS Connectathon Test Data",
+        "description": "Synthetic DTR questionnaire for UC05. It combines sleep-medicine evidence with the dental OAT Readiness Assessment. It is not an actual Florida Blue form or policy.",
+        "subjectType": [
+          "Patient"
+        ],
+        "item": [
+          {
+            "linkId": "1",
+            "text": "Confirmed obstructive sleep apnea diagnosis (ICD-10-CM G47.33)",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "linkId": "2",
+            "text": "Initial sleep-study report",
+            "type": "attachment",
+            "required": true
+          },
+          {
+            "linkId": "3",
+            "text": "REI, AHI, or RDI result in events per hour",
+            "type": "decimal",
+            "required": true
+          },
+          {
+            "linkId": "4",
+            "text": "Oxygen saturation nadir (%)",
+            "type": "decimal",
+            "required": true
+          },
+          {
+            "linkId": "5",
+            "text": "Treating-practitioner order for a custom titratable oral appliance",
+            "type": "reference",
+            "required": true
+          },
+          {
+            "linkId": "6",
+            "text": "PAP intolerance or documented treatment preference",
+            "type": "text",
+            "required": true
+          },
+          {
+            "linkId": "7",
+            "text": "PAP adherence report, when a PAP trial occurred",
+            "type": "attachment",
+            "required": false
+          },
+          {
+            "linkId": "8",
+            "text": "Dental candidacy / OAT Readiness Assessment",
+            "type": "reference",
+            "required": true
+          },
+          {
+            "linkId": "9",
+            "text": "No active periodontal infection",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "linkId": "10",
+            "text": "No unstable dentition",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "linkId": "11",
+            "text": "No TMJ contraindication",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "linkId": "12",
+            "text": "Adequate protrusive range and appliance retention",
+            "type": "boolean",
+            "required": true
+          },
+          {
+            "linkId": "13",
+            "text": "Ordering and referring practitioner identity",
+            "type": "reference",
+            "required": true
+          },
+          {
+            "linkId": "14",
+            "text": "Rendering dentist identity",
+            "type": "reference",
+            "required": true
+          },
+          {
+            "linkId": "15",
+            "text": "Billing dental organization identity and DME supplier status",
+            "type": "reference",
+            "required": true
+          },
+          {
+            "linkId": "16",
+            "text": "Proposed custom appliance and treatment plan",
+            "type": "text",
+            "required": true
+          },
+          {
+            "linkId": "17",
+            "text": "Requested HCPCS service",
+            "type": "choice",
+            "required": true,
+            "answerOption": [
+              {
+                "valueCoding": {
+                  "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+                  "code": "E0486",
+                  "display": "Custom-fabricated oral appliance for OSA"
+                }
+              }
+            ]
+          },
+          {
+            "linkId": "18",
+            "text": "PCP and sleep-physician referral chain",
+            "type": "reference",
+            "required": true
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Questionnaire/questionnaire-florida-blue-e0486-pa-dtr"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Organization-org-riverbend-family-health",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-riverbend-family-health",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/organization",
+            "value": "UC05-ORG-PCP-001"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ]
+          }
+        ],
+        "name": "Riverbend Family Health — Mandarin",
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "904-555-0112",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "10601 San Jose Blvd",
+              "Suite 1401"
+            ],
+            "city": "Jacksonville",
+            "state": "FL",
+            "postalCode": "32257",
+            "country": "US"
+          }
+        ],
+        "endpoint": [
+          {
+            "reference": "Endpoint/endpoint-riverbend-family-health",
+            "display": "Riverbend Family Health test FHIR endpoint"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-riverbend-family-health"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Location-loc-riverbend-family-health",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-riverbend-family-health",
+        "status": "active",
+        "name": "Riverbend Family Health — Mandarin",
+        "mode": "instance",
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "PC",
+                "display": "Primary Care Clinic"
+              }
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "904-555-0112",
+            "use": "work"
+          }
+        ],
+        "address": {
+          "use": "work",
+          "line": [
+            "10601 San Jose Blvd",
+            "Suite 1401"
+          ],
+          "city": "Jacksonville",
+          "state": "FL",
+          "postalCode": "32257",
+          "country": "US"
+        },
+        "managingOrganization": {
+          "reference": "Organization/org-riverbend-family-health"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-riverbend-family-health"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Endpoint-endpoint-riverbend-family-health",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-riverbend-family-health",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest",
+          "display": "HL7 FHIR"
+        },
+        "name": "Riverbend Family Health Test FHIR Endpoint",
+        "managingOrganization": {
+          "reference": "Organization/org-riverbend-family-health"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/endpoint-payload-type",
+                "code": "any",
+                "display": "Any"
+              }
+            ]
+          }
+        ],
+        "payloadMimeType": [
+          "application/fhir+json"
+        ],
+        "address": "https://uc05-pcp.example.org/fhir/r4",
+        "header": [
+          "Synthetic Connectathon endpoint; does not route to a production system."
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-riverbend-family-health"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Practitioner-pract-elena-ruiz",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-elena-ruiz",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/practitioner",
+            "value": "UC05-PRACT-PCP-001"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Ruiz",
+            "given": [
+              "Elena"
+            ],
+            "prefix": [
+              "Dr."
+            ],
+            "suffix": [
+              "MD"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "904-555-0113",
+            "use": "work"
+          }
+        ],
+        "address": [
+          {
+            "use": "work",
+            "line": [
+              "10601 San Jose Blvd",
+              "Suite 1401"
+            ],
+            "city": "Jacksonville",
+            "state": "FL",
+            "postalCode": "32257",
+            "country": "US"
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "text": "Doctor of Medicine"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/pract-elena-ruiz"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Patient-patient-maya-torres",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-maya-torres",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-race",
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Asked, Declined to Answer"
+              }
+            ]
+          },
+          {
+            "url": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity",
+            "extension": [
+              {
+                "url": "text",
+                "valueString": "Asked, Declined to Answer"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://uc05.ohia.example.org/fhir/mrn/sleep",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical Record Number"
+                }
+              ]
+            },
+            "value": "MAYA-SLP-260031"
+          },
+          {
+            "system": "https://uc05.ohia.example.org/fhir/mrn/dental",
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/v2-0203",
+                  "code": "MR",
+                  "display": "Medical Record Number"
+                }
+              ]
+            },
+            "value": "MAYA-DEN-260144"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "use": "official",
+            "family": "Torres",
+            "given": [
+              "Maya"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "904-555-0164",
+            "use": "mobile"
+          },
+          {
+            "system": "email",
+            "value": "maya.torres@example.org",
+            "use": "home"
+          }
+        ],
+        "gender": "female",
+        "birthDate": "1981-09-18",
+        "address": [
+          {
+            "use": "home",
+            "line": [
+              "7824 Cypress Hammock Drive"
+            ],
+            "city": "Jacksonville",
+            "state": "FL",
+            "postalCode": "32256",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/patient-maya-torres"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Coverage-coverage-maya-torres-myblue-hmo",
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "coverage-maya-torres-myblue-hmo",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-coverage"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://uc05.ohia.example.org/member-id",
+            "value": "MYB-2605-884219"
+          },
+          {
+            "system": "https://uc05.ohia.example.org/policy-id",
+            "value": "FLMKT-2026-441870"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "HMO",
+              "display": "health maintenance organization policy"
+            }
+          ],
+          "text": "ACA individual-market HMO"
+        },
+        "subscriber": {
+          "reference": "Patient/patient-maya-torres",
+          "display": "Maya Torres"
+        },
+        "subscriberId": "MYB-2605-884219",
+        "beneficiary": {
+          "reference": "Patient/patient-maya-torres",
+          "display": "Maya Torres"
+        },
+        "relationship": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+              "code": "self",
+              "display": "Self"
+            }
+          ]
+        },
+        "period": {
+          "start": "2026-01-01",
+          "end": "2026-12-31"
+        },
+        "payor": [
+          {
+            "reference": "Organization/org-florida-blue-hmo",
+            "display": "Florida Blue HMO"
+          }
+        ],
+        "class": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "plan",
+                  "display": "Plan"
+                }
+              ]
+            },
+            "value": "MYBLUE-HMO-2026",
+            "name": "2026 Florida Blue myBlue HMO — UC05 Test Plan"
+          }
+        ],
+        "network": "UC05 myBlue HMO test network"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Coverage/coverage-maya-torres-myblue-hmo"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Consent-consent-maya-cross-provider-exchange",
+      "resource": {
+        "resourceType": "Consent",
+        "id": "consent-maya-cross-provider-exchange",
+        "status": "active",
+        "scope": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/consentscope",
+              "code": "patient-privacy",
+              "display": "Privacy Consent"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://loinc.org",
+                "code": "59284-0",
+                "display": "Patient Consent"
+              }
+            ]
+          }
+        ],
+        "patient": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "dateTime": "2026-03-13T09:20:00-04:00",
+        "performer": [
+          {
+            "reference": "Patient/patient-maya-torres"
+          }
+        ],
+        "organization": [
+          {
+            "reference": "Organization/org-river-city-sleep-medicine"
+          },
+          {
+            "reference": "Organization/org-first-coast-dental-sleep"
+          }
+        ],
+        "policyRule": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/consentpolicycodes",
+              "code": "hipaa-auth",
+              "display": "HIPAA Authorization"
+            }
+          ]
+        },
+        "provision": {
+          "type": "permit",
+          "period": {
+            "start": "2026-03-13",
+            "end": "2027-03-13"
+          },
+          "purpose": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+              "code": "TREAT",
+              "display": "treatment"
+            },
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+              "code": "HPAYMT",
+              "display": "healthcare payment"
+            }
+          ]
+        },
+        "note": [
+          {
+            "text": "Synthetic consent supporting treatment, prior authorization, payment, and closed-loop referral exchange for UC05."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Consent/consent-maya-cross-provider-exchange"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:PractitionerRole-role-elena-ruiz-pcp",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "role-elena-ruiz-pcp",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "active": true,
+        "practitioner": {
+          "reference": "Practitioner/pract-elena-ruiz",
+          "display": "Elena Ruiz, MD"
+        },
+        "organization": {
+          "reference": "Organization/org-riverbend-family-health"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "207Q00000X",
+                "display": "Family Medicine Physician"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "207Q00000X",
+                "display": "Family Medicine Physician"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "reference": "Location/loc-riverbend-family-health"
+          }
+        ],
+        "endpoint": [
+          {
+            "reference": "Endpoint/endpoint-riverbend-family-health"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/role-elena-ruiz-pcp"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:PractitionerRole-role-priya-nanduri-sleep",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "role-priya-nanduri-sleep",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "active": true,
+        "practitioner": {
+          "reference": "Practitioner/pract-priya-nanduri",
+          "display": "Priya Nanduri, MD"
+        },
+        "organization": {
+          "reference": "Organization/org-river-city-sleep-medicine"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "207RS0012X",
+                "display": "Sleep Medicine (Internal Medicine) Physician"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "207RS0012X",
+                "display": "Sleep Medicine (Internal Medicine) Physician"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "reference": "Location/loc-river-city-sleep-medicine"
+          }
+        ],
+        "endpoint": [
+          {
+            "reference": "Endpoint/endpoint-river-city-sleep-medicine"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/role-priya-nanduri-sleep"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:PractitionerRole-role-daniel-mercer-dental-sleep",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "role-daniel-mercer-dental-sleep",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "active": true,
+        "practitioner": {
+          "reference": "Practitioner/pract-daniel-mercer",
+          "display": "Daniel Mercer, DMD"
+        },
+        "organization": {
+          "reference": "Organization/org-first-coast-dental-sleep"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223G0001X",
+                "display": "General Practice Dentistry"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "text": "General dentistry with dental sleep medicine services"
+          }
+        ],
+        "location": [
+          {
+            "reference": "Location/loc-first-coast-dental-sleep"
+          }
+        ],
+        "endpoint": [
+          {
+            "reference": "Endpoint/endpoint-first-coast-dental-sleep"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/role-daniel-mercer-dental-sleep"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition-condition-maya-hypertension",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-maya-hypertension",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "I10",
+              "display": "Essential (primary) hypertension"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "recordedDate": "2024-04-09"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/condition-maya-hypertension"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition-condition-maya-obesity",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-maya-obesity",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "E66.9",
+              "display": "Obesity, unspecified"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "recordedDate": "2025-08-21"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/condition-maya-obesity"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:CareTeam-careteam-maya-osa",
+      "resource": {
+        "resourceType": "CareTeam",
+        "id": "careteam-maya-osa",
+        "status": "active",
+        "name": "Maya Torres OSA care team",
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "period": {
+          "start": "2026-02-03"
+        },
+        "participant": [
+          {
+            "role": [
+              {
+                "text": "Primary care physician"
+              }
+            ],
+            "member": {
+              "reference": "PractitionerRole/role-elena-ruiz-pcp"
+            }
+          },
+          {
+            "role": [
+              {
+                "text": "Sleep physician and ordering practitioner"
+              }
+            ],
+            "member": {
+              "reference": "PractitionerRole/role-priya-nanduri-sleep"
+            }
+          },
+          {
+            "role": [
+              {
+                "text": "Dental sleep rendering provider"
+              }
+            ],
+            "member": {
+              "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "CareTeam/careteam-maya-osa"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ServiceRequest-servicerequest-pcp-to-sleep-antecedent",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "servicerequest-pcp-to-sleep-antecedent",
+        "identifier": [
+          {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC05-PCP-SLEEP-001"
+          }
+        ],
+        "status": "completed",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "103696004",
+                "display": "Patient referral to specialist"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Sleep medicine evaluation for suspected obstructive sleep apnea"
+        },
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "authoredOn": "2026-02-03",
+        "requester": {
+          "reference": "PractitionerRole/role-elena-ruiz-pcp"
+        },
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-priya-nanduri-sleep"
+          }
+        ],
+        "reasonCode": [
+          {
+            "text": "STOP-Bang score 5; hypertension, obesity, morning headaches, and daytime sleepiness"
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "Condition/condition-maya-hypertension"
+          },
+          {
+            "reference": "Condition/condition-maya-obesity"
+          }
+        ],
+        "note": [
+          {
+            "text": "Antecedent PCP-to-sleep referral retained only to support the referral chain required by the UC05 payer rule. It is narrative context, not a separately tested interaction."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/servicerequest-pcp-to-sleep-antecedent"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Subscription-subscription-maya-uc05-milestones",
+      "resource": {
+        "resourceType": "Subscription",
+        "id": "subscription-maya-uc05-milestones",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-subscription"
+          ]
+        },
+        "status": "active",
+        "contact": [
+          {
+            "system": "phone",
+            "value": "904-555-0164",
+            "use": "mobile"
+          }
+        ],
+        "reason": "Notify Maya’s patient-facing application only when a patient-visible UC05 milestone changes.",
+        "criteria": "https://oralhealthalliance.net/fhir/SubscriptionTopic/ode-referral-status",
+        "channel": {
+          "type": "rest-hook",
+          "endpoint": "https://uc05-patient-app.example.org/hooks/maya-torres",
+          "payload": "application/fhir+json",
+          "_payload": {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-payload-content",
+                "valueCode": "full-resource"
+              }
+            ]
+          }
+        },
+        "note": [
+          {
+            "text": "Patient-visible milestones include referral sent, PA approved, appliance ready/delivered, and referral closed. Backend provider-to-provider notes and payer processing chatter must not trigger patient notifications."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Subscription/subscription-maya-uc05-milestones"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Encounter-encounter-sleep-followup-oat-decision",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-sleep-followup-oat-decision",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "text": "Sleep medicine follow-up — PAP intolerance and oral appliance decision"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "PractitionerRole/role-priya-nanduri-sleep"
+            }
+          }
+        ],
+        "period": {
+          "start": "2026-03-13T09:00:00-04:00",
+          "end": "2026-03-13T09:35:00-04:00"
+        },
+        "serviceProvider": {
+          "reference": "Organization/org-river-city-sleep-medicine"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-maya-osa"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/encounter-sleep-followup-oat-decision"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Condition-condition-maya-osa",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-maya-osa",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item",
+                "display": "Problem List Item"
+              }
+            ]
+          }
+        ],
+        "severity": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "6736007",
+              "display": "Moderate"
+            }
+          ]
+        },
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "G47.33",
+              "display": "Obstructive sleep apnea"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "onsetDateTime": "2026-02-14",
+        "recordedDate": "2026-02-18",
+        "recorder": {
+          "reference": "PractitionerRole/role-priya-nanduri-sleep"
+        },
+        "evidence": [
+          {
+            "detail": [
+              {
+                "reference": "DiagnosticReport/diagnosticreport-initial-hsat"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/condition-maya-osa"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ServiceRequest-servicerequest-initial-hsat",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "servicerequest-initial-hsat",
+        "status": "completed",
+        "intent": "order",
+        "priority": "routine",
+        "category": [
+          {
+            "text": "Sleep diagnostic testing"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "95806",
+              "display": "Unattended sleep study with respiratory airflow and effort, heart rate or oximetry"
+            }
+          ],
+          "text": "Unattended home sleep apnea test"
+        },
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "authoredOn": "2026-02-12",
+        "requester": {
+          "reference": "PractitionerRole/role-priya-nanduri-sleep"
+        },
+        "reasonCode": [
+          {
+            "text": "Suspected obstructive sleep apnea following elevated STOP-Bang score"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/servicerequest-initial-hsat"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure-procedure-initial-hsat",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-initial-hsat",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "95806",
+              "display": "Unattended sleep study"
+            }
+          ],
+          "text": "Initial unattended home sleep apnea test"
+        },
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "performedPeriod": {
+          "start": "2026-02-14T22:15:00-05:00",
+          "end": "2026-02-15T06:10:00-05:00"
+        },
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/servicerequest-initial-hsat"
+          }
+        ],
+        "report": [
+          {
+            "reference": "DiagnosticReport/diagnosticreport-initial-hsat"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/procedure-initial-hsat"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-initial-rei",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-initial-rei",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "97519-3",
+              "display": "Respiratory event index [AASM]"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "effectiveDateTime": "2026-02-14",
+        "issued": "2026-02-18T08:30:00-05:00",
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-priya-nanduri-sleep"
+          }
+        ],
+        "valueQuantity": {
+          "value": 22.6,
+          "unit": "events/hour",
+          "system": "http://unitsofmeasure.org",
+          "code": "{events}/h"
+        },
+        "interpretation": [
+          {
+            "text": "Moderate obstructive sleep apnea"
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/servicerequest-initial-hsat"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-initial-rei"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-initial-oxygen-nadir",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-initial-oxygen-nadir",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+              "code": "overnight-oxygen-saturation-nadir",
+              "display": "Overnight oxygen saturation nadir"
+            }
+          ],
+          "text": "Lowest oxygen saturation during HSAT"
+        },
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "effectiveDateTime": "2026-02-14",
+        "valueQuantity": {
+          "value": 83,
+          "unit": "%",
+          "system": "http://unitsofmeasure.org",
+          "code": "%"
+        },
+        "method": {
+          "text": "Unattended home sleep apnea test pulse oximetry"
+        },
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/servicerequest-initial-hsat"
+          }
+        ],
+        "note": [
+          {
+            "text": "A governed UC05 local code is used because a general pulse-oximetry code alone does not preserve the overnight nadir meaning."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-initial-oxygen-nadir"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-epworth-initial",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-epworth-initial",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "60155-3",
+              "display": "Epworth Sleepiness Scale total score"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "effectiveDateTime": "2026-02-12",
+        "valueInteger": 15,
+        "interpretation": [
+          {
+            "text": "Elevated daytime sleepiness"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-epworth-initial"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DiagnosticReport-diagnosticreport-initial-hsat",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "diagnosticreport-initial-hsat",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "text": "Sleep study"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ama-assn.org/go/cpt",
+              "code": "95806",
+              "display": "Unattended sleep study"
+            }
+          ],
+          "text": "Initial home sleep apnea test report"
+        },
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "effectivePeriod": {
+          "start": "2026-02-14T22:15:00-05:00",
+          "end": "2026-02-15T06:10:00-05:00"
+        },
+        "issued": "2026-02-18T08:30:00-05:00",
+        "performer": [
+          {
+            "reference": "Organization/org-river-city-sleep-medicine"
+          }
+        ],
+        "resultsInterpreter": [
+          {
+            "reference": "PractitionerRole/role-priya-nanduri-sleep"
+          }
+        ],
+        "result": [
+          {
+            "reference": "Observation/observation-initial-rei"
+          },
+          {
+            "reference": "Observation/observation-initial-oxygen-nadir"
+          }
+        ],
+        "conclusion": "Moderate obstructive sleep apnea. REI 22.6 events/hour. Oxygen saturation nadir 83%.",
+        "conclusionCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "G47.33",
+                "display": "Obstructive sleep apnea"
+              }
+            ]
+          }
+        ],
+        "presentedForm": [
+          {
+            "contentType": "application/pdf",
+            "url": "https://uc05-sleep.example.org/documents/hsat-initial-maya.pdf",
+            "title": "Maya Torres initial HSAT report — synthetic test artifact"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DiagnosticReport/diagnosticreport-initial-hsat"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DocumentReference-documentreference-initial-hsat-report",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentreference-initial-hsat-report",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"
+          ]
+        },
+        "status": "current",
+        "type": {
+          "text": "Home sleep apnea test report"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "date": "2026-02-18T08:30:00-05:00",
+        "author": [
+          {
+            "reference": "PractitionerRole/role-priya-nanduri-sleep"
+          }
+        ],
+        "custodian": {
+          "reference": "Organization/org-river-city-sleep-medicine"
+        },
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "https://uc05-sleep.example.org/documents/hsat-initial-maya.pdf",
+              "title": "Initial HSAT report"
+            }
+          }
+        ],
+        "context": {
+          "related": [
+            {
+              "reference": "DiagnosticReport/diagnosticreport-initial-hsat"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DocumentReference/documentreference-initial-hsat-report"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DeviceRequest-devicerequest-apap-trial",
+      "resource": {
+        "resourceType": "DeviceRequest",
+        "id": "devicerequest-apap-trial",
+        "status": "completed",
+        "intent": "order",
+        "codeCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+              "code": "E0601",
+              "display": "Continuous positive airway pressure device"
+            }
+          ],
+          "text": "APAP trial"
+        },
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "authoredOn": "2026-02-18",
+        "requester": {
+          "reference": "PractitionerRole/role-priya-nanduri-sleep"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-maya-osa"
+          }
+        ],
+        "occurrencePeriod": {
+          "start": "2026-02-20",
+          "end": "2026-03-12"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DeviceRequest/devicerequest-apap-trial"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-pap-nights-monitored",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-pap-nights-monitored",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "therapy",
+                "display": "Therapy"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+              "code": "pap-nights-monitored",
+              "display": "PAP trial nights monitored"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "effectivePeriod": {
+          "start": "2026-02-20",
+          "end": "2026-03-12"
+        },
+        "valueQuantity": {
+          "value": 21,
+          "unit": "nights",
+          "system": "http://unitsofmeasure.org",
+          "code": "{count}"
+        },
+        "basedOn": [
+          {
+            "reference": "DeviceRequest/devicerequest-apap-trial"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-pap-nights-monitored"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-pap-nights-used",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-pap-nights-used",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "therapy",
+                "display": "Therapy"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+              "code": "pap-nights-used",
+              "display": "PAP nights with any recorded use"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "effectivePeriod": {
+          "start": "2026-02-20",
+          "end": "2026-03-12"
+        },
+        "valueQuantity": {
+          "value": 9,
+          "unit": "nights",
+          "system": "http://unitsofmeasure.org",
+          "code": "{count}"
+        },
+        "basedOn": [
+          {
+            "reference": "DeviceRequest/devicerequest-apap-trial"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-pap-nights-used"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-pap-nights-over-four-hours",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-pap-nights-over-four-hours",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "therapy",
+                "display": "Therapy"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+              "code": "pap-nights-over-four-hours",
+              "display": "PAP nights with more than four hours of use"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "effectivePeriod": {
+          "start": "2026-02-20",
+          "end": "2026-03-12"
+        },
+        "valueQuantity": {
+          "value": 3,
+          "unit": "nights",
+          "system": "http://unitsofmeasure.org",
+          "code": "{count}"
+        },
+        "basedOn": [
+          {
+            "reference": "DeviceRequest/devicerequest-apap-trial"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-pap-nights-over-four-hours"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-pap-intolerance",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-pap-intolerance",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+          ]
+        },
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "therapy",
+                "display": "Therapy"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+              "code": "pap-tolerance-assessment",
+              "display": "PAP tolerance assessment"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "effectiveDateTime": "2026-03-13",
+        "valueCodeableConcept": {
+          "coding": [
+            {
+              "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+              "code": "intolerant",
+              "display": "PAP intolerant"
+            }
+          ]
+        },
+        "component": [
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+                  "code": "mask-claustrophobia",
+                  "display": "Mask claustrophobia"
+                }
+              ]
+            },
+            "valueBoolean": true
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+                  "code": "air-leak",
+                  "display": "Air leak"
+                }
+              ]
+            },
+            "valueBoolean": true
+          },
+          {
+            "code": {
+              "coding": [
+                {
+                  "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+                  "code": "facial-irritation",
+                  "display": "Facial irritation"
+                }
+              ]
+            },
+            "valueBoolean": true
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "DeviceRequest/devicerequest-apap-trial"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-pap-intolerance"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DocumentReference-documentreference-pap-adherence",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentreference-pap-adherence",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"
+          ]
+        },
+        "status": "current",
+        "type": {
+          "text": "PAP adherence download"
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+                "code": "clinical-note",
+                "display": "Clinical Note"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "date": "2026-03-13T08:45:00-04:00",
+        "author": [
+          {
+            "reference": "Organization/org-river-city-sleep-medicine"
+          }
+        ],
+        "content": [
+          {
+            "attachment": {
+              "contentType": "application/pdf",
+              "url": "https://uc05-sleep.example.org/documents/pap-adherence-maya.pdf",
+              "title": "21-night APAP adherence report"
+            }
+          }
+        ],
+        "context": {
+          "related": [
+            {
+              "reference": "Observation/observation-pap-nights-monitored"
+            },
+            {
+              "reference": "Observation/observation-pap-nights-used"
+            },
+            {
+              "reference": "Observation/observation-pap-nights-over-four-hours"
+            },
+            {
+              "reference": "Observation/observation-pap-intolerance"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DocumentReference/documentreference-pap-adherence"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ServiceRequest-servicerequest-oral-appliance-order",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "servicerequest-oral-appliance-order",
+        "status": "active",
+        "intent": "order",
+        "priority": "routine",
+        "category": [
+          {
+            "text": "Durable medical equipment"
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+              "code": "E0486",
+              "display": "Custom-fabricated oral appliance for obstructive sleep apnea"
+            }
+          ],
+          "text": "Custom titratable mandibular advancement device"
+        },
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-sleep-followup-oat-decision"
+        },
+        "authoredOn": "2026-03-13",
+        "requester": {
+          "reference": "PractitionerRole/role-priya-nanduri-sleep"
+        },
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-maya-osa"
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "DiagnosticReport/diagnosticreport-initial-hsat"
+          },
+          {
+            "reference": "Observation/observation-pap-intolerance"
+          },
+          {
+            "reference": "DocumentReference/documentreference-pap-adherence"
+          }
+        ],
+        "note": [
+          {
+            "text": "Treating-practitioner order created after review of the sleep test and documentation of PAP intolerance and patient preference."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/servicerequest-oral-appliance-order"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ServiceRequest-servicerequest-sleep-to-dental-referral",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "servicerequest-sleep-to-dental-referral",
+        "meta": {
+          "profile": [
+            "https://oralhealthalliance.net/fhir/StructureDefinition/ode-medical-to-dental-referral"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC05-001"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "priority": "routine",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "103696004",
+                "display": "Patient referral to specialist"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Dental candidacy evaluation and treatment for custom oral appliance therapy"
+        },
+        "subject": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-sleep-followup-oat-decision"
+        },
+        "authoredOn": "2026-03-13",
+        "requester": {
+          "reference": "PractitionerRole/role-priya-nanduri-sleep"
+        },
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-maya-osa"
+          }
+        ],
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/servicerequest-pcp-to-sleep-antecedent"
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "DiagnosticReport/diagnosticreport-initial-hsat"
+          },
+          {
+            "reference": "DocumentReference/documentreference-initial-hsat-report"
+          },
+          {
+            "reference": "Observation/observation-initial-rei"
+          },
+          {
+            "reference": "Observation/observation-initial-oxygen-nadir"
+          },
+          {
+            "reference": "Observation/observation-epworth-initial"
+          },
+          {
+            "reference": "DocumentReference/documentreference-pap-adherence"
+          },
+          {
+            "reference": "Observation/observation-pap-intolerance"
+          },
+          {
+            "reference": "ServiceRequest/servicerequest-oral-appliance-order"
+          },
+          {
+            "reference": "Coverage/coverage-maya-torres-myblue-hmo"
+          }
+        ],
+        "note": [
+          {
+            "text": "The dentist is asked to assess dental candidacy and provide oral appliance therapy. The dentist is not asked to diagnose obstructive sleep apnea."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/servicerequest-sleep-to-dental-referral"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Task-task-uc05-dental-referral",
+      "resource": {
+        "resourceType": "Task",
+        "id": "task-uc05-dental-referral",
+        "meta": {
+          "profile": [
+            "https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC05-001"
+          }
+        ],
+        "status": "requested",
+        "businessStatus": {
+          "coding": [
+            {
+              "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+              "code": "referral-sent",
+              "display": "Referral sent"
+            }
+          ]
+        },
+        "intent": "order",
+        "priority": "routine",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/CodeSystem/task-code",
+              "code": "fulfill",
+              "display": "Fulfill the focal request"
+            }
+          ]
+        },
+        "focus": {
+          "reference": "ServiceRequest/servicerequest-sleep-to-dental-referral"
+        },
+        "for": {
+          "reference": "Patient/patient-maya-torres"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-sleep-followup-oat-decision"
+        },
+        "authoredOn": "2026-03-13T09:30:00-04:00",
+        "requester": {
+          "reference": "Organization/org-river-city-sleep-medicine"
+        },
+        "input": [
+          {
+            "type": {
+              "text": "Oral appliance order"
+            },
+            "valueReference": {
+              "reference": "ServiceRequest/servicerequest-oral-appliance-order"
+            }
+          },
+          {
+            "type": {
+              "text": "Initial sleep-study report"
+            },
+            "valueReference": {
+              "reference": "DiagnosticReport/diagnosticreport-initial-hsat"
+            }
+          },
+          {
+            "type": {
+              "text": "PAP intolerance evidence"
+            },
+            "valueReference": {
+              "reference": "Observation/observation-pap-intolerance"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Task/task-uc05-dental-referral"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Provenance-provenance-sleep-to-dental-referral",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "provenance-sleep-to-dental-referral",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance"
+          ]
+        },
+        "target": [
+          {
+            "reference": "ServiceRequest/servicerequest-sleep-to-dental-referral"
+          },
+          {
+            "reference": "Task/task-uc05-dental-referral"
+          },
+          {
+            "reference": "ServiceRequest/servicerequest-oral-appliance-order"
+          }
+        ],
+        "recorded": "2026-03-13T09:31:00-04:00",
+        "activity": {
+          "text": "Medical-to-dental referral package transmitted"
+        },
+        "agent": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author",
+                  "display": "Author"
+                }
+              ]
+            },
+            "who": {
+              "reference": "PractitionerRole/role-priya-nanduri-sleep"
+            }
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "transmitter",
+                  "display": "Transmitter"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-river-city-sleep-medicine"
+            }
+          }
+        ],
+        "entity": [
+          {
+            "role": "source",
+            "what": {
+              "reference": "DocumentReference/documentreference-initial-hsat-report"
+            }
+          },
+          {
+            "role": "source",
+            "what": {
+              "reference": "DocumentReference/documentreference-pap-adherence"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Provenance/provenance-sleep-to-dental-referral"
+      }
+    }
+  ]
+}

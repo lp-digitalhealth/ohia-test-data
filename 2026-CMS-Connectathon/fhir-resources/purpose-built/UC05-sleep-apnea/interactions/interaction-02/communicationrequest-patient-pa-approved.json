@@ -1,0 +1,23 @@
+{
+  "resourceType": "CommunicationRequest",
+  "id": "communicationrequest-patient-pa-approved",
+  "status": "active",
+  "priority": "routine",
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "authoredOn": "2026-03-20T09:13:00-04:00",
+  "requester": {
+    "reference": "Organization/org-florida-blue-hmo"
+  },
+  "payload": [
+    {
+      "contentString": "Oral appliance approved — ready for fabrication."
+    }
+  ],
+  "note": [
+    {
+      "text": "Patient-visible milestone. Internal payer adjudication notes are not patient notifications."
+    }
+  ]
+}

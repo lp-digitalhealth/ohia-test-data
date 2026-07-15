@@ -1,0 +1,36 @@
+{
+  "resourceType": "Device",
+  "id": "device-maya-mandibular-advancement",
+  "status": "active",
+  "manufacturer": "SunCoast Oral Appliance Lab",
+  "manufactureDate": "2026-04-01",
+  "expirationDate": "2031-04-01",
+  "lotNumber": "SCOAL-260401-17",
+  "serialNumber": "UC05-MAD-000184",
+  "deviceName": [
+    {
+      "name": "Custom titratable mandibular advancement device",
+      "type": "user-friendly-name"
+    }
+  ],
+  "type": {
+    "coding": [
+      {
+        "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+        "code": "E0486",
+        "display": "Custom-fabricated oral appliance for obstructive sleep apnea"
+      }
+    ]
+  },
+  "patient": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "owner": {
+    "reference": "Organization/org-first-coast-dental-sleep"
+  },
+  "note": [
+    {
+      "text": "Synthetic device identifiers. Custom appliance fabricated only after PA approval."
+    }
+  ]
+}

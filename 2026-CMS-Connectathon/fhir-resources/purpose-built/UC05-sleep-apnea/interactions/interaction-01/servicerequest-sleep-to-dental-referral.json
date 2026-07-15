@@ -1,0 +1,91 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "servicerequest-sleep-to-dental-referral",
+  "meta": {
+    "profile": [
+      "https://oralhealthalliance.net/fhir/StructureDefinition/ode-medical-to-dental-referral"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC05-001"
+    }
+  ],
+  "status": "active",
+  "intent": "order",
+  "priority": "routine",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "103696004",
+          "display": "Patient referral to specialist"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "text": "Dental candidacy evaluation and treatment for custom oral appliance therapy"
+  },
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-sleep-followup-oat-decision"
+  },
+  "authoredOn": "2026-03-13",
+  "requester": {
+    "reference": "PractitionerRole/role-priya-nanduri-sleep"
+  },
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+    }
+  ],
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-maya-osa"
+    }
+  ],
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/servicerequest-pcp-to-sleep-antecedent"
+    }
+  ],
+  "supportingInfo": [
+    {
+      "reference": "DiagnosticReport/diagnosticreport-initial-hsat"
+    },
+    {
+      "reference": "DocumentReference/documentreference-initial-hsat-report"
+    },
+    {
+      "reference": "Observation/observation-initial-rei"
+    },
+    {
+      "reference": "Observation/observation-initial-oxygen-nadir"
+    },
+    {
+      "reference": "Observation/observation-epworth-initial"
+    },
+    {
+      "reference": "DocumentReference/documentreference-pap-adherence"
+    },
+    {
+      "reference": "Observation/observation-pap-intolerance"
+    },
+    {
+      "reference": "ServiceRequest/servicerequest-oral-appliance-order"
+    },
+    {
+      "reference": "Coverage/coverage-maya-torres-myblue-hmo"
+    }
+  ],
+  "note": [
+    {
+      "text": "The dentist is asked to assess dental candidacy and provide oral appliance therapy. The dentist is not asked to diagnose obstructive sleep apnea."
+    }
+  ]
+}

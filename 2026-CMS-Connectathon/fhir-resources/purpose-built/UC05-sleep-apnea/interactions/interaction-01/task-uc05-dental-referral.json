@@ -1,0 +1,75 @@
+{
+  "resourceType": "Task",
+  "id": "task-uc05-dental-referral",
+  "meta": {
+    "profile": [
+      "https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC05-001"
+    }
+  ],
+  "status": "requested",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+        "code": "referral-sent",
+        "display": "Referral sent"
+      }
+    ]
+  },
+  "intent": "order",
+  "priority": "routine",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill",
+        "display": "Fulfill the focal request"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-sleep-to-dental-referral"
+  },
+  "for": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-sleep-followup-oat-decision"
+  },
+  "authoredOn": "2026-03-13T09:30:00-04:00",
+  "requester": {
+    "reference": "Organization/org-river-city-sleep-medicine"
+  },
+  "input": [
+    {
+      "type": {
+        "text": "Oral appliance order"
+      },
+      "valueReference": {
+        "reference": "ServiceRequest/servicerequest-oral-appliance-order"
+      }
+    },
+    {
+      "type": {
+        "text": "Initial sleep-study report"
+      },
+      "valueReference": {
+        "reference": "DiagnosticReport/diagnosticreport-initial-hsat"
+      }
+    },
+    {
+      "type": {
+        "text": "PAP intolerance evidence"
+      },
+      "valueReference": {
+        "reference": "Observation/observation-pap-intolerance"
+      }
+    }
+  ]
+}
