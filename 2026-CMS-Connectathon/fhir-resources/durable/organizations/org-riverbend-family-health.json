@@ -1,0 +1,54 @@
+{
+  "resourceType": "Organization",
+  "id": "org-riverbend-family-health",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/organization",
+      "value": "UC05-ORG-PCP-001"
+    }
+  ],
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "prov",
+          "display": "Healthcare Provider"
+        }
+      ]
+    }
+  ],
+  "name": "Riverbend Family Health — Mandarin",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "904-555-0112",
+      "use": "work"
+    }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "line": [
+        "10601 San Jose Blvd",
+        "Suite 1401"
+      ],
+      "city": "Jacksonville",
+      "state": "FL",
+      "postalCode": "32257",
+      "country": "US"
+    }
+  ],
+  "endpoint": [
+    {
+      "reference": "Endpoint/endpoint-riverbend-family-health",
+      "display": "Riverbend Family Health test FHIR endpoint"
+    }
+  ]
+}

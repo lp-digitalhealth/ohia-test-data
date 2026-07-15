@@ -1,0 +1,34 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "servicerequest-initial-hsat",
+  "status": "completed",
+  "intent": "order",
+  "priority": "routine",
+  "category": [
+    {
+      "text": "Sleep diagnostic testing"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ama-assn.org/go/cpt",
+        "code": "95806",
+        "display": "Unattended sleep study with respiratory airflow and effort, heart rate or oximetry"
+      }
+    ],
+    "text": "Unattended home sleep apnea test"
+  },
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "authoredOn": "2026-02-12",
+  "requester": {
+    "reference": "PractitionerRole/role-priya-nanduri-sleep"
+  },
+  "reasonCode": [
+    {
+      "text": "Suspected obstructive sleep apnea following elevated STOP-Bang score"
+    }
+  ]
+}

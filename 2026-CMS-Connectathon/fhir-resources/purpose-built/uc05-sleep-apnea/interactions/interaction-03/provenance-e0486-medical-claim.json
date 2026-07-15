@@ -1,0 +1,57 @@
+{
+  "resourceType": "Provenance",
+  "id": "provenance-e0486-medical-claim",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance"
+    ]
+  },
+  "target": [
+    {
+      "reference": "ExplanationOfBenefit/eob-e0486-claims-sharing"
+    },
+    {
+      "reference": "Claim/claim-e0486-medical"
+    }
+  ],
+  "recorded": "2026-04-07T09:01:00-04:00",
+  "activity": {
+    "text": "Medical/DME claim package generated from dental clinical documentation"
+  },
+  "agent": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "author",
+            "display": "Author"
+          }
+        ]
+      },
+      "who": {
+        "reference": "Organization/org-first-coast-dental-sleep"
+      }
+    }
+  ],
+  "entity": [
+    {
+      "role": "source",
+      "what": {
+        "reference": "Procedure/procedure-appliance-placement"
+      }
+    },
+    {
+      "role": "source",
+      "what": {
+        "reference": "Device/device-maya-mandibular-advancement"
+      }
+    },
+    {
+      "role": "source",
+      "what": {
+        "reference": "ClaimResponse/claimresponse-e0486-priorauth-approved"
+      }
+    }
+  ]
+}

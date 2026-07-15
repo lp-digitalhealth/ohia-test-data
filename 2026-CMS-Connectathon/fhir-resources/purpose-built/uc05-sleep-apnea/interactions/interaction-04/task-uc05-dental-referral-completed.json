@@ -1,0 +1,83 @@
+{
+  "resourceType": "Task",
+  "id": "task-uc05-dental-referral-completed",
+  "meta": {
+    "profile": [
+      "https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC05-001"
+    }
+  ],
+  "status": "completed",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+        "code": "loop-closed",
+        "display": "Referral loop closed"
+      }
+    ]
+  },
+  "intent": "order",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill",
+        "display": "Fulfill the focal request"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-sleep-to-dental-referral-completed"
+  },
+  "for": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "owner": {
+    "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+  },
+  "authoredOn": "2026-03-13T09:30:00-04:00",
+  "lastModified": "2026-05-25T09:10:00-04:00",
+  "requester": {
+    "reference": "Organization/org-river-city-sleep-medicine"
+  },
+  "output": [
+    {
+      "type": {
+        "text": "Dental readiness assessment"
+      },
+      "valueReference": {
+        "reference": "DiagnosticReport/diagnosticreport-oat-readiness"
+      }
+    },
+    {
+      "type": {
+        "text": "Appliance and titration update"
+      },
+      "valueReference": {
+        "reference": "DiagnosticReport/diagnosticreport-dental-treatment-update"
+      }
+    },
+    {
+      "type": {
+        "text": "Follow-up sleep-study result"
+      },
+      "valueReference": {
+        "reference": "DiagnosticReport/diagnosticreport-followup-hsat"
+      }
+    },
+    {
+      "type": {
+        "text": "Final treatment effectiveness assessment"
+      },
+      "valueReference": {
+        "reference": "ClinicalImpression/clinicalimpression-oat-effectiveness"
+      }
+    }
+  ]
+}

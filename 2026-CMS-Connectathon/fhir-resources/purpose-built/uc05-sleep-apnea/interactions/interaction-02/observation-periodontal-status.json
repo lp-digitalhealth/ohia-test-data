@@ -1,0 +1,51 @@
+{
+  "resourceType": "Observation",
+  "id": "observation-periodontal-status",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+    ]
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+        "code": "periodontal-status",
+        "display": "Periodontal status for oral appliance candidacy"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-dental-oat-readiness"
+  },
+  "effectiveDateTime": "2026-03-18",
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+    }
+  ],
+  "valueCodeableConcept": {
+    "coding": [
+      {
+        "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+        "code": "stable",
+        "display": "Stable"
+      }
+    ]
+  }
+}

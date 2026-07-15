@@ -1,0 +1,37 @@
+{
+  "resourceType": "Subscription",
+  "id": "subscription-maya-uc05-milestones",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-subscription"
+    ]
+  },
+  "status": "active",
+  "contact": [
+    {
+      "system": "phone",
+      "value": "904-555-0164",
+      "use": "mobile"
+    }
+  ],
+  "reason": "Notify Maya’s patient-facing application only when a patient-visible UC05 milestone changes.",
+  "criteria": "https://oralhealthalliance.net/fhir/SubscriptionTopic/ode-referral-status",
+  "channel": {
+    "type": "rest-hook",
+    "endpoint": "https://uc05-patient-app.example.org/hooks/maya-torres",
+    "payload": "application/fhir+json",
+    "_payload": {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-payload-content",
+          "valueCode": "full-resource"
+        }
+      ]
+    }
+  },
+  "note": [
+    {
+      "text": "Patient-visible milestones include referral sent, PA approved, appliance ready/delivered, and referral closed. Backend provider-to-provider notes and payer processing chatter must not trigger patient notifications."
+    }
+  ]
+}

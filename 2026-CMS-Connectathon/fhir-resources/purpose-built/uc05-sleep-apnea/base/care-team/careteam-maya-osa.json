@@ -1,0 +1,44 @@
+{
+  "resourceType": "CareTeam",
+  "id": "careteam-maya-osa",
+  "status": "active",
+  "name": "Maya Torres OSA care team",
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "period": {
+    "start": "2026-02-03"
+  },
+  "participant": [
+    {
+      "role": [
+        {
+          "text": "Primary care physician"
+        }
+      ],
+      "member": {
+        "reference": "PractitionerRole/role-elena-ruiz-pcp"
+      }
+    },
+    {
+      "role": [
+        {
+          "text": "Sleep physician and ordering practitioner"
+        }
+      ],
+      "member": {
+        "reference": "PractitionerRole/role-priya-nanduri-sleep"
+      }
+    },
+    {
+      "role": [
+        {
+          "text": "Dental sleep rendering provider"
+        }
+      ],
+      "member": {
+        "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+      }
+    }
+  ]
+}

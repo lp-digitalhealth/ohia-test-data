@@ -1,0 +1,44 @@
+{
+  "resourceType": "Procedure",
+  "id": "procedure-titration-1",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+    ]
+  },
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D9948",
+        "display": "Adjustment of custom sleep apnea appliance"
+      }
+    ],
+    "text": "Oral appliance titration adjustment 1"
+  },
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-titration-1"
+  },
+  "performedDateTime": "2026-04-20T10:10:00-04:00",
+  "performer": [
+    {
+      "actor": {
+        "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+      }
+    }
+  ],
+  "usedReference": [
+    {
+      "reference": "Device/device-maya-mandibular-advancement"
+    }
+  ],
+  "note": [
+    {
+      "text": "Synthetic protrusive setting after visit: 4.0 mm."
+    }
+  ]
+}

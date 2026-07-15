@@ -1,0 +1,74 @@
+{
+  "resourceType": "Provenance",
+  "id": "provenance-dental-pa-submission",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-provenance"
+    ]
+  },
+  "target": [
+    {
+      "reference": "Claim/claim-e0486-priorauth"
+    },
+    {
+      "reference": "QuestionnaireResponse/questionnaireresponse-e0486-pa-dtr"
+    },
+    {
+      "reference": "DiagnosticReport/diagnosticreport-oat-readiness"
+    }
+  ],
+  "recorded": "2026-03-19T10:21:00-04:00",
+  "activity": {
+    "text": "Dental prior authorization package assembled and submitted"
+  },
+  "agent": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "author",
+            "display": "Author"
+          }
+        ]
+      },
+      "who": {
+        "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+      }
+    },
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+            "code": "transmitter",
+            "display": "Transmitter"
+          }
+        ]
+      },
+      "who": {
+        "reference": "Organization/org-first-coast-dental-sleep"
+      }
+    }
+  ],
+  "entity": [
+    {
+      "role": "source",
+      "what": {
+        "reference": "DiagnosticReport/diagnosticreport-initial-hsat"
+      }
+    },
+    {
+      "role": "source",
+      "what": {
+        "reference": "DocumentReference/documentreference-pap-adherence"
+      }
+    },
+    {
+      "role": "source",
+      "what": {
+        "reference": "ServiceRequest/servicerequest-oral-appliance-order"
+      }
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "servicerequest-pcp-to-sleep-antecedent",
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC05-PCP-SLEEP-001"
+    }
+  ],
+  "status": "completed",
+  "intent": "order",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "103696004",
+          "display": "Patient referral to specialist"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "text": "Sleep medicine evaluation for suspected obstructive sleep apnea"
+  },
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "authoredOn": "2026-02-03",
+  "requester": {
+    "reference": "PractitionerRole/role-elena-ruiz-pcp"
+  },
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-priya-nanduri-sleep"
+    }
+  ],
+  "reasonCode": [
+    {
+      "text": "STOP-Bang score 5; hypertension, obesity, morning headaches, and daytime sleepiness"
+    }
+  ],
+  "supportingInfo": [
+    {
+      "reference": "Condition/condition-maya-hypertension"
+    },
+    {
+      "reference": "Condition/condition-maya-obesity"
+    }
+  ],
+  "note": [
+    {
+      "text": "Antecedent PCP-to-sleep referral retained only to support the referral chain required by the UC05 payer rule. It is narrative context, not a separately tested interaction."
+    }
+  ]
+}
