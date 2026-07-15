@@ -1,0 +1,61 @@
+{
+  "resourceType": "Organization",
+  "id": "org-river-city-sleep-medicine",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/organization",
+      "value": "uc05-river-city-sleep-medicine"
+    }
+  ],
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "prov",
+          "display": "Healthcare Provider"
+        }
+      ]
+    }
+  ],
+  "name": "River City Sleep Medicine",
+  "alias": [
+    "RCSM"
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "904-555-0151",
+      "use": "work"
+    },
+    {
+      "system": "url",
+      "value": "https://river-city-sleep.example.org",
+      "use": "work"
+    }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "line": [
+        "4500 San Pablo Rd S"
+      ],
+      "city": "Jacksonville",
+      "state": "FL",
+      "postalCode": "32224-1865",
+      "country": "US"
+    }
+  ],
+  "endpoint": [
+    {
+      "reference": "Endpoint/endpoint-river-city-sleep-medicine",
+      "display": "River City Sleep Medicine FHIR endpoint"
+    }
+  ]
+}

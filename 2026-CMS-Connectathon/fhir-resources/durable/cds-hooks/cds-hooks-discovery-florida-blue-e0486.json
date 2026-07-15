@@ -1,0 +1,16 @@
+{
+  "_comment": "NOT A FHIR RESOURCE. Synthetic CDS Hooks discovery document for the UC05 Florida Blue HMO test service. Exposed at the test payer endpoint /cds-services. This is not a Florida Blue production service.",
+  "services": [
+    {
+      "hook": "order-sign",
+      "title": "UC05 E0486 Coverage Requirements Check",
+      "description": "Evaluates a proposed E0486 oral-appliance order under the UC05 myBlue HMO test plan. Returns the PA requirement and launches Questionnaire/questionnaire-florida-blue-e0486-pa-dtr.",
+      "id": "uc05-florida-blue-e0486-pa-check",
+      "prefetch": {
+        "patient": "Patient/{{context.patientId}}",
+        "coverage": "Coverage?patient={{context.patientId}}&status=active",
+        "draftOrders": "{{context.draftOrders}}"
+      }
+    }
+  ]
+}

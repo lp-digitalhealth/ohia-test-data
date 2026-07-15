@@ -1,0 +1,66 @@
+{
+  "resourceType": "Organization",
+  "id": "org-first-coast-dental-sleep",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/organization",
+      "value": "uc05-first-coast-dental-sleep"
+    },
+    {
+      "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/dme-supplier",
+      "value": "UC05-DME-SUPPLIER-001"
+    }
+  ],
+  "active": true,
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+          "code": "prov",
+          "display": "Healthcare Provider"
+        }
+      ]
+    }
+  ],
+  "name": "First Coast Dental Sleep Center",
+  "alias": [
+    "FCDSC"
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "904-555-0152",
+      "use": "work"
+    },
+    {
+      "system": "url",
+      "value": "https://first-coast-dental-sleep.example.org",
+      "use": "work"
+    }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "line": [
+        "12276 San Jose Blvd",
+        "Suite 720"
+      ],
+      "city": "Jacksonville",
+      "state": "FL",
+      "postalCode": "32223-8674",
+      "country": "US"
+    }
+  ],
+  "endpoint": [
+    {
+      "reference": "Endpoint/endpoint-first-coast-dental-sleep",
+      "display": "First Coast Dental Sleep Center FHIR endpoint"
+    }
+  ]
+}

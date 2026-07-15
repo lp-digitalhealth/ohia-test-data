@@ -1,0 +1,43 @@
+## UC05 Key Interactions
+### I3 — Dental Prior Authorization Submission and Payer Decision
+
+**Organizations:**
+Dental sleep medicine practice ↔ Florida Blue test payer
+
+**Exchange:**
+The dental practice submits the prior-authorization request for E0486 using documentation from both the sleep physician and dentist. The payer returns the authorization decision.
+
+**Key data submitted:**
+
+* OSA diagnosis;
+* sleep-study report and structured findings;
+* physician order;
+* PAP intolerance documentation;
+* dental candidacy assessment;
+* proposed treatment plan;
+* ordering provider identity;
+* rendering and billing provider identity; and
+* requested service E0486.
+
+**Key data returned:**
+
+* authorization status;
+* authorization identifier;
+* approved service and quantity;
+* effective period; and
+* applicable conditions.
+
+**Primary FHIR resources:**
+
+* `Claim`
+* `ClaimResponse`
+* `QuestionnaireResponse`
+* `DiagnosticReport`
+* `Observation`
+* `DocumentReference`
+* `ServiceRequest`
+* `Coverage`
+* `PractitionerRole`
+* `Organization`
+
+---

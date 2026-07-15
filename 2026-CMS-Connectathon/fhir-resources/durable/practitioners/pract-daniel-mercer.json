@@ -1,0 +1,57 @@
+{
+  "resourceType": "Practitioner",
+  "id": "pract-daniel-mercer",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/practitioner",
+      "value": "uc05-daniel-mercer"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Mercer",
+      "given": [
+        "Daniel"
+      ],
+      "prefix": [
+        "Dr."
+      ],
+      "suffix": [
+        "DMD"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "904-555-0152",
+      "use": "work"
+    },
+    {
+      "system": "email",
+      "value": "daniel.mercer@first-coast-dental-sleep.example.org",
+      "use": "work"
+    }
+  ],
+  "qualification": [
+    {
+      "code": {
+        "coding": [
+          {
+            "system": "http://nucc.org/provider-taxonomy",
+            "code": "1223G0001X",
+            "display": "Dentist, General Practice"
+          }
+        ],
+        "text": "General Practice Dentistry with dental sleep medicine services"
+      }
+    }
+  ]
+}
