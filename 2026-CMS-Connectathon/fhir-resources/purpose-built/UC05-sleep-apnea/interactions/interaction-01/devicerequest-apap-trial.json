@@ -1,0 +1,32 @@
+{
+  "resourceType": "DeviceRequest",
+  "id": "devicerequest-apap-trial",
+  "status": "completed",
+  "intent": "order",
+  "codeCodeableConcept": {
+    "coding": [
+      {
+        "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+        "code": "E0601",
+        "display": "Continuous positive airway pressure device"
+      }
+    ],
+    "text": "APAP trial"
+  },
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "authoredOn": "2026-02-18",
+  "requester": {
+    "reference": "PractitionerRole/role-priya-nanduri-sleep"
+  },
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-maya-osa"
+    }
+  ],
+  "occurrencePeriod": {
+    "start": "2026-02-20",
+    "end": "2026-03-12"
+  }
+}

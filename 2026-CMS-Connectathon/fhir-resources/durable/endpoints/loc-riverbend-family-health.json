@@ -1,0 +1,39 @@
+{
+  "resourceType": "Location",
+  "id": "loc-riverbend-family-health",
+  "status": "active",
+  "name": "Riverbend Family Health — Mandarin",
+  "mode": "instance",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+          "code": "PC",
+          "display": "Primary Care Clinic"
+        }
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "904-555-0112",
+      "use": "work"
+    }
+  ],
+  "address": {
+    "use": "work",
+    "line": [
+      "10601 San Jose Blvd",
+      "Suite 1401"
+    ],
+    "city": "Jacksonville",
+    "state": "FL",
+    "postalCode": "32257",
+    "country": "US"
+  },
+  "managingOrganization": {
+    "reference": "Organization/org-riverbend-family-health"
+  }
+}

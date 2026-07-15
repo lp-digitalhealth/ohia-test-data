@@ -1,0 +1,52 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "documentreference-initial-hsat-report",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"
+    ]
+  },
+  "status": "current",
+  "type": {
+    "text": "Home sleep apnea test report"
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+          "code": "clinical-note",
+          "display": "Clinical Note"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "date": "2026-02-18T08:30:00-05:00",
+  "author": [
+    {
+      "reference": "PractitionerRole/role-priya-nanduri-sleep"
+    }
+  ],
+  "custodian": {
+    "reference": "Organization/org-river-city-sleep-medicine"
+  },
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/pdf",
+        "url": "https://uc05-sleep.example.org/documents/hsat-initial-maya.pdf",
+        "title": "Initial HSAT report"
+      }
+    }
+  ],
+  "context": {
+    "related": [
+      {
+        "reference": "DiagnosticReport/diagnosticreport-initial-hsat"
+      }
+    ]
+  }
+}

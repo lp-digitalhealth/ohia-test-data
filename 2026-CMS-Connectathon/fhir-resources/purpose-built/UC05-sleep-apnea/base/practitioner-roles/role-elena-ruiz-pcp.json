@@ -1,0 +1,49 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "role-elena-ruiz-pcp",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+    ]
+  },
+  "active": true,
+  "practitioner": {
+    "reference": "Practitioner/pract-elena-ruiz",
+    "display": "Elena Ruiz, MD"
+  },
+  "organization": {
+    "reference": "Organization/org-riverbend-family-health"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "207Q00000X",
+          "display": "Family Medicine Physician"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "207Q00000X",
+          "display": "Family Medicine Physician"
+        }
+      ]
+    }
+  ],
+  "location": [
+    {
+      "reference": "Location/loc-riverbend-family-health"
+    }
+  ],
+  "endpoint": [
+    {
+      "reference": "Endpoint/endpoint-riverbend-family-health"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "resourceType": "Practitioner",
+  "id": "pract-elena-ruiz",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/practitioner",
+      "value": "UC05-PRACT-PCP-001"
+    }
+  ],
+  "active": true,
+  "name": [
+    {
+      "use": "official",
+      "family": "Ruiz",
+      "given": [
+        "Elena"
+      ],
+      "prefix": [
+        "Dr."
+      ],
+      "suffix": [
+        "MD"
+      ]
+    }
+  ],
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "904-555-0113",
+      "use": "work"
+    }
+  ],
+  "address": [
+    {
+      "use": "work",
+      "line": [
+        "10601 San Jose Blvd",
+        "Suite 1401"
+      ],
+      "city": "Jacksonville",
+      "state": "FL",
+      "postalCode": "32257",
+      "country": "US"
+    }
+  ],
+  "qualification": [
+    {
+      "code": {
+        "text": "Doctor of Medicine"
+      }
+    }
+  ]
+}

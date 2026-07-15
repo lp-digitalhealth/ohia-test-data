@@ -1,0 +1,48 @@
+{
+  "resourceType": "ClinicalImpression",
+  "id": "clinicalimpression-oat-effectiveness",
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "effectiveDateTime": "2026-05-25T09:00:00-04:00",
+  "date": "2026-05-25T09:05:00-04:00",
+  "assessor": {
+    "reference": "PractitionerRole/role-priya-nanduri-sleep"
+  },
+  "problem": [
+    {
+      "reference": "Condition/condition-maya-osa"
+    }
+  ],
+  "investigation": [
+    {
+      "code": {
+        "text": "Initial and follow-up home sleep apnea testing"
+      },
+      "item": [
+        {
+          "reference": "DiagnosticReport/diagnosticreport-initial-hsat"
+        },
+        {
+          "reference": "DiagnosticReport/diagnosticreport-followup-hsat"
+        }
+      ]
+    }
+  ],
+  "summary": "Custom titratable mandibular advancement therapy produced an approximately 65.5% reduction in REI and improved oxygen nadir. Continue oral appliance therapy and annual sleep-medicine follow-up.",
+  "finding": [
+    {
+      "itemCodeableConcept": {
+        "coding": [
+          {
+            "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+            "code": "oat-effective",
+            "display": "Oral appliance therapy clinically effective"
+          }
+        ]
+      },
+      "basis": "REI 22.6 to 7.8 events/hour; oxygen nadir 83% to 90%; improved symptoms."
+    }
+  ]
+}

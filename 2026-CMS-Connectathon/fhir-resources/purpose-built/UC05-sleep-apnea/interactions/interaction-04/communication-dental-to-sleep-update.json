@@ -1,0 +1,40 @@
+{
+  "resourceType": "Communication",
+  "id": "communication-dental-to-sleep-update",
+  "status": "completed",
+  "category": [
+    {
+      "text": "Provider-to-provider treatment update"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/servicerequest-sleep-to-dental-referral"
+    }
+  ],
+  "sent": "2026-05-18T11:02:00-04:00",
+  "received": "2026-05-18T11:03:00-04:00",
+  "sender": {
+    "reference": "Organization/org-first-coast-dental-sleep"
+  },
+  "recipient": [
+    {
+      "reference": "Organization/org-river-city-sleep-medicine"
+    }
+  ],
+  "payload": [
+    {
+      "contentReference": {
+        "reference": "DiagnosticReport/diagnosticreport-dental-treatment-update"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Provider-to-provider clinical update; not itself a patient-notification event."
+    }
+  ]
+}

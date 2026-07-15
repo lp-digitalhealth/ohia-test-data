@@ -1,0 +1,49 @@
+{
+  "resourceType": "Observation",
+  "id": "observation-followup-oxygen-nadir",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+    ]
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+        "code": "overnight-oxygen-saturation-nadir",
+        "display": "Overnight oxygen saturation nadir"
+      }
+    ],
+    "text": "Lowest oxygen saturation during follow-up HSAT"
+  },
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "effectiveDateTime": "2026-05-23",
+  "valueQuantity": {
+    "value": 90,
+    "unit": "%",
+    "system": "http://unitsofmeasure.org",
+    "code": "%"
+  },
+  "method": {
+    "text": "Unattended home sleep apnea test with oral appliance in place"
+  },
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/servicerequest-followup-hsat"
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "resourceType": "Coverage",
+  "id": "coverage-maya-torres-myblue-hmo",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-coverage"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "https://uc05.ohia.example.org/member-id",
+      "value": "MYB-2605-884219"
+    },
+    {
+      "system": "https://uc05.ohia.example.org/policy-id",
+      "value": "FLMKT-2026-441870"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "HMO",
+        "display": "health maintenance organization policy"
+      }
+    ],
+    "text": "ACA individual-market HMO"
+  },
+  "subscriber": {
+    "reference": "Patient/patient-maya-torres",
+    "display": "Maya Torres"
+  },
+  "subscriberId": "MYB-2605-884219",
+  "beneficiary": {
+    "reference": "Patient/patient-maya-torres",
+    "display": "Maya Torres"
+  },
+  "relationship": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+        "code": "self",
+        "display": "Self"
+      }
+    ]
+  },
+  "period": {
+    "start": "2026-01-01",
+    "end": "2026-12-31"
+  },
+  "payor": [
+    {
+      "reference": "Organization/org-florida-blue-hmo",
+      "display": "Florida Blue HMO"
+    }
+  ],
+  "class": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+            "code": "plan",
+            "display": "Plan"
+          }
+        ]
+      },
+      "value": "MYBLUE-HMO-2026",
+      "name": "2026 Florida Blue myBlue HMO — UC05 Test Plan"
+    }
+  ],
+  "network": "UC05 myBlue HMO test network"
+}

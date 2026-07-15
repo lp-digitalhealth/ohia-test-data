@@ -1,0 +1,54 @@
+{
+  "resourceType": "Observation",
+  "id": "observation-initial-oxygen-nadir",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+    ]
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+        "code": "overnight-oxygen-saturation-nadir",
+        "display": "Overnight oxygen saturation nadir"
+      }
+    ],
+    "text": "Lowest oxygen saturation during HSAT"
+  },
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "effectiveDateTime": "2026-02-14",
+  "valueQuantity": {
+    "value": 83,
+    "unit": "%",
+    "system": "http://unitsofmeasure.org",
+    "code": "%"
+  },
+  "method": {
+    "text": "Unattended home sleep apnea test pulse oximetry"
+  },
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/servicerequest-initial-hsat"
+    }
+  ],
+  "note": [
+    {
+      "text": "A governed UC05 local code is used because a general pulse-oximetry code alone does not preserve the overnight nadir meaning."
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "documentreference-digital-intraoral-scans",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"
+    ]
+  },
+  "status": "current",
+  "type": {
+    "text": "Digital intraoral scan package"
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+          "code": "clinical-note",
+          "display": "Clinical Note"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "date": "2026-03-18T14:55:00-04:00",
+  "author": [
+    {
+      "reference": "Organization/org-first-coast-dental-sleep"
+    }
+  ],
+  "content": [
+    {
+      "attachment": {
+        "contentType": "model/stl",
+        "url": "https://uc05-dental.example.org/scans/maya/maxillary.stl",
+        "title": "Maxillary digital intraoral scan"
+      }
+    },
+    {
+      "attachment": {
+        "contentType": "model/stl",
+        "url": "https://uc05-dental.example.org/scans/maya/mandibular.stl",
+        "title": "Mandibular digital intraoral scan"
+      }
+    },
+    {
+      "attachment": {
+        "contentType": "application/octet-stream",
+        "url": "https://uc05-dental.example.org/scans/maya/bite-registration.bin",
+        "title": "Digital bite registration"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Synthetic retrieval URLs. The proprietary scan payloads are external to the FHIR Bundle."
+    }
+  ]
+}

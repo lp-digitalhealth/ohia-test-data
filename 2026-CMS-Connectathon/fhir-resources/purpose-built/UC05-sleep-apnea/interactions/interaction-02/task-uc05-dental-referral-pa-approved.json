@@ -1,0 +1,67 @@
+{
+  "resourceType": "Task",
+  "id": "task-uc05-dental-referral-pa-approved",
+  "meta": {
+    "profile": [
+      "https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC05-001"
+    }
+  ],
+  "status": "in-progress",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "https://uc05.ohia.example.org/fhir/CodeSystem/uc05",
+        "code": "pa-approved",
+        "display": "Prior authorization approved"
+      }
+    ]
+  },
+  "intent": "order",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill",
+        "display": "Fulfill the focal request"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-sleep-to-dental-referral"
+  },
+  "for": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "owner": {
+    "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+  },
+  "authoredOn": "2026-03-13T09:30:00-04:00",
+  "lastModified": "2026-03-20T09:14:00-04:00",
+  "requester": {
+    "reference": "Organization/org-river-city-sleep-medicine"
+  },
+  "output": [
+    {
+      "type": {
+        "text": "Dental readiness assessment"
+      },
+      "valueReference": {
+        "reference": "DiagnosticReport/diagnosticreport-oat-readiness"
+      }
+    },
+    {
+      "type": {
+        "text": "Prior authorization approval"
+      },
+      "valueReference": {
+        "reference": "ClaimResponse/claimresponse-e0486-priorauth-approved"
+      }
+    }
+  ]
+}

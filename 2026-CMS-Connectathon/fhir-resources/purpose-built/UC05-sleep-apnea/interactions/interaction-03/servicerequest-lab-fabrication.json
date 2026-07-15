@@ -1,0 +1,40 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "servicerequest-lab-fabrication",
+  "status": "completed",
+  "intent": "order",
+  "priority": "routine",
+  "category": [
+    {
+      "text": "Dental laboratory fabrication"
+    }
+  ],
+  "code": {
+    "text": "Fabricate custom titratable mandibular advancement device"
+  },
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "authoredOn": "2026-03-23",
+  "requester": {
+    "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+  },
+  "performer": [
+    {
+      "reference": "Organization/org-suncoast-oral-appliance-lab"
+    }
+  ],
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/servicerequest-oral-appliance-order"
+    }
+  ],
+  "supportingInfo": [
+    {
+      "reference": "DocumentReference/documentreference-digital-intraoral-scans"
+    },
+    {
+      "reference": "ClaimResponse/claimresponse-e0486-priorauth-approved"
+    }
+  ]
+}

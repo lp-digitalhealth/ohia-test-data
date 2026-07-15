@@ -1,0 +1,79 @@
+{
+  "resourceType": "ImagingStudy",
+  "id": "imagingstudy-panoramic",
+  "status": "available",
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-dental-oat-readiness"
+  },
+  "started": "2026-03-18T14:24:00-04:00",
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/servicerequest-sleep-to-dental-referral"
+    }
+  ],
+  "referrer": {
+    "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+  },
+  "interpreter": [
+    {
+      "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+    }
+  ],
+  "endpoint": [
+    {
+      "reference": "Endpoint/endpoint-first-coast-dental-sleep"
+    }
+  ],
+  "numberOfSeries": 1,
+  "numberOfInstances": 1,
+  "procedureCode": [
+    {
+      "coding": [
+        {
+          "system": "http://www.ada.org/cdt",
+          "code": "D0330",
+          "display": "Panoramic radiographic image"
+        }
+      ]
+    }
+  ],
+  "description": "Panoramic radiograph for oral appliance candidacy assessment",
+  "series": [
+    {
+      "uid": "2.25.260518031814240001",
+      "number": 1,
+      "modality": {
+        "system": "http://dicom.nema.org/resources/ontology/DCM",
+        "code": "DX",
+        "display": "Digital Radiography"
+      },
+      "description": "Panoramic dental radiograph",
+      "numberOfInstances": 1,
+      "endpoint": [
+        {
+          "reference": "Endpoint/endpoint-first-coast-dental-sleep"
+        }
+      ],
+      "instance": [
+        {
+          "uid": "2.25.2605180318142400011",
+          "sopClass": {
+            "system": "urn:ietf:rfc:3986",
+            "code": "urn:oid:1.2.840.10008.5.1.4.1.1.1.1",
+            "display": "Digital X-Ray Image Storage"
+          },
+          "number": 1,
+          "title": "Panoramic radiograph"
+        }
+      ]
+    }
+  ],
+  "note": [
+    {
+      "text": "ImagingStudy carries metadata and retrieval context; it does not embed the pixel data."
+    }
+  ]
+}

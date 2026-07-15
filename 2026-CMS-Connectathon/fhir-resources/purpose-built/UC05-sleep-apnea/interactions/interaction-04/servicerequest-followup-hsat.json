@@ -1,0 +1,39 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "servicerequest-followup-hsat",
+  "status": "completed",
+  "intent": "order",
+  "priority": "routine",
+  "category": [
+    {
+      "text": "Sleep diagnostic testing"
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ama-assn.org/go/cpt",
+        "code": "95806",
+        "display": "Unattended sleep study"
+      }
+    ],
+    "text": "Follow-up home sleep apnea test with oral appliance in place"
+  },
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "authoredOn": "2026-05-19",
+  "requester": {
+    "reference": "PractitionerRole/role-priya-nanduri-sleep"
+  },
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-maya-osa"
+    }
+  ],
+  "supportingInfo": [
+    {
+      "reference": "DiagnosticReport/diagnosticreport-dental-treatment-update"
+    }
+  ]
+}
