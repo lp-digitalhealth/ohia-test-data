@@ -1,0 +1,104 @@
+{
+  "resourceType": "InsurancePlan",
+  "id": "insplan-florida-blue-myblue-hmo-2026",
+  "identifier": [
+    {
+      "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/insurance-plan",
+      "value": "UC05-FL-BLUE-MYBLUE-HMO-2026"
+    }
+  ],
+  "status": "active",
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/insurance-plan-type",
+          "code": "medical",
+          "display": "Medical"
+        }
+      ],
+      "text": "ACA individual-market HMO"
+    }
+  ],
+  "name": "2026 Florida Blue myBlue HMO — UC05 Test Plan",
+  "alias": [
+    "myBlue HMO",
+    "UC05 Connectathon test product"
+  ],
+  "period": {
+    "start": "2026-01-01",
+    "end": "2026-12-31"
+  },
+  "ownedBy": {
+    "reference": "Organization/org-florida-blue-hmo",
+    "display": "Health Options, Inc. DBA Florida Blue HMO"
+  },
+  "administeredBy": {
+    "reference": "Organization/org-florida-blue-hmo",
+    "display": "Health Options, Inc. DBA Florida Blue HMO"
+  },
+  "coverageArea": [
+    {
+      "display": "Florida"
+    }
+  ],
+  "network": [
+    {
+      "display": "UC05 myBlue HMO test network"
+    }
+  ],
+  "coverage": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+            "code": "medical",
+            "display": "Medical"
+          }
+        ]
+      },
+      "benefit": [
+        {
+          "type": {
+            "text": "Custom oral appliance for obstructive sleep apnea — HCPCS E0486"
+          },
+          "requirement": "Covered under the UC05 medical DME benefit; prior authorization required."
+        },
+        {
+          "type": {
+            "text": "Prior authorization documentation"
+          },
+          "requirement": "Sleep-study report; REI/AHI/RDI; G47.33 diagnosis; treating-practitioner order; PAP intolerance or preference documentation; dental candidacy assessment; provider identities; and treatment plan."
+        },
+        {
+          "type": {
+            "text": "Referral and network"
+          },
+          "requirement": "UC05 test rule requires the PCP referral chain and an in-network dental sleep provider."
+        },
+        {
+          "type": {
+            "text": "Patient access"
+          },
+          "requirement": "Authorization status and eventual EOB are available through the test payer Patient Access API."
+        }
+      ]
+    }
+  ],
+  "plan": [
+    {
+      "type": {
+        "text": "HMO"
+      },
+      "generalCost": [
+        {
+          "type": {
+            "text": "Cost sharing"
+          },
+          "comment": "Synthetic; populated in the interaction-level payer response or ExplanationOfBenefit rather than asserted here."
+        }
+      ]
+    }
+  ]
+}

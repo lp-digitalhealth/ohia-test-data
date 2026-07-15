@@ -1,0 +1,54 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "plandef-florida-blue-e0486-pa-rule",
+  "url": "https://uc05.ohia.example.org/fhir/PlanDefinition/florida-blue-e0486-pa-rule",
+  "identifier": [
+    {
+      "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/coverage-rule",
+      "value": "UC05-FBHMO-E0486-PA-001"
+    }
+  ],
+  "version": "1.0.0",
+  "name": "FloridaBlueE0486PriorAuthorizationRule",
+  "title": "UC05 Coverage Requirement: E0486 Prior Authorization",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "code": "eca-rule",
+        "display": "ECA Rule"
+      }
+    ]
+  },
+  "status": "active",
+  "experimental": true,
+  "publisher": "OHIA CMS Connectathon Test Data",
+  "description": "Synthetic Da Vinci CRD rule fired at order-sign for a custom oral appliance coded E0486. The rule returns the UC05 test requirements for prior authorization under the medical DME benefit.",
+  "purpose": "Allows the sleep EHR to discover the UC05 test payer requirements before sending the medical-to-dental referral and allows the dental system to complete the missing candidacy documentation before PAS submission.",
+  "action": [
+    {
+      "title": "E0486 requires prior authorization under the UC05 test plan",
+      "description": "For the UC05 myBlue HMO test product, E0486 is a medical DME benefit requiring PA, a treating-practitioner order, qualifying sleep-test evidence, PAP intolerance or preference documentation, dental candidacy, provider identities, and a treatment plan.",
+      "trigger": [
+        {
+          "type": "named-event",
+          "name": "order-sign"
+        }
+      ],
+      "condition": [
+        {
+          "kind": "applicability",
+          "expression": {
+            "language": "text/cql",
+            "expression": "E0486OrderRequiresPriorAuth",
+            "reference": "Library/lib-florida-blue-e0486-pa-logic"
+          }
+        }
+      ],
+      "definitionCanonical": "Questionnaire/questionnaire-florida-blue-e0486-pa-dtr"
+    }
+  ],
+  "library": [
+    "Library/lib-florida-blue-e0486-pa-logic"
+  ]
+}

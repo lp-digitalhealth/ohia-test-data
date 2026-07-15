@@ -1,0 +1,61 @@
+{
+  "resourceType": "HealthcareService",
+  "id": "hs-river-city-sleep-medicine",
+  "active": true,
+  "providedBy": {
+    "reference": "Organization/org-river-city-sleep-medicine",
+    "display": "River City Sleep Medicine"
+  },
+  "category": [
+    {
+      "text": "Medical specialty care"
+    }
+  ],
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "207RS0012X",
+          "display": "Internal Medicine, Sleep Medicine"
+        }
+      ],
+      "text": "Sleep medicine evaluation and management"
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "207RS0012X",
+          "display": "Internal Medicine, Sleep Medicine"
+        }
+      ]
+    }
+  ],
+  "location": [
+    {
+      "reference": "Location/loc-river-city-sleep-medicine"
+    }
+  ],
+  "name": "Sleep Medicine Services — River City Sleep Medicine",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "904-555-0151"
+    }
+  ],
+  "eligibility": [
+    {
+      "code": {
+        "text": "UC05 test assumption: participating provider for Maya’s 2026 Florida Blue myBlue HMO product"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Synthetic provider-directory entry. Network participation is a Connectathon assumption and is not a statement about an actual Florida Blue network."
+    }
+  ]
+}

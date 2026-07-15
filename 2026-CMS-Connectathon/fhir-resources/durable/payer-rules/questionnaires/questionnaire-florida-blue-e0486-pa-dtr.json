@@ -1,0 +1,140 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "questionnaire-florida-blue-e0486-pa-dtr",
+  "url": "https://uc05.ohia.example.org/fhir/Questionnaire/florida-blue-e0486-pa-dtr",
+  "identifier": [
+    {
+      "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/coverage-rule",
+      "value": "UC05-FBHMO-E0486-DTR-001"
+    }
+  ],
+  "version": "1.0.0",
+  "name": "FloridaBlueE0486PriorAuthDTR",
+  "title": "UC05 E0486 Prior Authorization — Documentation Requirements",
+  "status": "active",
+  "experimental": true,
+  "publisher": "OHIA CMS Connectathon Test Data",
+  "description": "Synthetic DTR questionnaire for UC05. It combines sleep-medicine evidence with the dental OAT Readiness Assessment. It is not an actual Florida Blue form or policy.",
+  "subjectType": [
+    "Patient"
+  ],
+  "item": [
+    {
+      "linkId": "1",
+      "text": "Confirmed obstructive sleep apnea diagnosis (ICD-10-CM G47.33)",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "linkId": "2",
+      "text": "Initial sleep-study report",
+      "type": "attachment",
+      "required": true
+    },
+    {
+      "linkId": "3",
+      "text": "REI, AHI, or RDI result in events per hour",
+      "type": "decimal",
+      "required": true
+    },
+    {
+      "linkId": "4",
+      "text": "Oxygen saturation nadir (%)",
+      "type": "decimal",
+      "required": true
+    },
+    {
+      "linkId": "5",
+      "text": "Treating-practitioner order for a custom titratable oral appliance",
+      "type": "reference",
+      "required": true
+    },
+    {
+      "linkId": "6",
+      "text": "PAP intolerance or documented treatment preference",
+      "type": "text",
+      "required": true
+    },
+    {
+      "linkId": "7",
+      "text": "PAP adherence report, when a PAP trial occurred",
+      "type": "attachment",
+      "required": false
+    },
+    {
+      "linkId": "8",
+      "text": "Dental candidacy / OAT Readiness Assessment",
+      "type": "reference",
+      "required": true
+    },
+    {
+      "linkId": "9",
+      "text": "No active periodontal infection",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "linkId": "10",
+      "text": "No unstable dentition",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "linkId": "11",
+      "text": "No TMJ contraindication",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "linkId": "12",
+      "text": "Adequate protrusive range and appliance retention",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "linkId": "13",
+      "text": "Ordering and referring practitioner identity",
+      "type": "reference",
+      "required": true
+    },
+    {
+      "linkId": "14",
+      "text": "Rendering dentist identity",
+      "type": "reference",
+      "required": true
+    },
+    {
+      "linkId": "15",
+      "text": "Billing dental organization identity and DME supplier status",
+      "type": "reference",
+      "required": true
+    },
+    {
+      "linkId": "16",
+      "text": "Proposed custom appliance and treatment plan",
+      "type": "text",
+      "required": true
+    },
+    {
+      "linkId": "17",
+      "text": "Requested HCPCS service",
+      "type": "choice",
+      "required": true,
+      "answerOption": [
+        {
+          "valueCoding": {
+            "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+            "code": "E0486",
+            "display": "Custom-fabricated oral appliance for OSA"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "18",
+      "text": "PCP and sleep-physician referral chain",
+      "type": "reference",
+      "required": true
+    }
+  ]
+}

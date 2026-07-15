@@ -1,0 +1,69 @@
+{
+  "resourceType": "Library",
+  "id": "lib-florida-blue-e0486-pa-logic",
+  "url": "https://uc05.ohia.example.org/fhir/Library/florida-blue-e0486-pa-logic",
+  "identifier": [
+    {
+      "system": "https://github.com/lp-digitalhealth/ohia-test-data/identifier/coverage-rule",
+      "value": "UC05-FBHMO-E0486-LOGIC-001"
+    }
+  ],
+  "version": "1.0.0",
+  "name": "FloridaBlueE0486PriorAuthLogic",
+  "title": "UC05 Florida Blue HMO E0486 Prior Authorization Logic",
+  "status": "active",
+  "experimental": true,
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "logic-library",
+        "display": "Logic Library"
+      }
+    ]
+  },
+  "publisher": "OHIA CMS Connectathon Test Data",
+  "description": "Synthetic CQL rule metadata for the UC05 test payer. It evaluates an E0486 oral-appliance order and active UC05 myBlue HMO coverage. It is not an actual Florida Blue medical policy.",
+  "content": [
+    {
+      "contentType": "text/cql",
+      "title": "E0486OrderRequiresPriorAuth.cql",
+      "url": "https://uc05.ohia.example.org/cql/E0486OrderRequiresPriorAuth.cql"
+    }
+  ],
+  "dataRequirement": [
+    {
+      "type": "ServiceRequest",
+      "codeFilter": [
+        {
+          "path": "code",
+          "code": [
+            {
+              "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+              "code": "E0486",
+              "display": "Oral device/appliance, custom fabricated, used to reduce upper airway collapsibility"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Coverage"
+    },
+    {
+      "type": "Condition",
+      "codeFilter": [
+        {
+          "path": "code",
+          "code": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "G47.33",
+              "display": "Obstructive sleep apnea (adult) (pediatric)"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

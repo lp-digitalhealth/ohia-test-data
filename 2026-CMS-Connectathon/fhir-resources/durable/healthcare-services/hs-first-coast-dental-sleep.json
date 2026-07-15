@@ -1,0 +1,67 @@
+{
+  "resourceType": "HealthcareService",
+  "id": "hs-first-coast-dental-sleep",
+  "active": true,
+  "providedBy": {
+    "reference": "Organization/org-first-coast-dental-sleep",
+    "display": "First Coast Dental Sleep Center"
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/service-category",
+          "code": "10",
+          "display": "Dental"
+        }
+      ]
+    }
+  ],
+  "type": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223G0001X",
+          "display": "Dentist, General Practice"
+        }
+      ],
+      "text": "Dental sleep medicine and custom oral appliance therapy"
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223G0001X",
+          "display": "Dentist, General Practice"
+        }
+      ]
+    }
+  ],
+  "location": [
+    {
+      "reference": "Location/loc-first-coast-dental-sleep"
+    }
+  ],
+  "name": "Dental Sleep Medicine Services — First Coast Dental Sleep Center",
+  "telecom": [
+    {
+      "system": "phone",
+      "value": "904-555-0152"
+    }
+  ],
+  "eligibility": [
+    {
+      "code": {
+        "text": "UC05 test assumption: in-network dental sleep provider and enrolled medical DME rendering/billing supplier for E0486"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Synthetic provider-directory entry. Network and DME supplier status are Connectathon assumptions and must not be used for real-world credentialing or billing."
+    }
+  ]
+}

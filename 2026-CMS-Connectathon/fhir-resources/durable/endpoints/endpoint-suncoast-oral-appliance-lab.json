@@ -1,0 +1,32 @@
+{
+  "resourceType": "Endpoint",
+  "id": "endpoint-suncoast-oral-appliance-lab",
+  "status": "active",
+  "connectionType": {
+    "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+    "code": "hl7-fhir-rest",
+    "display": "HL7 FHIR"
+  },
+  "name": "SunCoast Oral Appliance Lab FHIR R4 endpoint (synthetic)",
+  "managingOrganization": {
+    "reference": "Organization/org-suncoast-oral-appliance-lab"
+  },
+  "payloadType": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/resource-types",
+          "code": "Bundle",
+          "display": "Bundle"
+        }
+      ]
+    }
+  ],
+  "payloadMimeType": [
+    "application/fhir+json"
+  ],
+  "address": "https://suncoast-oat-lab.example.org/fhir/r4",
+  "header": [
+    "Synthetic Connectathon endpoint for authorized fabrication orders and status updates"
+  ]
+}
