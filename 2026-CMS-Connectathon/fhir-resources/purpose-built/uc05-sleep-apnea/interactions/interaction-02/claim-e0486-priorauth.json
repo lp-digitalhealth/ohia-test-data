@@ -1,0 +1,194 @@
+{
+  "resourceType": "Claim",
+  "id": "claim-e0486-priorauth",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/profile-claim"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "https://uc05.ohia.example.org/pa-request-id",
+      "value": "PA-REQ-UC05-260319-001"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+        "code": "professional",
+        "display": "Professional"
+      }
+    ]
+  },
+  "use": "preauthorization",
+  "patient": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "created": "2026-03-19T10:20:00-04:00",
+  "insurer": {
+    "reference": "Organization/org-florida-blue-hmo"
+  },
+  "provider": {
+    "reference": "Organization/org-first-coast-dental-sleep"
+  },
+  "priority": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/processpriority",
+        "code": "normal",
+        "display": "Normal"
+      }
+    ]
+  },
+  "fundsReserve": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/fundsreserve",
+        "code": "provider",
+        "display": "Provider"
+      }
+    ]
+  },
+  "careTeam": [
+    {
+      "sequence": 1,
+      "provider": {
+        "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+      },
+      "responsible": true,
+      "role": {
+        "text": "Rendering dentist"
+      }
+    },
+    {
+      "sequence": 2,
+      "provider": {
+        "reference": "PractitionerRole/role-priya-nanduri-sleep"
+      },
+      "role": {
+        "text": "Ordering and referring sleep physician"
+      }
+    },
+    {
+      "sequence": 3,
+      "provider": {
+        "reference": "PractitionerRole/role-elena-ruiz-pcp"
+      },
+      "role": {
+        "text": "Primary care referrer"
+      }
+    }
+  ],
+  "diagnosis": [
+    {
+      "sequence": 1,
+      "diagnosisCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "G47.33",
+            "display": "Obstructive sleep apnea"
+          }
+        ]
+      },
+      "type": [
+        {
+          "text": "Principal"
+        }
+      ]
+    }
+  ],
+  "insurance": [
+    {
+      "sequence": 1,
+      "focal": true,
+      "coverage": {
+        "reference": "Coverage/coverage-maya-torres-myblue-hmo"
+      }
+    }
+  ],
+  "supportingInfo": [
+    {
+      "sequence": 1,
+      "category": {
+        "text": "Initial sleep study"
+      },
+      "valueReference": {
+        "reference": "DiagnosticReport/diagnosticreport-initial-hsat"
+      }
+    },
+    {
+      "sequence": 2,
+      "category": {
+        "text": "PAP adherence and intolerance"
+      },
+      "valueReference": {
+        "reference": "DocumentReference/documentreference-pap-adherence"
+      }
+    },
+    {
+      "sequence": 3,
+      "category": {
+        "text": "Dental candidacy assessment"
+      },
+      "valueReference": {
+        "reference": "DiagnosticReport/diagnosticreport-oat-readiness"
+      }
+    },
+    {
+      "sequence": 4,
+      "category": {
+        "text": "DTR questionnaire response"
+      },
+      "valueReference": {
+        "reference": "QuestionnaireResponse/questionnaireresponse-e0486-pa-dtr"
+      }
+    },
+    {
+      "sequence": 5,
+      "category": {
+        "text": "Physician order"
+      },
+      "valueReference": {
+        "reference": "ServiceRequest/servicerequest-oral-appliance-order"
+      }
+    }
+  ],
+  "item": [
+    {
+      "sequence": 1,
+      "careTeamSequence": [
+        1,
+        2
+      ],
+      "diagnosisSequence": [
+        1
+      ],
+      "productOrService": {
+        "coding": [
+          {
+            "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+            "code": "E0486",
+            "display": "Custom-fabricated oral appliance for obstructive sleep apnea"
+          }
+        ]
+      },
+      "servicedPeriod": {
+        "start": "2026-03-20",
+        "end": "2026-06-30"
+      },
+      "locationReference": {
+        "reference": "Location/loc-first-coast-dental-sleep"
+      },
+      "quantity": {
+        "value": 1
+      },
+      "unitPrice": {
+        "value": 0,
+        "currency": "USD"
+      }
+    }
+  ]
+}

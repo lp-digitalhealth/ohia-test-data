@@ -1,0 +1,59 @@
+{
+  "resourceType": "Observation",
+  "id": "observation-followup-rei",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result"
+    ]
+  },
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "exam",
+          "display": "Exam"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "97519-3",
+        "display": "Respiratory event index [AASM]"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "effectiveDateTime": "2026-05-23",
+  "issued": "2026-05-25T08:20:00-04:00",
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-priya-nanduri-sleep"
+    }
+  ],
+  "device": {
+    "reference": "Device/device-maya-mandibular-advancement"
+  },
+  "valueQuantity": {
+    "value": 7.8,
+    "unit": "events/hour",
+    "system": "http://unitsofmeasure.org",
+    "code": "{events}/h"
+  },
+  "interpretation": [
+    {
+      "text": "Mild residual obstructive sleep apnea"
+    }
+  ],
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/servicerequest-followup-hsat"
+    }
+  ]
+}

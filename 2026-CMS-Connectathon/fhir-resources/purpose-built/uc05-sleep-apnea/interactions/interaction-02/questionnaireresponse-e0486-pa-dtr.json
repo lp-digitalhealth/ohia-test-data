@@ -1,0 +1,205 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "id": "questionnaireresponse-e0486-pa-dtr",
+  "questionnaire": "https://uc05.ohia.example.org/fhir/Questionnaire/florida-blue-e0486-pa-dtr",
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-dental-oat-readiness"
+  },
+  "authored": "2026-03-19T10:15:00-04:00",
+  "author": {
+    "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+  },
+  "source": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "item": [
+    {
+      "linkId": "1",
+      "text": "Confirmed obstructive sleep apnea diagnosis (ICD-10-CM G47.33)",
+      "answer": [
+        {
+          "valueBoolean": true
+        }
+      ]
+    },
+    {
+      "linkId": "2",
+      "text": "Initial sleep-study report",
+      "answer": [
+        {
+          "valueAttachment": {
+            "contentType": "application/pdf",
+            "url": "https://uc05-sleep.example.org/documents/hsat-initial-maya.pdf"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "3",
+      "text": "REI, AHI, or RDI result in events per hour",
+      "answer": [
+        {
+          "valueDecimal": 22.6
+        }
+      ]
+    },
+    {
+      "linkId": "4",
+      "text": "Oxygen saturation nadir (%)",
+      "answer": [
+        {
+          "valueDecimal": 83
+        }
+      ]
+    },
+    {
+      "linkId": "5",
+      "text": "Treating-practitioner order for a custom titratable oral appliance",
+      "answer": [
+        {
+          "valueReference": {
+            "reference": "ServiceRequest/servicerequest-oral-appliance-order"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "6",
+      "text": "PAP intolerance or documented treatment preference",
+      "answer": [
+        {
+          "valueString": "PAP intolerance due to mask claustrophobia, air leak, and facial irritation; patient prefers oral appliance therapy."
+        }
+      ]
+    },
+    {
+      "linkId": "7",
+      "text": "PAP adherence report, when a PAP trial occurred",
+      "answer": [
+        {
+          "valueAttachment": {
+            "contentType": "application/pdf",
+            "url": "https://uc05-sleep.example.org/documents/pap-adherence-maya.pdf"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "8",
+      "text": "Dental candidacy / OAT Readiness Assessment",
+      "answer": [
+        {
+          "valueReference": {
+            "reference": "DiagnosticReport/diagnosticreport-oat-readiness"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "9",
+      "text": "No active periodontal infection",
+      "answer": [
+        {
+          "valueBoolean": true
+        }
+      ]
+    },
+    {
+      "linkId": "10",
+      "text": "No unstable dentition",
+      "answer": [
+        {
+          "valueBoolean": true
+        }
+      ]
+    },
+    {
+      "linkId": "11",
+      "text": "No TMJ contraindication",
+      "answer": [
+        {
+          "valueBoolean": true
+        }
+      ]
+    },
+    {
+      "linkId": "12",
+      "text": "Adequate protrusive range and appliance retention",
+      "answer": [
+        {
+          "valueBoolean": true
+        }
+      ]
+    },
+    {
+      "linkId": "13",
+      "text": "Ordering and referring practitioner identity",
+      "answer": [
+        {
+          "valueReference": {
+            "reference": "PractitionerRole/role-priya-nanduri-sleep"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "14",
+      "text": "Rendering dentist identity",
+      "answer": [
+        {
+          "valueReference": {
+            "reference": "PractitionerRole/role-daniel-mercer-dental-sleep"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "15",
+      "text": "Billing dental organization identity and DME supplier status",
+      "answer": [
+        {
+          "valueReference": {
+            "reference": "Organization/org-first-coast-dental-sleep"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "16",
+      "text": "Proposed custom appliance and treatment plan",
+      "answer": [
+        {
+          "valueString": "Custom titratable mandibular advancement device, delivery after approval, followed by approximately six weeks of dental titration and sleep-medicine efficacy testing."
+        }
+      ]
+    },
+    {
+      "linkId": "17",
+      "text": "Requested HCPCS service",
+      "answer": [
+        {
+          "valueCoding": {
+            "system": "https://www.cms.gov/Medicare/Coding/HCPCSReleaseCodeSets",
+            "code": "E0486",
+            "display": "Custom-fabricated oral appliance for OSA"
+          }
+        }
+      ]
+    },
+    {
+      "linkId": "18",
+      "text": "PCP and sleep-physician referral chain",
+      "answer": [
+        {
+          "valueReference": {
+            "reference": "ServiceRequest/servicerequest-pcp-to-sleep-antecedent"
+          }
+        }
+      ]
+    }
+  ]
+}

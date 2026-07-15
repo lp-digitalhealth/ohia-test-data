@@ -1,0 +1,58 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "documentreference-pap-adherence",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"
+    ]
+  },
+  "status": "current",
+  "type": {
+    "text": "PAP adherence download"
+  },
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/us/core/CodeSystem/us-core-documentreference-category",
+          "code": "clinical-note",
+          "display": "Clinical Note"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "date": "2026-03-13T08:45:00-04:00",
+  "author": [
+    {
+      "reference": "Organization/org-river-city-sleep-medicine"
+    }
+  ],
+  "content": [
+    {
+      "attachment": {
+        "contentType": "application/pdf",
+        "url": "https://uc05-sleep.example.org/documents/pap-adherence-maya.pdf",
+        "title": "21-night APAP adherence report"
+      }
+    }
+  ],
+  "context": {
+    "related": [
+      {
+        "reference": "Observation/observation-pap-nights-monitored"
+      },
+      {
+        "reference": "Observation/observation-pap-nights-used"
+      },
+      {
+        "reference": "Observation/observation-pap-nights-over-four-hours"
+      },
+      {
+        "reference": "Observation/observation-pap-intolerance"
+      }
+    ]
+  }
+}

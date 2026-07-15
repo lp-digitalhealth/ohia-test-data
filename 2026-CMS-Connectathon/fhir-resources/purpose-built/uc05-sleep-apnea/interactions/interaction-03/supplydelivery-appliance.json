@@ -1,0 +1,33 @@
+{
+  "resourceType": "SupplyDelivery",
+  "id": "supplydelivery-appliance",
+  "status": "completed",
+  "patient": {
+    "reference": "Patient/patient-maya-torres"
+  },
+  "type": {
+    "text": "Custom oral appliance delivery"
+  },
+  "suppliedItem": {
+    "quantity": {
+      "value": 1
+    },
+    "itemReference": {
+      "reference": "Device/device-maya-mandibular-advancement"
+    }
+  },
+  "occurrenceDateTime": "2026-04-06T13:45:00-04:00",
+  "supplier": {
+    "reference": "Organization/org-first-coast-dental-sleep"
+  },
+  "receiver": [
+    {
+      "reference": "Patient/patient-maya-torres"
+    }
+  ],
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/servicerequest-oral-appliance-order"
+    }
+  ]
+}
