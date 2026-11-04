@@ -30,32 +30,16 @@ Both scenarios are set in **Texas**, where the Medicaid managed care structure (
 
 ---
 
-# Use Case A: Commercial
-
-## Teledentistry Referral — Acute Dental Pain
-### Employer-Sponsored Dental PPO | Texas | Place of Service 02 → 11
-
----
-
 ## Section I: Business Overview
-
-**Sarah Okonkwo** is a 34-year-old woman (DOB: 03/17/1991) living in Austin, Texas. She carries employer-sponsored dental coverage through **Aetna Dental PPO** (Group: 847221; Member ID: `AET-TX-00284711`).
-
-On a Tuesday evening, Sarah develops sharp pain when biting down on her lower left side. The pain has been building for several days and she is now unable to chew on that side. It is 7:30 PM. Her dental provider's office is closed.
-
-Sarah opens a **SMART-enabled patient application** associated with her teledentistry benefit. The application verifies her Aetna Dental eligibility in real time via a FHIR `Coverage` query. She is connected to **Dr. Marcus Webb, DDS**, a licensed Texas dental provider practicing in a virtual care setting (Place of Service 02).
-
-Dr. Webb conducts a structured synchronous virtual assessment. Based on Sarah's symptom history — duration, thermal sensitivity, pain on biting, and spontaneous aching — he documents clinical indicators consistent with **irreversible pulpitis of tooth #19** (`ICD-10: K04.01`) with possible periapical involvement. He also has Sarah capture one or two **intraoral photos** of the affected area on her phone through the app, which he reviews on screen. He records these findings as discrete FHIR resources within the teledentistry platform.
-
-This presentation requires in-office evaluation with radiographs and likely endodontic treatment. Dr. Webb creates a **structured referral** targeting an in-office general dental practice participating in the Aetna Dental PPO network in Austin. The referral is transmitted as a FHIR `ServiceRequest` with supporting `Condition`, `Observation`, and `MedicationStatement` resources — and the patient-submitted intraoral photos as a `DocumentReference` (non-radiographic, correlated to tooth #19 via the symptom `Observation`) — via CDex provider-to-provider push. The photos travel inline with the referral; the diagnostic radiograph does not yet exist and is taken in-office at the next visit.
-
+**Sarah Okonkwo** is a 34-year-old woman (DOB: 03/17/1991) living in Austin, Texas. She carries employer-sponsored dental coverage through **Aetna Dental PPO** (Group: 847221; Member ID: AET-TX-00284711). She does not have a dental home.
+On a Tuesday evening, Sarah develops sharp pain when biting on her front teeth. The pain has been building for several days and she is now unable to chew or bite with her front teeth. 
+Sarah opens a **SMART-enabled patient application** associated with her teledentistry benefit. The application verifies her Aetna Dental eligibility in real time via a FHIR Coverage query. She is connected to **Dr. Marcus Webb, DDS**, a licensed Texas dental provider practicing in a virtual care setting (Place of Service 02).
+Dr. Webb conducts a structured synchronous virtual assessment, collecting key information. He confirms Sarah has not seen a dentist in some time.  Based on Sarah's symptom history — duration, thermal sensitivity, pain on biting, and spontaneous aching — he documents clinical indicators consistent with suspected irreversible pulpitis of tooth #9  with possible periapical involvement. He also has Sarah capture one or two intraoral photos of the affected area on her phone through the app, which he reviews on screen. He records these findings as discrete FHIR resources within the teledentistry platform.
+This presentation requires in-office evaluation with radiographs and likely endodontic treatment.  Dr. Webb creates a **structured referral** targeting an in-office general dental practice participating in the Aetna Dental PPO network in Austin. The referral is transmitted as a FHIR ServiceRequest with supporting Condition, Observation, MedicationStatement, and Allergies resources — and the patient-submitted intraoral photos as a DocumentReference (non-radiographic, correlated to tooth #9 via the symptom Observation) — via CDex provider-to-provider push. The photos travel as a reference using ARex; the diagnostic radiograph does not yet exist and is taken in-office at the next visit.
 Sarah receives an in-application notification that her referral has been sent. The in-office practice receives the referral via an interim FHIR server and contacts Sarah within the hour to schedule a next-day appointment.
-
-**Dr. Priya Nair, DDS**, at the in-office practice sees Sarah the following morning. She takes a periapical radiograph (`D0220`) and confirms irreversible pulpitis with early periapical pathology (`ICD-10: K04.01`, `K04.7`). She completes root canal therapy on tooth #19 (`D3330`) in a single visit.
-
+**Dr. Priya Nair**, DDS, at the in-office practice sees Sarah the following morning. She takes a periapical radiograph (D0220) and confirms irreversible pulpitis with early periapical pathology. She completes root canal therapy on tooth #9 (D3310) in a single visit and was able to conservatively restore the tooth with a single surface direct composite restoration on the lingual surface (D2330).
 Dr. Nair documents the encounter and transmits a **structured encounter summary** back to the originating teledentistry provider via CDex provider-to-provider push. The summary includes the confirmed diagnoses, procedures performed with CDT codes, and a post-treatment care plan. Dr. Webb reviews the closed referral. Sarah's application updates to show the referral as complete and surfaces a summary of treatment and recovery guidance.
-
-The in-office practice submits an 837D to Aetna Dental for the in-office services. The teledentistry provider submits a separate 837D for the virtual consultation under `D9995`.
+The in-office practice submits an 837D to Aetna Dental for the in-office services. The teledentistry provider submits a separate 837D for the virtual consultation under D9995.
 
 ---
 
