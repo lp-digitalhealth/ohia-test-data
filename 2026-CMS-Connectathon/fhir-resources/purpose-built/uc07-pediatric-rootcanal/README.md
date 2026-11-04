@@ -1,6 +1,6 @@
 # UC07 FHIR test data — DentaQuest Texas: root canal, build-up and crown (Joe Castle)
 
-**Status: DRAFT, November connectathon. Interactions 1 and 2 (I1, I2).** I4 is next; I3 and I5 are deferred (owner decision). This file describes what is actually committed here. It replaces nothing: `../../../use-cases/UC07-Texas-Medicaid-Pediatric-RootCanal/README-fhir.md` describes a 71-file set that is **not** this folder and is not on any branch of this repository.
+**Status: DRAFT, November connectathon. Interactions 1, 2 and 4 (I1, I2, I4).** I3 and I5 are deferred (owner decision); I4 carries a minimal pull-in from I3. This file describes what is actually committed here. It replaces nothing: `../../../use-cases/UC07-Texas-Medicaid-Pediatric-RootCanal/README-fhir.md` describes a 71-file set that is **not** this folder and is not on any branch of this repository.
 
 Narrative: [`UC07-Texas-Medicaid-Pediatric-RootCanal.md`](../../../use-cases/UC07-Texas-Medicaid-Pediatric-RootCanal/UC07-Texas-Medicaid-Pediatric-RootCanal.md). Test-server roles for the event: section 8 of [`UC07-companion-guide.md`](../../../use-cases/UC07-Texas-Medicaid-Pediatric-RootCanal/UC07-companion-guide.md).
 
@@ -12,6 +12,7 @@ Narrative: [`UC07-Texas-Medicaid-Pediatric-RootCanal.md`](../../../use-cases/UC0
 | Durable (edited) | `../../durable/cds-hooks/cds-hooks-discovery-dentaquest.json` | A second `order-sign` service added next to the D7210 one (the only existing file edited; 10 lines appended) |
 | Base | `base/` | 5: `Patient`, `RelatedPerson`, `Coverage`, two `PractitionerRole` |
 | Interaction 1 | `interactions/interaction-01/` | 22 resources + `interaction-01-bundle.json` + 2 placeholder image payloads in `arex-payloads/` |
+| Interaction 4 | `interactions/interaction-04/` | 14 resources + `interaction-04-bundle.json` + 1 placeholder payload in `arex-payloads/` |
 | Interaction 2 | `interactions/interaction-02/` | 11 resources + `interaction-02-bundle.json` + 3 payload files in `arex-payloads/` (two placeholder PNGs, one synthetic clinical note) |
 
 The new durable files are `org-pediatric-dental-tx`, `org-restorative-dental-tx`, `org-dentaquest-tx`, `loc-pediatric-dental-tx`, `loc-restorative-dental-tx`, `pract-mary-parker`, `pract-max-garcia`, `endpoint-pediatric-fhir`, `endpoint-restorative-fhir`, `endpoint-dentaquest-tx`. They are **new records** and no existing durable file was edited: UC02a already has a `pract-parker` (a different clinician, NPI and practice) and an `org-dentaquest` (different endpoint and identifiers).
@@ -54,6 +55,29 @@ ARex defines no link from a `Claim` to a manifest. Two links are used and a chec
 - The ARex manifest's `requestingOrganization` is DentaQuest (the party that retrieves); in I1 it is the receiving practice.
 - The payer-rule canonical URLs use the synthetic base `https://dentaquest.example.org/fhir/`.
 
+## I4 content (closing the loop, 2026-07-22 13:30 to 13:35)
+
+- **The push from Dr. Garcia to Dr. Parker:** `clinicalimpression-posttx-summary` (the narrative's summary text, verbatim, with the three procedures, the post-op `ImagingStudy` and the note as `investigation`), `documentref-postop-clinical-note` (text note, inline like I1's), `careplan-posttx` (the narrative's three recommendations as three activities), and `communication-thank-you` (the narrative's text, verbatim).
+- **The thank-you is deliberately separate:** a `Communication` with category "provider-to-provider courtesy communication (non-clinical)". It is referenced by no clinical resource and is not a `Task.output`, so a receiving system can tell courtesy from clinical content (the test in the I4 narrative).
+- **Post-op radiograph, by ARex:** `imagingstudy-postop` (pointer) + `arex-manifest-postop` + `arex-entry-postop-periapical` (real SHA-256 over `arex-payloads/radiograph-postop.png`, an 8x8 placeholder) + `arex-provenance-postop` (placeholder signature). The requesting organization is the **pediatric** practice (the party that retrieves).
+- **Referral closed (13:35):** `servicerequest-referral` (same id as I1, `completed`) and `task-referral` (same id as I1 and I2, `completed`, `businessStatus` `outcome-final`, the ODE sub-status UC04a and UC02b use for a closed referral). `Task.output` lists the fulfillment set; the thank-you is not in it.
+
+### Minimal pull-in from the deferred I3 (owner decision)
+
+The guide lists the treatment `Encounter` and the three `Procedure`s under I3, which is deferred. At the owner's direction I4 includes `encounter-treatment`, `procedure-d3320`, `procedure-d2950` and `procedure-d2740` so the summary has structured links. The consult `Encounter`, the `Consent` and the eligibility record stay with I3 and are **not** in this data set, so "guardian consent obtained" appears in the summary text only. `Procedure.basedOn` can reference only a `CarePlan` or `ServiceRequest`, so each procedure is `basedOn` the referral and traces the PA number (`TX-DQ-PA-2026-061204`) in its note.
+
+### Consequence of reusing the referral id for the post-op manifest (owner decision, option B)
+
+The I4 manifest and its `ImagingStudy` carry the same business identifier as the I1 radiograph manifest (`urn:ohia:referral-id|REF-2026-UC07-001`). An ARex `transaction-identifier` search for the referral id therefore returns **two** manifests (I1 and I4); the I2 manifest uses the PA request id and is not returned. A consumer tells the two apart by `List.title`, `List.date` and `requestingOrganization`. A check asserts exactly this set.
+
+### Values in I4 not in the narrative (ASSUMPTIONS)
+
+- The treatment `Encounter` starts at 10:00 on 2026-07-22 (the narrative's single timestamp for the three procedures); there is no end time, and the procedures carry the date only.
+- The post-op radiograph carries the date only (no time given), and is coded D0220 like the I1 radiographs; it is not billed in this data set.
+- The post-op manifest expires 14 days after publication (13:30 on 2026-07-22), borrowed from the other manifests; the manifest identifier `MAN-2026-0722-0001` and the URLs are synthetic.
+- `outcome-final` is taken from the sibling scenarios; the ODE profile source is not available here to confirm it.
+- The I2 `Appointment` stays `booked` (the narrative does not call for an update after the visit).
+
 ## Radiographs: ARex manifest plus `ImagingStudy` pointer
 
 Owner decisions for this event: radiographs are **an ARex manifest of image entries plus an `ImagingStudy` pointer**; WADO-RS is deferred.
@@ -64,6 +88,8 @@ Owner decisions for this event: radiographs are **an ARex manifest of image entr
 - `arex-provenance-radiographs` carries a **placeholder signature**: the ARex Provenance profile requires `signature` (min 1), but a valid detached JWS cannot be committed here. `signature.data` is not a valid JWS and must be regenerated at test time.
 
 ## Bundle semantics (CLAUDE.md section 6)
+
+**`interaction-04-bundle.json`** is a **transaction** Bundle, **cumulative** (13 UC07 durable files + base + I1 + I2 + I4: 62 entries), every entry a `PUT`, idempotent, and **it contains no I3 resources**. The I4 `servicerequest-referral` and `task-referral` supersede the I1 and I2 versions (same ids), so the earlier versions are not in this Bundle; loading the I2 Bundle then the I4 Bundle replaces them in place.
 
 **`interaction-02-bundle.json`** is a **transaction** Bundle, **cumulative** (13 UC07 durable files + base + I1 + I2: 50 entries), every entry a `PUT`, idempotent. **Supersession:** the I2 `task-referral` has the same id as I1's, so the I2 Bundle contains only the I2 version and does not contain I1's. Loading I1's Bundle then I2's replaces the Task in place. Loading both folders' files individually would collide on that id. Same isolation rule as I1. The CDS Hooks discovery file is not a FHIR resource and is not in the Bundle. Unavailable here: the CRD, DTR and PAS endpoints and the ARex content server.
 
@@ -99,6 +125,12 @@ R4 `Organization` and `Coverage` have no `note` element, so these were removed f
 - **`Coverage/coverage-joe-castle-dentaquest`** — Medicaid (not CHIP); Texas Health Steps (EPSDT) eligible. Coverage period 2026-01-01 to 2026-12-31, status active (UC07 narrative). The class value TX-MEDICAID-DENTAL is an ASSUMPTION: the narrative gives no plan identifier.
 
 ## Validation (what was run, and what was not)
+
+### I4
+
+- **Structural checks** (author's script, not committed; no negative control was run): 62 files parse; file name equals `id`; no duplicate ids in the cumulative scope; all references and canonical references resolve; Bundle entries `PUT` with matching URLs (62 entries); all ARex entries (I1, I2, I4) match their payload files by SHA-256 and size; the post-op manifest, its `ImagingStudy` and the I1 manifest share the referral id and a search by it returns exactly those two manifests; three procedures on tooth #4 with the PA number traced; the `ClinicalImpression` summary and the thank-you text are the narrative's text verbatim; the thank-you is referenced by no clinical resource and is not a `Task.output`; the referral `Task` and `ServiceRequest` close with the same ids; the timeline is in narrative order and the push is five minutes before the referral closes. All passed.
+- **HL7 FHIR Validator** (R4 4.0.1, `hl7.fhir.us.core#6.1.0`, the ARex profiles, `hl7.fhir.us.davinci-pas#2.2.1`; terminology **off**; `-allow-example-urls true`) on the cumulative I4 Bundle: **3 errors, 344 warnings, 41 information messages.** The 3 errors are PAS finding 1 (CDT on the I2 `Claim`); **none comes from an I4 resource.** The I4 resources raise only the known classes: CDT not checkable with terminology off, the ODE profiles and sub-status code system not found, the unreachable synthetic `example.org` attachment URL, and no US Core Encounter Type code on the treatment `Encounter` (as on I1's). The ARex manifest, entry and Provenance validate against the ARex profiles with no messages beyond those.
+- **NOT validated:** the ODE profiles and the `outcome-final` sub-status; CDT, ICD-10 and DICOM codes; clinical correctness; no ARex content was actually retrieved.
 
 ### I2
 

@@ -1,0 +1,47 @@
+{
+  "resourceType": "ImagingStudy",
+  "id": "imagingstudy-postop",
+  "identifier": [
+    {
+      "system": "urn:dicom:uid",
+      "value": "urn:oid:2.25.269050067371289194920117647465282862651"
+    },
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC07-001"
+    }
+  ],
+  "status": "available",
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-treatment"
+  },
+  "started": "2026-07-22",
+  "numberOfSeries": 1,
+  "numberOfInstances": 1,
+  "note": [
+    {
+      "text": "Pointer only: this resource holds metadata, not pixels. The image is the entry in the ARex manifest arex-manifest-postop. By the project's convention (decision F25) the second identifier repeats the manifest's transaction-context business identifier (urn:ohia:referral-id|REF-2026-UC07-001); by the owner's option B this is the same value as the interaction-1 radiograph manifest, so the search returns both manifests (see the manifest's note). ASSUMPTION: the narrative gives no time for the post-operative radiograph, so only the date is recorded. DICOM UIDs are synthetic (2.25.*) and no DICOM object exists behind them."
+    }
+  ],
+  "series": [
+    {
+      "uid": "2.25.171936361527942576807199486574158317135",
+      "number": 1,
+      "modality": {
+        "system": "http://dicom.nema.org/resources/ontology/DCM",
+        "code": "IO",
+        "display": "Intra-oral Radiography"
+      },
+      "numberOfInstances": 1,
+      "bodySite": {
+        "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+        "code": "4",
+        "display": "Permanent maxillary right second premolar tooth"
+      }
+    }
+  ]
+}

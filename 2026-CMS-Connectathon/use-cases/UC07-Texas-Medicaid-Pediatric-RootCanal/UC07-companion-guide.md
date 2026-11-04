@@ -111,7 +111,7 @@ Logical IDs below match the generated fixtures; the build specification is `UC-P
 
 ### Interaction 4 — Closing the Loop (2026-07-22)
 
-`clinicalimpression-posttx-summary`; `careplan-posttx`; `imagingstudy-postop`; `documentref-postop-clinical-note`; `communication-thank-you`; `servicerequest-referral` (new version, `completed`); `task-referral` (new version, closed).
+`clinicalimpression-posttx-summary`; `careplan-posttx`; `imagingstudy-postop` (a pointer to the ARex manifest `arex-manifest-postop`, with its entry `arex-entry-postop-periapical` and `arex-provenance-postop`); `documentref-postop-clinical-note`; `communication-thank-you`; `servicerequest-referral` (same id as I1, new version, `completed`); `task-referral` (same id, new version, `completed` / `outcome-final`). **Pulled in from the deferred I3 at the owner's direction (minimal):** `encounter-treatment`, `procedure-d3320`, `procedure-d2950`, `procedure-d2740`; the consult `Encounter` and the `Consent` remain with I3. Files: [`interaction-04/`](../../fhir-resources/purpose-built/uc07-pediatric-rootcanal/interactions/interaction-04/).
 
 ### Interaction 5 — Billing Two Practices (2026-07-23)
 
@@ -216,7 +216,7 @@ One FHIR R4 test server (HAPI FHIR on PostgreSQL), synthetic data only, that pla
 - *TBD:* the CRD service URL, how the DTR requirement is retrieved, the PAS submit path, and the ARex retrieval authorization.
 
 **I4 — closed loop to the referring practice.**
-- *You do:* push the post-treatment package to the test server (§2c step 4): `ClinicalImpression`, the post-op imaging reference, a `DocumentReference` clinical note, a **separate** thank-you `Communication`, and a `CarePlan`.
+- *You do:* push the post-treatment package to the test server (§2c step 4): `ClinicalImpression`, the post-op imaging reference (an `ImagingStudy` pointer plus an ARex manifest of the radiograph, whose business identifier is the **same referral id** as the I1 manifest, so a search by referral id returns both manifests), a `DocumentReference` clinical note, a **separate** thank-you `Communication`, and a `CarePlan`.
 - *The test server does (Planned):* stores the package, files the clinical items as clinical content and the thank-you as a courtesy communication (the test in the I4 narrative), then marks the referral `ServiceRequest` completed and closes the `Task` (§2b step 6).
 
 ### 8.4 Validation feedback
@@ -229,7 +229,7 @@ For ODE referral content the test server **validates against the draft ODE profi
 
 ### 8.6 What you must prepare
 
-- The test data you send. **UC07 test data exists for I1 and I2 only** (DRAFT): see [`purpose-built/uc07-pediatric-rootcanal/`](../../fhir-resources/purpose-built/uc07-pediatric-rootcanal/), which includes a cumulative Bundle per interaction. I3, I4 and I5 are not yet authored (I4 is next; I3 and I5 are deferred). `README-fhir.md` describes a 71-file set that is not on any branch and does not describe this folder. For the interactions not yet authored, build your payloads from the Resource Index in §4 and the interaction write-ups.
+- The test data you send. **UC07 test data exists for I1, I2 and I4** (DRAFT): see [`purpose-built/uc07-pediatric-rootcanal/`](../../fhir-resources/purpose-built/uc07-pediatric-rootcanal/), which includes a cumulative Bundle per interaction. I3 and I5 are not authored (deferred); I4 includes a minimal treatment `Encounter` and the three `Procedure`s that the guide lists under I3, so its Bundle has no consult `Encounter` or `Consent`. `README-fhir.md` describes a 71-file set that is not on any branch and does not describe this folder. For the interactions not yet authored, build your payloads from the Resource Index in §4 and the interaction write-ups.
 - Anything the test server must call (for example your ARex content endpoint in I2): the URL and its authorization, **TBD**.
 - The test server's base URL(s) and credentials, **TBD**, to be published before the event.
 
@@ -241,5 +241,5 @@ For ODE referral content the test server **validates against the draft ODE profi
 | The WADO-RS model in §6b and `CLAUDE.md` §8 is deferred, not removed (the `ImagingStudy`-to-manifest link is decided: see 8.3) | Owner | Deferred |
 | CRD, DTR, PAS paths and failure-case behavior | Test server team | TBD |
 | Patient Access PA view (8.5), and its effect on §5 if kept | Owner | Optional |
-| UC07 test data: I1 and I2 present (DRAFT), I4 next, I3 and I5 deferred | Owner | Partly open |
+| UC07 test data: I1, I2 and I4 present (DRAFT; I4 holds a minimal pull-in from I3), I3 and I5 deferred | Owner | Partly open |
 | PAS `Claim.item.productOrService` binding excludes CDT, and `Claim.supportingInfo` cannot reference an ARex `List` (kept as known errors / a local convention) | Owner to raise with the PAS authors | Open |

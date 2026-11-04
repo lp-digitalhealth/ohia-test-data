@@ -1,0 +1,57 @@
+{
+  "resourceType": "CarePlan",
+  "id": "careplan-posttx",
+  "status": "active",
+  "intent": "plan",
+  "title": "Post-treatment care plan — Joe Castle (tooth #4)",
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-treatment"
+  },
+  "period": {
+    "start": "2026-07-22"
+  },
+  "author": {
+    "reference": "PractitionerRole/practrole-max-garcia",
+    "display": "Dr. Max Garcia, DDS"
+  },
+  "addresses": [
+    {
+      "reference": "Condition/condition-caries-tooth4"
+    },
+    {
+      "reference": "Condition/condition-periapical-abscess-tooth4"
+    }
+  ],
+  "activity": [
+    {
+      "detail": {
+        "kind": "Appointment",
+        "status": "not-started",
+        "description": "Routine follow-up at the pediatric practice at next recall."
+      }
+    },
+    {
+      "detail": {
+        "kind": "ServiceRequest",
+        "status": "not-started",
+        "description": "Monitor for post-restorative sensitivity on tooth #4."
+      }
+    },
+    {
+      "detail": {
+        "kind": "ServiceRequest",
+        "status": "in-progress",
+        "description": "Continue routine pediatric preventive care."
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "The three activities are the narrative's three recommendations, verbatim in substance. Sent to the referring pediatric practice in the same push as the summary."
+    }
+  ]
+}
