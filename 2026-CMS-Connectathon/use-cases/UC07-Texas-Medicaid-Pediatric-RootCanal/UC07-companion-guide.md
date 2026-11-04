@@ -200,7 +200,7 @@ One FHIR R4 test server (HAPI FHIR on PostgreSQL), synthetic data only, that pla
 - *You do:* send the referral package as described in §2b step 3 — `ServiceRequest` (routine), clinical notes, treatment plan, `Condition`, and the imaging reference — as a CDex provider-to-provider push to the test server's receiving-practice endpoint (a `POST` of a transaction Bundle). Do not embed images.
 - *The test server does (Planned):* accepts and stores the package, opens the referral `Task` (§2c step 1), and returns validation feedback (see 8.4).
 - *Success looks like:* the transaction response reports each entry created; the resources are readable by `GET`; the referral `Task` exists.
-- *Images — TBD:* §2b/§6b above use `ImagingStudy` plus a WADO-RS endpoint. The owner has decided that **ARex carries all attachments and imaging at this event** and that WADO-RS comes later. How the referral's radiographs are expressed for this event is **TBD**.
+- *Images (owner's decision):* for this event the radiographs travel as an **ARex manifest of image entries, plus an `ImagingStudy` pointer**. This replaces the WADO-RS endpoint described in §2b/§6b for this iteration; WADO-RS imaging comes in a later iteration. ARex does not define how an `ImagingStudy` points at a manifest, so **that link is TBD** (it is a local convention, not an ARex rule). ARex is for fixed, immutable objects, not live imaging retrieval.
 
 **I1 — notification to the payer.**
 - *You do:* send the provider-to-payer `Communication` referencing the referral `ServiceRequest` (§2a step 1; §2b step 4).
@@ -235,7 +235,7 @@ For ODE referral content the test server **validates against the draft ODE profi
 | Item | Owner | Status |
 |---|---|---|
 | Base URLs and authentication | Test server team | TBD |
-| ARex-for-all vs the WADO-RS model in §6b and `CLAUDE.md` §8 | Owner | TBD |
+| How an `ImagingStudy` pointer references the ARex manifest (ARex leaves this to profiling guides); the WADO-RS model in §6b and `CLAUDE.md` §8 is deferred, not removed | Owner | TBD |
 | CRD, DTR, PAS paths and failure-case behavior | Test server team | TBD |
 | Patient Access PA view (8.5), and its effect on §5 if kept | Owner | Optional |
 | UC07-specific test data missing from the repository | Owner | Open |
