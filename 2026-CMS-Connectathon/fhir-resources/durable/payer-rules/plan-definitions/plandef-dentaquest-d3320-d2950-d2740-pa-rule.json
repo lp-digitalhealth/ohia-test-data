@@ -1,0 +1,41 @@
+{
+  "resourceType": "PlanDefinition",
+  "id": "plandef-dentaquest-d3320-d2950-d2740-pa-rule",
+  "url": "https://dentaquest.example.org/fhir/PlanDefinition/plandef-dentaquest-d3320-d2950-d2740-pa-rule",
+  "status": "active",
+  "name": "DentaQuestD3320D2950D2740PriorAuthRule",
+  "title": "DentaQuest — Root Canal, Build-Up and Crown (D3320, D2950, D2740) Require Prior Authorization",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/plan-definition-type",
+        "code": "eca-rule",
+        "display": "ECA Rule"
+      }
+    ]
+  },
+  "library": [
+    "https://dentaquest.example.org/fhir/Library/lib-dentaquest-d3320-d2950-d2740-pa-logic"
+  ],
+  "action": [
+    {
+      "title": "Flag PA required for the bundled root canal, build-up and crown plan",
+      "trigger": [
+        {
+          "type": "named-event",
+          "name": "order-sign"
+        }
+      ],
+      "condition": [
+        {
+          "kind": "applicability",
+          "expression": {
+            "language": "text/cql",
+            "expression": "IsBundledEndoRestorativeOrder"
+          }
+        }
+      ],
+      "definitionCanonical": "https://dentaquest.example.org/fhir/Questionnaire/questionnaire-dentaquest-d3320-d2950-d2740-pa-dtr"
+    }
+  ]
+}

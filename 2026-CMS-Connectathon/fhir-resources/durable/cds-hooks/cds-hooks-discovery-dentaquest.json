@@ -9,6 +9,16 @@
         "coverage": "Coverage?patient={{context.patientId}}",
         "serviceRequest": "ServiceRequest/{{context.draftOrders.entry.0.resource.id}}"
       }
+    },
+    {
+      "hook": "order-sign",
+      "title": "DentaQuest Prior Authorization Check — Root Canal, Build-Up, Crown",
+      "description": "Evaluates a dental treatment-plan order at sign-time and returns a card if prior authorization is required for D3320, D2950 or D2740 under Texas Medicaid Dental, naming the documentation required (clinical notes and radiographs).",
+      "id": "dentaquest-d3320-d2950-d2740-pa-check",
+      "prefetch": {
+        "coverage": "Coverage?patient={{context.patientId}}",
+        "serviceRequest": "ServiceRequest/{{context.draftOrders.entry.0.resource.id}}"
+      }
     }
   ]
 }
