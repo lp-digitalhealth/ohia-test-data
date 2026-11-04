@@ -1,0 +1,19 @@
+{
+  "resourceType": "Location",
+  "id": "loc-pediatric-dental-tx",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+    ]
+  },
+  "status": "active",
+  "name": "Pediatric Dental Practice — Texas (office)",
+  "description": "Place of Service 11 — Office",
+  "address": {
+    "state": "TX",
+    "country": "US"
+  },
+  "managingOrganization": {
+    "reference": "Organization/org-pediatric-dental-tx"
+  }
+}

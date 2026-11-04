@@ -1,0 +1,40 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "documentref-clinical-notes",
+  "status": "current",
+  "type": {
+    "text": "Clinical notes — limited oral evaluation"
+  },
+  "category": [
+    {
+      "text": "Clinical note"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "date": "2026-07-08T10:15:00-05:00",
+  "author": [
+    {
+      "reference": "PractitionerRole/practrole-mary-parker",
+      "display": "Dr. Mary Parker, DDS"
+    }
+  ],
+  "content": [
+    {
+      "attachment": {
+        "contentType": "text/plain",
+        "title": "Clinical notes, 2026-07-08",
+        "data": "TGltaXRlZCBvcmFsIGV2YWx1YXRpb24gKHByb2JsZW0gZm9jdXNlZCkuIDE2LXllYXItb2xkIG1hbGUgd2l0aCBwYWluIG9uIGNoZXdpbmcgYXQgdGhlIHVwcGVyIHJpZ2h0IGFuZCBzZW5zaXRpdml0eSB0byBjb2xkLiBNZXNpYWwtb2NjbHVzYWwtYnVjY2FsIGRlY2F5IGV4dGVuZGluZyB0byB0aGUgcHVscCBhbmQgcGVyaWFwaWNhbCByYWRpb2x1Y2VuY3kgd2l0aCBwZXJpYXBpY2FsIGluZmVjdGlvbiBvbiB0b290aCAjNCAobWF4aWxsYXJ5IHJpZ2h0IHNlY29uZCBwcmVtb2xhcikuIFRvb3RoICM0IGlzIHJlc3RvcmFibGUuIFBlcmlhcGljYWwgYW5kIGJpdGV3aW5nIHJhZGlvZ3JhcGhzIHRha2VuLg=="
+      }
+    }
+  ],
+  "context": {
+    "encounter": [
+      {
+        "reference": "Encounter/encounter-eval"
+      }
+    ]
+  }
+}

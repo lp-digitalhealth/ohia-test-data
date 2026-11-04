@@ -1,0 +1,43 @@
+{
+  "resourceType": "Communication",
+  "id": "communication-payer-notification",
+  "status": "completed",
+  "category": [
+    {
+      "text": "Care coordination notification"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-eval"
+  },
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/servicerequest-referral"
+    }
+  ],
+  "sent": "2026-07-08T10:16:00-05:00",
+  "sender": {
+    "reference": "PractitionerRole/practrole-mary-parker",
+    "display": "Dr. Mary Parker, DDS"
+  },
+  "recipient": [
+    {
+      "reference": "Organization/org-dentaquest-tx",
+      "display": "DentaQuest USA Insurance Company, Inc."
+    }
+  ],
+  "payload": [
+    {
+      "contentString": "Patient referred to Dr. Max Garcia, DDS for root canal therapy and restorative treatment on tooth #4."
+    }
+  ],
+  "note": [
+    {
+      "text": "Provider-to-payer awareness notification (Da Vinci CDex). It is not a claim or a prior authorization request and asks nothing of the plan. Same endpoint as the ODE referral per the owner's decision (F17)."
+    }
+  ]
+}

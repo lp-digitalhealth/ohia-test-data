@@ -168,3 +168,74 @@ Check this guide's Resource Index and the interaction write-ups first. If a reso
 - **Not validated.** The fixtures passed structural and reference checks only; run the HL7 FHIR Validator with the relevant IG packages before use.
 - **CDT display text.** CDT code descriptors are ADA-copyrighted; confirm what display text may be published in this public repository.
 - **K02.53 vs K02.63.** The caries code for MOB decay into the pulp needs a dentist's confirmation.
+
+---
+
+## 8. Test Server Roles — November Connectathon (DRAFT for owner review)
+
+> **Status (2026-11-04):** the OHIA test server is **not deployed yet**. Everything marked **Planned** is intended behavior, not tested behavior. Everything marked **TBD** is undecided and is not a default. This section does not change §1–§7; where it conflicts with them, the conflict is called out below.
+
+### 8.0 Purpose and precedence
+
+For the November connectathon, **the interactions in this section override the use-case narrative wherever they differ.** Their purpose is to **get initial connectivity working** between participants and the test server. The fuller capabilities described elsewhere in this guide (for example WADO-RS imaging, the consultation and consent in I3, eligibility checks, and X12 billing in I5) are **not tested in this iteration and will be added in later iterations.**
+
+### 8.1 What the test server is
+
+One FHIR R4 test server (HAPI FHIR on PostgreSQL), synthetic data only, that plays **one party in each interaction** so that a participant only has to implement their own side. Public base URL(s): **TBD** (published before the event). Authentication: **TBD**.
+
+### 8.2 Who plays what
+
+| Interaction | You play | The test server plays | Where your steps are in this guide |
+|---|---|---|---|
+| **I1 — referral** | Referring practice (Dr. Parker's PMS) | Receiving practice (Dr. Garcia's PMS) | §2b step 3; §2c step 1 |
+| **I1 — payer notification** | Referring practice (Dr. Parker's PMS) | Payer (DentaQuest) | §2b step 4; §2a step 1 |
+| **I2 — CRD, DTR, PAS** | Receiving practice's PMS (Dr. Garcia) | Payer (DentaQuest) | §2c step 2; §2a steps 2–5 |
+| **I4 — closed loop** | Receiving practice's PMS (Dr. Garcia) | Referring practice (Dr. Parker's PMS) | §2c step 4; §2b step 6 |
+
+**Not exercised against the test server:** I3 (consultation, eligibility, consent) and I5 (837D/835 billing).
+
+### 8.3 Interaction by interaction
+
+**I1 — referral to the receiving practice.**
+- *You do:* send the referral package as described in §2b step 3 — `ServiceRequest` (routine), clinical notes, treatment plan, `Condition`, and the imaging reference — as a CDex provider-to-provider push to the test server's receiving-practice endpoint (a `POST` of a transaction Bundle). Do not embed images.
+- *The test server does (Planned):* accepts and stores the package, opens the referral `Task` (§2c step 1), and returns validation feedback (see 8.4).
+- *Success looks like:* the transaction response reports each entry created; the resources are readable by `GET`; the referral `Task` exists.
+- *Images (owner's decision):* for this event the radiographs travel as an **ARex manifest of image entries, plus an `ImagingStudy` pointer**. This replaces the WADO-RS endpoint described in §2b/§6b for this iteration; WADO-RS imaging comes in a later iteration. ARex does not define how an `ImagingStudy` points at a manifest, so this event uses a **local convention** (not an ARex rule): `ImagingStudy.identifier` carries the manifest's transaction-context identifier, and the consumer finds the manifest through ARex's `arex-manifest-transaction-identifier` search parameter. ARex is for fixed, immutable objects, not live imaging retrieval.
+
+**I1 — notification to the payer.**
+- *You do:* send the provider-to-payer `Communication` referencing the referral `ServiceRequest` (§2a step 1; §2b step 4).
+- *The test server does (Planned):* accepts and stores it, retrievable later by referral identifier. The ODE referral and this notification use **one endpoint** (owner's decision).
+
+**I2 — CRD, DTR and PAS to the payer.**
+- *You do, in order:* (1) call the CRD `order-sign` service with the three-procedure order (D3320, D2950, D2740 on tooth #4); (2) retrieve the DTR documentation requirement; (3) publish your supporting notes and images as an ARex manifest and submit the PAS `Claim` (`use: preauthorization`, three service lines) referencing it (§2c step 2).
+- *The test server does (Planned):* returns a fixed "prior authorization required" card; serves a fixed `Questionnaire`; retrieves each ARex object and verifies its digest; returns a `ClaimResponse` with `outcome: complete`, an approved disposition, and a PA number and 180-day validity period as in §2a step 5 and the §3 payer stub bar. The test server can also **publish ARex manifests for testing** (owner's decision), so you can test retrieving from it as well as being retrieved from.
+- *Failure cases worth exercising* (from the I2 narrative): digest mismatch, expired grant, unreachable manifest. The test server's behavior for each is **TBD**.
+- *TBD:* the CRD service URL, how the DTR requirement is retrieved, the PAS submit path, and the ARex retrieval authorization.
+
+**I4 — closed loop to the referring practice.**
+- *You do:* push the post-treatment package to the test server (§2c step 4): `ClinicalImpression`, the post-op imaging reference, a `DocumentReference` clinical note, a **separate** thank-you `Communication`, and a `CarePlan`.
+- *The test server does (Planned):* stores the package, files the clinical items as clinical content and the thank-you as a courtesy communication (the test in the I4 narrative), then marks the referral `ServiceRequest` completed and closes the `Task` (§2b step 6).
+
+### 8.4 Validation feedback
+
+For ODE referral content the test server **validates against the draft ODE profiles but always accepts and stores the submission, and returns the validation results in the response**. A validation error is a finding about the draft, not a rejection. The response format is **TBD**; loading the draft profiles is **Planned**.
+
+### 8.5 Patient view of prior authorizations (CMS-0057) — OPTIONAL, owner-directed addition
+
+**Optional for this event.** Under CMS-0057 the payer's Patient Access API must let the patient see their prior authorizations. **Planned:** the test server, as payer, exposes the approved PA to the patient using the PDex Prior Authorization profile (`ExplanationOfBenefit`, `use: preauthorization`) through a patient-scoped SMART standalone launch. All details are **TBD**. This is **not in the UC07 narrative, and §5 above says UC07 has no patient-facing app**; §5 would need to change if this is kept.
+
+### 8.6 What you must prepare
+
+- The test data you send. **The UC07-specific test data is not yet in this repository.** Joe Castle, Linda Castle, Dr. Max Garcia, the UC07 prior authorization number, the ARex objects and the D3320 / D2950 codes appear nowhere in `fhir-resources/` (Dr. Mary Parker and DentaQuest exist from UC02). `README-fhir.md` describes a 71-file set that is not on any branch. Until it is added, build your payloads from the Resource Index in §4 and the interaction write-ups.
+- Anything the test server must call (for example your ARex content endpoint in I2): the URL and its authorization, **TBD**.
+- The test server's base URL(s) and credentials, **TBD**, to be published before the event.
+
+### 8.7 Open items on this section
+
+| Item | Owner | Status |
+|---|---|---|
+| Base URLs and authentication | Test server team | TBD |
+| The WADO-RS model in §6b and `CLAUDE.md` §8 is deferred, not removed (the `ImagingStudy`-to-manifest link is decided: see 8.3) | Owner | Deferred |
+| CRD, DTR, PAS paths and failure-case behavior | Test server team | TBD |
+| Patient Access PA view (8.5), and its effect on §5 if kept | Owner | Optional |
+| UC07-specific test data missing from the repository | Owner | Open |
