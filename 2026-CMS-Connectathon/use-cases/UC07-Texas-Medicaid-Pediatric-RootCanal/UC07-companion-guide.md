@@ -175,6 +175,10 @@ Check this guide's Resource Index and the interaction write-ups first. If a reso
 
 > **Status (2026-11-04):** the OHIA test server is **not deployed yet**. Everything marked **Planned** is intended behavior, not tested behavior. Everything marked **TBD** is undecided and is not a default. This section does not change §1–§7; where it conflicts with them, the conflict is called out below.
 
+### 8.0 Purpose and precedence
+
+For the November connectathon, **the interactions in this section override the use-case narrative wherever they differ.** Their purpose is to **get initial connectivity working** between participants and the test server. The fuller capabilities described elsewhere in this guide (for example WADO-RS imaging, the consultation and consent in I3, eligibility checks, and X12 billing in I5) are **not tested in this iteration and will be added in later iterations.**
+
 ### 8.1 What the test server is
 
 One FHIR R4 test server (HAPI FHIR on PostgreSQL), synthetic data only, that plays **one party in each interaction** so that a participant only has to implement their own side. Public base URL(s): **TBD** (published before the event). Authentication: **TBD**.
@@ -200,7 +204,7 @@ One FHIR R4 test server (HAPI FHIR on PostgreSQL), synthetic data only, that pla
 
 **I1 — notification to the payer.**
 - *You do:* send the provider-to-payer `Communication` referencing the referral `ServiceRequest` (§2a step 1; §2b step 4).
-- *The test server does (Planned):* accepts and stores it, retrievable later by referral identifier. Whether this goes to the same endpoint as the ODE referral is **TBD**.
+- *The test server does (Planned):* accepts and stores it, retrievable later by referral identifier. The ODE referral and this notification use **one endpoint** (owner's decision).
 
 **I2 — CRD, DTR and PAS to the payer.**
 - *You do, in order:* (1) call the CRD `order-sign` service with the three-procedure order (D3320, D2950, D2740 on tooth #4); (2) retrieve the DTR documentation requirement; (3) publish your supporting notes and images as an ARex manifest and submit the PAS `Claim` (`use: preauthorization`, three service lines) referencing it (§2c step 2).
@@ -216,13 +220,13 @@ One FHIR R4 test server (HAPI FHIR on PostgreSQL), synthetic data only, that pla
 
 For ODE referral content the test server **validates against the draft ODE profiles but always accepts and stores the submission, and returns the validation results in the response**. A validation error is a finding about the draft, not a rejection. The response format is **TBD**; loading the draft profiles is **Planned**.
 
-### 8.5 Patient view of prior authorizations (CMS-0057) — owner-directed addition
+### 8.5 Patient view of prior authorizations (CMS-0057) — OPTIONAL, owner-directed addition
 
-Under CMS-0057 the payer's Patient Access API must let the patient see their prior authorizations. **Planned:** the test server, as payer, exposes the approved PA to the patient using the PDex Prior Authorization profile (`ExplanationOfBenefit`, `use: preauthorization`) through a patient-scoped SMART standalone launch. All details are **TBD**. This is **not in the UC07 narrative, and §5 above says UC07 has no patient-facing app**; §5 would need to change if this is kept.
+**Optional for this event.** Under CMS-0057 the payer's Patient Access API must let the patient see their prior authorizations. **Planned:** the test server, as payer, exposes the approved PA to the patient using the PDex Prior Authorization profile (`ExplanationOfBenefit`, `use: preauthorization`) through a patient-scoped SMART standalone launch. All details are **TBD**. This is **not in the UC07 narrative, and §5 above says UC07 has no patient-facing app**; §5 would need to change if this is kept.
 
 ### 8.6 What you must prepare
 
-- The fixtures you send. **No UC07 FHIR fixtures are committed in this repository at the time of writing**: `README-fhir.md` describes a 71-file set that is not present, so build your payloads from the Resource Index in §4 and the interaction write-ups.
+- The test data you send. **The UC07-specific test data is not yet in this repository.** Joe Castle, Linda Castle, Dr. Max Garcia, the UC07 prior authorization number, the ARex objects and the D3320 / D2950 codes appear nowhere in `fhir-resources/` (Dr. Mary Parker and DentaQuest exist from UC02). `README-fhir.md` describes a 71-file set that is not on any branch. Until it is added, build your payloads from the Resource Index in §4 and the interaction write-ups.
 - Anything the test server must call (for example your ARex content endpoint in I2): the URL and its authorization, **TBD**.
 - The test server's base URL(s) and credentials, **TBD**, to be published before the event.
 
@@ -232,7 +236,6 @@ Under CMS-0057 the payer's Patient Access API must let the patient see their pri
 |---|---|---|
 | Base URLs and authentication | Test server team | TBD |
 | ARex-for-all vs the WADO-RS model in §6b and `CLAUDE.md` §8 | Owner | TBD |
-| Same endpoint as the ODE referral for the payer notification | Owner / ODE group | TBD |
 | CRD, DTR, PAS paths and failure-case behavior | Test server team | TBD |
-| Patient Access PA view (8.5) and its effect on §5 | Owner | TBD |
-| UC07 fixtures missing from the repository | Owner | Open |
+| Patient Access PA view (8.5), and its effect on §5 if kept | Owner | Optional |
+| UC07-specific test data missing from the repository | Owner | Open |

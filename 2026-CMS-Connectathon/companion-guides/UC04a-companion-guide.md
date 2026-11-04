@@ -264,13 +264,17 @@ All persons are fictional and both provider organizations are fictional; **Aetna
 
 > **Status (2026-11-04):** the OHIA test server is **not deployed yet**. Everything marked **Planned** is intended behavior, not tested behavior. Everything marked **TBD** is undecided and is not a default. This section does not change §1–§7; where it conflicts with them, the conflict is called out below.
 
+### 8.0 Purpose and precedence
+
+For the November connectathon, **the interaction in this section overrides the use-case narrative wherever they differ.** Its purpose is to **get initial connectivity working** between participants and the test server. The fuller capabilities described elsewhere in this guide (the appointment and outcome exchange in I2 and I4, the in-office radiograph in I3, claims sharing in I5, and the patient app) are **not tested in this iteration and will be added in later iterations.**
+
 ### 8.1 What the test server is
 
 One FHIR R4 test server (HAPI FHIR on PostgreSQL), synthetic data only. For UC04a it plays **both the teledentistry platform (Meridian Teledental) and the in-office PMS (Barton Springs' interim FHIR server)**, so a participant can take either side. Public base URL(s): **TBD**. Authentication: **TBD**.
 
 ### 8.2 Scope
 
-Only **Interaction 1 — Tuesday Night Pain** (teledentistry platform to PMS: the referral request and the images) is on the connectathon list given by the owner. I2–I5, and the patient-facing app in §5, are **not** on that list and are not covered by this section. Whether any should be added is **TBD**.
+Only **Interaction 1 — Tuesday Night Pain** (teledentistry platform to PMS: the referral request and the images) is on the connectathon list given by the owner. I2–I5 are **not** on that list and are not covered by this section. The patient-facing app in §5 is **optional** for this event. Whether any of I2–I5 should be added is **TBD**.
 
 ### 8.3 Who plays what in I1
 
@@ -308,5 +312,5 @@ Only **Interaction 1 — Tuesday Night Pain** (teledentistry platform to PMS: th
 | Base URLs and authentication | Test server team | TBD |
 | Outbound sending by the test server (8.5) | Test server team | Not built |
 | Photos inline vs ARex | Owner | TBD |
-| Whether I2–I5 and the patient app are in scope | Owner | TBD |
+| Whether any of I2–I5 are in scope (the patient app is optional) | Owner | TBD |
 | Reset policy between participants | Owner | TBD |
