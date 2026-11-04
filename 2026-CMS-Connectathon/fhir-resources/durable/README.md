@@ -8,16 +8,20 @@ A resource belongs in `durable/` if it answers "who/what is this entity in the r
 
 | Folder | Resource type(s) | Count |
 |---|---|---|
-| `organizations/` | Organization | 17 |
-| `practitioners/` | Practitioner | 12 |
-| `locations/` | Location | 8 |
-| `endpoints/` | Endpoint (FHIR REST / WADO-RS addresses) | 14 |
-| `healthcare-services/` | HealthcareService (Plan-Net directory entries) | 1 |
-| `insurance-plans/` | InsurancePlan | 5 |
-| `payer-rules/plan-definitions/` | PlanDefinition (CRD ECA rules) | 4 |
-| `payer-rules/libraries/` | Library (CQL logic) | 4 |
-| `payer-rules/questionnaires/` | Questionnaire (DTR templates) | 3 |
-| `cds-hooks/` | CDS Hooks discovery configs (NOT FHIR resources) | 4 |
+| `organizations/` | Organization | 25 |
+| `practitioners/` | Practitioner | 17 |
+| `locations/` | Location | 14 |
+| `endpoints/` | Endpoint (FHIR REST / WADO-RS addresses) | 25 |
+| `healthcare-services/` | HealthcareService (Plan-Net directory entries) | 3 |
+| `insurance-plans/` | InsurancePlan | 6 |
+| `payer-rules/plan-definitions/` | PlanDefinition (CRD ECA rules) | 6 |
+| `payer-rules/libraries/` | Library (CQL logic) | 6 |
+| `payer-rules/questionnaires/` | Questionnaire (DTR templates) | 5 |
+| `cds-hooks/` | CDS Hooks discovery configs (NOT FHIR resources) | 5 |
+
+Counts are files on disk as of the UC07 I2 change (the earlier figures had fallen behind).
+
+**UC07 (Texas Medicaid pediatric root canal) added** three organizations, two locations, two practitioners and three endpoints (see [`../README.md`](../README.md)), and the DentaQuest D3320 / D2950 / D2740 prior-authorization rule: `payer-rules/plan-definitions/plandef-dentaquest-d3320-d2950-d2740-pa-rule`, `payer-rules/libraries/lib-dentaquest-d3320-d2950-d2740-pa-logic` (a stub; the rule is in its description), `payer-rules/questionnaires/questionnaire-dentaquest-d3320-d2950-d2740-pa-dtr`, plus a second service in `cds-hooks/cds-hooks-discovery-dentaquest.json`. The rule is synthetic DentaQuest policy authored for the connectathon (owner-approved); the CDT codes themselves are real.
 
 **UC03 (Connecticut pediatric referral) added a net-new block of Connecticut entities:** organizations `org-nemg`, `org-cornell-scott`, `org-connie` (statewide HIE), `org-ctdhp`, `org-benecare` (ASO), `org-gainwell` (fiscal agent/payer), `org-yale-diabetes`; practitioners `pract-smith`, `pract-watson`, `pract-endo`, `pract-dietitian`; locations `loc-nemg`, `loc-cornell-scott`; endpoints `endpoint-nemg`, `endpoint-cornell-scott`, `endpoint-connie`, `endpoint-benecare`; the new `healthcare-services/` subfolder with `hs-cornell-scott-pediatric-dental` (the Plan-Net entry BeneCare returns); and `insplan-ctdhp-huskyb`. Note the Connecticut payer split: **Gainwell** is the claims payer (fiscal agent), while **CTDHP/BeneCare** runs the directory/referral coordination — there is no dental MCO.
 

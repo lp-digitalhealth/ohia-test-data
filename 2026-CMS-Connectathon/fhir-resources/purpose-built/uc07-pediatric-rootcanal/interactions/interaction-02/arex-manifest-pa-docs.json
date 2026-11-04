@@ -1,0 +1,82 @@
+{
+  "resourceType": "List",
+  "id": "arex-manifest-pa-docs",
+  "meta": {
+    "profile": [
+      "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-manifest"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-expires",
+      "valueInstant": "2026-07-24T14:00:00Z"
+    },
+    {
+      "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-requires-access-token",
+      "valueBoolean": true
+    },
+    {
+      "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-transaction-context",
+      "extension": [
+        {
+          "url": "businessIdentifier",
+          "valueIdentifier": {
+            "system": "https://restorativedental.example.org/pa-request-id",
+            "value": "PA-REQ-2026-UC07-001"
+          }
+        },
+        {
+          "url": "requestingOrganization",
+          "valueReference": {
+            "reference": "Organization/org-dentaquest-tx"
+          }
+        }
+      ]
+    }
+  ],
+  "identifier": [
+    {
+      "system": "https://restorativedental.example.org/arex/manifest-id",
+      "value": "MAN-2026-0710-0001"
+    }
+  ],
+  "status": "current",
+  "mode": "snapshot",
+  "title": "Prior authorization supporting documents for PA-REQ-2026-UC07-001",
+  "code": {
+    "coding": [
+      {
+        "system": "http://fhir.onyxhealth.io/us/arex/CodeSystem/arex-manifest-type",
+        "code": "attachment-set",
+        "display": "Attachment set"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "date": "2026-07-10T14:00:00Z",
+  "entry": [
+    {
+      "item": {
+        "reference": "DocumentReference/arex-entry-pa-periapical"
+      }
+    },
+    {
+      "item": {
+        "reference": "DocumentReference/arex-entry-pa-bitewing"
+      }
+    },
+    {
+      "item": {
+        "reference": "DocumentReference/arex-entry-pa-narrative"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "ASSUMPTIONS: manifest identifier, PA request identifier and arex.example URLs are synthetic; the availability window (2026-07-10 to 2026-07-24) is from the narrative. The requesting organization is DentaQuest, the party that retrieves the content. The two images are the same synthetic placeholder PNGs as in interaction 1; the digests are real SHA-256 over the files in arex-payloads/."
+    }
+  ]
+}

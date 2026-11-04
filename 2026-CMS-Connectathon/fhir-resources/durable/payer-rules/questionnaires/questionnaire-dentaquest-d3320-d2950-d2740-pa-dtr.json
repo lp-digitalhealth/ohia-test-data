@@ -1,0 +1,59 @@
+{
+  "resourceType": "Questionnaire",
+  "id": "questionnaire-dentaquest-d3320-d2950-d2740-pa-dtr",
+  "url": "https://dentaquest.example.org/fhir/Questionnaire/questionnaire-dentaquest-d3320-d2950-d2740-pa-dtr",
+  "status": "active",
+  "title": "Texas Medicaid Prior Authorization — Root Canal, Build-Up and Crown (D3320, D2950, D2740)",
+  "subjectType": [
+    "Patient"
+  ],
+  "item": [
+    {
+      "linkId": "1",
+      "text": "Tooth number (ADA Universal Tooth Designation System)",
+      "type": "string",
+      "required": true
+    },
+    {
+      "linkId": "2",
+      "text": "Diagnoses (ICD-10-CM)",
+      "type": "string",
+      "required": true
+    },
+    {
+      "linkId": "3",
+      "text": "Services requested (CDT)",
+      "type": "string",
+      "required": true
+    },
+    {
+      "linkId": "4",
+      "text": "Is the tooth restorable (adequate remaining tooth structure)?",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "linkId": "5",
+      "text": "Clinical justification — medical necessity of root canal therapy, build-up and crown",
+      "type": "text",
+      "required": true
+    },
+    {
+      "linkId": "6",
+      "text": "Prior endodontic treatment history on this tooth?",
+      "type": "text"
+    },
+    {
+      "linkId": "7",
+      "text": "Radiographs supporting the request attached?",
+      "type": "boolean",
+      "required": true
+    },
+    {
+      "linkId": "8",
+      "text": "Clinical notes documenting medical necessity attached?",
+      "type": "boolean",
+      "required": true
+    }
+  ]
+}

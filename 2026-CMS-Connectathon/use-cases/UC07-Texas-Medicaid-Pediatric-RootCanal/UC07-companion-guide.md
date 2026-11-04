@@ -84,8 +84,9 @@ Logical IDs below match the generated fixtures; the build specification is `UC-P
 | `org-dentaquest-tx` | Organization | DentaQuest, type `pay`, Payer ID `CX014`, no NPI |
 | `loc-pediatric-dental-tx`, `loc-restorative-dental-tx` | Location | Office locations (POS 11) |
 | `pract-mary-parker`, `pract-max-garcia` | Practitioner | Synthetic, Luhn-valid NPIs |
-| `endpoint-pediatric-wado-rs`, `endpoint-restorative-wado-rs` | Endpoint | DICOMweb / WADO-RS for referral and post-op images |
-| DentaQuest FHIR `Endpoint`, CDS Hooks discovery, `questionnaire-dentaquest-pa` | Endpoint / (non-FHIR) / Questionnaire | Payer-side services and documentation rule |
+| `endpoint-pediatric-fhir`, `endpoint-restorative-fhir`, `endpoint-dentaquest-tx` | Endpoint | One FHIR endpoint per organization (WADO-RS is deferred for this event) |
+| `plandef-dentaquest-d3320-d2950-d2740-pa-rule`, `lib-dentaquest-d3320-d2950-d2740-pa-logic`, `questionnaire-dentaquest-d3320-d2950-d2740-pa-dtr` | PlanDefinition / Library (stub) / Questionnaire | DentaQuest's prior-authorization rule for the bundled plan (synthetic policy) |
+| `cds-hooks-discovery-dentaquest.json` (service `dentaquest-d3320-d2950-d2740-pa-check`) | (non-FHIR) | CDS Hooks discovery for the CRD `order-sign` call |
 
 ### Base — load second; UC07-specific
 
@@ -102,7 +103,7 @@ Logical IDs below match the generated fixtures; the build specification is `UC-P
 
 ### Interaction 2 — Three Procedures, One Authorization (2026-07-09 – 07-15)
 
-`questionnaireresponse-dentaquest-pa`; `task-dtr`; `claim-pa-request`; `arex-manifest-pa-docs` (a `List`), three ARex content entries (`arex-entry-periapical`, `arex-entry-bitewing`, `arex-entry-narrative`), `arex-provenance-pa-docs`; `claimresponse-pa-approval` (PA `TX-DQ-PA-2026-061204`, valid 2026-07-15 to 2027-01-11); `appointment-consultation`; `task-referral` (new version).
+`questionnaireresponse-dentaquest-pa`; `task-dtr`; `claim-pa-request`; `arex-manifest-pa-docs` (a `List`), three ARex content entries (`arex-entry-pa-periapical`, `arex-entry-pa-bitewing`, `arex-entry-pa-narrative`; the `-pa-` ids differ from I1's entries, which are different resources), `arex-provenance-pa-docs`; `claimresponse-pa-approval` (PA `TX-DQ-PA-2026-061204`, valid 2026-07-15 to 2027-01-11); `appointment-consultation`; `task-referral` (same id as I1, new version). Files: [`interaction-02/`](../../fhir-resources/purpose-built/uc07-pediatric-rootcanal/interactions/interaction-02/).
 
 ### Interaction 3 — Linda Says Yes (2026-07-22)
 
@@ -209,6 +210,8 @@ One FHIR R4 test server (HAPI FHIR on PostgreSQL), synthetic data only, that pla
 **I2 — CRD, DTR and PAS to the payer.**
 - *You do, in order:* (1) call the CRD `order-sign` service with the three-procedure order (D3320, D2950, D2740 on tooth #4); (2) retrieve the DTR documentation requirement; (3) publish your supporting notes and images as an ARex manifest and submit the PAS `Claim` (`use: preauthorization`, three service lines) referencing it (§2c step 2).
 - *The test server does (Planned):* returns a fixed "prior authorization required" card; serves a fixed `Questionnaire`; retrieves each ARex object and verifies its digest; returns a `ClaimResponse` with `outcome: complete`, an approved disposition, and a PA number and 180-day validity period as in §2a step 5 and the §3 payer stub bar. The test server can also **publish ARex manifests for testing** (owner's decision), so you can test retrieving from it as well as being retrieved from.
+- *How the Claim points at the manifest (local convention, not an ARex or PAS rule):* `Claim.identifier` repeats the manifest's transaction-context business identifier, and `Claim.supportingInfo` also references the manifest `List` directly under a local category, because the PAS `Claim` profile does not allow a `List` in its standard supporting-information slice. See the [UC07 data README](../../fhir-resources/purpose-built/uc07-pediatric-rootcanal/README.md).
+- *Known PAS conformance error in the test data (kept on purpose, and feedback for the PAS authors):* the PAS `Claim` profile requires `item.productOrService` to come from a value set that has no CDT codes, so the validator reports an error on each of the three CDT service lines. This is expected.
 - *Failure cases worth exercising* (from the I2 narrative): digest mismatch, expired grant, unreachable manifest. The test server's behavior for each is **TBD**.
 - *TBD:* the CRD service URL, how the DTR requirement is retrieved, the PAS submit path, and the ARex retrieval authorization.
 
@@ -226,7 +229,7 @@ For ODE referral content the test server **validates against the draft ODE profi
 
 ### 8.6 What you must prepare
 
-- The test data you send. **The UC07-specific test data is not yet in this repository.** Joe Castle, Linda Castle, Dr. Max Garcia, the UC07 prior authorization number, the ARex objects and the D3320 / D2950 codes appear nowhere in `fhir-resources/` (Dr. Mary Parker and DentaQuest exist from UC02). `README-fhir.md` describes a 71-file set that is not on any branch. Until it is added, build your payloads from the Resource Index in §4 and the interaction write-ups.
+- The test data you send. **UC07 test data exists for I1 and I2 only** (DRAFT): see [`purpose-built/uc07-pediatric-rootcanal/`](../../fhir-resources/purpose-built/uc07-pediatric-rootcanal/), which includes a cumulative Bundle per interaction. I3, I4 and I5 are not yet authored (I4 is next; I3 and I5 are deferred). `README-fhir.md` describes a 71-file set that is not on any branch and does not describe this folder. For the interactions not yet authored, build your payloads from the Resource Index in §4 and the interaction write-ups.
 - Anything the test server must call (for example your ARex content endpoint in I2): the URL and its authorization, **TBD**.
 - The test server's base URL(s) and credentials, **TBD**, to be published before the event.
 
@@ -238,4 +241,5 @@ For ODE referral content the test server **validates against the draft ODE profi
 | The WADO-RS model in §6b and `CLAUDE.md` §8 is deferred, not removed (the `ImagingStudy`-to-manifest link is decided: see 8.3) | Owner | Deferred |
 | CRD, DTR, PAS paths and failure-case behavior | Test server team | TBD |
 | Patient Access PA view (8.5), and its effect on §5 if kept | Owner | Optional |
-| UC07-specific test data missing from the repository | Owner | Open |
+| UC07 test data: I1 and I2 present (DRAFT), I4 next, I3 and I5 deferred | Owner | Partly open |
+| PAS `Claim.item.productOrService` binding excludes CDT, and `Claim.supportingInfo` cannot reference an ARex `List` (kept as known errors / a local convention) | Owner to raise with the PAS authors | Open |

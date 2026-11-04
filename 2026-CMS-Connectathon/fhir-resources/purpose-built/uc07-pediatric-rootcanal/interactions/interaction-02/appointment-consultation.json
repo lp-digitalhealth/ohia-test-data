@@ -1,0 +1,59 @@
+{
+  "resourceType": "Appointment",
+  "id": "appointment-consultation",
+  "status": "booked",
+  "appointmentType": {
+    "text": "Consultation, with root canal therapy, build-up and crown to follow the consultation"
+  },
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-caries-tooth4"
+    },
+    {
+      "reference": "Condition/condition-periapical-abscess-tooth4"
+    }
+  ],
+  "description": "Restorative consultation and treatment, tooth #4, with Dr. Max Garcia (prior authorization TX-DQ-PA-2026-061204)",
+  "start": "2026-07-22T09:30:00-05:00",
+  "end": "2026-07-22T10:00:00-05:00",
+  "created": "2026-07-15T15:00:00-05:00",
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/servicerequest-referral"
+    }
+  ],
+  "participant": [
+    {
+      "actor": {
+        "reference": "Patient/patient-joe-castle",
+        "display": "Joe Castle"
+      },
+      "required": "required",
+      "status": "accepted"
+    },
+    {
+      "actor": {
+        "reference": "RelatedPerson/relatedperson-linda-castle",
+        "display": "Linda Castle (mother and guardian)"
+      },
+      "required": "required",
+      "status": "accepted"
+    },
+    {
+      "actor": {
+        "reference": "PractitionerRole/practrole-max-garcia",
+        "display": "Dr. Max Garcia, DDS"
+      },
+      "required": "required",
+      "status": "accepted"
+    },
+    {
+      "actor": {
+        "reference": "Location/loc-restorative-dental-tx"
+      },
+      "required": "required",
+      "status": "accepted"
+    }
+  ],
+  "comment": "ASSUMPTION: the narrative gives the 2026-07-22 09:30 consultation start only; the 10:00 end is the narrative timeline's next event (treatment completed at 10:00), not a booked duration."
+}

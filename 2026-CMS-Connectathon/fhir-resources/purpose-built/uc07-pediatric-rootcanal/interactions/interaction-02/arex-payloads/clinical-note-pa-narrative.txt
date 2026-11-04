@@ -1,0 +1,4 @@
+SYNTHETIC CLINICAL NOTE (test data, not a real patient).
+Patient: Joe Castle, DOB 2010-03-22. Provider: Max Garcia, DDS. Date: 2026-07-10.
+Tooth #4: mesio-occlusal-buccal decay extending to the pulp (K02.53); periapical radiolucency with periapical infection (K04.7).
+Medical necessity: the tooth is restorable. Root canal therapy (D3320), core build-up (D2950) and a porcelain/ceramic crown (D2740) are requested as one plan to eliminate infection and restore function; extraction is not indicated.

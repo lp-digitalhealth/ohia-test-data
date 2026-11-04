@@ -1,0 +1,89 @@
+{
+  "resourceType": "QuestionnaireResponse",
+  "id": "questionnaireresponse-dentaquest-pa",
+  "questionnaire": "https://dentaquest.example.org/fhir/Questionnaire/questionnaire-dentaquest-d3320-d2950-d2740-pa-dtr",
+  "status": "completed",
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "authored": "2026-07-10T08:45:00-05:00",
+  "author": {
+    "reference": "PractitionerRole/practrole-max-garcia",
+    "display": "Dr. Max Garcia, DDS"
+  },
+  "item": [
+    {
+      "linkId": "1",
+      "text": "Tooth number (ADA Universal Tooth Designation System)",
+      "answer": [
+        {
+          "valueString": "4"
+        }
+      ]
+    },
+    {
+      "linkId": "2",
+      "text": "Diagnoses (ICD-10-CM)",
+      "answer": [
+        {
+          "valueString": "K02.53; K04.7"
+        }
+      ]
+    },
+    {
+      "linkId": "3",
+      "text": "Services requested (CDT)",
+      "answer": [
+        {
+          "valueString": "D3320; D2950; D2740"
+        }
+      ]
+    },
+    {
+      "linkId": "4",
+      "text": "Is the tooth restorable (adequate remaining tooth structure)?",
+      "answer": [
+        {
+          "valueBoolean": true
+        }
+      ]
+    },
+    {
+      "linkId": "5",
+      "text": "Clinical justification — medical necessity of root canal therapy, build-up and crown",
+      "answer": [
+        {
+          "valueString": "Decay extends to the pulp with periapical infection; the tooth is restorable. Root canal therapy, build-up and crown are requested as one plan; extraction is not indicated."
+        }
+      ]
+    },
+    {
+      "linkId": "6",
+      "text": "Prior endodontic treatment history on this tooth?",
+      "answer": [
+        {
+          "valueString": "None."
+        }
+      ]
+    },
+    {
+      "linkId": "7",
+      "text": "Radiographs supporting the request attached?",
+      "answer": [
+        {
+          "valueBoolean": true
+        }
+      ]
+    },
+    {
+      "linkId": "8",
+      "text": "Clinical notes documenting medical necessity attached?",
+      "answer": [
+        {
+          "valueBoolean": true
+        }
+      ]
+    }
+  ]
+}

@@ -116,11 +116,12 @@ Note: practitioner/role files are named for the fictional identity they contain 
 |---|---|---|
 | IBX IMRT prior-auth (CRD + DTR) | `plandef-ibx-imrt-pa-rule`, `lib-ibx-imrt-pa-logic`, `questionnaire-ibx-imrt-pa-dtr` | UC01 |
 | DentaQuest D7210 prior-auth (CRD + DTR) | `plandef-dentaquest-d7210-pa-rule`, `lib-dentaquest-d7210-pa-logic`, `questionnaire-dentaquest-d7210-pa-dtr` | UC02a |
+| DentaQuest D3320 / D2950 / D2740 bundled prior-auth (CRD + DTR; synthetic policy; stub Library) | `plandef-dentaquest-d3320-d2950-d2740-pa-rule`, `lib-dentaquest-d3320-d2950-d2740-pa-logic`, `questionnaire-dentaquest-d3320-d2950-d2740-pa-dtr` | UC07 |
 | Commercial no-PA determination (CRD only, no DTR) | `plandef-commercial-noauth-rule`, `lib-commercial-noauth-logic` | UC02b |
 | CTDHP/HUSKY B D4341 SRP prior-auth (CRD + DTR) | `plandef-ctdhp-d4341-pa-rule`, `lib-ctdhp-d4341-pa-logic`, `questionnaire-ctdhp-d4341-pa-dtr` | UC03 (fires at treatment visit I3) |
 
 ### CDS Hooks discovery configs - `durable/cds-hooks/`
-Not FHIR resources (flagged in-file). One `order-sign` service config per payer: `cds-hooks-discovery-ibx.json` (UC01), `cds-hooks-discovery-dentaquest.json` (UC02a), `cds-hooks-discovery-commercial.json` (UC02b), `cds-hooks-discovery-ctdhp.json` (UC03).
+Not FHIR resources (flagged in-file). One `order-sign` service config per payer: `cds-hooks-discovery-ibx.json` (UC01), `cds-hooks-discovery-dentaquest.json` (UC02a; also carries the UC07 D3320 / D2950 / D2740 service), `cds-hooks-discovery-commercial.json` (UC02b), `cds-hooks-discovery-ctdhp.json` (UC03).
 
 ## Purpose-built index
 
@@ -131,7 +132,7 @@ Not FHIR resources (flagged in-file). One `order-sign` service config per payer:
 | **UC02b** | [`purpose-built/uc02b-commercial-implant/`](purpose-built/uc02b-commercial-implant/) | Commercial surgical extraction + immediate implant (Frank Castle), **no** prior auth | I1-I5 |
 | **UC03** | [`purpose-built/uc03-pediatric-referral/`](purpose-built/uc03-pediatric-referral/) | Pediatric dental referral, Type 1 diabetes (Timothy Jones), CT HUSKY B via **Connie HIE**; covered referral (no PA at referral) but **D4341 PA fires at treatment visit I3**, no imaging/HL7v2 | I1-I5 |
 | **UC04a** | [`purpose-built/uc04a-teledentistry-commercial/`](purpose-built/uc04a-teledentistry-commercial/) | Commercial **teledentistry** referral, acute pulpitis (Sarah Okonkwo), Aetna Dental PPO; virtual origin, **no PA**, patient-submitted intraoral photos exchanged at I1 as an inline US Core `DocumentReference`; first radiograph at I3 (in-office-only, not exchanged) + root canal, closed-loop summary (I4), two-organization claims-sharing (I5) | I1-I5 |
-| **UC07** | [`purpose-built/uc07-pediatric-rootcanal/`](purpose-built/uc07-pediatric-rootcanal/) | TX Medicaid pediatric dentist-to-general-dentist referral for root canal, build-up and crown on tooth #4 (Joe Castle), DentaQuest; radiographs as an **ARex manifest plus `ImagingStudy` pointers** (WADO-RS deferred); PA (CRD/DTR/PAS) and closed loop to follow | I1 (I2 and I4 next; I3 and I5 deferred) |
+| **UC07** | [`purpose-built/uc07-pediatric-rootcanal/`](purpose-built/uc07-pediatric-rootcanal/) | TX Medicaid pediatric dentist-to-general-dentist referral for root canal, build-up and crown on tooth #4 (Joe Castle), DentaQuest; radiographs as an **ARex manifest plus `ImagingStudy` pointers** (WADO-RS deferred); PA (CRD/DTR/PAS with an ARex manifest of the supporting documents) in I2; closed loop to follow | I1, I2 (I4 next; I3 and I5 deferred) |
 
 See [`durable/README.md`](durable/README.md) and [`purpose-built/README.md`](purpose-built/README.md) for tier-specific detail, and each use case's `interactions/README.md` for per-interaction resource lists.
 
