@@ -1,0 +1,43 @@
+{
+  "resourceType": "Communication",
+  "id": "communication-thank-you",
+  "status": "completed",
+  "category": [
+    {
+      "text": "Provider-to-provider courtesy communication (non-clinical)"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-treatment"
+  },
+  "basedOn": [
+    {
+      "reference": "ServiceRequest/servicerequest-referral"
+    }
+  ],
+  "sent": "2026-07-22T13:30:00-05:00",
+  "sender": {
+    "reference": "PractitionerRole/practrole-max-garcia",
+    "display": "Dr. Max Garcia, DDS"
+  },
+  "recipient": [
+    {
+      "reference": "PractitionerRole/practrole-mary-parker",
+      "display": "Dr. Mary Parker, DDS"
+    }
+  ],
+  "payload": [
+    {
+      "contentString": "Thank you for referring Joe Castle. Treatment was completed successfully and Joe is doing well. We appreciate the complete clinical and imaging package."
+    }
+  ],
+  "note": [
+    {
+      "text": "A courtesy note, deliberately a separate Communication and NOT part of the ClinicalImpression, the clinical note or the care plan: the receiving system must file the clinical items into the chart and must not mistake this for clinical documentation (the test in the UC07 interaction-4 narrative). It travels in the same push, at the same time."
+    }
+  ]
+}
