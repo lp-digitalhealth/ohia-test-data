@@ -74,7 +74,7 @@
   ],
   "note": [
     {
-      "text": "Employer-sponsored commercial dental PPO coverage (Aetna Dental PPO), member AET-TX-00284711, group 847221. Verified in real time by Sarah's patient app at the start of the 2026-07-14 virtual encounter (a named UC04a test objective): teledentistry/virtual consultation covered in full, endodontic treatment covered 80% after a $50 deductible, annual maximum $2,000/plan year. NO prior authorization required for the virtual consultation (D9995), radiograph (D0220), or root canal (D3330) — commercial no-PA case, contrast UC02a's Texas Medicaid PA. Fixed plan-level benefit percentages and annual maximum live on InsurancePlan/insplan-uc04-commercial-ppo; point-in-time balances are returned by the real-time benefit response rather than stored here."
+      "text": "Employer-sponsored commercial dental PPO coverage (Aetna Dental PPO), member AET-TX-00284711, group 847221. Verified in real time by Sarah's patient app at the start of the 2026-07-14 virtual encounter (a named UC04a test objective): teledentistry/virtual consultation covered in full, endodontic treatment covered 80% after a $50 deductible, annual maximum $2,000/plan year. NO prior authorization required for the virtual consultation (D9995), radiograph (D0220), root canal (D3310), or composite restoration (D2330) — commercial no-PA case, contrast UC02a's Texas Medicaid PA. Fixed plan-level benefit percentages and annual maximum live on InsurancePlan/insplan-uc04-commercial-ppo; point-in-time balances are returned by the real-time benefit response rather than stored here."
     }
   ]
 }

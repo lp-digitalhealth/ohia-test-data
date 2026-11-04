@@ -32,7 +32,7 @@
   },
   "focus": {
     "reference": "ServiceRequest/servicerequest-referral",
-    "display": "Referral: In-office evaluation and endodontic treatment, tooth #19"
+    "display": "Referral: In-office evaluation and endodontic treatment, tooth #9"
   },
   "for": {
     "reference": "Patient/patient-sarah-okonkwo",

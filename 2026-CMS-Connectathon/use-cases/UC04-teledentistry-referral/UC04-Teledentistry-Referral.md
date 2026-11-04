@@ -6,7 +6,7 @@
 ## Table of Contents
 
 - [About This Use Case Set](#about-this-use-case-set)
-- [Use Case A: Commercial — Teledentistry Referral, Acute Dental Pain (Employer-Sponsored PPO, Texas)](#use-case-a-commercial)
+- [Use Case A: Commercial — Teledentistry Referral, Acute Dental Pain (Employer-Sponsored PPO, Texas)](#section-i-business-overview)
 - [Use Case B: Medicaid — Teledentistry Referral, Acute Dental Pain with Diabetes Comorbidity (Texas Medicaid Managed Care)](#use-case-b-medicaid)
 
 ---
@@ -48,17 +48,17 @@ The in-office practice submits an 837D to Aetna Dental for the in-office service
 | What Happens (Business Language) | Implementation Guide / Standard | Key Transaction |
 |---|---|---|
 | **Verify Coverage:** The patient application verifies Aetna Dental eligibility and benefit status at session initiation. | US Core / Da Vinci PDex | `Coverage` resource queried against payer FHIR API; `InsurancePlan` returned with benefit details including teledentistry and endodontic coverage. |
-| **Virtual Assessment:** Dr. Webb conducts a structured synchronous virtual evaluation (POS 02), documents clinical findings as discrete FHIR resources, and reviews patient-submitted intraoral photos. | US Core / ODE (Under Development) | `Encounter` (virtual, POS 02); `Condition` (K04.01); `Observation` (symptom findings, tooth-level, `derivedFrom` → the photos); `MedicationStatement` (patient-reported medications); `DocumentReference` (patient-submitted intraoral photos, `image/jpeg`, non-radiographic). |
+| **Virtual Assessment:** Dr. Webb conducts a structured synchronous virtual evaluation (POS 02), documents clinical findings as discrete FHIR resources, and reviews patient-submitted intraoral photos. | US Core / ODE (Under Development) | `Encounter` (virtual, POS 02); `Condition` (K04.01, provisional: suspected); `Observation` (symptom findings, tooth-level, `derivedFrom` → the photos); `Observation` (dental history: no dental home); `MedicationStatement` (patient-reported medications); `AllergyIntolerance` (allergies); `DocumentReference` (patient-submitted intraoral photos, `image/jpeg`, non-radiographic, delivered by ARex reference). |
 | **Patient Notification — Referral Sent:** Patient is notified in-application that the referral has been transmitted. | FHIR Subscriptions Backport IG | Subscription event triggered on `ServiceRequest` creation. |
-| **Structured Referral Transmitted:** Dr. Webb transmits a structured referral with clinical context — including the intraoral photos — to the in-office dental provider. | US Core / ODE (Under Development) / CDex | `ServiceRequest` (referral, priority: urgent); `DocumentReference` wrapping structured findings bundle; `DocumentReference` carrying the patient-submitted intraoral photos (inline `image/jpeg`); transmitted via CDex provider-to-provider push to in-office practice interim FHIR server. |
+| **Structured Referral Transmitted:** Dr. Webb transmits a structured referral with clinical context — including the intraoral photos — to the in-office dental provider. | US Core / ODE (Under Development) / CDex | `ServiceRequest` (referral, priority: urgent); `DocumentReference` wrapping structured findings bundle; `AllergyIntolerance`; `DocumentReference` carrying the patient-submitted intraoral photos **by reference** (an ARex manifest of one or two `image/jpeg` entries; not inline); transmitted via CDex provider-to-provider push to in-office practice interim FHIR server. |
 | **Referral Received at In-Office Practice:** In-office practice receives referral and clinical context; schedules the patient. | US Core / ODE (Under Development) | `ServiceRequest` received and acknowledged; `Appointment` created and linked to referral; `AppointmentResponse` returned to teledentistry provider. |
 | **Patient Notification — Appointment Confirmed:** Patient receives in-application confirmation of appointment time and location. | FHIR Subscriptions Backport IG | Subscription event triggered on `AppointmentResponse`. |
 | **In-Office Evaluation & Imaging:** Dr. Nair takes a periapical radiograph and confirms diagnosis. | US Core / ODE (Under Development) | `DiagnosticReport` (LOINC 62443-7); `Condition` updated with confirmed diagnoses (K04.01, K04.7); `Observation` (periapical findings). |
-| **Treatment Performed:** Dr. Nair completes root canal therapy on tooth #19. | US Core / ODE (Under Development) | `Procedure` (D3330, tooth #19, FDI 36); `Encounter` (in-office, POS 11). |
+| **Treatment Performed:** Dr. Nair completes root canal therapy on tooth #9 and conservatively restores it with a single-surface lingual direct composite. | US Core / ODE (Under Development) | `Procedure` (D3310, tooth #9, FDI 21); `Procedure` (D2330, tooth #9, FDI 21, lingual surface); `Encounter` (in-office, POS 11). |
 | **Encounter Summary Returned:** Dr. Nair transmits a structured post-treatment summary to the teledentistry provider. | Da Vinci CDex / ODE (Under Development) | `ClinicalImpression` (encounter summary); `Procedure` (completed); `CarePlan` (post-treatment instructions); CDex provider-to-provider push from in-office practice to teledentistry provider FHIR endpoint. |
 | **Referral Closed:** Dr. Webb reviews the encounter summary; referral marked complete. | US Core / CDex | `ServiceRequest` status updated to `completed`; open `Task` closed. |
 | **Patient Application Updated:** Patient application shows referral complete with treatment summary and recovery guidance. | FHIR Subscriptions Backport IG / US Core | Subscription event on `ServiceRequest` status change; `CarePlan` surfaced to patient application via SMART App Launch. |
-| **Claims Submission:** In-office practice submits 837D to Aetna Dental; teledentistry provider submits 837D separately. | X12 837D | 837D (in-office): D0220, D3330, tooth #19, POS 11; 837D (teledentistry): D9995, POS 02. |
+| **Claims Submission:** In-office practice submits 837D to Aetna Dental; teledentistry provider submits 837D separately. | X12 837D | 837D (in-office): D0220, D3310, D2330, tooth #9, POS 11; 837D (teledentistry): D9995, POS 02. |
 
 ---
 
@@ -99,12 +99,14 @@ This use case exercises a **virtual-to-in-office provider referral** spanning a 
 | `Condition` | US Core / ODE | Presenting condition (K04.01) documented in virtual encounter; confirmed diagnoses (K04.01, K04.7) updated by in-office provider |
 | `Observation` | US Core / ODE | Symptom findings from virtual encounter (pain on biting, thermal sensitivity, duration); periapical findings from in-office imaging |
 | `MedicationStatement` | US Core | Patient-reported medications captured during virtual assessment; transmitted with referral |
+| `AllergyIntolerance` | US Core | Allergies captured during virtual assessment; transmitted with referral |
 | `ServiceRequest` | US Core / ODE | Structured referral from teledentistry provider to in-office dental provider; status lifecycle `active` → `completed` |
-| `DocumentReference` | US Core | Two uses: (1) a clinical-note wrapper for the virtual encounter's structured findings; (2) the patient-submitted **intraoral photos** (inline `image/jpeg`, `author` = Patient, non-radiographic), correlated to tooth #19 via the symptom `Observation.derivedFrom` since R4 `DocumentReference` has no body-site element. Both transmitted as supporting documentation with the referral |
+| `DocumentReference` | US Core | Two uses: (1) a clinical-note wrapper for the virtual encounter's structured findings; (2) the patient-submitted **intraoral photos** (`image/jpeg`, `author` = Patient, non-radiographic), delivered **by reference through an ARex manifest** and not inline, correlated to tooth #9 via the symptom `Observation.derivedFrom` since R4 `DocumentReference` has no body-site element. Both transmitted as supporting documentation with the referral |
 | `Appointment` / `AppointmentResponse` | US Core | In-office appointment created by receiving practice; response returned to teledentistry provider and surfaced to patient application |
 | `DiagnosticReport` | US Core / ODE | Periapical radiograph report (LOINC 62443-7) from in-office evaluation |
 | `ImagingStudy` | US Core | Periapical radiographic image referenced in `DiagnosticReport` |
-| `Procedure` | US Core / ODE | Root canal therapy (D3330, tooth #19, FDI 36) performed by in-office provider; teledentistry encounter (D9995) |
+| `Procedure` | US Core / ODE | Root canal therapy (D3310, tooth #9, FDI 21) and a single-surface lingual direct composite (D2330, tooth #9, FDI 21) performed by in-office provider; teledentistry encounter (D9995) |
+| `List` / `DocumentReference` / `Provenance` | ARex (Onyx; draft) | Manifest, content entries and signed provenance for the patient-submitted intraoral photos, so the photos travel by reference instead of inline |
 | `ClinicalImpression` | ODE | Structured post-treatment encounter summary transmitted from in-office practice to teledentistry provider via CDex |
 | `CarePlan` | US Core | Post-treatment care instructions; surfaced to patient application |
 | `Task` | CDex | Tracks the open referral as an actionable item; closed on receipt of encounter summary |
@@ -129,7 +131,7 @@ This use case exercises a **virtual-to-in-office provider referral** spanning a 
 
 6. **Closed-loop encounter summary** — The in-office practice must transmit a structured `ClinicalImpression` and `Procedure` bundle back to the originating teledentistry provider via CDex, closing the referral loop without a portal login or phone call.
 
-7. **CDT codes across care settings** — Both the teledentistry encounter (`D9995`, POS 02) and the in-office procedure (`D3330`, POS 11) must be expressible using ODE-profiled `Procedure` resources with CDT codes in `Procedure.code`, enabling downstream 837D claims submission from discrete FHIR data.
+7. **CDT codes across care settings** — Both the teledentistry encounter (`D9995`, POS 02) and the in-office procedures (`D3310` and `D2330`, POS 11) must be expressible using ODE-profiled `Procedure` resources with CDT codes in `Procedure.code`, enabling downstream 837D claims submission from discrete FHIR data.
 
 8. **Multi-organization patient application coherence** — The patient application surfaces data from two independent provider organizations and the payer, testing SMART App Launch, PDex, and FHIR Subscriptions in a single patient-facing view without requiring separate logins.
 
@@ -147,10 +149,10 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 |---|---|---|
 | **270 / 271** — Eligibility & Benefit Inquiry / Response | Teledentistry provider verifies patient Aetna Dental eligibility at session initiation | Queries dental benefit; confirms teledentistry (D9995) coverage, annual maximum remaining, and endodontic benefit |
 | **837D** — Dental Claim (Teledentistry Provider) | Teledentistry provider bills Aetna Dental for the synchronous virtual consultation | CDT D9995 (teledentistry — synchronous); POS 02; teledentistry provider as rendering provider |
-| **837D** — Dental Claim (In-Office Dental Practice) | In-office practice bills Aetna Dental for evaluation, imaging, and endodontic treatment | CDT D0220 (periapical radiograph); D3330 (molar root canal, tooth #19); POS 11; in-office provider as rendering provider; referral number included |
+| **837D** — Dental Claim (In-Office Dental Practice) | In-office practice bills Aetna Dental for evaluation, imaging, and endodontic treatment | CDT D0220 (periapical radiograph); D3310 (anterior root canal, tooth #9); D2330 (resin-based composite, one surface, anterior, tooth #9); POS 11; in-office provider as rendering provider; referral number included |
 | **835** — Remittance Advice | Aetna Dental adjudicates and pays both claims | Adjustment reason codes; patient cost responsibility per plan design |
 
-> **Note on 278:** No prior authorization is required for D9995 or D3330 under this plan design. The X12 278 transaction is not in scope for this use case.
+> **Note on 278:** No prior authorization is required for D9995, D3310 or D2330 under this plan design. The X12 278 transaction is not in scope for this use case.
 
 ### CDT Codes in Scope
 
@@ -159,7 +161,8 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | `D9995` | Teledentistry — synchronous; real-time encounter | POS 02 — Telehealth | Teledentistry provider |
 | `D0120` | Periodic oral evaluation — established patient | POS 11 — Office | In-office dental provider |
 | `D0220` | Periapical radiographic image | POS 11 — Office | In-office dental provider |
-| `D3330` | Endodontic therapy, molar tooth (excl. final restoration) | POS 11 — Office | In-office dental provider |
+| `D3310` | Endodontic therapy, anterior tooth (excluding final restoration) | POS 11 — Office | In-office dental provider |
+| `D2330` | Resin-based composite — one surface, anterior | POS 11 — Office | In-office dental provider |
 
 ### LOINC Codes in Scope
 
@@ -186,6 +189,7 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | **Address** | 4412 Barton Creek Blvd, Apt 7, Austin, TX 78735 | City: Austin; State: TX; ZIP: 78735 |
 | **Language** | English | Preferred language |
 | **Active** | True | Patient record is active |
+| **Dental Home** | None | Patient-reported: has not seen a dentist in some time (captured in the virtual assessment) |
 
 ---
 
@@ -290,14 +294,14 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | **Intent** | Order | Clinical order |
 | **Category** | Consultation / Referral | Type |
 | **Priority** | Urgent | Acute pain; next-day appointment indicated |
-| **Code** | In-office dental evaluation and endodontic treatment — irreversible pulpitis, tooth #19 | Referral reason |
+| **Code** | In-office dental evaluation and endodontic treatment — irreversible pulpitis, tooth #9 | Referral reason |
 | **Subject** | Sarah Okonkwo | Patient reference |
 | **Requester** | Dr. Marcus Webb, DDS | Teledentistry provider |
 | **Performer** | Dr. Priya Nair, DDS | In-office dental provider |
 | **Reason Code** | K04.01 — Irreversible pulpitis | ICD-10 presenting diagnosis |
 | **Ordered Date** | 2026-07-14 | Virtual encounter date |
 | **Occurrence DateTime** | 2026-07-15 | Target in-office appointment |
-| **Description** | Patient presents via synchronous teledentistry encounter with acute pain on biting, thermal sensitivity, and three-day symptom duration, lower left quadrant. Clinical presentation consistent with irreversible pulpitis, tooth #19. Periapical involvement possible. Radiographic evaluation and endodontic assessment indicated. Patient-submitted intraoral photos of the tooth #19 region attached (non-radiographic). Patient medication list attached. No known drug allergies reported. | Referral payload |
+| **Description** | Patient presents via synchronous teledentistry encounter with acute pain on biting, thermal sensitivity, and three-day symptom duration, upper front teeth. Clinical presentation suggests irreversible pulpitis, tooth #9. Periapical involvement possible. Radiographic evaluation and endodontic assessment indicated. Patient has no dental home. Patient-submitted intraoral photos of the tooth #9 region provided by reference (ARex manifest; non-radiographic). Patient medication list and allergy list attached. No known drug allergies reported. | Referral payload |
 
 #### Encounter (Virtual — Teledentistry Provider, POS 02)
 
@@ -319,7 +323,7 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | **Clinical Status** | Active | Condition active |
 | **Verification Status** | Provisional | Assessed; radiographic confirmation required |
 | **Code** | K04.01 — Irreversible pulpitis | ICD-10 |
-| **Body Site** | Tooth #19 (FDI: 36) | Lower left first molar |
+| **Body Site** | Tooth #9 (FDI: 21) | Maxillary left central incisor |
 | **Asserter** | Dr. Marcus Webb, DDS | Documenting provider |
 | **Onset** | Approximately 3 days prior to encounter | Patient-reported |
 | **Note** | Acute pain on biting, thermal sensitivity to cold, spontaneous aching. Possible periapical involvement. Radiographic confirmation required. | Clinical note |
@@ -329,13 +333,25 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | FHIR Element | Value | Notes |
 |---|---|---|
 | **Status** | Completed | Procedure performed |
-| **Code** | D3330 (CDT) | Endodontic therapy, molar tooth |
+| **Code** | D3310 (CDT) | Endodontic therapy, anterior tooth (excluding final restoration) |
 | **Subject** | Sarah Okonkwo | Patient reference |
 | **Performer** | Dr. Priya Nair, DDS | In-office dental provider |
 | **Performed DateTime** | 2026-07-15 | Date of procedure |
-| **Body Site** | Tooth #19 (FDI: 36) | Lower left first molar |
+| **Body Site** | Tooth #9 (FDI: 21) | Maxillary left central incisor |
 | **Reason Reference** | K04.01 (confirmed); K04.7 (periapical abscess without sinus) | Confirmed diagnoses |
-| **Note** | Three canals instrumented and obturated. Pre-operative periapical radiograph confirmed periapical rarefaction. Post-operative radiograph taken. Patient tolerated procedure well. Final restoration to be placed by patient's regular dental provider. | Operative note |
+| **Note** | Canal space instrumented and obturated. Pre-operative periapical radiograph confirmed periapical rarefaction. Post-operative radiograph taken. Patient tolerated procedure well. Access restored in the same visit with a single-surface lingual direct composite (D2330). A definitive crown is still indicated, to be placed by a dentist the patient establishes as her dental home. | Operative note |
+
+#### Procedure (Direct Composite Restoration — In-Office Practice, POS 11)
+
+| FHIR Element | Value | Notes |
+|---|---|---|
+| **Status** | Completed | Procedure performed |
+| **Code** | D2330 (CDT) | Resin-based composite — one surface, anterior |
+| **Subject** | Sarah Okonkwo | Patient reference |
+| **Performer** | Dr. Priya Nair, DDS | In-office dental provider |
+| **Performed DateTime** | 2026-07-15 | Same visit as the root canal therapy |
+| **Body Site** | Tooth #9 (FDI: 21), lingual surface | Maxillary left central incisor |
+| **Reason Reference** | K04.01 (confirmed) | Restoration of the endodontically treated tooth |
 
 #### DiagnosticReport (Periapical Radiograph)
 
@@ -345,7 +361,7 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | **Code** | D0220 (CDT) / LOINC 62443-7 | Periapical radiographic image |
 | **Performer** | Dr. Priya Nair, DDS | In-office dental provider |
 | **Effective DateTime** | 2026-07-15 | Date of imaging |
-| **Conclusion** | Tooth #19: periapical rarefaction consistent with periapical abscess. Three-canal anatomy. No root fracture. Endodontic treatment completed same visit. | Radiographic findings |
+| **Conclusion** | Tooth #9: periapical rarefaction consistent with periapical abscess. No root fracture. Endodontic treatment completed same visit. | Radiographic findings |
 
 #### ClinicalImpression (Encounter Summary — In-Office Practice to Teledentistry Provider)
 
@@ -354,9 +370,9 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | **Status** | Completed | Summary complete |
 | **Date** | 2026-07-15 | Date of summary |
 | **Assessor** | Dr. Priya Nair, DDS | In-office dental provider |
-| **Summary** | Patient seen 2026-07-15 per referral from teledentistry provider. Periapical radiograph confirmed irreversible pulpitis with periapical abscess, tooth #19. Root canal therapy completed in single visit (D3330). Three canals instrumented and obturated. Patient tolerated procedure well. Final restoration (crown) indicated; patient advised to contact primary dental provider. Follow-up periapical radiograph recommended at 6 months. | Encounter summary |
+| **Summary** | Patient seen 2026-07-15 per referral from teledentistry provider. Periapical radiograph confirmed irreversible pulpitis with periapical abscess, tooth #9. Root canal therapy completed in single visit (D3310) and the access conservatively restored with a single-surface lingual direct composite (D2330). Patient tolerated procedure well. Definitive crown indicated; patient has no dental home and is advised to establish one for crown placement. Follow-up periapical radiograph recommended at 6 months. | Encounter summary |
 | **Finding** | Confirmed: K04.01; K04.7 | Confirmed diagnoses |
-| **Recommendations** | 1. Final restoration (crown) by patient's regular dental provider; 2. Periapical radiograph follow-up at 6 months; 3. Ibuprofen 400mg PRN for post-operative discomfort | Post-treatment plan |
+| **Recommendations** | 1. Definitive crown by a dentist the patient establishes as her dental home; 2. Periapical radiograph follow-up at 6 months; 3. Ibuprofen 400mg PRN for post-operative discomfort | Post-treatment plan |
 
 ---
 
@@ -378,7 +394,8 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | `D9995` | Teledentistry — synchronous; real-time encounter | POS 02 |
 | `D0120` | Periodic oral evaluation | POS 11 |
 | `D0220` | Periapical radiographic image | POS 11 |
-| `D3330` | Endodontic therapy, molar tooth (excl. final restoration) | POS 11 |
+| `D3310` | Endodontic therapy, anterior tooth (excluding final restoration) | POS 11 |
+| `D2330` | Resin-based composite — one surface, anterior | POS 11 |
 
 #### LOINC Codes
 
@@ -406,7 +423,7 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | **Referral Closed** | 2026-07-15 | 12:36 | Teledentistry provider system | `ServiceRequest` → completed |
 | **Patient Application Updated** | 2026-07-15 | 12:36 | Patient application | FHIR Subscription event |
 | **837D Submitted — Teledentistry Provider** | 2026-07-16 | 08:00 | Billing | D9995, POS 02 → Payer EDI |
-| **837D Submitted — In-Office Practice** | 2026-07-16 | 08:30 | Billing | D0220, D3330, POS 11 → Payer EDI |
+| **837D Submitted — In-Office Practice** | 2026-07-16 | 08:30 | Billing | D0220, D3310, D2330, POS 11 → Payer EDI |
 
 #### Key Timeline Constraints
 

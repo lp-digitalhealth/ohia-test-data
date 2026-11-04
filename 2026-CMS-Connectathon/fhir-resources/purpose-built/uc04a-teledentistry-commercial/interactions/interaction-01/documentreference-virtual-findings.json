@@ -52,5 +52,5 @@
       }
     ]
   },
-  "description": "Structured wrapper for Dr. Webb's virtual assessment findings (see Observation/observation-symptoms), transmitted with the dental-to-dental referral. This is a clinical-note wrapper, not an imaging document — the diagnostic radiograph does not exist until the in-office visit (Interaction 3). The patient-submitted intraoral photos are a separate DocumentReference (documentreference-intraoral-photos)."
+  "description": "Structured wrapper for Dr. Webb's virtual assessment findings (see Observation/observation-symptoms), transmitted with the dental-to-dental referral. This is a clinical-note wrapper, not an imaging document — the diagnostic radiograph does not exist until the in-office visit (Interaction 3). The patient-submitted intraoral photos are delivered separately by ARex reference (List/arex-manifest-intraoral-photos)."
 }

@@ -1,0 +1,40 @@
+{
+  "resourceType": "Observation",
+  "id": "observation-dental-home",
+  "status": "final",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+          "code": "survey",
+          "display": "Survey"
+        }
+      ]
+    }
+  ],
+  "code": {
+    "text": "Dental home / last dental visit (patient-reported)"
+  },
+  "subject": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-01-virtual",
+    "display": "Virtual dental consultation, 2026-07-14"
+  },
+  "effectiveDateTime": "2026-07-14T19:36:00-05:00",
+  "performer": [
+    {
+      "reference": "PractitionerRole/role-webb",
+      "display": "Dr. Marcus Webb, DDS"
+    }
+  ],
+  "valueString": "No dental home. Sarah has not seen a dentist in some time.",
+  "note": [
+    {
+      "text": "Captured by Dr. Webb during the structured virtual assessment (UC04 narrative, revised 2026-11-04: 'He confirms Sarah has not seen a dentist in some time'). Text only: the narrative gives no date for the last visit, so none is asserted, and no code is asserted for 'dental home'. It matters downstream because the definitive crown at Interaction 4 has no existing dentist to go to."
+    }
+  ]
+}

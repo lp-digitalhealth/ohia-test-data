@@ -13,7 +13,7 @@
         "display": "Single view Teeth Document XR"
       }
     ],
-    "text": "Periapical radiograph, tooth #19 (CDT D0220)"
+    "text": "Periapical radiograph, tooth #9 (CDT D0220)"
   },
   "subject": {
     "reference": "Patient/patient-sarah-okonkwo",
@@ -30,7 +30,7 @@
       "display": "Dr. Priya Nair, DDS"
     }
   ],
-  "conclusion": "Tooth #19 (lower left first molar): periapical rarefaction consistent with periapical abscess; three-canal anatomy; no root fracture. Findings confirm irreversible pulpitis with early periapical pathology. Endodontic treatment indicated and completed same visit.",
+  "conclusion": "Tooth #9 (maxillary left central incisor): periapical rarefaction consistent with periapical abscess; no root fracture. Findings confirm irreversible pulpitis with early periapical pathology. Endodontic treatment indicated and completed same visit.",
   "imagingStudy": [
     {
       "reference": "ImagingStudy/imagingstudy-periapical"
