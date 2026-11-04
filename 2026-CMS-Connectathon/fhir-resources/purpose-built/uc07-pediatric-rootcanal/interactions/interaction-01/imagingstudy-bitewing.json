@@ -1,0 +1,42 @@
+{
+  "resourceType": "ImagingStudy",
+  "id": "imagingstudy-bitewing",
+  "identifier": [
+    {
+      "system": "urn:dicom:uid",
+      "value": "urn:oid:2.25.312619272134334331601642608621692771546"
+    },
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC07-001"
+    }
+  ],
+  "status": "available",
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-eval"
+  },
+  "started": "2026-07-08T09:30:00-05:00",
+  "numberOfSeries": 1,
+  "numberOfInstances": 1,
+  "note": [
+    {
+      "text": "Pointer only: this resource holds metadata, not pixels. The image is an entry in the ARex manifest arex-manifest-radiographs. By the project's convention (decision F25) the second identifier above repeats the manifest's transaction-context business identifier (urn:ohia:referral-id|REF-2026-UC07-001), so a consumer finds the manifest with the ARex search parameter transaction-identifier. DICOM UIDs are synthetic (2.25.*) and no DICOM object exists behind them."
+    }
+  ],
+  "series": [
+    {
+      "uid": "2.25.214699493619657716995576893941678202927",
+      "number": 1,
+      "modality": {
+        "system": "http://dicom.nema.org/resources/ontology/DCM",
+        "code": "IO",
+        "display": "Intra-oral Radiography"
+      },
+      "numberOfInstances": 1
+    }
+  ]
+}

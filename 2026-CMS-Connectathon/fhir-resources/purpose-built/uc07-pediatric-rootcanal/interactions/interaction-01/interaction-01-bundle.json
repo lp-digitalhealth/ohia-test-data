@@ -1,0 +1,2071 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:fcf4a8f4-2a3d-5e34-ba04-0863119c49c9",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-pediatric-dental-tx",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1847736208"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "Pediatric Dental Practice"
+          }
+        ],
+        "name": "Pediatric Dental Practice — Texas (Synthetic)",
+        "address": [
+          {
+            "state": "TX",
+            "country": "US"
+          }
+        ],
+        "endpoint": [
+          {
+            "reference": "Endpoint/endpoint-pediatric-fhir"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-pediatric-dental-tx"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b5218f11-5726-546c-971e-44ae4b7cba9c",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-restorative-dental-tx",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "2936518473"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "prov",
+                "display": "Healthcare Provider"
+              }
+            ],
+            "text": "General Dental Practice (Restorative/Endodontic)"
+          }
+        ],
+        "name": "Restorative Dental Practice — Texas (Synthetic)",
+        "address": [
+          {
+            "state": "TX",
+            "country": "US"
+          }
+        ],
+        "endpoint": [
+          {
+            "reference": "Endpoint/endpoint-restorative-fhir"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-restorative-dental-tx"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:645f760f-f478-59aa-a354-5d84b42b6188",
+      "resource": {
+        "resourceType": "Organization",
+        "id": "org-dentaquest-tx",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-organization"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ohia:payer-edi-id",
+            "value": "CX014"
+          }
+        ],
+        "active": true,
+        "type": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/organization-type",
+                "code": "pay",
+                "display": "Payer"
+              }
+            ],
+            "text": "Texas Medicaid dental plan"
+          }
+        ],
+        "name": "DentaQuest USA Insurance Company, Inc.",
+        "endpoint": [
+          {
+            "reference": "Endpoint/endpoint-dentaquest-tx"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Organization/org-dentaquest-tx"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e18558bb-a1c1-5e80-b027-44ec97223828",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-pediatric-dental-tx",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "status": "active",
+        "name": "Pediatric Dental Practice — Texas (office)",
+        "description": "Place of Service 11 — Office",
+        "address": {
+          "state": "TX",
+          "country": "US"
+        },
+        "managingOrganization": {
+          "reference": "Organization/org-pediatric-dental-tx"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-pediatric-dental-tx"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ea2912c3-32ea-52e3-b56e-9e984569b06a",
+      "resource": {
+        "resourceType": "Location",
+        "id": "loc-restorative-dental-tx",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location"
+          ]
+        },
+        "status": "active",
+        "name": "Restorative Dental Practice — Texas (office)",
+        "description": "Place of Service 11 — Office",
+        "address": {
+          "state": "TX",
+          "country": "US"
+        },
+        "managingOrganization": {
+          "reference": "Organization/org-restorative-dental-tx"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Location/loc-restorative-dental-tx"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:41b84af8-55cf-55a2-94d8-bb1a42741d8a",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-mary-parker",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1720384753"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Parker",
+            "given": [
+              "Mary",
+              "Elizabeth"
+            ],
+            "prefix": [
+              "Dr."
+            ],
+            "suffix": [
+              "DDS"
+            ]
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "text": "DDS — Pediatric Dentistry"
+            },
+            "identifier": [
+              {
+                "system": "urn:ohia:license",
+                "value": "TX-DDS-061204"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/pract-mary-parker"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:bd977513-ccaf-5a4b-bb98-d2c0e5b6828c",
+      "resource": {
+        "resourceType": "Practitioner",
+        "id": "pract-max-garcia",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitioner"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1839204769"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Garcia",
+            "given": [
+              "Maximilian"
+            ],
+            "prefix": [
+              "Dr."
+            ],
+            "suffix": [
+              "DDS"
+            ]
+          }
+        ],
+        "qualification": [
+          {
+            "code": {
+              "text": "DDS — Doctor of Dental Surgery"
+            },
+            "identifier": [
+              {
+                "system": "urn:ohia:license",
+                "value": "TX-DDS-073392"
+              }
+            ]
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Practitioner/pract-max-garcia"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b904810e-4f67-5aa4-8c26-99a8ae30d234",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-pediatric-fhir",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest"
+        },
+        "name": "Pediatric Dental Practice — Texas FHIR API (synthetic test endpoint)",
+        "managingOrganization": {
+          "reference": "Organization/org-pediatric-dental-tx"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/resource-types",
+                "code": "Bundle"
+              }
+            ]
+          }
+        ],
+        "address": "https://pediatricdental.example.org/fhir/r4"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-pediatric-fhir"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:f17b110d-a1a9-5924-a722-4eaf4379a743",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-restorative-fhir",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest"
+        },
+        "name": "Restorative Dental Practice — Texas FHIR API (synthetic test endpoint)",
+        "managingOrganization": {
+          "reference": "Organization/org-restorative-dental-tx"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/resource-types",
+                "code": "Bundle"
+              }
+            ]
+          }
+        ],
+        "address": "https://restorativedental.example.org/fhir/r4"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-restorative-fhir"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4555973f-5b46-5e4d-863b-c18e90bb34d1",
+      "resource": {
+        "resourceType": "Endpoint",
+        "id": "endpoint-dentaquest-tx",
+        "status": "active",
+        "connectionType": {
+          "system": "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
+          "code": "hl7-fhir-rest"
+        },
+        "name": "DentaQuest Texas Medicaid Dental FHIR API (synthetic test endpoint)",
+        "managingOrganization": {
+          "reference": "Organization/org-dentaquest-tx"
+        },
+        "payloadType": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/resource-types",
+                "code": "Bundle"
+              }
+            ]
+          }
+        ],
+        "address": "https://dentaquest-tx.example.org/fhir/r4"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Endpoint/endpoint-dentaquest-tx"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:68165635-4a94-5339-906c-5c2b63edcbec",
+      "resource": {
+        "resourceType": "Coverage",
+        "id": "coverage-joe-castle-dentaquest",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-coverage"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "http://texas.medicaid.gov/beneficiary",
+            "value": "TX-MCD-0038211"
+          }
+        ],
+        "status": "active",
+        "type": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+              "code": "DENTAL",
+              "display": "dental care policy"
+            }
+          ],
+          "text": "DentaQuest — Texas Medicaid dental plan (TX HHSC Dental Services)"
+        },
+        "subscriber": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "subscriberId": "TX-MCD-0038211",
+        "beneficiary": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "relationship": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+              "code": "self",
+              "display": "Self"
+            }
+          ]
+        },
+        "period": {
+          "start": "2026-01-01",
+          "end": "2026-12-31"
+        },
+        "payor": [
+          {
+            "reference": "Organization/org-dentaquest-tx",
+            "display": "DentaQuest USA Insurance Company, Inc."
+          }
+        ],
+        "class": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/coverage-class",
+                  "code": "plan",
+                  "display": "Plan"
+                }
+              ]
+            },
+            "value": "TX-MEDICAID-DENTAL",
+            "name": "DentaQuest — Texas Medicaid dental plan"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Coverage/coverage-joe-castle-dentaquest"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4eb5574f-6e55-59de-9321-503db8643c95",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-joe-castle",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "https://pediatricdental.example.org/fhir/mrn",
+            "value": "PEDDENT-TX-2026-0019"
+          },
+          {
+            "system": "https://restorativedental.example.org/fhir/mrn",
+            "value": "RESTORE-TX-2026-0026"
+          },
+          {
+            "system": "http://texas.medicaid.gov/beneficiary",
+            "value": "TX-MCD-0038211"
+          }
+        ],
+        "active": true,
+        "name": [
+          {
+            "family": "Castle",
+            "given": [
+              "Joe"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(512) 555-0198",
+            "use": "mobile"
+          },
+          {
+            "system": "email",
+            "value": "linda.castle@example.com",
+            "use": "home"
+          }
+        ],
+        "gender": "male",
+        "birthDate": "2010-03-22",
+        "address": [
+          {
+            "line": [
+              "918 South Congress Avenue, Apt 6"
+            ],
+            "city": "Austin",
+            "state": "TX",
+            "postalCode": "78704",
+            "country": "US"
+          }
+        ],
+        "communication": [
+          {
+            "language": {
+              "coding": [
+                {
+                  "system": "urn:ietf:bcp:47",
+                  "code": "en",
+                  "display": "English"
+                }
+              ]
+            },
+            "preferred": true
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Patient/patient-joe-castle"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:613f9b31-94e3-55b7-b446-8e23b3c73d44",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "practrole-mary-parker",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "active": true,
+        "practitioner": {
+          "reference": "Practitioner/pract-mary-parker"
+        },
+        "organization": {
+          "reference": "Organization/org-pediatric-dental-tx"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223P0221X",
+                "display": "Dentist — Pediatric Dentistry"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223P0221X",
+                "display": "Dentist — Pediatric Dentistry"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "reference": "Location/loc-pediatric-dental-tx"
+          }
+        ],
+        "endpoint": [
+          {
+            "reference": "Endpoint/endpoint-pediatric-fhir"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/practrole-mary-parker"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ecaea8aa-8abe-5600-8a48-4e7b5e8bddb9",
+      "resource": {
+        "resourceType": "PractitionerRole",
+        "id": "practrole-max-garcia",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+          ]
+        },
+        "active": true,
+        "practitioner": {
+          "reference": "Practitioner/pract-max-garcia"
+        },
+        "organization": {
+          "reference": "Organization/org-restorative-dental-tx"
+        },
+        "code": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223G0001X",
+                "display": "Dentist — General Practice"
+              }
+            ]
+          }
+        ],
+        "specialty": [
+          {
+            "coding": [
+              {
+                "system": "http://nucc.org/provider-taxonomy",
+                "code": "1223G0001X",
+                "display": "Dentist — General Practice"
+              }
+            ]
+          }
+        ],
+        "location": [
+          {
+            "reference": "Location/loc-restorative-dental-tx"
+          }
+        ],
+        "endpoint": [
+          {
+            "reference": "Endpoint/endpoint-restorative-fhir"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "PractitionerRole/practrole-max-garcia"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b42b4a6e-640b-5817-b4a4-1b405701c5d9",
+      "resource": {
+        "resourceType": "RelatedPerson",
+        "id": "relatedperson-linda-castle",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson"
+          ]
+        },
+        "active": true,
+        "patient": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "relationship": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "MTH",
+                "display": "mother"
+              },
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v3-RoleCode",
+                "code": "GUARD",
+                "display": "guardian"
+              }
+            ],
+            "text": "Mother / Legal Guardian"
+          }
+        ],
+        "name": [
+          {
+            "family": "Castle",
+            "given": [
+              "Linda"
+            ]
+          }
+        ],
+        "telecom": [
+          {
+            "system": "phone",
+            "value": "(512) 555-0198",
+            "use": "mobile"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "RelatedPerson/relatedperson-linda-castle"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c846de94-7012-58b4-967b-156e655ce1c8",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "arex-entry-bitewing",
+        "meta": {
+          "profile": [
+            "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-content-entry"
+          ]
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D0270",
+              "display": "Bitewing - single radiographic image"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "date": "2026-07-08T10:15:00-05:00",
+        "content": [
+          {
+            "attachment": {
+              "extension": [
+                {
+                  "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-digest",
+                  "extension": [
+                    {
+                      "url": "algorithm",
+                      "valueCode": "sha-256"
+                    },
+                    {
+                      "url": "value",
+                      "valueString": "557bd0ccba0ee74ab9b5e29b8d5502d0dabd78e749df12e1f5e12fec6ba3eb5c"
+                    }
+                  ]
+                }
+              ],
+              "contentType": "image/png",
+              "url": "https://pediatricdental.example.org/arex/Binary/arex-entry-bitewing",
+              "size": 140,
+              "title": "Bitewing radiograph (synthetic placeholder image)"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DocumentReference/arex-entry-bitewing"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:39405935-89ca-524b-ab6e-634f1c6bc8e6",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "arex-entry-periapical",
+        "meta": {
+          "profile": [
+            "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-content-entry"
+          ]
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D0220",
+              "display": "Intraoral - periapical first radiographic image"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "date": "2026-07-08T10:15:00-05:00",
+        "content": [
+          {
+            "attachment": {
+              "extension": [
+                {
+                  "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-digest",
+                  "extension": [
+                    {
+                      "url": "algorithm",
+                      "valueCode": "sha-256"
+                    },
+                    {
+                      "url": "value",
+                      "valueString": "41a48cf902e317a82283c2b953583a39cdae262d1357df2f136f60cb36df5a21"
+                    }
+                  ]
+                }
+              ],
+              "contentType": "image/png",
+              "url": "https://pediatricdental.example.org/arex/Binary/arex-entry-periapical",
+              "size": 137,
+              "title": "Periapical radiograph, tooth #4 (synthetic placeholder image)"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DocumentReference/arex-entry-periapical"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:659f2cab-b4f6-583f-bada-26fdc6813d5b",
+      "resource": {
+        "resourceType": "List",
+        "id": "arex-manifest-radiographs",
+        "meta": {
+          "profile": [
+            "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-manifest"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-expires",
+            "valueInstant": "2026-07-22T15:15:00Z"
+          },
+          {
+            "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-requires-access-token",
+            "valueBoolean": true
+          },
+          {
+            "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-transaction-context",
+            "extension": [
+              {
+                "url": "businessIdentifier",
+                "valueIdentifier": {
+                  "system": "urn:ohia:referral-id",
+                  "value": "REF-2026-UC07-001"
+                }
+              },
+              {
+                "url": "requestingOrganization",
+                "valueReference": {
+                  "reference": "Organization/org-restorative-dental-tx"
+                }
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://pediatricdental.example.org/arex/manifest-id",
+            "value": "MAN-2026-0708-0001"
+          }
+        ],
+        "status": "current",
+        "mode": "snapshot",
+        "title": "Radiographs for referral REF-2026-UC07-001",
+        "code": {
+          "coding": [
+            {
+              "system": "http://fhir.onyxhealth.io/us/arex/CodeSystem/arex-manifest-type",
+              "code": "attachment-set",
+              "display": "Attachment set"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "date": "2026-07-08T15:15:00Z",
+        "entry": [
+          {
+            "item": {
+              "reference": "DocumentReference/arex-entry-periapical"
+            }
+          },
+          {
+            "item": {
+              "reference": "DocumentReference/arex-entry-bitewing"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "ASSUMPTIONS: the expiry (14 days after publication) is borrowed from the I2 manifest window in the narrative; the manifest identifier and the arex.example URLs are synthetic. The payload files in arex-payloads/ are 8x8 placeholder PNGs, not radiographs; the digests are real SHA-256 over those files."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "List/arex-manifest-radiographs"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:794d43f7-bdd1-5f34-8fb0-5e7b446078a8",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "arex-provenance-radiographs",
+        "meta": {
+          "profile": [
+            "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-provenance"
+          ]
+        },
+        "target": [
+          {
+            "reference": "List/arex-manifest-radiographs"
+          }
+        ],
+        "recorded": "2026-07-08T15:15:01Z",
+        "agent": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author",
+                  "display": "Author"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-pediatric-dental-tx"
+            }
+          }
+        ],
+        "entity": [
+          {
+            "role": "source",
+            "what": {
+              "display": "PLACEHOLDER SIGNATURE. The ARex Provenance profile requires signature (min 1) but a valid detached JWS cannot be committed here; signature.data below is NOT a valid JWS. Regenerate the detached JWS over the manifest's FHIR Canonical JSON at test time."
+            }
+          }
+        ],
+        "signature": [
+          {
+            "type": [
+              {
+                "system": "urn:iso-astm:E1762-95:2013",
+                "code": "1.2.840.10065.1.12.1.1",
+                "display": "Author's Signature"
+              }
+            ],
+            "when": "2026-07-08T15:15:01Z",
+            "who": {
+              "reference": "Organization/org-pediatric-dental-tx"
+            },
+            "sigFormat": "application/jose",
+            "data": "UExBQ0VIT0xERVItTk9ULUEtVkFMSUQtSldTOiByZWdlbmVyYXRlIGF0IHRlc3QgdGltZQ=="
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Provenance/arex-provenance-radiographs"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ad9c1f87-d6c8-50a2-b3d2-d7697bfafd95",
+      "resource": {
+        "resourceType": "Communication",
+        "id": "communication-payer-notification",
+        "status": "completed",
+        "category": [
+          {
+            "text": "Care coordination notification"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-eval"
+        },
+        "basedOn": [
+          {
+            "reference": "ServiceRequest/servicerequest-referral"
+          }
+        ],
+        "sent": "2026-07-08T10:16:00-05:00",
+        "sender": {
+          "reference": "PractitionerRole/practrole-mary-parker",
+          "display": "Dr. Mary Parker, DDS"
+        },
+        "recipient": [
+          {
+            "reference": "Organization/org-dentaquest-tx",
+            "display": "DentaQuest USA Insurance Company, Inc."
+          }
+        ],
+        "payload": [
+          {
+            "contentString": "Patient referred to Dr. Max Garcia, DDS for root canal therapy and restorative treatment on tooth #4."
+          }
+        ],
+        "note": [
+          {
+            "text": "Provider-to-payer awareness notification (Da Vinci CDex). It is not a claim or a prior authorization request and asks nothing of the plan. Same endpoint as the ODE referral per the owner's decision (F17)."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Communication/communication-payer-notification"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:995896c3-3b10-57b5-8877-369de04999bc",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-caries-tooth4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-encounter-diagnosis"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K02.53",
+              "display": "Dental caries on pit and fissure surface penetrating into the pulp"
+            }
+          ]
+        },
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+                "code": "4",
+                "display": "Permanent maxillary right second premolar tooth"
+              }
+            ],
+            "text": "Tooth #4"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-eval"
+        },
+        "recordedDate": "2026-07-08T09:30:00-05:00",
+        "note": [
+          {
+            "text": "Code and description as given in the UC07 narrative (MOB decay extending to the pulp, tooth #4). OPEN: the project notes K02.53 needs a dentist's confirmation (a smooth-surface code, K02.63, may fit better)."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/condition-caries-tooth4"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:eed02374-ad5f-5c71-82e1-bcccb2d94426",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "condition-periapical-abscess-tooth4",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-encounter-diagnosis"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed",
+              "display": "Confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis",
+                "display": "Encounter Diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/sid/icd-10-cm",
+              "code": "K04.7",
+              "display": "Periapical abscess without sinus"
+            }
+          ]
+        },
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+                "code": "4",
+                "display": "Permanent maxillary right second premolar tooth"
+              }
+            ],
+            "text": "Tooth #4"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-eval"
+        },
+        "recordedDate": "2026-07-08T09:30:00-05:00"
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Condition/condition-periapical-abscess-tooth4"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:506824a2-7b2d-5513-b52b-4ee4e00b892e",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "diagnosticreport-bitewing",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "RAD",
+                "display": "Radiology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D0270",
+              "display": "Bitewing - single radiographic image"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-eval"
+        },
+        "effectiveDateTime": "2026-07-08T09:30:00-05:00",
+        "performer": [
+          {
+            "reference": "PractitionerRole/practrole-mary-parker",
+            "display": "Dr. Mary Parker, DDS"
+          }
+        ],
+        "imagingStudy": [
+          {
+            "reference": "ImagingStudy/imagingstudy-bitewing"
+          }
+        ],
+        "conclusion": "Bitewing radiograph: findings as recorded for tooth #4 in the periapical report."
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DiagnosticReport/diagnosticreport-bitewing"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:ea841c99-1074-5624-9c4c-f5285a27e467",
+      "resource": {
+        "resourceType": "DiagnosticReport",
+        "id": "diagnosticreport-periapical",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+                "code": "RAD",
+                "display": "Radiology"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D0220",
+              "display": "Intraoral - periapical first radiographic image"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-eval"
+        },
+        "effectiveDateTime": "2026-07-08T09:30:00-05:00",
+        "performer": [
+          {
+            "reference": "PractitionerRole/practrole-mary-parker",
+            "display": "Dr. Mary Parker, DDS"
+          }
+        ],
+        "imagingStudy": [
+          {
+            "reference": "ImagingStudy/imagingstudy-periapical"
+          }
+        ],
+        "conclusion": "Periapical radiograph, tooth #4: decay extending to the pulp and periapical radiolucency, consistent with periapical infection."
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DiagnosticReport/diagnosticreport-periapical"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:a74a95d9-390f-5ad3-a709-bc50ff61d4ed",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentref-clinical-notes",
+        "status": "current",
+        "type": {
+          "text": "Clinical notes — limited oral evaluation"
+        },
+        "category": [
+          {
+            "text": "Clinical note"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "date": "2026-07-08T10:15:00-05:00",
+        "author": [
+          {
+            "reference": "PractitionerRole/practrole-mary-parker",
+            "display": "Dr. Mary Parker, DDS"
+          }
+        ],
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Clinical notes, 2026-07-08",
+              "data": "TGltaXRlZCBvcmFsIGV2YWx1YXRpb24gKHByb2JsZW0gZm9jdXNlZCkuIDE2LXllYXItb2xkIG1hbGUgd2l0aCBwYWluIG9uIGNoZXdpbmcgYXQgdGhlIHVwcGVyIHJpZ2h0IGFuZCBzZW5zaXRpdml0eSB0byBjb2xkLiBNZXNpYWwtb2NjbHVzYWwtYnVjY2FsIGRlY2F5IGV4dGVuZGluZyB0byB0aGUgcHVscCBhbmQgcGVyaWFwaWNhbCByYWRpb2x1Y2VuY3kgd2l0aCBwZXJpYXBpY2FsIGluZmVjdGlvbiBvbiB0b290aCAjNCAobWF4aWxsYXJ5IHJpZ2h0IHNlY29uZCBwcmVtb2xhcikuIFRvb3RoICM0IGlzIHJlc3RvcmFibGUuIFBlcmlhcGljYWwgYW5kIGJpdGV3aW5nIHJhZGlvZ3JhcGhzIHRha2VuLg=="
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "Encounter/encounter-eval"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DocumentReference/documentref-clinical-notes"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:181d0091-8c24-5698-a82b-551e93889111",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "documentref-treatment-plan",
+        "status": "current",
+        "type": {
+          "text": "Proposed treatment plan"
+        },
+        "category": [
+          {
+            "text": "Clinical note"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "date": "2026-07-08T10:15:00-05:00",
+        "author": [
+          {
+            "reference": "PractitionerRole/practrole-mary-parker",
+            "display": "Dr. Mary Parker, DDS"
+          }
+        ],
+        "content": [
+          {
+            "attachment": {
+              "contentType": "text/plain",
+              "title": "Proposed treatment plan, 2026-07-08",
+              "data": "VG9vdGggIzQgaXMgcmVzdG9yYWJsZS4gUHJvcG9zZWQgdHJlYXRtZW50OiByb290IGNhbmFsIHRoZXJhcHkgKEQzMzIwKSwgY29yZSBidWlsZC11cCAoRDI5NTApIGFuZCBjcm93biAoRDI3NDApLCB0byBiZSBwZXJmb3JtZWQgYnkgdGhlIHJlY2VpdmluZyByZXN0b3JhdGl2ZSBkZW50aXN0Lg=="
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "Encounter/encounter-eval"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DocumentReference/documentref-treatment-plan"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:8affe678-c718-5db8-ba64-06b3dbca93f9",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-eval",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+          ]
+        },
+        "status": "finished",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "AMB",
+          "display": "ambulatory"
+        },
+        "type": [
+          {
+            "text": "Limited oral evaluation — problem focused (D0140)"
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "participant": [
+          {
+            "individual": {
+              "reference": "PractitionerRole/practrole-mary-parker",
+              "display": "Dr. Mary Parker, DDS"
+            }
+          }
+        ],
+        "period": {
+          "start": "2026-07-08T09:30:00-05:00"
+        },
+        "location": [
+          {
+            "location": {
+              "reference": "Location/loc-pediatric-dental-tx"
+            }
+          }
+        ],
+        "serviceProvider": {
+          "reference": "Organization/org-pediatric-dental-tx"
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Encounter/encounter-eval"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:54057d24-b6b3-598d-a087-cd7319a63888",
+      "resource": {
+        "resourceType": "ImagingStudy",
+        "id": "imagingstudy-bitewing",
+        "identifier": [
+          {
+            "system": "urn:dicom:uid",
+            "value": "urn:oid:2.25.312619272134334331601642608621692771546"
+          },
+          {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC07-001"
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-eval"
+        },
+        "started": "2026-07-08T09:30:00-05:00",
+        "numberOfSeries": 1,
+        "numberOfInstances": 1,
+        "note": [
+          {
+            "text": "Pointer only: this resource holds metadata, not pixels. The image is an entry in the ARex manifest arex-manifest-radiographs. By the project's convention (decision F25) the second identifier above repeats the manifest's transaction-context business identifier (urn:ohia:referral-id|REF-2026-UC07-001), so a consumer finds the manifest with the ARex search parameter transaction-identifier. DICOM UIDs are synthetic (2.25.*) and no DICOM object exists behind them."
+          }
+        ],
+        "series": [
+          {
+            "uid": "2.25.214699493619657716995576893941678202927",
+            "number": 1,
+            "modality": {
+              "system": "http://dicom.nema.org/resources/ontology/DCM",
+              "code": "IO",
+              "display": "Intra-oral Radiography"
+            },
+            "numberOfInstances": 1
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ImagingStudy/imagingstudy-bitewing"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:42a60650-16a6-5881-bb49-fc6d2c2cbbc3",
+      "resource": {
+        "resourceType": "ImagingStudy",
+        "id": "imagingstudy-periapical",
+        "identifier": [
+          {
+            "system": "urn:dicom:uid",
+            "value": "urn:oid:2.25.145738745935235696110150114114687530425"
+          },
+          {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC07-001"
+          }
+        ],
+        "status": "available",
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-eval"
+        },
+        "started": "2026-07-08T09:30:00-05:00",
+        "numberOfSeries": 1,
+        "numberOfInstances": 1,
+        "note": [
+          {
+            "text": "Pointer only: this resource holds metadata, not pixels. The image is an entry in the ARex manifest arex-manifest-radiographs. By the project's convention (decision F25) the second identifier above repeats the manifest's transaction-context business identifier (urn:ohia:referral-id|REF-2026-UC07-001), so a consumer finds the manifest with the ARex search parameter transaction-identifier. DICOM UIDs are synthetic (2.25.*) and no DICOM object exists behind them."
+          }
+        ],
+        "series": [
+          {
+            "uid": "2.25.216522073933412785579080324635784063636",
+            "number": 1,
+            "modality": {
+              "system": "http://dicom.nema.org/resources/ontology/DCM",
+              "code": "IO",
+              "display": "Intra-oral Radiography"
+            },
+            "numberOfInstances": 1,
+            "bodySite": {
+              "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+              "code": "4",
+              "display": "Permanent maxillary right second premolar tooth"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ImagingStudy/imagingstudy-periapical"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:fb4842e0-ec92-56a3-a4bb-241a32b5e2ad",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-mob-decay",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Mesial-occlusal-buccal (MOB) decay, tooth #4"
+        },
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-eval"
+        },
+        "effectiveDateTime": "2026-07-08T09:30:00-05:00",
+        "performer": [
+          {
+            "reference": "PractitionerRole/practrole-mary-parker",
+            "display": "Dr. Mary Parker, DDS"
+          }
+        ],
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+              "code": "4",
+              "display": "Permanent maxillary right second premolar tooth"
+            }
+          ],
+          "text": "Tooth #4"
+        },
+        "valueCodeableConcept": {
+          "text": "Decay extending to the pulp"
+        },
+        "note": [
+          {
+            "text": "Uncoded finding by the ODE convention: no established code exists, so code.text is used and no coding is invented."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-mob-decay"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:629421e9-66d1-5bc0-8c74-8c4327fa9074",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-periapical-radiolucency",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "exam",
+                "display": "Exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Periapical radiolucency, tooth #4"
+        },
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-eval"
+        },
+        "effectiveDateTime": "2026-07-08T09:30:00-05:00",
+        "performer": [
+          {
+            "reference": "PractitionerRole/practrole-mary-parker",
+            "display": "Dr. Mary Parker, DDS"
+          }
+        ],
+        "bodySite": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+              "code": "4",
+              "display": "Permanent maxillary right second premolar tooth"
+            }
+          ],
+          "text": "Tooth #4"
+        },
+        "valueCodeableConcept": {
+          "text": "Periapical radiolucency present, associated with periapical infection"
+        },
+        "note": [
+          {
+            "text": "Uncoded finding by the ODE convention: no established code exists, so code.text is used and no coding is invented."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-periapical-radiolucency"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:c34622c4-0d4c-5782-8a20-1c4b1a171eac",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-d0140",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D0140",
+              "display": "Limited oral evaluation - problem focused"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-eval"
+        },
+        "performedDateTime": "2026-07-08T09:30:00-05:00",
+        "performer": [
+          {
+            "actor": {
+              "reference": "PractitionerRole/practrole-mary-parker",
+              "display": "Dr. Mary Parker, DDS"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/procedure-d0140"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:e6fdfe21-e20d-5fb4-a581-bd639f18bda2",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-d0220",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D0220",
+              "display": "Intraoral - periapical first radiographic image"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-eval"
+        },
+        "performedDateTime": "2026-07-08T09:30:00-05:00",
+        "performer": [
+          {
+            "actor": {
+              "reference": "PractitionerRole/practrole-mary-parker",
+              "display": "Dr. Mary Parker, DDS"
+            }
+          }
+        ],
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+                "code": "4",
+                "display": "Permanent maxillary right second premolar tooth"
+              }
+            ],
+            "text": "Tooth #4"
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/procedure-d0220"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:3f80cebf-5e60-5b5b-b794-04720e503507",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-d0270",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D0270",
+              "display": "Bitewing - single radiographic image"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-eval"
+        },
+        "performedDateTime": "2026-07-08T09:30:00-05:00",
+        "performer": [
+          {
+            "actor": {
+              "reference": "PractitionerRole/practrole-mary-parker",
+              "display": "Dr. Mary Parker, DDS"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/procedure-d0270"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:4211d734-9c37-5f39-80c7-22747540e8bc",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "provenance-referral",
+        "target": [
+          {
+            "reference": "ServiceRequest/servicerequest-referral"
+          },
+          {
+            "reference": "Task/task-referral"
+          },
+          {
+            "reference": "Communication/communication-payer-notification"
+          }
+        ],
+        "recorded": "2026-07-08T10:15:00-05:00",
+        "activity": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/v3-DataOperation",
+              "code": "CREATE",
+              "display": "create"
+            }
+          ]
+        },
+        "agent": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author",
+                  "display": "Author"
+                }
+              ]
+            },
+            "who": {
+              "reference": "PractitionerRole/practrole-mary-parker",
+              "display": "Dr. Mary Parker, DDS"
+            },
+            "onBehalfOf": {
+              "reference": "Organization/org-pediatric-dental-tx"
+            }
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "transmitter",
+                  "display": "Transmitter"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-pediatric-dental-tx"
+            }
+          }
+        ],
+        "entity": [
+          {
+            "role": "source",
+            "what": {
+              "display": "Referral created in the referring practice's system and sent to the receiving practice (CDex provider-to-provider push); a separate notification was sent to the payer."
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Provenance/provenance-referral"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:74a4859e-2273-5bf8-b5b0-06d9c16b5d59",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "servicerequest-referral",
+        "meta": {
+          "profile": [
+            "https://oralhealthalliance.net/fhir/StructureDefinition/ode-dental-to-dental-referral"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC07-001"
+          }
+        ],
+        "status": "active",
+        "intent": "order",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "103696004",
+                "display": "Patient referral to specialist"
+              }
+            ],
+            "text": "Consultation / Referral"
+          }
+        ],
+        "priority": "routine",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D3320",
+              "display": "Endodontic therapy, premolar tooth (excluding final restoration)"
+            }
+          ],
+          "text": "Root canal therapy, build-up, and crown — tooth #4"
+        },
+        "orderDetail": [
+          {
+            "coding": [
+              {
+                "system": "http://www.ada.org/cdt",
+                "code": "D2950",
+                "display": "Core buildup, including any pins when required"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://www.ada.org/cdt",
+                "code": "D2740",
+                "display": "Crown - porcelain/ceramic"
+              }
+            ]
+          }
+        ],
+        "subject": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-eval"
+        },
+        "authoredOn": "2026-07-08T10:15:00-05:00",
+        "requester": {
+          "reference": "PractitionerRole/practrole-mary-parker",
+          "display": "Dr. Mary Parker, DDS"
+        },
+        "performer": [
+          {
+            "reference": "PractitionerRole/practrole-max-garcia",
+            "display": "Dr. Max Garcia, DDS"
+          }
+        ],
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "K02.53",
+                "display": "Dental caries on pit and fissure surface penetrating into the pulp"
+              }
+            ]
+          },
+          {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/sid/icd-10-cm",
+                "code": "K04.7",
+                "display": "Periapical abscess without sinus"
+              }
+            ]
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-caries-tooth4"
+          },
+          {
+            "reference": "Condition/condition-periapical-abscess-tooth4"
+          }
+        ],
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+                "code": "4",
+                "display": "Permanent maxillary right second premolar tooth"
+              }
+            ],
+            "text": "Tooth #4"
+          }
+        ],
+        "insurance": [
+          {
+            "reference": "Coverage/coverage-joe-castle-dentaquest"
+          }
+        ],
+        "supportingInfo": [
+          {
+            "reference": "ImagingStudy/imagingstudy-periapical",
+            "display": "Periapical radiograph (pointer; pixels in ARex manifest)"
+          },
+          {
+            "reference": "ImagingStudy/imagingstudy-bitewing",
+            "display": "Bitewing radiograph (pointer; pixels in ARex manifest)"
+          },
+          {
+            "reference": "DocumentReference/documentref-clinical-notes",
+            "display": "Clinical notes"
+          },
+          {
+            "reference": "DocumentReference/documentref-treatment-plan",
+            "display": "Proposed treatment plan"
+          },
+          {
+            "reference": "Observation/observation-mob-decay"
+          },
+          {
+            "reference": "Observation/observation-periapical-radiolucency"
+          }
+        ],
+        "note": [
+          {
+            "text": "Dental-to-dental referral (pediatric dentist to general dentist) for root canal therapy, build-up and crown on tooth #4 (UC07 narrative). Modeling choices to confirm: the first requested service (D3320) is in code, and D2950 and D2740 are carried in orderDetail; the identifier REF-2026-UC07-001 and the 10:15 authoredOn time (from the narrative's transmission time) are assumptions. Images are not embedded: the ImagingStudy resources are pointers and the pixels travel in the ARex manifest arex-manifest-radiographs (decisions F24, F25)."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "ServiceRequest/servicerequest-referral"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:b262ee99-4129-59aa-9ae3-8a87a5c1e787",
+      "resource": {
+        "resourceType": "Task",
+        "id": "task-referral",
+        "meta": {
+          "profile": [
+            "https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"
+          ]
+        },
+        "identifier": [
+          {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC07-001"
+          }
+        ],
+        "status": "in-progress",
+        "businessStatus": {
+          "coding": [
+            {
+              "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+              "code": "referral-sent",
+              "display": "Referral Sent"
+            }
+          ]
+        },
+        "intent": "order",
+        "priority": "routine",
+        "code": {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/CodeSystem/task-code",
+              "code": "fulfill",
+              "display": "Fulfill the focal request"
+            }
+          ]
+        },
+        "focus": {
+          "reference": "ServiceRequest/servicerequest-referral",
+          "display": "Referral: root canal therapy, build-up, and crown, tooth #4"
+        },
+        "for": {
+          "reference": "Patient/patient-joe-castle",
+          "display": "Joe Castle"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-eval"
+        },
+        "authoredOn": "2026-07-08T10:15:00-05:00",
+        "lastModified": "2026-07-08T10:15:00-05:00",
+        "requester": {
+          "reference": "Organization/org-pediatric-dental-tx",
+          "display": "Pediatric Dental Practice — Texas (Synthetic)"
+        },
+        "note": [
+          {
+            "text": "The single coordination Task for this referral (repository CLAUDE.md section 7). Owner is intentionally not set: ownership is established only when the receiving practice accepts. The same id is updated, not replaced, in later interactions."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Task/task-referral"
+      }
+    }
+  ]
+}

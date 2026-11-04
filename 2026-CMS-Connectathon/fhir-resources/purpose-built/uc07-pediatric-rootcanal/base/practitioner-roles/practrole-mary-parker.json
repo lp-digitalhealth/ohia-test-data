@@ -1,0 +1,48 @@
+{
+  "resourceType": "PractitionerRole",
+  "id": "practrole-mary-parker",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole"
+    ]
+  },
+  "active": true,
+  "practitioner": {
+    "reference": "Practitioner/pract-mary-parker"
+  },
+  "organization": {
+    "reference": "Organization/org-pediatric-dental-tx"
+  },
+  "code": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223P0221X",
+          "display": "Dentist — Pediatric Dentistry"
+        }
+      ]
+    }
+  ],
+  "specialty": [
+    {
+      "coding": [
+        {
+          "system": "http://nucc.org/provider-taxonomy",
+          "code": "1223P0221X",
+          "display": "Dentist — Pediatric Dentistry"
+        }
+      ]
+    }
+  ],
+  "location": [
+    {
+      "reference": "Location/loc-pediatric-dental-tx"
+    }
+  ],
+  "endpoint": [
+    {
+      "reference": "Endpoint/endpoint-pediatric-fhir"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "arex-entry-periapical",
+  "meta": {
+    "profile": [
+      "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-content-entry"
+    ]
+  },
+  "status": "current",
+  "type": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D0220",
+        "display": "Intraoral - periapical first radiographic image"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "date": "2026-07-08T10:15:00-05:00",
+  "content": [
+    {
+      "attachment": {
+        "extension": [
+          {
+            "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-digest",
+            "extension": [
+              {
+                "url": "algorithm",
+                "valueCode": "sha-256"
+              },
+              {
+                "url": "value",
+                "valueString": "41a48cf902e317a82283c2b953583a39cdae262d1357df2f136f60cb36df5a21"
+              }
+            ]
+          }
+        ],
+        "contentType": "image/png",
+        "url": "https://pediatricdental.example.org/arex/Binary/arex-entry-periapical",
+        "size": 137,
+        "title": "Periapical radiograph, tooth #4 (synthetic placeholder image)"
+      }
+    }
+  ]
+}
