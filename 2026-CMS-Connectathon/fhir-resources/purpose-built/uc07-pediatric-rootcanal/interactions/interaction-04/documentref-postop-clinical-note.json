@@ -1,0 +1,40 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "documentref-postop-clinical-note",
+  "status": "current",
+  "type": {
+    "text": "Clinical note — root canal therapy, build-up and crown"
+  },
+  "category": [
+    {
+      "text": "Clinical note"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "date": "2026-07-22T13:30:00-05:00",
+  "author": [
+    {
+      "reference": "PractitionerRole/practrole-max-garcia",
+      "display": "Dr. Max Garcia, DDS"
+    }
+  ],
+  "content": [
+    {
+      "attachment": {
+        "contentType": "text/plain",
+        "title": "Clinical note, 2026-07-22",
+        "data": "Um9vdCBjYW5hbCB0aGVyYXB5IChEMzMyMCksIGNvcmUgYnVpbGQtdXAgKEQyOTUwKSBhbmQgY3Jvd24gKEQyNzQwKSBvbiB0b290aCAjNCBjb21wbGV0ZWQgMjAyNi0wNy0yMiB3aXRob3V0IGNvbXBsaWNhdGlvbiwgdW5kZXIgcHJpb3IgYXV0aG9yaXphdGlvbiBUWC1EUS1QQS0yMDI2LTA2MTIwNC4gUG9zdC1vcGVyYXRpdmUgcGVyaWFwaWNhbCByYWRpb2dyYXBoIHNob3dzIGFkZXF1YXRlIG9idHVyYXRpb24gYW5kIGNyb3duIHNlYXRpbmcu"
+      }
+    }
+  ],
+  "context": {
+    "encounter": [
+      {
+        "reference": "Encounter/encounter-treatment"
+      }
+    ]
+  }
+}

@@ -5,7 +5,7 @@
   "basedOn": [
     {
       "reference": "ServiceRequest/servicerequest-referral",
-      "display": "Referral: In-office evaluation and endodontic treatment, tooth #19"
+      "display": "Referral: In-office evaluation and endodontic treatment, tooth #9"
     }
   ],
   "serviceType": [
@@ -13,11 +13,11 @@
       "coding": [
         {
           "system": "http://www.ada.org/cdt",
-          "code": "D3330",
-          "display": "Endodontic therapy, molar tooth (excluding final restoration)"
+          "code": "D3310",
+          "display": "Endodontic therapy, anterior tooth (excluding final restoration)"
         }
       ],
-      "text": "In-office evaluation with radiograph and likely root canal, tooth #19"
+      "text": "In-office evaluation with radiograph and likely root canal, tooth #9"
     }
   ],
   "reasonCode": [
@@ -32,7 +32,7 @@
     }
   ],
   "priority": 5,
-  "description": "In-office evaluation and treatment of tooth #19 (irreversible pulpitis), following referral from Meridian Teledental",
+  "description": "In-office evaluation and treatment of tooth #9 (irreversible pulpitis), following referral from Meridian Teledental",
   "start": "2026-07-15T10:00:00-05:00",
   "end": "2026-07-15T11:00:00-05:00",
   "created": "2026-07-14T20:47:00-05:00",
