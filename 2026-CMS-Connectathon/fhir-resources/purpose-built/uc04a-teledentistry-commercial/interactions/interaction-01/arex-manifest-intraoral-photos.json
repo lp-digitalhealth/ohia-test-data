@@ -1,0 +1,75 @@
+{
+  "resourceType": "List",
+  "id": "arex-manifest-intraoral-photos",
+  "meta": {
+    "profile": ["http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-manifest"]
+  },
+  "extension": [
+    {
+      "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-expires",
+      "valueInstant": "2026-07-29T00:56:00Z"
+    },
+    {
+      "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-requires-access-token",
+      "valueBoolean": true
+    },
+    {
+      "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-transaction-context",
+      "extension": [
+        {
+          "url": "businessIdentifier",
+          "valueIdentifier": {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC04A-001"
+          }
+        },
+        {
+          "url": "requestingOrganization",
+          "valueReference": {
+            "reference": "Organization/org-barton-springs-dental"
+          }
+        }
+      ]
+    }
+  ],
+  "identifier": [
+    {
+      "system": "https://meridian-teledental.example.org/arex/manifest-id",
+      "value": "MAN-2026-0714-0001"
+    }
+  ],
+  "status": "current",
+  "mode": "snapshot",
+  "title": "Patient-submitted intraoral photos for referral REF-2026-UC04A-001",
+  "code": {
+    "coding": [
+      {
+        "system": "http://fhir.onyxhealth.io/us/arex/CodeSystem/arex-manifest-type",
+        "code": "attachment-set",
+        "display": "Attachment set"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "date": "2026-07-15T00:56:00Z",
+  "entry": [
+    {
+      "item": {
+        "reference": "DocumentReference/arex-entry-photo-1"
+      }
+    },
+    {
+      "item": {
+        "reference": "DocumentReference/arex-entry-photo-2"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "ASSUMPTIONS: the expiry (14 days after publication, borrowed from the UC07 pattern), the manifest identifier and the example.org URLs are synthetic; the requesting organization is Barton Springs, the practice that retrieves the photos. The 'one or two photos' of the narrative is modeled as two entries. The payload files in arex-payloads/ are 8x8 placeholder JPEGs, not clinical photographs; the digests are real SHA-256 over those files."
+    }
+  ]
+}

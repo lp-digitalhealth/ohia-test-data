@@ -29,7 +29,7 @@
   "basedOn": [
     {
       "reference": "ServiceRequest/servicerequest-referral",
-      "display": "Referral: In-office evaluation and endodontic treatment, tooth #19"
+      "display": "Referral: In-office evaluation and endodontic treatment, tooth #9"
     }
   ],
   "participant": [
@@ -53,7 +53,7 @@
           "display": "Irreversible pulpitis"
         }
       ],
-      "text": "Lower-left tooth pain, referred from teledentistry for evaluation and likely endodontic treatment"
+      "text": "Front-tooth pain, referred from teledentistry for evaluation and likely endodontic treatment"
     }
   ],
   "location": [

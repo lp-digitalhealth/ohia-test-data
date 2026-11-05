@@ -1,0 +1,407 @@
+{
+  "resourceType": "Claim",
+  "id": "claim-pa-request",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/profile-claim"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "https://restorativedental.example.org/pa-claim-id",
+      "value": "PA-CLM-2026-UC07-001"
+    },
+    {
+      "system": "https://restorativedental.example.org/pa-request-id",
+      "value": "PA-REQ-2026-UC07-001"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+        "code": "oral",
+        "display": "Oral"
+      }
+    ]
+  },
+  "use": "preauthorization",
+  "patient": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "created": "2026-07-10T09:00:00-05:00",
+  "insurer": {
+    "reference": "Organization/org-dentaquest-tx",
+    "display": "DentaQuest USA Insurance Company, Inc."
+  },
+  "provider": {
+    "reference": "Organization/org-restorative-dental-tx",
+    "display": "Restorative Dental Practice — Texas (Synthetic)"
+  },
+  "priority": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/processpriority",
+        "code": "normal"
+      }
+    ]
+  },
+  "careTeam": [
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-careTeamClaimScope",
+          "valueBoolean": true
+        }
+      ],
+      "sequence": 1,
+      "provider": {
+        "reference": "PractitionerRole/practrole-max-garcia",
+        "display": "Dr. Max Garcia, DDS"
+      },
+      "responsible": true,
+      "role": {
+        "coding": [
+          {
+            "system": "https://codesystem.x12.org/005010/98",
+            "code": "82",
+            "display": "Rendering Provider"
+          }
+        ]
+      }
+    }
+  ],
+  "supportingInfo": [
+    {
+      "sequence": 1,
+      "category": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/davinci-pas/CodeSystem/PASTempCodes",
+            "code": "additionalInformation"
+          }
+        ]
+      },
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-documentInformation",
+          "extension": [
+            {
+              "url": "reportTypeCode",
+              "valueCodeableConcept": {
+                "coding": [
+                  {
+                    "system": "https://codesystem.x12.org/005010/755",
+                    "code": "OZ",
+                    "display": "Support Data for Claim"
+                  }
+                ]
+              }
+            },
+            {
+              "url": "description",
+              "valueString": "DTR questionnaire response: DentaQuest prior authorization questionnaire"
+            }
+          ]
+        }
+      ],
+      "valueReference": {
+        "reference": "QuestionnaireResponse/questionnaireresponse-dentaquest-pa"
+      }
+    },
+    {
+      "sequence": 2,
+      "category": {
+        "coding": [
+          {
+            "system": "urn:ohia:claim-supporting-info-category",
+            "code": "arex-manifest",
+            "display": "ARex manifest of supporting documents"
+          }
+        ]
+      },
+      "valueReference": {
+        "reference": "List/arex-manifest-pa-docs",
+        "display": "ARex manifest: radiographs and clinical note"
+      }
+    }
+  ],
+  "diagnosis": [
+    {
+      "sequence": 1,
+      "diagnosisCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "K02.53",
+            "display": "Dental caries on pit and fissure surface penetrating into the pulp"
+          }
+        ]
+      },
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/us/davinci-pas/CodeSystem/PASTempCodes",
+              "code": "principal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "diagnosisCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "K04.7",
+            "display": "Periapical abscess without sinus"
+          }
+        ]
+      }
+    }
+  ],
+  "insurance": [
+    {
+      "sequence": 1,
+      "focal": true,
+      "coverage": {
+        "reference": "Coverage/coverage-joe-castle-dentaquest",
+        "display": "Joe Castle's Texas Medicaid Dental coverage (DentaQuest)"
+      }
+    }
+  ],
+  "item": [
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-serviceItemRequestType",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://codesystem.x12.org/005010/1525",
+                "code": "HS",
+                "display": "Health Services Review"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-certificationType",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://codesystem.x12.org/005010/1322",
+                "code": "I",
+                "display": "Initial"
+              }
+            ]
+          }
+        }
+      ],
+      "sequence": 1,
+      "careTeamSequence": [
+        1
+      ],
+      "diagnosisSequence": [
+        1,
+        2
+      ],
+      "category": {
+        "coding": [
+          {
+            "system": "https://codesystem.x12.org/005010/1365",
+            "code": "26",
+            "display": "Endodontics"
+          }
+        ]
+      },
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D3320",
+            "display": "Endodontic therapy, premolar tooth (excluding final restoration)"
+          }
+        ]
+      },
+      "bodySite": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+            "code": "4",
+            "display": "Permanent maxillary right second premolar tooth"
+          }
+        ],
+        "text": "Tooth #4"
+      },
+      "locationCodeableConcept": {
+        "coding": [
+          {
+            "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set",
+            "code": "11",
+            "display": "Office"
+          }
+        ]
+      },
+      "quantity": {
+        "value": 1
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-serviceItemRequestType",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://codesystem.x12.org/005010/1525",
+                "code": "HS",
+                "display": "Health Services Review"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-certificationType",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://codesystem.x12.org/005010/1322",
+                "code": "I",
+                "display": "Initial"
+              }
+            ]
+          }
+        }
+      ],
+      "sequence": 2,
+      "careTeamSequence": [
+        1
+      ],
+      "diagnosisSequence": [
+        1,
+        2
+      ],
+      "category": {
+        "coding": [
+          {
+            "system": "https://codesystem.x12.org/005010/1365",
+            "code": "25",
+            "display": "Restorative"
+          }
+        ]
+      },
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D2950",
+            "display": "Core buildup, including any pins when required"
+          }
+        ]
+      },
+      "bodySite": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+            "code": "4",
+            "display": "Permanent maxillary right second premolar tooth"
+          }
+        ],
+        "text": "Tooth #4"
+      },
+      "locationCodeableConcept": {
+        "coding": [
+          {
+            "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set",
+            "code": "11",
+            "display": "Office"
+          }
+        ]
+      },
+      "quantity": {
+        "value": 1
+      }
+    },
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-serviceItemRequestType",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://codesystem.x12.org/005010/1525",
+                "code": "HS",
+                "display": "Health Services Review"
+              }
+            ]
+          }
+        },
+        {
+          "url": "http://hl7.org/fhir/us/davinci-pas/StructureDefinition/extension-certificationType",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "https://codesystem.x12.org/005010/1322",
+                "code": "I",
+                "display": "Initial"
+              }
+            ]
+          }
+        }
+      ],
+      "sequence": 3,
+      "careTeamSequence": [
+        1
+      ],
+      "diagnosisSequence": [
+        1,
+        2
+      ],
+      "category": {
+        "coding": [
+          {
+            "system": "https://codesystem.x12.org/005010/1365",
+            "code": "25",
+            "display": "Restorative"
+          }
+        ]
+      },
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D2740",
+            "display": "Crown - porcelain/ceramic"
+          }
+        ]
+      },
+      "bodySite": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+            "code": "4",
+            "display": "Permanent maxillary right second premolar tooth"
+          }
+        ],
+        "text": "Tooth #4"
+      },
+      "locationCodeableConcept": {
+        "coding": [
+          {
+            "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set",
+            "code": "11",
+            "display": "Office"
+          }
+        ]
+      },
+      "quantity": {
+        "value": 1
+      }
+    }
+  ]
+}

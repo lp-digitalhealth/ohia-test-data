@@ -1,0 +1,152 @@
+{
+  "resourceType": "ServiceRequest",
+  "id": "servicerequest-referral",
+  "meta": {
+    "profile": [
+      "https://oralhealthalliance.net/fhir/StructureDefinition/ode-dental-to-dental-referral"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC07-001"
+    }
+  ],
+  "status": "active",
+  "intent": "order",
+  "category": [
+    {
+      "coding": [
+        {
+          "system": "http://snomed.info/sct",
+          "code": "103696004",
+          "display": "Patient referral to specialist"
+        }
+      ],
+      "text": "Consultation / Referral"
+    }
+  ],
+  "priority": "routine",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D3320",
+        "display": "Endodontic therapy, premolar tooth (excluding final restoration)"
+      }
+    ],
+    "text": "Root canal therapy, build-up, and crown — tooth #4"
+  },
+  "orderDetail": [
+    {
+      "coding": [
+        {
+          "system": "http://www.ada.org/cdt",
+          "code": "D2950",
+          "display": "Core buildup, including any pins when required"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "system": "http://www.ada.org/cdt",
+          "code": "D2740",
+          "display": "Crown - porcelain/ceramic"
+        }
+      ]
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-eval"
+  },
+  "authoredOn": "2026-07-08T10:15:00-05:00",
+  "requester": {
+    "reference": "PractitionerRole/practrole-mary-parker",
+    "display": "Dr. Mary Parker, DDS"
+  },
+  "performer": [
+    {
+      "reference": "PractitionerRole/practrole-max-garcia",
+      "display": "Dr. Max Garcia, DDS"
+    }
+  ],
+  "reasonCode": [
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "K02.53",
+          "display": "Dental caries on pit and fissure surface penetrating into the pulp"
+        }
+      ]
+    },
+    {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/sid/icd-10-cm",
+          "code": "K04.7",
+          "display": "Periapical abscess without sinus"
+        }
+      ]
+    }
+  ],
+  "reasonReference": [
+    {
+      "reference": "Condition/condition-caries-tooth4"
+    },
+    {
+      "reference": "Condition/condition-periapical-abscess-tooth4"
+    }
+  ],
+  "bodySite": [
+    {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+          "code": "4",
+          "display": "Permanent maxillary right second premolar tooth"
+        }
+      ],
+      "text": "Tooth #4"
+    }
+  ],
+  "insurance": [
+    {
+      "reference": "Coverage/coverage-joe-castle-dentaquest"
+    }
+  ],
+  "supportingInfo": [
+    {
+      "reference": "ImagingStudy/imagingstudy-periapical",
+      "display": "Periapical radiograph (pointer; pixels in ARex manifest)"
+    },
+    {
+      "reference": "ImagingStudy/imagingstudy-bitewing",
+      "display": "Bitewing radiograph (pointer; pixels in ARex manifest)"
+    },
+    {
+      "reference": "DocumentReference/documentref-clinical-notes",
+      "display": "Clinical notes"
+    },
+    {
+      "reference": "DocumentReference/documentref-treatment-plan",
+      "display": "Proposed treatment plan"
+    },
+    {
+      "reference": "Observation/observation-mob-decay"
+    },
+    {
+      "reference": "Observation/observation-periapical-radiolucency"
+    }
+  ],
+  "note": [
+    {
+      "text": "Dental-to-dental referral (pediatric dentist to general dentist) for root canal therapy, build-up and crown on tooth #4 (UC07 narrative). Modeling choices to confirm: the first requested service (D3320) is in code, and D2950 and D2740 are carried in orderDetail; the identifier REF-2026-UC07-001 and the 10:15 authoredOn time (from the narrative's transmission time) are assumptions. Images are not embedded: the ImagingStudy resources are pointers and the pixels travel in the ARex manifest arex-manifest-radiographs (decisions F24, F25)."
+    }
+  ]
+}

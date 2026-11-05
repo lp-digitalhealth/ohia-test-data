@@ -1,0 +1,40 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "documentref-treatment-plan",
+  "status": "current",
+  "type": {
+    "text": "Proposed treatment plan"
+  },
+  "category": [
+    {
+      "text": "Clinical note"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "date": "2026-07-08T10:15:00-05:00",
+  "author": [
+    {
+      "reference": "PractitionerRole/practrole-mary-parker",
+      "display": "Dr. Mary Parker, DDS"
+    }
+  ],
+  "content": [
+    {
+      "attachment": {
+        "contentType": "text/plain",
+        "title": "Proposed treatment plan, 2026-07-08",
+        "data": "VG9vdGggIzQgaXMgcmVzdG9yYWJsZS4gUHJvcG9zZWQgdHJlYXRtZW50OiByb290IGNhbmFsIHRoZXJhcHkgKEQzMzIwKSwgY29yZSBidWlsZC11cCAoRDI5NTApIGFuZCBjcm93biAoRDI3NDApLCB0byBiZSBwZXJmb3JtZWQgYnkgdGhlIHJlY2VpdmluZyByZXN0b3JhdGl2ZSBkZW50aXN0Lg=="
+      }
+    }
+  ],
+  "context": {
+    "encounter": [
+      {
+        "reference": "Encounter/encounter-eval"
+      }
+    ]
+  }
+}

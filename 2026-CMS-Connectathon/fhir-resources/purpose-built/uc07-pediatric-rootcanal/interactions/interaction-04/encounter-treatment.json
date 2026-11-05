@@ -1,0 +1,45 @@
+{
+  "resourceType": "Encounter",
+  "id": "encounter-treatment",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter"
+    ]
+  },
+  "status": "finished",
+  "class": {
+    "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+    "code": "AMB",
+    "display": "ambulatory"
+  },
+  "type": [
+    {
+      "text": "Root canal therapy, core build-up and crown (D3320, D2950, D2740)"
+    }
+  ],
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "participant": [
+    {
+      "individual": {
+        "reference": "PractitionerRole/practrole-max-garcia",
+        "display": "Dr. Max Garcia, DDS"
+      }
+    }
+  ],
+  "period": {
+    "start": "2026-07-22T10:00:00-05:00"
+  },
+  "location": [
+    {
+      "location": {
+        "reference": "Location/loc-restorative-dental-tx"
+      }
+    }
+  ],
+  "serviceProvider": {
+    "reference": "Organization/org-restorative-dental-tx"
+  }
+}

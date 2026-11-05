@@ -30,37 +30,17 @@ Both use cases are set in **Texas**. Both exercise the dental-to-dental referral
 ---
 
 # Use Case A: Texas Medicaid
+Section I: Business Overview
+Joe Castle is a 16-year-old enrolled in Texas Medicaid. Texas Medicaid. Joe presents with pain while chewing on the top right and sensitivity to cold.   Dr. Mary Parker, DDS, the pediatric dental provider, who performs a limited oral evaluation (D0140) and obtains a periapical radiograph (D0220), and a bitewing (D0270). The examination reveals:
+•	MOB Decay extending to the pulp 
+•	Periapical radiolucency on radiograph
+•	Periapical infection associated with tooth #4
+After reviewing the findings, Dr. Parker determines that tooth #4 is restorable and recommends root canal therapy (D3320), a build-up (D2950), and a crown (D2740).
+Dr. Parker refers Joe to Dr. Max Garcia, DDS, for root canal therapy and restorative treatment. The referral package, including clinical notes, radiographs, and the proposed treatment plan, is transmitted electronically. Since the package includes images, Dr. Garcia views the high quality images in DICOM Web.  Dr. Parker also sends a structured referral notification to DentaQuest.  That awareness will ensure seamless coordination between the treating providers and the payer, ensuring claims can be paid efficiently.
+Upon receiving the referral, Dr. Garcia reviews the clinical documentation, imaging, and recommended treatment plan to confirm the diagnosis and proposed course of care. As part of the coverage determination workflow, his practice invokes Da Vinci Coverage Requirements Discovery (CRD) to determine coverage requirements. Upon confirmation that a prior authorization is needed, his office then submits the Da Vinci Documentation Templates and Rules (DTR) to determine what is needed to approve the proposed treatment. DentaQuest informs Dr. Garcia that as part of the request,  clinical notes documenting the medical necessity and images are required. His office then electronically submits the prior authorization to DentaQuest. DentaQuest reviews the PA and approves. 
+Dr. Garcia sets an appointment with Joe. At consultation, Dr.Garcia reviews Joe's records, confirms the diagnosis, reviews his medical history and current medications for surgical risk, and has his staff confirm that Medicaid coverage remains active and review benefits used to date. Frank and Dr. Garcia discuss the risks and benefits of e.
+Dr. Garcia completes the procedures. A structured post-treatment is transmitted back to Dr. Parker via CDex provider-to-provider push, giving the general practice a complete record of the surgical intervention and healing status. Post-op x-ray and clinical note and a separate  thanking for the referral. 
 
-## Medically Necessary Surgical Extraction of Tooth #30 with Prior Authorization
-### Texas Medicaid | Da Vinci PAS | Dental-to-Dental Referral | Texas
-
----
-
-## Section I: Business Overview
-
-**Frank Castle** is a 53-year-old male (DOB: 03/17/1972) enrolled in **Texas Medicaid**. Texas Medicaid's adult dental benefit is limited to services that are medically necessary to control bleeding, relieve pain, and eliminate acute infection — it does not cover routine dental care for adults. Frank has a history of root canal treatment on tooth #30 (lower right first molar) and presents to a general dental practice in Texas with increasing pain, swelling, and discomfort while chewing on the lower right side. **His presentation is symptomatic and medically necessary, but stable — not an acute, can't-wait dental emergency** (no uncontrolled bleeding, airway compromise, or acute facial cellulitis requiring same-day intervention). This distinction matters: Texas Medicaid exempts genuinely acute emergencies from prospective prior authorization, routing them instead to retrospective review after treatment. Frank's condition, being stable enough to tolerate a standard multi-day authorization cycle, is appropriately processed through prospective PA — the workflow this use case exercises.
-
-**Dr. Mary Parker, DDS**, the treating general dental provider, performs a **limited oral evaluation** (`D0140`) and obtains **periapical radiographs** (`D0220`). The examination reveals:
-
-- Recurrent periapical infection associated with tooth #30
-- Periapical radiolucency on radiograph
-- Vertical root fracture extending below the cemento-enamel junction
-
-Based on these findings, Dr. Parker determines that tooth #30 is **non-restorable** and that **surgical extraction is medically necessary** to relieve pain and control infection (`ICD-10: K04.7` — periapical abscess without sinus; `K08.89` — other specified disorder of teeth). **This is the basis for Medicaid coverage**: pain and infection relief for a non-restorable tooth falls within Texas Medicaid's covered adult emergency dental category, independent of the acuity question above — a service can be within the covered emergency-dental category while still being stable enough to go through standard prospective PA rather than retrospective-only review.
-
-Dr. Parker's team performs **real-time Medicaid eligibility verification** via a FHIR `Coverage` query, confirms the oral surgeon participates in Texas Medicaid, reviews applicable exclusions and benefit limitations, and prepares a **prior authorization request** for the surgical extraction. Because this is a Texas Medicaid case, prior authorization is required before the surgical consultation can proceed.
-
-Dr. Parker's practice submits the prior authorization request to the Texas Medicaid dental plan using **Da Vinci PAS** — transmitting a FHIR `Claim` (PA request) with supporting clinical documentation including the diagnosis, radiographic findings, and treatment recommendation. The `ClaimResponse` is returned with the PA approval, including the PA number and approved service details.
-
-With prior authorization approved, Dr. Parker electronically transmits the **structured referral** to **Dr. Alex Maxil, DDS, MD**, an oral and maxillofacial surgeon at **Austin Oral Surgery** (a USOSM partner practice) participating in Texas Medicaid. The referral package — transmitted via CDex provider-to-provider push — includes the `ServiceRequest`, periapical radiographs, periodontal charting, intraoral images, confirmed diagnosis, and treatment recommendation. Frank is notified through his **patient-facing application** that the referral has been sent and prior authorization approved.
-
-At the **surgical consultation**, Dr. Maxil reviews Frank's records, confirms the diagnosis, reviews his medical history and current medications for surgical risk, and has his staff confirm that Medicaid coverage remains active and review benefits used to date. Frank and Dr. Maxil discuss the risks and benefits of extraction. Frank elects to proceed.
-
-Dr. Maxil completes the **surgical extraction of tooth #30** (`D7210` — surgical extraction of erupted tooth). He documents the procedure, anesthesia used, post-operative findings, and discharge instructions. A **structured post-operative summary** is transmitted back to Dr. Parker via CDex provider-to-provider push, giving the general practice a complete record of the surgical intervention and healing status.
-
-At follow-up, healing is assessed and care is returned to Dr. Parker for ongoing dental management. Frank's patient-facing application provides real-time updates on referral status, prior authorization status, appointment confirmation, and available clinical and claims information throughout the episode.
-
----
 
 ## Section II: Narrative-to-Standards Mapping
 

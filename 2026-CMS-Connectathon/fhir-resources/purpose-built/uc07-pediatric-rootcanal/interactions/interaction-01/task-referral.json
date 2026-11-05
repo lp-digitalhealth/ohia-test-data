@@ -1,0 +1,58 @@
+{
+  "resourceType": "Task",
+  "id": "task-referral",
+  "meta": {
+    "profile": [
+      "https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC07-001"
+    }
+  ],
+  "status": "in-progress",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+        "code": "referral-sent",
+        "display": "Referral Sent"
+      }
+    ]
+  },
+  "intent": "order",
+  "priority": "routine",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill",
+        "display": "Fulfill the focal request"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-referral",
+    "display": "Referral: root canal therapy, build-up, and crown, tooth #4"
+  },
+  "for": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-eval"
+  },
+  "authoredOn": "2026-07-08T10:15:00-05:00",
+  "lastModified": "2026-07-08T10:15:00-05:00",
+  "requester": {
+    "reference": "Organization/org-pediatric-dental-tx",
+    "display": "Pediatric Dental Practice — Texas (Synthetic)"
+  },
+  "note": [
+    {
+      "text": "The single coordination Task for this referral (repository CLAUDE.md section 7). Owner is intentionally not set: ownership is established only when the receiving practice accepts. The same id is updated, not replaced, in later interactions."
+    }
+  ]
+}

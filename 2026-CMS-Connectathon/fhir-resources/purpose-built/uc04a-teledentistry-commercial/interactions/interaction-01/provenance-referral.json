@@ -61,7 +61,7 @@
     {
       "role": "source",
       "what": {
-        "display": "Referral created in the Meridian Teledental platform during the virtual encounter and pushed directly to Barton Springs Dental Group's interim FHIR server via Da Vinci CDex provider-to-provider (no HIE, no 360X bridge). Patient-submitted intraoral photos travel inline with the referral bundle."
+        "display": "Referral created in the Meridian Teledental platform during the virtual encounter and pushed directly to Barton Springs Dental Group's interim FHIR server via Da Vinci CDex provider-to-provider (no HIE, no 360X bridge). Patient-submitted intraoral photos travel by ARex reference (a manifest of two image entries), not inline."
       }
     }
   ]

@@ -469,7 +469,7 @@
               },
               {
                 "type": {
-                  "text": "Basic / endodontic services (molar root canal, D3330)"
+                  "text": "Basic / endodontic and restorative services (anterior root canal, D3310; composite restoration, D2330)"
                 },
                 "limit": [
                   {
@@ -535,7 +535,7 @@
         ],
         "note": [
           {
-            "text": "Employer-sponsored commercial dental PPO benefit for UC04a (Sarah Okonkwo). Covers teledentistry/virtual consultation (D9995) so the after-hours virtual visit is a benefit, not an out-of-pocket expense \u2014 this is what the patient app verifies in real time at session initiation (a named UC04a test objective). Endodontic treatment (D3330) covered 80% after a $50 deductible; diagnostic radiograph (D0220) covered in full; annual maximum $2,000/plan year. NO prior authorization required for D9995, D0220, or D3330 under this plan design (commercial no-PA case, contrast UC02a's Medicaid PA). Fixed plan-level benefit values live here; member- and point-in-time-specific balances are returned by the real-time benefit response rather than stored on Coverage. Endpoint/EDI identifiers are synthetic \u2014 see Organization/org-uc04-commercial-payer."
+            "text": "Employer-sponsored commercial dental PPO benefit for UC04a (Sarah Okonkwo). Covers teledentistry/virtual consultation (D9995) so the after-hours virtual visit is a benefit, not an out-of-pocket expense \u2014 this is what the patient app verifies in real time at session initiation (a named UC04a test objective). Endodontic treatment (D3310) covered 80% after a $50 deductible, and the lingual composite restoration (D2330) is ASSUMED to carry the same basic-service cost-sharing (the narrative states the 80% only for endodontics); diagnostic radiograph (D0220) covered in full; annual maximum $2,000/plan year. NO prior authorization required for D9995, D0220, D3310, or D2330 under this plan design (commercial no-PA case, contrast UC02a's Medicaid PA). Fixed plan-level benefit values live here; member- and point-in-time-specific balances are returned by the real-time benefit response rather than stored on Coverage. Endpoint/EDI identifiers are synthetic \u2014 see Organization/org-uc04-commercial-payer."
           }
         ]
       },
@@ -696,7 +696,7 @@
         ],
         "note": [
           {
-            "text": "Employer-sponsored commercial dental PPO coverage (Aetna Dental PPO), member AET-TX-00284711, group 847221. Verified in real time by Sarah's patient app at the start of the 2026-07-14 virtual encounter (a named UC04a test objective): teledentistry/virtual consultation covered in full, endodontic treatment covered 80% after a $50 deductible, annual maximum $2,000/plan year. NO prior authorization required for the virtual consultation (D9995), radiograph (D0220), or root canal (D3330) \u2014 commercial no-PA case, contrast UC02a's Texas Medicaid PA. Fixed plan-level benefit percentages and annual maximum live on InsurancePlan/insplan-uc04-commercial-ppo; point-in-time balances are returned by the real-time benefit response rather than stored here."
+            "text": "Employer-sponsored commercial dental PPO coverage (Aetna Dental PPO), member AET-TX-00284711, group 847221. Verified in real time by Sarah's patient app at the start of the 2026-07-14 virtual encounter (a named UC04a test objective): teledentistry/virtual consultation covered in full, endodontic treatment covered 80% after a $50 deductible, annual maximum $2,000/plan year. NO prior authorization required for the virtual consultation (D9995), radiograph (D0220), root canal (D3310), or composite restoration (D2330) \u2014 commercial no-PA case, contrast UC02a's Texas Medicaid PA. Fixed plan-level benefit percentages and annual maximum live on InsurancePlan/insplan-uc04-commercial-ppo; point-in-time balances are returned by the real-time benefit response rather than stored here."
           }
         ]
       },
@@ -833,6 +833,14 @@
         ],
         "reason": "Notify Sarah Okonkwo's patient-facing app of status changes on her teledentistry referral (Task/task-referral-tracking), so the app can surface milestone updates (referral sent, appointment confirmed, and \u2014 at Interaction 4 \u2014 referral complete) without Sarah needing to call either office.",
         "criteria": "https://oralhealthalliance.net/fhir/SubscriptionTopic/ode-referral-status",
+        "_criteria": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
+              "valueString": "Task?_id=task-referral-tracking"
+            }
+          ]
+        },
         "channel": {
           "type": "rest-hook",
           "endpoint": "https://patient-app.example.org/notifications/sarah-okonkwo",
@@ -902,18 +910,18 @@
               "display": "Irreversible pulpitis"
             }
           ],
-          "text": "Irreversible pulpitis, tooth #19 (confirmed radiographically in-office)"
+          "text": "Irreversible pulpitis, tooth #9 (confirmed radiographically in-office)"
         },
         "bodySite": [
           {
             "coding": [
               {
                 "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
-                "code": "19",
-                "display": "19"
+                "code": "9",
+                "display": "Permanent maxillary left central incisor tooth"
               }
             ],
-            "text": "Tooth #19 (lower left first molar, Universal Numbering System)"
+            "text": "Tooth #9 (maxillary left central incisor, Universal Numbering System)"
           }
         ],
         "subject": {
@@ -932,92 +940,13 @@
         },
         "note": [
           {
-            "text": "STATUS SNAPSHOT NOTE: this is the Interaction 3 (2026-07-15) version of the pulpitis Condition (same id as the Interaction 1 version), verificationStatus advanced from provisional to confirmed once the in-office periapical radiograph (DiagnosticReport/diagnosticreport-periapical) confirmed the diagnosis. The encounter reference and asserter are updated to the in-office visit/provider. See the Interaction 1 version for the original provisional state asserted by Dr. Webb during the virtual encounter. Tooth designation uses the ADA Universal Numbering System (#19); FDI notation is deliberately NOT asserted, per ADA confirmation that FDI is not used for US dental data."
+            "text": "STATUS SNAPSHOT NOTE: this is the Interaction 3 (2026-07-15) version of the pulpitis Condition (same id as the Interaction 1 version), verificationStatus advanced from provisional to confirmed once the in-office periapical radiograph (DiagnosticReport/diagnosticreport-periapical) confirmed the diagnosis. The encounter reference and asserter are updated to the in-office visit/provider. See the Interaction 1 version for the original provisional state asserted by Dr. Webb during the virtual encounter. Tooth designation uses the ADA Universal Numbering System (#9); FDI notation is deliberately NOT asserted, per ADA confirmation that FDI is not used for US dental data."
           }
         ]
       },
       "request": {
         "method": "PUT",
         "url": "Condition/condition-k04-01-pulpitis"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:DocumentReference-documentreference-intraoral-photos",
-      "resource": {
-        "resourceType": "DocumentReference",
-        "id": "documentreference-intraoral-photos",
-        "meta": {
-          "profile": [
-            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"
-          ]
-        },
-        "status": "current",
-        "docStatus": "final",
-        "type": {
-          "coding": [
-            {
-              "system": "http://loinc.org",
-              "code": "72170-4",
-              "display": "Photographic image"
-            }
-          ],
-          "text": "Patient-submitted intraoral photographs, lower left region (tooth #19)"
-        },
-        "category": [
-          {
-            "text": "Intraoral photography (patient-submitted, non-radiographic)"
-          }
-        ],
-        "subject": {
-          "reference": "Patient/patient-sarah-okonkwo",
-          "display": "Sarah Okonkwo"
-        },
-        "date": "2026-07-14T19:38:00-05:00",
-        "author": [
-          {
-            "reference": "Patient/patient-sarah-okonkwo",
-            "display": "Sarah Okonkwo (patient-captured via teledentistry app)"
-          }
-        ],
-        "custodian": {
-          "reference": "Organization/org-meridian-teledental",
-          "display": "Meridian Teledental"
-        },
-        "content": [
-          {
-            "attachment": {
-              "contentType": "image/jpeg",
-              "title": "Intraoral photograph 1 \u2014 lower left, tooth #19 region",
-              "creation": "2026-07-14",
-              "data": "SGVsbG8gT0hJQSAtLSB0cnVuY2F0ZWQgaW50cmFvcmFsIHBob3RvIHBsYWNlaG9sZGVy"
-            }
-          },
-          {
-            "attachment": {
-              "contentType": "image/jpeg",
-              "title": "Intraoral photograph 2 \u2014 lower left occlusal view",
-              "creation": "2026-07-14",
-              "data": "SGVsbG8gT0hJQSAtLSB0cnVuY2F0ZWQgaW50cmFvcmFsIHBob3RvIHBsYWNlaG9sZGVyIDI="
-            }
-          }
-        ],
-        "context": {
-          "encounter": [
-            {
-              "reference": "Encounter/encounter-01-virtual",
-              "display": "Virtual dental consultation, 2026-07-14"
-            }
-          ]
-        },
-        "note": [
-          {
-            "text": "One to two intraoral photos Sarah captured on her phone through the Meridian teledentistry app during the virtual visit, reviewed by Dr. Webb and sent with the referral. Modeled as a US Core DocumentReference (the R5/R6-forward, US-Core-conformant vehicle for non-DICOM clinical images \u2014 chosen over R4 Media, which is removed in R5/R6 and has no US Core profile). Inline base64 (content.attachment.data) is a SHORT placeholder for test data; a production submission carries the full image/jpeg bytes inline so the artifact is self-contained for the CDex push to Barton Springs' interim FHIR server (no reach-back pull required). This is explicitly NOT a diagnostic radiograph: no DICOM, no ImagingStudy, no WADO-RS/PACS \u2014 the radiograph first appears in-office at Interaction 3. The affected tooth (#19) is carried on Observation/observation-symptoms (bodySite) which references these photos via derivedFrom, since R4 DocumentReference has no bodySite element."
-          }
-        ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "DocumentReference/documentreference-intraoral-photos"
       }
     },
     {
@@ -1078,7 +1007,7 @@
             }
           ]
         },
-        "description": "Structured wrapper for Dr. Webb's virtual assessment findings (see Observation/observation-symptoms), transmitted with the dental-to-dental referral. This is a clinical-note wrapper, not an imaging document \u2014 the diagnostic radiograph does not exist until the in-office visit (Interaction 3). The patient-submitted intraoral photos are a separate DocumentReference (documentreference-intraoral-photos)."
+        "description": "Structured wrapper for Dr. Webb's virtual assessment findings (see Observation/observation-symptoms), transmitted with the dental-to-dental referral. This is a clinical-note wrapper, not an imaging document \u2014 the diagnostic radiograph does not exist until the in-office visit (Interaction 3). The patient-submitted intraoral photos are delivered separately by ARex reference (List/arex-manifest-intraoral-photos)."
       },
       "request": {
         "method": "PUT",
@@ -1138,7 +1067,7 @@
                 "display": "Irreversible pulpitis"
               }
             ],
-            "text": "Acute lower-left tooth pain, presenting complaint"
+            "text": "Acute front-tooth pain on biting, presenting complaint"
           }
         ],
         "location": [
@@ -1206,7 +1135,7 @@
         ],
         "note": [
           {
-            "text": "Patient-reported medication captured during the virtual assessment (the 'medication list attached' referenced in the referral payload). Sarah reports self-medicating with OTC ibuprofen for the lower-left pain; no known drug allergies. RxNorm 5640 is the ingredient-level concept for ibuprofen; a specific product/strength code is not asserted since the exact OTC product was patient-reported rather than clinically verified."
+            "text": "Patient-reported medication captured during the virtual assessment (the 'medication list attached' referenced in the referral payload). Sarah reports self-medicating with OTC ibuprofen for the front-tooth pain; no known drug allergies. RxNorm 5640 is the ingredient-level concept for ibuprofen; a specific product/strength code is not asserted since the exact OTC product was patient-reported rather than clinically verified."
           }
         ]
       },
@@ -1238,7 +1167,7 @@
           }
         ],
         "code": {
-          "text": "Dental symptom findings (virtual assessment) \u2014 tooth #19"
+          "text": "Dental symptom findings (virtual assessment) \u2014 tooth #9"
         },
         "subject": {
           "reference": "Patient/patient-sarah-okonkwo",
@@ -1259,16 +1188,20 @@
           "coding": [
             {
               "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
-              "code": "19",
-              "display": "19"
+              "code": "9",
+              "display": "Permanent maxillary left central incisor tooth"
             }
           ],
-          "text": "Tooth #19 (lower left first molar)"
+          "text": "Tooth #9 (maxillary left central incisor)"
         },
         "derivedFrom": [
           {
-            "reference": "DocumentReference/documentreference-intraoral-photos",
-            "display": "Patient-submitted intraoral photos, lower left region"
+            "reference": "DocumentReference/arex-entry-photo-1",
+            "display": "Patient-submitted intraoral photo 1 (ARex entry)"
+          },
+          {
+            "reference": "DocumentReference/arex-entry-photo-2",
+            "display": "Patient-submitted intraoral photo 2 (ARex entry)"
           }
         ],
         "component": [
@@ -1276,13 +1209,13 @@
             "code": {
               "text": "Symptom duration"
             },
-            "valueString": "Building pain over approximately 3 days; now unable to chew on the lower left side."
+            "valueString": "Building pain over approximately 3 days; now unable to chew or bite with the front teeth."
           },
           {
             "code": {
               "text": "Pain on biting"
             },
-            "valueString": "Sharp pain when biting down on the lower left side."
+            "valueString": "Sharp pain when biting on the front teeth."
           },
           {
             "code": {
@@ -1299,7 +1232,7 @@
         ],
         "note": [
           {
-            "text": "Symptom findings captured as discrete components during Dr. Webb's structured virtual assessment. The finding is correlated to tooth #19 both directly (Observation.bodySite) and to the patient-submitted intraoral photos (Observation.derivedFrom -> DocumentReference/documentreference-intraoral-photos). This derivedFrom link is the R4 work-around for the affected tooth: R4 DocumentReference has no bodySite element, so the tooth is carried on this coded Observation, letting the receiving PMS re-associate the photos to tooth #19. No LOINC code is asserted for the overall symptom finding (text-only components, per project verification discipline)."
+            "text": "Symptom findings captured as discrete components during Dr. Webb's structured virtual assessment. The finding is correlated to tooth #9 both directly (Observation.bodySite) and to the patient-submitted intraoral photos (Observation.derivedFrom -> the two ARex content entries DocumentReference/arex-entry-photo-1 and -2, listed in List/arex-manifest-intraoral-photos). This derivedFrom link is the R4 work-around for the affected tooth: R4 DocumentReference has no bodySite element, so the tooth is carried on this coded Observation, letting the receiving PMS re-associate the photos to tooth #9. No LOINC code is asserted for the overall symptom finding (text-only components, per project verification discipline)."
           }
         ]
       },
@@ -1434,7 +1367,7 @@
           {
             "role": "source",
             "what": {
-              "display": "Referral created in the Meridian Teledental platform during the virtual encounter and pushed directly to Barton Springs Dental Group's interim FHIR server via Da Vinci CDex provider-to-provider (no HIE, no 360X bridge). Patient-submitted intraoral photos travel inline with the referral bundle."
+              "display": "Referral created in the Meridian Teledental platform during the virtual encounter and pushed directly to Barton Springs Dental Group's interim FHIR server via Da Vinci CDex provider-to-provider (no HIE, no 360X bridge). Patient-submitted intraoral photos travel by ARex reference (a manifest of two image entries), not inline."
             }
           }
         ]
@@ -1479,11 +1412,11 @@
           "coding": [
             {
               "system": "http://www.ada.org/cdt",
-              "code": "D3330",
-              "display": "Endodontic therapy, molar tooth (excluding final restoration)"
+              "code": "D3310",
+              "display": "Endodontic therapy, anterior tooth (excluding final restoration)"
             }
           ],
-          "text": "In-office dental evaluation with radiograph and likely endodontic treatment \u2014 irreversible pulpitis, tooth #19"
+          "text": "In-office dental evaluation with radiograph and likely endodontic treatment \u2014 irreversible pulpitis, tooth #9"
         },
         "subject": {
           "reference": "Patient/patient-sarah-okonkwo",
@@ -1520,17 +1453,17 @@
             "coding": [
               {
                 "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
-                "code": "19",
-                "display": "19"
+                "code": "9",
+                "display": "Permanent maxillary left central incisor tooth"
               }
             ],
-            "text": "Tooth #19"
+            "text": "Tooth #9"
           }
         ],
         "supportingInfo": [
           {
             "reference": "Observation/observation-symptoms",
-            "display": "Symptom findings, tooth #19"
+            "display": "Symptom findings, tooth #9"
           },
           {
             "reference": "Observation/observation-tobacco-status",
@@ -1545,8 +1478,12 @@
             "display": "Virtual assessment note"
           },
           {
-            "reference": "DocumentReference/documentreference-intraoral-photos",
-            "display": "Patient-submitted intraoral photos, tooth #19"
+            "reference": "List/arex-manifest-intraoral-photos",
+            "display": "Patient-submitted intraoral photos, tooth #9 (ARex manifest; not inline)"
+          },
+          {
+            "reference": "Observation/observation-dental-home",
+            "display": "Dental history: no dental home"
           }
         ],
         "insurance": [
@@ -1605,7 +1542,7 @@
         },
         "focus": {
           "reference": "ServiceRequest/servicerequest-referral",
-          "display": "Referral: In-office evaluation and endodontic treatment, tooth #19"
+          "display": "Referral: In-office evaluation and endodontic treatment, tooth #9"
         },
         "for": {
           "reference": "Patient/patient-sarah-okonkwo",
@@ -1705,7 +1642,7 @@
         "basedOn": [
           {
             "reference": "ServiceRequest/servicerequest-referral",
-            "display": "Referral: In-office evaluation and endodontic treatment, tooth #19"
+            "display": "Referral: In-office evaluation and endodontic treatment, tooth #9"
           }
         ],
         "serviceType": [
@@ -1713,11 +1650,11 @@
             "coding": [
               {
                 "system": "http://www.ada.org/cdt",
-                "code": "D3330",
-                "display": "Endodontic therapy, molar tooth (excluding final restoration)"
+                "code": "D3310",
+                "display": "Endodontic therapy, anterior tooth (excluding final restoration)"
               }
             ],
-            "text": "In-office evaluation with radiograph and likely root canal, tooth #19"
+            "text": "In-office evaluation with radiograph and likely root canal, tooth #9"
           }
         ],
         "reasonCode": [
@@ -1732,7 +1669,7 @@
           }
         ],
         "priority": 5,
-        "description": "In-office evaluation and treatment of tooth #19 (irreversible pulpitis), following referral from Meridian Teledental",
+        "description": "In-office evaluation and treatment of tooth #9 (irreversible pulpitis), following referral from Meridian Teledental",
         "start": "2026-07-15T10:00:00-05:00",
         "end": "2026-07-15T11:00:00-05:00",
         "created": "2026-07-14T20:47:00-05:00",
@@ -1772,7 +1709,7 @@
         "id": "appointmentresponse-inoffice",
         "appointment": {
           "reference": "Appointment/appointment-inoffice",
-          "display": "In-office evaluation and treatment, tooth #19, 2026-07-15 10:00"
+          "display": "In-office evaluation and treatment, tooth #9, 2026-07-15 10:00"
         },
         "start": "2026-07-15T10:00:00-05:00",
         "end": "2026-07-15T11:00:00-05:00",
@@ -1908,18 +1845,18 @@
               "display": "Periapical abscess without sinus"
             }
           ],
-          "text": "Periapical abscess without sinus, tooth #19 (newly confirmed in-office by radiograph)"
+          "text": "Periapical abscess without sinus, tooth #9 (newly confirmed in-office by radiograph)"
         },
         "bodySite": [
           {
             "coding": [
               {
                 "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
-                "code": "19",
-                "display": "19"
+                "code": "9",
+                "display": "Permanent maxillary left central incisor tooth"
               }
             ],
-            "text": "Tooth #19 (lower left first molar, Universal Numbering System)"
+            "text": "Tooth #9 (maxillary left central incisor, Universal Numbering System)"
           }
         ],
         "subject": {
@@ -1937,7 +1874,7 @@
         },
         "note": [
           {
-            "text": "Newly identified in-office diagnosis: the periapical radiograph revealed early periapical pathology not visible in the virtual assessment. CODE CORRECTION (project verification discipline): the source use-case document labels this 'K04.5 \u2014 Periapical abscess without sinus', but ICD-10-CM K04.5 is 'Chronic apical periodontitis'; 'Periapical abscess without sinus' is K04.7 (consistent with the code used in UC02a's claims-sharing EOB). K04.7 is used here per the clinical narrative ('periapical rarefaction consistent with periapical abscess'). Tooth #19 uses the ADA Universal Numbering System; FDI is deliberately NOT asserted."
+            "text": "Newly identified in-office diagnosis: the periapical radiograph revealed early periapical pathology not visible in the virtual assessment. CODE CORRECTION (project verification discipline): the source use-case document labels this 'K04.5 \u2014 Periapical abscess without sinus', but ICD-10-CM K04.5 is 'Chronic apical periodontitis'; 'Periapical abscess without sinus' is K04.7 (consistent with the code used in UC02a's claims-sharing EOB). K04.7 is used here per the clinical narrative ('periapical rarefaction consistent with periapical abscess'). Tooth #9 uses the ADA Universal Numbering System; FDI is deliberately NOT asserted."
           }
         ]
       },
@@ -1965,7 +1902,7 @@
               "display": "Single view Teeth Document XR"
             }
           ],
-          "text": "Periapical radiograph, tooth #19 (CDT D0220)"
+          "text": "Periapical radiograph, tooth #9 (CDT D0220)"
         },
         "subject": {
           "reference": "Patient/patient-sarah-okonkwo",
@@ -1982,7 +1919,7 @@
             "display": "Dr. Priya Nair, DDS"
           }
         ],
-        "conclusion": "Tooth #19 (lower left first molar): periapical rarefaction consistent with periapical abscess; three-canal anatomy; no root fracture. Findings confirm irreversible pulpitis with early periapical pathology. Endodontic treatment indicated and completed same visit.",
+        "conclusion": "Tooth #9 (maxillary left central incisor): periapical rarefaction consistent with periapical abscess; no root fracture. Findings confirm irreversible pulpitis with early periapical pathology. Endodontic treatment indicated and completed same visit.",
         "imagingStudy": [
           {
             "reference": "ImagingStudy/imagingstudy-periapical"
@@ -2029,7 +1966,7 @@
         "basedOn": [
           {
             "reference": "ServiceRequest/servicerequest-referral",
-            "display": "Referral: In-office evaluation and endodontic treatment, tooth #19"
+            "display": "Referral: In-office evaluation and endodontic treatment, tooth #9"
           }
         ],
         "participant": [
@@ -2053,7 +1990,7 @@
                 "display": "Irreversible pulpitis"
               }
             ],
-            "text": "Lower-left tooth pain, referred from teledentistry for evaluation and likely endodontic treatment"
+            "text": "Front-tooth pain, referred from teledentistry for evaluation and likely endodontic treatment"
           }
         ],
         "location": [
@@ -2106,11 +2043,11 @@
               "coding": [
                 {
                   "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
-                  "code": "19",
-                  "display": "19"
+                  "code": "9",
+                  "display": "Permanent maxillary left central incisor tooth"
                 }
               ],
-              "text": "Tooth #19"
+              "text": "Tooth #9"
             }
           }
         ],
@@ -2148,7 +2085,7 @@
           }
         ],
         "code": {
-          "text": "Periapical radiographic findings \u2014 tooth #19"
+          "text": "Periapical radiographic findings \u2014 tooth #9"
         },
         "subject": {
           "reference": "Patient/patient-sarah-okonkwo",
@@ -2168,16 +2105,16 @@
           "coding": [
             {
               "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
-              "code": "19",
-              "display": "19"
+              "code": "9",
+              "display": "Permanent maxillary left central incisor tooth"
             }
           ],
-          "text": "Tooth #19 (lower left first molar)"
+          "text": "Tooth #9 (maxillary left central incisor)"
         },
         "derivedFrom": [
           {
             "reference": "DiagnosticReport/diagnosticreport-periapical",
-            "display": "Periapical radiograph report, tooth #19"
+            "display": "Periapical radiograph report, tooth #9"
           }
         ],
         "component": [
@@ -2185,13 +2122,13 @@
             "code": {
               "text": "Periapical rarefaction"
             },
-            "valueString": "Radiolucency at the apex of tooth #19, consistent with periapical abscess."
+            "valueString": "Radiolucency at the apex of tooth #9, consistent with periapical abscess."
           },
           {
             "code": {
               "text": "Canal anatomy"
             },
-            "valueString": "Three canals identified."
+            "valueString": "Root canal space identified."
           },
           {
             "code": {
@@ -2202,83 +2139,13 @@
         ],
         "note": [
           {
-            "text": "Periapical findings read from the in-office radiograph (DiagnosticReport/diagnosticreport-periapical), confirming what the virtual assessment had provisionally suspected. Correlated to tooth #19 via Observation.bodySite. Text-only components (no LOINC asserted for the overall finding, per project verification discipline)."
+            "text": "Periapical findings read from the in-office radiograph (DiagnosticReport/diagnosticreport-periapical), confirming what the virtual assessment had provisionally suspected. Correlated to tooth #9 via Observation.bodySite. Text-only components (no LOINC asserted for the overall finding, per project verification discipline)."
           }
         ]
       },
       "request": {
         "method": "PUT",
         "url": "Observation/observation-periapical-findings"
-      }
-    },
-    {
-      "fullUrl": "urn:uuid:Procedure-procedure-d3330-rootcanal",
-      "resource": {
-        "resourceType": "Procedure",
-        "id": "procedure-d3330-rootcanal",
-        "meta": {
-          "profile": [
-            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
-          ]
-        },
-        "status": "completed",
-        "code": {
-          "coding": [
-            {
-              "system": "http://www.ada.org/cdt",
-              "code": "D3330",
-              "display": "Endodontic therapy, molar tooth (excluding final restoration)"
-            }
-          ],
-          "text": "Root canal therapy, tooth #19"
-        },
-        "subject": {
-          "reference": "Patient/patient-sarah-okonkwo",
-          "display": "Sarah Okonkwo"
-        },
-        "encounter": {
-          "reference": "Encounter/encounter-03-inoffice"
-        },
-        "performedDateTime": "2026-07-15",
-        "performer": [
-          {
-            "actor": {
-              "reference": "PractitionerRole/role-nair",
-              "display": "Dr. Priya Nair, DDS"
-            }
-          }
-        ],
-        "reasonReference": [
-          {
-            "reference": "Condition/condition-k04-01-pulpitis",
-            "display": "Irreversible pulpitis, tooth #19 (confirmed)"
-          },
-          {
-            "reference": "Condition/condition-k04-7-periapical-abscess",
-            "display": "Periapical abscess without sinus, tooth #19"
-          }
-        ],
-        "bodySite": [
-          {
-            "coding": [
-              {
-                "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
-                "code": "19",
-                "display": "19"
-              }
-            ],
-            "text": "Tooth #19 (lower left first molar)"
-          }
-        ],
-        "note": [
-          {
-            "text": "Single-visit root canal therapy (CDT D3330), tooth #19: three canals instrumented and obturated; patient tolerated the procedure well. Final restoration (crown) to be placed by the patient's regular dental provider (see the post-treatment CarePlan at Interaction 4). Tooth designation uses the ADA Universal Numbering System (#19); the source document's 'FDI 36' label is the separately-flagged FDI error and is deliberately NOT reproduced here, per ADA confirmation that FDI is not used for US dental data."
-          }
-        ]
-      },
-      "request": {
-        "method": "PUT",
-        "url": "Procedure/procedure-d3330-rootcanal"
       }
     },
     {
@@ -2376,7 +2243,7 @@
         "id": "careplan-posttreatment",
         "status": "active",
         "intent": "plan",
-        "title": "Post-treatment care plan \u2014 Sarah Okonkwo (tooth #19 root canal)",
+        "title": "Post-treatment care plan \u2014 Sarah Okonkwo (tooth #9 root canal)",
         "subject": {
           "reference": "Patient/patient-sarah-okonkwo",
           "display": "Sarah Okonkwo"
@@ -2394,7 +2261,7 @@
         "addresses": [
           {
             "reference": "Condition/condition-k04-01-pulpitis",
-            "display": "Irreversible pulpitis, tooth #19 (confirmed)"
+            "display": "Irreversible pulpitis, tooth #9 (confirmed)"
           }
         ],
         "activity": [
@@ -2402,14 +2269,14 @@
             "detail": {
               "kind": "ServiceRequest",
               "status": "not-started",
-              "description": "Final restoration (crown) on tooth #19 by the patient's regular dental provider \u2014 the endodontically treated molar needs definitive coronal coverage."
+              "description": "Definitive crown on tooth #9 by a dentist Sarah establishes as her dental home (she has none yet) \u2014 the endodontically treated tooth needs definitive coronal coverage; a lingual direct composite (D2330) restores the access in the interim."
             }
           },
           {
             "detail": {
               "kind": "Appointment",
               "status": "not-started",
-              "description": "Follow-up periapical radiograph of tooth #19 at 6 months to confirm periapical healing."
+              "description": "Follow-up periapical radiograph of tooth #9 at 6 months to confirm periapical healing."
             }
           },
           {
@@ -2422,7 +2289,7 @@
         ],
         "note": [
           {
-            "text": "Post-treatment care plan surfaced to Sarah's patient-facing app alongside the referral-complete milestone at Interaction 4, and transmitted to the referring teledentistry provider as part of the closed-loop summary. Final restoration is deliberately deferred to the patient's regular dental provider (not Barton Springs), consistent with the operative note."
+            "text": "Post-treatment care plan surfaced to Sarah's patient-facing app alongside the referral-complete milestone at Interaction 4, and transmitted to the referring teledentistry provider as part of the closed-loop summary. The definitive crown is deliberately deferred to a dentist Sarah establishes as her dental home, because she has none yet (not Barton Springs), consistent with the operative note. ASSUMPTION: who places the crown is not stated in the narrative; the owner confirms the crown is still needed."
           }
         ]
       },
@@ -2455,11 +2322,11 @@
         "problem": [
           {
             "reference": "Condition/condition-k04-01-pulpitis",
-            "display": "Irreversible pulpitis, tooth #19 (confirmed)"
+            "display": "Irreversible pulpitis, tooth #9 (confirmed)"
           },
           {
             "reference": "Condition/condition-k04-7-periapical-abscess",
-            "display": "Periapical abscess without sinus, tooth #19"
+            "display": "Periapical abscess without sinus, tooth #9"
           }
         ],
         "investigation": [
@@ -2470,11 +2337,15 @@
             "item": [
               {
                 "reference": "DiagnosticReport/diagnosticreport-periapical",
-                "display": "Periapical radiograph, tooth #19 (D0220)"
+                "display": "Periapical radiograph, tooth #9 (D0220)"
               },
               {
-                "reference": "Procedure/procedure-d3330-rootcanal",
-                "display": "D3330 root canal therapy, tooth #19"
+                "reference": "Procedure/procedure-d3310-rootcanal",
+                "display": "D3310 root canal therapy, tooth #9"
+              },
+              {
+                "reference": "Procedure/procedure-d2330-composite",
+                "display": "D2330 direct composite restoration, lingual surface, tooth #9"
               }
             ]
           }
@@ -2483,17 +2354,17 @@
           {
             "itemReference": {
               "reference": "Condition/condition-k04-01-pulpitis",
-              "display": "Irreversible pulpitis, tooth #19 \u2014 confirmed"
+              "display": "Irreversible pulpitis, tooth #9 \u2014 confirmed"
             }
           },
           {
             "itemReference": {
               "reference": "Condition/condition-k04-7-periapical-abscess",
-              "display": "Periapical abscess without sinus, tooth #19"
+              "display": "Periapical abscess without sinus, tooth #9"
             }
           }
         ],
-        "summary": "Sarah Okonkwo seen 2026-07-15 per referral from Meridian Teledental (Dr. Webb). Periapical radiograph confirmed irreversible pulpitis with periapical abscess, tooth #19. Root canal therapy completed in a single visit (D3330): three canals instrumented and obturated. Patient tolerated the procedure well. Final restoration (crown) indicated; patient advised to contact her regular dental provider. Follow-up periapical radiograph recommended at 6 months. Ibuprofen 400 mg PRN for post-operative discomfort.",
+        "summary": "Sarah Okonkwo seen 2026-07-15 per referral from Meridian Teledental (Dr. Webb). Periapical radiograph confirmed irreversible pulpitis with periapical abscess, tooth #9. Root canal therapy completed in a single visit (D3310): the canal space was instrumented and obturated, and the access was conservatively restored in the same visit with a single-surface lingual direct composite (D2330). Patient tolerated the procedure well. A definitive crown is indicated; Sarah has no dental home and is advised to establish one for crown placement. Follow-up periapical radiograph recommended at 6 months. Ibuprofen 400 mg PRN for post-operative discomfort.",
         "note": [
           {
             "text": "Structured encounter summary returned to the referring teledentistry provider (Dr. Webb, Meridian Teledental) via Da Vinci CDex provider-to-provider push \u2014 a single recipient (the originating provider), unlike UC03's two-recipient fan-out. This summary closes the referral loop (see the completed referral Task and ServiceRequest). Transmitted as discrete FHIR, not a PDF. The in-office radiograph itself is not re-transmitted; its conclusion is carried here via the referenced DiagnosticReport."
@@ -2658,6 +2529,478 @@
       "request": {
         "method": "PUT",
         "url": "Task/task-summary-delivery"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DocumentReference-arex-entry-photo-1",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "arex-entry-photo-1",
+        "meta": {
+          "profile": [
+            "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-content-entry"
+          ]
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "72170-4",
+              "display": "Photographic image"
+            }
+          ],
+          "text": "Patient-submitted intraoral photograph, tooth #9 region"
+        },
+        "subject": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "date": "2026-07-14T19:38:00-05:00",
+        "author": [
+          {
+            "reference": "Patient/patient-sarah-okonkwo",
+            "display": "Sarah Okonkwo (patient-captured via teledentistry app)"
+          }
+        ],
+        "content": [
+          {
+            "attachment": {
+              "extension": [
+                {
+                  "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-digest",
+                  "extension": [
+                    {
+                      "url": "algorithm",
+                      "valueCode": "sha-256"
+                    },
+                    {
+                      "url": "value",
+                      "valueString": "7a42c40d61d12d23cdefba77fac9832b053bd5ec476cabbfd2e34764671816e7"
+                    }
+                  ]
+                }
+              ],
+              "contentType": "image/jpeg",
+              "url": "https://meridian-teledental.example.org/arex/Binary/arex-entry-photo-1",
+              "size": 632,
+              "title": "Intraoral photograph 1 \u2014 upper front teeth, tooth #9 region (synthetic placeholder image)"
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "Encounter/encounter-01-virtual",
+              "display": "Virtual dental consultation, 2026-07-14"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DocumentReference/arex-entry-photo-1"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:DocumentReference-arex-entry-photo-2",
+      "resource": {
+        "resourceType": "DocumentReference",
+        "id": "arex-entry-photo-2",
+        "meta": {
+          "profile": [
+            "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-content-entry"
+          ]
+        },
+        "status": "current",
+        "type": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "72170-4",
+              "display": "Photographic image"
+            }
+          ],
+          "text": "Patient-submitted intraoral photograph, tooth #9 region"
+        },
+        "subject": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "date": "2026-07-14T19:39:00-05:00",
+        "author": [
+          {
+            "reference": "Patient/patient-sarah-okonkwo",
+            "display": "Sarah Okonkwo (patient-captured via teledentistry app)"
+          }
+        ],
+        "content": [
+          {
+            "attachment": {
+              "extension": [
+                {
+                  "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-digest",
+                  "extension": [
+                    {
+                      "url": "algorithm",
+                      "valueCode": "sha-256"
+                    },
+                    {
+                      "url": "value",
+                      "valueString": "c71657bd00f32661344e1e0013a82a83c24f09999c28cb916698d8dcc9ed141e"
+                    }
+                  ]
+                }
+              ],
+              "contentType": "image/jpeg",
+              "url": "https://meridian-teledental.example.org/arex/Binary/arex-entry-photo-2",
+              "size": 632,
+              "title": "Intraoral photograph 2 \u2014 tooth #9 close-up (synthetic placeholder image)"
+            }
+          }
+        ],
+        "context": {
+          "encounter": [
+            {
+              "reference": "Encounter/encounter-01-virtual",
+              "display": "Virtual dental consultation, 2026-07-14"
+            }
+          ]
+        }
+      },
+      "request": {
+        "method": "PUT",
+        "url": "DocumentReference/arex-entry-photo-2"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:List-arex-manifest-intraoral-photos",
+      "resource": {
+        "resourceType": "List",
+        "id": "arex-manifest-intraoral-photos",
+        "meta": {
+          "profile": [
+            "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-manifest"
+          ]
+        },
+        "extension": [
+          {
+            "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-expires",
+            "valueInstant": "2026-07-29T00:56:00Z"
+          },
+          {
+            "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-requires-access-token",
+            "valueBoolean": true
+          },
+          {
+            "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-transaction-context",
+            "extension": [
+              {
+                "url": "businessIdentifier",
+                "valueIdentifier": {
+                  "system": "urn:ohia:referral-id",
+                  "value": "REF-2026-UC04A-001"
+                }
+              },
+              {
+                "url": "requestingOrganization",
+                "valueReference": {
+                  "reference": "Organization/org-barton-springs-dental"
+                }
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "system": "https://meridian-teledental.example.org/arex/manifest-id",
+            "value": "MAN-2026-0714-0001"
+          }
+        ],
+        "status": "current",
+        "mode": "snapshot",
+        "title": "Patient-submitted intraoral photos for referral REF-2026-UC04A-001",
+        "code": {
+          "coding": [
+            {
+              "system": "http://fhir.onyxhealth.io/us/arex/CodeSystem/arex-manifest-type",
+              "code": "attachment-set",
+              "display": "Attachment set"
+            }
+          ]
+        },
+        "subject": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "date": "2026-07-15T00:56:00Z",
+        "entry": [
+          {
+            "item": {
+              "reference": "DocumentReference/arex-entry-photo-1"
+            }
+          },
+          {
+            "item": {
+              "reference": "DocumentReference/arex-entry-photo-2"
+            }
+          }
+        ],
+        "note": [
+          {
+            "text": "ASSUMPTIONS: the expiry (14 days after publication, borrowed from the UC07 pattern), the manifest identifier and the example.org URLs are synthetic; the requesting organization is Barton Springs, the practice that retrieves the photos. The 'one or two photos' of the narrative is modeled as two entries. The payload files in arex-payloads/ are 8x8 placeholder JPEGs, not clinical photographs; the digests are real SHA-256 over those files."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "List/arex-manifest-intraoral-photos"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Observation-observation-dental-home",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "observation-dental-home",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "survey",
+                "display": "Survey"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "text": "Dental home / last dental visit (patient-reported)"
+        },
+        "subject": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01-virtual",
+          "display": "Virtual dental consultation, 2026-07-14"
+        },
+        "effectiveDateTime": "2026-07-14T19:36:00-05:00",
+        "performer": [
+          {
+            "reference": "PractitionerRole/role-webb",
+            "display": "Dr. Marcus Webb, DDS"
+          }
+        ],
+        "valueString": "No dental home. Sarah has not seen a dentist in some time.",
+        "note": [
+          {
+            "text": "Captured by Dr. Webb during the structured virtual assessment (UC04 narrative, revised 2026-11-04: 'He confirms Sarah has not seen a dentist in some time'). Text only: the narrative gives no date for the last visit, so none is asserted, and no code is asserted for 'dental home'. It matters downstream because the definitive crown at Interaction 4 has no existing dentist to go to."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Observation/observation-dental-home"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Provenance-arex-provenance-intraoral-photos",
+      "resource": {
+        "resourceType": "Provenance",
+        "id": "arex-provenance-intraoral-photos",
+        "meta": {
+          "profile": [
+            "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-provenance"
+          ]
+        },
+        "target": [
+          {
+            "reference": "List/arex-manifest-intraoral-photos"
+          }
+        ],
+        "recorded": "2026-07-15T00:56:01Z",
+        "agent": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+                  "code": "author",
+                  "display": "Author"
+                }
+              ]
+            },
+            "who": {
+              "reference": "Organization/org-meridian-teledental"
+            }
+          }
+        ],
+        "entity": [
+          {
+            "role": "source",
+            "what": {
+              "display": "PLACEHOLDER SIGNATURE. The ARex Provenance profile requires signature (min 1) but a valid detached JWS cannot be committed here; signature.data below is NOT a valid JWS. Regenerate the detached JWS over the manifest's FHIR Canonical JSON at test time."
+            }
+          }
+        ],
+        "signature": [
+          {
+            "type": [
+              {
+                "system": "urn:iso-astm:E1762-95:2013",
+                "code": "1.2.840.10065.1.12.1.1",
+                "display": "Author's Signature"
+              }
+            ],
+            "when": "2026-07-15T00:56:01Z",
+            "who": {
+              "reference": "Organization/org-meridian-teledental"
+            },
+            "sigFormat": "application/jose",
+            "data": "UExBQ0VIT0xERVItTk9ULUEtVkFMSUQtSldTOiByZWdlbmVyYXRlIGF0IHRlc3QgdGltZQ=="
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Provenance/arex-provenance-intraoral-photos"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure-procedure-d2330-composite",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-d2330-composite",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D2330",
+              "display": "Resin-based composite - one surface, anterior"
+            }
+          ],
+          "text": "Direct composite restoration, lingual surface, tooth #9"
+        },
+        "subject": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-inoffice"
+        },
+        "performedDateTime": "2026-07-15",
+        "performer": [
+          {
+            "actor": {
+              "reference": "PractitionerRole/role-nair",
+              "display": "Dr. Priya Nair, DDS"
+            }
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-k04-01-pulpitis",
+            "display": "Irreversible pulpitis, tooth #9 (confirmed)"
+          }
+        ],
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+                "code": "9",
+                "display": "Permanent maxillary left central incisor tooth"
+              }
+            ],
+            "text": "Tooth #9 (maxillary left central incisor), lingual surface"
+          }
+        ],
+        "note": [
+          {
+            "text": "Single-surface direct composite on the lingual surface of tooth #9, placed in the same visit after the root canal therapy (UC04 narrative, revised 2026-11-04). It restores the access conservatively; it is not the definitive restoration, because a crown is still indicated (owner). The surface is carried in bodySite.text only: no surface code is asserted. The narrative gives no time of day for the restoration."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/procedure-d2330-composite"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:Procedure-procedure-d3310-rootcanal",
+      "resource": {
+        "resourceType": "Procedure",
+        "id": "procedure-d3310-rootcanal",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+          ]
+        },
+        "status": "completed",
+        "code": {
+          "coding": [
+            {
+              "system": "http://www.ada.org/cdt",
+              "code": "D3310",
+              "display": "Endodontic therapy, anterior tooth (excluding final restoration)"
+            }
+          ],
+          "text": "Root canal therapy, tooth #9"
+        },
+        "subject": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-03-inoffice"
+        },
+        "performedDateTime": "2026-07-15",
+        "performer": [
+          {
+            "actor": {
+              "reference": "PractitionerRole/role-nair",
+              "display": "Dr. Priya Nair, DDS"
+            }
+          }
+        ],
+        "reasonReference": [
+          {
+            "reference": "Condition/condition-k04-01-pulpitis",
+            "display": "Irreversible pulpitis, tooth #9 (confirmed)"
+          },
+          {
+            "reference": "Condition/condition-k04-7-periapical-abscess",
+            "display": "Periapical abscess without sinus, tooth #9"
+          }
+        ],
+        "bodySite": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+                "code": "9",
+                "display": "Permanent maxillary left central incisor tooth"
+              }
+            ],
+            "text": "Tooth #9 (maxillary left central incisor)"
+          }
+        ],
+        "note": [
+          {
+            "text": "Single-visit root canal therapy (CDT D3310, anterior tooth), tooth #9: the canal space was instrumented and obturated; patient tolerated the procedure well. The access was restored in the same visit (Procedure/procedure-d2330-composite). A definitive crown is still indicated, to be placed by a dentist the patient establishes as her dental home, because she has none (see the post-treatment CarePlan at Interaction 4). Tooth designation uses the ADA Universal Numbering System (#9); the source document's 'FDI 21' label is the separately-flagged FDI error and is deliberately NOT reproduced here, per ADA confirmation that FDI is not used for US dental data."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "Procedure/procedure-d3310-rootcanal"
       }
     }
   ]

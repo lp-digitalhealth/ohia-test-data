@@ -1,0 +1,85 @@
+{
+  "resourceType": "ClinicalImpression",
+  "id": "clinicalimpression-posttx-summary",
+  "status": "completed",
+  "code": {
+    "text": "Post-treatment summary — to the referring pediatric practice"
+  },
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-treatment"
+  },
+  "date": "2026-07-22T13:30:00-05:00",
+  "assessor": {
+    "reference": "PractitionerRole/practrole-max-garcia",
+    "display": "Dr. Max Garcia, DDS"
+  },
+  "problem": [
+    {
+      "reference": "Condition/condition-caries-tooth4",
+      "display": "Dental caries penetrating into the pulp, tooth #4"
+    },
+    {
+      "reference": "Condition/condition-periapical-abscess-tooth4",
+      "display": "Periapical abscess without sinus, tooth #4"
+    }
+  ],
+  "investigation": [
+    {
+      "code": {
+        "text": "Treatment delivered and imaging"
+      },
+      "item": [
+        {
+          "reference": "Procedure/procedure-d3320",
+          "display": "D3320 root canal therapy, tooth #4"
+        },
+        {
+          "reference": "Procedure/procedure-d2950",
+          "display": "D2950 core build-up, tooth #4"
+        },
+        {
+          "reference": "Procedure/procedure-d2740",
+          "display": "D2740 crown, tooth #4"
+        },
+        {
+          "reference": "ImagingStudy/imagingstudy-postop",
+          "display": "Post-operative periapical radiograph (ARex pointer)"
+        },
+        {
+          "reference": "DocumentReference/documentref-postop-clinical-note",
+          "display": "Clinical note, 2026-07-22"
+        }
+      ]
+    }
+  ],
+  "summary": "Joe Castle seen 2026-07-22 per referral from Dr. Mary Parker. Pulpal caries (K02.53) and periapical infection (K04.7) confirmed on tooth #4. Guardian consent obtained. Root canal therapy (D3320), core build-up (D2950), and crown (D2740) completed without complication. Post-operative radiograph shows adequate obturation and crown seating. Healing status: no complications at completion.",
+  "finding": [
+    {
+      "itemReference": {
+        "reference": "Condition/condition-caries-tooth4"
+      }
+    },
+    {
+      "itemReference": {
+        "reference": "Condition/condition-periapical-abscess-tooth4"
+      }
+    }
+  ],
+  "supportingInfo": [
+    {
+      "reference": "ImagingStudy/imagingstudy-postop"
+    },
+    {
+      "reference": "DocumentReference/documentref-postop-clinical-note"
+    }
+  ],
+  "note": [
+    {
+      "text": "Recommendations: 1. Routine follow-up at the pediatric practice at next recall; 2. Monitor for post-restorative sensitivity; 3. Continue routine pediatric preventive care. The summary text is the UC07 narrative's, verbatim. 'Guardian consent obtained' is narrative text only: the Consent resource belongs to the deferred interaction 3 and is not in this data set."
+    }
+  ]
+}

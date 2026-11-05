@@ -12,7 +12,7 @@ graph TD
   root["fhir-resources/"] --> dur["durable/  (reuse across use cases)"]
   root --> pb["purpose-built/  (one episode only)"]
   dur --> reg["organizations, practitioners, locations,<br/>endpoints, healthcare-services, insurance-plans, payer-rules, cds-hooks"]
-  pb --> uc["uc01 / uc02a / uc02b / uc03 / uc04a"]
+  pb --> uc["uc01 / uc02a / uc02b / uc03 / uc04a / uc07"]
   uc --> base["base/  (reusable WITHIN one use case:<br/>Patient, Coverage, Consent, PractitionerRole, Subscription)"]
   uc --> ix["interactions/  (purpose-built per step)"]
 ```
@@ -59,6 +59,9 @@ Note: practitioner/role files are named for the fictional identity they contain 
 | `org-meridian-teledental.json` | Meridian Teledental (teledentistry platform, fictional) | UC04a |
 | `org-barton-springs-dental.json` | Barton Springs Dental Group (general dentistry, Austin, fictional) | UC04a |
 | `org-uc04-commercial-payer.json` | Aetna Dental (commercial payer, real; synthetic identifiers) | UC04a |
+| `org-pediatric-dental-tx.json` | Pediatric Dental Practice — Texas (referring practice, fictional; synthetic NPI) | UC07 |
+| `org-restorative-dental-tx.json` | Restorative Dental Practice — Texas (receiving practice, fictional; synthetic NPI) | UC07 |
+| `org-dentaquest-tx.json` | DentaQuest USA Insurance Company, Inc. (Texas Medicaid dental payer, real; Payer ID CX014; synthetic endpoint). Separate from `org-dentaquest` (UC02a) | UC07 |
 
 ### Practitioners - `durable/practitioners/`
 | File | Display (content) | Role | Used by |
@@ -74,6 +77,8 @@ Note: practitioner/role files are named for the fictional identity they contain 
 | `pract-endo.json`, `pract-dietitian.json` | Endocrinologist, Dietitian (names withheld) | Care-team members | UC03 |
 | `pract-webb.json` | Dr. Marcus Webb, DDS | Teledentistry (referring) | UC04a |
 | `pract-nair.json` | Dr. Priya Nair, DDS | General Dentistry (receiving) | UC04a |
+| `pract-mary-parker.json` | Dr. Mary Parker, DDS (pediatric; a different record from UC02a's `pract-parker`) | Pediatric Dentistry (referring) | UC07 |
+| `pract-max-garcia.json` | Dr. Maximilian Garcia, DDS | General Dentistry (receiving) | UC07 |
 
 ### Locations - `durable/locations/`
 | File | Entity | Used by |
@@ -86,9 +91,11 @@ Note: practitioner/role files are named for the fictional identity they contain 
 | `loc-cornell-scott.json` | Cornell Scott-Hill Health Center - Dental | UC03 |
 | `loc-meridian-virtual.json` | Meridian Teledental - Virtual Care (POS 02, no physical site) | UC04a |
 | `loc-barton-springs.json` | Barton Springs Dental Group (POS 11, Austin) | UC04a |
+| `loc-pediatric-dental-tx.json` | Pediatric Dental Practice — Texas (POS 11; no street address in the narrative) | UC07 |
+| `loc-restorative-dental-tx.json` | Restorative Dental Practice — Texas (POS 11; no street address in the narrative) | UC07 |
 
 ### Endpoints - `durable/endpoints/`
-`endpoint-fccc`, `endpoint-ibx`, `endpoint-penndental` (UC01); `endpoint-dentaquest` (UC02a); `endpoint-south-congress-dental`, `endpoint-austin-oral-surgery` (UC02a, UC02b); `endpoint-commercial-dental-ppo` (UC02b); `endpoint-nemg`, `endpoint-cornell-scott`, `endpoint-connie`, `endpoint-benecare` (UC03); `endpoint-meridian-teledental`, `endpoint-barton-springs` (in-office interim FHIR server), `endpoint-uc04-commercial-payer` (UC04a). One FHIR/WADO-RS endpoint per participating organization.
+`endpoint-fccc`, `endpoint-ibx`, `endpoint-penndental` (UC01); `endpoint-dentaquest` (UC02a); `endpoint-south-congress-dental`, `endpoint-austin-oral-surgery` (UC02a, UC02b); `endpoint-commercial-dental-ppo` (UC02b); `endpoint-nemg`, `endpoint-cornell-scott`, `endpoint-connie`, `endpoint-benecare` (UC03); `endpoint-meridian-teledental`, `endpoint-barton-springs` (in-office interim FHIR server), `endpoint-uc04-commercial-payer` (UC04a); `endpoint-pediatric-fhir`, `endpoint-restorative-fhir`, `endpoint-dentaquest-tx` (UC07; FHIR only, WADO-RS deferred). One FHIR/WADO-RS endpoint per participating organization.
 
 ### Healthcare services - `durable/healthcare-services/`
 | File | Entry | Used by |
@@ -109,11 +116,12 @@ Note: practitioner/role files are named for the fictional identity they contain 
 |---|---|---|
 | IBX IMRT prior-auth (CRD + DTR) | `plandef-ibx-imrt-pa-rule`, `lib-ibx-imrt-pa-logic`, `questionnaire-ibx-imrt-pa-dtr` | UC01 |
 | DentaQuest D7210 prior-auth (CRD + DTR) | `plandef-dentaquest-d7210-pa-rule`, `lib-dentaquest-d7210-pa-logic`, `questionnaire-dentaquest-d7210-pa-dtr` | UC02a |
+| DentaQuest D3320 / D2950 / D2740 bundled prior-auth (CRD + DTR; synthetic policy; stub Library) | `plandef-dentaquest-d3320-d2950-d2740-pa-rule`, `lib-dentaquest-d3320-d2950-d2740-pa-logic`, `questionnaire-dentaquest-d3320-d2950-d2740-pa-dtr` | UC07 |
 | Commercial no-PA determination (CRD only, no DTR) | `plandef-commercial-noauth-rule`, `lib-commercial-noauth-logic` | UC02b |
 | CTDHP/HUSKY B D4341 SRP prior-auth (CRD + DTR) | `plandef-ctdhp-d4341-pa-rule`, `lib-ctdhp-d4341-pa-logic`, `questionnaire-ctdhp-d4341-pa-dtr` | UC03 (fires at treatment visit I3) |
 
 ### CDS Hooks discovery configs - `durable/cds-hooks/`
-Not FHIR resources (flagged in-file). One `order-sign` service config per payer: `cds-hooks-discovery-ibx.json` (UC01), `cds-hooks-discovery-dentaquest.json` (UC02a), `cds-hooks-discovery-commercial.json` (UC02b), `cds-hooks-discovery-ctdhp.json` (UC03).
+Not FHIR resources (flagged in-file). One `order-sign` service config per payer: `cds-hooks-discovery-ibx.json` (UC01), `cds-hooks-discovery-dentaquest.json` (UC02a; also carries the UC07 D3320 / D2950 / D2740 service), `cds-hooks-discovery-commercial.json` (UC02b), `cds-hooks-discovery-ctdhp.json` (UC03).
 
 ## Purpose-built index
 
@@ -123,7 +131,8 @@ Not FHIR resources (flagged in-file). One `order-sign` service config per payer:
 | **UC02a** | [`purpose-built/uc02a-surgical-extraction/`](purpose-built/uc02a-surgical-extraction/) | TX Medicaid surgical extraction (Frank Castle), **with** prior auth | I1-I5 |
 | **UC02b** | [`purpose-built/uc02b-commercial-implant/`](purpose-built/uc02b-commercial-implant/) | Commercial surgical extraction + immediate implant (Frank Castle), **no** prior auth | I1-I5 |
 | **UC03** | [`purpose-built/uc03-pediatric-referral/`](purpose-built/uc03-pediatric-referral/) | Pediatric dental referral, Type 1 diabetes (Timothy Jones), CT HUSKY B via **Connie HIE**; covered referral (no PA at referral) but **D4341 PA fires at treatment visit I3**, no imaging/HL7v2 | I1-I5 |
-| **UC04a** | [`purpose-built/uc04a-teledentistry-commercial/`](purpose-built/uc04a-teledentistry-commercial/) | Commercial **teledentistry** referral, acute pulpitis (Sarah Okonkwo), Aetna Dental PPO; virtual origin, **no PA**, patient-submitted intraoral photos exchanged at I1 as an inline US Core `DocumentReference`; first radiograph at I3 (in-office-only, not exchanged) + root canal, closed-loop summary (I4), two-organization claims-sharing (I5) | I1-I5 |
+| **UC04a** | [`purpose-built/uc04a-teledentistry-commercial/`](purpose-built/uc04a-teledentistry-commercial/) | Commercial **teledentistry** referral, acute pulpitis (Sarah Okonkwo), Aetna Dental PPO; virtual origin, **no PA**, patient-submitted intraoral photos exchanged at I1 by ARex reference (a manifest of two entries); first radiograph at I3 (in-office-only, not exchanged) + root canal and composite restoration, closed-loop summary (I4), two-organization claims-sharing (I5) | I1-I5 |
+| **UC07** | [`purpose-built/uc07-pediatric-rootcanal/`](purpose-built/uc07-pediatric-rootcanal/) | TX Medicaid pediatric dentist-to-general-dentist referral for root canal, build-up and crown on tooth #4 (Joe Castle), DentaQuest; radiographs as an **ARex manifest plus `ImagingStudy` pointers** (WADO-RS deferred); PA (CRD/DTR/PAS with an ARex manifest of the supporting documents) in I2; closed loop (summary, post-op radiograph by ARex, thank-you, referral closed) in I4 | I1, I2, I4 (I3 and I5 deferred) |
 
 See [`durable/README.md`](durable/README.md) and [`purpose-built/README.md`](purpose-built/README.md) for tier-specific detail, and each use case's `interactions/README.md` for per-interaction resource lists.
 

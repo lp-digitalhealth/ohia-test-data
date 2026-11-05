@@ -59,7 +59,7 @@
         },
         {
           "type": {
-            "text": "Basic / endodontic services (molar root canal, D3330)"
+            "text": "Basic / endodontic and restorative services (anterior root canal, D3310; composite restoration, D2330)"
           },
           "limit": [
             {
@@ -125,7 +125,7 @@
   ],
   "note": [
     {
-      "text": "Employer-sponsored commercial dental PPO benefit for UC04a (Sarah Okonkwo). Covers teledentistry/virtual consultation (D9995) so the after-hours virtual visit is a benefit, not an out-of-pocket expense — this is what the patient app verifies in real time at session initiation (a named UC04a test objective). Endodontic treatment (D3330) covered 80% after a $50 deductible; diagnostic radiograph (D0220) covered in full; annual maximum $2,000/plan year. NO prior authorization required for D9995, D0220, or D3330 under this plan design (commercial no-PA case, contrast UC02a's Medicaid PA). Fixed plan-level benefit values live here; member- and point-in-time-specific balances are returned by the real-time benefit response rather than stored on Coverage. Endpoint/EDI identifiers are synthetic — see Organization/org-uc04-commercial-payer."
+      "text": "Employer-sponsored commercial dental PPO benefit for UC04a (Sarah Okonkwo). Covers teledentistry/virtual consultation (D9995) so the after-hours virtual visit is a benefit, not an out-of-pocket expense — this is what the patient app verifies in real time at session initiation (a named UC04a test objective). Endodontic treatment (D3310) covered 80% after a $50 deductible, and the lingual composite restoration (D2330) is ASSUMED to carry the same basic-service cost-sharing (the narrative states the 80% only for endodontics); diagnostic radiograph (D0220) covered in full; annual maximum $2,000/plan year. NO prior authorization required for D9995, D0220, D3310, or D2330 under this plan design (commercial no-PA case, contrast UC02a's Medicaid PA). Fixed plan-level benefit values live here; member- and point-in-time-specific balances are returned by the real-time benefit response rather than stored on Coverage. Endpoint/EDI identifiers are synthetic — see Organization/org-uc04-commercial-payer."
     }
   ]
 }

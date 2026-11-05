@@ -1,0 +1,49 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "arex-entry-postop-periapical",
+  "meta": {
+    "profile": [
+      "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-content-entry"
+    ]
+  },
+  "status": "current",
+  "type": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D0220",
+        "display": "Intraoral - periapical first radiographic image"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "date": "2026-07-22T13:30:00-05:00",
+  "content": [
+    {
+      "attachment": {
+        "extension": [
+          {
+            "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-digest",
+            "extension": [
+              {
+                "url": "algorithm",
+                "valueCode": "sha-256"
+              },
+              {
+                "url": "value",
+                "valueString": "61cbd938586fc9d59e32c80971acf7baa5c6d341b271973386d160b0da0d838a"
+              }
+            ]
+          }
+        ],
+        "contentType": "image/png",
+        "url": "https://restorativedental.example.org/arex/Binary/arex-entry-postop-periapical",
+        "size": 73,
+        "title": "Post-operative periapical radiograph, tooth #4 (synthetic placeholder image)"
+      }
+    }
+  ]
+}

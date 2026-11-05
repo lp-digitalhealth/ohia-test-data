@@ -1,0 +1,49 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "arex-entry-bitewing",
+  "meta": {
+    "profile": [
+      "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-content-entry"
+    ]
+  },
+  "status": "current",
+  "type": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D0270",
+        "display": "Bitewing - single radiographic image"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "date": "2026-07-08T10:15:00-05:00",
+  "content": [
+    {
+      "attachment": {
+        "extension": [
+          {
+            "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-digest",
+            "extension": [
+              {
+                "url": "algorithm",
+                "valueCode": "sha-256"
+              },
+              {
+                "url": "value",
+                "valueString": "557bd0ccba0ee74ab9b5e29b8d5502d0dabd78e749df12e1f5e12fec6ba3eb5c"
+              }
+            ]
+          }
+        ],
+        "contentType": "image/png",
+        "url": "https://pediatricdental.example.org/arex/Binary/arex-entry-bitewing",
+        "size": 140,
+        "title": "Bitewing radiograph (synthetic placeholder image)"
+      }
+    }
+  ]
+}

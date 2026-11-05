@@ -1,0 +1,77 @@
+{
+  "resourceType": "List",
+  "id": "arex-manifest-radiographs",
+  "meta": {
+    "profile": [
+      "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-manifest"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-expires",
+      "valueInstant": "2026-07-22T15:15:00Z"
+    },
+    {
+      "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-requires-access-token",
+      "valueBoolean": true
+    },
+    {
+      "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-transaction-context",
+      "extension": [
+        {
+          "url": "businessIdentifier",
+          "valueIdentifier": {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC07-001"
+          }
+        },
+        {
+          "url": "requestingOrganization",
+          "valueReference": {
+            "reference": "Organization/org-restorative-dental-tx"
+          }
+        }
+      ]
+    }
+  ],
+  "identifier": [
+    {
+      "system": "https://pediatricdental.example.org/arex/manifest-id",
+      "value": "MAN-2026-0708-0001"
+    }
+  ],
+  "status": "current",
+  "mode": "snapshot",
+  "title": "Radiographs for referral REF-2026-UC07-001",
+  "code": {
+    "coding": [
+      {
+        "system": "http://fhir.onyxhealth.io/us/arex/CodeSystem/arex-manifest-type",
+        "code": "attachment-set",
+        "display": "Attachment set"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "date": "2026-07-08T15:15:00Z",
+  "entry": [
+    {
+      "item": {
+        "reference": "DocumentReference/arex-entry-periapical"
+      }
+    },
+    {
+      "item": {
+        "reference": "DocumentReference/arex-entry-bitewing"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "ASSUMPTIONS: the expiry (14 days after publication) is borrowed from the I2 manifest window in the narrative; the manifest identifier and the arex.example URLs are synthetic. The payload files in arex-payloads/ are 8x8 placeholder PNGs, not radiographs; the digests are real SHA-256 over those files."
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "resourceType": "Procedure",
+  "id": "procedure-d0270",
+  "meta": {
+    "profile": [
+      "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure"
+    ]
+  },
+  "status": "completed",
+  "code": {
+    "coding": [
+      {
+        "system": "http://www.ada.org/cdt",
+        "code": "D0270",
+        "display": "Bitewing - single radiographic image"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-eval"
+  },
+  "performedDateTime": "2026-07-08T09:30:00-05:00",
+  "performer": [
+    {
+      "actor": {
+        "reference": "PractitionerRole/practrole-mary-parker",
+        "display": "Dr. Mary Parker, DDS"
+      }
+    }
+  ]
+}

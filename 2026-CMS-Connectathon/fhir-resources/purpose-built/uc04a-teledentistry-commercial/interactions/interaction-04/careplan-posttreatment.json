@@ -3,7 +3,7 @@
   "id": "careplan-posttreatment",
   "status": "active",
   "intent": "plan",
-  "title": "Post-treatment care plan — Sarah Okonkwo (tooth #19 root canal)",
+  "title": "Post-treatment care plan — Sarah Okonkwo (tooth #9 root canal)",
   "subject": {
     "reference": "Patient/patient-sarah-okonkwo",
     "display": "Sarah Okonkwo"
@@ -21,7 +21,7 @@
   "addresses": [
     {
       "reference": "Condition/condition-k04-01-pulpitis",
-      "display": "Irreversible pulpitis, tooth #19 (confirmed)"
+      "display": "Irreversible pulpitis, tooth #9 (confirmed)"
     }
   ],
   "activity": [
@@ -29,14 +29,14 @@
       "detail": {
         "kind": "ServiceRequest",
         "status": "not-started",
-        "description": "Final restoration (crown) on tooth #19 by the patient's regular dental provider — the endodontically treated molar needs definitive coronal coverage."
+        "description": "Definitive crown on tooth #9 by a dentist Sarah establishes as her dental home (she has none yet) — the endodontically treated tooth needs definitive coronal coverage; a lingual direct composite (D2330) restores the access in the interim."
       }
     },
     {
       "detail": {
         "kind": "Appointment",
         "status": "not-started",
-        "description": "Follow-up periapical radiograph of tooth #19 at 6 months to confirm periapical healing."
+        "description": "Follow-up periapical radiograph of tooth #9 at 6 months to confirm periapical healing."
       }
     },
     {
@@ -49,7 +49,7 @@
   ],
   "note": [
     {
-      "text": "Post-treatment care plan surfaced to Sarah's patient-facing app alongside the referral-complete milestone at Interaction 4, and transmitted to the referring teledentistry provider as part of the closed-loop summary. Final restoration is deliberately deferred to the patient's regular dental provider (not Barton Springs), consistent with the operative note."
+      "text": "Post-treatment care plan surfaced to Sarah's patient-facing app alongside the referral-complete milestone at Interaction 4, and transmitted to the referring teledentistry provider as part of the closed-loop summary. The definitive crown is deliberately deferred to a dentist Sarah establishes as her dental home, because she has none yet (not Barton Springs), consistent with the operative note. ASSUMPTION: who places the crown is not stated in the narrative; the owner confirms the crown is still needed."
     }
   ]
 }
