@@ -1,6 +1,10 @@
 {
   "resourceType": "Organization",
   "id": "org-meridian-teledental",
+  "text": {
+    "status": "additional",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Fictional teledentistry brand invented for UC04 — not a real business. A neutral, non-geographic name so it can serve both UC04a (commercial) and UC04b (Medicaid) virtual encounters. Delivers synchronous virtual dental assessments (Place of Service 02); has no physical treatment location and cannot generate radiographs. NPI is a synthetic test-data value.</p></div>"
+  },
   "identifier": [
     {
       "system": "http://hl7.org/fhir/sid/us-npi",
@@ -29,11 +33,6 @@
     {
       "system": "url",
       "value": "https://meridian-teledental.example.org"
-    }
-  ],
-  "note": [
-    {
-      "text": "Fictional teledentistry brand invented for UC04 — not a real business. A neutral, non-geographic name so it can serve both UC04a (commercial) and UC04b (Medicaid) virtual encounters. Delivers synchronous virtual dental assessments (Place of Service 02); has no physical treatment location and cannot generate radiographs. NPI is a synthetic test-data value."
     }
   ]
 }

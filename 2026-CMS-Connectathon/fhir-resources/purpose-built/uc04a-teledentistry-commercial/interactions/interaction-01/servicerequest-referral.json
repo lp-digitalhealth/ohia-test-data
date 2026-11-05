@@ -69,6 +69,20 @@
   ],
   "bodySite": [
     {
+      "extension": [
+        {
+          "url": "https://oralhealthalliance.net/fhir/StructureDefinition/ode-tooth",
+          "valueCodeableConcept": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+                "code": "9",
+                "display": "Permanent maxillary left central incisor tooth"
+              }
+            ]
+          }
+        }
+      ],
       "coding": [
         {
           "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",

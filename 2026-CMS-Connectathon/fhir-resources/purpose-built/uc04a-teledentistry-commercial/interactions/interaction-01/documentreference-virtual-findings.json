@@ -7,6 +7,13 @@
   "status": "current",
   "docStatus": "final",
   "type": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "34109-9",
+        "display": "Note"
+      }
+    ],
     "text": "Virtual dental assessment note (teledentistry consultation)"
   },
   "category": [
@@ -39,6 +46,7 @@
     {
       "attachment": {
         "contentType": "text/plain",
+        "data": "VmlydHVhbCBkZW50YWwgYXNzZXNzbWVudCwgMjAyNi0wNy0xNCwgRHIuIE1hcmN1cyBXZWJiLCBERFMgKE1lcmlkaWFuIFRlbGVkZW50YWwpLiBGaW5kaW5nczogc2VlIE9ic2VydmF0aW9uL29ic2VydmF0aW9uLXN5bXB0b21zLiBQcm92aXNpb25hbCBkaWFnbm9zaXM6IGlycmV2ZXJzaWJsZSBwdWxwaXRpcyAoSUNELTEwLUNNIEswNC4wMSksIHRvb3RoICM5IChBREEgVW5pdmVyc2FsKS4=",
         "title": "Virtual dental assessment — Sarah Okonkwo, 2026-07-14",
         "creation": "2026-07-14"
       }

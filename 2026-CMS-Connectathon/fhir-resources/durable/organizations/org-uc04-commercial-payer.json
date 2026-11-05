@@ -1,6 +1,10 @@
 {
   "resourceType": "Organization",
   "id": "org-uc04-commercial-payer",
+  "text": {
+    "status": "additional",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>The commercial dental payer named directly in the UC04a source use case ('Aetna Dental PPO'), consistent with this project's practice of using real large national payers by name (as with Independence Blue Cross in UC01 and DentaQuest in UC02a). Distinct from UC02b's generic 'Commercial Dental PPO (Synthetic)' — UC04 has its own payer, benefit design (teledentistry + endodontic coverage), and endpoint. The EDI identifier and FHIR endpoint here are synthetic test-data values, not Aetna's real production identifiers.</p></div>"
+  },
   "identifier": [
     {
       "system": "urn:ohia:payer-edi-id",
@@ -20,10 +24,5 @@
       "text": "Commercial Dental Payer"
     }
   ],
-  "name": "Aetna Dental",
-  "note": [
-    {
-      "text": "The commercial dental payer named directly in the UC04a source use case ('Aetna Dental PPO'), consistent with this project's practice of using real large national payers by name (as with Independence Blue Cross in UC01 and DentaQuest in UC02a). Distinct from UC02b's generic 'Commercial Dental PPO (Synthetic)' — UC04 has its own payer, benefit design (teledentistry + endodontic coverage), and endpoint. The EDI identifier and FHIR endpoint here are synthetic test-data values, not Aetna's real production identifiers."
-    }
-  ]
+  "name": "Aetna Dental"
 }
