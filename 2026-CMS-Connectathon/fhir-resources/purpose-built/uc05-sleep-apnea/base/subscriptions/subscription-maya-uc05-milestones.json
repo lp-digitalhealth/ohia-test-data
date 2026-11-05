@@ -16,6 +16,14 @@
   ],
   "reason": "Notify Maya’s patient-facing application only when a patient-visible UC05 milestone changes.",
   "criteria": "https://oralhealthalliance.net/fhir/SubscriptionTopic/ode-referral-status",
+  "_criteria": {
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
+        "valueString": "Task?patient=Patient/patient-maya-torres"
+      }
+    ]
+  },
   "channel": {
     "type": "rest-hook",
     "endpoint": "https://uc05-patient-app.example.org/hooks/maya-torres",
