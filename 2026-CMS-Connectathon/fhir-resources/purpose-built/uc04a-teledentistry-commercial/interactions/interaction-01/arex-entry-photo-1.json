@@ -1,0 +1,62 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "arex-entry-photo-1",
+  "meta": {
+    "profile": ["http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-content-entry"]
+  },
+  "status": "current",
+  "type": {
+    "coding": [
+      {
+        "system": "http://loinc.org",
+        "code": "72170-4",
+        "display": "Photographic image"
+      }
+    ],
+    "text": "Patient-submitted intraoral photograph, tooth #9 region"
+  },
+  "subject": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "date": "2026-07-14T19:38:00-05:00",
+  "author": [
+    {
+      "reference": "Patient/patient-sarah-okonkwo",
+      "display": "Sarah Okonkwo (patient-captured via teledentistry app)"
+    }
+  ],
+  "content": [
+    {
+      "attachment": {
+        "extension": [
+          {
+            "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-digest",
+            "extension": [
+              {
+                "url": "algorithm",
+                "valueCode": "sha-256"
+              },
+              {
+                "url": "value",
+                "valueString": "7a42c40d61d12d23cdefba77fac9832b053bd5ec476cabbfd2e34764671816e7"
+              }
+            ]
+          }
+        ],
+        "contentType": "image/jpeg",
+        "url": "https://meridian-teledental.example.org/arex/Binary/arex-entry-photo-1",
+        "size": 632,
+        "title": "Intraoral photograph 1 — upper front teeth, tooth #9 region (synthetic placeholder image)"
+      }
+    }
+  ],
+  "context": {
+    "encounter": [
+      {
+        "reference": "Encounter/encounter-01-virtual",
+        "display": "Virtual dental consultation, 2026-07-14"
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "resourceType": "Library",
+  "id": "lib-dentaquest-d3320-d2950-d2740-pa-logic",
+  "url": "https://dentaquest.example.org/fhir/Library/lib-dentaquest-d3320-d2950-d2740-pa-logic",
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/library-type",
+        "code": "logic-library"
+      }
+    ]
+  },
+  "name": "DentaQuestD3320D2950D2740PALogic",
+  "title": "DentaQuest D3320 / D2950 / D2740 Prior Authorization Determination Logic",
+  "description": "SYNTHETIC DentaQuest policy authored for the connectathon (owner-approved). Rule: a prior authorization is required when a Texas Medicaid Adult/Child Dental order contains root canal therapy (D3320), a core build-up (D2950) or a full-coverage porcelain/ceramic crown (D2740) on the same tooth as one bundled treatment plan, and the authorization is decided as one request with one result per service line. Documentation required: clinical notes documenting medical necessity and radiographs. The Library content is a STUB (the CQL header only), exactly like the D7210 library: the rule is applied by the test server's CRD service, not by executing CQL.",
+  "content": [
+    {
+      "contentType": "text/cql",
+      "data": "bGlicmFyeSBEZW50YVF1ZXN0RDMzMjBEMjk1MEQyNzQwUEFMb2dpYyB2ZXJzaW9uICcxLjAuMCc="
+    }
+  ]
+}

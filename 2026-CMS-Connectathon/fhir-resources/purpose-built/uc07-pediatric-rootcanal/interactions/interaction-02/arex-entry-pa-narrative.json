@@ -1,0 +1,43 @@
+{
+  "resourceType": "DocumentReference",
+  "id": "arex-entry-pa-narrative",
+  "meta": {
+    "profile": [
+      "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-content-entry"
+    ]
+  },
+  "status": "current",
+  "type": {
+    "text": "Clinical notes documenting medical necessity"
+  },
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "date": "2026-07-10T08:50:00-05:00",
+  "content": [
+    {
+      "attachment": {
+        "extension": [
+          {
+            "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-digest",
+            "extension": [
+              {
+                "url": "algorithm",
+                "valueCode": "sha-256"
+              },
+              {
+                "url": "value",
+                "valueString": "b0cd2940785121b69cbb074f154d08c033c78e13fac06e8c6cebf4dee16a95b4"
+              }
+            ]
+          }
+        ],
+        "contentType": "text/plain",
+        "url": "https://restorativedental.example.org/arex/Binary/arex-entry-pa-narrative",
+        "size": 500,
+        "title": "Clinical note: medical necessity for D3320, D2950, D2740 (synthetic)"
+      }
+    }
+  ]
+}

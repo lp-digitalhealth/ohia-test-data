@@ -1,0 +1,72 @@
+{
+  "resourceType": "List",
+  "id": "arex-manifest-postop",
+  "meta": {
+    "profile": [
+      "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-manifest"
+    ]
+  },
+  "extension": [
+    {
+      "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-expires",
+      "valueInstant": "2026-08-05T18:30:00Z"
+    },
+    {
+      "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-requires-access-token",
+      "valueBoolean": true
+    },
+    {
+      "url": "http://fhir.onyxhealth.io/us/arex/StructureDefinition/arex-transaction-context",
+      "extension": [
+        {
+          "url": "businessIdentifier",
+          "valueIdentifier": {
+            "system": "urn:ohia:referral-id",
+            "value": "REF-2026-UC07-001"
+          }
+        },
+        {
+          "url": "requestingOrganization",
+          "valueReference": {
+            "reference": "Organization/org-pediatric-dental-tx"
+          }
+        }
+      ]
+    }
+  ],
+  "identifier": [
+    {
+      "system": "https://restorativedental.example.org/arex/manifest-id",
+      "value": "MAN-2026-0722-0001"
+    }
+  ],
+  "status": "current",
+  "mode": "snapshot",
+  "title": "Post-operative radiograph for referral REF-2026-UC07-001",
+  "code": {
+    "coding": [
+      {
+        "system": "http://fhir.onyxhealth.io/us/arex/CodeSystem/arex-manifest-type",
+        "code": "attachment-set",
+        "display": "Attachment set"
+      }
+    ]
+  },
+  "subject": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "date": "2026-07-22T18:30:00Z",
+  "entry": [
+    {
+      "item": {
+        "reference": "DocumentReference/arex-entry-postop-periapical"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "OWNER DECISION (option B): this manifest reuses the referral id as its transaction-context business identifier, the same value as the interaction-1 radiograph manifest (arex-manifest-radiographs). A transaction-identifier search for the referral id therefore returns BOTH manifests; a consumer tells them apart by List.title and List.date and by requestingOrganization (here the pediatric practice, the party that retrieves; in interaction 1 it is the restorative practice). ASSUMPTIONS: expiry 14 days after publication (borrowed from the interaction-1 and -2 manifests), the manifest identifier and the example.org URLs are synthetic. The payload file in arex-payloads/ is an 8x8 placeholder PNG, not a radiograph; the digest is a real SHA-256 over that file."
+    }
+  ]
+}

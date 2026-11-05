@@ -1,0 +1,42 @@
+{
+  "resourceType": "Task",
+  "id": "task-dtr",
+  "status": "completed",
+  "intent": "order",
+  "code": {
+    "text": "DTR documentation requirement: DentaQuest prior authorization questionnaire (D3320, D2950, D2740)"
+  },
+  "description": "DentaQuest requires the completed prior authorization questionnaire, clinical notes documenting medical necessity and radiographs before it will decide the request.",
+  "focus": {
+    "reference": "Questionnaire/questionnaire-dentaquest-d3320-d2950-d2740-pa-dtr"
+  },
+  "for": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "authoredOn": "2026-07-09T08:15:00-05:00",
+  "lastModified": "2026-07-15T14:00:00-05:00",
+  "requester": {
+    "reference": "Organization/org-dentaquest-tx",
+    "display": "DentaQuest USA Insurance Company, Inc."
+  },
+  "owner": {
+    "reference": "Organization/org-restorative-dental-tx",
+    "display": "Restorative Dental Practice — Texas (Synthetic)"
+  },
+  "output": [
+    {
+      "type": {
+        "text": "Completed questionnaire response"
+      },
+      "valueReference": {
+        "reference": "QuestionnaireResponse/questionnaireresponse-dentaquest-pa"
+      }
+    }
+  ],
+  "note": [
+    {
+      "text": "Documentation-requirement Task from the DTR step. It is distinct from the single referral coordination Task (task-referral). It is closed when the prior authorization is decided (narrative: 'DTR Task closed'), here at the ClaimResponse time."
+    }
+  ]
+}

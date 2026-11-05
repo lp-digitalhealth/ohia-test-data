@@ -1,0 +1,120 @@
+{
+  "resourceType": "Task",
+  "id": "task-referral",
+  "meta": {
+    "profile": [
+      "https://oralhealthalliance.net/fhir/StructureDefinition/ode-referral-task"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "urn:ohia:referral-id",
+      "value": "REF-2026-UC07-001"
+    }
+  ],
+  "status": "completed",
+  "businessStatus": {
+    "coding": [
+      {
+        "system": "http://ohia-codes.org/CodeSystem/ode-referral-sub-status",
+        "code": "outcome-final",
+        "display": "Outcome Final"
+      }
+    ]
+  },
+  "intent": "order",
+  "priority": "routine",
+  "code": {
+    "coding": [
+      {
+        "system": "http://hl7.org/fhir/CodeSystem/task-code",
+        "code": "fulfill",
+        "display": "Fulfill the focal request"
+      }
+    ]
+  },
+  "focus": {
+    "reference": "ServiceRequest/servicerequest-referral",
+    "display": "Referral: root canal therapy, build-up, and crown, tooth #4"
+  },
+  "for": {
+    "reference": "Patient/patient-joe-castle",
+    "display": "Joe Castle"
+  },
+  "encounter": {
+    "reference": "Encounter/encounter-eval"
+  },
+  "authoredOn": "2026-07-08T10:15:00-05:00",
+  "lastModified": "2026-07-22T13:35:00-05:00",
+  "requester": {
+    "reference": "Organization/org-pediatric-dental-tx",
+    "display": "Pediatric Dental Practice — Texas (Synthetic)"
+  },
+  "note": [
+    {
+      "text": "The single coordination Task for this referral (repository CLAUDE.md section 7), same id as in interactions 1 and 2: this file supersedes both. It closes here: status completed, businessStatus outcome-final (the ODE sub-status the sibling scenarios UC04a and UC02b use for a closed referral), lastModified 2026-07-22 13:35 when the referring practice's system marked the referral complete. Task.output absorbs the fulfillment set. The thank-you Communication is deliberately NOT an output: it is a courtesy note, not a fulfillment artifact."
+    }
+  ],
+  "owner": {
+    "reference": "PractitionerRole/practrole-max-garcia",
+    "display": "Dr. Max Garcia, DDS"
+  },
+  "output": [
+    {
+      "type": {
+        "text": "Referral sent"
+      },
+      "valueReference": {
+        "reference": "ServiceRequest/servicerequest-referral"
+      }
+    },
+    {
+      "type": {
+        "text": "Appointment scheduled"
+      },
+      "valueReference": {
+        "reference": "Appointment/appointment-consultation"
+      }
+    },
+    {
+      "type": {
+        "text": "Procedure performed — root canal therapy"
+      },
+      "valueReference": {
+        "reference": "Procedure/procedure-d3320"
+      }
+    },
+    {
+      "type": {
+        "text": "Procedure performed — core build-up"
+      },
+      "valueReference": {
+        "reference": "Procedure/procedure-d2950"
+      }
+    },
+    {
+      "type": {
+        "text": "Procedure performed — crown"
+      },
+      "valueReference": {
+        "reference": "Procedure/procedure-d2740"
+      }
+    },
+    {
+      "type": {
+        "text": "Referral outcome — post-treatment summary"
+      },
+      "valueReference": {
+        "reference": "ClinicalImpression/clinicalimpression-posttx-summary"
+      }
+    },
+    {
+      "type": {
+        "text": "Referral outcome — care plan"
+      },
+      "valueReference": {
+        "reference": "CarePlan/careplan-posttx"
+      }
+    }
+  ]
+}
