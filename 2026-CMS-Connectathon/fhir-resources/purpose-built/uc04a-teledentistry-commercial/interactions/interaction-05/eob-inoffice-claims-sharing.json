@@ -4,6 +4,10 @@
   "meta": {
     "profile": ["https://oralhealthalliance.net/fhir/StructureDefinition/ode-dental-claim"]
   },
+  "text": {
+    "status": "additional",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>In-office claims-sharing package (one of two independent packages at Interaction 5). Barton Springs Dental Group bills its own in-office services — three lines, D0220 (periapical radiograph), D3310 (anterior root canal) and D2330 (single-surface lingual composite), all tooth #9, Place of Service 11 (carried via item.locationReference -&gt; loc-barton-springs), rendered by Dr. Nair on 2026-07-15, referred by Dr. Webb. This is the FHIR-native equivalent of the separate 837D the in-office practice files at 08:30 on 2026-07-16.</p><p>Second of two independently-billing organizations for one coordinated episode. Tied to the teledentistry package (eob-teledentistry-claims-sharing) only by the shared referral reference (supportingInfo -&gt; ServiceRequest/servicerequest-referral, referral-id REF-2026-UC04A-001) — not a combined joint claim. Each organization is its own biller with its own NPI and its own rendering relationship to the payer.</p><p>Bills Aetna Dental's commercial dental benefit directly — CDT alone (D0220, D3310, D2330) is what's required; no CPT crosswalk applies (dental payer, not medical). NO prior authorization reference — this commercial plan requires none. Diagnosis codes use K04.01 (confirmed pulpitis) and K04.7 (periapical abscess without sinus) — note K04.7 is the correct ICD-10-CM code for 'periapical abscess without sinus'; the source document's 'K04.5' label is a mislabel (K04.5 is chronic apical periodontitis), corrected here per project verification discipline. Deliberately excluded, per this profile's non-financial design: unitPrice, net, total, adjudication.</p></div>"
+  },
   "identifier": [
     {
       "system": "urn:ohia:claims-sharing-id",
@@ -229,17 +233,6 @@
       "valueReference": {
         "reference": "Procedure/procedure-d2330-composite"
       }
-    }
-  ],
-  "note": [
-    {
-      "text": "In-office claims-sharing package (one of two independent packages at Interaction 5). Barton Springs Dental Group bills its own in-office services — three lines, D0220 (periapical radiograph), D3310 (anterior root canal) and D2330 (single-surface lingual composite), all tooth #9, Place of Service 11 (carried via item.locationReference -> loc-barton-springs), rendered by Dr. Nair on 2026-07-15, referred by Dr. Webb. This is the FHIR-native equivalent of the separate 837D the in-office practice files at 08:30 on 2026-07-16."
-    },
-    {
-      "text": "Second of two independently-billing organizations for one coordinated episode. Tied to the teledentistry package (eob-teledentistry-claims-sharing) only by the shared referral reference (supportingInfo -> ServiceRequest/servicerequest-referral, referral-id REF-2026-UC04A-001) — not a combined joint claim. Each organization is its own biller with its own NPI and its own rendering relationship to the payer."
-    },
-    {
-      "text": "Bills Aetna Dental's commercial dental benefit directly — CDT alone (D0220, D3310, D2330) is what's required; no CPT crosswalk applies (dental payer, not medical). NO prior authorization reference — this commercial plan requires none. Diagnosis codes use K04.01 (confirmed pulpitis) and K04.7 (periapical abscess without sinus) — note K04.7 is the correct ICD-10-CM code for 'periapical abscess without sinus'; the source document's 'K04.5' label is a mislabel (K04.5 is chronic apical periodontitis), corrected here per project verification discipline. Deliberately excluded, per this profile's non-financial design: unitPrice, net, total, adjudication."
     }
   ]
 }

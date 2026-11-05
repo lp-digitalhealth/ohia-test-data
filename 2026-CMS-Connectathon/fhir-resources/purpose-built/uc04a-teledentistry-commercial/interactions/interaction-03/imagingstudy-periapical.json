@@ -25,14 +25,9 @@
         "display": "Intra-oral Radiography"
       },
       "bodySite": {
-        "coding": [
-          {
-            "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
-            "code": "9",
-            "display": "Permanent maxillary left central incisor tooth"
-          }
-        ],
-        "text": "Tooth #9"
+        "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+        "code": "9",
+        "display": "Permanent maxillary left central incisor tooth"
       }
     }
   ],

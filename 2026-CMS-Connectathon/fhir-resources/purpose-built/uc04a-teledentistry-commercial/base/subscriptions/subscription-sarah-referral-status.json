@@ -4,6 +4,10 @@
   "meta": {
     "profile": ["http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-subscription"]
   },
+  "text": {
+    "status": "additional",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Per the HL7 FHIR Subscriptions R4 Backport IG, same pattern established for UC01/UC02/UC03: the SubscriptionTopic canonical URL is carried directly in Subscription.criteria, not via a separate extension. Sarah is an adult subscribing on her own behalf (no guardian/RelatedPerson, unlike UC03's pediatric case). This single Subscription spans the whole UC04a episode. Patient-visible milestones: referral sent (I1) and appointment confirmed (I2); referral complete fires at I4 (not built this pass). Like UC02b, there is NO 'prior authorization approved' milestone — commercial coverage here requires no PA.</p></div>"
+  },
   "status": "active",
   "contact": [
     {
@@ -34,10 +38,5 @@
         }
       ]
     }
-  },
-  "note": [
-    {
-      "text": "Per the HL7 FHIR Subscriptions R4 Backport IG, same pattern established for UC01/UC02/UC03: the SubscriptionTopic canonical URL is carried directly in Subscription.criteria, not via a separate extension. Sarah is an adult subscribing on her own behalf (no guardian/RelatedPerson, unlike UC03's pediatric case). This single Subscription spans the whole UC04a episode. Patient-visible milestones: referral sent (I1) and appointment confirmed (I2); referral complete fires at I4 (not built this pass). Like UC02b, there is NO 'prior authorization approved' milestone — commercial coverage here requires no PA."
-    }
-  ]
+  }
 }

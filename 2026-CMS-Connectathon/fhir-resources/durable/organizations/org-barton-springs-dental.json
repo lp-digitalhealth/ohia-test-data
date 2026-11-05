@@ -1,6 +1,10 @@
 {
   "resourceType": "Organization",
   "id": "org-barton-springs-dental",
+  "text": {
+    "status": "additional",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Fictional organization — not a real practice. Named for and located near the real Barton Springs area of Austin for narrative grounding, consistent with this project's practice of using fictional-but-locally-grounded organizations where a real business isn't being named (per the UC04 interactions README). The in-office general dental practice that receives Sarah Okonkwo's teledentistry referral (Place of Service 11). NPI is a synthetic test-data value.</p></div>"
+  },
   "identifier": [
     {
       "system": "http://hl7.org/fhir/sid/us-npi",
@@ -34,11 +38,6 @@
       "state": "TX",
       "postalCode": "78704",
       "country": "US"
-    }
-  ],
-  "note": [
-    {
-      "text": "Fictional organization — not a real practice. Named for and located near the real Barton Springs area of Austin for narrative grounding, consistent with this project's practice of using fictional-but-locally-grounded organizations where a real business isn't being named (per the UC04 interactions README). The in-office general dental practice that receives Sarah Okonkwo's teledentistry referral (Place of Service 11). NPI is a synthetic test-data value."
     }
   ]
 }
