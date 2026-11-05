@@ -1517,6 +1517,14 @@
         ],
         "reason": "Notify Timothy Jones's guardian-facing proxy application of status changes on his pediatric dental referral (Task/task-referral-tracking), so the guardian sees milestone updates (referral created, appointment confirmed, and — at later interactions — encounter complete / care plan available) without having to call either office. Timothy is a minor; notifications go to the guardian proxy app, not to Timothy.",
         "criteria": "https://oralhealthalliance.net/fhir/SubscriptionTopic/ode-referral-status",
+        "_criteria": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
+              "valueString": "Task?_id=task-referral-tracking"
+            }
+          ]
+        },
         "channel": {
           "type": "rest-hook",
           "endpoint": "https://guardian-app.example.org/notifications/timothy-jones",
