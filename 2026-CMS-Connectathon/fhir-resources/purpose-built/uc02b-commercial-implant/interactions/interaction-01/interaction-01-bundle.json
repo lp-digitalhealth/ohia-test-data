@@ -389,6 +389,14 @@
         "contact": [ { "system": "phone", "value": "(512) 555-0147", "use": "mobile" } ],
         "reason": "Notify Frank Castle's patient-facing app of status changes on his surgical extraction / implant referral (Task/task-referral-tracking), so the app can surface milestone updates (referral sent, appointment confirmed, and — at Interaction 4 — referral complete) without Frank needing to call either office.",
         "criteria": "https://oralhealthalliance.net/fhir/SubscriptionTopic/ode-referral-status",
+        "_criteria": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
+              "valueString": "Task?_id=task-referral-tracking"
+            }
+          ]
+        },
         "channel": {
           "type": "rest-hook",
           "endpoint": "https://patient-app.example.org/notifications/frank-castle",

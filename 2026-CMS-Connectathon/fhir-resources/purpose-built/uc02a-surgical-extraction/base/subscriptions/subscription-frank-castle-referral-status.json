@@ -14,6 +14,14 @@
   ],
   "reason": "Notify Frank Castle's patient-facing app of status changes on his surgical extraction referral (Task/task-referral-pa-tracking), so the app can surface milestone updates (PA approved, referral sent, appointment confirmed) without Frank needing to call either office.",
   "criteria": "https://oralhealthalliance.net/fhir/SubscriptionTopic/ode-referral-status",
+  "_criteria": {
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
+        "valueString": "Task?_id=task-referral-pa-tracking"
+      }
+    ]
+  },
   "channel": {
     "type": "rest-hook",
     "endpoint": "https://patient-app.example.org/notifications/frank-castle",

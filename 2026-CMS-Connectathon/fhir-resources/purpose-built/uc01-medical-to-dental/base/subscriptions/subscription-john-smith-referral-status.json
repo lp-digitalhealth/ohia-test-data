@@ -14,6 +14,14 @@
   ],
   "reason": "Notify John Smith's patient-facing app of status changes on his dental clearance referral (Task/task-360x-dental-referral), so the app can surface milestone updates (referral sent, accepted, appointment scheduled, DDC received, clearance transmitted, PA approved) without John needing to call either office.",
   "criteria": "https://oralhealthalliance.net/fhir/SubscriptionTopic/ode-referral-status",
+  "_criteria": {
+    "extension": [
+      {
+        "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
+        "valueString": "Task?_id=task-360x-dental-referral"
+      }
+    ]
+  },
   "channel": {
     "type": "rest-hook",
     "endpoint": "https://patient-app.example.org/notifications/john-smith",
