@@ -833,6 +833,14 @@
         ],
         "reason": "Notify Sarah Okonkwo's patient-facing app of status changes on her teledentistry referral (Task/task-referral-tracking), so the app can surface milestone updates (referral sent, appointment confirmed, and \u2014 at Interaction 4 \u2014 referral complete) without Sarah needing to call either office.",
         "criteria": "https://oralhealthalliance.net/fhir/SubscriptionTopic/ode-referral-status",
+        "_criteria": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/uv/subscriptions-backport/StructureDefinition/backport-filter-criteria",
+              "valueString": "Task?_id=task-referral-tracking"
+            }
+          ]
+        },
         "channel": {
           "type": "rest-hook",
           "endpoint": "https://patient-app.example.org/notifications/sarah-okonkwo",
