@@ -1,6 +1,10 @@
 {
   "resourceType": "Location",
   "id": "loc-meridian-virtual",
+  "text": {
+    "status": "additional",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Virtual/telehealth 'location' for Meridian Teledental's synchronous encounters — CMS Place of Service 02. There is no physical treatment site; the code above is illustrative only (FHIR R4 core has no dedicated telehealth Location.type concept, and CMS POS is not carried as a standard FHIR CodeSystem here — POS 02 is stated in the name/text per project verification discipline).</p></div>"
+  },
   "status": "active",
   "name": "Meridian Teledental — Virtual Care (Place of Service 02)",
   "mode": "kind",
@@ -19,10 +23,5 @@
   "managingOrganization": {
     "reference": "Organization/org-meridian-teledental",
     "display": "Meridian Teledental"
-  },
-  "note": [
-    {
-      "text": "Virtual/telehealth 'location' for Meridian Teledental's synchronous encounters — CMS Place of Service 02. There is no physical treatment site; the code above is illustrative only (FHIR R4 core has no dedicated telehealth Location.type concept, and CMS POS is not carried as a standard FHIR CodeSystem here — POS 02 is stated in the name/text per project verification discipline)."
-    }
-  ]
+  }
 }
