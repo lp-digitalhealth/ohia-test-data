@@ -1,6 +1,6 @@
 # UC07 Companion Guide — DentaQuest Texas: Root Canal, Build-Up, and Crown with Prior Authorization
 
-**Status:** covers all five interactions — **I1 (The Handoff), I2 (Three Procedures, One Authorization), I3 (Linda Says Yes), I4 (Closing the Loop), and I5 (Billing Two Practices)** — the complete UC07 episode, referral through claims. **FHIR fixtures are built** (see `fhir-resources/purpose-built/uc07-pediatric-rootcanal/` and its README); the Resource Index in §4 lists them by logical ID. File links in §4 should be added once the fixtures are committed to the repo.
+**Status:** covers six interactions — **I1 (The Handoff), I2 (Three Procedures, One Authorization), I3 (Linda Says Yes), I4 (Closing the Loop), I5 (Billing Two Practices), and I6 (Patient Access)** — the complete UC07 episode, referral through claims, plus the patient-facing view of the resulting claims. **I6 is scoped for a later testing event, for patient-facing apps** (§5); its fixtures are built (DRAFT) and have **not** been run through the FHIR validator (see the fixtures README). **FHIR fixtures are built** (see `fhir-resources/purpose-built/uc07-pediatric-rootcanal/` and its README); the Resource Index in §4 lists them by logical ID. File links in §4 should be added once the fixtures are committed to the repo.
 
 **Patient:** Joe Castle, 16, Texas. **Guardian:** Linda Castle (mother). **Payer:** DentaQuest — Texas Medicaid dental plan (a real organization, DentaQuest USA Insurance Company, Inc.; the treating clinicians and practices in this use case are fictional). **Referring provider:** Dr. Mary Parker, DDS, pediatric dentistry (fictional practice; Joe's Main Dentist). **Receiving provider:** Dr. Max Garcia, DDS, general dentistry (fictional practice).
 
@@ -23,8 +23,9 @@ See [`../use-cases/UC07-Texas-Medicaid-Pediatric-RootCanal/interactions/`](../us
 | **I3 — Linda Says Yes** | US Core (`Encounter`, `Procedure`, `MedicationStatement`, `RelatedPerson`, `Consent`); X12 270/271 eligibility re-check at time of service |
 | **I4 — Closing the Loop** | Da Vinci CDex (post-treatment push, same mechanism as I1's referral, reversed), SMART Imaging Access (post-op radiograph retrieved by Dr. Parker), ODE (under development) |
 | **I5 — Billing Two Practices** | X12 837D / 835 (the real wire transactions in this use case, because the narrative bills DentaQuest by 837D); US Core `Procedure` data supporting the claims |
+| **I6 — Patient Access** | CARIN Blue Button 2.2.0 (the payer's Patient Access API: the financial `C4BB-ExplanationOfBenefit-Oral` profile, with `C4BB-Patient` and `C4BB-Coverage`); SMART App Launch (standalone launch for the patient app; **TBD, not built**); US Core 6.1.0 |
 
-**Not in scope for any interaction:** patient-facing apps and subscriptions (the UC07 narrative defines none), pre-referral Plan-Net provider search, and HL7 v2 messaging (see §6).
+**Not in scope for I1–I5:** patient-facing apps and subscriptions (those interactions define none; **I6 adds a patient-facing app**, see §5). **Not in scope for any interaction:** pre-referral Plan-Net provider search and HL7 v2 messaging (see §6).
 
 **Draft-IG caveat:** ARex and SMART Imaging Access are both draft specifications. A conformance failure on either is a finding about the draft, not necessarily a defect in a participant's system.
 
@@ -60,6 +61,15 @@ See [`../use-cases/UC07-Texas-Medicaid-Pediatric-RootCanal/interactions/`](../us
 4. **I4:** Push the post-treatment package to Dr. Parker by CDex — `ClinicalImpression` (treatment and healing status), the post-op `ImagingStudy` (your WADO-RS endpoint), a `DocumentReference` clinical note, and a separate thank-you `Communication`. Include a `CarePlan` for follow-up.
 5. **I5:** Submit an 837D for D3320, D2950, and D2740, **with the `preAuthRef` from the `ClaimResponse` on the claim**.
 
+### 2d. Patient-Facing App Providers (relevant to I6 only)
+
+1. **Find the member with the payer's online member ID**, the identifier DentaQuest issued for online access: `Patient?identifier=https://dentaquest.example.org/fhir/online-id|DQ-ONLINE-TX-0038211` (synthetic). No provider system holds this ID. Do not search by a practice's medical record number.
+2. **Read the member's `Coverage` and `ExplanationOfBenefit`** from the payer's Patient Access API. Expect two oral EOBs on `C4BB-ExplanationOfBenefit-Oral|2.2.0`: the pediatric evaluation (2026-07-08) and the restorative treatment (2026-07-22).
+3. **Show each claim line** (CDT code, tooth, date), the **submitted amount, the benefit amount and the member liability** (Medicaid: zero), and the **prior authorization number** on the restorative claim.
+4. **Treat the amounts as synthetic.** Each EOB carries a `processNote` saying so.
+5. **Match to the provider side if your app also holds provider data.** `crosswalk.json` (in `interaction-06/`) lists, for every payer-side resource and every claim line, the provider-side resource and the business key to match on. Match on those keys, never on FHIR ids.
+6. **A guardian is using the app for a minor.** Joe is 16 and Linda is his guardian. How the payer's online account and the app's authorization represent that is **TBD** (§8.7).
+
 ---
 
 ## 3. Stub Specifications
@@ -69,6 +79,7 @@ See [`../use-cases/UC07-Texas-Medicaid-Pediatric-RootCanal/interactions/`](../us
 | **Payer stub (DentaQuest)** | Accept and store a `Communication` notification; return a fixed "PA required" CDS card for the D3320 + D2950 + D2740 order; serve a static `Questionnaire`; accept a `Claim` with an ARex manifest reference (retrieving at least one object and checking its digest); return a fixed-approved `ClaimResponse` with a PA number and a 180-day period; accept two 837Ds and match the PA reference on the restorative claim |
 | **Referring practice stub** | Send a `ServiceRequest` with a placeholder `ImagingStudy` reference and a diagnosis; send the payer notification; serve at least one DICOM instance over WADO-RS (an Orthanc instance is sufficient); accept a post-treatment push and correctly separate the thank-you `Communication` from clinical content |
 | **Receiving practice stub** | Accept a referral and resolve one `ImagingStudy` via WADO-RS; return a fixed CRD/DTR sequence; produce an ARex manifest for at least one object; record three `Procedure` resources and one `Consent` naming a `RelatedPerson`; push a fixed post-treatment package |
+| **Patient app stub (I6)** | Find the member by online member ID; read `Coverage` and the two oral EOBs; display each line with its amounts and member liability; show the prior authorization number; optionally match the payer's data to provider-side data using `crosswalk.json` |
 
 ---
 
@@ -117,11 +128,15 @@ Logical IDs below match the generated fixtures; the build specification is `UC-P
 
 Two 837D transactions (pediatric: D0140, D0220, D0270; restorative: D3320, D2950, D2740 plus the PA number) and the 835 responses, plus two claims-sharing `ExplanationOfBenefit` fixtures (`eob-pediatric-claims-sharing`, `eob-restorative-claims-sharing`). The EOBs were **added beyond the narrative's resource list** to mirror UC02a-I5 and UC03-I5; remove them if out of scope.
 
+### Interaction 6 — Patient Access (2026-07-28)
+
+The **payer's view** of Joe, in `fhir-resources/purpose-built/uc07-pediatric-rootcanal/interactions/interaction-06/` (DRAFT). All ids end in `-payer` (or `-c4bb` for the EOBs) so they never collide with the provider-side resources, and the payer-side resources carry **CARIN Blue Button 2.2.0** profiles: `patient-joe-castle-payer` (with the payer's online member ID), `coverage-joe-castle-dentaquest-payer`, `org-dentaquest-tx-payer`, `org-pediatric-dental-tx-payer`, `org-restorative-dental-tx-payer`, `pract-mary-parker-payer`, `pract-max-garcia-payer`, and two financial oral EOBs, `eob-pediatric-evaluation-c4bb` (D0140, D0220, D0270) and `eob-restorative-treatment-c4bb` (D3320, D2950, D2740, with the prior authorization number). Also `interaction-06-bundle.json`, `crosswalk.json` (how a client matches the payer side to the provider side) and `check_interaction_06.py`. The EOB amounts are **synthetic and need owner review**. The two EOB ids deliberately differ from the `eob-pediatric-claims-sharing` / `eob-restorative-claims-sharing` ids named under I5.
+
 ---
 
 ## 5. Patient-Facing App
 
-None. The UC07 narrative defines no patient or guardian application, subscription, or milestone notification, so this guide has no patient-app section and no stub for one. If one is added later, follow the UC02a pattern and start from the single referral `Task`.
+I1–I5 define no patient or guardian application, subscription, or milestone notification. **I6 does**: a patient app (Linda, acting for Joe) reads DentaQuest's Patient Access API. Its guidance is §2d, its stub is in §3, its data is the I6 block in §4, and its narrative is [`uc07-i6-patient-access.md`](uc07-i6-patient-access.md). The app is **read-only**: it has no subscription and receives no milestone notifications, and none is modeled for UC07.
 
 ---
 
@@ -192,6 +207,7 @@ One FHIR R4 test server (HAPI FHIR on PostgreSQL), synthetic data only, that pla
 | **I1 — payer notification** | Referring practice (Dr. Parker's PMS) | Payer (DentaQuest) | §2b step 4; §2a step 1 |
 | **I2 — CRD, DTR, PAS** | Receiving practice's PMS (Dr. Garcia) | Payer (DentaQuest) | §2c step 2; §2a steps 2–5 |
 | **I4 — closed loop** | Receiving practice's PMS (Dr. Garcia) | Referring practice (Dr. Parker's PMS) | §2c step 4; §2b step 6 |
+| **I6 — patient access** | Patient app | Payer's Patient Access API (DentaQuest), at its own FHIR base for patient apps. **Planned; not built.** | §2d |
 
 **Not exercised against the test server:** I3 (consultation, eligibility, consent) and I5 (837D/835 billing).
 
@@ -219,13 +235,18 @@ One FHIR R4 test server (HAPI FHIR on PostgreSQL), synthetic data only, that pla
 - *You do:* push the post-treatment package to the test server (§2c step 4): `ClinicalImpression`, the post-op imaging reference (an `ImagingStudy` pointer plus an ARex manifest of the radiograph, whose business identifier is the **same referral id** as the I1 manifest, so a search by referral id returns both manifests), a `DocumentReference` clinical note, a **separate** thank-you `Communication`, and a `CarePlan`.
 - *The test server does (Planned):* stores the package, files the clinical items as clinical content and the thank-you as a courtesy communication (the test in the I4 narrative), then marks the referral `ServiceRequest` completed and closes the `Task` (§2b step 6).
 
+**I6 — patient access to the payer's claims (Planned; not built).**
+- *You do:* a patient app finds the member by the online member ID, then reads `Coverage` and `ExplanationOfBenefit` (§2d).
+- *The test server does (Planned):* serves the I6 payer-side resources read-only at **its own FHIR base for patient apps**, separate from `/fhir` (which holds the providers' claims-sharing EOBs, a different profile), with only `Patient`, `Coverage` and `ExplanationOfBenefit`, and its own capability statement. First version: the same shared token as the rest of the server. **SMART standalone launch with patient scope is TBD.**
+- *Success looks like:* the app finds Joe by online member ID, lists two EOBs, and shows the amounts, member liability and prior authorization number.
+
 ### 8.4 Validation feedback
 
 For ODE referral content the test server **validates against the draft ODE profiles but always accepts and stores the submission, and returns the validation results in the response**. A validation error is a finding about the draft, not a rejection. The response format is **TBD**; loading the draft profiles is **Planned**.
 
 ### 8.5 Patient view of prior authorizations (CMS-0057) — OPTIONAL, owner-directed addition
 
-**Optional for this event.** Under CMS-0057 the payer's Patient Access API must let the patient see their prior authorizations. **Planned:** the test server, as payer, exposes the approved PA to the patient using the PDex Prior Authorization profile (`ExplanationOfBenefit`, `use: preauthorization`) through a patient-scoped SMART standalone launch. All details are **TBD**. This is **not in the UC07 narrative, and §5 above says UC07 has no patient-facing app**; §5 would need to change if this is kept.
+**Optional for this event.** Under CMS-0057 the payer's Patient Access API must let the patient see their prior authorizations. **Planned:** the test server, as payer, exposes the approved PA to the patient using the PDex Prior Authorization profile (`ExplanationOfBenefit`, `use: preauthorization`) through a patient-scoped SMART standalone launch. All details are **TBD**. This is **not in the UC07 narrative**. UC07 now has a patient-facing app in I6 (§5), so this PA view, if kept, would be an additional `ExplanationOfBenefit` (`use: preauthorization`) next to the two adjudicated oral EOBs, not a replacement for them.
 
 ### 8.6 What you must prepare
 
@@ -240,6 +261,13 @@ For ODE referral content the test server **validates against the draft ODE profi
 | Base URLs and authentication | Test server team | TBD |
 | The WADO-RS model in §6b and `CLAUDE.md` §8 is deferred, not removed (the `ImagingStudy`-to-manifest link is decided: see 8.3) | Owner | Deferred |
 | CRD, DTR, PAS paths and failure-case behavior | Test server team | TBD |
-| Patient Access PA view (8.5), and its effect on §5 if kept | Owner | Optional |
+| Patient Access PA view (8.5), and how it sits next to the I6 EOBs if kept | Owner | Optional |
 | UC07 test data: I1, I2 and I4 present (DRAFT; I4 holds a minimal pull-in from I3), I3 and I5 deferred | Owner | Partly open |
 | PAS `Claim.item.productOrService` binding excludes CDT, and `Claim.supportingInfo` cannot reference an ARex `List` (kept as known errors / a local convention) | Owner to raise with the PAS authors | Open |
+| I6 amounts: the EOB amounts (submitted, benefit, discount, paid, member liability $0) are **synthetic, drafted for review** | Owner to confirm or replace | Open |
+| I6 targets CARIN Blue Button **2.2.0** (it depends on US Core 6.1.0 and 7.0.0); the repository cites CARIN Blue Button without a version | Owner | Assumed |
+| I6 online member ID (`https://dentaquest.example.org/fhir/online-id`, `DQ-ONLINE-TX-0038211`) is **synthetic**, and no standard code names this identifier type, so the type is text only | Owner | Assumed |
+| I6 guardian access: how the payer's online account represents Linda acting for Joe (a minor), and how the app is authorized for him; not modeled in FHIR | Owner | Open |
+| I6 authorization: SMART standalone launch with patient scope; the first version uses the shared token | Test server team | TBD |
+| I6 endpoint: a separate FHIR base for patient apps on the test server (Patient, Coverage, EOB only) | Test server team | Planned, not built |
+| I6 fixtures have not been run through the HL7 FHIR Validator (only a structural and profile-structure check was run; see the fixtures README) | Owner | Open |

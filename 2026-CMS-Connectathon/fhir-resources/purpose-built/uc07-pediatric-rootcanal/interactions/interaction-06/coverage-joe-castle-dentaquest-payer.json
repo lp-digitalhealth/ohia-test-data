@@ -1,0 +1,50 @@
+{
+  "resourceType": "Coverage",
+  "id": "coverage-joe-castle-dentaquest-payer",
+  "meta": {
+    "lastUpdated": "2026-07-28T06:00:00-05:00",
+    "profile": [
+      "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Coverage|2.2.0"
+    ]
+  },
+  "identifier": [
+    {
+      "system": "http://texas.medicaid.gov/beneficiary",
+      "value": "TX-MCD-0038211"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+        "code": "DENTAL",
+        "display": "dental care policy"
+      }
+    ],
+    "text": "DentaQuest — Texas Medicaid dental plan (TX HHSC Dental Services)"
+  },
+  "subscriberId": "TX-MCD-0038211",
+  "beneficiary": {
+    "reference": "Patient/patient-joe-castle-payer"
+  },
+  "relationship": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/subscriber-relationship",
+        "code": "self",
+        "display": "Self"
+      }
+    ]
+  },
+  "period": {
+    "start": "2026-01-01",
+    "end": "2026-12-31"
+  },
+  "payor": [
+    {
+      "reference": "Organization/org-dentaquest-tx-payer",
+      "display": "DentaQuest USA Insurance Company, Inc."
+    }
+  ]
+}

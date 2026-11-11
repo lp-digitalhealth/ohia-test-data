@@ -1,0 +1,638 @@
+{
+  "resourceType": "ExplanationOfBenefit",
+  "id": "eob-restorative-treatment-c4bb",
+  "meta": {
+    "lastUpdated": "2026-07-28T06:00:00-05:00",
+    "profile": [
+      "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-ExplanationOfBenefit-Oral|2.2.0"
+    ]
+  },
+  "language": "en-US",
+  "text": {
+    "status": "additional",
+    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p>Oral EOB eob-restorative-treatment-c4bb: 3 services on 2026-07-22, submitted $2260, benefit $1530, member liability $0. SYNTHETIC TEST DATA. The amounts are invented for this test and are not DentaQuest rates, allowed amounts or benefits. Review before use.</p></div>"
+  },
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBIdentifierType",
+            "code": "uc"
+          }
+        ]
+      },
+      "system": "https://dentaquest.example.org/fhir/eob-identifier",
+      "value": "DQ-EOB-2026-UC07-002"
+    }
+  ],
+  "status": "active",
+  "type": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/claim-type",
+        "version": "1.0.1",
+        "code": "oral"
+      }
+    ],
+    "text": "Oral"
+  },
+  "use": "claim",
+  "patient": {
+    "reference": "Patient/patient-joe-castle-payer"
+  },
+  "billablePeriod": {
+    "start": "2026-07-22",
+    "end": "2026-07-22"
+  },
+  "created": "2026-07-27T14:45:00-05:00",
+  "insurer": {
+    "reference": "Organization/org-dentaquest-tx-payer",
+    "display": "DentaQuest USA Insurance Company, Inc."
+  },
+  "provider": {
+    "reference": "Practitioner/pract-max-garcia-payer"
+  },
+  "outcome": "complete",
+  "payee": {
+    "type": {
+      "coding": [
+        {
+          "system": "http://terminology.hl7.org/CodeSystem/payeetype",
+          "version": "1.0.1",
+          "code": "provider"
+        }
+      ]
+    },
+    "party": {
+      "reference": "Organization/org-restorative-dental-tx-payer"
+    }
+  },
+  "careTeam": [
+    {
+      "sequence": 1,
+      "provider": {
+        "reference": "Practitioner/pract-max-garcia-payer"
+      },
+      "role": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole",
+            "code": "rendering"
+          }
+        ]
+      }
+    },
+    {
+      "sequence": 2,
+      "provider": {
+        "reference": "Practitioner/pract-mary-parker-payer"
+      },
+      "role": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimCareTeamRole",
+            "code": "referring"
+          }
+        ]
+      }
+    }
+  ],
+  "supportingInfo": [
+    {
+      "sequence": 1,
+      "category": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBSupportingInfoType",
+            "code": "clmrecvddate"
+          }
+        ]
+      },
+      "timingDate": "2026-07-23"
+    },
+    {
+      "sequence": 2,
+      "category": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBSupportingInfoType",
+            "code": "servicefacility"
+          }
+        ]
+      },
+      "valueReference": {
+        "reference": "Organization/org-restorative-dental-tx-payer"
+      }
+    }
+  ],
+  "diagnosis": [
+    {
+      "sequence": 1,
+      "diagnosisCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "K02.53",
+            "display": "Dental caries on pit and fissure surface penetrating into the pulp"
+          }
+        ]
+      },
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/ex-diagnosistype",
+              "version": "1.0.1",
+              "code": "principal"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "diagnosisCodeableConcept": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/sid/icd-10-cm",
+            "code": "K04.7",
+            "display": "Periapical abscess without sinus"
+          }
+        ]
+      },
+      "type": [
+        {
+          "coding": [
+            {
+              "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBClaimDiagnosisType",
+              "code": "secondary"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "insurance": [
+    {
+      "focal": true,
+      "coverage": {
+        "reference": "Coverage/coverage-joe-castle-dentaquest-payer"
+      },
+      "preAuthRef": [
+        "TX-DQ-PA-2026-061204"
+      ]
+    }
+  ],
+  "item": [
+    {
+      "sequence": 1,
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D3320",
+            "display": "Endodontic therapy, premolar tooth (excluding final restoration)"
+          }
+        ]
+      },
+      "servicedDate": "2026-07-22",
+      "locationCodeableConcept": {
+        "coding": [
+          {
+            "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set",
+            "code": "11",
+            "display": "Office"
+          }
+        ]
+      },
+      "bodySite": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+            "code": "4",
+            "display": "Permanent maxillary right second premolar tooth"
+          }
+        ],
+        "text": "Tooth #4"
+      },
+      "noteNumber": [
+        1
+      ],
+      "adjudication": [
+        {
+          "category": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudicationDiscriminator",
+                "code": "benefitpaymentstatus"
+              }
+            ]
+          },
+          "reason": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBPayerAdjudicationStatus",
+                "code": "innetwork"
+              }
+            ]
+          }
+        },
+        {
+          "category": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                "code": "submitted",
+                "version": "1.0.1"
+              }
+            ]
+          },
+          "amount": {
+            "value": 850,
+            "currency": "USD"
+          }
+        },
+        {
+          "category": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                "code": "benefit",
+                "version": "1.0.1"
+              }
+            ]
+          },
+          "amount": {
+            "value": 565,
+            "currency": "USD"
+          }
+        },
+        {
+          "category": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                "code": "memberliability"
+              }
+            ]
+          },
+          "amount": {
+            "value": 0,
+            "currency": "USD"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 2,
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D2950",
+            "display": "Core buildup, including any pins when required"
+          }
+        ]
+      },
+      "servicedDate": "2026-07-22",
+      "locationCodeableConcept": {
+        "coding": [
+          {
+            "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set",
+            "code": "11",
+            "display": "Office"
+          }
+        ]
+      },
+      "bodySite": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+            "code": "4",
+            "display": "Permanent maxillary right second premolar tooth"
+          }
+        ],
+        "text": "Tooth #4"
+      },
+      "noteNumber": [
+        1
+      ],
+      "adjudication": [
+        {
+          "category": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudicationDiscriminator",
+                "code": "benefitpaymentstatus"
+              }
+            ]
+          },
+          "reason": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBPayerAdjudicationStatus",
+                "code": "innetwork"
+              }
+            ]
+          }
+        },
+        {
+          "category": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                "code": "submitted",
+                "version": "1.0.1"
+              }
+            ]
+          },
+          "amount": {
+            "value": 260,
+            "currency": "USD"
+          }
+        },
+        {
+          "category": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                "code": "benefit",
+                "version": "1.0.1"
+              }
+            ]
+          },
+          "amount": {
+            "value": 175,
+            "currency": "USD"
+          }
+        },
+        {
+          "category": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                "code": "memberliability"
+              }
+            ]
+          },
+          "amount": {
+            "value": 0,
+            "currency": "USD"
+          }
+        }
+      ]
+    },
+    {
+      "sequence": 3,
+      "productOrService": {
+        "coding": [
+          {
+            "system": "http://www.ada.org/cdt",
+            "code": "D2740",
+            "display": "Crown - porcelain/ceramic"
+          }
+        ]
+      },
+      "servicedDate": "2026-07-22",
+      "locationCodeableConcept": {
+        "coding": [
+          {
+            "system": "https://www.cms.gov/Medicare/Coding/place-of-service-codes/Place_of_Service_Code_Set",
+            "code": "11",
+            "display": "Office"
+          }
+        ]
+      },
+      "bodySite": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/ADAUniversalToothDesignationSystem",
+            "code": "4",
+            "display": "Permanent maxillary right second premolar tooth"
+          }
+        ],
+        "text": "Tooth #4"
+      },
+      "noteNumber": [
+        1
+      ],
+      "adjudication": [
+        {
+          "category": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudicationDiscriminator",
+                "code": "benefitpaymentstatus"
+              }
+            ]
+          },
+          "reason": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBPayerAdjudicationStatus",
+                "code": "innetwork"
+              }
+            ]
+          }
+        },
+        {
+          "category": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                "code": "submitted",
+                "version": "1.0.1"
+              }
+            ]
+          },
+          "amount": {
+            "value": 1150,
+            "currency": "USD"
+          }
+        },
+        {
+          "category": {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+                "code": "benefit",
+                "version": "1.0.1"
+              }
+            ]
+          },
+          "amount": {
+            "value": 790,
+            "currency": "USD"
+          }
+        },
+        {
+          "category": {
+            "coding": [
+              {
+                "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+                "code": "memberliability"
+              }
+            ]
+          },
+          "amount": {
+            "value": 0,
+            "currency": "USD"
+          }
+        }
+      ]
+    }
+  ],
+  "adjudication": [
+    {
+      "category": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudicationDiscriminator",
+            "code": "renderingnetworkstatus"
+          }
+        ]
+      },
+      "reason": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBPayerAdjudicationStatus",
+            "code": "innetwork"
+          }
+        ]
+      }
+    },
+    {
+      "category": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudicationDiscriminator",
+            "code": "benefitpaymentstatus"
+          }
+        ]
+      },
+      "reason": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBPayerAdjudicationStatus",
+            "code": "innetwork"
+          }
+        ]
+      }
+    },
+    {
+      "category": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudicationDiscriminator",
+            "code": "billingnetworkstatus"
+          }
+        ]
+      },
+      "reason": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBPayerAdjudicationStatus",
+            "code": "innetwork"
+          }
+        ]
+      }
+    }
+  ],
+  "total": [
+    {
+      "category": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+            "code": "submitted",
+            "version": "1.0.1"
+          }
+        ]
+      },
+      "amount": {
+        "value": 2260,
+        "currency": "USD"
+      }
+    },
+    {
+      "category": {
+        "coding": [
+          {
+            "system": "http://terminology.hl7.org/CodeSystem/adjudication",
+            "code": "benefit",
+            "version": "1.0.1"
+          }
+        ]
+      },
+      "amount": {
+        "value": 1530,
+        "currency": "USD"
+      }
+    },
+    {
+      "category": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+            "code": "discount"
+          }
+        ]
+      },
+      "amount": {
+        "value": 730,
+        "currency": "USD"
+      }
+    },
+    {
+      "category": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+            "code": "paidtoprovider"
+          }
+        ]
+      },
+      "amount": {
+        "value": 1530,
+        "currency": "USD"
+      }
+    },
+    {
+      "category": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBAdjudication",
+            "code": "memberliability"
+          }
+        ]
+      },
+      "amount": {
+        "value": 0,
+        "currency": "USD"
+      }
+    }
+  ],
+  "payment": {
+    "type": {
+      "coding": [
+        {
+          "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBPayerAdjudicationStatus",
+          "code": "paid"
+        }
+      ]
+    },
+    "date": "2026-07-28",
+    "amount": {
+      "value": 1530,
+      "currency": "USD"
+    }
+  },
+  "processNote": [
+    {
+      "number": 1,
+      "type": "display",
+      "text": "SYNTHETIC TEST DATA. The amounts are invented for this test and are not DentaQuest rates, allowed amounts or benefits. Review before use."
+    }
+  ]
+}

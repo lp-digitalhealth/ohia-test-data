@@ -1,6 +1,6 @@
 # UC07 FHIR test data — DentaQuest Texas: root canal, build-up and crown (Joe Castle)
 
-**Status: DRAFT, November connectathon. Interactions 1, 2 and 4 (I1, I2, I4).** I3 and I5 are deferred (owner decision); I4 carries a minimal pull-in from I3. This file describes what is actually committed here. It replaces nothing: `../../../use-cases/UC07-Texas-Medicaid-Pediatric-RootCanal/README-fhir.md` describes a 71-file set that is **not** this folder and is not on any branch of this repository.
+**Status: DRAFT. Interactions 1, 2 and 4 (I1, I2, I4) for the November connectathon, and Interaction 6 (I6, patient access) for a later event with patient-facing apps.** I3 and I5 are deferred (owner decision); I4 carries a minimal pull-in from I3. This file describes what is actually committed here. It replaces nothing: `../../../use-cases/UC07-Texas-Medicaid-Pediatric-RootCanal/README-fhir.md` describes a 71-file set that is **not** this folder and is not on any branch of this repository.
 
 Narrative: [`UC07-Texas-Medicaid-Pediatric-RootCanal.md`](../../../use-cases/UC07-Texas-Medicaid-Pediatric-RootCanal/UC07-Texas-Medicaid-Pediatric-RootCanal.md). Test-server roles for the event: section 8 of [`UC07-companion-guide.md`](../../../use-cases/UC07-Texas-Medicaid-Pediatric-RootCanal/UC07-companion-guide.md).
 
@@ -14,6 +14,7 @@ Narrative: [`UC07-Texas-Medicaid-Pediatric-RootCanal.md`](../../../use-cases/UC0
 | Interaction 1 | `interactions/interaction-01/` | 22 resources + `interaction-01-bundle.json` + 2 placeholder image payloads in `arex-payloads/` |
 | Interaction 4 | `interactions/interaction-04/` | 14 resources + `interaction-04-bundle.json` + 1 placeholder payload in `arex-payloads/` |
 | Interaction 2 | `interactions/interaction-02/` | 11 resources + `interaction-02-bundle.json` + 3 payload files in `arex-payloads/` (two placeholder PNGs, one synthetic clinical note) |
+| Interaction 6 | `interactions/interaction-06/` | 9 resources (the payer's view: 7 CARIN Blue Button 2.2.0 profiled `Patient`, `Coverage`, `Organization` and `Practitioner` copies with ids ending `-payer`, and 2 financial oral `ExplanationOfBenefit`) + `interaction-06-bundle.json` + `crosswalk.json` + `check_interaction_06.py` |
 
 The new durable files are `org-pediatric-dental-tx`, `org-restorative-dental-tx`, `org-dentaquest-tx`, `loc-pediatric-dental-tx`, `loc-restorative-dental-tx`, `pract-mary-parker`, `pract-max-garcia`, `endpoint-pediatric-fhir`, `endpoint-restorative-fhir`, `endpoint-dentaquest-tx`. They are **new records** and no existing durable file was edited: UC02a already has a `pract-parker` (a different clinician, NPI and practice) and an `org-dentaquest` (different endpoint and identifiers).
 
@@ -87,6 +88,25 @@ Owner decisions for this event: radiographs are **an ARex manifest of image entr
 - The payload files are **8x8 placeholder PNGs, not radiographs**. The URLs are synthetic `example.org` addresses; for a live retrieval test the files must be served by an ARex content server.
 - `arex-provenance-radiographs` carries a **placeholder signature**: the ARex Provenance profile requires `signature` (min 1), but a valid detached JWS cannot be committed here. `signature.data` is not a valid JWS and must be regenerated at test time.
 
+## I6 content (patient access, CARIN Blue Button 2.2.0)
+
+I6 is the **payer's view** of Joe for a patient-facing app (narrative: [`uc07-i6-patient-access.md`](../../../use-cases/UC07-Texas-Medicaid-Pediatric-RootCanal/uc07-i6-patient-access.md)). It lives apart from the providers' resources on purpose: a payer holds its own record of a member, so the I6 copies have their own ids (`-payer`, and `-c4bb` for the EOBs) and nothing in base, durable, I1, I2 or I4 was changed. They carry the profiles the Oral EOB must point at (`C4BB-Patient`, `C4BB-Coverage`, `C4BB-Organization`, `C4BB-Practitioner`, all `|2.2.0`); the existing UC07 resources carry US Core profiles and are not C4BB-conformant, which is why they are not reused.
+
+- **EOBs:** `eob-pediatric-evaluation-c4bb` (2026-07-08; D0140, D0220 on tooth #4, D0270; billed by Dr. Parker) and `eob-restorative-treatment-c4bb` (2026-07-22; D3320, D2950, D2740, all tooth #4; billed by Dr. Garcia, with Dr. Parker as referring provider and `insurance.preAuthRef` = the I2 authorization number). Both are `C4BB-ExplanationOfBenefit-Oral|2.2.0` (the **financial** profile), `status: active`, `outcome: complete`, paid. Service dates, CDT codes, tooth and diagnoses are read from the I1 and I4 fixtures, not retyped.
+- **How a client matches payer to provider:** [`crosswalk.json`](interactions/interaction-06/crosswalk.json) lists, for every payer-side resource and every EOB line, the provider-side resource and the **business key** to match on (Medicaid beneficiary ID, payer ID, NPIs, CDT code + date + tooth + rendering NPI, the authorization number). Match on the keys, never on ids or the `-payer` suffix.
+- **How an app finds the member:** by the payer's **online member ID** (`patientAppEntry` in the crosswalk). It is on the payer's `Patient` only and on no provider-side resource.
+- **Bundle:** `interaction-06-bundle.json` is a **transaction** Bundle, **not cumulative** (only the 9 payer-side resources), every entry a `PUT`, idempotent, `fullUrl`s are v5 UUIDs (deterministic, namespace `urn:ohia:uc07:interaction-06`). It assumes nothing else is loaded and depends on no durable or base fixture. Load it into a server of its own for patient-app testing; its ids do not collide with I1, I2 or I4.
+
+## I6 values not in the narrative (ASSUMPTIONS)
+
+- **All money is synthetic**, drafted for owner review, not DentaQuest rates: pediatric claim submitted $130, benefit $88, discount $42; restorative claim submitted $2,260, benefit $1,530, discount $730; paid to provider equals the benefit; member liability $0 (Medicaid). Each EOB says so in `processNote`.
+- **Dates:** claims received 2026-07-23 (from I5), adjudicated 2026-07-27, posted to the Patient Access API and paid 2026-07-28.
+- **In network, place of service 11, `payee` = the provider, `outcome: complete`:** the simplest consistent reading of a paid Medicaid dental claim.
+- **Diagnoses:** the two ICD-10-CM codes from the I1 `Condition`s (K02.53 principal, K04.7 secondary) on both claims.
+- **The online member ID** (`https://dentaquest.example.org/fhir/online-id`, `DQ-ONLINE-TX-0038211`) is synthetic. Its type is text only (`Payer online member ID`) because no standard code names it.
+- **Version:** CARIN Blue Button **2.2.0** was chosen by the owner. The repository cited the IG without a version. 2.2.0 depends on US Core 6.1.0 and 7.0.0.
+- **Guardian access** (Linda acting for Joe, 16) is **not modeled**: no payer-side `RelatedPerson`, no proxy relationship. Open item in the companion guide.
+
 ## Bundle semantics (CLAUDE.md section 6)
 
 **`interaction-04-bundle.json`** is a **transaction** Bundle, **cumulative** (13 UC07 durable files + base + I1 + I2 + I4: 62 entries), every entry a `PUT`, idempotent, and **it contains no I3 resources**. The I4 `servicerequest-referral` and `task-referral` supersede the I1 and I2 versions (same ids), so the earlier versions are not in this Bundle; loading the I2 Bundle then the I4 Bundle replaces them in place.
@@ -146,3 +166,10 @@ R4 `Organization` and `Coverage` have no `note` element, so these were removed f
 - **What the warnings are:** best-practice notes (relative references versus the UUID `fullUrl`s; resources without narrative); code systems that could not be checked with terminology off (including CDT, NUCC taxonomy and BCP-47); two ARex content URLs the validator could not fetch (synthetic hosts).
 - **NOT validated:** the **ODE profiles** (`ode-dental-to-dental-referral`, `ode-referral-task`) — the validator could not find them, so the referral and the Task were checked against the base resources only; the ODE profile source is unbuilt FSH. **CDT, NUCC and BCP-47 codes** were not checked. **Clinical correctness** was not assessed.
 - `fullUrl` form: UC04a's bundle uses `urn:uuid:Type-id`, the same form the validator rejected as "not a valid UUID" in this folder's first draft. Other bundles were not validated here. UC07 uses valid UUIDs.
+
+### I6
+
+- **What was run** (`interactions/interaction-06/check_interaction_06.py`, committed; `--c4bb hl7.fhir.us.carin-bb-2.2.0.tgz` from <https://packages.simplifier.net/hl7.fhir.us.carin-bb/2.2.0>): 396 checks, 0 failed. All files parse with the expected `resourceType`; every local reference resolves; ids are unique and collide with no other UC07 fixture; the Bundle is a transaction of `PUT`s that match the files exactly; every match key in the crosswalk is present on both sides; each EOB line matches its provider-side `Procedure` on CDT code, date, tooth and rendering NPI; the prior authorization number matches the I2 `ClaimResponse`; the amounts add up and member liability is zero; the online member ID is on the payer `Patient` only; and, against the **published 2.2.0 package**, every required element, the required slices, the fixed patterns and every required binding whose value set lists its codes.
+- **Controls:** the check was run against twelve deliberately broken copies (a required element removed, a CDT code, a tooth, a total, the authorization number, the online ID, a code outside a value set, an unpinned profile, a missing slice and others); each failed on exactly the intended check.
+- **NOT run: the HL7 FHIR Validator.** The script is not the validator: it does not check invariants, FHIRPath, US Core, or any external terminology (CDT, ICD-10, place of service, ADA tooth codes, the claim-type and adjudication code systems from terminology.hl7.org). Run the validator (R4 4.0.1, `hl7.fhir.us.carin-bb#2.2.0`, `hl7.fhir.us.core#6.1.0`) before relying on these resources as conformant.
+- **NOT reviewed:** the synthetic amounts, with the owner; clinical correctness.
