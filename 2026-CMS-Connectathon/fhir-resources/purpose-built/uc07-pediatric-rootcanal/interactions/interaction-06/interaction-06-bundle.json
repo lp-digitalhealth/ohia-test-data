@@ -3,7 +3,7 @@
   "type": "transaction",
   "entry": [
     {
-      "fullUrl": "urn:uuid:028f7f7e-5d87-52dd-8e4b-cc3279a7e7f4",
+      "fullUrl": "https://dentaquest.example.org/fhir/Patient/patient-joe-castle-payer",
       "resource": {
         "resourceType": "Patient",
         "id": "patient-joe-castle-payer",
@@ -51,7 +51,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:cef468cd-ab63-55c5-952b-3138da159213",
+      "fullUrl": "https://dentaquest.example.org/fhir/Coverage/coverage-joe-castle-dentaquest-payer",
       "resource": {
         "resourceType": "Coverage",
         "id": "coverage-joe-castle-dentaquest-payer",
@@ -108,11 +108,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:ffa8f028-f55a-5fb7-8ac7-cefad943d1b2",
+      "fullUrl": "https://dentaquest.example.org/fhir/Organization/org-dentaquest-tx-payer",
       "resource": {
         "resourceType": "Organization",
         "id": "org-dentaquest-tx-payer",
         "meta": {
+          "lastUpdated": "2026-07-28T06:00:00-05:00",
           "profile": [
             "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization|2.2.0"
           ]
@@ -140,11 +141,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:8343f872-2e46-5c8a-82cd-c8edf189b732",
+      "fullUrl": "https://dentaquest.example.org/fhir/Organization/org-pediatric-dental-tx-payer",
       "resource": {
         "resourceType": "Organization",
         "id": "org-pediatric-dental-tx-payer",
         "meta": {
+          "lastUpdated": "2026-07-28T06:00:00-05:00",
           "profile": [
             "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization|2.2.0"
           ]
@@ -172,11 +174,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:c1759923-c0d5-5467-8ebe-cc58ad683d0b",
+      "fullUrl": "https://dentaquest.example.org/fhir/Organization/org-restorative-dental-tx-payer",
       "resource": {
         "resourceType": "Organization",
         "id": "org-restorative-dental-tx-payer",
         "meta": {
+          "lastUpdated": "2026-07-28T06:00:00-05:00",
           "profile": [
             "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization|2.2.0"
           ]
@@ -204,11 +207,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:88ad9da7-c95d-5f9b-af68-e329edb1a81c",
+      "fullUrl": "https://dentaquest.example.org/fhir/Practitioner/pract-mary-parker-payer",
       "resource": {
         "resourceType": "Practitioner",
         "id": "pract-mary-parker-payer",
         "meta": {
+          "lastUpdated": "2026-07-28T06:00:00-05:00",
           "profile": [
             "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Practitioner|2.2.0"
           ]
@@ -249,11 +253,12 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:fb524485-237d-587b-a035-8c1a883b5a90",
+      "fullUrl": "https://dentaquest.example.org/fhir/Practitioner/pract-max-garcia-payer",
       "resource": {
         "resourceType": "Practitioner",
         "id": "pract-max-garcia-payer",
         "meta": {
+          "lastUpdated": "2026-07-28T06:00:00-05:00",
           "profile": [
             "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Practitioner|2.2.0"
           ]
@@ -293,7 +298,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:579215ae-cc6b-5c4e-9266-7775f47cff4d",
+      "fullUrl": "https://dentaquest.example.org/fhir/ExplanationOfBenefit/eob-pediatric-evaluation-c4bb",
       "resource": {
         "resourceType": "ExplanationOfBenefit",
         "id": "eob-pediatric-evaluation-c4bb",
@@ -901,7 +906,7 @@
       }
     },
     {
-      "fullUrl": "urn:uuid:4fddafcb-acb0-544a-b005-eaba76f517a5",
+      "fullUrl": "https://dentaquest.example.org/fhir/ExplanationOfBenefit/eob-restorative-treatment-c4bb",
       "resource": {
         "resourceType": "ExplanationOfBenefit",
         "id": "eob-restorative-treatment-c4bb",

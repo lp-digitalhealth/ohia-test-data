@@ -103,7 +103,41 @@ for e in entries:
     ok(res.get(key) == r, f"bundle entry {key} differs from its file")
     urls.add(key)
     fulls.add(e.get("fullUrl"))
-ok(len(fulls) == len(entries) and all(str(f).startswith("urn:uuid:") for f in fulls), "bundle fullUrls must be unique urn:uuid values")
+ok(len(fulls) == len(entries), "bundle fullUrls must be unique")
+# Relative references resolve against the fullUrl of the entry that holds them, so every fullUrl must be an absolute
+# "<base>/<Type>/<id>" on one base; urn:uuid full URLs cannot resolve relative references (the profile invariants use resolve()).
+bases = {e["fullUrl"].rsplit(f"/{e['resource']['resourceType']}/", 1)[0] for e in entries if f"/{e['resource']['resourceType']}/{e['resource']['id']}" in str(e.get("fullUrl"))}
+ok(len(bases) == 1 and all(str(e.get("fullUrl")).startswith("http") and str(e["fullUrl"]).endswith(f"/{e['resource']['resourceType']}/{e['resource']['id']}") for e in entries),
+   "bundle fullUrls must be absolute http(s) URLs of the form <one base>/<Type>/<id>, so relative references resolve")
+
+# ---- 2b. the published profiles' own ERROR invariants, written out (they are FHIRPath in the package) --------------------
+def npi_luhn(n):
+    s, tot = "80840" + n, 0
+    for i, ch in enumerate(reversed(s)):
+        d = int(ch) * (2 if i % 2 else 1)
+        tot += d - 9 if d > 9 else d
+    return tot % 10 == 0
+
+
+for key, r in res.items():
+    ok(bool(r.get("meta", {}).get("lastUpdated")), f"{key}: meta.lastUpdated is required (uncontained-requires-lastUpdated)")
+    ok(any(p.startswith("http://hl7.org/fhir/us/carin-bb/StructureDefinition/") and p.endswith("|2.2.0") for p in r["meta"]["profile"]), f"{key}: meta.profile must be a Blue Button profile pinned to |2.2.0")
+    for i in r.get("identifier", []):
+        if i.get("system") == "http://hl7.org/fhir/sid/us-npi":
+            ok(len(i["value"]) == 10 and i["value"].isdigit() and npi_luhn(i["value"]), f"{key}: NPI {i['value']} must be 10 digits with a valid check digit (us-core-16, us-core-17)")
+    if key.startswith("Practitioner/"):
+        ok(any(i.get("system") in ("http://hl7.org/fhir/sid/us-npi", "urn:oid:2.16.840.1.113883.4.4") for i in r["identifier"]), f"{key}: Practitioner.identifier must include an NPI or a Tax ID")
+    if key.startswith("Patient/"):
+        ok(all(n.get("family") or n.get("given") for n in r["name"]), f"{key}: every name needs a family or given name (us-core-6)")
+    if key.startswith("Coverage/"):
+        ok(bool(r.get("subscriberId")) or any(c.get("code") == "MB" for i in r.get("identifier", []) for c in i.get("type", {}).get("coding", [])), f"{key}: member ID required (us-core-15)")
+    if key.startswith("ExplanationOfBenefit/"):
+        ok(sum(1 for x in r["insurance"] if x.get("focal")) < 2, f"{key}: at most one insurance with focal = true")
+        for c in r["careTeam"]:
+            if c["role"]["coding"][0]["code"] in ("rendering", "primary", "referring", "supervisor"):
+                ok(c["provider"]["reference"].startswith("Practitioner/"), f"{key}: care team role {c['role']['coding'][0]['code']} must refer to a Practitioner")
+        ok(not any(c["code"] == "other" for c in r["payee"]["type"]["coding"]) or "party" in r["payee"], f"{key}: payee type other needs a party")
+        ok(r["provider"]["reference"].startswith("Practitioner/"), f"{key}: provider must be a Practitioner (C4BB-Practitioner)")
 
 # ---- 3. crosswalk: every key present on both sides ------------------------------------------------------------------
 covered = set()
