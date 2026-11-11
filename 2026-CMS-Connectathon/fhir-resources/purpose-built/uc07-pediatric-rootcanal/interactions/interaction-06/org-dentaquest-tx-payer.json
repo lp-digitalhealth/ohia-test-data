@@ -1,0 +1,26 @@
+{
+  "resourceType": "Organization",
+  "id": "org-dentaquest-tx-payer",
+  "meta": {
+    "lastUpdated": "2026-07-28T06:00:00-05:00",
+    "profile": [
+      "http://hl7.org/fhir/us/carin-bb/StructureDefinition/C4BB-Organization|2.2.0"
+    ]
+  },
+  "identifier": [
+    {
+      "type": {
+        "coding": [
+          {
+            "system": "http://hl7.org/fhir/us/carin-bb/CodeSystem/C4BBIdentifierType",
+            "code": "payerid"
+          }
+        ]
+      },
+      "system": "urn:ohia:payer-edi-id",
+      "value": "CX014"
+    }
+  ],
+  "active": true,
+  "name": "DentaQuest USA Insurance Company, Inc."
+}

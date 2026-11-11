@@ -1,0 +1,189 @@
+{
+  "about": "How a client matches DentaQuest's payer-side resources (ids end in -payer) to the provider-side UC07 resources. Match on the BUSINESS KEYS below, never on FHIR ids or on the -payer suffix: a real payer and a real practice never share ids.",
+  "patientAppEntry": {
+    "about": "How a patient-facing app finds the member at the payer. This is NOT a provider-to-payer match: no provider system holds this ID. The app passes the payer's online member ID and reads the payer-side Patient; everything else is then reached from that Patient.",
+    "lookup": "Patient?identifier=https://dentaquest.example.org/fhir/online-id|DQ-ONLINE-TX-0038211",
+    "returns": "Patient/patient-joe-castle-payer",
+    "onlineMemberId": {
+      "system": "https://dentaquest.example.org/fhir/online-id",
+      "value": "DQ-ONLINE-TX-0038211"
+    },
+    "thenRead": [
+      "Coverage?beneficiary=Patient/patient-joe-castle-payer",
+      "ExplanationOfBenefit?patient=Patient/patient-joe-castle-payer"
+    ]
+  },
+  "resources": [
+    {
+      "provider": "Patient/patient-joe-castle",
+      "payer": "Patient/patient-joe-castle-payer",
+      "matchOn": [
+        {
+          "identifier": {
+            "system": "http://texas.medicaid.gov/beneficiary",
+            "value": "TX-MCD-0038211"
+          }
+        }
+      ],
+      "alsoCheck": {
+        "birthDate": "2010-03-22",
+        "family": "Castle",
+        "given": [
+          "Joe"
+        ]
+      }
+    },
+    {
+      "provider": "Coverage/coverage-joe-castle-dentaquest",
+      "payer": "Coverage/coverage-joe-castle-dentaquest-payer",
+      "matchOn": [
+        {
+          "subscriberId": "TX-MCD-0038211"
+        }
+      ]
+    },
+    {
+      "provider": "Organization/org-dentaquest-tx",
+      "payer": "Organization/org-dentaquest-tx-payer",
+      "matchOn": [
+        {
+          "identifier": {
+            "system": "urn:ohia:payer-edi-id",
+            "value": "CX014"
+          }
+        }
+      ]
+    },
+    {
+      "provider": "Organization/org-pediatric-dental-tx",
+      "payer": "Organization/org-pediatric-dental-tx-payer",
+      "matchOn": [
+        {
+          "identifier": {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1847736208"
+          }
+        }
+      ]
+    },
+    {
+      "provider": "Organization/org-restorative-dental-tx",
+      "payer": "Organization/org-restorative-dental-tx-payer",
+      "matchOn": [
+        {
+          "identifier": {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "2936518473"
+          }
+        }
+      ]
+    },
+    {
+      "provider": "Practitioner/pract-mary-parker",
+      "payer": "Practitioner/pract-mary-parker-payer",
+      "matchOn": [
+        {
+          "identifier": {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1720384753"
+          }
+        }
+      ]
+    },
+    {
+      "provider": "Practitioner/pract-max-garcia",
+      "payer": "Practitioner/pract-max-garcia-payer",
+      "matchOn": [
+        {
+          "identifier": {
+            "system": "http://hl7.org/fhir/sid/us-npi",
+            "value": "1839204769"
+          }
+        }
+      ]
+    }
+  ],
+  "priorAuthorization": {
+    "providerClaimResponse": "ClaimResponse/claimresponse-pa-approval",
+    "payerEob": "ExplanationOfBenefit/eob-restorative-treatment-c4bb",
+    "matchOn": {
+      "providerPath": "ClaimResponse.preAuthRef",
+      "payerPath": "ExplanationOfBenefit.insurance.preAuthRef",
+      "value": "TX-DQ-PA-2026-061204"
+    }
+  },
+  "services": [
+    {
+      "payerEob": "ExplanationOfBenefit/eob-pediatric-evaluation-c4bb",
+      "payerItemSequence": 1,
+      "providerProcedure": "Procedure/procedure-d0140",
+      "providerProcedureInteraction": "interaction-01",
+      "matchOn": {
+        "cdtCode": "D0140",
+        "serviceDate": "2026-07-08",
+        "toothDesignation": null,
+        "renderingNpi": "1720384753"
+      }
+    },
+    {
+      "payerEob": "ExplanationOfBenefit/eob-pediatric-evaluation-c4bb",
+      "payerItemSequence": 2,
+      "providerProcedure": "Procedure/procedure-d0220",
+      "providerProcedureInteraction": "interaction-01",
+      "matchOn": {
+        "cdtCode": "D0220",
+        "serviceDate": "2026-07-08",
+        "toothDesignation": "4",
+        "renderingNpi": "1720384753"
+      }
+    },
+    {
+      "payerEob": "ExplanationOfBenefit/eob-pediatric-evaluation-c4bb",
+      "payerItemSequence": 3,
+      "providerProcedure": "Procedure/procedure-d0270",
+      "providerProcedureInteraction": "interaction-01",
+      "matchOn": {
+        "cdtCode": "D0270",
+        "serviceDate": "2026-07-08",
+        "toothDesignation": null,
+        "renderingNpi": "1720384753"
+      }
+    },
+    {
+      "payerEob": "ExplanationOfBenefit/eob-restorative-treatment-c4bb",
+      "payerItemSequence": 1,
+      "providerProcedure": "Procedure/procedure-d3320",
+      "providerProcedureInteraction": "interaction-04",
+      "matchOn": {
+        "cdtCode": "D3320",
+        "serviceDate": "2026-07-22",
+        "toothDesignation": "4",
+        "renderingNpi": "1839204769"
+      }
+    },
+    {
+      "payerEob": "ExplanationOfBenefit/eob-restorative-treatment-c4bb",
+      "payerItemSequence": 2,
+      "providerProcedure": "Procedure/procedure-d2950",
+      "providerProcedureInteraction": "interaction-04",
+      "matchOn": {
+        "cdtCode": "D2950",
+        "serviceDate": "2026-07-22",
+        "toothDesignation": "4",
+        "renderingNpi": "1839204769"
+      }
+    },
+    {
+      "payerEob": "ExplanationOfBenefit/eob-restorative-treatment-c4bb",
+      "payerItemSequence": 3,
+      "providerProcedure": "Procedure/procedure-d2740",
+      "providerProcedureInteraction": "interaction-04",
+      "matchOn": {
+        "cdtCode": "D2740",
+        "serviceDate": "2026-07-22",
+        "toothDesignation": "4",
+        "renderingNpi": "1839204769"
+      }
+    }
+  ]
+}
