@@ -10,7 +10,7 @@
         "identifier": [
           {
             "system": "http://hl7.org/fhir/sid/us-npi",
-            "value": "1629384756"
+            "value": "1629384755"
           }
         ],
         "active": true,
@@ -56,7 +56,7 @@
         "identifier": [
           {
             "system": "http://hl7.org/fhir/sid/us-npi",
-            "value": "1487263095"
+            "value": "1487263091"
           }
         ],
         "active": true,
@@ -145,7 +145,7 @@
         "identifier": [
           {
             "system": "http://hl7.org/fhir/sid/us-npi",
-            "value": "1710293846"
+            "value": "1710293840"
           }
         ],
         "active": true,
@@ -1135,7 +1135,7 @@
         ],
         "note": [
           {
-            "text": "Patient-reported medication captured during the virtual assessment (the 'medication list attached' referenced in the referral payload). Sarah reports self-medicating with OTC ibuprofen for the front-tooth pain; no known drug allergies. RxNorm 5640 is the ingredient-level concept for ibuprofen; a specific product/strength code is not asserted since the exact OTC product was patient-reported rather than clinically verified."
+            "text": "Patient-reported medication captured during the virtual assessment (the 'medication list attached' referenced in the referral payload). Sarah reports self-medicating with OTC ibuprofen for the front-tooth pain; her penicillin allergy is recorded separately (AllergyIntolerance/allergyintolerance-penicillin). RxNorm 5640 is the ingredient-level concept for ibuprofen; a specific product/strength code is not asserted since the exact OTC product was patient-reported rather than clinically verified."
           }
         ]
       },
@@ -1472,6 +1472,10 @@
           {
             "reference": "MedicationStatement/medicationstatement-ibuprofen",
             "display": "Patient-reported medications"
+          },
+          {
+            "reference": "AllergyIntolerance/allergyintolerance-penicillin",
+            "display": "Patient-reported allergy: penicillin (rash, moderate)"
           },
           {
             "reference": "DocumentReference/documentreference-virtual-findings",
@@ -3001,6 +3005,88 @@
       "request": {
         "method": "PUT",
         "url": "Procedure/procedure-d3310-rootcanal"
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:AllergyIntolerance-allergyintolerance-penicillin",
+      "resource": {
+        "resourceType": "AllergyIntolerance",
+        "id": "allergyintolerance-penicillin",
+        "meta": {
+          "profile": [
+            "http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance"
+          ]
+        },
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+              "code": "active",
+              "display": "Active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+              "code": "unconfirmed",
+              "display": "Unconfirmed"
+            }
+          ]
+        },
+        "category": [
+          "medication"
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "91936005",
+              "display": "Allergy to penicillin (finding)"
+            }
+          ],
+          "text": "Penicillin"
+        },
+        "patient": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "recordedDate": "2026-07-14",
+        "recorder": {
+          "reference": "PractitionerRole/role-webb",
+          "display": "Dr. Marcus Webb, DDS"
+        },
+        "asserter": {
+          "reference": "Patient/patient-sarah-okonkwo",
+          "display": "Sarah Okonkwo"
+        },
+        "reaction": [
+          {
+            "manifestation": [
+              {
+                "coding": [
+                  {
+                    "system": "http://snomed.info/sct",
+                    "code": "271807003",
+                    "display": "Eruption of skin (disorder)"
+                  }
+                ],
+                "text": "Rash"
+              }
+            ],
+            "severity": "moderate"
+          }
+        ],
+        "note": [
+          {
+            "text": "Penicillin allergy with a rash, moderately severe, supplied by the owner for the revised UC04 narrative (2026-11-04: the referral carries 'Allergies', none named). Captured by Dr. Webb during the structured virtual assessment as patient-reported history. ASSUMPTIONS: verificationStatus is 'unconfirmed' because a virtual visit cannot confirm an allergy (change to 'confirmed' if the owner prefers); FHIR severity has no 'moderately severe', so it is carried as 'moderate'; criticality is not asserted (the owner gave a severity, not a criticality); the rash onset and date are not given. Relevant downstream: the in-office practice should avoid penicillin-class antibiotics. SNOMED 91936005 and 271807003 were checked against SNOMED/terminology-server lookups on 2026-11-12; US Core binding and clinical correctness were not validated here."
+          }
+        ]
+      },
+      "request": {
+        "method": "PUT",
+        "url": "AllergyIntolerance/allergyintolerance-penicillin"
       }
     }
   ]

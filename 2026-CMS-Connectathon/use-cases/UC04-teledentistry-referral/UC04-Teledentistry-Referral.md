@@ -301,7 +301,7 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | **Reason Code** | K04.01 — Irreversible pulpitis | ICD-10 presenting diagnosis |
 | **Ordered Date** | 2026-07-14 | Virtual encounter date |
 | **Occurrence DateTime** | 2026-07-15 | Target in-office appointment |
-| **Description** | Patient presents via synchronous teledentistry encounter with acute pain on biting, thermal sensitivity, and three-day symptom duration, upper front teeth. Clinical presentation suggests irreversible pulpitis, tooth #9. Periapical involvement possible. Radiographic evaluation and endodontic assessment indicated. Patient has no dental home. Patient-submitted intraoral photos of the tooth #9 region provided by reference (ARex manifest; non-radiographic). Patient medication list and allergy list attached. No known drug allergies reported. | Referral payload |
+| **Description** | Patient presents via synchronous teledentistry encounter with acute pain on biting, thermal sensitivity, and three-day symptom duration, upper front teeth. Clinical presentation suggests irreversible pulpitis, tooth #9. Periapical involvement possible. Radiographic evaluation and endodontic assessment indicated. Patient has no dental home. Patient-submitted intraoral photos of the tooth #9 region provided by reference (ARex manifest; non-radiographic). Patient medication list and allergy list attached (penicillin allergy: rash, moderate; patient-reported). | Referral payload |
 
 #### Encounter (Virtual — Teledentistry Provider, POS 02)
 
@@ -327,6 +327,20 @@ Sarah's Aetna Dental PPO is a **commercial dental benefit**. All services are bi
 | **Asserter** | Dr. Marcus Webb, DDS | Documenting provider |
 | **Onset** | Approximately 3 days prior to encounter | Patient-reported |
 | **Note** | Acute pain on biting, thermal sensitivity to cold, spontaneous aching. Possible periapical involvement. Radiographic confirmation required. | Clinical note |
+
+#### AllergyIntolerance (Patient-Reported Allergy)
+
+| FHIR Element | Value | Notes |
+|---|---|---|
+| **Clinical Status** | Active | Allergy active |
+| **Verification Status** | Unconfirmed | Patient-reported; a virtual visit cannot confirm (assumption: change to Confirmed if preferred) |
+| **Category** | Medication | |
+| **Code** | Penicillin allergy | SNOMED CT 91936005, Allergy to penicillin (finding) |
+| **Reaction** | Rash | SNOMED CT 271807003, Eruption of skin (disorder) |
+| **Severity** | Moderate | "Moderately severe" as given by the owner; FHIR severity has no finer grade |
+| **Patient** | Sarah Okonkwo | Patient reference |
+| **Recorder** | Dr. Marcus Webb, DDS | Documented during the virtual assessment |
+| **Recorded Date** | 2026-07-14 | Virtual encounter date |
 
 #### Procedure (Root Canal Therapy — In-Office Practice, POS 11)
 

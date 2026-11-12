@@ -43,7 +43,7 @@
   ],
   "note": [
     {
-      "text": "Patient-reported medication captured during the virtual assessment (the 'medication list attached' referenced in the referral payload). Sarah reports self-medicating with OTC ibuprofen for the front-tooth pain; no known drug allergies. RxNorm 5640 is the ingredient-level concept for ibuprofen; a specific product/strength code is not asserted since the exact OTC product was patient-reported rather than clinically verified."
+      "text": "Patient-reported medication captured during the virtual assessment (the 'medication list attached' referenced in the referral payload). Sarah reports self-medicating with OTC ibuprofen for the front-tooth pain; her penicillin allergy is recorded separately (AllergyIntolerance/allergyintolerance-penicillin). RxNorm 5640 is the ingredient-level concept for ibuprofen; a specific product/strength code is not asserted since the exact OTC product was patient-reported rather than clinically verified."
     }
   ]
 }

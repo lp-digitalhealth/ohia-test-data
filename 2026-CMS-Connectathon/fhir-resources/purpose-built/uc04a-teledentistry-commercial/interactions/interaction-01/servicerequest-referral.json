@@ -93,6 +93,10 @@
       "display": "Patient-reported medications"
     },
     {
+      "reference": "AllergyIntolerance/allergyintolerance-penicillin",
+      "display": "Patient-reported allergy: penicillin (rash, moderate)"
+    },
+    {
       "reference": "DocumentReference/documentreference-virtual-findings",
       "display": "Virtual assessment note"
     },

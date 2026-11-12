@@ -1,0 +1,71 @@
+{
+  "resourceType": "AllergyIntolerance",
+  "id": "allergyintolerance-penicillin",
+  "meta": {
+    "profile": ["http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance"]
+  },
+  "clinicalStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical",
+        "code": "active",
+        "display": "Active"
+      }
+    ]
+  },
+  "verificationStatus": {
+    "coding": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/allergyintolerance-verification",
+        "code": "unconfirmed",
+        "display": "Unconfirmed"
+      }
+    ]
+  },
+  "category": ["medication"],
+  "code": {
+    "coding": [
+      {
+        "system": "http://snomed.info/sct",
+        "code": "91936005",
+        "display": "Allergy to penicillin (finding)"
+      }
+    ],
+    "text": "Penicillin"
+  },
+  "patient": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "recordedDate": "2026-07-14",
+  "recorder": {
+    "reference": "PractitionerRole/role-webb",
+    "display": "Dr. Marcus Webb, DDS"
+  },
+  "asserter": {
+    "reference": "Patient/patient-sarah-okonkwo",
+    "display": "Sarah Okonkwo"
+  },
+  "reaction": [
+    {
+      "manifestation": [
+        {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "271807003",
+              "display": "Eruption of skin (disorder)"
+            }
+          ],
+          "text": "Rash"
+        }
+      ],
+      "severity": "moderate"
+    }
+  ],
+  "note": [
+    {
+      "text": "Penicillin allergy with a rash, moderately severe, supplied by the owner for the revised UC04 narrative (2026-11-04: the referral carries 'Allergies', none named). Captured by Dr. Webb during the structured virtual assessment as patient-reported history. ASSUMPTIONS: verificationStatus is 'unconfirmed' because a virtual visit cannot confirm an allergy (change to 'confirmed' if the owner prefers); FHIR severity has no 'moderately severe', so it is carried as 'moderate'; criticality is not asserted (the owner gave a severity, not a criticality); the rash onset and date are not given. Relevant downstream: the in-office practice should avoid penicillin-class antibiotics. SNOMED 91936005 and 271807003 were checked against SNOMED/terminology-server lookups on 2026-11-12; US Core binding and clinical correctness were not validated here."
+    }
+  ]
+}

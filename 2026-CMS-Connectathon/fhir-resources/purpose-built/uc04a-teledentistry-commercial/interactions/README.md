@@ -28,11 +28,11 @@ After-hours virtual visit: coverage verified active, Dr. Webb documents symptoms
 - `arex-manifest-intraoral-photos.json` — List, ARex manifest of the two photos; business identifier = the referral id; expiry assumed 14 days after publication
 - `arex-entry-photo-1.json`, `arex-entry-photo-2.json` — DocumentReference (ARex content entries; `image/jpeg`; real SHA-256 over `arex-payloads/intraoral-photo-*.jpg`, which are 8x8 **placeholder** JPEGs; `author` = Patient; **not DICOM**)
 - `arex-provenance-intraoral-photos.json` — Provenance (signs the manifest; **placeholder** signature, regenerate the detached JWS at test time)
-- **Not yet authored:** the referral's `AllergyIntolerance`. The narrative says the referral carries allergies but names none; it waits for the owner's allergy.
+- `allergyintolerance-penicillin.json` — AllergyIntolerance (patient-reported penicillin allergy, SNOMED 91936005; reaction rash, 271807003; severity moderate; `unconfirmed`; no criticality asserted; owner-supplied 2026-11-12; in the referral's `supportingInfo`)
 - `servicerequest-referral.json` — ServiceRequest, `ode-dental-to-dental-referral`: `urn:ohia:referral-id` `REF-2026-UC04A-001`, `priority: urgent`, `reasonCode` K04.01 + `reasonReference` → Condition, `bodySite` tooth #9, `supportingInfo` → 3 Observations (symptoms, tobacco, dental home) / MedicationStatement / the findings DocumentReference / the ARex manifest, `insurance` → Coverage, `occurrenceDateTime` 2026-07-15. **No PA; photos travel by ARex reference.**
 - `task-referral-tracking.json` — Task, `ode-referral-task`: task-code `fulfill`, `businessStatus: referral-sent`, `focus` → referral, no `owner` yet. Note reflects **CDex provider-to-provider push, no HIE/360X**
 - `provenance-referral.json` — Provenance (author Dr. Webb/Meridian; transmitter Meridian, CDex push)
-- `interaction-01-bundle.json` — self-contained transaction bundle: registry + base + I1 (**30 entries**)
+- `interaction-01-bundle.json` — self-contained transaction bundle: registry + base + I1 (**31 entries**)
 
 ## Interaction 2 — An Appointment by Morning (built) — 2026-07-14 same-evening scheduling (20:06–20:47)
 
@@ -42,7 +42,7 @@ Barton Springs' interim FHIR server receives the referral within a minute, and s
 - `appointmentresponse-inoffice.json` — AppointmentResponse (accepted, returned to Meridian via CDex the same evening)
 - `task-referral-tracking-accepted.json` — Task (**snapshot** of the I1 referral Task → `businessStatus: appointment-confirmed`, `owner` = Dr. Nair; same `id` — version history)
 - `provenance-appointment.json` — Provenance (author Dr. Nair/Barton Springs; transmitter Barton Springs, CDex back to Meridian)
-- `interaction-02-bundle.json` — self-contained transaction bundle: registry + base + I1 + I2 (**33 entries**; the I2 Task snapshot overrides the I1 Task by shared `id`)
+- `interaction-02-bundle.json` — self-contained transaction bundle: registry + base + I1 + I2 (**34 entries**; the I2 Task snapshot overrides the I1 Task by shared `id`)
 
 **This** milestone (appointment confirmed) fires to Sarah's app; the referral-sent milestone fired at I1. No patient-facing event for the provider-to-provider mechanics themselves.
 
@@ -58,7 +58,7 @@ The **first — and only — radiograph** in UC04a appears here, generated **in-
 - `condition-k04-7-periapical-abscess.json` — Condition (new in-office diagnosis, **K04.7** periapical abscess without sinus, tooth #9 — source's "K04.5" corrected per verification discipline)
 - `procedure-d3310-rootcanal.json` — Procedure (CDT **D3310** root canal, anterior, tooth #9 Universal — **no FDI**; completed 2026-07-15; `reasonReference` → both Conditions)
 - `procedure-d2330-composite.json` — Procedure (CDT **D2330** single-surface direct composite, lingual, tooth #9; same visit; restores the access — a crown is still indicated)
-- `interaction-03-bundle.json` — self-contained transaction bundle: registry + base + I1 + I2 + I3 (**40 entries**; confirmed Condition and appointment-confirmed Task override earlier versions by shared `id`)
+- `interaction-03-bundle.json` — self-contained transaction bundle: registry + base + I1 + I2 + I3 (**41 entries**; confirmed Condition and appointment-confirmed Task override earlier versions by shared `id`)
 
 ## Interaction 4 — Reporting Back (built) — 2026-07-15 closed-loop summary (12:35)
 
@@ -71,7 +71,7 @@ Dr. Nair pushes a structured encounter summary back to Meridian via CDex — a *
 - `task-summary-delivery.json` — Task (single CDex summary-delivery, Barton Springs → Meridian; `focus` → the ClinicalImpression)
 - `provenance-summary.json` — Provenance (author Dr. Nair/Barton Springs; transmitter Barton Springs, CDex push to Meridian)
 - `auditevent-summary.json` — AuditEvent (cross-org access log for the summary push, Barton Springs → Meridian)
-- `interaction-04-bundle.json` — self-contained transaction bundle: registry + base + I1–I4 (**45 entries**; completed Task/ServiceRequest override earlier versions by shared `id`)
+- `interaction-04-bundle.json` — self-contained transaction bundle: registry + base + I1–I4 (**46 entries**; completed Task/ServiceRequest override earlier versions by shared `id`)
 
 The referral-complete milestone ("visit summary available") fires to Sarah's app via the base-tier `Subscription`.
 
@@ -82,10 +82,10 @@ Two **independent** claims-sharing packages, one per submitting organization —
 - `procedure-d9995-teledentistry.json` — Procedure (CDT **D9995** synchronous teledentistry, POS 02, Dr. Webb, `encounter` → the I1 virtual Encounter) — the billable virtual consult underlying EOB #1; filed here (the billing interaction) rather than churning the committed I1 bundles
 - `eob-teledentistry-claims-sharing.json` — ExplanationOfBenefit **#1** (`ode-dental-claim`): insurer Aetna, provider Meridian, rendering Dr. Webb, one line **D9995** (POS 02), diagnosis K04.01, `supportingInfo` → referral; **no PA ref**
 - `eob-inoffice-claims-sharing.json` — ExplanationOfBenefit **#2** (`ode-dental-claim`): insurer Aetna, provider Barton Springs, referring Dr. Webb + rendering Dr. Nair, three lines **D0220 + D3310 + D2330** (POS 11, tooth #9), diagnoses K04.01 + K04.7, `supportingInfo` → same referral; **no PA ref**
-- `interaction-05-bundle.json` — self-contained transaction bundle: registry + base + I1–I5 (**48 entries**)
+- `interaction-05-bundle.json` — self-contained transaction bundle: registry + base + I1–I5 (**49 entries**)
 
 The two EOBs are tied together only by the shared referral-id (`REF-2026-UC04A-001`), not a joint claim — CDT-only, no CPT crosswalk (dental payer), non-financial (no adjudication) by profile design.
 
 ## Verification
 
-The data was last re-verified programmatically on 2026-11-04 after the UC04 narrative change (tooth #9, D3310 + D2330, photos by ARex reference, no dental home: 6 resources added, the inline photo document removed and the D3310 procedure renamed D3310; the bundles now hold **30 / 33 / 40 / 45 / 48** entries, and the older 39-resource tally below predates that update). Checks:  JSON validity, cross-reference id resolution (every `reference` resolves), and date/code consistency; all five transaction bundles were assembled and validated (**30 / 33 / 40 / 45 / 48** entries — later interactions include the earlier resources, with snapshot versions of the referral `Task`, `ServiceRequest`, and pulpitis `Condition` overriding earlier versions by shared `id`). Per project discipline, codes not confidently verified are **text-only** (no `coding`): the symptom `Observation` code, the periapical-findings `Observation` components, and the `MedicationStatement` carries only the RxNorm ingredient (the OTC product was patient-reported). Standard codes used: ICD-10-CM **K04.01** and **K04.7** (the "periapical abscess without sinus" code — the source's "K04.5" is a mislabel for chronic apical periodontitis, corrected here), LOINC 72166-2 / 72170-4 / 62443-7, SNOMED 448337001 / 266919005 / 26643006 / 225365006, CDT D0220 / D3310 / D2330 / D9995, DICOM modality IO, RxNorm 5640, ADA Universal tooth #9, and NUCC taxonomy 1223G0001X. The intraoral photos are modeled as US Core-style `DocumentReference` entries of an ARex manifest (not R4 `Media`) per the settled R4 → R6 / US-Core / 360X standards decision. The I3 radiograph is a first-class `ImagingStudy` + `DiagnosticReport` (DICOM/WADO-RS pointer) generated in-office and **not** exchanged between organizations.
+The data was last re-verified programmatically on 2026-11-04 after the UC04 narrative change (tooth #9, D3310 + D2330, photos by ARex reference, no dental home: 6 resources added, the inline photo document removed and the D3310 procedure renamed D3310; the bundles now hold **31 / 34 / 41 / 46 / 49** entries, and the older 39-resource tally below predates that update). Checks:  JSON validity, cross-reference id resolution (every `reference` resolves), and date/code consistency; all five transaction bundles were assembled and validated (**31 / 34 / 41 / 46 / 49** entries — later interactions include the earlier resources, with snapshot versions of the referral `Task`, `ServiceRequest`, and pulpitis `Condition` overriding earlier versions by shared `id`). Per project discipline, codes not confidently verified are **text-only** (no `coding`): the symptom `Observation` code, the periapical-findings `Observation` components, and the `MedicationStatement` carries only the RxNorm ingredient (the OTC product was patient-reported). Standard codes used: ICD-10-CM **K04.01** and **K04.7** (the "periapical abscess without sinus" code — the source's "K04.5" is a mislabel for chronic apical periodontitis, corrected here), LOINC 72166-2 / 72170-4 / 62443-7, SNOMED 448337001 / 266919005 / 26643006 / 225365006, CDT D0220 / D3310 / D2330 / D9995, DICOM modality IO, RxNorm 5640, ADA Universal tooth #9, and NUCC taxonomy 1223G0001X. The intraoral photos are modeled as US Core-style `DocumentReference` entries of an ARex manifest (not R4 `Media`) per the settled R4 → R6 / US-Core / 360X standards decision. The I3 radiograph is a first-class `ImagingStudy` + `DiagnosticReport` (DICOM/WADO-RS pointer) generated in-office and **not** exchanged between organizations.

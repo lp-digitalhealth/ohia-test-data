@@ -20,7 +20,7 @@ Dr. Webb runs a structured virtual assessment: how long has the pain been buildi
 - `Observation` — the symptom findings themselves (duration, thermal sensitivity, pain on biting, spontaneous aching), tooth-level
 - `Observation` — dental history: no dental home, has not seen a dentist in some time (patient-reported)
 - `MedicationStatement` — patient-reported medications
-- `AllergyIntolerance` — patient-reported allergies
+- `AllergyIntolerance` — patient-reported penicillin allergy (rash, moderate)
 - `DocumentReference` (intraoral photos) — 1–2 patient-submitted phone photos of the tooth #9 region, non-radiographic, correlated to the tooth via `Observation.derivedFrom`, delivered by ARex reference
 - ARex manifest (`List`), its `DocumentReference` content entries and a `Provenance` — the photos by reference instead of inline
 - `ServiceRequest` (the referral, priority `urgent`) and a second `DocumentReference` wrapping the structured findings bundle — transmitted via CDex provider-to-provider push
